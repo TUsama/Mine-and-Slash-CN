@@ -1,3 +1,6 @@
+3.7.3:
+* Added new give_exp item. No way to obtain these atm besides commands and quest rewards.
+
 3.7.2:
 * Filled missing localization entries.
 

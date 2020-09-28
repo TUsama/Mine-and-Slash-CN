@@ -755,6 +755,9 @@
 	"mmorpg.word.world_type": "World Type",
 
 "_comment": " [CATEGORY]: WORDS - NAMES",
+	"mmorpg.word.gives": "Gives",
+	"mmorpg.word.clicktouse": "Click to Use",
+	"item.mmorpg.give_exp": "Experience Book",
 
 
 "_comment": " [CATEGORY]: STATS - NAMES",
