@@ -43,6 +43,7 @@ public enum Words implements IAutoLocName {
     ThornArmor("Thorn Armor"),
     PoisonedWeapons("Poisoned Weapons"),
     BlazingInferno("Blazing Inferno"), SpearOfJudgement("Spear of Judgement"),
+    ChargedNova("Charged Nova"),
     DivineTribulation("Divine Tribulation"), PurifyingFires("Purifying Fires"),
     Fireball("Fireball"), FireBomb("Fire Bombs"),
     PoisonBall("Poison Ball"),

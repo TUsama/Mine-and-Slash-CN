@@ -71,7 +71,7 @@ public class LightningTotemSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(3, 1);
+        return new AbilityPlace(2, 2);
     }
 
     public static LightningTotemSpell getInstance() {

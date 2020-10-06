@@ -12,13 +12,13 @@ public class CriticalHitFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 2;
+        return 1;
 
     }
 
     @Override
     public float Max() {
-        return 10;
+        return 8;
     }
 
     @Override

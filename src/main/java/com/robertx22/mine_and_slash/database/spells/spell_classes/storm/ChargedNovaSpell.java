@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.fire;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.storm;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
@@ -6,7 +6,6 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -29,15 +28,15 @@ import net.minecraft.util.text.ITextComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlazingInfernoSpell extends BaseSpell {
+public class ChargedNovaSpell extends BaseSpell {
 
-    private BlazingInfernoSpell() {
+    private ChargedNovaSpell() {
         super(
             new ImmutableSpellConfigs() {
 
                 @Override
                 public Masteries school() {
-                    return Masteries.FIRE;
+                    return Masteries.STORM;
                 }
 
                 @Override
@@ -47,12 +46,12 @@ public class BlazingInfernoSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return ModSounds.FIREBALL.get();
+                    return SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER;
                 }
 
                 @Override
                 public Elements element() {
-                    return Elements.Fire;
+                    return Elements.Thunder;
                 }
 
             });
@@ -62,13 +61,12 @@ public class BlazingInfernoSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 25, 35);
-        c.set(SC.BASE_VALUE, 2, 5);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.25F);
-        c.set(SC.CAST_TIME_TICKS, 60, 40);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
-        c.set(SC.RADIUS, 3, 5);
-        c.set(SC.TIMES_TO_CAST, 4, 4);
+        c.set(SC.MANA_COST, 30, 45);
+        c.set(SC.BASE_VALUE, 6, 11);
+        c.set(SC.CAST_TIME_TICKS, 80, 60);
+        c.set(SC.COOLDOWN_SECONDS, 45, 25);
+        c.set(SC.RADIUS, 2, 4);
+        c.set(SC.TIMES_TO_CAST, 3, 5);
 
         c.setMaxLevel(12);
 
@@ -77,16 +75,16 @@ public class BlazingInfernoSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 3);
+        return new AbilityPlace(7, 1);
     }
 
-    public static BlazingInfernoSpell getInstance() {
+    public static ChargedNovaSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "blazing_inferno";
+        return "charged_nova";
     }
 
     @Override
@@ -111,9 +109,9 @@ public class BlazingInfernoSpell extends BaseSpell {
                 .get(ctx.spellsCap, this);
 
             ParticlePacketData pdata = new ParticlePacketData(caster.getPosition()
-                .up(1), ParticleEnum.BLAZING_INFERNO);
+                .up(1), ParticleEnum.CHARGED_NOVA);
             pdata.radius = radius;
-            ParticleEnum.BLAZING_INFERNO.sendToClients(caster, pdata);
+            ParticleEnum.CHARGED_NOVA.sendToClients(caster, pdata);
 
             int num = getCalculation(ctx).getCalculatedValue(Load.Unit(caster), ctx.spellsCap, ctx.ability);
 
@@ -124,7 +122,7 @@ public class BlazingInfernoSpell extends BaseSpell {
             for (LivingEntity en : entities) {
                 DamageEffect dmg = new DamageEffect(
                     null, caster, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-                dmg.element = Elements.Fire;
+                dmg.element = Elements.Thunder;
                 dmg.Activate();
 
             }
@@ -133,7 +131,7 @@ public class BlazingInfernoSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.BlazingInferno;
+        return Words.ChargedNova;
     }
 
     @Override
@@ -141,11 +139,11 @@ public class BlazingInfernoSpell extends BaseSpell {
 
         damageMobsAroundYou(ctx, ctx.caster);
 
-        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 1, 1);
+        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 1, 1);
 
     }
 
     private static class SingletonHolder {
-        private static final BlazingInfernoSpell INSTANCE = new BlazingInfernoSpell();
+        private static final ChargedNovaSpell INSTANCE = new ChargedNovaSpell();
     }
 }

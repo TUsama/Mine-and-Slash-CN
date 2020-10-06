@@ -24,7 +24,7 @@ public class ThunderDashEnergySynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Restores energy for each mob hit."));
+        list.add(new StringTextComponent("Restores energy for each mob hit: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -33,7 +33,7 @@ public class ThunderDashEnergySynergy extends OnDamageDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-
+        c.set(SC.MANA_COST, 1, 2);
     }
 
     @Override
@@ -58,7 +58,10 @@ public class ThunderDashEnergySynergy extends OnDamageDoneSynergy {
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
 
-        float energyrestored = getCalcVal(ctx.source);
+        int energyrestored = this.getContext(ctx.source)
+                .getConfigFor(this)
+                .getCalc(Load.spells(ctx.source), this)
+                .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
 
         ResourcesData.Context ene = new ResourcesData.Context(ctx.sourceData, ctx.source, ResourcesData.Type.ENERGY,
             energyrestored, ResourcesData.Use.RESTORE

@@ -88,7 +88,7 @@ public class FireBombsSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Throw out Fire bombs that explode when near mobs: "));
+        list.add(new StringTextComponent("Throw out fire bombs that explode when near mobs: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

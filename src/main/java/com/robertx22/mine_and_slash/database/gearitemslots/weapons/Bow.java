@@ -31,7 +31,7 @@ public class Bow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponDamageMulti weaponDamageMulti() {
-        return new WeaponDamageMulti(3.5F);
+        return new WeaponDamageMulti(2.5F);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Bow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(20);
+        return new WeaponSwingCost(10);
     }
 
     @Override

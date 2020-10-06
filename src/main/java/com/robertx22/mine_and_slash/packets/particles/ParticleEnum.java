@@ -107,6 +107,19 @@ public enum ParticleEnum {
             }
 
         }
+    },
+    CHARGED_NOVA() {
+        @Override
+        public void activate(ParticlePacketData data, World world) {
+
+            for (int i = 0; i < 150; i++) {
+                Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius);
+                world.addParticle(ParticleTypes.DRAGON_BREATH, p.x, p.y, p.z, 0, 0, 0);
+                world.addParticle(ParticleTypes.SMOKE, p.x, p.y, p.z, 0, 0, 0);
+
+            }
+
+        }
     };
 
     ParticleEnum() {

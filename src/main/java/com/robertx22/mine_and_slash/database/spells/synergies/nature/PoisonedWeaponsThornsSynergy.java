@@ -29,7 +29,7 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Basic attacks deals extra damage to targets affected by Thorns."));
+        list.add(new StringTextComponent("Basic attacks deals extra damage to targets affected by Thorns: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 

@@ -5,9 +5,11 @@ import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.UUID;
@@ -41,6 +43,7 @@ public class BlockEffect extends BaseDamageEffect {
         }
 
         effect.number = afterblock;
+        //SoundUtils.playSound(ctx.caster, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
 
         return effect;
     }

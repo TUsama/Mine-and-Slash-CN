@@ -54,11 +54,12 @@ public class PoisonBallSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.MANA_COST, 4, 12);
-        c.set(SC.BASE_VALUE, 7, 25);
-        c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
+        c.set(SC.BASE_VALUE, 4, 14);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.25F);
+        c.set(SC.SHOOT_SPEED, 0.6F, 0.9F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 15, 10);
+        c.set(SC.COOLDOWN_TICKS, 20, 15);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.DURATION_TICKS, 60, 80);
 

@@ -28,7 +28,7 @@ public class PurifyingFiresJudgementSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Deals extra damage to targets affected by Judgement."));
+        list.add(new StringTextComponent("Deals extra damage to targets affected by Judgement: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 

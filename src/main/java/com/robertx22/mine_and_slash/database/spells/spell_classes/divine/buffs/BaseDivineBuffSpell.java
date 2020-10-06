@@ -21,11 +21,11 @@ public abstract class BaseDivineBuffSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 25, 40);
-        c.set(SC.CAST_TIME_TICKS, 40, 60);
-        c.set(SC.COOLDOWN_SECONDS, 30, 15);
-        c.set(SC.DURATION_TICKS, 60 * 20, 90 * 20);
-        c.set(SC.RADIUS, 6, 8);
+        c.set(SC.MANA_COST, 35, 45);
+        c.set(SC.CAST_TIME_TICKS, 160, 220);
+        c.set(SC.COOLDOWN_SECONDS, 120, 90);
+        c.set(SC.DURATION_TICKS, 600 * 20, 900 * 20);
+        c.set(SC.RADIUS, 6, 10);
 
         c.setMaxLevel(12);
         return c;

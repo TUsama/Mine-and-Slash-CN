@@ -60,6 +60,7 @@ public class ThornBushSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 1, 3);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.BASE_VALUE, 3, 12);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.1F, 0.15F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 50, 30);
         c.set(SC.TICK_RATE, 30, 30);
@@ -85,7 +86,7 @@ public class ThornBushSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Summons a bush that attacks enemies nearby."));
+        list.add(new SText("Summons a bush that attacks enemies nearby: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

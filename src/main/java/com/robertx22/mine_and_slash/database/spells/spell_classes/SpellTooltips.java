@@ -6,10 +6,10 @@ import net.minecraft.util.text.StringTextComponent;
 public class SpellTooltips {
 
     public static ITextComponent singleTargetProjectile() {
-        return new StringTextComponent("Throw a projectile, damaging first enemy hit");
+        return new StringTextComponent("Throw a projectile, damaging first enemy hit: ");
     }
 
     public static ITextComponent buff() {
-        return new StringTextComponent("Applies buff to caster");
+        return new StringTextComponent("Applies buff to caster: ");
     }
 }

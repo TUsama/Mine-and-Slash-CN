@@ -5,7 +5,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.FrostballSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ShiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrostEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -25,7 +25,7 @@ public class FrostballExtraDmgSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Consumes Shiver for extra damage"));
+        list.add(new StringTextComponent("Consumes Frost for extra damage: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -39,7 +39,7 @@ public class FrostballExtraDmgSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 1, 3);
+        c.set(SC.MANA_COST, 2, 4);
     }
 
     @Override
@@ -58,9 +58,9 @@ public class FrostballExtraDmgSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
-        if (PotionEffectUtils.has(ctx.target, ShiverEffect.INSTANCE)) {
+        if (PotionEffectUtils.has(ctx.target, FrostEffect.INSTANCE)) {
 
-            PotionEffectUtils.reduceStacks(ctx.target, ShiverEffect.INSTANCE);
+            PotionEffectUtils.reduceStacks(ctx.target, FrostEffect.INSTANCE);
 
             int num = getCalcVal(ctx.source);
 
@@ -72,6 +72,6 @@ public class FrostballExtraDmgSynergy extends OnDamageDoneSynergy {
 
     @Override
     public String locNameForLangFile() {
-        return "Shiver Frostburn";
+        return "Frost Burn";
     }
 }

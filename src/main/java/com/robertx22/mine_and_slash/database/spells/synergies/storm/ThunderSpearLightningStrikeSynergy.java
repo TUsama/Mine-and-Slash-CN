@@ -27,7 +27,7 @@ public class ThunderSpearLightningStrikeSynergy extends OnDamageDoneSynergy {
         addSpellName(list);
 
         list.add(new StringTextComponent("Consumes Static."));
-        list.add(new StringTextComponent("Summons a lightning bolt."));
+        list.add(new StringTextComponent("Summons a lightning bolt: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 

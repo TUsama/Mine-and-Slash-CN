@@ -77,7 +77,7 @@ public class ThunderDashSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 2);
+        return new AbilityPlace(4, 3);
     }
 
     public static ThunderDashSpell getInstance() {
@@ -95,7 +95,7 @@ public class ThunderDashSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent("Dash in your current direction,"));
-        list.add(new StringTextComponent("damages all enemies in the path."));
+        list.add(new StringTextComponent("damages all enemies in the path: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

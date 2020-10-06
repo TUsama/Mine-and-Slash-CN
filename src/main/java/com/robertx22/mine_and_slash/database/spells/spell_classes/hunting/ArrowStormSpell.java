@@ -70,7 +70,7 @@ public class ArrowStormSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 6);
+        return new AbilityPlace(6, 5);
     }
 
     public static ArrowStormSpell getInstance() {

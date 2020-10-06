@@ -59,9 +59,9 @@ public class BlizzardSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 35, 60);
         c.set(SC.BASE_VALUE, 3, 10);
-        c.set(SC.CAST_TIME_TICKS, 50, 30);
+        c.set(SC.CAST_TIME_TICKS, 100, 80);
         c.set(SC.COOLDOWN_SECONDS, 60 * 5, 60 * 4);
-        c.set(SC.TICK_RATE, 30, 15);
+        c.set(SC.TICK_RATE, 30, 20);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.DURATION_TICKS, 100, 160);
 
@@ -72,7 +72,7 @@ public class BlizzardSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(1, 6);
+        return new AbilityPlace(4, 5);
     }
 
     @Override

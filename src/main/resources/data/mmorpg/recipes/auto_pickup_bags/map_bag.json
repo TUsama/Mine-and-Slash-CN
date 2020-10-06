@@ -10,7 +10,7 @@
       "item": "minecraft:gold_ingot"
     }, 
 	"A": {
-      "item": "minecraft:chest"
+      "tag": "forge:chests/wooden"
     }, 
 	"B": {
       "item": "minecraft:ender_pearl"

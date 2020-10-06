@@ -12,10 +12,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.*;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.LightningTotemSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ThunderDashSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ThunderspearSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ThunderstormSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.*;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
 
 import java.util.ArrayList;
@@ -56,6 +53,7 @@ public class Spells implements ISlashRegistryInit {
                     add(ThunderspearSpell.getInstance());
                     add(ThunderDashSpell.getInstance());
                     add(LightningTotemSpell.getInstance());
+                    add(ChargedNovaSpell.getInstance());
 
                     add(BlazingInfernoSpell.getInstance());
                     add(FireballSpell.getInstance());

@@ -1,3 +1,62 @@
+3.7.4:
+* Changed bag recipes to use any wooden chest with the appropriate tag instead of vanilla chests.
+* Reduced the effectiveness of critical hit modifiers by about 20%. Critical hits is still strong but will require a bit more investment.
+* Fixed merchant dupe bug.
+* Fixed boss spawn bug.
+* Made some spell tooltips a bit more clear.
+* Probably fixed energy not being restored with Thunder Dash.
+* Reduced energy cost of bows.
+* Reduced damage of bows and crossbows slightly.
+
+Spells:
+* Reduced base value of Fireball, Poison Ball, and Frostball from 7 -> 25 to 6 -> 22.
+* Increased the cast time of Blizzard, Volcano, and Thunderstorm.
+
+Divine Tree:
+* Increased cast time of Divine buff spells significantly.
+* Increased mana cost of Divine buff spells from 25 -> 40 to 35 -> 45.
+* Increased cool down of Divine buff spells from 30s -> 15s to 120s -> 90s.
+* Increased duration of Divine buff spells from 60s -> 90s to 600s -> 900s.
+* Increased radius of Divine buff spells from 6 -> 8 to 6 -> 10.
+
+Ocean Tree:
+* Reduced projectile speed of Frostball from 0.8 -> 1.2 to 0.7 -> 1.0.
+* Changed Frostball Shiver synergy to consume frost essence instead.
+* Increased resistance reduction from Shiver effect by 100%.
+* Increased duration of Shiver effect by 100%.
+* Reduced resistance reduction from frost effect by 50%.
+* Increased slow from Frost effect from 5% to 8% per stack.
+* Added a new synergy for Blizzard: Freezing Rain which gives Blizzard hits a chance of applying frost essence.
+* Reduced base value of Tidal Wave from 3 -> 15 to 2 -> 7.
+* Increased attack scaling of Tidal Wave from 15% -> 30% to 25% -> 50%.
+
+Fire Tree:
+* Swapped synergies of Fireball and Throw Flames.
+* Added attack scaling to Blazing Inferno, and Volcano
+* Reduced base value of Blazing Inferno from 2 -> 10 to 2 -> 5.
+* Reduced mana cost of Blazing Inferno from 30 -> 45 to 25 -> 35.
+* Increased duration of Volcano from 4s -> 5s to 4s -> 6s.
+
+Storm Tree:
+* Changed some level requirements of the Storm Tree.
+* Added a new skill for Storm: Charged Nova - behaves similar to Blazing Inferno but is geared towards spellcasters.
+* Added a new synergy for Thunderstorm: Charged Storm which increases the tick rate and radius of Thunderstorm.
+* Reduced projectile speed of Thunder Spear from 2 -> 3 to 2 -> 2.5.
+* Reduced base value of Thunder Spear from 8 -> 28 to 4 -> 16. The increased projectile speed of this spell from the last buff made	made it much easier to bounce between targets.
+* Increased cooldown of Thunder Spear from 1.5s -> 1s to 2s -> 1.5s.
+* Reduced radius of Thunderstorm from 3 -> 6 to 3 -> 5.
+* Increased tick rate of Thunderstorm from 1.5s -> 0.75s to 1.75s -> 1.25s.
+
+Nature Tree:
+* Added attack scaling to Poison Ball, Thorn Bush, and Gorgon's Gaze, and the Thorns effect. Thorns effect is now much stronger and DoT should be viable.
+* Reduced projectile speed of Poison Ball from 0.8 -> 1.2 to 0.6 -> 0.9.
+* Reduced base value of Poison Ball from 7 -> 25 to 4 -> 14.
+* Increased cooldown of Poison Ball from 0.75s -> 0.5s to 1s -> 0.75s.
+* Slightly reduced duration and tick rate of Thorns effect.
+
+Hunting Tree:
+* Changed the positioning of some Hunting skills. Arrow Storm can be learned 5 mastery levels earlier now.
+
 3.7.3:
 * Added new give_exp item. No way to obtain these atm besides commands and quest rewards.
 

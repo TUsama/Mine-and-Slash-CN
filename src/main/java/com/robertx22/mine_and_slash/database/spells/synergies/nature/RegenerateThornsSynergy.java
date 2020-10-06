@@ -29,7 +29,7 @@ public class RegenerateThornsSynergy extends OnSpellCastSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Also applies debuff in aoe: " + ThornsEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Also applies debuff in AOE: " + ThornsEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
