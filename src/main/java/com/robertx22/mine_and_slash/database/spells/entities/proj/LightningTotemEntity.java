@@ -40,7 +40,7 @@ public class LightningTotemEntity extends EntityBaseProjectile {
 
     @Override
     public double radius() {
-        return 4F;
+        return 3.5F;
     }
 
     @Override

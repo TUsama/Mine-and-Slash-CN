@@ -21,6 +21,7 @@ import com.robertx22.mine_and_slash.onevent.entity.damage.DamageEventData;
 import com.robertx22.mine_and_slash.packets.EfficientMobUnitPacket;
 import com.robertx22.mine_and_slash.registry.SlashRegistry;
 import com.robertx22.mine_and_slash.saveclasses.item_classes.GearItemData;
+import com.robertx22.mine_and_slash.uncommon.capability.entity.BossCap;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap.UnitData;
 import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
 import com.robertx22.mine_and_slash.uncommon.capability.world.WorldMapCap;
@@ -316,7 +317,11 @@ public class Unit {
         return StatData.empty();
     }
 
-    public int randomRarity(LivingEntity entity, UnitData data) {
+    public int randomRarity(LivingEntity entity, UnitData data, BossCap.IBossData boss) {
+
+        if (boss != null && boss.isBoss()) {
+            return IRarity.Boss;
+        }
 
         int level = data.getLevel();
 

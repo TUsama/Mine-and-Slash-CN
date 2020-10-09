@@ -1,3 +1,11 @@
+3.7.5
+* Fixed bosses not summoning in maps.
+* Fixed name of thunderstorm synergy.
+
+Balance Changes:
+* Increased mana cost and cooldown of Lightning Totem.
+* Very slightly reduced damage, radius, and tick rate of Lightning Totem.
+
 3.7.4:
 * Changed bag recipes to use any wooden chest with the appropriate tag instead of vanilla chests.
 * Reduced the effectiveness of critical hit modifiers by about 20%. Critical hits is still strong but will require a bit more investment.

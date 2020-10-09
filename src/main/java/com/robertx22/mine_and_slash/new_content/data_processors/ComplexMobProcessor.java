@@ -1,13 +1,14 @@
 package com.robertx22.mine_and_slash.new_content.data_processors;
 
+import com.robertx22.mine_and_slash.database.bosses.base.Boss;
 import com.robertx22.mine_and_slash.database.rarities.MobRarity;
 import com.robertx22.mine_and_slash.database.rarities.mobs.*;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
-import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.new_content.data_processors.bases.ChunkProcessData;
 import com.robertx22.mine_and_slash.new_content.data_processors.bases.SpawnedMob;
 import com.robertx22.mine_and_slash.new_content.registry.DataProcessor;
-import com.robertx22.mine_and_slash.uncommon.utilityclasses.MobSpawner;
+import com.robertx22.mine_and_slash.registry.SlashRegistry;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.MobSpawnUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -94,17 +95,17 @@ public class ComplexMobProcessor extends DataProcessor {
                 for (String x : parts) {
                     if (x.equals("ranged")) {
                         filter = SpawnedMob.getAll()
-                            .stream()
-                            .filter(m -> m.isRanged);
+                                .stream()
+                                .filter(m -> m.isRanged);
 
                     } else if (x.equals("spider")) {
                         filter = SpawnedMob.getAll()
-                            .stream()
-                            .filter(m -> m.isSpider);
+                                .stream()
+                                .filter(m -> m.isSpider);
                     } else if (x.equals("nether")) {
                         filter = SpawnedMob.getAll()
-                            .stream()
-                            .filter(m -> m.isNether);
+                                .stream()
+                                .filter(m -> m.isNether);
                     }
 
                 }
@@ -112,9 +113,9 @@ public class ComplexMobProcessor extends DataProcessor {
 
             if (filter == null) {
                 filter = SpawnedMob.getAll()
-                    .stream()
-                    .filter(x -> data.getRoom()
-                        .canSpawnMob(x));
+                        .stream()
+                        .filter(x -> data.getRoom()
+                                .canSpawnMob(x));
             }
 
             if (type == null) {
@@ -127,19 +128,23 @@ public class ComplexMobProcessor extends DataProcessor {
 
             }
 
+            Boss boss = null;
+
             if (isBoss) {
 
-                type = EntityRegister.randomBoss();
+                if (data.getRoom().group.canSpawnFireMobs) {
+                    boss = SlashRegistry.Bosses()
+                            .random();
+                } else {
+                    boss = SlashRegistry.Bosses()
+                            .getFilterWrapped(x -> !x.isFire)
+                            .random();
+                }
 
             }
 
             for (int i = 0; i < amount; i++) {
-
-                MobSpawner spawner = new MobSpawner(type, world.getWorld(), pos);
-                spawner.addPotion = addPotion;
-                spawner.rarity = rarity;
-                spawner.spawn();
-
+                MobSpawnUtils.summon(type, world, pos, rarity, addPotion, boss);
             }
 
         } catch (Exception e) {

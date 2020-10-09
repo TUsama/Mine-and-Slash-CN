@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerTalentsCap;
 import com.robertx22.mine_and_slash.uncommon.capability.server_wide.PlayerCapBackupCap;
 import com.robertx22.mine_and_slash.uncommon.capability.world.AntiMobFarmCap;
 import com.robertx22.mine_and_slash.uncommon.capability.world.WorldMapCap;
+import com.robertx22.mine_and_slash.uncommon.capability.entity.BossCap;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
@@ -23,6 +24,18 @@ public class Load {
         if (provider != null) {
             return provider.getCapability(EntityCap.Data)
                 .isPresent();
+        }
+        return false;
+    }
+
+    public static boolean isBoss(ICapabilityProvider provider) { // tterag said this is correct
+        if (provider != null) {
+            if (provider.getCapability(BossCap.Data)
+                    .isPresent()) {
+                return provider.getCapability(BossCap.Data)
+                        .orElse(new BossCap.DefaultImpl())
+                        .isBoss();
+            }
         }
         return false;
     }
@@ -82,6 +95,17 @@ public class Load {
 
             return provider.getCapability(EntityCap.Data)
                 .orElse(new EntityCap.DefaultImpl());
+
+        }
+        return null;
+    }
+
+    public static BossCap.IBossData boss(ICapabilityProvider provider) {
+
+        if (provider != null) {
+
+            return provider.getCapability(BossCap.Data)
+                    .orElse(new BossCap.DefaultImpl());
 
         }
         return null;
