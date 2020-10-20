@@ -9,12 +9,12 @@ public class HealthFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 3;
     }
 
     @Override
     public float Max() {
-        return 14;
+        return 12;
     }
 
     @Override

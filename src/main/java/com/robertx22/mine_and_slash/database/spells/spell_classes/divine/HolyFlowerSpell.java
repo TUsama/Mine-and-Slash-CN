@@ -73,7 +73,7 @@ public class HolyFlowerSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 4);
+        return new AbilityPlace(1, 4);
     }
 
     @Override

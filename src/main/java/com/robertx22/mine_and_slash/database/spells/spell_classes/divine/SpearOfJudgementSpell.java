@@ -77,7 +77,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(6, 2);
+        return new AbilityPlace(2, 3);
     }
 
     @Override

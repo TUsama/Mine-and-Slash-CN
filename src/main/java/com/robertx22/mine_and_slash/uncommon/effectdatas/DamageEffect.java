@@ -303,6 +303,11 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
             dmgsource.setDamageBypassesArmor();
         }
 
+        if (this.isPartiallyBlocked || this.isFullyBlocked)
+        {
+            SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
+        }
+
         if (isDodged) {
             cancelDamage();
             SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1.5F);

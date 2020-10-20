@@ -1,6 +1,6 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.divine;
 
-import com.robertx22.mine_and_slash.database.spells.entities.cloud.BlizzardEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.proj.GroundSlamEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
@@ -20,64 +20,68 @@ import net.minecraft.util.text.StringTextComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlizzardSpell extends BaseSpell {
+public class GroundSlamSpell extends BaseSpell {
 
-    private BlizzardSpell() {
+    private GroundSlamSpell() {
         super(
             new ImmutableSpellConfigs() {
 
                 @Override
                 public Masteries school() {
-                    return Masteries.OCEAN;
+                    return Masteries.DIVINE;
                 }
 
                 @Override
                 public SpellCastType castType() {
-                    return SpellCastType.AT_SIGHT;
+                    return SpellCastType.PROJECTILE;
                 }
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_INSIDE;
+                    return SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE;
                 }
 
                 @Override
                 public Elements element() {
-                    return Elements.Water;
+                    return Elements.Physical;
                 }
-            }.summonsEntity(w -> new BlizzardEntity(w))
-                .setSwingArmOnCast());
-    }
-
-    public static BlizzardSpell getInstance() {
-        return SingletonHolder.INSTANCE;
+            }.cooldownIfCanceled(true)
+                    .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
+                    .summonsEntity(w -> new GroundSlamEntity(w))
+                    .setSwingArmOnCast());
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 35, 60);
-        c.set(SC.BASE_VALUE, 3, 10);
-        c.set(SC.CAST_TIME_TICKS, 100, 80);
-        c.set(SC.COOLDOWN_SECONDS, 60 * 3, 60 * 2);
-        c.set(SC.TICK_RATE, 30, 20);
-        c.set(SC.RADIUS, 4, 8);
-        c.set(SC.DURATION_TICKS, 180, 260);
+        c.set(SC.MANA_COST, 12, 16);
+        c.set(SC.BASE_VALUE, 0, 0);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.5F, 2.0F);
+        c.set(SC.SHOOT_SPEED, 1.2F, 1.6F);
+        c.set(SC.PROJECTILE_COUNT, 5, 9);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
+        c.set(SC.COOLDOWN_TICKS, 60, 30);
+        c.set(SC.TIMES_TO_CAST, 1, 1);
+        c.set(SC.DURATION_TICKS, 40, 60);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }
 
+    public static GroundSlamSpell getInstance() {
+        return SingletonHolder.INSTANCE;
+    }
+
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 5);
+        return new AbilityPlace(5, 3);
     }
 
     @Override
     public String GUID() {
-        return "blizzard";
+        return "ground_slam";
     }
 
     @Override
@@ -85,7 +89,7 @@ public class BlizzardSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Summon a blizzard that damages enemies inside: "));
+        list.add(new StringTextComponent("Slam the ground, sending shock waves: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -95,11 +99,10 @@ public class BlizzardSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.Blizzard;
+        return Words.GroundSlam;
     }
 
     private static class SingletonHolder {
-        private static final BlizzardSpell INSTANCE = new BlizzardSpell();
+        private static final GroundSlamSpell INSTANCE = new GroundSlamSpell();
     }
 }
-

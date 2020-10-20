@@ -55,11 +55,11 @@ public class ThunderstormSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 30, 50);
         c.set(SC.BASE_VALUE, 5, 20);
-        c.set(SC.RADIUS, 3F, 5);
+        c.set(SC.RADIUS, 5F, 7);
         c.set(SC.CAST_TIME_TICKS, 140, 100);
-        c.set(SC.COOLDOWN_SECONDS, 60 * 5, 60 * 4);
+        c.set(SC.COOLDOWN_SECONDS, 60 * 3, 60 * 2);
         c.set(SC.TICK_RATE, 35, 25);
-        c.set(SC.DURATION_TICKS, 80, 160);
+        c.set(SC.DURATION_TICKS, 160, 240);
 
         c.setMaxLevel(12);
 

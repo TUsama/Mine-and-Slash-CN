@@ -15,7 +15,7 @@ public class ArmorFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 12;
+        return 8;
     }
 
     @Override

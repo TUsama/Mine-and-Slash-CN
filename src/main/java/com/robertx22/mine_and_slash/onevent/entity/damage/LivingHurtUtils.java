@@ -21,6 +21,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IndirectEntityDamageSource;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import java.util.ArrayList;
@@ -141,6 +142,9 @@ public class LivingHurtUtils {
                     }
 
                 } else {
+                    if (data.source instanceof FakePlayer){
+                        data.sourceData.mobBasicAttack(data);
+                    }
                     data.sourceData.unarmedAttack(data);
                 }
 

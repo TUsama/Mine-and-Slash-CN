@@ -1,3 +1,13 @@
+3.7.6
+* Fixed Fake Players not doing damage (interaction with MineColonies).
+* Added some new melee skills in the Divine Tree - Heavy Strike, Ground Slam, and Whirlwind!
+* Revamped the talent tree. There are many more paths to take now!
+
+Balance Changes:
+* Increased duration and radius, and reduced cooldown of Blizzard, Volcano, and Thunderstorm.
+* Crit effectiveness has been further reduced by a small amount.
+* Defensive options have been modified a bit to give each one some more identity. Health and armor is harder to stack while magic shield and dodge is easier to stack.
+
 3.7.5
 * Fixed bosses not summoning in maps.
 * Fixed name of thunderstorm synergy.
