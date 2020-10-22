@@ -1,3 +1,6 @@
+3.7.7
+* Fixed some broken nodes on tree.
+
 3.7.6
 * COMPLETELY revamped the talent tree. There are many more paths to take now!
 * Fixed Fake Players not doing damage (interaction with MineColonies).
