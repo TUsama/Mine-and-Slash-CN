@@ -60,7 +60,7 @@ public class ElementalAttackDamage extends ElementalStat implements IStatEffects
         if (element.equals(Elements.Elemental)) {
             return getElement().name() + "Attack Damage";
         } else {
-            return getElement().name() + " Damage";
+            return getElement().name() + " Attack Damage";
         }
     }
 

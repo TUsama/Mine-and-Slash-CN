@@ -1,7 +1,7 @@
 3.7.6
+* COMPLETELY revamped the talent tree. There are many more paths to take now!
 * Fixed Fake Players not doing damage (interaction with MineColonies).
 * Added some new melee skills in the Divine Tree - Heavy Strike, Ground Slam, and Whirlwind!
-* Revamped the talent tree. There are many more paths to take now!
 
 Balance Changes:
 * Increased duration and radius, and reduced cooldown of Blizzard, Volcano, and Thunderstorm.
