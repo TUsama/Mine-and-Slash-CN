@@ -10,6 +10,7 @@ import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
@@ -25,27 +26,25 @@ public class FrostballExtraDmgSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Consumes Frost for extra damage: "));
-
-        list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
+        list.add(new StringTextComponent("Hits have a chance to apply: " + FrostEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
 
     @Override
     public Place getSynergyPlace() {
-        return Place.SECOND;
+        return Place.FIRST;
     }
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 2, 4);
+        c.set(SC.MANA_COST, 1, 2);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 8);
+        c.set(SC.CHANCE, 25, 100);
         c.setMaxLevel(8);
         return c;
     }
@@ -58,15 +57,10 @@ public class FrostballExtraDmgSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
-        if (PotionEffectUtils.has(ctx.target, FrostEffect.INSTANCE)) {
-
-            PotionEffectUtils.reduceStacks(ctx.target, FrostEffect.INSTANCE);
-
-            int num = getCalcVal(ctx.source);
-
-            getSynergyDamage(ctx, num)
-                .Activate();
-
+        if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
+                .get(SC.CHANCE)
+                .get(Load.spells(ctx.source), this))) {
+            PotionEffectUtils.apply(FrostEffect.INSTANCE, ctx.source, ctx.target);
         }
     }
 

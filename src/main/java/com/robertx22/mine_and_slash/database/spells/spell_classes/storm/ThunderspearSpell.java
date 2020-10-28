@@ -54,11 +54,11 @@ public class ThunderspearSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.MANA_COST, 4, 15);
-        c.set(SC.BASE_VALUE, 4, 16);
-        c.set(SC.SHOOT_SPEED, 2F, 2.5F);
+        c.set(SC.BASE_VALUE, 7, 22);
+        c.set(SC.SHOOT_SPEED, 2.2F, 2.75F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 40, 30);
+        c.set(SC.COOLDOWN_TICKS, 60, 30);
         c.set(SC.DURATION_TICKS, 40, 60);
 
         c.setMaxLevel(16);

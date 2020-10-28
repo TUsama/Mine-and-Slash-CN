@@ -62,9 +62,9 @@ public class BlazingInfernoSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 25, 35);
-        c.set(SC.BASE_VALUE, 2, 5);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.25F);
+        c.set(SC.MANA_COST, 18, 24);
+        c.set(SC.BASE_VALUE, 4, 9);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.45F);
         c.set(SC.CAST_TIME_TICKS, 60, 40);
         c.set(SC.COOLDOWN_SECONDS, 60, 45);
         c.set(SC.RADIUS, 3, 5);

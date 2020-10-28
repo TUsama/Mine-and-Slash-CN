@@ -12,7 +12,7 @@ public class EnergyFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 5;
+        return 7;
     }
 
     @Override

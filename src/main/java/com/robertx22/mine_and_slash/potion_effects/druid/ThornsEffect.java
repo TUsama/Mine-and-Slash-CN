@@ -88,7 +88,7 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 1, 2);
-        p.set(SC.ATTACK_SCALE_VALUE, 0.01F, 0.15F);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.03F, 0.15F);
         p.set(SC.TICK_RATE, 30, 20);
         p.set(SC.DURATION_TICKS, 60, 120);
         return p;

@@ -26,7 +26,9 @@ public class TidalWaveFrostSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Chance to apply: " + FrostEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Consumes Frost for extra damage: "));
+
+        list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
         return list;
     }
@@ -39,7 +41,7 @@ public class TidalWaveFrostSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 10, 100);
+        c.set(SC.BASE_VALUE, 4, 12);
         c.setMaxLevel(8);
         return c;
     }
@@ -57,10 +59,15 @@ public class TidalWaveFrostSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
-        if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
-            .get(SC.CHANCE)
-            .get(Load.spells(ctx.source), this))) {
-            PotionEffectUtils.apply(FrostEffect.INSTANCE, ctx.source, ctx.target);
+        if (PotionEffectUtils.has(ctx.target, FrostEffect.INSTANCE)) {
+
+            PotionEffectUtils.reduceStacks(ctx.target, FrostEffect.INSTANCE);
+
+            int num = getCalcVal(ctx.source);
+
+            getSynergyDamage(ctx, num)
+                    .Activate();
+
         }
     }
 

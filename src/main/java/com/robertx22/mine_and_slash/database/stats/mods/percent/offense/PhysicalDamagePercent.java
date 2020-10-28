@@ -17,7 +17,7 @@ public class PhysicalDamagePercent extends StatMod {
 
     @Override
     public float Max() {
-        return 8;
+        return 7;
     }
 
     @Override

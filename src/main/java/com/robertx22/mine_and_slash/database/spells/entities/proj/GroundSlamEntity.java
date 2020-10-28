@@ -56,7 +56,7 @@ public class GroundSlamEntity extends BaseElementalBoltEntity {
     public void onHit(LivingEntity entity) {
         dealSpellDamageTo(entity);
 
-        SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 0.8F, 1F);
+        SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 0.1F, 1F);
     }
 
     @Override

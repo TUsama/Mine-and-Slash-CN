@@ -34,7 +34,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
-            (double) -0.08F, AttributeModifier.Operation.MULTIPLY_TOTAL
+            (double) -0.07F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -56,7 +56,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 5;
+        return 10;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Slows enemies by 8% per stack: "));
+        list.add(new StringTextComponent("Slows enemies by 7% per stack: "));
 
         return list;
 

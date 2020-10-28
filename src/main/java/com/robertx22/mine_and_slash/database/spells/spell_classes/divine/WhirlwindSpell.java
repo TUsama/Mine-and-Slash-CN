@@ -61,13 +61,13 @@ public class WhirlwindSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 34, 42);
+        c.set(SC.MANA_COST, 21, 28);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.75F, 1.0F);
-        c.set(SC.CAST_TIME_TICKS, 60, 180);
-        c.set(SC.COOLDOWN_SECONDS, 90, 60);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.35F, 0.9F);
+        c.set(SC.CAST_TIME_TICKS, 60, 240);
+        c.set(SC.COOLDOWN_SECONDS, 120, 75);
         c.set(SC.RADIUS, 1, 3);
-        c.set(SC.TIMES_TO_CAST, 20, 60);
+        c.set(SC.TIMES_TO_CAST, 20, 80);
 
         c.setMaxLevel(12);
 

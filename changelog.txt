@@ -1,7 +1,45 @@
-3.7.7
+3.7.8:
+Changes were made to balance physical vs. elemental spells. Elemental spells are more or less the same but investing into them should be a lot more rewarding. I tried to make it more viable to go for elemental builds over the current OP physical builds. As always, my goal is to slowly improve the balance between the elements, and to provide each one with a unique identity. Currently, water is utility/damage since it provides many slows and can boost the power of the other elements greatly. Fire scales slightly with weapon damage and has an improved burn. Thunder is pure spell damage. Nature is tank/DoT, and Hunting is bow. Currently, Divine is split between support and physical spells.
+
+* Fixed BossPacket console spam.
+
+* Added some new perk nodes around the tree.
+* Added armor penetration to Reckless Blows but increased armor reduction from it as well.
+* Increased elemental damage reduction from Overflowing Vitality.
+* Added a -15% health multi to Overflowing Vitality.
+* Reduced -25% health multi to -10% health multi on Blood Mage.
+* Increased 
+* Slightly reduced physical damage scaling - flat values more or less remain unchanged.
+* Slightly increased elemental damage scaling - flat values more or less remain unchanged.
+* Buffed Familiar Instincts and Refreshing Breeze.
+* Mana Battery now stays active for longer and absorbs four times the amount of damage.
+
+* Reduced volume of Ground Slam.
+* Reduced power of Heavy Strike.
+* Reduced power and projectile count of Ground Slam slightly.
+* Reduced initial strength of Whirlwind. It still retains the same power at max level.
+* Increased duration of Whirlwind.
+* Reduced mana cost of Whirlwind.
+
+* Increased projectile speed very slightly for "ball" skills.
+* Increased slightly the cooldown of the "ball" skills. Overall elemental skills see a reduction in cooldown though.
+* Reduced mana costs of most elemental skills.
+* Increased base value of most elemental skills.
+* Frostball now generates Frost stacks instead of consuming them, and tidal wave consumes them instead of generating them.
+* Increased attack scaling moderately on most elemental skills that have it.
+* Increased power of burning effect.
+* It is now much easier to generate Burn stacks using Fire Ball and Frost stacks with Frostball.
+* Increased level 1 attack scaling of Thorns, max level remains the same.
+* The max stacks for Frost has increased from 5 --> 10.
+* The slow per stack for Frost has reduced from 8% --> 7% per stack. Overall, you can now slow enemies by 30% more.
+* Shiver now reduced Fire and Thunder resistance by 50%, up from 15%.
+* Static now reduces only Thunder resistance, and reduces (base value) 3% per stack, up from 1%.
+* Static now has a max of 8 stacks, up from 3. The only source of Static is from Lightning Totems, which has seen a general damage nerf because of this change.
+
+3.7.7:
 * Fixed some broken nodes on tree.
 
-3.7.6
+3.7.6:
 * COMPLETELY revamped the talent tree. There are many more paths to take now!
 * Fixed Fake Players not doing damage (interaction with MineColonies).
 * Added some new melee skills in the Divine Tree - Heavy Strike, Ground Slam, and Whirlwind!
@@ -11,7 +49,7 @@ Balance Changes:
 * Crit effectiveness has been further reduced by a small amount.
 * Defensive options have been modified a bit to give each one some more identity. Health and armor is harder to stack while magic shield and dodge is easier to stack.
 
-3.7.5
+3.7.5:
 * Fixed bosses not summoning in maps.
 * Fixed name of thunderstorm synergy.
 

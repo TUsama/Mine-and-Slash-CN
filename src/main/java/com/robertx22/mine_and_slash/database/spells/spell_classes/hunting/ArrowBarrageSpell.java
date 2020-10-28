@@ -55,9 +55,9 @@ public class ArrowBarrageSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 15, 25);
-        c.set(SC.BASE_VALUE, 2, 6);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.4F, 0.6F);
+        c.set(SC.MANA_COST, 8, 14);
+        c.set(SC.BASE_VALUE, 3, 7);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.7F, 0.9F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.SHOOT_SPEED, 2.5F, 3.75F);
         c.set(SC.CAST_TIME_TICKS, 40, 30);

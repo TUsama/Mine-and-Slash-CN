@@ -21,7 +21,7 @@ public class BloodMage extends BaseGameChangerTrait implements IStatMultipleEffe
 
     public static final BloodMage INSTANCE = new BloodMage();
 
-    static int HP_DECREASE = 25;
+    static int HP_DECREASE = 10;
 
     @Override
     public String locDescForLangFile() {

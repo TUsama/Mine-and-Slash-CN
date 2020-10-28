@@ -52,10 +52,10 @@ public class HeartOfIceSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 15, 25);
+        c.set(SC.MANA_COST, 15, 22);
         c.set(SC.BASE_VALUE, 40, 200);
         c.set(SC.CAST_TIME_TICKS, 30, 15);
-        c.set(SC.COOLDOWN_SECONDS, 60, 30);
+        c.set(SC.COOLDOWN_SECONDS, 45, 25);
 
         c.setMaxLevel(12);
 

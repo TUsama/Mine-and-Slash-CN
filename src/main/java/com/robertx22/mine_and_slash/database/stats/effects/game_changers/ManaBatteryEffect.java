@@ -31,14 +31,14 @@ public class ManaBatteryEffect extends BaseDamageEffect {
             .manaData()
             .getAverageValue();
 
-        float dmgReduced = MathHelper.clamp(effect.number / 4, 0, currentMana - (maxMana * 0.5F));
+        float dmgReduced = MathHelper.clamp(effect.number / 2, 0, currentMana - (maxMana * 0.25F));
 
         if (dmgReduced > 0) {
 
             effect.number -= dmgReduced;
 
             ResourcesData.Context ctx = new ResourcesData.Context(effect.targetData, effect.target,
-                ResourcesData.Type.MANA, dmgReduced * 2,
+                ResourcesData.Type.MANA, dmgReduced,
                 ResourcesData.Use.SPEND
             );
 
@@ -57,7 +57,7 @@ public class ManaBatteryEffect extends BaseDamageEffect {
 
         return currentMana / effect.targetData.getUnit()
             .manaData()
-            .getAverageValue() > 0.5F;
+            .getAverageValue() > 0.25F;
     }
 
 }

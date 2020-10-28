@@ -12,12 +12,12 @@ public class ManaFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 5;
     }
 
     @Override
     public float Max() {
-        return 10;
+        return 12;
     }
 
     @Override

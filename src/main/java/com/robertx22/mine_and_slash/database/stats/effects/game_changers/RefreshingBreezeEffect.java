@@ -35,7 +35,7 @@ public class RefreshingBreezeEffect extends BaseDamageEffect {
             use = ResourcesData.Use.RESTORE;
         } else {
             use = ResourcesData.Use.SPEND;
-            energy /= 2;
+            energy /= 4;
         }
 
         ResourcesData.Context ene = new ResourcesData.Context(

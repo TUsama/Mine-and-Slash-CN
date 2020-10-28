@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.database.stats.types.defense.ArmorPenetration;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalPene;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -44,7 +45,9 @@ public class RecklessBlows extends BaseGameChangerTrait {
             .map(x -> new ExactStatData(25, StatModTypes.Multi, x))
             .collect(Collectors.toList());
 
-        list.add(new ExactStatData(-50, StatModTypes.Multi, Armor.getInstance()));
+        list.add(new ExactStatData(25, StatModTypes.Multi, ArmorPenetration.getInstance()));
+
+        list.add(new ExactStatData(-75, StatModTypes.Multi, Armor.getInstance()));
 
         return list;
     }

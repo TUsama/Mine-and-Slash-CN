@@ -31,7 +31,7 @@ public class ElementalAttackDamagePercent extends ElementalStatMod {
 
     @Override
     public float Max() {
-        return 6;
+        return 8;
     }
 
     @Override

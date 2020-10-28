@@ -18,7 +18,7 @@ public class RefreshingBreeze extends BaseGameChangerTrait implements IStatEffec
 
     @Override
     public String locDescForLangFile() {
-        return "Dodging restores " + PERCENT + " percent of your energy regen. But if you don't dodge, you lose half of that from energy.";
+        return "Dodging restores " + PERCENT + " percent of your energy regen. But if you don't dodge, you lose a quarter of that from energy.";
     }
 
     @Override
