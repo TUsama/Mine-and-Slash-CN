@@ -1,3 +1,6 @@
+3.7.9:
+* Fixed incorrect synergy icon/text for Frostball.
+
 3.7.8:
 Changes were made to balance physical vs. elemental spells. Elemental spells are more or less the same but investing into them should be a lot more rewarding. I tried to make it more viable to go for elemental builds over the current OP physical builds. As always, my goal is to slowly improve the balance between the elements, and to provide each one with a unique identity. Currently, water is utility/damage since it provides many slows and can boost the power of the other elements greatly. Fire scales slightly with weapon damage and has an improved burn. Thunder is pure spell damage. Nature is tank/DoT, and Hunting is bow. Currently, Divine is split between support and physical spells.
 
