@@ -38,6 +38,9 @@ public class EleSpellDmgEffect extends BaseDamageEffect {
                 .equals(effect.GetElement())) {
                 return true;
             }
+            if (effect.element != Elements.Physical && stat.getElement() == Elements.Elemental) {
+                return true;
+            }
         }
 
         return false;
