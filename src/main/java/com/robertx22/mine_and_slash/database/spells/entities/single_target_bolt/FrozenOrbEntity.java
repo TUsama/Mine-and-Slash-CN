@@ -56,8 +56,8 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
     public void onHit(LivingEntity entity) {
 
         if (world.isRemote) {
-            Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), (float) radius() * 2);
-            ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
+            Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), (float) radius());
+            ParticleUtils.spawn(ParticleTypes.ITEM_SNOWBALL, world, p);
         }
         LivingEntity caster = getCaster();
 
@@ -74,7 +74,6 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
             DamageEffect dmg = dealSpellDamageTo(x, new Options().knockbacks(false)
                     .activatesEffect(false));
 
-            dmg.Activate();
             dmg.Activate();
 
             x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 3, 5));

@@ -39,7 +39,7 @@ public class BlizzardFrostEssenceGenSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 5, 10);
+        c.set(SC.CHANCE, 5, 15);
         c.setMaxLevel(8);
         return c;
     }
