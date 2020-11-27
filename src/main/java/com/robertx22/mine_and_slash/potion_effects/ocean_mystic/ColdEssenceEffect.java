@@ -41,14 +41,14 @@ public class ColdEssenceEffect extends BasePotionEffect implements IApplyStatPot
 
     @Override
     public int getMaxStacks() {
-        return 20;
+        return 1;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(1F, CriticalDamage.getInstance()));
-        list.add(new PotionStat(0.5F, new AllElementalDamage(Elements.Water)));
+        list.add(new PotionStat(25, CriticalDamage.getInstance()));
+        list.add(new PotionStat(10, new AllElementalDamage(Elements.Water)));
         return list;
     }
 

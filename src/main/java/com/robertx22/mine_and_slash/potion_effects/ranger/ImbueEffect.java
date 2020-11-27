@@ -42,14 +42,14 @@ public class ImbueEffect extends BasePotionEffect {
 
     @Override
     public int getMaxStacks() {
-        return 5;
+        return 1;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 1, 3);
-        p.set(SC.ATTACK_SCALE_VALUE, 0.05F, 0.2F);
+        p.set(SC.BASE_VALUE, 5, 7);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.5F);
         return p;
     }
 

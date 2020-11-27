@@ -26,7 +26,7 @@ public class FireballBurnConsumeSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Chance to apply: " + BurnEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply: " + BurnEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
@@ -57,7 +57,7 @@ public class FireballBurnConsumeSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 25, 50);
+        c.set(SC.CHANCE, 10, 20);
         c.setMaxLevel(6);
         return c;
     }

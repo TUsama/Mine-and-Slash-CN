@@ -51,11 +51,11 @@ public class ImbueSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 10, 25);
-        c.set(SC.BASE_VALUE, 2, 12);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.35F);
-        c.set(SC.CAST_TIME_TICKS, 25, 10);
-        c.set(SC.COOLDOWN_SECONDS, 45, 25);
+        c.set(SC.MANA_COST, 15, 25);
+        c.set(SC.BASE_VALUE, 2, 5);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.5F);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
+        c.set(SC.COOLDOWN_SECONDS, 60, 45);
         c.set(SC.DURATION_TICKS, 20 * 30, 20 * 45);
 
         c.setMaxLevel(14);

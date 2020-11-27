@@ -32,6 +32,7 @@ public class Synergies implements ISlashRegistryInit {
     private static RegenerateThornsSynergy REGEN_THORNS = new RegenerateThornsSynergy();
     private static RegenerateAoeSynergy REGEN_AOE = new RegenerateAoeSynergy();
     private static PoisonedWeaponsThornsSynergy POISONED_WEAPONS_THORNS = new PoisonedWeaponsThornsSynergy();
+    private static PoisonballThornsSynergy POISON_BALL_THORNS = new PoisonballThornsSynergy();
 
     private static MagmaFlowerEnhancedSynergy MAGMA_FLOWER_ENHANCED = new MagmaFlowerEnhancedSynergy();
     private static FireballBurnConsumeSynergy FIREBALL_BURN_CONSUME = new FireballBurnConsumeSynergy();
@@ -61,6 +62,7 @@ public class Synergies implements ISlashRegistryInit {
         REGEN_THORNS.registerToSlashRegistry();
         REGEN_AOE.registerToSlashRegistry();
         POISONED_WEAPONS_THORNS.registerToSlashRegistry();
+        POISON_BALL_THORNS.registerToSlashRegistry();
 
         MAGMA_FLOWER_ENHANCED.registerToSlashRegistry();
         FIREBALL_BURN_CONSUME.registerToSlashRegistry();

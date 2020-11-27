@@ -1,11 +1,11 @@
-package com.robertx22.mine_and_slash.database.spells.synergies.ocean;
+package com.robertx22.mine_and_slash.database.spells.synergies.nature;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.WhirlpoolSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.PoisonBallSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ShiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.druid.ThornsEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
+public class PoisonballThornsSynergy extends OnDamageDoneSynergy {
 
     @Override
     public List<ITextComponent> getSynergyTooltipInternal(TooltipInfo info) {
@@ -26,7 +26,7 @@ public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Hits have a chance to apply: " + ShiverEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply: " + ThornsEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
@@ -37,35 +37,39 @@ public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
     }
 
     @Override
+    public void tryActivate(SpellDamageEffect effect) {
+
+        float chance = getContext(effect.source).getConfigFor(this)
+                .get(SC.CHANCE)
+                .get(Load.spells(effect.source), this);
+
+        if (RandomUtils.roll(chance)) {
+            PotionEffectUtils.apply(ThornsEffect.INSTANCE, effect.source, effect.target);
+
+        }
+    }
+
+    @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 2, 3);
+        c.set(SC.MANA_COST, 1, 2);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 20, 50);
-        c.setMaxLevel(8);
+        c.set(SC.CHANCE, 20, 35);
+        c.setMaxLevel(6);
         return c;
     }
 
     @Nullable
     @Override
     public IAbility getRequiredAbility() {
-        return WhirlpoolSpell.getInstance();
-    }
-
-    @Override
-    public void tryActivate(SpellDamageEffect ctx) {
-        if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
-            .get(SC.CHANCE)
-            .get(Load.spells(ctx.source), this))) {
-            PotionEffectUtils.apply(ShiverEffect.INSTANCE, ctx.source, ctx.target);
-        }
+        return PoisonBallSpell.getInstance();
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Shiver Pool";
+        return "Toxin";
     }
 }

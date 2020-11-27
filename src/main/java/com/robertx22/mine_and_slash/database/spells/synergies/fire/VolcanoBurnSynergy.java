@@ -26,7 +26,7 @@ public class VolcanoBurnSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Chance to apply: " + BurnEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply: " + BurnEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
@@ -39,7 +39,7 @@ public class VolcanoBurnSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 5, 50);
+        c.set(SC.CHANCE, 5, 10);
         c.setMaxLevel(6);
         return c;
     }

@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.spells.entities.bases.BaseCloudEnti
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
@@ -41,12 +42,14 @@ public class BlizzardEntity extends BaseCloudEntity {
 
         dmg.Activate();
 
+        SoundUtils.playSound(this, SoundEvents.ENTITY_SNOWBALL_THROW, 1, 1);
+
     }
 
     @Override
     public void summonFallParticle(Vec3d p) {
         ParticleUtils.spawn(ParticleTypes.ITEM_SNOWBALL, world, p);
-
+        ParticleUtils.spawn(ParticleTypes.ITEM_SNOWBALL, world, p);
     }
 
 }

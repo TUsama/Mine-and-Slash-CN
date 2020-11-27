@@ -55,15 +55,15 @@ public class MagmaFlowerSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 28, 36);
-        c.set(SC.BASE_VALUE, 3, 11);
+        c.set(SC.MANA_COST, 26, 34);
+        c.set(SC.BASE_VALUE, 4, 11);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 100, 60);
+        c.set(SC.COOLDOWN_SECONDS, 60, 45);
         c.set(SC.RADIUS, 3.0F, 5.0F);
         c.set(SC.TICK_RATE, 30, 30);
-        c.set(SC.DURATION_TICKS, 100, 140);
+        c.set(SC.DURATION_TICKS, 200, 300);
 
         c.setMaxLevel(16);
 

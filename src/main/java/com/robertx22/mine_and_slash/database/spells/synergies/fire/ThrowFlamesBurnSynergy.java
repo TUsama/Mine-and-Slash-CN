@@ -54,8 +54,8 @@ public class ThrowFlamesBurnSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 8);
-        c.set(SC.RADIUS, 1.5F, 3);
+        c.set(SC.BASE_VALUE, 12, 16);
+        c.set(SC.RADIUS, 6F, 8);
         c.setMaxLevel(6);
         return c;
     }

@@ -37,7 +37,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160895",
-            (double) -0.15F, AttributeModifier.Operation.MULTIPLY_TOTAL
+            (double) -0.25F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -82,20 +82,20 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 3;
+        return 1;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-25, HealPower.getInstance()));
+        list.add(new PotionStat(-50, HealPower.getInstance()));
         return list;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 1, 3);
+        p.set(SC.BASE_VALUE, 3, 5);
         p.set(SC.TICK_RATE, 30, 20);
         p.set(SC.DURATION_TICKS, 15 * 60, 25 * 60);
         return p;

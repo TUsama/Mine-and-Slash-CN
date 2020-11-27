@@ -55,8 +55,7 @@ public class ShiverEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-10, new ElementalResist(Elements.Water)));
-        list.add(new PotionStat(-50, new ElementalResist(Elements.Fire)));
+        list.add(new PotionStat(-25, new ElementalResist(Elements.Water)));
         list.add(new PotionStat(-50, new ElementalResist(Elements.Thunder)));
         return list;
     }

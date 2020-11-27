@@ -78,8 +78,7 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-3, new ElementalResist(Elements.Thunder)));
-        list.add(new PotionStat(-2, new ElementalResist(Elements.Nature)));
+        list.add(new PotionStat(-25F, new ElementalResist(Elements.Fire)));
 
         return list;
     }
@@ -87,10 +86,10 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 1, 2);
-        p.set(SC.ATTACK_SCALE_VALUE, 0.03F, 0.15F);
-        p.set(SC.TICK_RATE, 30, 20);
-        p.set(SC.DURATION_TICKS, 60, 120);
+        p.set(SC.BASE_VALUE, 1, 1.5F);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.1F, 0.3F);
+        p.set(SC.TICK_RATE, 40, 30);
+        p.set(SC.DURATION_TICKS, 200, 400);
         return p;
     }
 

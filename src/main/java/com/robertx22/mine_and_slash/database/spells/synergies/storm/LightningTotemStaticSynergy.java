@@ -25,7 +25,7 @@ public class LightningTotemStaticSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Chance to apply debuff: " + StaticEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply: " + StaticEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
@@ -38,7 +38,7 @@ public class LightningTotemStaticSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 20, 75);
+        c.set(SC.CHANCE, 20, 35);
         c.setMaxLevel(8);
         return c;
     }

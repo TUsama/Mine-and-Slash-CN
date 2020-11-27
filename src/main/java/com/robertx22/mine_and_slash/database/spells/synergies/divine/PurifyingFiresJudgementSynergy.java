@@ -43,7 +43,7 @@ public class PurifyingFiresJudgementSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 1, 3);
+        c.set(SC.BASE_VALUE, 6, 12);
         c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.3F);
         c.setMaxLevel(8);
         return c;

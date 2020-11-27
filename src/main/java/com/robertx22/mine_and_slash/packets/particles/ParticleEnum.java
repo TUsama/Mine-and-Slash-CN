@@ -121,6 +121,20 @@ public enum ParticleEnum {
 
         }
     },
+    POISON_CLOUD() {
+        @Override
+        public void activate(ParticlePacketData data, World world) {
+
+            for (int i = 0; i < 150; i++) {
+                Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius);
+                world.addParticle(ParticleTypes.COMPOSTER, p.x, p.y, p.z, 0, 0, 0);
+                world.addParticle(ParticleTypes.ITEM_SLIME, p.x, p.y, p.z, 0, 0, 0);
+                world.addParticle(ParticleTypes.EFFECT, p.x, p.y, p.z, 0, 0, 0);
+
+            }
+
+        }
+    },
     WHIRLWIND() {
         @Override
         public void activate(ParticlePacketData data, World world) {

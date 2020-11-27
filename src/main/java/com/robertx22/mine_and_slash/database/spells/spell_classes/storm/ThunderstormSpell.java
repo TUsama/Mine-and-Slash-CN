@@ -53,8 +53,8 @@ public class ThunderstormSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 30, 50);
-        c.set(SC.BASE_VALUE, 10, 28);
+        c.set(SC.MANA_COST, 32, 58);
+        c.set(SC.BASE_VALUE, 8, 18);
         c.set(SC.RADIUS, 5F, 7);
         c.set(SC.CAST_TIME_TICKS, 140, 100);
         c.set(SC.COOLDOWN_SECONDS, 60 * 3, 60 * 2);

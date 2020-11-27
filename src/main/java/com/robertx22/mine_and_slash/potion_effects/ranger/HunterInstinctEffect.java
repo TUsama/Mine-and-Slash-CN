@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
+import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -42,21 +43,21 @@ public class HunterInstinctEffect extends BasePotionEffect implements IApplyStat
 
     @Override
     public int getMaxStacks() {
-        return 20;
+        return 1;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(0.75F, CriticalHit.getInstance()));
-        list.add(new PotionStat(10, DodgeRating.getInstance()));
+        list.add(new PotionStat(25, CriticalDamage.getInstance()));
+        list.add(new PotionStat(150, DodgeRating.getInstance()));
         return list;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.DURATION_TICKS, 20 * 60, 30 * 60);
+        p.set(SC.DURATION_TICKS, 20 * 20, 30 * 20);
         return p;
     }
 

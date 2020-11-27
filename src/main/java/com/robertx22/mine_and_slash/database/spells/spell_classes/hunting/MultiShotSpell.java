@@ -55,13 +55,13 @@ public class MultiShotSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 5, 12);
-        c.set(SC.BASE_VALUE, 4, 12);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.8F, 1.4F);
+        c.set(SC.MANA_COST, 10, 22);
+        c.set(SC.BASE_VALUE, 4, 7);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.3F, 1.8F);
         c.set(SC.SHOOT_SPEED, 2.5F, 3.75F);
-        c.set(SC.PROJECTILE_COUNT, 3, 6);
-        c.set(SC.CAST_TIME_TICKS, 20, 10);
-        c.set(SC.COOLDOWN_SECONDS, 10, 5);
+        c.set(SC.PROJECTILE_COUNT, 3, 11);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
+        c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.DURATION_TICKS, 100, 160);
 
         c.setMaxLevel(16);

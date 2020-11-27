@@ -57,7 +57,7 @@ public class ThornArmorThornsSynergy extends OnBasicAttackSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 15, 33);
+        c.set(SC.CHANCE, 10, 20);
         c.setMaxLevel(6);
         return c;
     }

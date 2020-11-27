@@ -1,7 +1,7 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.storm;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean;
 
-import com.robertx22.mine_and_slash.database.spells.entities.trident.ThunderspearEntity;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.SpellTooltips;
+import com.robertx22.mine_and_slash.database.spells.entities.cloud.BlizzardEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.FrozenOrbEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
@@ -16,19 +16,20 @@ import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThunderspearSpell extends BaseSpell {
+public class FrozenOrbSpell extends BaseSpell {
 
-    private ThunderspearSpell() {
+    private FrozenOrbSpell() {
         super(
             new ImmutableSpellConfigs() {
 
                 @Override
                 public Masteries school() {
-                    return Masteries.STORM;
+                    return Masteries.OCEAN;
                 }
 
                 @Override
@@ -38,46 +39,47 @@ public class ThunderspearSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ITEM_TRIDENT_THROW;
+                    return SoundEvents.ENTITY_SNOWBALL_THROW;
                 }
 
                 @Override
                 public Elements element() {
-                    return Elements.Thunder;
+                    return Elements.Water;
                 }
-            }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                .summonsEntity(world -> new ThunderspearEntity(world)));
+            }.summonsEntity(w -> new FrozenOrbEntity(w))
+                    .setSwingArmOnCast());
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 7, 15);
-        c.set(SC.BASE_VALUE, 6, 12);
-        c.set(SC.SHOOT_SPEED, 2.2F, 2.75F);
+        c.set(SC.MANA_COST, 30, 44);
+        c.set(SC.BASE_VALUE, 4, 9);
+        c.set(SC.SHOOT_SPEED, 0.2F, 0.2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
-        c.set(SC.DURATION_TICKS, 40, 60);
+        c.set(SC.CAST_TIME_TICKS, 60, 40);
+        c.set(SC.COOLDOWN_SECONDS, 90, 60);
+        c.set(SC.TICK_RATE, 10, 5);
+        c.set(SC.DURATION_TICKS, 180, 240);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(7, 6);
     }
 
-    public static ThunderspearSpell getInstance() {
+    public static FrozenOrbSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "thunder_spear";
+        return "frozen_orb";
     }
 
     @Override
@@ -85,7 +87,7 @@ public class ThunderspearSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(SpellTooltips.singleTargetProjectile());
+        list.add(new StringTextComponent("Summons an orb that damages enemies in its path: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -95,10 +97,10 @@ public class ThunderspearSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.ThunderSpear;
+        return Words.FrozenOrb;
     }
 
     private static class SingletonHolder {
-        private static final ThunderspearSpell INSTANCE = new ThunderspearSpell();
+        private static final FrozenOrbSpell INSTANCE = new FrozenOrbSpell();
     }
 }

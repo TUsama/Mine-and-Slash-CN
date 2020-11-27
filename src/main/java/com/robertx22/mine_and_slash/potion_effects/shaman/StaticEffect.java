@@ -49,13 +49,14 @@ public class StaticEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 8;
+        return 1;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-3, new ElementalResist(Elements.Thunder)));
+        list.add(new PotionStat(-20, new ElementalResist(Elements.Thunder)));
+        list.add(new PotionStat(-10, new ElementalResist(Elements.Nature)));
         return list;
     }
 
@@ -63,7 +64,7 @@ public class StaticEffect extends BasePotionEffect implements IApplyStatPotion {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.TICK_RATE, 10, 10);
-        p.set(SC.DURATION_TICKS, 100, 300);
+        p.set(SC.DURATION_TICKS, 100, 200);
         return p;
 
     }

@@ -78,23 +78,22 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 3;
+        return 1;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-1, new ElementalResist(Elements.Fire)));
-        list.add(new PotionStat(-2, new ElementalResist(Elements.Water)));
+        list.add(new PotionStat(-20, new ElementalResist(Elements.Water)));
         return list;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 2, 7);
-        p.set(SC.DURATION_TICKS, 6 * 60, 10 * 60);
-        p.set(SC.TICK_RATE, 30, 20);
+        p.set(SC.BASE_VALUE, 5, 14);
+        p.set(SC.DURATION_TICKS, 3 * 20, 5 * 20);
+        p.set(SC.TICK_RATE, 30, 15);
         return p;
     }
 

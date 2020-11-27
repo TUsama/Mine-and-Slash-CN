@@ -39,7 +39,7 @@ public class FrostballFrostEssenceGenSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 25, 50);
+        c.set(SC.CHANCE, 5, 15);
         c.setMaxLevel(8);
         return c;
     }

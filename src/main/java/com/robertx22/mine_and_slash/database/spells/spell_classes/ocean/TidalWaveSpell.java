@@ -55,12 +55,12 @@ public class TidalWaveSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.MANA_COST, 10, 15);
-        c.set(SC.BASE_VALUE, 4, 8);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.35F, 0.7F);
+        c.set(SC.BASE_VALUE, 3, 5);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.5F, 0.9F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.PROJECTILE_COUNT, 3, 5);
-        c.set(SC.CAST_TIME_TICKS, 75, 45);
-        c.set(SC.COOLDOWN_SECONDS, 20, 10);
+        c.set(SC.CAST_TIME_TICKS, 20, 10);
+        c.set(SC.COOLDOWN_SECONDS, 30, 20);
         c.set(SC.TIMES_TO_CAST, 3, 4);
         c.set(SC.DURATION_TICKS, 60, 80);
 
