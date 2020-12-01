@@ -76,7 +76,7 @@ public class WhirlwindSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(6, 5);
+        return new AbilityPlace(7, 4);
     }
 
     public static WhirlwindSpell getInstance() {

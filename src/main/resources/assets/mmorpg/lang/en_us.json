@@ -123,6 +123,7 @@
 	"mmorpg.synergy.blizzard_syn_1": "Freezing Rain",
 	"mmorpg.synergy.heart_of_ice_syn_1": "Cold Healing Essence",
 	"mmorpg.synergy.heart_of_ice_syn_2": "Heart of Magic",
+	"mmorpg.synergy.heavy_strike_syn_1": "Anger",
 	"mmorpg.synergy.holy_flower_syn_1": "Cleansing Formation",
 	"mmorpg.synergy.imbue_syn_1": "Imbue Instinct",
 	"mmorpg.synergy.lightning_totem_syn_1": "Totem Static",
@@ -147,6 +148,8 @@
 	"mmorpg.synergy.tidal_wave_syn_1": "Freezing Waves",
 	"mmorpg.synergy.volcano_syn_1": "Volcano Burn",
 	"mmorpg.synergy.whirlpool_syn_1": "Shiver Pool",
+	"mmorpg.synergy.whirlwind_syn_1": "Taunt",
+	"mmorpg.synergy.whirlwind_syn_2": "Piercing Winds",
 
 "_comment": " [CATEGORY]: SPELLS - NAMES",
 
@@ -896,6 +899,7 @@
 	"mmorpg.stat.plus_bravery_spell_lvl": "To Bravery Skill Level",
 	"mmorpg.stat.plus_burn_effect_lvl": "To Burn Skill Level",
 	"mmorpg.stat.plus_divine_skill_lvls": "To Divine Mastery Skill Levels",
+	"mmorpg.stat.plus_enrage_effect_lvl": "To Enrage Skill Level",
 	"mmorpg.stat.plus_fire_bombs_spell_lvl": "To Fire Bombs Skill Level",
 	"mmorpg.stat.plus_fire_skill_lvls": "To Fire Mastery Skill Levels",
 	"mmorpg.stat.plus_fireball_spell_lvl": "To Fireball Skill Level",
@@ -1324,6 +1328,7 @@
 	"effect.mmorpg.trickery": "Trickery",
 	"effect.mmorpg.wizardry": "Wizardry",
 	"effect.mmorpg.wounds": "Wounds",
+	"effect.mmorpg.enrage": "Enrage",
 
 "_comment": " [CATEGORY]: POTIONS - NAMES",
 

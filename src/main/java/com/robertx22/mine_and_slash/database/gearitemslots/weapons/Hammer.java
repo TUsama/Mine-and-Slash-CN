@@ -1,11 +1,19 @@
 package com.robertx22.mine_and_slash.database.gearitemslots.weapons;
 
+import com.robertx22.mine_and_slash.data_generation.wrappers.StatModsHolder;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponDamageMulti;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponSwingCost;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseWeapon;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.HammerWeaponMechanic;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.ArmorPenetrationFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaOnHitFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.SpellDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemHammer;
@@ -44,7 +52,7 @@ public class Hammer extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(10);
+        return new WeaponSwingCost(7);
     }
 
     @Override
@@ -83,6 +91,11 @@ public class Hammer extends BaseWeapon implements ISpecificStatReq {
     @Override
     public int Weight() {
         return 1000;
+    }
+
+    @Override
+    public StatModsHolder getPossibleSecondaryStats() {
+        return new StatModsHolder(new ArmorPenetrationFlat(), new CriticalDamageFlat());
     }
 
     @Override

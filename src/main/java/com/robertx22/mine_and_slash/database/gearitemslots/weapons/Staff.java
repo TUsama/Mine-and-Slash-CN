@@ -9,9 +9,8 @@ import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.Nor
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifeOnHitFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifestealFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicStealFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.*;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.SpellDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemStaff;
@@ -62,7 +61,7 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponDamageMulti weaponDamageMulti() {
-        return new WeaponDamageMulti(2);
+        return new WeaponDamageMulti(1);
     }
 
     @Override
@@ -77,7 +76,7 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(7, 2);
+        return new WeaponSwingCost(5);
     }
 
     @Override
@@ -97,7 +96,7 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat(), new LifestealFlat(), new LifeOnHitFlat(), new MagicStealFlat());
+        return new StatModsHolder(new SpellDamagePercent(), new HealPowerFlat());
     }
 
     @Override

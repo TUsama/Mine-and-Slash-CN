@@ -1,13 +1,16 @@
 3.8.0:
-* New Ocean spell: Ice Orb - shoot an orb of ice that sprays enemies in its path, explodes upon impact.
+* All weapons now roll different secondary stats. Melee weapons no longer have any weapon damage multiplier - axes no longer do double damage. Energy cost has been changed to reflect this, and the addition of new secondary stats should more than make up for this. The reason for this change was because spells didn't take into account the weapon damage multiplier. Ergo, physical spells should feel _much_ better to use now with all melee weapons. Bows and crossbows more or less remain unchanged (slightly reduced damage with addition of new stats).
+* New Ocean spell: Ice Orb - shoot an orb of ice that sprays enemies in its path.
 * New Nature spell: Poison Cloud - applies Thorns to nearby enemies (large AOE).
 * New Hunting spell: Dash - literally a dash.
+* New Physical effect: Enrage - makes enemies move fast and deal more damage, but take increased damage.
 The following spell changes were made for a few reasons. Mages were a little too strong for the amount of investment they had to make. Also, a lot of builds devolved into ball spam, and other "stronger" and utility-based spells were not seeing as much play.
 * Ball spells are now affected by cooldown but have had their cooldown increased. Their cooldowns are also now fixed and will not change upon leveling them.
 * Ball spells and Thunder Spear have had their damage reduced by a lot. Emphasis is on skill rotation now.
 * Hunting spells no longer have any cast time and have been greatly improved.
 * Reduced max projectile count of Ground Slam.
 * Physical spells have had their damage increased.
+* Heavy Strike and Whirlwind have new synergies.
 * Magma Flower's duration has increased, and mana cost decreased.
 * Nature spells have been greatly improved (Gorgon's Gaze is actually good) and are more geared towards weapon damage --> spell damage rather than a weird hybrid.
 * Nature's Balm healing has increased slightly.

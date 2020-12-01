@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseWeapon;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.NormalWeaponMechanic;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DodgeRatingFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.ArmorPenetrationFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
@@ -36,7 +37,7 @@ public class CrossBow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponDamageMulti weaponDamageMulti() {
-        return new WeaponDamageMulti(1.5F);
+        return new WeaponDamageMulti(1.25F);
     }
 
     @Override
@@ -66,12 +67,12 @@ public class CrossBow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat(), new ArmorPenetrationFlat());
+        return new StatModsHolder(new CriticalDamageFlat(), new ArmorPenetrationFlat());
     }
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(6);
+        return new WeaponSwingCost(5);
     }
 
     @Override

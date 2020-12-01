@@ -1,5 +1,6 @@
 package com.robertx22.mine_and_slash.db_lists.initializers;
 
+import com.robertx22.mine_and_slash.potion_effects.divine.EnrageEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
@@ -41,6 +42,8 @@ public class PotionEffects implements ISlashRegistryInit {
 
         StaticEffect.INSTANCE.registerToSlashRegistry();
         ThunderEssenceEffect.INSTANCE.registerToSlashRegistry();
+
+        EnrageEffect.INSTANCE.registerToSlashRegistry();
 
     }
 }

@@ -1,11 +1,16 @@
 package com.robertx22.mine_and_slash.database.gearitemslots.weapons;
 
+import com.robertx22.mine_and_slash.data_generation.wrappers.StatModsHolder;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponDamageMulti;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponSwingCost;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseWeapon;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.NormalWeaponMechanic;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.*;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemAxe;
@@ -31,7 +36,7 @@ public class Axe extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponDamageMulti weaponDamageMulti() {
-        return new WeaponDamageMulti(2);
+        return new WeaponDamageMulti(1);
     }
 
     @Override
@@ -85,7 +90,12 @@ public class Axe extends BaseWeapon implements ISpecificStatReq {
     }
 
     @Override
+    public StatModsHolder getPossibleSecondaryStats() {
+        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat());
+    }
+
+    @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(8.5F);
+        return new WeaponSwingCost(5);
     }
 }
