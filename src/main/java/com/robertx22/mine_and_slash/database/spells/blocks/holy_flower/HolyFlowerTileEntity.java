@@ -43,7 +43,12 @@ public class HolyFlowerTileEntity extends BaseSpellTileEntity {
                     pos, world, new ParticlePacketData(pos, ParticleEnum.AOE).radius(RADIUS)
                         .motion(new Vec3d(0, 0, 0))
                         .type(ParticleTypes.DRIPPING_HONEY)
-                        .amount((int) (30 * RADIUS)));
+                        .amount((int) (45 * RADIUS)));
+                ParticleEnum.sendToClients(
+                        pos, world, new ParticlePacketData(pos, ParticleEnum.AOE).radius(RADIUS)
+                                .motion(new Vec3d(0, 0, 0))
+                                .type(ParticleTypes.HEART)
+                                .amount((int) (15 * RADIUS)));
 
                 List<LivingEntity> entities = EntityFinder.start(
                     caster, LivingEntity.class, new Vec3d(getPos()).add(0.5F, 0, 0.5F))

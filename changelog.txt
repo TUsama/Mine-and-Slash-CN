@@ -1,3 +1,11 @@
+3.8.1:
+* Added particles to basically every spell, and increased particle count for most spells. This should help with visual acuity!
+* Fixed Arrow Barrage shooting only 1 arrow.
+* Went a little overboard last patch: ball spell damage has been increased very slightly again.
+* Physical spells have had a minor reduction in damage.
+* Cooldowns of basically ALL (except ball) spells has been reduced GREATLY. I'm pushing spell rotation over spamming one spell!
+* Increased chance to proc effects for some spells.
+
 3.8.0:
 * All weapons now roll different secondary stats. Melee weapons no longer have any weapon damage multiplier - axes no longer do double damage. Energy cost has been changed to reflect this, and the addition of new secondary stats should more than make up for this. The reason for this change was because spells didn't take into account the weapon damage multiplier. Ergo, physical spells should feel _much_ better to use now with all melee weapons. Bows and crossbows more or less remain unchanged (slightly reduced damage with addition of new stats).
 * New Ocean spell: Ice Orb - shoot an orb of ice that sprays enemies in its path.

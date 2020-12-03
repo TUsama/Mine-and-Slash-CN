@@ -40,7 +40,7 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.FALLING_HONEY, ctx.entity, 15);
+            ParticleUtils.spawnParticles(ParticleTypes.FALLING_HONEY, ctx.entity, 25);
             return ctx;
         }, null));
 

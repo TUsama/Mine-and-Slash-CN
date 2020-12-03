@@ -66,7 +66,7 @@ public class BlazingInfernoSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 4, 9);
         c.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.45F);
         c.set(SC.CAST_TIME_TICKS, 60, 40);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
+        c.set(SC.COOLDOWN_SECONDS, 45, 25);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.TIMES_TO_CAST, 4, 4);
 

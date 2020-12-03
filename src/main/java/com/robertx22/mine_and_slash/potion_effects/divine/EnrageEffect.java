@@ -43,7 +43,7 @@ public class EnrageEffect extends BasePotionEffect implements IApplyStatPotion {
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.ANGRY_VILLAGER, ctx.entity, 20);
+            ParticleUtils.spawnParticles(ParticleTypes.ANGRY_VILLAGER, ctx.entity, 25);
             return ctx;
         }, null));
 

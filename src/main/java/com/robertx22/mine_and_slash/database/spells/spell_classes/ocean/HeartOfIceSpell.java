@@ -98,7 +98,7 @@ public class HeartOfIceSpell extends BaseSpell {
     public void castExtra(SpellCastContext ctx) {
         try {
             //SoundUtils.playSound(ctx.caster, ModSounds.FREEZE.get(), 1, 1);
-            ParticleUtils.spawnParticles(ParticleRegister.BUBBLE, ctx.caster, 25);
+            ParticleUtils.spawnParticles(ParticleRegister.BUBBLE, ctx.caster, 40);
         } catch (Exception e) {
             e.printStackTrace();
         }

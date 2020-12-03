@@ -79,9 +79,11 @@ public class VolcanoEntity extends BaseInvisibleEntity {
 
                         for (int n = 0; n < 3; n++) {
                             ParticleUtils.spawn(ParticleTypes.LAVA, world, p.x, p.y, p.z, 0, 0.5f, 0);
+                            ParticleUtils.spawn(ParticleTypes.LAVA, world, p.x, p.y, p.z, 0, 0.5f, 0);
 
                         }
 
+                        ParticleUtils.spawn(ParticleTypes.FALLING_LAVA, world, p.x, p.y, p.z, 0, 1, 0);
                         ParticleUtils.spawn(ParticleTypes.FALLING_LAVA, world, p.x, p.y, p.z, 0, 1, 0);
 
                         RGB color = Elements.Fire.getRGBColor();

@@ -94,7 +94,8 @@ public class NatureBalmSpell extends BaseSpell {
     @Override
     public void spawnParticles(SpellCastContext ctx) {
         if (ctx.caster.world.isRemote) {
-            ParticleUtils.spawnParticles(ParticleTypes.HAPPY_VILLAGER, ctx.caster, 10);
+            ParticleUtils.spawnParticles(ParticleTypes.HAPPY_VILLAGER, ctx.caster, 20);
+            ParticleUtils.spawnParticles(ParticleTypes.HEART, ctx.caster, 10);
         }
     }
 

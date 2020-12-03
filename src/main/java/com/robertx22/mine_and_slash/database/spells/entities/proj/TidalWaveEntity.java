@@ -34,7 +34,7 @@ public class TidalWaveEntity extends BaseElementalBoltEntity {
     @Override
     public void initSpellEntity() {
         this.setNoGravity(false);
-        this.setDeathTime(40);
+        this.setDeathTime(50);
     }
 
     public TidalWaveEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {

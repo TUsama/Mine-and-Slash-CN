@@ -54,7 +54,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
                 ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.AOE).type(
                     ParticleTypes.FLAME)
                     .motion(new Vec3d(0, 0, 0))
-                    .amount(5));
+                    .amount(15));
 
             return ctx;
         }, info -> {

@@ -30,7 +30,7 @@ public class RegenerateEffect extends BasePotionEffect {
 
         this.tickActions.add(new OnTickAction(ctx -> {
             if (ctx.entity.world.isRemote) {
-                ParticleUtils.spawnParticles(ParticleTypes.HAPPY_VILLAGER, ctx.entity, 3);
+                ParticleUtils.spawnParticles(ParticleTypes.HAPPY_VILLAGER, ctx.entity, 5);
             } else {
 
                 int num = getCalc(ctx.caster)

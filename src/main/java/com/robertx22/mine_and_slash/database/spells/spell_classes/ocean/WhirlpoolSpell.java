@@ -58,7 +58,7 @@ public class WhirlpoolSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 50, 40);
-        c.set(SC.COOLDOWN_SECONDS, 45, 30);
+        c.set(SC.COOLDOWN_SECONDS, 24, 16);
         c.set(SC.TICK_RATE, 30, 20);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.DURATION_TICKS, 80, 100);
@@ -87,7 +87,7 @@ public class WhirlpoolSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Summons a whirpool that slows and damages enemies: "));
+        list.add(new StringTextComponent("Summons a whirlpool that slows and damages enemies: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

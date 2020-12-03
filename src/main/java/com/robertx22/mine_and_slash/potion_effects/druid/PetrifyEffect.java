@@ -49,7 +49,7 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
             ParticleEnum.sendToClients(
                 ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.PETRIFY).radius(1)
                     .type(ParticleTypes.CLOUD)
-                    .amount(15));
+                    .amount(25));
 
             SoundUtils.playSound(ctx.entity, SoundEvents.BLOCK_STONE_BREAK, 0.5F, 0.5F);
             return ctx;

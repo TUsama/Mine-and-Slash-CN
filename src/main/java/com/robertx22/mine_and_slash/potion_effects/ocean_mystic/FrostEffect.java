@@ -38,7 +38,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.ITEM_SNOWBALL, ctx.entity, 15);
+            ParticleUtils.spawnParticles(ParticleTypes.ITEM_SNOWBALL, ctx.entity, 25);
             return ctx;
         }, null));
 

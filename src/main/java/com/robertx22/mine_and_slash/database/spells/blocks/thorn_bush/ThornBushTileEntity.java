@@ -47,7 +47,7 @@ public class ThornBushTileEntity extends BaseSpellTileEntity {
                 ParticleEnum.sendToClients(
                     pos, world, new ParticlePacketData(pos, ParticleEnum.THORNS).radius(RADIUS)
                         .motion(new Vec3d(0, 0, 0))
-                        .amount(25));
+                        .amount(30 * RADIUS));
 
                 List<LivingEntity> entities = EntityFinder.start(
                     caster, LivingEntity.class, new Vec3d(pos).add(0.5F, 0, 0.5F))

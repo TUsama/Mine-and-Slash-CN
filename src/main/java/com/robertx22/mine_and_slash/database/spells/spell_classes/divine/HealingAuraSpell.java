@@ -81,8 +81,13 @@ public class HealingAuraSpell extends BaseSpell {
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(RADIUS)
                     .motion(new Vec3d(0, 0, 0))
                     .type(ParticleTypes.FALLING_HONEY)
-                    .amount((int) (45)));
-
+                    .amount((int) (90)));
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(RADIUS)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.HEART)
+                            .amount((int) (45)));
         }
     }
 
@@ -93,7 +98,7 @@ public class HealingAuraSpell extends BaseSpell {
         c.set(SC.MANA_COST, 6, 13);
         c.set(SC.BASE_VALUE, 8, 32);
         c.set(SC.CAST_TIME_TICKS, 80, 60);
-        c.set(SC.COOLDOWN_SECONDS, 40, 20);
+        c.set(SC.COOLDOWN_SECONDS, 40, 15);
         c.set(SC.TIMES_TO_CAST, 4, 4);
         c.set(SC.RADIUS, 3, 5);
 

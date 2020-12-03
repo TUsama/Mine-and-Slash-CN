@@ -100,7 +100,7 @@ public class PurifyingFiresSpell extends BaseSpell {
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                     .motion(new Vec3d(0, 0, 0))
                     .type(ParticleTypes.FLAME)
-                    .amount((int) (45)));
+                    .amount((int) (60)));
 
         }
     }
@@ -114,7 +114,7 @@ public class PurifyingFiresSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.MANA_COST, 5, 14);
-        c.set(SC.BASE_VALUE, 2, 7);
+        c.set(SC.BASE_VALUE, 2, 8);
         c.set(SC.ATTACK_SCALE_VALUE, 0.9F, 1.1F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 4, 2);

@@ -31,7 +31,7 @@ public class ShiverEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.DOLPHIN, ctx.entity, 5);
+            ParticleUtils.spawnParticles(ParticleTypes.DOLPHIN, ctx.entity, 10);
             return ctx;
         }, null));
 

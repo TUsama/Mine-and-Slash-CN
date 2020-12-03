@@ -15,6 +15,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleType;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundCategory;
@@ -115,6 +117,8 @@ public class WhirlpoolEntity extends EntityBaseProjectile {
                         Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(
                             getPositionVector().add(0, yUp, 0), rad);
                         ParticleUtils.spawn(ParticleRegister.BUBBLE, world, p);
+                        ParticleUtils.spawn(ParticleTypes.NAUTILUS, world, p);
+                        ParticleUtils.spawn(ParticleTypes.SPLASH, world, p);
 
                     }
                 }

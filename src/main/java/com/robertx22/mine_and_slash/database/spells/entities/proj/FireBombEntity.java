@@ -79,6 +79,8 @@ public class FireBombEntity extends EntityBaseProjectile {
                     this.remove();
 
                     SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_EXPLODE, 1, 1);
+                    Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(
+                            getPositionVector().add(0, 0.2F, 0), RADIUS);
 
                     entities.forEach(x -> {
 
@@ -100,6 +102,7 @@ public class FireBombEntity extends EntityBaseProjectile {
                     Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(
                         getPositionVector().add(0, 0.2F, 0), RADIUS);
                     ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
+                    ParticleUtils.spawn(ParticleTypes.FLAME, world, p);
 
                 }
             }

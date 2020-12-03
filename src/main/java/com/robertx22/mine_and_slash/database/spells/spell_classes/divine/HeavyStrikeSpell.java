@@ -100,7 +100,7 @@ public class HeavyStrikeSpell extends BaseSpell {
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                     .motion(new Vec3d(0, 0, 0))
                     .type(ParticleTypes.INSTANT_EFFECT)
-                    .amount((int) (45)));
+                    .amount((int) (60)));
 
         }
     }
@@ -115,7 +115,7 @@ public class HeavyStrikeSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 5, 9);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.8F, 2.2F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.5F, 2.0F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 40, 40);
         c.set(SC.TIMES_TO_CAST, 1, 1);
