@@ -28,11 +28,6 @@ public class HunterInstinctEffect extends BasePotionEffect implements IApplyStat
     private HunterInstinctEffect() {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
-
-        this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.ENTITY_EFFECT, ctx.entity, 15);
-            return ctx;
-        }, null));
     }
 
     public static HunterInstinctEffect getInstance() {

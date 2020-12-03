@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.potion_effects.druid;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.PoisonedWeaponsSpell;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -27,11 +28,6 @@ public class PoisonedWeaponsEffect extends BasePotionEffect implements IApplySta
     private PoisonedWeaponsEffect() {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
-
-        this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.SNEEZE, ctx.entity, 15);
-            return ctx;
-        }, null));
     }
 
     public static PoisonedWeaponsEffect getInstance() {
@@ -63,7 +59,6 @@ public class PoisonedWeaponsEffect extends BasePotionEffect implements IApplySta
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-
         return p;
     }
 

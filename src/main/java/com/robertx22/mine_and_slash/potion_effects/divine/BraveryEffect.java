@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.potion_effects.divine;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.BraverySpell;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Strength;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
@@ -35,11 +36,6 @@ public class BraveryEffect extends BasePotionEffect implements IApplyStatPotion,
     private BraveryEffect() {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
-
-        this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.DUST, ctx.entity, 15);
-            return ctx;
-        }, null));
     }
 
     @Override

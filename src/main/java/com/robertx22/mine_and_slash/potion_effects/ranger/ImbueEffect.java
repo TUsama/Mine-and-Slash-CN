@@ -27,11 +27,6 @@ public class ImbueEffect extends BasePotionEffect {
     private ImbueEffect() {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
-
-        this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.SMOKE, ctx.entity, 10);
-            return ctx;
-        }, null));
     }
 
     public static ImbueEffect getInstance() {

@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.potion_effects.ocean_mystic;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.stats.types.generated.AllElementalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -29,12 +30,6 @@ public class ColdEssenceEffect extends BasePotionEffect implements IApplyStatPot
     private ColdEssenceEffect() {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
-
-        this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.FALLING_WATER, ctx.entity, 20);
-            return ctx;
-        }, null));
-
     }
 
     @Override
@@ -63,7 +58,7 @@ public class ColdEssenceEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.setDurationInSeconds(30, 50);
+        p.set(SC.DURATION_TICKS, 30 * 20, 50 * 20);
         return p;
     }
 

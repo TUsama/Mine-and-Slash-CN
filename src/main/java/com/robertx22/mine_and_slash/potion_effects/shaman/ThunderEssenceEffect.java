@@ -31,11 +31,6 @@ public class ThunderEssenceEffect extends BasePotionEffect implements IApplyStat
     private ThunderEssenceEffect() {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
-
-        this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleTypes.INSTANT_EFFECT, ctx.entity, 30);
-            return ctx;
-        }, null));
     }
 
     @Override
