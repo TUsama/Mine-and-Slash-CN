@@ -1,6 +1,8 @@
 3.8.2:
 * Reduced armor reduction of Enrage slightly.
-* Fixed tick rate of console spam. This also fixes the lack of particle effects on buffs/debuffs.
+* Fixed tick rate of console spam.
+* You can now interact with shulker boxes in Adventure Maps.
+* Increased energy cost of weapons. The cost in general was too low and it wasn't really necessary to allocate stats into energy sustain.
 
 3.8.1:
 * Added particles to basically every spell, and increased particle count for most spells. This should help with visual acuity!

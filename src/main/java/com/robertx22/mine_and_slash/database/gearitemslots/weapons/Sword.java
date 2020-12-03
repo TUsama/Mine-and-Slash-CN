@@ -41,7 +41,7 @@ public class Sword extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(3);
+        return new WeaponSwingCost(6);
     }
 
     @Override

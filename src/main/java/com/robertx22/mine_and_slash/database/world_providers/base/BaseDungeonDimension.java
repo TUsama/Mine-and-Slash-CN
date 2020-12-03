@@ -9,10 +9,7 @@ import com.robertx22.mine_and_slash.registry.ISlashRegistryEntry;
 import com.robertx22.mine_and_slash.registry.SlashRegistryType;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.Rarity;
 import com.robertx22.mine_and_slash.uncommon.interfaces.data_items.IRarity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.tags.BlockTags;
@@ -215,6 +212,9 @@ public abstract class BaseDungeonDimension extends Dimension implements IWP, IRa
                 return true;
             }
             if (block instanceof FenceGateBlock) {
+                return true;
+            }
+            if (block instanceof ShulkerBoxBlock) {
                 return true;
             }
             if (OnDungeonBlockEvents.canBreakBlock(block)) {

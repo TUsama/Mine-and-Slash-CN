@@ -49,7 +49,7 @@ public class Trident extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(6);
+        return new WeaponSwingCost(8);
     }
 
     @Override

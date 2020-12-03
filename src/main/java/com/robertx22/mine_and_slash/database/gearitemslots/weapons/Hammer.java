@@ -52,7 +52,7 @@ public class Hammer extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(7);
+        return new WeaponSwingCost(10);
     }
 
     @Override

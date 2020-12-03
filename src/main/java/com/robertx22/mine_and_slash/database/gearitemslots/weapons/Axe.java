@@ -96,6 +96,6 @@ public class Axe extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(5);
+        return new WeaponSwingCost(8);
     }
 }
