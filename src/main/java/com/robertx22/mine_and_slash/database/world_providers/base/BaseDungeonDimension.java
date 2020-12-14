@@ -217,6 +217,22 @@ public abstract class BaseDungeonDimension extends Dimension implements IWP, IRa
             if (block instanceof ShulkerBoxBlock) {
                 return true;
             }
+            if (block.getRegistryName().toString().contains("gravestone")) // GraveStone Mod by henkelmax, also catches "gravestone_lite"
+            {
+                return true;
+            }
+            if (block.getRegistryName().toString().contains("gravestone_lite")) // a second version of the above mod by the same author
+            {
+                return true;
+            }
+            if (block.getRegistryName().toString().contains("tombstone")) // Corail Tombstone, allow players to interact with and break it
+            {
+                return true;
+            }
+            if (block.getRegistryName().toString().contains("dank")) // Dank Storage, allow players to interact with and break it
+            {
+                return true;
+            }
             if (OnDungeonBlockEvents.canBreakBlock(block)) {
                 return true;
             }

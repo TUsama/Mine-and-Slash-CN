@@ -1,3 +1,9 @@
+3.8.3:
+* You should be able to interact with most gravestone mods in maps now.
+* Dank Storage is now retrievable in maps if you accidentally place one down.
+* Fixed some map rooms with signs as placeholders for mobs and loot. They should now properly spawn.
+* Improved consistency of Spruce Mansion redstone room.
+
 3.8.2:
 * Reduced armor reduction of Enrage slightly.
 * Fixed tick rate of console spam.

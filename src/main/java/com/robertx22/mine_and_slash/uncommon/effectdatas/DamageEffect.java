@@ -240,6 +240,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
         }
 
         if (this.removeKnockback || this.isFullyBlocked) {
+            SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
             BlockEffect.applyKnockbackResist(target);
         }
 
@@ -300,17 +301,13 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
         MyDamageSource dmgsource = new MyDamageSource(ds, dmgSourceName, this.source, element, (int) number);
 
         if (this.isPartiallyBlocked) {
+            SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
             dmgsource.setDamageBypassesArmor();
         }
 
-        if (this.isPartiallyBlocked || this.isFullyBlocked)
-        {
-            SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
-        }
-
         if (isDodged) {
+            SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 2.0F);
             cancelDamage();
-            SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1.5F);
 
         } else {
 
