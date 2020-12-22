@@ -58,7 +58,7 @@ public class FrostballSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 0.8F, 1.1F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 40, 40);
+        c.set(SC.COOLDOWN_TICKS, 60, 60);
         c.set(SC.DURATION_TICKS, 80, 100);
 
         c.setMaxLevel(16);

@@ -18,7 +18,7 @@ public class OreGenRegister {
 
         if (ModConfig.INSTANCE.Server.GENERATE_ORES.get()) {
 
-            int amount = 3;
+            int amount = 4;
 
             for (int i = 0; i < IRarity.Legendary; i++) {
 

@@ -38,7 +38,7 @@ public class LightningTotemStaticSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 10, 50);
+        c.set(SC.CHANCE, 15, 75);
         c.setMaxLevel(8);
         return c;
     }

@@ -1,3 +1,26 @@
+3.8.4:
+* Mob experience on kill no longer takes into account only the highest damage from player, but rather from all players. Before, a mob with 12 HP could have taken 6 environment damage, 4 damage from player A, and 2 damage from player B, but distribute no experience because player A's 4 dmg < 6. Now, it'll still attribute the kill to player A, but will take into account all player damage, so 4 + 2 = 6 which is at least 50% of the mob's health. This should make party play feel a LOT better.
+* You now receive an additional 20% experience for each member on the team. So 2 players get 120% / 2 = 60% per person, 3 players get 140% / 3 = 47% per person, etc.
+* Fixed block sounds being played on bleed.
+* You now must use a pickaxe to mine ores.
+* You now require at least a stone pickaxe to mine ores.
+* Ore blocks now use datapacks and can be smelted down into ores if mined with Silk Touch. This is particularly useful in enabling compatibilty with technology mods.
+* Ore world gen rates for ores have been increased very slightly.
+* Made it very slightly easier for players to get the kill when compared against environment damage.
+Balance Changes:
+* Increased cooldown of "ball" spells by 1s. Thunder Spear's cooldown was increased by 0.5s.
+* The following changes were made to make Fire feel more consistent:
+* Increased mana cost of Fireball at max level by ~9%.
+* Doubled Burn proc. chance for Fire spells.
+* Reduced damage of Burn by ~55%.
+* Reduced tick rate and duration of Burn at max level slightly.
+* Increased Thunder Spear damage by ~20%.
+* Increased Static proc. chance for Lightning Totem.
+* Ice Orb has more pretty particles.
+* Increased cooldown of Heavy Strike by 1s.
+* Increased attack scaling of Ground Slam by 20% at max level.
+* Increased cooldown of Ground Slam by 1s at max level.
+
 3.8.3:
 * You should be able to interact with most gravestone mods in maps now.
 * Dank Storage is now retrievable in maps if you accidentally place one down.

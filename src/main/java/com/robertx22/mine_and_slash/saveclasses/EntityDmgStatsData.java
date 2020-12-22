@@ -35,17 +35,19 @@ public class EntityDmgStatsData {
     public LivingEntity getHighestDamageEntity(ServerWorld world) {
 
         Optional<Map.Entry<String, Float>> opt = map.entrySet()
-                .stream()
-                .max((one, two) -> one.getValue() >= two.getValue() ? 1 : -1);
+                .stream().max((one, two) -> one.getValue() >= two.getValue() ? 1 : -1);
 
         if (opt.isPresent()) {
 
             Map.Entry<String, Float> entry = opt.get();
 
-            String id = entry.getKey();
-            Float val = entry.getValue();
+            float total_dmg = 0.0f;
+            for (float f : map.values()) { total_dmg += f; }
 
-            if (enviroDmg > val) {
+            String id = entry.getKey();
+            // Float val = entry.getValue();
+
+            if (enviroDmg / 1.5 > total_dmg) {
                 return null; // means enviroment did more damage than the highest entity dmg dealer
             }
 

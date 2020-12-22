@@ -6,26 +6,27 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.storage.loot.LootContext;
+import net.minecraftforge.common.ToolType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BlockOre extends Block {
 
-    int minDropAmount = 1;
-    int maxDropAmount = 3;
+    // int minDropAmount = 1;
+    // int maxDropAmount = 3;
 
     int rarity;
 
     public BlockOre(int rarity, Material material) {
-        super(Block.Properties.create(material).hardnessAndResistance(2F));
+        super(Block.Properties.create(material).hardnessAndResistance(2F).harvestLevel(1).harvestTool(ToolType.PICKAXE));
         this.rarity = rarity;
 
         this.setRegistryName(Ref.MODID + ":ore_block" + rarity);
 
     }
 
-    @Override
+    /*@Override
     public List<ItemStack> getDrops(BlockState p_220076_1_, LootContext.Builder loot) {
         if (this.minDropAmount > this.maxDropAmount) {
             int i = this.minDropAmount;
@@ -44,6 +45,6 @@ public class BlockOre extends Block {
 
         return list;
 
-    }
+    }*/
 
 }

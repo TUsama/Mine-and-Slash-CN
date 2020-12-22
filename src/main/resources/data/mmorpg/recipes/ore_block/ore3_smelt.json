@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "mmorpg:ore_block3"
+  },
+  "result": "mmorpg:ore3",
+  "experience": 0.8,
+  "cookingtime": 160
+}

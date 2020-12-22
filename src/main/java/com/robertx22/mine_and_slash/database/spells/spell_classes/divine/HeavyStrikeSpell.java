@@ -117,7 +117,7 @@ public class HeavyStrikeSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 1.5F, 2.0F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 40, 40);
+        c.set(SC.COOLDOWN_TICKS, 60, 60);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
         c.setMaxLevel(16);

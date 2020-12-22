@@ -92,6 +92,14 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
                     Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), (float) radius());
                     ParticleUtils.spawn(ParticleTypes.ITEM_SNOWBALL, world, p);
                 }
+                for (int i = 0; i < 3; i++) {
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), (float) radius() / 2);
+                    ParticleUtils.spawn(ParticleTypes.ITEM_SNOWBALL, world, p);
+                }
+                for (int i = 0; i < 5; i++) {
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), (float) radius());
+                    ParticleUtils.spawn(ParticleTypes.CLOUD, world, p);
+                }
             }
         }
 
