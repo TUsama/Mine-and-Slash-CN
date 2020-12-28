@@ -1,3 +1,8 @@
+3.8.5:
+* Inconsistencies in element naming has been fixed. Nature = Nature, Ocean = Frost, Storm = Lightning.
+* Fixed some missing localization.
+* Updated Divine Tree description to better reflect what it has become.
+
 3.8.4:
 * Mob experience on kill no longer takes into account only the highest damage from player, but rather from all players. Before, a mob with 12 HP could have taken 6 environment damage, 4 damage from player A, and 2 damage from player B, but distribute no experience because player A's 4 dmg < 6. Now, it'll still attribute the kill to player A, but will take into account all player damage, so 4 + 2 = 6 which is at least 50% of the mob's health. This should make party play feel a LOT better.
 * You now receive an additional 20% experience for each member on the team. So 2 players get 120% / 2 = 60% per person, 3 players get 140% / 3 = 47% per person, etc.
