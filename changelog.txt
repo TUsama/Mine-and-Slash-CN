@@ -1,3 +1,6 @@
+3.8.6:
+* Fixed the Nether wart farm room not spawning in correctly, leaving players with an impossible map.
+
 3.8.5:
 * Inconsistencies in element naming has been fixed. Nature = Nature, Ocean = Frost, Storm = Lightning.
 * Fixed some missing localization.
