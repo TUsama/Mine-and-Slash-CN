@@ -1,3 +1,9 @@
+3.8.7:
+* Reduced mana cost and cooldown of Whirlwind, and very slightly reduced damage scaling.
+* Map drop rate bonus when in maps has been increased from 4% --> 15%.
+* Crystal of Ascension now has a level of 15 levels instead of 10.
+* Stone of Corruption now increases an item's level by 5 rather than 2.
+
 3.8.6:
 * Fixed the Nether wart farm room not spawning in correctly, leaving players with an impossible map.
 

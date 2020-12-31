@@ -51,7 +51,7 @@ public class CrystalOfAscensionItem extends CurrencyItem implements ICurrencyIte
         return stack;
     }
 
-    public static final int MAXIMUM_LEVEL_UPS = 10;
+    public static final int MAXIMUM_LEVEL_UPS = 15;
 
     @Override
     public int getRarityRank() {
