@@ -25,6 +25,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +65,7 @@ public class BlazingInfernoSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 18, 24);
         c.set(SC.BASE_VALUE, 4, 9);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.45F);
+        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 1.0F, 1.25F);
         c.set(SC.CAST_TIME_TICKS, 60, 40);
         c.set(SC.COOLDOWN_SECONDS, 45, 25);
         c.set(SC.RADIUS, 3, 5);
@@ -94,7 +95,7 @@ public class BlazingInfernoSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Do damage to enemies around you: "));
+        list.add(new SText("Deal damage to enemies around you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

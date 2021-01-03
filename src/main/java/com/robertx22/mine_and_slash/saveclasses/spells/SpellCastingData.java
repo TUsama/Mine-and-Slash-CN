@@ -196,11 +196,6 @@ public class SpellCastingData {
                         spell.cast(ctx);
                     }
 
-                    player.getHeldItemMainhand()
-                        .damageItem(1, player, x -> {
-                            player.sendBreakAnimation(player.getActiveHand());
-                        });
-
                     onSpellCast(spell, player, spells);
 
                     spellBeingCast = "";

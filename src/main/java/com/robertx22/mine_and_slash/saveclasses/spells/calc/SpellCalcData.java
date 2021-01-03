@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.saveclasses.spells.calc;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.stats.Stat;
+import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -45,7 +46,90 @@ public class SpellCalcData {
 
         List<Stat> list = new ElementalAttackDamage(Elements.Nature).generateAllSingleVariations();
         list.add(PhysicalDamage.getInstance());
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Attack Damage")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "All Attack Damage")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithElementalAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ElementalAttackDamage(Elements.Nature).generateAllSingleVariations();
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Elemental Attack Damage")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithPhysicalAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(PhysicalDamage.getInstance());
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Physical Attack Damage")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithFireAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(new ElementalAttackDamage(Elements.Fire));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Fire Attack Damage")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithWaterAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(new ElementalAttackDamage(Elements.Water));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Water Attack Damage")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithThunderAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(new ElementalAttackDamage(Elements.Water));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Thunder Attack Damage")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithNatureAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(new ElementalAttackDamage(Elements.Water));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Nature Attack Damage")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithArmorAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(Armor.getInstance());
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Armor")));
 
         data.baseValue = base;
 

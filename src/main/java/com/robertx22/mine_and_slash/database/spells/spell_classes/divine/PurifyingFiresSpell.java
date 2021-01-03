@@ -140,7 +140,8 @@ public class PurifyingFiresSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Attack enemies in melee: "));
+        list.add(new StringTextComponent("Converts Weapon DMG to Fire and"));
+        list.add(new StringTextComponent("attack enemies in melee: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

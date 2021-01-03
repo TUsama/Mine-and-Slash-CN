@@ -19,7 +19,14 @@ public enum SC {
     TIMES_TO_CAST(1, Words.TimesToCast),
     BASE_VALUE(0, null),
     AMOUNT(0, Words.Amount),
-    ATTACK_SCALE_VALUE(0, null);
+    ATTACK_SCALE_VALUE(0, null),
+    ELEMENTAL_ATTACK_SCALE_VALUE(0, null),
+    PHYSICAL_ATTACK_SCALE_VALUE(0, null),
+    FIRE_ATTACK_SCALE_VALUE(0, null),
+    WATER_ATTACK_SCALE_VALUE(0, null),
+    THUNDER_ATTACK_SCALE_VALUE(0, null),
+    NATURE_ATTACK_SCALE_VALUE(0, null),
+    ARMOR_ATTACK_SCALE_VALUE(0, null);
 
     public float min;
 

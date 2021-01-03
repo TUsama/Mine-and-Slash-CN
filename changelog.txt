@@ -1,3 +1,12 @@
+3.8.8:
+* Spells now scale off of the appropriate damage type. The tooltips have been updated to better reflect this. For instance, Tidal Wave now scales off only water weapon damage, and Ground Slam now scales off of only physical weapon damage. The scaling values have been increased to help with the drop in damage.
+* Casting spells no longer damages the item you are holding.
+* Repair values have been ever so slightly increased. Common ore is still bad.
+* Fixed localization error on Crystal of Ascension.
+* Reduced Crit Multi of True Hits to 20%, from 30%.
+* Reduced the power of Critical Hits/Damage by ~20-25%.
+* Reduced effectiveness of penetration slightly.
+
 3.8.7:
 * Reduced mana cost and cooldown of Whirlwind, and very slightly reduced damage scaling.
 * Map drop rate bonus when in maps has been increased from 4% --> 15%.

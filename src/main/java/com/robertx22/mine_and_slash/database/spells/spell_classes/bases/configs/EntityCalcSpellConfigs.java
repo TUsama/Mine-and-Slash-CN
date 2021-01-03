@@ -55,11 +55,45 @@ public class EntityCalcSpellConfigs {
                 this.calc = SpellCalcData.scaleWithAttack(pre.get(SC.ATTACK_SCALE_VALUE)
                     .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
                     .get(spellsCap, ability));
-
-            } else {
+            }
+            else if (pre.has(SC.ELEMENTAL_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithElementalAttack(pre.get(SC.ELEMENTAL_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else if (pre.has(SC.PHYSICAL_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithPhysicalAttack(pre.get(SC.PHYSICAL_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else if (pre.has(SC.FIRE_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithFireAttack(pre.get(SC.FIRE_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else if (pre.has(SC.WATER_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithWaterAttack(pre.get(SC.WATER_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else if (pre.has(SC.THUNDER_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithThunderAttack(pre.get(SC.THUNDER_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else if (pre.has(SC.NATURE_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithFireAttack(pre.get(SC.NATURE_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else if (pre.has(SC.ARMOR_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithFireAttack(pre.get(SC.ARMOR_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else {
                 this.calc = SpellCalcData.base(pre.get(SC.BASE_VALUE)
                     .get(spellsCap, ability));
-
             }
         }
 

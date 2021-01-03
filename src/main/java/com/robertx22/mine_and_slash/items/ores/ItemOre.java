@@ -34,7 +34,7 @@ public class ItemOre extends Item implements IWeighted, IAutoLocMultiLore, IAuto
 
     public int rarity;
 
-    public List<Integer> RepairValues = Arrays.asList(20, 30, 75, 125, 300, 600);
+    public List<Integer> RepairValues = Arrays.asList(20, 50, 125, 300, 600, 1000);
 
     public int GetFuelValue() {
 

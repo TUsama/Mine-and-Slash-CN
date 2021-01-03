@@ -47,9 +47,52 @@ public class PreCalcSpellConfigs {
                 get(SC.ATTACK_SCALE_VALUE).get(cap, ability),
                 get(SC.BASE_VALUE).get(cap, ability)
             );
-        } else {
+        }
+        else if (has(SC.ELEMENTAL_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithElementalAttack(
+                    get(SC.ELEMENTAL_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
+        else if (has(SC.PHYSICAL_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithPhysicalAttack(
+                    get(SC.PHYSICAL_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
+        else if (has(SC.FIRE_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithFireAttack(
+                    get(SC.FIRE_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
+        else if (has(SC.WATER_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithWaterAttack(
+                    get(SC.WATER_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
+        else if (has(SC.THUNDER_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithThunderAttack(
+                    get(SC.THUNDER_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
+        else if (has(SC.NATURE_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithNatureAttack(
+                    get(SC.NATURE_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
+        else if (has(SC.ARMOR_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithArmorAttack(
+                    get(SC.ARMOR_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
+        else {
             return SpellCalcData.base(
-                get(SC.BASE_VALUE).get(cap, ability)
+                    get(SC.BASE_VALUE).get(cap, ability)
             );
         }
     }
