@@ -87,7 +87,12 @@ public class EntityCalcSpellConfigs {
                         .get(spellsCap, ability));
             }
             else if (pre.has(SC.ARMOR_ATTACK_SCALE_VALUE)) {
-                this.calc = SpellCalcData.scaleWithFireAttack(pre.get(SC.ARMOR_ATTACK_SCALE_VALUE)
+                this.calc = SpellCalcData.scaleWithArmorAttack(pre.get(SC.ARMOR_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else if (pre.has(SC.HEALTH_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithHealthAttack(pre.get(SC.HEALTH_ATTACK_SCALE_VALUE)
                         .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
                         .get(spellsCap, ability));
             }

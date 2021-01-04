@@ -90,6 +90,12 @@ public class PreCalcSpellConfigs {
                     get(SC.BASE_VALUE).get(cap, ability)
             );
         }
+        else if (has(SC.HEALTH_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithHealthAttack(
+                    get(SC.HEALTH_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
         else {
             return SpellCalcData.base(
                     get(SC.BASE_VALUE).get(cap, ability)

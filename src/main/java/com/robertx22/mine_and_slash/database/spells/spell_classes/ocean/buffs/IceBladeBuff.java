@@ -1,8 +1,10 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
-import com.robertx22.mine_and_slash.potion_effects.divine.WizardryEffect;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.IceBladeEffect;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.NourishmentEffect;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
@@ -10,12 +12,12 @@ import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 
-public class WizardrySpell extends BaseDivineBuffSpell {
-    private WizardrySpell() {
+public class IceBladeBuff extends BaseOceanBuffSpell{
+    private IceBladeBuff() {
         super(new ImmutableSpellConfigs() {
             @Override
             public Masteries school() {
-                return Masteries.DIVINE;
+                return Masteries.OCEAN;
             }
 
             @Override
@@ -25,36 +27,36 @@ public class WizardrySpell extends BaseDivineBuffSpell {
 
             @Override
             public SoundEvent sound() {
-                return SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP;
+                return ModSounds.FREEZE.get();
             }
 
             @Override
             public Elements element() {
                 return Elements.Elemental;
             }
-        }.addsEffect(WizardryEffect.INSTANCE));
+        }.addsEffect(IceBladeEffect.INSTANCE));
     }
 
-    public static WizardrySpell getInstance() {
+    public static IceBladeBuff getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "wizardry";
+        return "ice_blade";
     }
 
     @Override
     public Words getName() {
-        return Words.Wizardry;
+        return Words.IceBlade;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 1);
+        return new AbilityPlace(7, 2);
     }
 
     private static class SingletonHolder {
-        private static final WizardrySpell INSTANCE = new WizardrySpell();
+        private static final IceBladeBuff INSTANCE = new IceBladeBuff();
     }
 }

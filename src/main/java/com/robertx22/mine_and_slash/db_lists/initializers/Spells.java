@@ -9,6 +9,9 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.*;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.FrostShieldBuff;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.IceBladeBuff;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.NourishmentBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.*;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
 
@@ -35,10 +38,13 @@ public class Spells implements ISlashRegistryInit {
 
                     add(FrostballSpell.getInstance());
                     add(WhirlpoolSpell.getInstance());
-                    add(HeartOfIceSpell.getInstance());
+                    //add(HeartOfIceSpell.getInstance());
                     add(TidalWaveSpell.getInstance());
                     add(BlizzardSpell.getInstance());
                     add(FrozenOrbSpell.getInstance());
+                    add(FrostShieldBuff.getInstance());
+                    add(NourishmentBuff.getInstance());
+                    add(IceBladeBuff.getInstance());
 
                     add(NatureBalmSpell.getInstance());
                     add(GorgonsGazeSpell.getInstance());

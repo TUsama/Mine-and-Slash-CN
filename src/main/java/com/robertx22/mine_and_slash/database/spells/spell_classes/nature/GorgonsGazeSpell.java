@@ -18,6 +18,7 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -41,7 +42,7 @@ public class GorgonsGazeSpell extends BaseSpell {
 
             @Override
             public SoundEvent sound() {
-                return null;
+                return SoundEvents.ENTITY_CREEPER_PRIMED;
             }
 
             @Override

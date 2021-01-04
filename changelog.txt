@@ -8,6 +8,7 @@
 * Reduced effectiveness of penetration slightly.
 * Reduced the power of Fire Bombs and Burn effect by about 25-33%.
 * Reduced the power of ball spells and Thunder Spear very slightly.
+* Divine auras now require a mastery of at least 5 to learn. They have had their values shifted slightly, as well.
 * Added an HP multiplier config to dimension configs.
 
 3.8.7:

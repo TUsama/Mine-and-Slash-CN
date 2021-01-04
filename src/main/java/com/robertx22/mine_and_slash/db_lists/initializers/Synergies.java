@@ -13,11 +13,11 @@ import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
 
 public class Synergies implements ISlashRegistryInit {
 
-    private static HeartOfIceFrostSynergy HEART_OF_ICE_FROST = new HeartOfIceFrostSynergy();
+    //private static HeartOfIceFrostSynergy HEART_OF_ICE_FROST = new HeartOfIceFrostSynergy();
     private static FrostballExtraDmgSynergy FROSTBALL_EXTRA_DMG = new FrostballExtraDmgSynergy();
     private static FrostballFrostEssenceGenSynergy FROSTBALL_FROST_ESSENCE_GEN = new FrostballFrostEssenceGenSynergy();
     private static WhirlpoolShiverSynergy WHIRLPOOL_SHIVER = new WhirlpoolShiverSynergy();
-    private static HeartOfIceMagicShieldSynergy HEART_OF_ICE_MAGIC_SHIELD = new HeartOfIceMagicShieldSynergy();
+    //private static HeartOfIceMagicShieldSynergy HEART_OF_ICE_MAGIC_SHIELD = new HeartOfIceMagicShieldSynergy();
 
     private static ThunderSpearLightningStrikeSynergy THUNDER_SPEAR_LIGHTNING = new ThunderSpearLightningStrikeSynergy();
     private static LightningTotemStaticSynergy LIGHTNING_TOTEM_STATIC = new LightningTotemStaticSynergy();
@@ -43,11 +43,11 @@ public class Synergies implements ISlashRegistryInit {
     @Override
     public void registerAll() {
 
-        HEART_OF_ICE_FROST.registerToSlashRegistry();
+        //HEART_OF_ICE_FROST.registerToSlashRegistry();
         FROSTBALL_EXTRA_DMG.registerToSlashRegistry();
         FROSTBALL_FROST_ESSENCE_GEN.registerToSlashRegistry();
         WHIRLPOOL_SHIVER.registerToSlashRegistry();
-        HEART_OF_ICE_MAGIC_SHIELD.registerToSlashRegistry();
+        //HEART_OF_ICE_MAGIC_SHIELD.registerToSlashRegistry();
 
         THUNDER_SPEAR_LIGHTNING.registerToSlashRegistry();
         LIGHTNING_TOTEM_STATIC.registerToSlashRegistry();

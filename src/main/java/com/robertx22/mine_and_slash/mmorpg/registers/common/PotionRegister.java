@@ -6,9 +6,7 @@ import com.robertx22.mine_and_slash.potion_effects.all.TeleportProtection;
 import com.robertx22.mine_and_slash.potion_effects.divine.*;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ColdEssenceEffect;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrostEffect;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ShiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.HunterInstinctEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.ImbueEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.WoundsEffect;
@@ -35,6 +33,10 @@ public class PotionRegister {
         reg.register(BraveryEffect.INSTANCE);
         reg.register(WizardryEffect.INSTANCE);
         reg.register(TrickeryEffect.INSTANCE);
+        reg.register(FrostShieldEffect.INSTANCE);
+        reg.register(NourishmentEffect.INSTANCE);
+        reg.register(IceBladeEffect.INSTANCE);
+        reg.register(FrozenEffect.INSTANCE);
 
         reg.register(FrostEffect.INSTANCE);
         reg.register(ThornsEffect.INSTANCE);

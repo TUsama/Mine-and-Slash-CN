@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
@@ -12,20 +12,20 @@ import net.minecraft.util.text.StringTextComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseDivineBuffSpell extends BaseSpell {
+public abstract class BaseOceanBuffSpell extends BaseSpell {
 
-    public BaseDivineBuffSpell(ImmutableSpellConfigs configs) {
+    public BaseOceanBuffSpell(ImmutableSpellConfigs configs) {
         super(configs.setSwingArmOnCast());
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 35, 45);
-        c.set(SC.CAST_TIME_TICKS, 160, 220);
-        c.set(SC.COOLDOWN_SECONDS, 120, 90);
-        c.set(SC.DURATION_TICKS, 600 * 20, 900 * 20);
-        c.set(SC.RADIUS, 6, 10);
+        c.set(SC.MANA_COST, 15, 25);
+        c.set(SC.CAST_TIME_TICKS, 80, 40);
+        c.set(SC.COOLDOWN_SECONDS, 60, 45);
+        c.set(SC.DURATION_TICKS, 10 * 20, 20 * 20);
+        c.set(SC.RADIUS, 4, 6);
 
         c.setMaxLevel(12);
         return c;
@@ -40,8 +40,6 @@ public abstract class BaseDivineBuffSpell extends BaseSpell {
 
         list.addAll(getImmutableConfigs().potionEffect()
             .GetTooltipStringWithNoExtraSpellInfo(info));
-
-        list.add(new StringTextComponent("Only one Divine aura is allowed at a time! "));
 
         return list;
 

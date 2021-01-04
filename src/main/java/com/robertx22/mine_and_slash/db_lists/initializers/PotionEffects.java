@@ -4,9 +4,7 @@ import com.robertx22.mine_and_slash.potion_effects.divine.EnrageEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ColdEssenceEffect;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrostEffect;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ShiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.HunterInstinctEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.ImbueEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.WoundsEffect;
@@ -32,6 +30,10 @@ public class PotionEffects implements ISlashRegistryInit {
         FrostEffect.INSTANCE.registerToSlashRegistry();
         ShiverEffect.INSTANCE.registerToSlashRegistry();
         JudgementEffect.INSTANCE.registerToSlashRegistry();
+        FrozenEffect.INSTANCE.registerToSlashRegistry();
+        IceBladeEffect.INSTANCE.registerToSlashRegistry();
+        NourishmentEffect.INSTANCE.registerToSlashRegistry();
+        FrostShieldEffect.INSTANCE.registerToSlashRegistry();
 
         HunterInstinctEffect.getInstance()
             .registerToSlashRegistry();

@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
@@ -81,7 +82,7 @@ public class SpellCalcData {
 
         List<Stat> list = new ArrayList<>();
         list.add(new ElementalAttackDamage(Elements.Fire));
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Fire Attack Damage")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.RED + "Fire Attack Damage")));
 
         data.baseValue = base;
 
@@ -93,7 +94,7 @@ public class SpellCalcData {
 
         List<Stat> list = new ArrayList<>();
         list.add(new ElementalAttackDamage(Elements.Water));
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Water Attack Damage")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.AQUA + "Water Attack Damage")));
 
         data.baseValue = base;
 
@@ -105,7 +106,7 @@ public class SpellCalcData {
 
         List<Stat> list = new ArrayList<>();
         list.add(new ElementalAttackDamage(Elements.Water));
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Thunder Attack Damage")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.YELLOW + "Thunder Attack Damage")));
 
         data.baseValue = base;
 
@@ -117,7 +118,7 @@ public class SpellCalcData {
 
         List<Stat> list = new ArrayList<>();
         list.add(new ElementalAttackDamage(Elements.Water));
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Nature Attack Damage")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.DARK_GREEN + "Nature Attack Damage")));
 
         data.baseValue = base;
 
@@ -130,6 +131,18 @@ public class SpellCalcData {
         List<Stat> list = new ArrayList<>();
         list.add(Armor.getInstance());
         data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Armor")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithHealthAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(Health.getInstance());
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.RED + "Health")));
 
         data.baseValue = base;
 
