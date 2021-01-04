@@ -15,7 +15,7 @@
     "mana_flat"
   ],
   "possible_jewerly_stats": [
-    "critical_hit_flat"
+    "low_critical_hit_flat"
   ],
   "item_id_per_rarity": {
     "0": "mmorpg:runes/voh/0",
