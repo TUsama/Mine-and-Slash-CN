@@ -92,6 +92,8 @@ public class DimensionConfig implements ISlashRegistryEntry<DimensionConfig> {
 
     public float MOB_STRENGTH_MULTIPLIER = 1F;
 
+    public float MOB_HP_MULTIPLIER = 1F;
+
     @Override
     public SlashRegistryType getSlashRegistryType() {
         return SlashRegistryType.DIMENSION_CONFIGS;

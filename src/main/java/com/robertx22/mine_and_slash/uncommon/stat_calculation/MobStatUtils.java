@@ -80,12 +80,15 @@ public class MobStatUtils {
         for (StatData stat : unit.getStats()
             .values()) {
             stat.multiplyFlat(SlashRegistry.getDimensionConfig(world).MOB_STRENGTH_MULTIPLIER);
+            if (stat.getId()
+                    .equals(Health.GUID)) {
+                stat.multiplyFlat(SlashRegistry.getDimensionConfig(world).MOB_HP_MULTIPLIER);
+            }
         }
 
     }
 
     public static void modifyMobStatsByConfig(LivingEntity entity, UnitData unitdata) {
-
         Unit unit = unitdata.getUnit();
         ModEntityConfig config = SlashRegistry.getEntityConfig(entity, unitdata);
 
