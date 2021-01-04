@@ -32,7 +32,7 @@ public class Intelligence extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increase Mana Regen, Mana, Elemental Spell DMG";
+        return "Increase Mana and Mana Regen";
     }
 
     @Override
@@ -43,9 +43,8 @@ public class Intelligence extends BaseCoreStat {
     @Override
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
-            new ManaRegenFlat(),
-            new ManaFlat(),
-            new ElementalSpellDamageFlat(Elements.Elemental).size(StatMod.Size.LOW));
+                new ManaFlat().size(StatMod.Size.LOW),
+                new ManaRegenFlat().size(StatMod.Size.LOW));
     }
 
     @Override

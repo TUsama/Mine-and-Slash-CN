@@ -31,7 +31,7 @@ public class Vitality extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Health, Health Percent, Health Regen";
+        return "Increases Health and Health Regen";
     }
 
     @Override
@@ -43,7 +43,6 @@ public class Vitality extends BaseCoreStat {
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
             new HealthFlat().size(StatMod.Size.LOW),
-            new HealthPercent(),
             new HealthRegenFlat().size(StatMod.Size.LOW));
     }
 

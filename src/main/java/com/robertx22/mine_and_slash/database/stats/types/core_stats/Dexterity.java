@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.types.core_stats;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DodgeRatingFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.base.BaseCoreStat;
 import net.minecraft.util.text.TextFormatting;
@@ -32,7 +33,7 @@ public class Dexterity extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Critical Hit, Dodge, Armor";
+        return "Increases Critical Hit & Damage and Dodge";
     }
 
     @Override
@@ -42,7 +43,10 @@ public class Dexterity extends BaseCoreStat {
 
     @Override
     public List<StatMod> statsThatBenefit() {
-        return Arrays.asList(new CriticalHitFlat().size(StatMod.Size.LOW), new DodgeRatingFlat(), new ArmorFlat());
+        return Arrays.asList(
+                new CriticalHitFlat().size(StatMod.Size.QUARTER),
+                new CriticalDamageFlat().size(StatMod.Size.QUARTER),
+                new DodgeRatingFlat());
     }
 
     @Override

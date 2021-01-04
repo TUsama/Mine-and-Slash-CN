@@ -21,7 +21,7 @@ public class TheEmpress extends BaseMajorArcana {
     @Override
     public List<StatMod> getStats() {
         return Arrays.asList(
-            new ArmorFlat().size(StatMod.Size.HALF_MORE), new CriticalDamagePercent(), new ElementalSpellDamageFlat(Elements.Nature));
+            new ArmorFlat().size(StatMod.Size.HALF_MORE), new CriticalDamagePercent().size(StatMod.Size.LOW), new ElementalSpellDamageFlat(Elements.Nature));
     }
 
     @Override

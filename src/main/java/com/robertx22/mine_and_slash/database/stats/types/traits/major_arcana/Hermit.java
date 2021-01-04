@@ -22,7 +22,7 @@ public class Hermit extends BaseMajorArcana {
     @Override
     public List<StatMod> getStats() {
         return Arrays.asList(
-                new CoreStatFlat(Wisdom.INSTANCE), new CriticalHitFlat(),
+                new CoreStatFlat(Wisdom.INSTANCE), new CriticalHitFlat().size(StatMod.Size.LOW),
                 new ElementalSpellDamageFlat(Elements.Nature)
         );
     }

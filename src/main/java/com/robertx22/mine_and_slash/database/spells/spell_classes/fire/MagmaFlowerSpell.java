@@ -89,7 +89,7 @@ public class MagmaFlowerSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Summons a flower that attacks enemies nearby: "));
+        list.add(new SText("Summons a flower that attacks nearby enemies: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

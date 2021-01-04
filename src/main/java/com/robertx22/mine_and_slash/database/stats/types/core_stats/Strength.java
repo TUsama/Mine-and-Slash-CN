@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.database.stats.types.core_stats;
 
 import com.robertx22.mine_and_slash.database.stats.StatMod;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.ElementalAttackDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
@@ -32,7 +33,7 @@ public class Strength extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Physical DMG, Critical DMG, Elemental Attack DMG";
+        return "Increases Physical DMG and Armor";
     }
 
     @Override
@@ -42,7 +43,9 @@ public class Strength extends BaseCoreStat {
 
     @Override
     public List<StatMod> statsThatBenefit() {
-        return Arrays.asList(new PhysicalDamagePercent(), new CriticalDamageFlat(), new ElementalAttackDamagePercent(Elements.Elemental));
+        return Arrays.asList(
+                new PhysicalDamagePercent().size(StatMod.Size.LOW),
+                new ArmorFlat().size(StatMod.Size.LOW));
     }
 
     @Override

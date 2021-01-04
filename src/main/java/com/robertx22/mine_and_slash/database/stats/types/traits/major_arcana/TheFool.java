@@ -22,7 +22,7 @@ public class TheFool extends BaseMajorArcana {
     @Override
     public List<StatMod> getStats() {
         return Arrays.asList(
-                new CoreStatFlat(Dexterity.INSTANCE), new CriticalHitFlat(),
+                new CoreStatFlat(Dexterity.INSTANCE), new CriticalHitFlat().size(StatMod.Size.LOW),
                 new ElementalSpellDamageFlat(Elements.Thunder)
         );
     }
