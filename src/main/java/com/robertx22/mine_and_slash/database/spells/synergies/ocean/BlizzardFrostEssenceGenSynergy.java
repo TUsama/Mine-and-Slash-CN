@@ -27,7 +27,7 @@ public class BlizzardFrostEssenceGenSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Hits have a chance to apply: " + FrostEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply: " + FrozenEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
@@ -62,12 +62,12 @@ public class BlizzardFrostEssenceGenSynergy extends OnDamageDoneSynergy {
         if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
             .get(SC.CHANCE)
             .get(Load.spells(ctx.source), this))) {
-            PotionEffectUtils.reApplyToSelf(FrostEffect.INSTANCE, ctx.source);
+            PotionEffectUtils.reApplyToSelf(FrozenEffect.INSTANCE, ctx.source);
         }
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Chilling Rain";
+        return "Freezing Rain";
     }
 }

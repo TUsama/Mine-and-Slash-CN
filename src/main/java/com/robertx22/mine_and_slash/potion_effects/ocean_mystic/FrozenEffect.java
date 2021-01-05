@@ -64,13 +64,14 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 1, 4);
         p.set(SC.TICK_RATE, 20, 20);
+        p.set(SC.DURATION_TICKS, 120, 240);
         return p;
     }
 
     @Nullable
     @Override
     public BaseSpell getSpell() {
-        return FreezeSpell.getInstance();
+        return null;
     }
 
     @Override
