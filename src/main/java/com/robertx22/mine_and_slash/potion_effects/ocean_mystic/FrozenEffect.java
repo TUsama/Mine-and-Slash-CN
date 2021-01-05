@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.GorgonsGazeSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.FreezeSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.FrozenOrbSpell;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
@@ -48,9 +49,9 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
 
         this.tickActions.add(new OnTickAction(ctx -> {
             ParticleEnum.sendToClients(
-                ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.PETRIFY).radius(1)
+                ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.FREEZE).radius(1)
                     .type(ParticleTypes.ITEM_SNOWBALL)
-                    .amount(50));
+                    .amount(80));
 
             SoundUtils.playSound(ctx.entity, SoundEvents.BLOCK_GLASS_BREAK, 0.5F, 0.5F);
             return ctx;
@@ -61,7 +62,7 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 1, 3);
+        p.set(SC.BASE_VALUE, 1, 4);
         p.set(SC.TICK_RATE, 20, 20);
         return p;
     }
@@ -69,7 +70,7 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
     @Nullable
     @Override
     public BaseSpell getSpell() {
-        return FrozenOrbSpell.getInstance();
+        return FreezeSpell.getInstance();
     }
 
     @Override
@@ -96,8 +97,8 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
 
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent("Freezes Enemy."));
-        list.add(new StringTextComponent("Hits against the enemy deal extra damage."));
+        list.add(new StringTextComponent("Freezes enemy, preventing movement."));
+        list.add(new StringTextComponent("Attacks against the enemy deal extra frost damage: "));
         list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 
         return list;
@@ -113,7 +114,7 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
         dmg.Activate();
 
         ParticleEnum.sendToClients(
-            target, new ParticlePacketData(target.getPosition(), ParticleEnum.PETRIFY).radius(1)
+            target, new ParticlePacketData(target.getPosition(), ParticleEnum.FREEZE).radius(1)
                 .type(ParticleTypes.ITEM_SNOWBALL)
                 .amount(25));
 

@@ -72,7 +72,7 @@ public class MagmaFlowerSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(2, 2);
+        return new AbilityPlace(2, 3);
     }
 
     public static MagmaFlowerSpell getInstance() {

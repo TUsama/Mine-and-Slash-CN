@@ -5,9 +5,7 @@ import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
-import com.robertx22.mine_and_slash.potion_effects.ranger.HunterInstinctEffect;
-import com.robertx22.mine_and_slash.potion_effects.ranger.ImbueEffect;
-import com.robertx22.mine_and_slash.potion_effects.ranger.WoundsEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.*;
 import com.robertx22.mine_and_slash.potion_effects.shaman.StaticEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.ThunderEssenceEffect;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
@@ -41,6 +39,8 @@ public class PotionEffects implements ISlashRegistryInit {
             .registerToSlashRegistry();
         WoundsEffect.getInstance()
             .registerToSlashRegistry();
+        WindWalkEffect.INSTANCE.registerToSlashRegistry();
+        SilentWindEffect.INSTANCE.registerToSlashRegistry();
 
         StaticEffect.INSTANCE.registerToSlashRegistry();
         ThunderEssenceEffect.INSTANCE.registerToSlashRegistry();

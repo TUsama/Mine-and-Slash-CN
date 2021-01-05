@@ -89,7 +89,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Slows enemies by 50% per stack: "));
+        list.add(new StringTextComponent("Slows enemies by 50%."));
 
         return list;
 

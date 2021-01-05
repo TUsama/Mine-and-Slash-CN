@@ -89,7 +89,7 @@ public class ArrowBarrageSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Shoots out many arrows while casting: "));
+        list.add(new StringTextComponent("Shoots out many arrows while casting."));
         list.add(new StringTextComponent("Requires Bow/Crossbow to use: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

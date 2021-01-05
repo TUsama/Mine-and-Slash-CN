@@ -51,7 +51,7 @@ public class WizardrySpell extends BaseDivineBuffSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 1);
+        return new AbilityPlace(7, 2);
     }
 
     private static class SingletonHolder {

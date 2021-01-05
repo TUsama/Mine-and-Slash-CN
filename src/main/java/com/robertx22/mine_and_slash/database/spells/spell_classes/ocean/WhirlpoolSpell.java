@@ -43,7 +43,7 @@ public class WhirlpoolSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Water;
+                    return Elements.Elemental;
                 }
             }.summonsEntity(w -> new WhirlpoolEntity(w))
                 .setSwingArmOnCast());
@@ -70,7 +70,7 @@ public class WhirlpoolSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(2, 3);
+        return new AbilityPlace(1, 3);
     }
 
     public static WhirlpoolSpell getInstance() {

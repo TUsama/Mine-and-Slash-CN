@@ -53,7 +53,7 @@ public class IceBladeBuff extends BaseOceanBuffSpell{
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 2);
+        return new AbilityPlace(6, 2);
     }
 
     private static class SingletonHolder {

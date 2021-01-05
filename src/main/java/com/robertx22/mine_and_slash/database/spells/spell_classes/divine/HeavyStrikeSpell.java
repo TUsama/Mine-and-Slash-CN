@@ -48,12 +48,12 @@ public class HeavyStrikeSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.BLOCK_ANVIL_LAND;
+                    return SoundEvents.BLOCK_SLIME_BLOCK_PLACE;
                 }
 
                 @Override
                 public Elements element() {
-                    return Elements.Physical;
+                    return Elements.Elemental;
                 }
             }.cooldownIfCanceled(true)
                 .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
@@ -81,7 +81,7 @@ public class HeavyStrikeSpell extends BaseSpell {
             .height(2)
             .build();
 
-        SoundUtils.playSound(ctx.caster, SoundEvents.BLOCK_ANVIL_LAND, 0.8F, 0.5F);
+        SoundUtils.playSound(ctx.caster, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, 0.8F, 1.0F);
 
         for (LivingEntity en : list) {
 
@@ -99,7 +99,7 @@ public class HeavyStrikeSpell extends BaseSpell {
                 en.getPosition(), en.world,
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                     .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleTypes.INSTANT_EFFECT)
+                    .type(ParticleTypes.DUST)
                     .amount((int) (60)));
 
         }
@@ -113,21 +113,21 @@ public class HeavyStrikeSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 5, 9);
+        c.set(SC.MANA_COST, 6, 10);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.4F, 1.9F);
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.1F, 0.2F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
+        c.set(SC.COOLDOWN_TICKS, 100, 60);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 1);
+        return new AbilityPlace(4, 2);
     }
 
     @Override
@@ -140,7 +140,8 @@ public class HeavyStrikeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Attack enemies in melee: "));
+        list.add(new StringTextComponent("Converts health to damage"));
+        list.add(new StringTextComponent("enemies in melee: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

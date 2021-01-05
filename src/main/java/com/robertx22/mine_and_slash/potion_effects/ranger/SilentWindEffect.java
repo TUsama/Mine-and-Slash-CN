@@ -1,19 +1,19 @@
-package com.robertx22.mine_and_slash.potion_effects.shaman;
+package com.robertx22.mine_and_slash.potion_effects.ranger;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs.SilentWindBuff;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs.WindWalkBuff;
+import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
-import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
-import com.robertx22.mine_and_slash.potion_effects.bases.OnTickAction;
+import com.robertx22.mine_and_slash.potion_effects.bases.IOneOfATypePotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
-import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
-import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -23,28 +23,31 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaticEffect extends BasePotionEffect implements IApplyStatPotion {
+public class SilentWindEffect extends BasePotionEffect implements IApplyStatPotion, IOneOfATypePotion {
+    @Override
+    public IOneOfATypePotion.Type getOneOfATypeType() {
+        return IOneOfATypePotion.Type.HUNTING_BUFF;
+    }
 
-    public static final StaticEffect INSTANCE = new StaticEffect();
+    public static final SilentWindEffect INSTANCE = new SilentWindEffect();
 
-    private StaticEffect() {
-        super(EffectType.HARMFUL, 4393423);
+    private SilentWindEffect() {
+        super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
-        this.tickActions.add(new OnTickAction(ctx -> {
-            ParticleUtils.spawnParticles(ParticleRegister.THUNDER, ctx.entity, 50);
-            return ctx;
-        }, null));
+        this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
+                (double) -0.10F, AttributeModifier.Operation.MULTIPLY_TOTAL
+        );
     }
 
     @Override
     public String GUID() {
-        return "static";
+        return "silent_wind_effect";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Static";
+        return "Silent Wind";
     }
 
     @Override
@@ -55,39 +58,35 @@ public class StaticEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-20, new ElementalResist(Elements.Thunder)));
-        list.add(new PotionStat(-10, new ElementalResist(Elements.Nature)));
+        list.add(new PotionStat(8, CriticalHit.getInstance()));
         return list;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.TICK_RATE, 10, 10);
-        p.set(SC.DURATION_TICKS, 100, 200);
         return p;
-
     }
 
     @Nullable
     @Override
     public BaseSpell getSpell() {
-        return null;
+        return SilentWindBuff.getInstance();
     }
 
     @Override
     public Masteries getMastery() {
-        return Masteries.STORM;
+        return getSpell().getMastery();
     }
 
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Slows and reduces resistances."));
+        list.add(new StringTextComponent("Reduces movement speed by 10%."));
 
         return list;
 
     }
-
 }
+

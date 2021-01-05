@@ -69,7 +69,7 @@ public class VolcanoSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 4);
+        return new AbilityPlace(5, 5);
     }
 
     public static VolcanoSpell getInstance() {

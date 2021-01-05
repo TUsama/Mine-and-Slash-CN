@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.nature;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.druid.PetrifyEffect;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrozenEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -26,13 +27,13 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GorgonsGazeSpell extends BaseSpell {
+public class FreezeSpell extends BaseSpell {
 
-    private GorgonsGazeSpell() {
+    private FreezeSpell() {
         super(new ImmutableSpellConfigs() {
             @Override
             public Masteries school() {
-                return Masteries.NATURE;
+                return Masteries.OCEAN;
             }
 
             @Override
@@ -42,37 +43,35 @@ public class GorgonsGazeSpell extends BaseSpell {
 
             @Override
             public SoundEvent sound() {
-                return SoundEvents.ENTITY_CREEPER_PRIMED;
+                return ModSounds.FREEZE.get();
             }
 
             @Override
             public Elements element() {
-                return Elements.Nature;
+                return Elements.Water;
             }
         }.setSwingArmOnCast());
     }
 
-    public static GorgonsGazeSpell getInstance() {
+    public static FreezeSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 4);
+        return new AbilityPlace(4, 3);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 25, 35);
-        c.set(SC.BASE_VALUE, 7, 16);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.1F, 0.25F);
-        c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
-        c.set(SC.CAST_TIME_TICKS, 25, 20);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
-        c.set(SC.DURATION_TICKS, 60, 100);
-        c.set(SC.TICK_RATE, 20, 20);
+        c.set(SC.MANA_COST, 16, 24);
+        c.set(SC.BASE_VALUE, 1, 4);
+        c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
+        c.set(SC.CAST_TIME_TICKS, 60, 20);
+        c.set(SC.COOLDOWN_SECONDS, 60, 30);
+        c.set(SC.DURATION_TICKS, 120, 240);
 
         c.setMaxLevel(12);
 
@@ -81,7 +80,7 @@ public class GorgonsGazeSpell extends BaseSpell {
 
     @Override
     public String GUID() {
-        return "gorgons_gaze";
+        return "freeze";
     }
 
     @Override
@@ -89,10 +88,10 @@ public class GorgonsGazeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Turn all enemies in front of you into stone."));
+        list.add(new StringTextComponent("Target enemies in front of you."));
         list.add(new StringTextComponent("Applies: "));
 
-        list.addAll(PetrifyEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.addAll(FrozenEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         return list;
 
@@ -100,7 +99,7 @@ public class GorgonsGazeSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.GorgonsGaze;
+        return Words.Freeze;
     }
 
     @Override
@@ -110,18 +109,18 @@ public class GorgonsGazeSpell extends BaseSpell {
 
         World world = caster.world;
 
-        SoundUtils.playSound(caster, ModSounds.STONE_CRACK.get(), 1, 1);
+        SoundUtils.playSound(caster, ModSounds.FREEZE.get(), 0.5F, 0.5F);
 
         EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
             .radius(3)
-            .distance(15)
+            .distance(8)
             .finder(EntityFinder.Finder.IN_FRONT)
             .build()
-            .forEach(x -> PotionEffectUtils.apply(PetrifyEffect.INSTANCE, caster, x));
+            .forEach(x -> PotionEffectUtils.apply(FrozenEffect.INSTANCE, caster, x));
 
     }
 
     private static class SingletonHolder {
-        private static final GorgonsGazeSpell INSTANCE = new GorgonsGazeSpell();
+        private static final FreezeSpell INSTANCE = new FreezeSpell();
     }
 }

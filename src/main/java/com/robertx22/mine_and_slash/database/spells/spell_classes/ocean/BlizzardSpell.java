@@ -72,7 +72,7 @@ public class BlizzardSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 5);
+        return new AbilityPlace(3, 5);
     }
 
     @Override

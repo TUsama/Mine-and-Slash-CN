@@ -59,11 +59,11 @@ public class SpearOfJudgementSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 10, 25);
-        c.set(SC.BASE_VALUE, 4, 11);
+        c.set(SC.MANA_COST, 12, 18);
+        c.set(SC.BASE_VALUE, 6, 15);
         c.set(SC.ATTACK_SCALE_VALUE, 0.5F, 0.75F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 32, 22);
+        c.set(SC.COOLDOWN_SECONDS, 24, 14);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.SHOOT_SPEED, 1.8F, 3.0F);
         c.set(SC.DURATION_TICKS, 100, 120);
@@ -77,7 +77,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(3, 3);
+        return new AbilityPlace(3, 5);
     }
 
     @Override

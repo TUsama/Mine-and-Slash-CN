@@ -96,8 +96,8 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
 
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent("Petrifies Enemy."));
-        list.add(new StringTextComponent("If attacked, does extra damage, but stops effect."));
+        list.add(new StringTextComponent("Petrifies the enemy, preventing movement."));
+        list.add(new StringTextComponent("Next attack does extra damage but stops effect: "));
         list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 
         return list;

@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
@@ -12,20 +12,20 @@ import net.minecraft.util.text.StringTextComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseDivineBuffSpell extends BaseSpell {
+public abstract class BaseHuntingBuffSpell extends BaseSpell {
 
-    public BaseDivineBuffSpell(ImmutableSpellConfigs configs) {
+    public BaseHuntingBuffSpell(ImmutableSpellConfigs configs) {
         super(configs.setSwingArmOnCast());
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 35, 45);
-        c.set(SC.CAST_TIME_TICKS, 160, 220);
-        c.set(SC.COOLDOWN_SECONDS, 120, 90);
-        c.set(SC.DURATION_TICKS, 600 * 20, 900 * 20);
-        c.set(SC.RADIUS, 6, 10);
+        c.set(SC.MANA_COST, 18, 26);
+        c.set(SC.CAST_TIME_TICKS, 100, 100);
+        c.set(SC.COOLDOWN_SECONDS, 60, 45);
+        c.set(SC.DURATION_TICKS, 180 * 20, 300 * 20);
+        c.set(SC.RADIUS, 3, 6);
 
         c.setMaxLevel(12);
         return c;
@@ -36,12 +36,12 @@ public abstract class BaseDivineBuffSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Applies aura to all nearby allies: "));
+        list.add(new StringTextComponent("Applies wind to all nearby allies: "));
 
         list.addAll(getImmutableConfigs().potionEffect()
             .GetTooltipStringWithNoExtraSpellInfo(info));
 
-        list.add(new StringTextComponent("Only one Divine aura is allowed at a time! "));
+        list.add(new StringTextComponent("Only one Hunting wind is allowed at a time!"));
 
         return list;
 

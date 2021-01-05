@@ -7,6 +7,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.T
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.WizardrySpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.*;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs.SilentWindBuff;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs.WindWalkBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.FrostShieldBuff;
@@ -38,13 +40,14 @@ public class Spells implements ISlashRegistryInit {
 
                     add(FrostballSpell.getInstance());
                     add(WhirlpoolSpell.getInstance());
-                    //add(HeartOfIceSpell.getInstance());
+                    add(HeartOfIceSpell.getInstance());
                     add(TidalWaveSpell.getInstance());
                     add(BlizzardSpell.getInstance());
                     add(FrozenOrbSpell.getInstance());
                     add(FrostShieldBuff.getInstance());
                     add(NourishmentBuff.getInstance());
                     add(IceBladeBuff.getInstance());
+                    add(FreezeSpell.getInstance());
 
                     add(NatureBalmSpell.getInstance());
                     add(GorgonsGazeSpell.getInstance());
@@ -72,6 +75,8 @@ public class Spells implements ISlashRegistryInit {
                     add(MultiShotSpell.getInstance());
                     add(ImbueSpell.getInstance());
                     add(ArrowStormSpell.getInstance());
+                    add(WindWalkBuff.getInstance());
+                    add(SilentWindBuff.getInstance());
                     add(DashSpell.getInstance());
                     add(HeavyStrikeSpell.getInstance());
                     add(GroundSlamSpell.getInstance());

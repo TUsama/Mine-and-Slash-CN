@@ -47,6 +47,22 @@ public enum ParticleEnum {
             }
         }
     },
+
+    FREEZE() {
+        @Override
+        public void activate(ParticlePacketData data, World world) {
+            Vec3d center = getCenter(data);
+
+            for (int i = 0; i < data.amount; i++) {
+                Vec3d p = GeometryUtils.randomPos(center, world.rand, data.radius);
+                Vec3d m = GeometryUtils.randomMotion(center, world.rand);
+
+                world.addParticle(new BlockParticleData(ParticleTypes.BLOCK, Blocks.PACKED_ICE.getDefaultState()), p.x, p.y,
+                        p.z, m.x, m.y, m.z
+                );
+            }
+        }
+    },
     AOE() {
         @Override
         public void activate(ParticlePacketData data, World world) {

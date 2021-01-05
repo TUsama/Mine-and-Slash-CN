@@ -1,5 +1,6 @@
 package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean;
 
+import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
@@ -8,13 +9,19 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
+import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
+import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
@@ -46,16 +53,18 @@ public class HeartOfIceSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Water;
                 }
-            }.setSwingArmOnCast());
+            }.cooldownIfCanceled(true).setSwingArmOnCast());
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 15, 24);
-        c.set(SC.BASE_VALUE, 40, 200);
-        c.set(SC.CAST_TIME_TICKS, 30, 15);
-        c.set(SC.COOLDOWN_SECONDS, 45, 30);
+        c.set(SC.MANA_COST, 12, 18);
+        c.set(SC.BASE_VALUE, 4, 18);
+        c.set(SC.RADIUS, 6, 12);
+        c.set(SC.CAST_TIME_TICKS, 60, 60);
+        c.set(SC.TIMES_TO_CAST, 3, 5);
+        c.set(SC.COOLDOWN_SECONDS, 40, 30);
 
         c.setMaxLevel(12);
 
@@ -64,7 +73,7 @@ public class HeartOfIceSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(6, 0);
+        return new AbilityPlace(7, 4);
     }
 
     public static HeartOfIceSpell getInstance() {
@@ -81,7 +90,7 @@ public class HeartOfIceSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Restores health to caster: "));
+        list.add(new StringTextComponent("Heal allies around you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -98,9 +107,41 @@ public class HeartOfIceSpell extends BaseSpell {
     public void castExtra(SpellCastContext ctx) {
         try {
             //SoundUtils.playSound(ctx.caster, ModSounds.FREEZE.get(), 1, 1);
-            ParticleUtils.spawnParticles(ParticleRegister.BUBBLE, ctx.caster, 40);
+            ParticleUtils.spawnParticles(ParticleRegister.BUBBLE, ctx.caster, 80);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        float RADIUS = ctx.getConfigFor(this)
+                .get(SC.RADIUS)
+                .get(ctx.spellsCap, this);
+
+        List<LivingEntity> list = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
+                .finder(EntityFinder.Finder.RADIUS)
+                .radius(RADIUS)
+                .searchFor(EntityFinder.SearchFor.ALLIES)
+                .build();
+
+        for (LivingEntity en : list) {
+
+            int num = ctx.getConfigFor(this)
+                    .getCalc(ctx.spellsCap, this)
+                    .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+
+            SpellUtils.heal(this, en, num);
+
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(RADIUS)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.ITEM_SNOWBALL)
+                            .amount((int) (90)));
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(RADIUS)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.HEART)
+                            .amount((int) (45)));
         }
 
     }

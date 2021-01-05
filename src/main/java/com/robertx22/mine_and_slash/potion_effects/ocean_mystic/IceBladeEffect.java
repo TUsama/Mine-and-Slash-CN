@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.potion_effects.ocean_mystic;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.BraverySpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.IceBladeBuff;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
@@ -61,7 +62,7 @@ public class IceBladeEffect extends BasePotionEffect implements IApplyStatPotion
     @Nullable
     @Override
     public BaseSpell getSpell() {
-        return BraverySpell.getInstance();
+        return IceBladeBuff.getInstance();
     }
 
     @Override

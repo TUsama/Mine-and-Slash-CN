@@ -21,13 +21,13 @@ public abstract class BaseOceanBuffSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 15, 25);
-        c.set(SC.CAST_TIME_TICKS, 80, 40);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
-        c.set(SC.DURATION_TICKS, 10 * 20, 20 * 20);
+        c.set(SC.MANA_COST, 9, 16);
+        c.set(SC.CAST_TIME_TICKS, 30, 15);
+        c.set(SC.COOLDOWN_SECONDS, 45, 30);
+        c.set(SC.DURATION_TICKS, 20 * 20, 30 * 20);
         c.set(SC.RADIUS, 4, 6);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
         return c;
     }
 
@@ -36,7 +36,7 @@ public abstract class BaseOceanBuffSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Applies buff to all allies nearby: "));
+        list.add(new StringTextComponent("Applies buff to all nearby allies: "));
 
         list.addAll(getImmutableConfigs().potionEffect()
             .GetTooltipStringWithNoExtraSpellInfo(info));

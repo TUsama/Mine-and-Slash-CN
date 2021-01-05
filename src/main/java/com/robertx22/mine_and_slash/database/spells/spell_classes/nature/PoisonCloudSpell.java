@@ -77,7 +77,7 @@ public class PoisonCloudSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(1, 6);
+        return new AbilityPlace(1,5);
     }
 
     public static PoisonCloudSpell getInstance() {
@@ -94,7 +94,7 @@ public class PoisonCloudSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Applies thorns to enemies around you: "));
+        list.add(new SText("Applies Thorns to enemies around you: "));
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
         return list;

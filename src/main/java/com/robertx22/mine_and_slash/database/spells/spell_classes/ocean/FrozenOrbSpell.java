@@ -70,7 +70,7 @@ public class FrozenOrbSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 6);
+        return new AbilityPlace(1, 6);
     }
 
     public static FrozenOrbSpell getInstance() {

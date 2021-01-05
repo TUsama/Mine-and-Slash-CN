@@ -75,7 +75,7 @@ public class ThrowFlamesSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 1);
+        return new AbilityPlace(4, 2);
     }
 
     @Override

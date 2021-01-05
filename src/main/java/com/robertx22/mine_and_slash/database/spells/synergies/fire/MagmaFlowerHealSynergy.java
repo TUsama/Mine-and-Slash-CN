@@ -24,7 +24,7 @@ public class MagmaFlowerHealSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Restores health to the caster: "));
+        list.add(new StringTextComponent("Also restores health: "));
 
         list.addAll(getCalc(Load.spells(info.player))
             .GetTooltipString(info, Load.spells(info.player), this));

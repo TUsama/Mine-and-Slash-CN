@@ -450,11 +450,11 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
                     });
 
                 if (school.getEffectiveLevel(spells) > data.getLevel()) {
-                    list.add(new SText(TextFormatting.RED + "Effective stat bonus is capped at player level."));
+                    list.add(new SText(TextFormatting.RED + "Effective stat bonus is capped based on player level."));
                 }
 
                 if (data.getLevel() < Masteries.LVL_TO_UNLOCK_2ND_SCHOOL) {
-                    list.add(new SText(TextFormatting.GOLD + "You can unlock a 2nd school of magic at lvl " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL));
+                    list.add(new SText(TextFormatting.GOLD + "You can unlock a 2nd school of magic at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL));
 
                 }
 

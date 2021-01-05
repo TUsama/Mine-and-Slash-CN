@@ -1,5 +1,15 @@
 3.8.8:
+* You will need to reset your skills after updating to this version!
+* The goal of the following changes was to offset some of the power players were getting from raw stats. Now, it is more encouraged to split into two trees. Especially since there are more buffs available now.
 * Core stats have been reworked. They now give much less benefits than previously.
+* Ocean Tree and Divine Tree have been reworked heavily.
+* Hunting Tree now has 2 new buffs known as "Winds", you can activate only one of them at a time.
+* Heart of Ice has been completely changed. It now works more like the old Healing Aura from the Divine Tree, which has also been reworked into a spammable.
+* New Frozen effect that can be applied by a new Ocean skill - Arctic Breath. Frozen enemies take additional damage when basic attacked and cannot move.
+* Heavy Strike has been changed to Martyrdom - it now scales off of HP instead of weapon damage.
+* Ground Slam has been changed to Retribution - it now scales off of armor instead of weapon damage.
+* Too many changes for Ocean Tree... TL;DR there are new buff skills and healing has been changed to heal over time.
+* Some tooltip clarifications have been made.
 * Casting spells no longer damages the item you are holding.
 * Repair values have been ever so slightly increased. Common ore is still bad.
 * Fixed localization error on Crystal of Ascension.
@@ -8,8 +18,9 @@
 * Reduced effectiveness of penetration slightly.
 * Reduced the power of Fire Bombs and Burn effect by about 25-33%.
 * Reduced the power of ball spells and Thunder Spear very slightly.
-* Divine auras now require a mastery of at least 5 to learn. They have had their values shifted slightly, as well.
+* Divine auras now require a varying mastery levels. They have had their values shifted slightly, as well.
 * Added an HP multiplier config to dimension configs.
+* There have been other minor adjustments that have not been logged.
 
 3.8.7:
 * Reduced mana cost and cooldown of Whirlwind, and very slightly reduced damage scaling.

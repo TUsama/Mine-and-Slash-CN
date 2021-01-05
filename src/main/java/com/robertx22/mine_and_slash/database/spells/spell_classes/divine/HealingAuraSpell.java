@@ -51,7 +51,7 @@ public class HealingAuraSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Elemental;
                 }
-            }.cooldownIfCanceled(true)
+            }.setSwingArmOnCast()
         );
     }
 
@@ -95,11 +95,11 @@ public class HealingAuraSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 6, 13);
-        c.set(SC.BASE_VALUE, 8, 32);
-        c.set(SC.CAST_TIME_TICKS, 80, 60);
-        c.set(SC.COOLDOWN_SECONDS, 40, 15);
-        c.set(SC.TIMES_TO_CAST, 4, 4);
+        c.set(SC.MANA_COST, 4, 9);
+        c.set(SC.BASE_VALUE, 2, 7);
+        c.set(SC.CAST_TIME_TICKS, 20, 10);
+        c.set(SC.COOLDOWN_SECONDS, 5, 3);
+        c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.RADIUS, 3, 5);
 
         c.setMaxLevel(12);
@@ -113,7 +113,7 @@ public class HealingAuraSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(2, 1);
+        return new AbilityPlace(0, 0);
     }
 
     @Override

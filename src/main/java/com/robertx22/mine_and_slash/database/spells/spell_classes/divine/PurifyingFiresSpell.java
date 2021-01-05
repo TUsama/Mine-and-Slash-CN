@@ -127,7 +127,7 @@ public class PurifyingFiresSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(2, 0);
     }
 
     @Override

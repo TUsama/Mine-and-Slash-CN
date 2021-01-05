@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.synergies.divine;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.GroundSlamSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.PurifyingFiresSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
@@ -38,7 +39,7 @@ public class HolySpearSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 3, 10);
+        c.set(SC.CHANCE, 15, 30);
         c.setMaxLevel(8);
         return c;
     }
@@ -58,12 +59,12 @@ public class HolySpearSynergy extends OnDamageDoneSynergy {
 
     @Override
     public Place getSynergyPlace() {
-        return Place.THIRD;
+        return Place.FIRST;
     }
 
     @Override
     public IAbility getRequiredAbility() {
-        return PurifyingFiresSpell.getInstance();
+        return GroundSlamSpell.getInstance();
     }
 
     @Override

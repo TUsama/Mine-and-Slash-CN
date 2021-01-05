@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.Blizzard
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrostEffect;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrozenEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -67,6 +68,6 @@ public class BlizzardFrostEssenceGenSynergy extends OnDamageDoneSynergy {
 
     @Override
     public String locNameForLangFile() {
-        return "Freezing Rain";
+        return "Chilling Rain";
     }
 }

@@ -57,15 +57,15 @@ public class HolyFlowerSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 10, 20);
+        c.set(SC.MANA_COST, 14, 26);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
-        c.set(SC.BASE_VALUE, 4, 26);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 90, 45);
-        c.set(SC.TICK_RATE, 30, 20);
-        c.set(SC.RADIUS, 4F, 6);
-        c.set(SC.DURATION_TICKS, 160, 240);
+        c.set(SC.BASE_VALUE, 12, 24);
+        c.set(SC.CAST_TIME_TICKS, 20, 0);
+        c.set(SC.COOLDOWN_SECONDS, 90, 60);
+        c.set(SC.TICK_RATE, 30, 15);
+        c.set(SC.RADIUS, 4, 8);
+        c.set(SC.DURATION_TICKS, 200, 300);
 
         c.setMaxLevel(12);
         return c;
@@ -86,7 +86,7 @@ public class HolyFlowerSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Summons a flower that heals allies nearby."));
+        list.add(new SText("Summons a flower that heals nearby allies:"));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

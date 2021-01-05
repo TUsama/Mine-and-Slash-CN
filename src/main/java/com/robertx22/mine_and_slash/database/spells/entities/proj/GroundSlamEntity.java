@@ -34,7 +34,7 @@ public class GroundSlamEntity extends BaseElementalBoltEntity {
     @Override
     public void initSpellEntity() {
         this.setNoGravity(false);
-        this.setDeathTime(40);
+        this.setDeathTime(60);
     }
 
     public GroundSlamEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
@@ -44,12 +44,12 @@ public class GroundSlamEntity extends BaseElementalBoltEntity {
     @OnlyIn(Dist.CLIENT)
     @Override
     public ItemStack getItem() {
-        return new ItemStack(Items.AIR);
+        return new ItemStack(Items.IRON_BLOCK);
     }
 
     @Override
     public Elements element() {
-        return Elements.Physical;
+        return Elements.Elemental;
     }
 
     @Override
@@ -64,8 +64,8 @@ public class GroundSlamEntity extends BaseElementalBoltEntity {
         if (world.isRemote) {
             if (this.ticksExisted > 2) {
                 for (int i = 0; i < 10; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.1F);
-                    ParticleUtils.spawn(ParticleRegister.THUNDER, world, p);
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.2F);
+                    ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
                 }
                 if (ticksExisted % 5 == 0) {
                     ParticleUtils.spawn(ParticleTypes.EXPLOSION, world, getPositionVec());

@@ -49,6 +49,7 @@ public enum Words implements IAutoLocName {
     Fireball("Fireball"), FireBomb("Fire Bombs"),
     PoisonBall("Poison Ball"),
     Frostball("Frostball"), FrozenOrb("Ice Orb"), FrostShield("Frost Shield"),
+    Freeze("Freeze"),
     Nourishment("Nourishment"), IceBlade("Ice Blade"),
     ThunderSpear("Thunder Spear"),
     ThunderDash("Thunder Dash"), TripleSlash("Triple Slash"), Dash("Dash"),
@@ -85,6 +86,7 @@ public enum Words implements IAutoLocName {
     Great("Great"),
     Amazing("Amazing"),
     CurrencyCrate("Crafter's Paradise Crate"),
+    SilentWind("Silent Wind"),
     RuneCrate("Runecrafter's Crate"),
     CartographerCrate("Cartographer's Crate"),
     CommonerCrate("Commoner's Dream Crate"),
@@ -159,6 +161,7 @@ public enum Words implements IAutoLocName {
     Jewerly("Jewerly"),
     Offhand("Offhand"),
     RunesNeeded("Runes needed"),
+    WindWalk("Wind Walk"),
 
     Item_modifiable_in_station("Can be used inside Modify Station"),
     unlocks_runeword_combo("Unlocks RuneWord combination."),

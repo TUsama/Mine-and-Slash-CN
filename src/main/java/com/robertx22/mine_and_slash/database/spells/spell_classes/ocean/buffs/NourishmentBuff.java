@@ -51,7 +51,7 @@ public class NourishmentBuff extends BaseOceanBuffSpell{
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 0);
+        return new AbilityPlace(4, 0);
     }
 
     private static class SingletonHolder {
