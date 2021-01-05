@@ -18,7 +18,7 @@
 * Reduced effectiveness of penetration slightly.
 * Reduced the power of Fire Bombs and Burn effect by about 25-33%.
 * Reduced the power of ball spells and Thunder Spear very slightly.
-* Divine auras now require a varying mastery levels. They have had their values shifted slightly, as well.
+* Divine auras now require varying mastery levels. They have had their values shifted slightly, as well.
 * Added an HP multiplier config to dimension configs.
 * There have been other minor adjustments that have not been logged.
 
