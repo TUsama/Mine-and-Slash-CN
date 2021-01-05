@@ -64,7 +64,7 @@ public class ThrowFlamesSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 0.45F, 0.75F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 60, 50);
-        c.set(SC.COOLDOWN_SECONDS, 20, 10);
+        c.set(SC.COOLDOWN_SECONDS, 14, 10);
         c.set(SC.DURATION_TICKS, 100, 120);
         c.set(SC.TIMES_TO_CAST, 3, 3);
 

@@ -58,9 +58,9 @@ public class NatureBalmSpell extends BaseSpell {
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.CAST_TIME_TICKS, 30, 20);
         c.set(SC.COOLDOWN_SECONDS, 60, 45);
-        c.set(SC.DURATION_TICKS, 20 * 15, 20 * 25);
+        c.set(SC.DURATION_TICKS, 20 * 10, 20 * 15);
         c.set(SC.TICK_RATE, 30, 20);
-        c.set(SC.BASE_VALUE, 8, 20);
+        c.set(SC.BASE_VALUE, 6, 16);
 
         c.setMaxLevel(14);
         return c;

@@ -59,7 +59,7 @@ public class FrozenOrbSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 0.2F, 0.2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 60, 40);
-        c.set(SC.COOLDOWN_SECONDS, 50, 35);
+        c.set(SC.COOLDOWN_SECONDS, 36, 30);
         c.set(SC.TICK_RATE, 10, 5);
         c.set(SC.DURATION_TICKS, 240, 320);
 
