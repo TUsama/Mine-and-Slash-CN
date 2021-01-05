@@ -3,6 +3,7 @@
 * Ball + Thunder Spear spells have been slightly readjusted again, their early game effectiveness has been improved.
 * The above changes also mean that you will see slightly less benefits to putting points into one spell, but is still useful to do so. It encourages branching out as well!
 * Silent Wind movement speed reduction has been lowered.
+* Nature's Balm has been reduced in effectiveness.
 
 3.8.8:
 * You will need to reset your skills after updating to this version!
