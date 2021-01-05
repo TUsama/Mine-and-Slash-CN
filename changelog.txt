@@ -2,10 +2,10 @@
 * You will need to reset your skills after updating to this version!
 * The goal of the following changes was to offset some of the power players were getting from raw stats. Now, it is more encouraged to split into two trees. Especially since there are more buffs available now.
 * Core stats have been reworked. They now give much less benefits than previously.
-* Ocean Tree and Divine Tree have been reworked heavily.
+* Ocean Tree and Divine Tree have been reworked heavily, there are 4 new skills for the Ocean Tree!
 * Hunting Tree now has 2 new buffs known as "Winds", you can activate only one of them at a time.
 * Heart of Ice has been completely changed. It now works more like the old Healing Aura from the Divine Tree, which has also been reworked into a spammable.
-* New Frozen effect that can be applied by a new Ocean skill - Arctic Breath. Frozen enemies take additional damage when basic attacked and cannot move.
+* New Frozen effect that can be applied by a new Ocean skill - Arctic Breath (including Blizzard). Frozen enemies take additional damage when basic attacked and cannot move.
 * Heavy Strike has been changed to Martyrdom - it now scales off of HP instead of weapon damage.
 * Ground Slam has been changed to Retribution - it now scales off of armor instead of weapon damage.
 * Too many changes for Ocean Tree... TL;DR there are new buff skills and healing has been changed to heal over time.
