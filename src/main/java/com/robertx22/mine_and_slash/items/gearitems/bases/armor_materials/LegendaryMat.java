@@ -9,7 +9,7 @@ public class LegendaryMat extends BaseMat {
 
     @Override
     public int getDurability(EquipmentSlotType slotIn) {
-        return 1250;
+        return 1800;
     }
 
     @Override

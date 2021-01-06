@@ -9,7 +9,7 @@ public class UniqueMat extends BaseMat {
 
     @Override
     public int getDurability(EquipmentSlotType slotIn) {
-        return 1500;
+        return 2000;
     }
 
     @Override

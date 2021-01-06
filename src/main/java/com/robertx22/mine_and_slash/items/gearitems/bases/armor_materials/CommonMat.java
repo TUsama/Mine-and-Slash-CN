@@ -9,7 +9,7 @@ public class CommonMat extends BaseMat {
 
     @Override
     public int getDurability(EquipmentSlotType slotIn) {
-        return 700;
+        return 1200;
     }
 
     @Override

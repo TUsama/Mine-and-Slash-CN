@@ -11,6 +11,8 @@
 * Fixed some localization typos and made some stats/skills more clear. "Judgment" is now spelled correctly, yay!
 * Plate gear now also provides armor.
 * Leather gear provides a bit less HP.
+* Increased durability of equipment by a lot, especially at lower rarities.
+* Vanilla ores provide a little more fuel than they used to.
 
 3.8.10:
 * Added a new Hunting Skill: Hunter's Potion, instantly recover % HP on a long cooldown.

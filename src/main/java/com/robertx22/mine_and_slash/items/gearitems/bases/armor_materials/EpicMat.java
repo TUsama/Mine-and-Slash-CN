@@ -9,7 +9,7 @@ public class EpicMat extends BaseMat {
 
     @Override
     public int getDurability(EquipmentSlotType slotIn) {
-        return 1000;
+        return 1600;
     }
 
     @Override

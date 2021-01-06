@@ -9,7 +9,7 @@ public class RareMat extends BaseMat {
 
     @Override
     public int getDurability(EquipmentSlotType slotIn) {
-        return 900;
+        return 1400;
     }
 
     @Override
