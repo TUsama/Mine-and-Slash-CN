@@ -16,7 +16,7 @@ public abstract class BaseArmor extends GearItemSlot {
 
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
-        return Arrays.asList(new PosStats(new HealthFlat(), new ArmorFlat().size(StatMod.Size.HALF)));
+        return Arrays.asList(new PosStats(new ArmorFlat().size(StatMod.Size.HALF), new HealthFlat()));
     }
 
     @Override

@@ -137,6 +137,8 @@ public class StatMods implements ISlashRegistryInit {
                     add(new LifeOnHitPercent());
                     add(new ManaFlat());
                     add(new ManaOnHitFlat());
+                    add(new SpellStealFlat());
+                    add(new SpellStealPercent());
                     // Resources
 
                     add(new ArmorPercent());

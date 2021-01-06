@@ -45,11 +45,15 @@ public class PerkEffects {
     public static PerkEffectsWrapper ENERGY_REGEN_PERCENT;
     public static PerkEffectsWrapper MAGIC_SHIELD_REGEN_PERCENT;
     public static PerkEffectsWrapper PHYSICAL_DMG;
+    public static PerkEffectsWrapper SPELLSTEAL;
+    public static PerkEffectsWrapper SPELLSTEAL_PERCENT;
+    public static PerkEffectsWrapper LIFESTEAL;
+    public static PerkEffectsWrapper LIFESTEAL_PERCENT;
 
     // COMBINED EFFECTS
     public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG;
     public static PerkEffectsWrapper INT_WIS, STR_CRIT_DMG, ENE_ENE_REGEN, STA_DEX, DODGE_ENE_REGEN, DODGE_ENE;
-    public static PerkEffectsWrapper HP_HP_REGEN, PHYS_DMG_CRIT_DMG, PHYS_DMG_CRIT_HIT, MANA_MANA_REGEN;
+    public static PerkEffectsWrapper HP_HP_REGEN, PHYS_DMG_CRIT_DMG, PHYS_DMG_CRIT_HIT, MANA_MANA_REGEN, LIFE_SPELL_STEAL;
 
     public static HashMap<WeaponTypes, PerkEffectsWrapper> WEP_DMG_MAP = new HashMap<>();
     public static HashMap<WeaponTypes, PerkEffectsWrapper> WEP_ELE_DMG_MAP = new HashMap<>();
@@ -74,6 +78,14 @@ public class PerkEffects {
             "crit_dmg", CriticalDamage.getInstance(), new ExactStatData(3, StatModTypes.Flat, CriticalDamage.GUID));
         BLOCK_PERCENT = PerkEffectBuilder.build(
             "block_percent", BlockStrength.INSTANCE, new ExactStatData(3, StatModTypes.Percent, BlockStrength.GUID));
+        SPELLSTEAL = PerkEffectBuilder.build(
+                "spellsteal", SpellSteal.getInstance(), new ExactStatData(0.5F, StatModTypes.Flat, SpellSteal.GUID));
+        SPELLSTEAL_PERCENT = PerkEffectBuilder.build(
+                "spellsteal_percent", SpellSteal.getInstance(), new ExactStatData(5, StatModTypes.Percent, SpellSteal.GUID));
+        LIFESTEAL = PerkEffectBuilder.build(
+                "lifesteal", Lifesteal.getInstance(), new ExactStatData(0.5F, StatModTypes.Flat, Lifesteal.GUID));
+        LIFESTEAL_PERCENT = PerkEffectBuilder.build(
+                "lifesteal_percent", Lifesteal.getInstance(), new ExactStatData(5, StatModTypes.Percent, Lifesteal.GUID));
 
         int core_amount = 1;
 
@@ -131,7 +143,7 @@ public class PerkEffects {
             WEP_ELE_DMG_MAP.put(
                 wep, PerkEffectBuilder.build(wep.name()
                         .toLowerCase(Locale.ROOT) + "_ele_dmg_percent", EleWepDmg.MAP.get(wep),
-                    new ExactStatData(wepDmg, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
+                    new ExactStatData(wepDmg + 1, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
                 ));
 
         }
@@ -210,6 +222,7 @@ public class PerkEffects {
         DODGE_ENE_REGEN = PerkEffectBuilder.build(
             "dodge_ene_regen", DODGE_PERCENT.small(), ENERGY_REGEN_PERCENT.small());
         DODGE_ENE = PerkEffectBuilder.build("dodge_ene", DODGE_PERCENT.small(), ENERGY_PERCENT.small());
+        LIFE_SPELL_STEAL = PerkEffectBuilder.build("life_spell_steal", LIFESTEAL.small(), SPELLSTEAL.small());
 
     }
 

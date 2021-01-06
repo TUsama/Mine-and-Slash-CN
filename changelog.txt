@@ -1,12 +1,15 @@
 3.8.11:
-* Reduced early game effectiveness of Martyrdom.
-* Increased early game effectiveness of Retribution.
-* Plate gear now also provides armor.
-* Lifesteal now also applies to spells! But it steals at half the amount. Still though, lifesteal on spells!
+* New stat: Spell Lifesteal! Lifesteal, but for spells!
+* Added lifesteal and spell lifesteal nodes to the tree.
+* Chaos stat "Judgment" now provides spell lifesteal, and the "thirst of" affixes provide a minor amount of spell lifesteal instead of lifesteal.
 * Increased crit hit and damage percents and multis, flat values are still the same.
 * Nature's Balm has had its values readjusted again (buff).
-* Regeneration and healing on health now applies to blood at 75% effectiveness instead of 50%.
 * Flat physical damage values have been lowered, but percent has been increased. This means physical will about 20% less damage early game, but investing into physical damage will improve it about 30% more.
+* Reduced early game effectiveness of Martyrdom.
+* Increased early game effectiveness of Retribution.
+* Fixed some localization typos and made some stats/skills more clear. "Judgment" is now spelled correctly, yay!
+* Plate gear now also provides armor.
+* Leather gear provides a bit less HP.
 
 3.8.10:
 * Added a new Hunting Skill: Hunter's Potion, instantly recover % HP on a long cooldown.

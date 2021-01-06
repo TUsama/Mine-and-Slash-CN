@@ -156,6 +156,7 @@ public class Stats implements ISlashRegistryInit {
                     add(EnergyRegen.getInstance());
                     add(MagicShield.getInstance());
                     add(MagicShieldRegen.getInstance());
+                    add(SpellSteal.getInstance());
                     // Resources
 
                     add(new BlockStrength());

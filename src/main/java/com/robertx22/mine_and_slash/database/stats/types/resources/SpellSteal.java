@@ -2,17 +2,18 @@ package com.robertx22.mine_and_slash.database.stats.types.resources;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.resource.LifestealEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.resource.SpellStealEffect;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 import net.minecraft.util.text.TextFormatting;
 
-public class Lifesteal extends Stat implements IStatEffects {
+public class SpellSteal extends Stat implements IStatEffects {
 
-    public static String GUID = "lifesteal";
+    public static String GUID = "spellsteal";
 
-    public static Lifesteal getInstance() {
+    public static SpellSteal getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
@@ -28,7 +29,7 @@ public class Lifesteal extends Stat implements IStatEffects {
 
     @Override
     public String getIconPath() {
-        return "resource/lifesteal";
+        return "resource/spellsteal";
     }
 
     @Override
@@ -38,15 +39,15 @@ public class Lifesteal extends Stat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Percent of basic attack DMG added to health";
+        return "Percent of spell DMG added to health";
     }
 
     @Override
     public IStatEffect getEffect() {
-        return new LifestealEffect();
+        return new SpellStealEffect();
     }
 
-    private Lifesteal() {
+    private SpellSteal() {
     }
 
     @Override
@@ -71,10 +72,10 @@ public class Lifesteal extends Stat implements IStatEffects {
 
     @Override
     public String locNameForLangFile() {
-        return "Lifesteal";
+        return "Spellsteal";
     }
 
     private static class SingletonHolder {
-        private static final Lifesteal INSTANCE = new Lifesteal();
+        private static final SpellSteal INSTANCE = new SpellSteal();
     }
 }
