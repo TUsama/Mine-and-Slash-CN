@@ -6,8 +6,8 @@
   "rank": -1,
   "loc_name_internal": "Unique",
   "spawn_durability_hit": {
-    "min": 40,
-    "max": 60
+    "min": 50,
+    "max": 70
   },
   "text_formatting": "YELLOW",
   "affix_chance": 0,

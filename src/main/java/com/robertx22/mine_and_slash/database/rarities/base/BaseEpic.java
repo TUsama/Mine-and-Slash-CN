@@ -24,7 +24,7 @@ public abstract class BaseEpic implements Rarity {
 
     @Override
     public MinMax SpawnDurabilityHit() {
-        return new MinMax(35, 55);
+        return new MinMax(45, 65);
     }
 
     @Override

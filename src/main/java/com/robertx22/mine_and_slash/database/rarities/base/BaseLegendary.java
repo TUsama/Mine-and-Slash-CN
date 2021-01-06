@@ -30,7 +30,7 @@ public abstract class BaseLegendary implements Rarity {
 
     @Override
     public MinMax SpawnDurabilityHit() {
-        return new MinMax(40, 60);
+        return new MinMax(50, 70);
     }
 
     @Override

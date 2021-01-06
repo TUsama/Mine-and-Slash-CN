@@ -6,8 +6,8 @@
   "rank": 3,
   "loc_name_internal": "Epic",
   "spawn_durability_hit": {
-    "min": 35,
-    "max": 55
+    "min": 45,
+    "max": 65
   },
   "text_formatting": "LIGHT_PURPLE",
   "affix_chance": 80,

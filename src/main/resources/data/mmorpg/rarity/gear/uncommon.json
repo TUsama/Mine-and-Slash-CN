@@ -6,8 +6,8 @@
   "rank": 1,
   "loc_name_internal": "Uncommon",
   "spawn_durability_hit": {
-    "min": 25,
-    "max": 45
+    "min": 35,
+    "max": 55
   },
   "text_formatting": "GREEN",
   "affix_chance": 15,

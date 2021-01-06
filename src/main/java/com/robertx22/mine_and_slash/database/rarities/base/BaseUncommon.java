@@ -28,7 +28,7 @@ public abstract class BaseUncommon implements Rarity {
 
     @Override
     public MinMax SpawnDurabilityHit() {
-        return new MinMax(25, 45);
+        return new MinMax(35, 55);
     }
 
     @Override
