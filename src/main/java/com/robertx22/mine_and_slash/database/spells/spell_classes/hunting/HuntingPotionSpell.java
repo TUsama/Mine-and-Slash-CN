@@ -47,12 +47,14 @@ public class HuntingPotionSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Elemental;
                 }
-            }.setSwingArmOnCast());
+            });
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.set(SC.MANA_COST, 0, 0);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.35F, 0.5F);
         c.set(SC.COOLDOWN_SECONDS, 120, 120);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
@@ -98,7 +100,7 @@ public class HuntingPotionSpell extends BaseSpell {
     public void castExtra(SpellCastContext ctx) {
         try {
             //SoundUtils.playSound(ctx.caster, ModSounds.FREEZE.get(), 1, 1);
-            ParticleUtils.spawnParticles(ParticleTypes.HEART, ctx.caster, 160);
+            ParticleUtils.spawnParticles(ParticleTypes.HEART, ctx.caster, 80);
         } catch (Exception e) {
             e.printStackTrace();
         }
