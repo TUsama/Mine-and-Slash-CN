@@ -6,7 +6,6 @@
 * Increased crit hit and damage percents and multis, flat values are still the same.
 * Nature's Balm has had its values readjusted again (buff).
 * Flat physical damage values have been lowered, but percent has been increased. This means physical will about 20% less damage early game, but investing into physical damage will improve it about 30% more.
-* Reduced early game effectiveness of Martyrdom.
 * Increased early game effectiveness of Retribution.
 * Fixed some localization typos and made some stats/skills more clear. "Judgment" is now spelled correctly, yay!
 * Plate gear now also provides armor.
@@ -14,6 +13,7 @@
 * Increased durability of equipment, especially at lower rarities.
 * Lessened the effect of gear damage on loot drop at lower levels. You will still definitely feel this at higher levels.
 * Vanilla ores provide a little more fuel than they used to.
+* Setting tiers in the Dimension Config should work now.
 
 3.8.10:
 * Added a new Hunting Skill: Hunter's Potion, instantly recover % HP on a long cooldown.

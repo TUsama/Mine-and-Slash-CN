@@ -125,7 +125,7 @@ public class DimensionConfig implements ISlashRegistryEntry<DimensionConfig> {
     }
 
     public boolean isMapWorld() {
-        return MAP_TIER > 0;
+        return false;
     }
 
     public BlockPos getSpawnPos(World world) {

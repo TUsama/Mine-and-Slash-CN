@@ -89,9 +89,9 @@ public class PerkEffects {
         LIFESTEAL_PERCENT = PerkEffectBuilder.build(
                 "lifesteal_percent", Lifesteal.getInstance(), new ExactStatData(5, StatModTypes.Percent, Lifesteal.GUID));
         SPELLSTEAL_HALF = PerkEffectBuilder.build(
-                "spellsteal", SpellSteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, SpellSteal.GUID));
+                "spellsteal_half", SpellSteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, SpellSteal.GUID));
         LIFESTEAL_HALF = PerkEffectBuilder.build(
-                "lifesteal", Lifesteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, Lifesteal.GUID));
+                "lifesteal_half", Lifesteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, Lifesteal.GUID));
 
         int core_amount = 1;
 
