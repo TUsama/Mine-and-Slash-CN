@@ -43,7 +43,7 @@ public class Wisdom extends BaseCoreStat {
     @Override
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
-                new MagicShieldPercent().size(StatMod.Size.LOW),
+                new MagicShieldPercent(),
                 new MagicShieldRegenFlat().size(StatMod.Size.LOW));
     }
 

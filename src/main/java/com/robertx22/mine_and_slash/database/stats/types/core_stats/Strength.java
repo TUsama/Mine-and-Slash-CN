@@ -45,7 +45,7 @@ public class Strength extends BaseCoreStat {
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
                 new PhysicalDamagePercent().size(StatMod.Size.LOW),
-                new ArmorFlat().size(StatMod.Size.LOW));
+                new ArmorFlat());
     }
 
     @Override

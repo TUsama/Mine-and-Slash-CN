@@ -74,6 +74,7 @@ public class Spells implements ISlashRegistryInit {
                     add(RecoilShotSpell.getInstance());
                     add(MultiShotSpell.getInstance());
                     add(ImbueSpell.getInstance());
+                    add(HuntingPotionSpell.getInstance());
                     add(ArrowStormSpell.getInstance());
                     add(WindWalkBuff.getInstance());
                     add(SilentWindBuff.getInstance());

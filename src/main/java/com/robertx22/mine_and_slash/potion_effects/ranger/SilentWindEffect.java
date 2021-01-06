@@ -58,7 +58,7 @@ public class SilentWindEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(8, CriticalHit.getInstance()));
+        list.add(new PotionStat(10, CriticalHit.getInstance()));
         return list;
     }
 

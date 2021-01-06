@@ -45,7 +45,7 @@ public class Dexterity extends BaseCoreStat {
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
                 new CriticalHitFlat().size(StatMod.Size.QUARTER),
-                new CriticalDamageFlat().size(StatMod.Size.QUARTER),
+                new CriticalDamageFlat().size(StatMod.Size.HALF),
                 new DodgeRatingFlat());
     }
 

@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.ArmorPercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.base.BaseCoreStat;
 import net.minecraft.util.text.TextFormatting;
@@ -32,7 +33,7 @@ public class Stamina extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Energy and Energy Regen";
+        return "Increases Health, Energy, and Energy Regen";
     }
 
     @Override
@@ -43,6 +44,7 @@ public class Stamina extends BaseCoreStat {
     @Override
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
+                new HealthFlat().size(StatMod.Size.QUARTER),
                 new EnergyFlat().size(StatMod.Size.LOW),
                 new EnergyRegenFlat().size(StatMod.Size.LOW));
     }

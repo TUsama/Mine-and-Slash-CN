@@ -1,28 +1,30 @@
 package com.robertx22.mine_and_slash.database.spells.spell_classes.hunting;
 
-import com.robertx22.mine_and_slash.database.spells.entities.cloud.ArrowStormEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrowStormSpell extends BaseSpell {
+public class HuntingPotionSpell extends BaseSpell {
 
-    private ArrowStormSpell() {
+    private HuntingPotionSpell() {
         super(
             new ImmutableSpellConfigs() {
 
@@ -33,53 +35,45 @@ public class ArrowStormSpell extends BaseSpell {
 
                 @Override
                 public SpellCastType castType() {
-                    return SpellCastType.AT_SIGHT;
+                    return SpellCastType.SELF_HEAL;
                 }
 
                 @Override
                 public SoundEvent sound() {
-                    return null;
+                    return SoundEvents.ENTITY_WANDERING_TRADER_DRINK_POTION;
                 }
 
                 @Override
                 public Elements element() {
                     return Elements.Elemental;
                 }
-
-            }.summonsEntity(world -> new ArrowStormEntity(world))
-                .addCastRequirement(SpellPredicates.REQUIRE_SHOOTABLE));
+            }.setSwingArmOnCast());
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.35F, 0.5F);
+        c.set(SC.COOLDOWN_SECONDS, 120, 120);
+        c.set(SC.CDR_EFFICIENCY, 0, 0);
 
-        c.set(SC.MANA_COST, 25, 34);
-        c.set(SC.BASE_VALUE, 5, 9);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.4F, 2.3F);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
-        c.set(SC.TICK_RATE, 15, 5);
-        c.set(SC.RADIUS, 3, 5);
-        c.set(SC.DURATION_TICKS, 120, 200);
-
-        c.setMaxLevel(12);
+        c.setMaxLevel(4);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(6, 5);
+        return new AbilityPlace(2, 3);
     }
 
-    public static ArrowStormSpell getInstance() {
+    public static HuntingPotionSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "arrow_storm";
+        return "hunting_potion";
     }
 
     @Override
@@ -87,7 +81,7 @@ public class ArrowStormSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Summons an arrow storm, dealing damage with each arrow: "));
+        list.add(new StringTextComponent("Heal yourself instantly: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -97,10 +91,20 @@ public class ArrowStormSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.ArrowStorm;
+        return Words.HuntingPotion;
+    }
+
+    @Override
+    public void castExtra(SpellCastContext ctx) {
+        try {
+            //SoundUtils.playSound(ctx.caster, ModSounds.FREEZE.get(), 1, 1);
+            ParticleUtils.spawnParticles(ParticleTypes.HEART, ctx.caster, 160);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static class SingletonHolder {
-        private static final ArrowStormSpell INSTANCE = new ArrowStormSpell();
+        private static final HuntingPotionSpell INSTANCE = new HuntingPotionSpell();
     }
 }

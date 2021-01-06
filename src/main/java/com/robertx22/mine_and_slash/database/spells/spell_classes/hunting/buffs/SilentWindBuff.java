@@ -52,7 +52,7 @@ public class SilentWindBuff extends BaseHuntingBuffSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(2, 6);
+        return new AbilityPlace(2, 5);
     }
 
     private static class SingletonHolder {

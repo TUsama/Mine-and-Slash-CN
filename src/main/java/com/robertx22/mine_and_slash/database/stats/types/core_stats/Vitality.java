@@ -42,7 +42,7 @@ public class Vitality extends BaseCoreStat {
     @Override
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
-            new HealthFlat().size(StatMod.Size.LOW),
+            new HealthFlat(),
             new HealthRegenFlat().size(StatMod.Size.LOW));
     }
 
