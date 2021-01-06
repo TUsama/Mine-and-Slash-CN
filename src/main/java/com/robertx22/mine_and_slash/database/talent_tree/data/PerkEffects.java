@@ -49,6 +49,8 @@ public class PerkEffects {
     public static PerkEffectsWrapper SPELLSTEAL_PERCENT;
     public static PerkEffectsWrapper LIFESTEAL;
     public static PerkEffectsWrapper LIFESTEAL_PERCENT;
+    public static PerkEffectsWrapper SPELLSTEAL_HALF;
+    public static PerkEffectsWrapper LIFESTEAL_HALF;
 
     // COMBINED EFFECTS
     public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG;
@@ -86,6 +88,10 @@ public class PerkEffects {
                 "lifesteal", Lifesteal.getInstance(), new ExactStatData(0.5F, StatModTypes.Flat, Lifesteal.GUID));
         LIFESTEAL_PERCENT = PerkEffectBuilder.build(
                 "lifesteal_percent", Lifesteal.getInstance(), new ExactStatData(5, StatModTypes.Percent, Lifesteal.GUID));
+        SPELLSTEAL_HALF = PerkEffectBuilder.build(
+                "spellsteal", SpellSteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, SpellSteal.GUID));
+        LIFESTEAL_HALF = PerkEffectBuilder.build(
+                "lifesteal", Lifesteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, Lifesteal.GUID));
 
         int core_amount = 1;
 
@@ -222,7 +228,7 @@ public class PerkEffects {
         DODGE_ENE_REGEN = PerkEffectBuilder.build(
             "dodge_ene_regen", DODGE_PERCENT.small(), ENERGY_REGEN_PERCENT.small());
         DODGE_ENE = PerkEffectBuilder.build("dodge_ene", DODGE_PERCENT.small(), ENERGY_PERCENT.small());
-        LIFE_SPELL_STEAL = PerkEffectBuilder.build("life_spell_steal", LIFESTEAL.small(), SPELLSTEAL.small());
+        LIFE_SPELL_STEAL = PerkEffectBuilder.build("life_spell_steal", LIFESTEAL_HALF.small(), SPELLSTEAL_HALF.small());
 
     }
 

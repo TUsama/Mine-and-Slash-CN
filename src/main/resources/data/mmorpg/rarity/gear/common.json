@@ -6,8 +6,8 @@
   "rank": 0,
   "loc_name_internal": "Common",
   "spawn_durability_hit": {
-    "min": 60,
-    "max": 80
+    "min": 20,
+    "max": 40
   },
   "text_formatting": "GRAY",
   "affix_chance": 0,

@@ -6,8 +6,8 @@
   "rank": 4,
   "loc_name_internal": "Legendary",
   "spawn_durability_hit": {
-    "min": 90,
-    "max": 95
+    "min": 40,
+    "max": 60
   },
   "text_formatting": "GOLD",
   "affix_chance": 100,

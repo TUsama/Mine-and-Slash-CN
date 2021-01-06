@@ -23,11 +23,11 @@ public class LootUtils {
 
             float lvlDuraPenalty; // easier at low lvls, harder at later
             if (level < 10) {
-                lvlDuraPenalty = -0.1F;
+                lvlDuraPenalty = -0.15F;
             } else if (level < 30) {
                 lvlDuraPenalty = 0;
             } else {
-                lvlDuraPenalty = 0.2F;
+                lvlDuraPenalty = 0.15F;
             }
 
             float dmgMulti = (float) RandomUtils.RandomRange(

@@ -11,7 +11,8 @@
 * Fixed some localization typos and made some stats/skills more clear. "Judgment" is now spelled correctly, yay!
 * Plate gear now also provides armor.
 * Leather gear provides a bit less HP.
-* Increased durability of equipment by a lot, especially at lower rarities.
+* Increased durability of equipment, especially at lower rarities.
+* Lessened the effect of gear damage on drop. You will still feel this at higher levels.
 * Vanilla ores provide a little more fuel than they used to.
 
 3.8.10:
