@@ -20,11 +20,7 @@ public class LifestealEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-        float healed = ((float) data.getAverageValue() * effect.number / 100);
-
-        if (effect.getEffectType().equals(EffectTypes.SPELL)){
-            healed *= 0.5F;
-        }
+        float healed = Math.min(1F, (float) data.getAverageValue() * effect.number / 100);
 
         effect.healthHealed += healed;
 

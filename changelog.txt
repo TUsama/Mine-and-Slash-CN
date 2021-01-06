@@ -1,6 +1,7 @@
 3.8.11:
 * New stat: Spell Lifesteal! Lifesteal, but for spells!
 * Added lifesteal and spell lifesteal nodes to the tree.
+* Life/spell lifesteal now has a minimum of 1. So even if you do 6 damage with 1% lifesteal, you will still heal 1 HP.
 * Chaos stat "Judgment" now provides spell lifesteal, and the "thirst of" affixes provide a minor amount of spell lifesteal instead of lifesteal.
 * Increased crit hit and damage percents and multis, flat values are still the same.
 * Nature's Balm has had its values readjusted again (buff).
