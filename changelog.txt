@@ -5,6 +5,7 @@
 * Changed the max level of some Hunting skills.
 * You now can unlock the Wind spells 5 mastery levels earlier.
 * Improved the Wind spells.
+* Reduced cooldown of Retribution.
 
 3.8.9:
 * An issue with skill rotation was that it required too many points into other secondary skills (Fire Bombs, Charged Nova, etc.) in order for them to be even useful. The initial cooldowns were too great, but were more or less fine at max level. To combat this, level 1 cooldowns for almost ALL spells has been reduced significantly, and max level cooldown remains more or less untouched.
