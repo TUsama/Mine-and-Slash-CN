@@ -9,12 +9,12 @@ public class CriticalHitMulti extends StatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 4;
     }
 
     @Override
     public float Max() {
-        return 6;
+        return 8;
     }
 
     @Override

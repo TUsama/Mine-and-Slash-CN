@@ -1,3 +1,13 @@
+3.8.11:
+* Reduced early game effectiveness of Martyrdom.
+* Increased early game effectiveness of Retribution slightly.
+* Plate gear now also provides armor.
+* Lifesteal now also applies to spells! But it steals at half the amount. Still though, lifesteal on spells!
+* Increased crit hit and damage percents and multis, flat values are still the same.
+* Nature's Balm has had its values readjusted again (buff).
+* Regeneration and healing on health now applies to blood at 75% effectiveness instead of 50%.
+* Flat physical damage values have been lowered, but percent has been increased. This means physical will about 20% less damage early game, but investing into physical damage will improve it about 20% more.
+
 3.8.10:
 * Added a new Hunting Skill: Hunter's Potion, instantly recover % HP on a long cooldown.
 * I went a little too far, re-added some benefits to the core stats.

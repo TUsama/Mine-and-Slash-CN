@@ -99,7 +99,7 @@ public abstract class GearItemSlot implements IWeighted, IAutoLocName, ISlashReg
     }
 
     public List<PosStats> leatherPrimary() {
-        return Arrays.asList(new PosStats(new DodgeRatingFlat(), new HealthFlat().size(StatMod.Size.LOW)));
+        return Arrays.asList(new PosStats(new DodgeRatingFlat(), new HealthFlat().size(StatMod.Size.HALF)));
     }
 
     public List<PosStats> eleDmgs() {

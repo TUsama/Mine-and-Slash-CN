@@ -12,22 +12,22 @@ public class PhysicalDamageFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 3;
     }
 
     @Override
     public float Max() {
-        return 6;
-    }
-
-    @Override
-    public float minSecond() {
         return 5;
     }
 
     @Override
+    public float minSecond() {
+        return 4;
+    }
+
+    @Override
     public float maxSecond() {
-        return 11;
+        return 9;
     }
 
     @Override
