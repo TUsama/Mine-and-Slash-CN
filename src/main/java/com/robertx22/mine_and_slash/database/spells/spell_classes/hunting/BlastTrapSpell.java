@@ -1,6 +1,7 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.divine;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.hunting;
 
-import com.robertx22.mine_and_slash.database.spells.entities.proj.GroundSlamEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.proj.BlastTrapEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.proj.SnareTrapEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
@@ -20,15 +21,15 @@ import net.minecraft.util.text.StringTextComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroundSlamSpell extends BaseSpell {
+public class BlastTrapSpell extends BaseSpell {
 
-    private GroundSlamSpell() {
+    private BlastTrapSpell() {
         super(
             new ImmutableSpellConfigs() {
 
                 @Override
                 public Masteries school() {
-                    return Masteries.DIVINE;
+                    return Masteries.HUNTING;
                 }
 
                 @Override
@@ -38,7 +39,7 @@ public class GroundSlamSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.BLOCK_ANVIL_PLACE;
+                    return SoundEvents.BLOCK_TRIPWIRE_CLICK_ON;
                 }
 
                 @Override
@@ -46,42 +47,41 @@ public class GroundSlamSpell extends BaseSpell {
                     return Elements.Physical;
                 }
             }.cooldownIfCanceled(true)
-                    .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
-                    .summonsEntity(w -> new GroundSlamEntity(w))
-                    .setSwingArmOnCast());
+                .summonsEntity(w -> new BlastTrapEntity(w))
+                .setSwingArmOnCast());
+    }
+
+    public static BlastTrapSpell getInstance() {
+        return SingletonHolder.INSTANCE;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 14, 20);
+        c.set(SC.MANA_COST, 13, 19);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.5F, 0.8F);
-        c.set(SC.SHOOT_SPEED, 1.2F, 1.6F);
-        c.set(SC.PROJECTILE_COUNT, 3, 5);
+        c.set(SC.ATTACK_SCALE_VALUE, 3.0F, 4.0F);
+        c.set(SC.SHOOT_SPEED, 1.4F, 2F);
+        c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 240, 160);
-        c.set(SC.TIMES_TO_CAST, 1, 1);
-        c.set(SC.DURATION_TICKS, 40, 60);
+        c.set(SC.COOLDOWN_SECONDS, 18, 14);
+        c.set(SC.DURATION_TICKS, 200, 300);
+        c.set(SC.RADIUS, 1.5F, 3.0F);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }
 
-    public static GroundSlamSpell getInstance() {
-        return SingletonHolder.INSTANCE;
-    }
-
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 3);
+        return new AbilityPlace(7, 0);
     }
 
     @Override
     public String GUID() {
-        return "ground_slam";
+        return "blast_trap";
     }
 
     @Override
@@ -89,8 +89,8 @@ public class GroundSlamSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Converts armor to damage, retribute"));
-        list.add(new StringTextComponent("to damage enemies in front of you: "));
+        list.add(new StringTextComponent("Throw out a trap that explodes,"));
+        list.add(new StringTextComponent("dealing AOE damage: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -100,10 +100,10 @@ public class GroundSlamSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.GroundSlam;
+        return Words.BlastTrap;
     }
 
     private static class SingletonHolder {
-        private static final GroundSlamSpell INSTANCE = new GroundSlamSpell();
+        private static final BlastTrapSpell INSTANCE = new BlastTrapSpell();
     }
 }

@@ -41,6 +41,8 @@ public class PotionEffects implements ISlashRegistryInit {
             .registerToSlashRegistry();
         WindWalkEffect.INSTANCE.registerToSlashRegistry();
         SilentWindEffect.INSTANCE.registerToSlashRegistry();
+        SnareEffect.INSTANCE.registerToSlashRegistry();
+        WeakenEffect.INSTANCE.registerToSlashRegistry();
 
         StaticEffect.INSTANCE.registerToSlashRegistry();
         ThunderEssenceEffect.INSTANCE.registerToSlashRegistry();

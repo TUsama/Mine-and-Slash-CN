@@ -1,3 +1,11 @@
+3.8.12:
+* New Hunting skills: Snare Trap, Blast Trap, Enfeeble Trap.
+* Martyrdom and Retribution have been changed to physical damage type.
+* True Hit now grants a 25% Crit Chance Multiplier rather than 20% Crit Damage Multiplier.
+* Whirlwind base scaling values have been reduced at earlier levels but remains similar to what it was before at max level.
+* Fixed Poison Cloud spamming console.
+* Spell effects such as Burn now show the appropriate element (fire in this case).
+
 3.8.11:
 * New stat: Spell Lifesteal! Lifesteal, but for spells!
 * Added lifesteal and spell lifesteal nodes to the tree.

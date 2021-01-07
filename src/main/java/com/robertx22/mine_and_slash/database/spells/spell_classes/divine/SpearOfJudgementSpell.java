@@ -92,7 +92,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
 
         list.add(new StringTextComponent("Converts Weapon DMG to Thunder and"));
         list.add(new StringTextComponent("throws out a spear that deals damage"));
-        list.add(new StringTextComponent("which applies Judgement: "));
+        list.add(new StringTextComponent("which applies Judgment: "));
 
         list.addAll(JudgementEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 

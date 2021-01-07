@@ -72,6 +72,11 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
     }
 
     @Override
+    public Elements getElement(){
+        return Elements.Fire;
+    }
+
+    @Override
     public String locNameForLangFile() {
         return "Burn";
     }

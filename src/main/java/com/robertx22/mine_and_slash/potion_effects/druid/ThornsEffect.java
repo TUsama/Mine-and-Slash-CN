@@ -72,6 +72,11 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     }
 
     @Override
+    public Elements getElement(){
+        return Elements.Nature;
+    }
+
+    @Override
     public int getMaxStacks() {
         return 1;
     }

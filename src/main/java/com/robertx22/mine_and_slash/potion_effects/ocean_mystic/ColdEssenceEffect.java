@@ -43,6 +43,11 @@ public class ColdEssenceEffect extends BasePotionEffect implements IApplyStatPot
     }
 
     @Override
+    public Elements getElement(){
+        return Elements.Water;
+    }
+
+    @Override
     public int getMaxStacks() {
         return 1;
     }

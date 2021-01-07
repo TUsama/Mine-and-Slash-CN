@@ -1,7 +1,7 @@
 package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
 import com.robertx22.mine_and_slash.database.stats.effects.game_changers.HalveNonCritDmgEffect;
-import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.StatModTypes;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
@@ -40,7 +40,7 @@ public class TrueHit extends BaseGameChangerTrait implements IStatEffects {
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-            new ExactStatData(20, StatModTypes.Multi, CriticalDamage.getInstance())
+            new ExactStatData(25, StatModTypes.Multi, CriticalHit.getInstance())
         );
     }
 

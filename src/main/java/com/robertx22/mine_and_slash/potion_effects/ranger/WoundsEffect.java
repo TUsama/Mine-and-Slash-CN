@@ -81,6 +81,11 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
     }
 
     @Override
+    public Elements getElement(){
+        return Elements.Elemental;
+    }
+
+    @Override
     public int getMaxStacks() {
         return 1;
     }

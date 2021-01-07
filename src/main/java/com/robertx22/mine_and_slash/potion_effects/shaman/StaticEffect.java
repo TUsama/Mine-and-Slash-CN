@@ -48,6 +48,11 @@ public class StaticEffect extends BasePotionEffect implements IApplyStatPotion {
     }
 
     @Override
+    public Elements getElement(){
+        return Elements.Thunder;
+    }
+
+    @Override
     public int getMaxStacks() {
         return 1;
     }
@@ -83,9 +88,6 @@ public class StaticEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-
-        list.add(new StringTextComponent("Slows and reduces resistances."));
-
         return list;
 
     }

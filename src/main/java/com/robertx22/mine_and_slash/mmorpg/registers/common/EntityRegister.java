@@ -72,6 +72,9 @@ public class EntityRegister {
 
     public static final EntityType<RangerArrowEntity> RANGER_ARROW;
     public static final EntityType<? extends Entity> ARROW_STORM;
+    public static final EntityType<? extends Entity> SNARE_TRAP;
+    public static final EntityType<? extends Entity> WEAKEN_TRAP;
+    public static final EntityType<? extends Entity> BLAST_TRAP;
 
     public static final EntityType<? extends Entity> DIVINE_TRIBULATION;
 
@@ -106,6 +109,9 @@ public class EntityRegister {
 
         RANGER_ARROW = projectile(RangerArrowEntity::new, RangerArrowEntity::new, "ranger_arrow");
         ARROW_STORM = projectile(ArrowStormEntity::new, ArrowStormEntity::new, "arrow_storm");
+        SNARE_TRAP = projectile(SnareTrapEntity::new, SnareTrapEntity::new, "snare_trap");
+        WEAKEN_TRAP = projectile(WeakenTrapEntity::new, WeakenTrapEntity::new, "weaken_trap");
+        BLAST_TRAP = projectile(BlastTrapEntity::new, BlastTrapEntity::new, "blast_trap");
 
         DIVINE_TRIBULATION = projectile(DivineTribulationEntity::new, DivineTribulationEntity::new, "divine_tribulation");
 

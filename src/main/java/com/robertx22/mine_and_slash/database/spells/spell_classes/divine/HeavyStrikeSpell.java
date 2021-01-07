@@ -53,7 +53,7 @@ public class HeavyStrikeSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Elemental;
+                    return Elements.Physical;
                 }
             }.cooldownIfCanceled(true)
                 .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)

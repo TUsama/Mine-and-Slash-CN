@@ -44,6 +44,11 @@ public class ThunderEssenceEffect extends BasePotionEffect implements IApplyStat
     }
 
     @Override
+    public Elements getElement(){
+        return Elements.Thunder;
+    }
+
+    @Override
     public int getMaxStacks() {
         return 1;
     }

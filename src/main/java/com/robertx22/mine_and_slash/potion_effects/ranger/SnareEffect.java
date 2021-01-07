@@ -1,11 +1,9 @@
-package com.robertx22.mine_and_slash.potion_effects.ocean_mystic;
+package com.robertx22.mine_and_slash.potion_effects.ranger;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.GorgonsGazeSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.FreezeSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.FrozenOrbSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.SnareTrapSpell;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
@@ -35,11 +33,11 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPotion {
+public class SnareEffect extends BasePotionEffect {
 
-    public static final FrozenEffect INSTANCE = new FrozenEffect();
+    public static final SnareEffect INSTANCE = new SnareEffect();
 
-    private FrozenEffect() {
+    private SnareEffect() {
         super(EffectType.HARMFUL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
@@ -49,11 +47,11 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
 
         this.tickActions.add(new OnTickAction(ctx -> {
             ParticleEnum.sendToClients(
-                ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.FREEZE).radius(1)
-                    .type(ParticleTypes.ITEM_SNOWBALL)
-                    .amount(80));
+                ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.PETRIFY).radius(1)
+                    .type(ParticleTypes.CRIT)
+                    .amount(50));
 
-            SoundUtils.playSound(ctx.entity, SoundEvents.BLOCK_GLASS_BREAK, 0.5F, 0.5F);
+            SoundUtils.playSound(ctx.entity, SoundEvents.BLOCK_GRASS_STEP, 0.8F, 1.0F);
             return ctx;
         }, null));
 
@@ -62,36 +60,35 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 1, 4);
         p.set(SC.TICK_RATE, 20, 20);
-        p.set(SC.DURATION_TICKS, 120, 240);
+        p.set(SC.DURATION_TICKS, 240, 320);
         return p;
     }
 
     @Nullable
     @Override
     public BaseSpell getSpell() {
-        return null;
+        return SnareTrapSpell.getInstance();
     }
 
     @Override
     public Masteries getMastery() {
-        return Masteries.OCEAN;
+        return Masteries.HUNTING;
     }
 
     @Override
     public String GUID() {
-        return "frozen";
+        return "snare";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Frozen";
+        return "Snared";
     }
 
     @Override
     public Elements getElement(){
-        return Elements.Water;
+        return Elements.Physical;
     }
 
     @Override
@@ -103,28 +100,8 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
 
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent("Freezes enemy, preventing movement."));
-        list.add(new StringTextComponent("Attacks against the enemy deal extra frost damage: "));
-        list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
+        list.add(new StringTextComponent("Snares enemy, preventing movement."));
 
         return list;
-    }
-
-    @Override
-    public void onBasicAttacked(EffectInstance instance, LivingEntity source, LivingEntity target) {
-
-        int num = getCalc(source).getCalculatedValue(Load.Unit(source), Load.spells(source), this);
-
-        DamageEffect dmg = new DamageEffect(null, source, target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-        dmg.element = Elements.Water;
-        dmg.Activate();
-
-        ParticleEnum.sendToClients(
-            target, new ParticlePacketData(target.getPosition(), ParticleEnum.FREEZE).radius(1)
-                .type(ParticleTypes.ITEM_SNOWBALL)
-                .amount(25));
-
-        target.playSound(SoundEvents.BLOCK_GLASS_BREAK, 0.5F, 0.5F);
-
     }
 }

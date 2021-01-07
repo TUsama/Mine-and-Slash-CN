@@ -55,6 +55,11 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
     }
 
     @Override
+    public Elements getElement(){
+        return Elements.Water;
+    }
+
+    @Override
     public int getMaxStacks() {
         return 1;
     }
