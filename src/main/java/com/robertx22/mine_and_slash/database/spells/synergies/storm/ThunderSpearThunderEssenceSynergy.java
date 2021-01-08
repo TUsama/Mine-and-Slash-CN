@@ -64,6 +64,6 @@ public class ThunderSpearThunderEssenceSynergy extends OnDamageDoneSynergy {
 
     @Override
     public String locNameForLangFile() {
-        return "Spear Thunder Essence";
+        return "Spear Lightning Essence";
     }
 }
