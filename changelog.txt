@@ -6,6 +6,7 @@
 * Fixed Poison Cloud spamming console.
 * Spell effects such as Burn now show the appropriate element (fire in this case).
 * Added back buttons to the GUI where appropriate. No more pressing ESC and then H!
+* Party commands now provide text feedback.
 
 3.8.11:
 * New stat: Spell Lifesteal! Lifesteal, but for spells!

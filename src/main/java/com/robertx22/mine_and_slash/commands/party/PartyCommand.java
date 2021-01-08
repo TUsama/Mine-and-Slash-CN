@@ -9,6 +9,7 @@ import net.minecraft.command.Commands;
 import net.minecraft.command.arguments.EntityArgument;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,19 +30,20 @@ public class PartyCommand {
                                     .asPlayer();
                                 if (TeamCap.getCapability()
                                     .isPlayerInATeam(player)) {
-                                    ITextComponent text = new SText("Party List: ");
+                                    ITextComponent text = new SText(TextFormatting.GREEN + "Party List: ");
                                     List<ITextComponent> list = TeamCap.getCapability()
                                         .getPlayersInTeam(player)
                                         .stream()
                                         .map(x -> x.getDisplayName())
                                         .collect(Collectors.toList());
+                                    list.forEach(x -> x.appendText(" "));
                                     list.forEach(x -> text.appendSibling(x));
 
                                     player
                                         .sendMessage(text);
                                 } else {
                                     player
-                                        .sendMessage(new SText("You aren't in a team."));
+                                        .sendMessage(new SText(TextFormatting.GREEN + "You aren't in a party."));
                                 }
                             } catch (CommandSyntaxException e) {
                                 e.printStackTrace();
@@ -54,6 +56,7 @@ public class PartyCommand {
                                 .asPlayer();
                             TeamCap.getCapability()
                                 .createTeam(player);
+                            player.sendMessage(new SText(TextFormatting.GREEN + "Party created."));
                             return 0;
                         }))
                         .then(literal("leave").executes(c -> {
@@ -62,6 +65,7 @@ public class PartyCommand {
                                 .asPlayer();
                             TeamCap.getCapability()
                                 .leaveTeam(player);
+                            player.sendMessage(new SText(TextFormatting.GREEN + "You are no longer in a party."));
                             return 0;
                         }))
                         .then(literal("join").then(Commands.argument("target", EntityArgument.player())
@@ -73,6 +77,9 @@ public class PartyCommand {
                                 TeamCap.ITeamData cap = TeamCap.getCapability();
                                 cap.joinTeam(player, cap.getTeamId(player2));
 
+                                player.sendMessage(new SText(player2.getDisplayName() + "" + TextFormatting.GREEN + " has joined the party."));
+                                player2.sendMessage(new SText(TextFormatting.GREEN + "You have joined the party."));
+
                                 return 0;
                             })))
                         .then(literal("invite").then(Commands.argument("target", EntityArgument.player())
@@ -82,6 +89,11 @@ public class PartyCommand {
                                 ServerPlayerEntity player2 = EntityArgument.getPlayer(c, "target");
                                 TeamCap.ITeamData cap = TeamCap.getCapability();
                                 cap.invite(player2, cap.getTeamId(player));
+
+                                player.sendMessage(new SText(TextFormatting.GREEN + "You have invited " + player2.getDisplayName() + "."));
+                                player2.sendMessage(new SText(player.getDisplayName() + "" + TextFormatting.GREEN + " has invited you to join their party."));
+                                player2.sendMessage(new SText(TextFormatting.GREEN + "Type" +
+                                        " '/slash party join " + player.getDisplayName() + "'" + TextFormatting.GREEN + " to accept."));
 
                                 return 0;
                             })))
