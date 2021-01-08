@@ -56,7 +56,8 @@ public class PartyCommand {
                                 .asPlayer();
                             TeamCap.getCapability()
                                 .createTeam(player);
-                            player.sendMessage(new SText(TextFormatting.GREEN + "Party created."));
+                            player.sendMessage(new SText(TextFormatting.GREEN + "Party created. You may now invite players to your party."));
+                            player.sendMessage(new SText(TextFormatting.RED + "Note: you must also use /team as party functionality is currently split."));
                             return 0;
                         }))
                         .then(literal("leave").executes(c -> {
