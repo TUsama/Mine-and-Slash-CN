@@ -7,6 +7,8 @@ import com.robertx22.mine_and_slash.gui.bases.BaseScreen;
 import com.robertx22.mine_and_slash.gui.bases.INamedScreen;
 import com.robertx22.mine_and_slash.gui.screens.bestiary.groups.BestiaryGroup;
 import com.robertx22.mine_and_slash.gui.screens.bestiary.groups.UniqueGearBestiary;
+import com.robertx22.mine_and_slash.gui.screens.main_hub.MainHubScreen;
+import com.robertx22.mine_and_slash.gui.screens.spell_hotbar_setup.SpellHotbatSetupScreen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.localization.CLOC;
@@ -62,6 +64,8 @@ public class BestiaryScreen extends BaseScreen implements INamedScreen {
     @Override
     protected void init() {
         super.init();
+
+        addButton(new BackButton(guiLeft, guiTop - BackButton.ySize));
 
         this.level = Load.Unit(mc.player)
             .getLevel();
@@ -323,6 +327,28 @@ public class BestiaryScreen extends BaseScreen implements INamedScreen {
                 BestiaryScreen.this.renderTooltip(item.stack, x, y);
             }
         }
+    }
+
+    static ResourceLocation BACK_BUTTON = new ResourceLocation(
+            Ref.MODID, "textures/gui/spell_schools/back_button.png");
+
+    static class BackButton extends ImageButton {
+        public static int xSize = 26;
+        public static int ySize = 16;
+
+        public BackButton(int xPos, int yPos) {
+            super(xPos, yPos, xSize, ySize, 0, 0, ySize + 1, BACK_BUTTON, (button) -> {
+                Minecraft.getInstance()
+                        .displayGuiScreen(new MainHubScreen());
+
+            });
+        }
+
+        @Override
+        public void renderButton(int x, int y, float ticks) {
+            super.renderButton(x, y, ticks);
+        }
+
     }
 
 }

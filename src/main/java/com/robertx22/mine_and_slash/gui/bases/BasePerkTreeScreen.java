@@ -5,10 +5,13 @@ import com.robertx22.mine_and_slash.database.talent_tree.BasePerk;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkConnection;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkScreenContext;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkType;
+import com.robertx22.mine_and_slash.gui.screens.main_hub.MainHubScreen;
+import com.robertx22.mine_and_slash.gui.screens.stat_allocation_screen.StatAllocationScreen;
 import com.robertx22.mine_and_slash.gui.screens.talent_tree_gui.PerkButton;
 import com.robertx22.mine_and_slash.gui.screens.talent_tree_gui.PerkConnectionRender;
 import com.robertx22.mine_and_slash.mmorpg.CapSyncCheck;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
+import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.packets.sync_cap.PlayerCaps;
 import com.robertx22.mine_and_slash.packets.sync_cap.RequestSyncCapToClient;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -21,6 +24,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArraySet;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.Widget;
+import net.minecraft.client.gui.widget.button.ImageButton;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.StringTextComponent;
@@ -93,7 +97,6 @@ public abstract class BasePerkTreeScreen<T extends BasePerk, D extends BasePerks
     @Override
     public void init(Minecraft mc, int x, int y) {
         super.init(mc, x, y);
-
     }
 
     public void refresh() {

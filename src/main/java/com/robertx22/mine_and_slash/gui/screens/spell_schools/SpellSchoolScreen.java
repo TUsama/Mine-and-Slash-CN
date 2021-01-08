@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.talent_tree.RenderUtils;
 import com.robertx22.mine_and_slash.gui.bases.BaseScreen;
 import com.robertx22.mine_and_slash.gui.bases.IAlertScreen;
 import com.robertx22.mine_and_slash.gui.bases.INamedScreen;
+import com.robertx22.mine_and_slash.gui.screens.main_hub.MainHubScreen;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.packets.allocation.abilities.TryAllocateAbilityPointPacket;
@@ -85,7 +86,7 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
         if (this.school != null) {
             addButton(new SchoolButton(school, guiLeft + 14, guiTop + 10));
 
-            addButton(new BackButton(guiLeft + X - BackButton.xSize, guiTop - BackButton.ySize));
+            addButton(new BackButton(guiLeft, guiTop - BackButton.ySize));
 
             int i = 0;
             for (BasePotionEffect e : SlashRegistry.PotionEffects()
@@ -124,6 +125,8 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
 
             int xpos = guiLeft + 17;
             int ypos = guiTop + 15;
+
+            addButton(new MainBackButton(guiLeft, guiTop - MainBackButton.ySize));
 
             for (Masteries value : Masteries.values()) {
 
@@ -416,6 +419,25 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
 
     }
 
+    static class MainBackButton extends ImageButton {
+        public static int xSize = 26;
+        public static int ySize = 16;
+
+        public MainBackButton(int xPos, int yPos) {
+            super(xPos, yPos, xSize, ySize, 0, 0, ySize + 1, BACK_BUTTON, (button) -> {
+                Minecraft.getInstance()
+                        .displayGuiScreen(new MainHubScreen());
+
+            });
+        }
+
+        @Override
+        public void renderButton(int x, int y, float ticks) {
+            super.renderButton(x, y, ticks);
+        }
+
+    }
+
     static class SchoolButton extends ImageButton {
         public static int xSize = 22;
         public static int ySize = 161;
@@ -450,11 +472,12 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
                     });
 
                 if (school.getEffectiveLevel(spells) > data.getLevel()) {
+                    list.add(new SText(TextFormatting.RED + "WARNING: Additional points will not provide bonus stats!"));
                     list.add(new SText(TextFormatting.RED + "Effective stat bonus is capped based on player level."));
                 }
 
                 if (data.getLevel() < Masteries.LVL_TO_UNLOCK_2ND_SCHOOL) {
-                    list.add(new SText(TextFormatting.GOLD + "You can unlock a 2nd school of magic at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL));
+                    list.add(new SText(TextFormatting.GOLD + "You unlock a second school of magic at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL + "."));
 
                 }
 

@@ -5,6 +5,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.talent_tree.RenderUtils;
 import com.robertx22.mine_and_slash.gui.bases.BaseScreen;
 import com.robertx22.mine_and_slash.gui.bases.INamedScreen;
+import com.robertx22.mine_and_slash.gui.screens.main_hub.MainHubScreen;
+import com.robertx22.mine_and_slash.gui.screens.map_info_gui.MapInfoScreen;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.packets.spells.HotbarSetupPacket;
@@ -52,6 +54,8 @@ public class SpellHotbatSetupScreen extends BaseScreen implements INamedScreen {
         super.init();
 
         List<BaseSpell> spells = this.spells.getAvailableSpells();
+
+        addButton(new BackButton(guiLeft, guiTop - BackButton.ySize));
 
         int x = guiLeft + 7;
         int y = guiTop + 40;
@@ -318,6 +322,28 @@ public class SpellHotbatSetupScreen extends BaseScreen implements INamedScreen {
             if (spell != null && spell.getIconLoc() != null) {
                 RenderUtils.render16Icon(spell.getIconLoc(), this.x, this.y);
             }
+        }
+
+    }
+
+    static ResourceLocation BACK_BUTTON = new ResourceLocation(
+            Ref.MODID, "textures/gui/spell_schools/back_button.png");
+
+    static class BackButton extends ImageButton {
+        public static int xSize = 26;
+        public static int ySize = 16;
+
+        public BackButton(int xPos, int yPos) {
+            super(xPos, yPos, xSize, ySize, 0, 0, ySize + 1, BACK_BUTTON, (button) -> {
+                Minecraft.getInstance()
+                        .displayGuiScreen(new MainHubScreen());
+
+            });
+        }
+
+        @Override
+        public void renderButton(int x, int y, float ticks) {
+            super.renderButton(x, y, ticks);
         }
 
     }

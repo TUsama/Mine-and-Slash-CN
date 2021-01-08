@@ -6,6 +6,8 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.types.UnknownStat;
 import com.robertx22.mine_and_slash.database.talent_tree.RenderUtils;
 import com.robertx22.mine_and_slash.gui.bases.INamedScreen;
+import com.robertx22.mine_and_slash.gui.screens.main_hub.MainHubScreen;
+import com.robertx22.mine_and_slash.gui.screens.stat_allocation_screen.StatAllocationScreen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.registry.SlashRegistry;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
@@ -56,6 +58,9 @@ public class StatOverviewScreen extends Screen implements INamedScreen {
     @Override
     public void init() {
         genStatList();
+
+        super.init();
+        addButton(new BackButton(0, 0 - BackButton.ySize));
     }
 
     int sizeY = 220;
@@ -329,6 +334,27 @@ public class StatOverviewScreen extends Screen implements INamedScreen {
 
                 StatOverviewScreen.this.drawString(font, str, this.x, this.y, TextFormatting.GOLD.getColor());
             }
+        }
+
+    }
+
+    static ResourceLocation BACK_BUTTON = new ResourceLocation(
+            Ref.MODID, "textures/gui/spell_schools/back_button.png");
+
+    static class BackButton extends ImageButton {
+        public static int xSize = 26;
+        public static int ySize = 16;
+
+        public BackButton(int xPos, int yPos) {
+            super(xPos, yPos, xSize, ySize, 0, 0, ySize + 1, BACK_BUTTON, (button) -> {
+                Minecraft.getInstance()
+                        .displayGuiScreen(new MainHubScreen());
+            });
+        }
+
+        @Override
+        public void renderButton(int x, int y, float ticks) {
+            super.renderButton(x, y, ticks);
         }
 
     }
