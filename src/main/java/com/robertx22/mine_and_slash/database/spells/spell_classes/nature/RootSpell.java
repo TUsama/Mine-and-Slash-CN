@@ -58,7 +58,7 @@ public class RootSpell extends BaseSpell {
         c.set(SC.MANA_COST, 17, 20);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 45, 35);
-        c.set(SC.DURATION_TICKS, 100 * 20, 100 * 20);
+        c.set(SC.DURATION_TICKS, 8 * 20, 14 * 20);
 
         c.setMaxLevel(8);
         return c;

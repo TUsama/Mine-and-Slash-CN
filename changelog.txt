@@ -1,3 +1,10 @@
+3.8.15:
+* Defensive Root no longer lasts 100 seconds (lol). lasts ~10 seconds like it was supposed to.
+
+3.8.14:
+* Hotfix for Battery Fusilade.
+* Hotfix for party command spam lel
+
 3.8.13:
 * Hotfix for Flame Blitz.
 

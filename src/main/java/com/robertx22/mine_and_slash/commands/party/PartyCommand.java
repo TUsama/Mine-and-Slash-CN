@@ -78,7 +78,7 @@ public class PartyCommand {
                                 TeamCap.ITeamData cap = TeamCap.getCapability();
                                 cap.joinTeam(player, cap.getTeamId(player2));
 
-                                player.sendMessage(new SText(player2.getDisplayName() + "" + TextFormatting.GREEN + " has joined the party."));
+                                player.sendMessage(new SText(TextFormatting.GREEN + "A member has joined the party."));
                                 player2.sendMessage(new SText(TextFormatting.GREEN + "You have joined the party."));
 
                                 return 0;
@@ -91,10 +91,10 @@ public class PartyCommand {
                                 TeamCap.ITeamData cap = TeamCap.getCapability();
                                 cap.invite(player2, cap.getTeamId(player));
 
-                                player.sendMessage(new SText(TextFormatting.GREEN + "You have invited " + player2.getDisplayName() + "."));
-                                player2.sendMessage(new SText(player.getDisplayName() + "" + TextFormatting.GREEN + " has invited you to join their party."));
+                                player.sendMessage(new SText(TextFormatting.GREEN + "Invitation sent."));
+                                player2.sendMessage(new SText(TextFormatting.GREEN + "You have been invited to a party!"));
                                 player2.sendMessage(new SText(TextFormatting.GREEN + "Type" +
-                                        " '/slash party join " + player.getDisplayName() + "'" + TextFormatting.GREEN + " to accept."));
+                                        " '/slash party join <player>'" + TextFormatting.GREEN + " to accept."));
 
                                 return 0;
                             })))
