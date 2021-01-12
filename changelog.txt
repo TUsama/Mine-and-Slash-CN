@@ -1,7 +1,10 @@
+3.8.13:
+* Hotfix for Flame Blitz.
+
 3.8.12:
 New Skills:
 * New Hunting skills: the following AOE trap spells can be placed and are triggered upon enemy entry: Snare Trap (prevents enemy movement), Blast Trap (does damage), Enfeeble Trap (weakens enemy armor and resistances).
-* New Fire skills: Flame Blitz (rapidly strike in melee range, scales from weapon damage and energy), Draconic Blood & Vampiric Blood (team buff that gives spell/attack lifeleech, respectively), Spell Blade (gives caster a high amount of elemental infusion for a short period of time).
+* New Fire skills: Flame Blitz (rapidly strike in melee range, scales from weapon damage), Draconic Blood & Vampiric Blood (team buff that gives spell/attack lifeleech, respectively), Spell Blade (gives caster a high amount of elemental infusion for a short period of time).
 * New Storm skills: Critical and Power Surge (increases crit chance and reduces ele dmg, increases ele dmg and reduces crit chance, respectively), Quick Charge (team buff that reduces cooldowns but increases mana cost), Battery Fusilade (unload your mana to deal damage based on your total mana with multiple projectiles).
 * New Nature skills: Root - root yourself in place to bolster your defenses. The following curses apply in AOE, have no cast time and have low cooldown (their effects are not as powerful, because of this): Corrosive Shadow (lowers enemy movement speed, armor, and dodge), Mortality Sap (lowers enemy critical hit chance and damage), Thought Seize (lowers enemy magic shield regen, mana regen, and resists).
 * Throw Flames has been renamed as Meteoric Strike and has been reworked to not be a channel spell anymore.
