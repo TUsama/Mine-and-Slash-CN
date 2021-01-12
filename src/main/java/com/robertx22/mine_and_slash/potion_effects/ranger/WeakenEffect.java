@@ -61,8 +61,8 @@ public class WeakenEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-10, Armor.getInstance()));
-        list.add(new PotionStat(-10, new ElementalResist(Elements.Elemental)));
+        list.add(new PotionStat(-50, Armor.getInstance()));
+        list.add(new PotionStat(-20, new ElementalResist(Elements.Elemental)));
         return list;
     }
 

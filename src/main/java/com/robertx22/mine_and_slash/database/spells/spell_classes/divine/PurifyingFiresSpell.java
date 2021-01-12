@@ -92,7 +92,6 @@ public class PurifyingFiresSpell extends BaseSpell {
             SpellDamageEffect dmg = new SpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                 this
             );
-            dmg.removeKnockback();
             dmg.Activate();
 
             ParticleEnum.sendToClients(
@@ -100,7 +99,14 @@ public class PurifyingFiresSpell extends BaseSpell {
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                     .motion(new Vec3d(0, 0, 0))
                     .type(ParticleTypes.FLAME)
-                    .amount((int) (60)));
+                    .amount((int) (30)));
+
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.COMPOSTER)
+                            .amount((int) (30)));
 
         }
     }
@@ -120,7 +126,7 @@ public class PurifyingFiresSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 4, 2);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }

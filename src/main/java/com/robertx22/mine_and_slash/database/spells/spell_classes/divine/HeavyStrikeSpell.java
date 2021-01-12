@@ -92,7 +92,6 @@ public class HeavyStrikeSpell extends BaseSpell {
             SpellDamageEffect dmg = new SpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                 this
             );
-            dmg.removeKnockback();
             dmg.Activate();
 
             ParticleEnum.sendToClients(
@@ -120,7 +119,7 @@ public class HeavyStrikeSpell extends BaseSpell {
         c.set(SC.COOLDOWN_TICKS, 100, 60);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }

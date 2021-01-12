@@ -66,7 +66,7 @@ public class HeartOfIceSpell extends BaseSpell {
         c.set(SC.TIMES_TO_CAST, 3, 5);
         c.set(SC.COOLDOWN_SECONDS, 40, 30);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

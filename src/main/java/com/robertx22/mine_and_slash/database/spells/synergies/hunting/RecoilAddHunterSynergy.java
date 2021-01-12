@@ -43,8 +43,8 @@ public class RecoilAddHunterSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.AMOUNT, 1, 3);
-        c.setMaxLevel(8);
+        c.set(SC.AMOUNT, 1, 1);
+        c.setMaxLevel(1);
         return c;
     }
 

@@ -102,7 +102,7 @@ public class HealingAuraSpell extends BaseSpell {
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.RADIUS, 3, 5);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }

@@ -13,6 +13,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class NourishmentEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(10, HealthRegen.getInstance()));
+        list.add(new PotionStat(12, HealthRegen.getInstance()));
         return list;
     }
 
@@ -69,6 +70,8 @@ public class NourishmentEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent("Note: you must be on full hunger to regen."));
         return list;
     }
 

@@ -69,7 +69,7 @@ public class RecoilShotSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 14, 10);
         c.set(SC.DURATION_TICKS, 100, 160);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

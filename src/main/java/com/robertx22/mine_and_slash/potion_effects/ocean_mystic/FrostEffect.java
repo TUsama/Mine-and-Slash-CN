@@ -3,7 +3,9 @@ package com.robertx22.mine_and_slash.potion_effects.ocean_mystic;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.database.stats.types.generated.AllElementalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
+import com.robertx22.mine_and_slash.database.stats.types.generated.WeaponDamage;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
@@ -34,7 +36,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
-            (double) -0.5F, AttributeModifier.Operation.MULTIPLY_TOTAL
+            (double) -0.4F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -67,7 +69,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-20F, new ElementalResist(Elements.Thunder)));
+        list.add(new PotionStat(-10, new AllElementalDamage(Elements.Elemental)));
         return list;
     }
 
@@ -94,7 +96,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Slows enemies by 50%."));
+        list.add(new StringTextComponent("Reduces movement speed by 40%."));
 
         return list;
 

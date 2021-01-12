@@ -65,7 +65,7 @@ public class BlizzardSpell extends BaseSpell {
         c.set(SC.RADIUS, 4, 8);
         c.set(SC.DURATION_TICKS, 200, 300);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

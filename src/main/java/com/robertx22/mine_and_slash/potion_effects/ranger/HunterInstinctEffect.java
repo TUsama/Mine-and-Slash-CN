@@ -52,8 +52,8 @@ public class HunterInstinctEffect extends BasePotionEffect implements IApplyStat
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(25, CriticalDamage.getInstance()));
-        list.add(new PotionStat(150, DodgeRating.getInstance()));
+        list.add(new PotionStat(30, CriticalDamage.getInstance()));
+        list.add(new PotionStat(100, DodgeRating.getInstance()));
         return list;
     }
 

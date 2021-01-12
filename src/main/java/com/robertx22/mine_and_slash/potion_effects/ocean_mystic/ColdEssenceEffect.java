@@ -3,8 +3,11 @@ package com.robertx22.mine_and_slash.potion_effects.ocean_mystic;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.database.stats.mods.multi.resources.ManaMulti;
 import com.robertx22.mine_and_slash.database.stats.types.generated.AllElementalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.resources.EnergyRegen;
+import com.robertx22.mine_and_slash.database.stats.types.resources.ManaRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
@@ -55,15 +58,15 @@ public class ColdEssenceEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(25, CriticalDamage.getInstance()));
-        list.add(new PotionStat(10, new AllElementalDamage(Elements.Water)));
+        list.add(new PotionStat(3, ManaRegen.getInstance()));
+        list.add(new PotionStat(3, EnergyRegen.getInstance()));
         return list;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.DURATION_TICKS, 30 * 20, 50 * 20);
+        p.set(SC.DURATION_TICKS, 30 * 20, 60 * 20);
         return p;
     }
 

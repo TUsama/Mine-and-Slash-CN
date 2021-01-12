@@ -27,7 +27,7 @@ public abstract class BaseHuntingBuffSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 180 * 20, 300 * 20);
         c.set(SC.RADIUS, 3, 6);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(10);
         return c;
     }
 

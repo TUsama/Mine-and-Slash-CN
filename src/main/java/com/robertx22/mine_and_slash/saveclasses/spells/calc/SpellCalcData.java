@@ -5,7 +5,9 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.resources.Energy;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
+import com.robertx22.mine_and_slash.database.stats.types.resources.Mana;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
@@ -143,6 +145,30 @@ public class SpellCalcData {
         List<Stat> list = new ArrayList<>();
         list.add(Health.getInstance());
         data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.RED + "Health")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithEnergyAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(Energy.getInstance());
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GREEN + "Energy")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithManaAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(Mana.getInstance());
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.BLUE + "Mana")));
 
         data.baseValue = base;
 

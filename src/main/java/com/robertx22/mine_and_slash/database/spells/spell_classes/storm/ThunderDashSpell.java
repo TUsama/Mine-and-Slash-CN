@@ -70,7 +70,7 @@ public class ThunderDashSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 7, 7);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }

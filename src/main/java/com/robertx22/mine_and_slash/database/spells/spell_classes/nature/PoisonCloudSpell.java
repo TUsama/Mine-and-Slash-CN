@@ -57,7 +57,7 @@ public class PoisonCloudSpell extends BaseSpell {
                     return Elements.Nature;
                 }
 
-            });
+            }.cooldownIfCanceled(true));
     }
 
     @Override
@@ -71,14 +71,14 @@ public class PoisonCloudSpell extends BaseSpell {
         c.set(SC.RADIUS, 6, 12);
         c.set(SC.TIMES_TO_CAST, 1, 3);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(1,5);
+        return new AbilityPlace(2,5);
     }
 
     public static PoisonCloudSpell getInstance() {

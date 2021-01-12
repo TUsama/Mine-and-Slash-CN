@@ -56,7 +56,7 @@ public class BlazingInfernoSpell extends BaseSpell {
                     return Elements.Fire;
                 }
 
-            });
+            }.cooldownIfCanceled(true));
     }
 
     @Override
@@ -78,7 +78,7 @@ public class BlazingInfernoSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 4);
+        return new AbilityPlace(3, 4);
     }
 
     public static BlazingInfernoSpell getInstance() {

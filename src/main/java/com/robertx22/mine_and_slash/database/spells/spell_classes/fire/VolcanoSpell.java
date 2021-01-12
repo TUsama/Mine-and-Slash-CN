@@ -62,14 +62,14 @@ public class VolcanoSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 120, 200);
         c.set(SC.TICK_RATE, 20, 15);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 5);
+        return new AbilityPlace(4, 5);
     }
 
     public static VolcanoSpell getInstance() {

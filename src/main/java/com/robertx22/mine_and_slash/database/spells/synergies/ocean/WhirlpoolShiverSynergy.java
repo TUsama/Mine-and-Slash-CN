@@ -5,6 +5,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.WhirlpoolSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ColdEssenceEffect;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrostEffect;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ShiverEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
@@ -26,7 +28,7 @@ public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Hits have a chance to apply: " + ShiverEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply on self: " + ColdEssenceEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
@@ -44,8 +46,8 @@ public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 20, 50);
-        c.setMaxLevel(8);
+        c.set(SC.CHANCE, 25, 50);
+        c.setMaxLevel(4);
         return c;
     }
 
@@ -60,12 +62,12 @@ public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
         if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
             .get(SC.CHANCE)
             .get(Load.spells(ctx.source), this))) {
-            PotionEffectUtils.apply(ShiverEffect.INSTANCE, ctx.source, ctx.target);
+            PotionEffectUtils.reApplyToSelf(ColdEssenceEffect.INSTANCE, ctx.source);
         }
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Shiver Pool";
+        return "Rejuvenating Pool";
     }
 }

@@ -4,7 +4,10 @@ public interface IOneOfATypePotion {
 
     public enum Type {
         DIVINE_BUFF,
-        HUNTING_BUFF
+        HUNTING_BUFF,
+        NATURE_CURSE,
+        FIRE_BUFF,
+        STORM_BUFF
     }
 
     public Type getOneOfATypeType();

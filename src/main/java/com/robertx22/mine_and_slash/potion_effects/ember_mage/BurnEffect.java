@@ -89,7 +89,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-20, new ElementalResist(Elements.Water)));
+        list.add(new PotionStat(-5, new ElementalResist(Elements.Elemental)));
         return list;
     }
 

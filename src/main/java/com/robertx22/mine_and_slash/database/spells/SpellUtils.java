@@ -147,4 +147,15 @@ public class SpellUtils {
         heal.Activate();
     }
 
+    public static void healCasterMana(SpellCastContext ctx) {
+        SpellHealEffect heal = new SpellHealEffect(
+                new ResourcesData.Context(ctx.data, ctx.caster, ResourcesData.Type.MANA,
+                        ctx.getConfigFor(ctx.ability)
+                                .getCalc(ctx.spellsCap, ctx.ability)
+                                .getCalculatedValue(ctx.data, ctx.spellsCap, ctx.ability), ResourcesData.Use.RESTORE,
+                        ctx.spell
+                ));
+        heal.Activate();
+    }
+
 }

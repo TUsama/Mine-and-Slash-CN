@@ -70,7 +70,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.TICK_RATE, 10, 10);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }

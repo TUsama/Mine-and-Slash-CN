@@ -59,7 +59,7 @@ public class PoisonedWeaponsSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 120, 60);
         c.set(SC.DURATION_TICKS, 45 * 20, 100 * 20);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(10);
         return c;
     }
 
@@ -93,7 +93,7 @@ public class PoisonedWeaponsSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(6, 0);
+        return new AbilityPlace(5, 0);
     }
 
     private static class SingletonHolder {

@@ -17,7 +17,7 @@ public enum Elements implements IColor {
     Water(2, new RGB(0, 128, 255), true, "Frost", TextFormatting.AQUA, Items.SNOWBALL, "Blizzards", "Blizzard", "water",
         "\u2749"
     ),
-    Thunder(3, new RGB(204, 0, 255), true, "Lightning", TextFormatting.YELLOW, Items.GLOWSTONE_DUST, "Thunderstorms",
+    Thunder(3, new RGB(204, 0, 255), true, "Lightning", TextFormatting.YELLOW, Items.SUNFLOWER, "Thunderstorms",
         "Thunderstorm", "thunder", "\u272A"),
     Nature(4, new RGB(0, 204, 0), true, "Venom", TextFormatting.DARK_GREEN, Items.SLIME_BALL, "Earthquakes",
         "Earthquake", "nature", "\u273F"),

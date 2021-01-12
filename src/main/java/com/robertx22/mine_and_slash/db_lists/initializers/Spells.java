@@ -6,6 +6,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.B
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.TrickerySpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.WizardrySpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.*;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.buffs.DraconicBloodSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.buffs.VampiricBloodSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs.SilentWindBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs.WindWalkBuff;
@@ -56,12 +58,20 @@ public class Spells implements ISlashRegistryInit {
                     add(PoisonedWeaponsSpell.getInstance());
                     add(PoisonBallSpell.getInstance());
                     add(PoisonCloudSpell.getInstance());
+                    add(RootSpell.getInstance());
+                    add(CorrosiveShadowSpell.getInstance());
+                    add(MortalitySapSpell.getInstance());
+                    add(ThoughtSeizeSpell.getInstance());
 
                     add(ThunderstormSpell.getInstance());
                     add(ThunderspearSpell.getInstance());
                     add(ThunderDashSpell.getInstance());
                     add(LightningTotemSpell.getInstance());
                     add(ChargedNovaSpell.getInstance());
+                    add(CriticalSurgeSpell.getInstance());
+                    add(PowerSurgeSpell.getInstance());
+                    add(QuickChargeSpell.getInstance());
+                    add(BatteryFusiladeSpell.getInstance());
 
                     add(BlazingInfernoSpell.getInstance());
                     add(FireballSpell.getInstance());
@@ -69,6 +79,10 @@ public class Spells implements ISlashRegistryInit {
                     add(MagmaFlowerSpell.getInstance());
                     add(ThrowFlamesSpell.getInstance());
                     add(FireBombsSpell.getInstance());
+                    add(FlameBlitzSpell.getInstance());
+                    add(DraconicBloodSpell.getInstance());
+                    add(VampiricBloodSpell.getInstance());
+                    add(SpellBladeSpell.getInstance());
 
                     add(ArrowBarrageSpell.getInstance());
                     add(RecoilShotSpell.getInstance());

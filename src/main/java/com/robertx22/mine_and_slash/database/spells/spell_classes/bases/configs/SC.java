@@ -27,7 +27,9 @@ public enum SC {
     THUNDER_ATTACK_SCALE_VALUE(0, null),
     NATURE_ATTACK_SCALE_VALUE(0, null),
     ARMOR_ATTACK_SCALE_VALUE(0, null),
-    HEALTH_ATTACK_SCALE_VALUE(0, null);
+    HEALTH_ATTACK_SCALE_VALUE(0, null),
+    MANA_ATTACK_SCALE_VALUE(0, null),
+    ENERGY_ATTACK_SCALE_VALUE(0, null);
 
     public float min;
 

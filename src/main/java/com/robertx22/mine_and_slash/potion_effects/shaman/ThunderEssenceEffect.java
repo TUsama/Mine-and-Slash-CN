@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.stats.types.generated.AllElementalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
@@ -40,7 +41,7 @@ public class ThunderEssenceEffect extends BasePotionEffect implements IApplyStat
 
     @Override
     public String locNameForLangFile() {
-        return "Thunder Essence";
+        return "Lightning Essence";
     }
 
     @Override
@@ -56,8 +57,8 @@ public class ThunderEssenceEffect extends BasePotionEffect implements IApplyStat
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(20, new AllElementalDamage(Elements.Thunder)));
-        list.add(new PotionStat(5, CriticalHit.getInstance()));
+        list.add(new PotionStat(20, new ElementalSpellDamage(Elements.Elemental)));
+        list.add(new PotionStat(3, CriticalHit.getInstance()));
         return list;
     }
 

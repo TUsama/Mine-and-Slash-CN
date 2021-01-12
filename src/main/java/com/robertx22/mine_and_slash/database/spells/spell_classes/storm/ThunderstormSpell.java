@@ -61,7 +61,7 @@ public class ThunderstormSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 35, 25);
         c.set(SC.DURATION_TICKS, 160, 240);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(10);
 
         return c;
     }

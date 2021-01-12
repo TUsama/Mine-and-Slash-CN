@@ -12,6 +12,8 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -24,30 +26,30 @@ public class ThrowFlamesSpell extends BaseSpell {
 
     private ThrowFlamesSpell() {
         super(
-            new ImmutableSpellConfigs() {
+                new ImmutableSpellConfigs() {
 
-                @Override
-                public Masteries school() {
-                    return Masteries.FIRE;
-                }
+                    @Override
+                    public Masteries school() {
+                        return Masteries.FIRE;
+                    }
 
-                @Override
-                public SpellCastType castType() {
-                    return SpellCastType.PROJECTILE;
-                }
+                    @Override
+                    public SpellCastType castType() {
+                        return SpellCastType.PROJECTILE;
+                    }
 
-                @Override
-                public SoundEvent sound() {
-                    return SoundEvents.BLOCK_FIRE_EXTINGUISH;
-                }
+                    @Override
+                    public SoundEvent sound() {
+                        return SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE;
+                    }
 
-                @Override
-                public Elements element() {
-                    return Elements.Fire;
-                }
-            }.cooldownIfCanceled(true)
-                .summonsEntity(w -> new ThrowFlameEntity(w))
-                .setSwingArmOnCast());
+                    @Override
+                    public Elements element() {
+                        return Elements.Fire;
+                    }
+                }.cooldownIfCanceled(true)
+                        .summonsEntity(w -> new ThrowFlameEntity(w))
+                        .setSwingArmOnCast());
     }
 
     public static ThrowFlamesSpell getInstance() {
@@ -58,24 +60,24 @@ public class ThrowFlamesSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 10, 15);
-        c.set(SC.BASE_VALUE, 4, 9);
-        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 0.35F, 0.75F);
-        c.set(SC.SHOOT_SPEED, 0.45F, 0.75F);
+        c.set(SC.MANA_COST, 11, 16);
+        c.set(SC.BASE_VALUE, 3, 5);
+        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 0.55F, 0.7F);
+        c.set(SC.SHOOT_SPEED, 1.0F, 1.25F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
-        c.set(SC.CAST_TIME_TICKS, 60, 50);
-        c.set(SC.COOLDOWN_SECONDS, 14, 10);
-        c.set(SC.DURATION_TICKS, 100, 120);
-        c.set(SC.TIMES_TO_CAST, 3, 3);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
+        c.set(SC.COOLDOWN_SECONDS, 14, 11);
+        c.set(SC.DURATION_TICKS, 60, 60);
+        c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 2);
+        return new AbilityPlace(7, 4);
     }
 
     @Override
@@ -88,7 +90,8 @@ public class ThrowFlamesSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Throw out slow flames: "));
+        list.add(new StringTextComponent("Converts Weapon DMG to Fire."));
+        list.add(new StringTextComponent("Strike the air in front of you, sending out fiery waves: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -103,6 +106,18 @@ public class ThrowFlamesSpell extends BaseSpell {
 
     private static class SingletonHolder {
         private static final ThrowFlamesSpell INSTANCE = new ThrowFlamesSpell();
+    }
+
+    @Override
+    public void castExtra(SpellCastContext ctx) {
+
+        if (ctx.caster instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) ctx.caster;
+            player.spawnSweepParticles();
+        }
+
+        ctx.caster.world.playSound((PlayerEntity) null, ctx.caster.getPosX(), ctx.caster.getPosY(), ctx.caster.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0F, 1.0F);
+
     }
 }
 

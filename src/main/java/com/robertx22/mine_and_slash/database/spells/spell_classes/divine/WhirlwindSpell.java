@@ -54,7 +54,7 @@ public class WhirlwindSpell extends BaseSpell {
                     return Elements.Physical;
                 }
 
-            });
+            }.cooldownIfCanceled(true));
     }
 
     @Override
@@ -69,7 +69,7 @@ public class WhirlwindSpell extends BaseSpell {
         c.set(SC.RADIUS, 1, 3);
         c.set(SC.TIMES_TO_CAST, 20, 80);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }
@@ -124,6 +124,7 @@ public class WhirlwindSpell extends BaseSpell {
                 DamageEffect dmg = new DamageEffect(
                     null, caster, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
                 dmg.element = Elements.Physical;
+                dmg.removeKnockback();
                 dmg.Activate();
 
             }

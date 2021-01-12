@@ -69,7 +69,7 @@ public class BlastTrapSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 200, 300);
         c.set(SC.RADIUS, 1.5F, 3.0F);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
 
         return c;
     }

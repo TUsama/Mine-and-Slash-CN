@@ -63,7 +63,7 @@ public class WindWalkEffect extends BasePotionEffect implements IApplyStatPotion
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(20, DodgeRating.getInstance()));
+        list.add(new PotionStat(100, DodgeRating.getInstance()));
         return list;
     }
 

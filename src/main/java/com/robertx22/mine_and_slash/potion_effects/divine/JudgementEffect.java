@@ -53,7 +53,7 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
 
     @Override
     public String locNameForLangFile() {
-        return "Judgement";
+        return "Judgment";
     }
 
     @Override
@@ -93,7 +93,7 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent("Attack to add additional stacks. At max"));
-        list.add(new StringTextComponent("stacks consume to deal extra damage: "));
+        list.add(new StringTextComponent("stacks, consume to deal extra damage: "));
 
         return list;
 

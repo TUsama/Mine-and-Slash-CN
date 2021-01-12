@@ -1,12 +1,43 @@
 3.8.12:
-* New Hunting skills: Snare Trap, Blast Trap, Enfeeble Trap.
+New Skills:
+* New Hunting skills: the following AOE trap spells can be placed and are triggered upon enemy entry: Snare Trap (prevents enemy movement), Blast Trap (does damage), Enfeeble Trap (weakens enemy armor and resistances).
+* New Fire skills: Flame Blitz (rapidly strike in melee range, scales from weapon damage and energy), Draconic Blood & Vampiric Blood (team buff that gives spell/attack lifeleech, respectively), Spell Blade (gives caster a high amount of elemental infusion for a short period of time).
+* New Storm skills: Critical and Power Surge (increases crit chance and reduces ele dmg, increases ele dmg and reduces crit chance, respectively), Quick Charge (team buff that reduces cooldowns but increases mana cost), Battery Fusilade (unload your mana to deal damage based on your total mana with multiple projectiles).
+* New Nature skills: Root - root yourself in place to bolster your defenses. The following curses apply in AOE, have no cast time and have low cooldown (their effects are not as powerful, because of this): Corrosive Shadow (lowers enemy movement speed, armor, and dodge), Mortality Sap (lowers enemy critical hit chance and damage), Thought Seize (lowers enemy magic shield regen, mana regen, and resists).
+* Throw Flames has been renamed as Meteoric Strike and has been reworked to not be a channel spell anymore.
+
+The following few changes were made to improve mixing different spell trees:
+* Instead of having Cold Essence increase your frost damage (which only benefits the Ocean tree), it now provides a small amount of mana and energy regen (which benefits all builds).
+* Tidal Wave's Freezing Waves no longer consumes Frost Essence and just does extra damage if the enemy is Frosted.
+* Whirlpool's synergy has been changed to Rejuvenating Pool which applies the new Cold Essence.
+* The Shiver effect is now obsolete/unused. With the new changes, elemental resist reduction has been moved off of Ocean, which now focuses more on sustain and utility. Additionally, it seemed sort of redundant to have so many Ocean effects with similar names.
+* Thorns no longer reduces fire resist and now reduces healing power and health regen slightly.
+* Burn now reduces ALL elemental resists by 5% instead of reducing frost resist by 20%.
+* Frost now reduces elemental damage by 10% instead of reducing lightning resist. It now also slows by 40% instead of 50%.
+* Static now reduces ALL elemental resists by 20% instead of nature/lightning.
+* Lightning Essence now provides 20% to ALL elemental SPELL damage rather than just all lightning damage. It now also provides 40% less critical hit chance than previously (5% -> 3%), but this is because the new lightning skill adds quite a lot.
+
+Other Balance Changes:
 * Martyrdom and Retribution have been changed to physical damage type.
+* A bunch of skills have had their max level reduced to compensate for the increased number of skills. This does mean however, that some of them are not as strong as they used to be at max level. I did this because players were unable to invest in two trees.
 * True Hit now grants a 25% Crit Chance Multiplier rather than 20% Crit Damage Multiplier.
 * Whirlwind base scaling values have been reduced at earlier levels but remains similar to what it was before at max level.
 * Fixed Poison Cloud spamming console.
 * Spell effects such as Burn now show the appropriate element (fire in this case).
 * Added back buttons to the GUI where appropriate. No more pressing ESC and then H!
 * Party commands now provide text feedback.
+* Fixed some tooltip errors with some currency.
+* Fixed an issue with Blazing Inferno, Charged Nova, Poison Cloud, and Whirlwind where you could reset their cooldowns for free.
+* Increased damage of Ice Orb by 33% at early levels, and about 12.5% at max level.
+* Nourishment grants 20% more health regeneration.
+* Fixed a bug where Blizzard was freezing the user instead of mobs...
+* Whirlwind no longer knocks back enemies.
+* Purifying Flames and Martyrdom now knockback enemies.
+* Recoil of Hunter now provides 1 stack on cast instead of 3, which makes sense because the max stack is 1 anyway. Consequently, the max level for the synergy is now 1.
+* You now receive more critical damage and less dodge from Hunter Instinct.
+* You now receive a lot more dodge from Wind Walk.
+* Added some new hybrid elemental damage mob suffixes.
+* You now move twice as slow as you would before while casting spells.
 
 3.8.11:
 * New stat: Spell Lifesteal! Lifesteal, but for spells!

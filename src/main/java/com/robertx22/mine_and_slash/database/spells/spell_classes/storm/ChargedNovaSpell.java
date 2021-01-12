@@ -54,7 +54,7 @@ public class ChargedNovaSpell extends BaseSpell {
                     return Elements.Thunder;
                 }
 
-            });
+            }.cooldownIfCanceled(true));
     }
 
     @Override

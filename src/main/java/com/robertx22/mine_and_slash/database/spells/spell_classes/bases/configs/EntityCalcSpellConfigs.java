@@ -96,6 +96,16 @@ public class EntityCalcSpellConfigs {
                         .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
                         .get(spellsCap, ability));
             }
+            else if (pre.has(SC.ENERGY_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithEnergyAttack(pre.get(SC.ENERGY_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
+            else if (pre.has(SC.MANA_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithManaAttack(pre.get(SC.MANA_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
             else {
                 this.calc = SpellCalcData.base(pre.get(SC.BASE_VALUE)
                     .get(spellsCap, ability));

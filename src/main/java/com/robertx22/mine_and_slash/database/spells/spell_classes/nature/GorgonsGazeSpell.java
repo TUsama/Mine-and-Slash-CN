@@ -74,7 +74,7 @@ public class GorgonsGazeSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 60, 100);
         c.set(SC.TICK_RATE, 20, 20);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

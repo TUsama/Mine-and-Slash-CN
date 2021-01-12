@@ -65,14 +65,14 @@ public class MagmaFlowerSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 30, 30);
         c.set(SC.DURATION_TICKS, 200, 300);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(2, 3);
+        return new AbilityPlace(1, 3);
     }
 
     public static MagmaFlowerSpell getInstance() {

@@ -4,6 +4,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
+import com.robertx22.mine_and_slash.database.stats.types.resources.HealPower;
+import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
@@ -84,7 +86,8 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-25F, new ElementalResist(Elements.Fire)));
+        list.add(new PotionStat(-10, HealPower.getInstance()));
+        list.add(new PotionStat(-10, HealthRegen.getInstance()));
 
         return list;
     }

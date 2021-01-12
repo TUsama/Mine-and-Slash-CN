@@ -26,7 +26,7 @@ public class FrostballFrostEssenceGenSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Hits have a chance to apply: " + ColdEssenceEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply on self: " + ColdEssenceEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }

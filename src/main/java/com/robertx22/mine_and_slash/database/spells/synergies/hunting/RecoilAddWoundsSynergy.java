@@ -39,7 +39,7 @@ public class RecoilAddWoundsSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.AMOUNT, 1, 3);
-        c.setMaxLevel(8);
+        c.setMaxLevel(6);
         return c;
     }
 

@@ -5,10 +5,7 @@ import com.robertx22.mine_and_slash.database.spells.entities.cloud.BlizzardEntit
 import com.robertx22.mine_and_slash.database.spells.entities.cloud.ThunderstormEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.cloud.VolcanoEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.proj.*;
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.FireballEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.FrostballEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.FrozenOrbEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.PoisonBallEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.*;
 import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiderPetEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiritWolfPetEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.trident.SpearOfJudgementEntity;
@@ -55,6 +52,7 @@ public class EntityRegister {
     public static final EntityType<? extends TridentEntity> THUNDER_SPEAR;
     public static final EntityType<? extends TridentEntity> HOLY_SPEAR;
     public static final EntityType<? extends Entity> LIGHTNING_TOTEM;
+    public static final EntityType<? extends Entity> LIGHTNING_BALL;
 
     public static final EntityType<? extends Entity> FIREBOLT;
     public static final EntityType<? extends Entity> FIRE_BOMB;
@@ -101,6 +99,7 @@ public class EntityRegister {
         THUNDERSTORM = projectile(ThunderstormEntity::new, ThunderstormEntity::new, "thunderstorm");
         THUNDER_SPEAR = projectile(ThunderspearEntity::new, ThunderspearEntity::new, "thunder_spear", false);
         LIGHTNING_TOTEM = projectile(LightningTotemEntity::new, LightningTotemEntity::new, "lightning_totem");
+        LIGHTNING_BALL = projectile(LightningBallEntity::new, LightningBallEntity::new, "lightning_ball");
 
         FIREBOLT = projectile(FireballEntity::new, FireballEntity::new, "fireball");
         FIRE_BOMB = projectile(FireBombEntity::new, FireBombEntity::new, "fire_bomb");
