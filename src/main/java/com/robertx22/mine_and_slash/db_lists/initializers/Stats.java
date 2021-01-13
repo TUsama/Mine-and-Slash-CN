@@ -22,6 +22,7 @@ import com.robertx22.mine_and_slash.database.stats.types.traits.atronachs.Thunde
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Barbarian;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.ClumsyScholar;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_ones.*;
+import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnCritBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnDodgeBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.ele_lords.LordOfBlizzardsTrait;
 import com.robertx22.mine_and_slash.database.stats.types.traits.ele_lords.LordOfEarthquakesTrait;
@@ -182,6 +183,7 @@ public class Stats implements ISlashRegistryInit {
                     add(new FrostAtronach());
                     add(new FireAtronach());
                     add(new ThunderAtronach());
+                    add(new OnCritBuffSpeed());
                     add(new OnDodgeBuffSpeed());
                     add(new Clumsy());
                     add(new Cursed());

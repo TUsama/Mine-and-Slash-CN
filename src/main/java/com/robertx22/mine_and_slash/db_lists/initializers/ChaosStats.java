@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.database.stats.types.traits.atronachs.Thunde
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Barbarian;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.ClumsyScholar;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_ones.*;
+import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnCritBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnDodgeBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.ele_lords.LordOfBlizzardsTrait;
 import com.robertx22.mine_and_slash.database.stats.types.traits.ele_lords.LordOfEarthquakesTrait;
@@ -44,6 +45,7 @@ public class ChaosStats implements ISlashRegistryInit {
         all.add(new ChaosStat(anyExceptWeapon, new ClumsyScholar()));
         all.add(new ChaosStat(anyExceptWeapon, new Crippled()));
         all.add(new ChaosStat(anyExceptWeapon, new Diseased()));
+        all.add(new ChaosStat(anyExceptWeapon, new OnCritBuffSpeed()));
         all.add(new ChaosStat(anyExceptWeapon, new OnDodgeBuffSpeed()));
         all.add(new ChaosStat(anyExceptWeapon, new LordOfBlizzardsTrait()));
         all.add(new ChaosStat(anyExceptWeapon, new LordOfEarthquakesTrait()));

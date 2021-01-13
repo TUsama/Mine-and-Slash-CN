@@ -29,7 +29,7 @@ public class OverflowingVitality extends BaseGameChangerTrait implements IAffect
 
     @Override
     public String locDescForLangFile() {
-        return "Increases your physical damage by " + INCREASE + " Percent of your Health.";
+        return "Increases your physical damage by " + INCREASE + "% of your max health.";
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.ThornAr
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
+import com.robertx22.mine_and_slash.database.stats.types.resources.EnergyRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
@@ -40,8 +41,8 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
-        this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160892",
-                (double) -0.99F, AttributeModifier.Operation.MULTIPLY_TOTAL
+        this.addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160892",
+                (double) 0.25, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -62,7 +63,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public String locNameForLangFile() {
-        return "Root";
+        return "Natural Empowering";
     }
 
     @Override
@@ -73,8 +74,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(300, Armor.getInstance()));
-        list.add(new PotionStat(300, DodgeRating.getInstance()));
+        list.add(new PotionStat(30, EnergyRegen.getInstance()));
         return list;
     }
 
@@ -99,7 +99,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent("Stay still and greatly bolster your defenses."));
+        list.add(new StringTextComponent("Increases base weapon attack speed by 25%."));
 
         return list;
 

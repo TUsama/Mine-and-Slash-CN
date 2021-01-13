@@ -125,7 +125,7 @@ public class SpellCastingData {
 
     }
 
-    public static AttributeModifier CASTING_SPEED_DEBUFF = new AttributeModifier(UUID.fromString("d6d3dc82-9787-4722-9a33-924b94490e2a"), SharedMonsterAttributes.MOVEMENT_SPEED.getName(), -0.5F, AttributeModifier.Operation.MULTIPLY_BASE);
+    public static AttributeModifier CASTING_SPEED_DEBUFF = new AttributeModifier(UUID.fromString("d6d3dc82-9787-4722-9a33-924b94490e2a"), SharedMonsterAttributes.MOVEMENT_SPEED.getName(), -0.33F, AttributeModifier.Operation.MULTIPLY_BASE);
 
     public void addCastingMoveDebuff(PlayerEntity player) {
         IAttributeInstance atri = player.getAttributes()

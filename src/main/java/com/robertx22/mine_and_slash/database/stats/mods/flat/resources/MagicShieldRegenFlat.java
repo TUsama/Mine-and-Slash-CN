@@ -14,7 +14,7 @@ public class MagicShieldRegenFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 2F;
+        return 3F;
     }
 
     @Override

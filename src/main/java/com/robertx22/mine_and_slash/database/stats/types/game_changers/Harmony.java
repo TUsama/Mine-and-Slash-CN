@@ -13,7 +13,7 @@ public class Harmony extends BaseGameChangerTrait implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Half of your HP restoration effects go to your magic shield instead. This for example means your heal spells only heal half of the value to health and other half to magic shield. ";
+        return "HP restoration effects now simultaneously apply to HP and magic shield at 33% effectiveness. ";
     }
 
     @Override

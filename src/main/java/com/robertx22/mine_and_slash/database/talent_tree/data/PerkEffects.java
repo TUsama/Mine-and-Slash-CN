@@ -77,7 +77,7 @@ public class PerkEffects {
         CRIT_HIT = PerkEffectBuilder.build(
             "crit_hit", CriticalHit.getInstance(), new ExactStatData(1, StatModTypes.Flat, CriticalHit.GUID));
         CRIT_DMG = PerkEffectBuilder.build(
-            "crit_dmg", CriticalDamage.getInstance(), new ExactStatData(3, StatModTypes.Flat, CriticalDamage.GUID));
+            "crit_dmg", CriticalDamage.getInstance(), new ExactStatData(2.5F, StatModTypes.Flat, CriticalDamage.GUID));
         BLOCK_PERCENT = PerkEffectBuilder.build(
             "block_percent", BlockStrength.INSTANCE, new ExactStatData(3, StatModTypes.Percent, BlockStrength.GUID));
         SPELLSTEAL = PerkEffectBuilder.build(

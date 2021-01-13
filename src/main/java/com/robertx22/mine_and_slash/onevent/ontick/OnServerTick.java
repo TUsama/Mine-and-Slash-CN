@@ -26,7 +26,8 @@ import java.util.UUID;
 public class OnServerTick {
 
     static final int TicksToUpdatePlayer = 18;
-    static final int TicksToRegen = 100;
+    static final int TicksToRegen = 60;
+    static final int TicksToMSRegen = 200;
     static final int TicksToPassMinute = 1200;
     static final int TicksToSpellCooldowns = 1;
     static final int TicksToProcessChunks = 50;
@@ -49,6 +50,33 @@ public class OnServerTick {
                 }
 
                 data.increment();
+
+                if (data.msRegenTicks > TicksToMSRegen) {
+                    data.msRegenTicks = 0;
+                    if (player.isAlive()) {
+
+                        player.getCapability(EntityCap.Data)
+                                .ifPresent(x -> {
+                                    x.forceRecalculateStats(player);
+                                    // has to do
+                                    // this cus curios doesnt call
+                                    // equipsChanged event - actually
+                                    // there's one, but i fear  bugs
+
+                                    Unit unit = x.getUnit();
+
+                                    float magicshieldrestored = unit.peekAtStat(MagicShieldRegen.GUID)
+                                            .getAverageValue();
+                                    ResourcesData.Context ms = new ResourcesData.Context(x, player,
+                                            ResourcesData.Type.MAGIC_SHIELD,
+                                            magicshieldrestored,
+                                            ResourcesData.Use.RESTORE
+                                    );
+                                    x.getResources()
+                                            .modify(ms);
+                                });
+                    }
+                }
 
                 if (data.regenTicks > TicksToRegen) {
                     data.regenTicks = 0;
@@ -85,7 +113,7 @@ public class OnServerTick {
                                 boolean restored = false;
 
                                 boolean canHeal = player.getFoodStats()
-                                    .getFoodLevel() >= 18;
+                                    .getFoodLevel() >= 15;
 
                                 if (canHeal) {
                                     if (player.getHealth() < player.getMaxHealth()) {
@@ -105,38 +133,13 @@ public class OnServerTick {
                                     x.getResources()
                                         .modify(hp);
 
-                                    if (x.getResources()
-                                        .getMagicShield() < x.getUnit()
-                                        .magicShieldData()
-                                        .getAverageValue()) {
-                                        restored = true;
-                                    }
-
-                                    float missingMs = x.getUnit()
-                                        .magicShieldData()
-                                        .getAverageValue() - x.getResources()
-                                        .getMagicShield();
-
-                                    float magicshieldrestored = unit.peekAtStat(MagicShieldRegen.GUID)
-                                        .getAverageValue();
-                                    ResourcesData.Context ms = new ResourcesData.Context(x, player,
-                                        ResourcesData.Type.MAGIC_SHIELD,
-                                        magicshieldrestored,
-                                        ResourcesData.Use.RESTORE
-                                    );
-                                    x.getResources()
-                                        .modify(ms);
-
                                     if (restored) {
 
                                         float hpRegenEffectiveness = MathHelper.clamp(missingHp / healthrestored, 0, 1);
-                                        float msRegenEffectiveness = MathHelper.clamp(missingMs / magicshieldrestored, 0, 1);
-
-                                        float maxHealthedEffectiveness = Math.max(hpRegenEffectiveness, msRegenEffectiveness);
 
                                         player.getFoodStats()
                                             .addExhaustion(ModConfig.INSTANCE.Server.REGEN_HUNGER_COST.get()
-                                                .floatValue() / maxHealthedEffectiveness);
+                                                .floatValue() * hpRegenEffectiveness);
 
                                     }
                                 }
@@ -195,6 +198,7 @@ public class OnServerTick {
 
     static class PlayerTickData {
         public int regenTicks = 0;
+        public int msRegenTicks = 0;
         public int playerSyncTick = 0;
         public int ticksToPassMinute = 0;
         public int ticksToSpellCooldowns = 0;
@@ -202,6 +206,7 @@ public class OnServerTick {
 
         public void increment() {
             regenTicks++;
+            msRegenTicks++;
             playerSyncTick++;
             ticksToPassMinute++;
             ticksToProcessChunks++;

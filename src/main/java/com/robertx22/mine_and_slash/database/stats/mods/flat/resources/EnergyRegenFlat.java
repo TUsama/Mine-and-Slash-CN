@@ -12,12 +12,12 @@ public class EnergyRegenFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 1.5F;
+        return 1;
     }
 
     @Override
     public float Max() {
-        return 3.5F;
+        return 2.5F;
     }
 
     @Override

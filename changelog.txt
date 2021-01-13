@@ -1,5 +1,21 @@
 3.8.15:
 * Defensive Root no longer lasts 100 seconds (lol). lasts ~10 seconds like it was supposed to.
+* Defensive Root has been reworking into Natural Empowering, which instead of providing a defense bonus, briefly increases attack speed and energy regeneration.
+* Critical damage nodes from the tree have been reduced slightly.
+* Lowered movement speed reduction when casting spells.
+* Lowered healing amount from Heart of Ice at higher levels by about 25%.
+* Increased healing amount from Healing Aura by about 33%. Also lowered cooldown slightly.
+* New chaos stat which applies speed buff on crit 50% of the time.
+The following changes were made to give magic shield more identity vs. health, as well as making gameplay feel a bit smoother:
+* Fixed a bug where HP/MS regen was adding more exhaustion than intended when restoring less than the max amount.
+* You will now regen as long as you are above 15 hunger, instead of 18.
+* Health, mana, and energy now regen every 3 seconds, down from 5. This should make regeneration feel a little smoother.
+* Regen values for health, mana, and energy have been reduced to compliment the above change. You should regenerate approximately the same amount on average.
+* Magic shield now only regens every 10 seconds, up from 5.
+* Magic shield no longer adds exhaustion.
+* Reduced magic shield flat stat effectiveness by 25%.
+* Increased magic shield regeneration stat effectiveness greatly. Basically, you will regenerate more magic shield, and you can have higher pools of magic shield, but you will lack methods of instant recovery and will have to wait a while for it to regenerate. This basically makes it better for one shots but worse for prolonged battles.
+* The Harmony trait used to split HP restoration effects with 50% going to health, and 25% going to magic shield. It now splits it 33%/33% between the two resources.
 
 3.8.14:
 * Hotfix for Battery Fusilade.
