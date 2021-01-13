@@ -1,6 +1,6 @@
 3.8.15:
 * Defensive Root no longer lasts 100 seconds (lol). lasts ~10 seconds like it was supposed to.
-* Defensive Root has been reworking into Natural Empowering, which instead of providing a defense bonus, briefly increases attack speed and energy regeneration.
+* Defensive Root has been reworking into Natural Empowering, which instead of providing a defense bonus, briefly increases base attack speed and energy regeneration.
 * Critical damage nodes from the tree have been reduced slightly.
 * Lowered movement speed reduction when casting spells.
 * Lowered healing amount from Heart of Ice at higher levels by about 25%.
