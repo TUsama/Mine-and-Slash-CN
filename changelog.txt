@@ -1,3 +1,7 @@
+3.8.16:
+* Staves give flat spell damage instead of percent, this was how it was always supposed to be!
+* Made some tooltip text a little more clearer.
+
 3.8.15:
 * Defensive Root no longer lasts 100 seconds (lol). lasts ~10 seconds like it was supposed to.
 * Defensive Root has been reworking into Natural Empowering, which instead of providing a defense bonus, briefly increases base attack speed and energy regeneration.

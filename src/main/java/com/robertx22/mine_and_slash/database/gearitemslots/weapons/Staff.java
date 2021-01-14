@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.Nor
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.SpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.*;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.SpellDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
@@ -96,7 +97,7 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new SpellDamagePercent(), new HealPowerFlat());
+        return new StatModsHolder(new SpellDamageFlat(), new HealPowerFlat());
     }
 
     @Override
