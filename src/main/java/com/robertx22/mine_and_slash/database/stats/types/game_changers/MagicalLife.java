@@ -1,10 +1,14 @@
 package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
 import com.robertx22.mine_and_slash.database.stats.TransferMethod;
+import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
+import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
+import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.saveclasses.Unit;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.StatModTypes;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatTransfer;
 
 import java.util.Arrays;
@@ -35,6 +39,13 @@ public class MagicalLife extends BaseGameChangerTrait implements IStatTransfer {
     @Override
     public List<TransferMethod> Transfer() {
         return Arrays.asList(new TransferMethod(MagicShield.getInstance(), Health.getInstance()));
+    }
+
+    @Override
+    public List<ExactStatData> getExactStats() {
+        return Arrays.asList(
+                new ExactStatData(-25, StatModTypes.Multi, MagicShield.getInstance())
+        );
     }
 
     @Override

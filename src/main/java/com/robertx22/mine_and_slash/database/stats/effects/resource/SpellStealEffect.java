@@ -20,7 +20,7 @@ public class SpellStealEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-        float healed = Math.min(1F, (float) data.getAverageValue() * effect.number / 100);
+        float healed = Math.max(1F, (float) data.getAverageValue() * effect.number / 100);
 
         effect.healthHealed += healed;
 

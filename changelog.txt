@@ -1,6 +1,11 @@
 3.8.16:
 * Staves give flat spell damage instead of percent, this was how it was always supposed to be!
+* Fixed spell lifesteal and lifesteal not working. I basically used min instead of max lel
+* Improved lifesteal amounts from Draconic and Vampiric Blood.
+* Reduced mana scaling and projectile spped of Battery Fusilade at higher levels. Increased cooldown very slightly.
+* Reduced effectiveness of the Magical Life node. The node now also gives -25% multi magic shield.
 * Made some tooltip text a little more clearer.
+* Reduced slow % from Frost effect. The way slow was calculated, zombies would be straight up freeze in place with 40%.
 
 3.8.15:
 * Defensive Root no longer lasts 100 seconds (lol). lasts ~10 seconds like it was supposed to.

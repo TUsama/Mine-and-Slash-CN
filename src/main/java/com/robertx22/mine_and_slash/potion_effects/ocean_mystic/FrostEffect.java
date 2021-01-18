@@ -36,7 +36,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
-            (double) -0.4F, AttributeModifier.Operation.MULTIPLY_TOTAL
+            (double) -0.2F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -96,7 +96,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Reduces movement speed by 40%."));
+        list.add(new StringTextComponent("Reduces movement speed by 20%."));
 
         return list;
 

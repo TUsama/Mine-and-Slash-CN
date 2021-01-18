@@ -53,7 +53,7 @@ public class AttackSiphonEffect extends BasePotionEffect implements IApplyStatPo
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(1.5F, Lifesteal.getInstance()));
+        list.add(new PotionStat(5, Lifesteal.getInstance()));
         return list;
     }
 

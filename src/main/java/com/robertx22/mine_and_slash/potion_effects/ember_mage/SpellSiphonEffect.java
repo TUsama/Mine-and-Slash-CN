@@ -56,7 +56,7 @@ public class SpellSiphonEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(1, SpellSteal.getInstance()));
+        list.add(new PotionStat(3, SpellSteal.getInstance()));
         return list;
     }
 
