@@ -21,7 +21,6 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.*;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.HealthUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.NumberUtils;
-import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TeamUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.TameableEntity;
@@ -30,7 +29,6 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.SwordItem;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
@@ -239,10 +237,6 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
             }
         }
 
-        if (this.isPartiallyBlocked || this.isFullyBlocked) {
-            SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
-        }
-
         if (this.removeKnockback || this.isFullyBlocked) {
             BlockEffect.applyKnockbackResist(target);
         }
@@ -308,7 +302,6 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
         }
 
         if (isDodged) {
-            SoundUtils.playSound(target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 2.0F);
             cancelDamage();
 
         } else {

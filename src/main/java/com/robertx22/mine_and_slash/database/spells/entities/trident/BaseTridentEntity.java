@@ -137,7 +137,11 @@ public abstract class BaseTridentEntity extends TridentEntity implements ISpellE
                 this.setMotion(this.getMotion()
                     .mul(-0.01D, -0.1D, -0.01D)); // bounce back
 
-                this.onHit((LivingEntity) entity);
+                try {
+                    this.onHit((LivingEntity) entity);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 this.playSound(SoundEvents.ITEM_TRIDENT_HIT, 8F, 1.0F);
 

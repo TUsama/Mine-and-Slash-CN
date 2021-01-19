@@ -42,9 +42,11 @@ public class ReducedCooldownStat extends Stat implements IStatEffects {
         return "Cooldown Reduction";
     }
 
+    public static String GUID = "cdr";
+
     @Override
     public String GUID() {
-        return "cdr";
+        return GUID;
     }
 
     @Override

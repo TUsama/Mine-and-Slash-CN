@@ -1,11 +1,24 @@
 3.8.16:
 * Staves give flat spell damage instead of percent, this was how it was always supposed to be!
-* Fixed spell lifesteal and lifesteal not working. I basically used min instead of max lel
-* Improved lifesteal amounts from Draconic and Vampiric Blood.
-* Reduced mana scaling and projectile spped of Battery Fusilade at higher levels. Increased cooldown very slightly.
-* Reduced effectiveness of the Magical Life node. The node now also gives -25% multi magic shield.
+* Fixed spell lifesteal and lifesteal not working correctly.
+* Increased lifesteal amounts from Draconic and Vampiric Blood.
+* Reduced mana scaling and projectile speed of Battery Fusilade at higher levels. Increased cooldown very slightly.
+* New game changer node: Fortified Reaction - converts dodge into armor, but multi dodge -25%. Located on the right side of the talent tree.
+* New game changer node: Pacifist - greatly increases heal power and reduces cooldowns, but deal 50% less spell damage. Located on the top-left side of the talent tree.
+* New game changer node: Vampire - gives a large lifesteal and spell lifesteal multiplier, but makes you lose all health regen. Located on the bottom-left side of the talent tree.
+* New game changer node: Stout Defender - gives a huge amount of block while reducing some other defensive stats. Located on the left side of the talent tree.
+* Moved Steady Hand to the bottom side of the talent tree.
+* Added a ring in the center of the tree to improve options for pathing to the other side of the tree. I tried to make it not too "easy" so it'll still require a decent amount of points.
+* Added some cooldown reduction and heal power nodes sporadically around the tree (weighted to the left).
+* Added some node connectors in the middle of the left side of the talent tree to improve pathing a bit.
+* Reduced effectiveness of the Magical Life node - the node now also gives -25% multi magic shield.
+* Mana Battery now reduces armor as well, but reduces health, armor and dodge at a lower amount than previously.
+* Familiar Instincts now reduces health regeneration even further.
 * Made some tooltip text a little more clearer.
 * Reduced slow % from Frost effect. The way slow was calculated, zombies would be straight up freeze in place with 40%.
+* Rare crash with tridents should be fixed.
+* Actually fixed dodge and shield sounds from not playing!!!
+* Dodging now prevents knockback. Doesn't make sense to go flying if you've dodged the attack...
 
 3.8.15:
 * Defensive Root no longer lasts 100 seconds (lol). lasts ~10 seconds like it was supposed to.

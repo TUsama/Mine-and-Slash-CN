@@ -19,7 +19,7 @@ public class TrueHit extends BaseGameChangerTrait implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Non-Critical Damage is halved.";
+        return "Non-critical damage is halved.";
     }
 
     @Override

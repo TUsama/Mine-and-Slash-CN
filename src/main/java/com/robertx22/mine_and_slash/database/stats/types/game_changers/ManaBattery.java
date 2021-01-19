@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.game_changers.ManaBatteryEffect;
+import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
@@ -42,8 +43,9 @@ public class ManaBattery extends BaseGameChangerTrait implements IStatEffects {
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-            new ExactStatData(-50, StatModTypes.Multi, DodgeRating.getInstance()),
-            new ExactStatData(-15, StatModTypes.Multi, Health.getInstance())
+            new ExactStatData(-40, StatModTypes.Multi, Armor.getInstance()),
+            new ExactStatData(-40, StatModTypes.Multi, DodgeRating.getInstance()),
+            new ExactStatData(-10, StatModTypes.Multi, Health.getInstance())
         );
     }
 

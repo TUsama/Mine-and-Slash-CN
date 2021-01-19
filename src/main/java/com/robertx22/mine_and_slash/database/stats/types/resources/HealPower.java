@@ -32,6 +32,10 @@ public class HealPower extends Stat implements IStatEffects {
         return new IncreaseHealingEffect();
     }
 
+    public String getIconPath() {
+        return "resource/heal_power";
+    }
+
     @Override
     public String GUID() {
         return GUID;

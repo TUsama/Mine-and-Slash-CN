@@ -22,7 +22,7 @@ public class SteadyHand extends BaseGameChangerTrait implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "You deal " + DMG_INCREASE_PERCENT + "% more " + "damage.";
+        return "You deal " + DMG_INCREASE_PERCENT + " percent more " + "damage.";
     }
 
     @Override

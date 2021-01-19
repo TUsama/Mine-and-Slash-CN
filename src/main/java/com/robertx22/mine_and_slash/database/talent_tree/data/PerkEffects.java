@@ -10,6 +10,7 @@ import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.*;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkEffectBuilder;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkEffectsWrapper;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
@@ -51,6 +52,8 @@ public class PerkEffects {
     public static PerkEffectsWrapper LIFESTEAL_PERCENT;
     public static PerkEffectsWrapper SPELLSTEAL_HALF;
     public static PerkEffectsWrapper LIFESTEAL_HALF;
+    public static PerkEffectsWrapper HEAL_PWR;
+    public static PerkEffectsWrapper CDR;
 
     // COMBINED EFFECTS
     public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG;
@@ -74,6 +77,10 @@ public class PerkEffects {
             "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(2, StatModTypes.Percent, PhysicalDamage.GUID));
         SPELL_DMG = PerkEffectBuilder.build(
             "spell_dmg", SpellDamage.getInstance(), new ExactStatData(2, StatModTypes.Flat, SpellDamage.GUID));
+        HEAL_PWR = PerkEffectBuilder.build(
+                "heal_pwr", HealPower.getInstance(), new ExactStatData(2, StatModTypes.Flat, HealPower.GUID));
+        CDR = PerkEffectBuilder.build(
+                "cdr", ReducedCooldownStat.getInstance(), new ExactStatData(4, StatModTypes.Flat, ReducedCooldownStat.GUID));
         CRIT_HIT = PerkEffectBuilder.build(
             "crit_hit", CriticalHit.getInstance(), new ExactStatData(1, StatModTypes.Flat, CriticalHit.GUID));
         CRIT_DMG = PerkEffectBuilder.build(

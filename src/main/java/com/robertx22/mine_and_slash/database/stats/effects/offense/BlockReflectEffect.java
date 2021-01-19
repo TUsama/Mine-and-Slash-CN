@@ -10,6 +10,8 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData.EffectTypes;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import net.minecraft.util.SoundEvents;
 
 public class BlockReflectEffect extends BaseDamageEffect {
 
@@ -55,6 +57,8 @@ public class BlockReflectEffect extends BaseDamageEffect {
         );
 
         dmgeffect.element = stat.getElement();
+
+        SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1.0F, 2);
 
         dmgeffect.Activate();
 

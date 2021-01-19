@@ -22,6 +22,7 @@ import com.robertx22.mine_and_slash.database.stats.types.traits.atronachs.Thunde
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Barbarian;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.ClumsyScholar;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_ones.*;
+import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnAttackBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnCritBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnDodgeBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.ele_lords.LordOfBlizzardsTrait;
@@ -66,6 +67,10 @@ public class Stats implements ISlashRegistryInit {
                     add(MagicalLife.INSTANCE);
                     add(SteadyHand.INSTANCE);
                     add(RecklessBlows.INSTANCE);
+                    add(Pacifist.INSTANCE);
+                    add(Vampire.INSTANCE);
+                    add(StoutDefender.INSTANCE);
+                    add(FortifiedReaction.INSTANCE);
                     add(TrueHit.INSTANCE);
                     add(ElementalPurity.getInstance());
                     add(OverflowingVitality.getInstance());
@@ -184,6 +189,7 @@ public class Stats implements ISlashRegistryInit {
                     add(new FireAtronach());
                     add(new ThunderAtronach());
                     add(new OnCritBuffSpeed());
+                    add(new OnAttackBuffSpeed());
                     add(new OnDodgeBuffSpeed());
                     add(new Clumsy());
                     add(new Cursed());

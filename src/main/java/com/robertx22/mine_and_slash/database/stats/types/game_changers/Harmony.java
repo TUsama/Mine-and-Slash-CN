@@ -13,7 +13,7 @@ public class Harmony extends BaseGameChangerTrait implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "HP restoration effects now simultaneously apply to HP and magic shield at 33% effectiveness. ";
+        return "HP restoration effects now simultaneously apply to HP and magic shield at 33 percent effectiveness. ";
     }
 
     @Override
