@@ -145,7 +145,7 @@ public class TileGearModify extends BaseTile {
     public static final int FIRST_INPUT_SLOT = 0;
     public static final int FIRST_OUTPUT_SLOT = FIRST_INPUT_SLOT + INPUT_SLOTS_COUNT;
 
-    private static final short COOK_TIME_FOR_COMPLETION = 80; // vanilla value is 200 = 10 seconds
+    private static final short COOK_TIME_FOR_COMPLETION = 40; // vanilla value is 200 = 10 seconds
 
     public TileGearModify() {
         super(ModTileEntities.GEAR_MODIFY.get());
@@ -230,6 +230,7 @@ public class TileGearModify extends BaseTile {
             this.GearSlot()
                 .shrink(1);
             this.setOutputSot(result.stack.copy());
+            this.OutputSot().setCount(1);
             result.stack = ItemStack.EMPTY;
             this.CraftItemSlot()
                 .shrink(1);

@@ -22,7 +22,7 @@ public class ItemMap extends Item implements IAutoLocName, IAutoModel {
     int rarity = 0;
 
     public ItemMap(int rarity) {
-        super(new Properties());
+        super(new Properties().maxStackSize(1));
         this.rarity = rarity;
     }
 
