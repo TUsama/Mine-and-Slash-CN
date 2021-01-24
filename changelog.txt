@@ -20,7 +20,7 @@ Change to Mapping/Mobs:
 * Bosses have had their rewards and difficulties increased GREATLY.
 * Boss summons have been changed from Legendary rarity to Minion rarity, which is essentially between epic and legendary, but provides experience equivalent to an epic mob. this is about 30% of the experience they used to get. Farming the summons was too broken, so I've tried to shift it off the minions to the bosses so on average you will still get a lot of experience.
 Fixes:
-* Probably fixed a bug where dimension tiers weren't being applied properly... Probably.
+* Probably fixed a bug where custom dimension tiers weren't being applied properly... probably.
 * Elemental resists on the talent tree now provide flat resists rather than increased resistances.
 
 3.8.17:
