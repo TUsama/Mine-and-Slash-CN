@@ -72,7 +72,7 @@ public class CrossBow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(7);
+        return new WeaponSwingCost(9);
     }
 
     @Override

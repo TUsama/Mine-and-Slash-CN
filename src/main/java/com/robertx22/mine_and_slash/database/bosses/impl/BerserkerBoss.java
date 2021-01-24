@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.bosses.impl;
 
 import com.robertx22.mine_and_slash.database.bosses.base.Boss;
 import com.robertx22.mine_and_slash.database.bosses.base.BossData;
+import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.IParticleData;
@@ -21,7 +22,7 @@ public class BerserkerBoss extends Boss {
 
     @Override
     public IParticleData getParticle() {
-        return ParticleTypes.WITCH;
+        return ParticleTypes.SMOKE;
     }
 
     @Override

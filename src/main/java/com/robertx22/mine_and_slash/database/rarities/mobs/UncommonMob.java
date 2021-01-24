@@ -35,7 +35,7 @@ public class UncommonMob extends BaseUncommon implements MobRarity {
 
     @Override
     public float LootMultiplier() {
-        return 1.5F;
+        return 1.25F;
     }
 
     @Override

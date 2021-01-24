@@ -96,7 +96,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 2, 6);
+        p.set(SC.BASE_VALUE, 2, 5.5F);
         p.set(SC.DURATION_TICKS, 3 * 20, 6 * 20);
         p.set(SC.TICK_RATE, 30, 15);
         return p;

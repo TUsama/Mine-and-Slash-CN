@@ -98,6 +98,10 @@ public class LootInfo {
                 if (WorldUtils.isMapWorld(world)) {
                     this.tier = WorldUtils.getTier(world, mapData, pos);
                 }
+            } else {
+                if (world != null) {
+                    this.tier = WorldUtils.getWorldTier(world,pos);
+                }
             }
         }
         return this;

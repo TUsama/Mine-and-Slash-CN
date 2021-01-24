@@ -25,7 +25,7 @@ public class HellLordBoss extends BaseSummonerBoss {
 
     @Override
     public IParticleData getParticle() {
-        return ParticleTypes.WITCH;
+        return ParticleTypes.FLAME;
     }
 
     @Override

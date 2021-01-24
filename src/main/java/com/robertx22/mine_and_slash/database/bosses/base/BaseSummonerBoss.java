@@ -1,6 +1,6 @@
 package com.robertx22.mine_and_slash.database.bosses.base;
 
-import com.robertx22.mine_and_slash.database.rarities.mobs.LegendaryMob;
+import com.robertx22.mine_and_slash.database.rarities.mobs.MinionMobRarity;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.MobSpawnUtils;
 import net.minecraft.entity.EntityType;
@@ -44,7 +44,7 @@ public abstract class BaseSummonerBoss extends com.robertx22.mine_and_slash.data
 
             MobEntity spawned = (MobEntity) getMinionType(en).create(en.world);
 
-            MobSpawnUtils.summon((EntityType<? extends MobEntity>) getMinionType(en), en.world, en.getPosition(), LegendaryMob.getInstance(), true, null);
+            MobSpawnUtils.summon((EntityType<? extends MobEntity>) getMinionType(en), en.world, en.getPosition(), MinionMobRarity.getInstance(), true, null);
 
         }
     }

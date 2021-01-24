@@ -1,3 +1,28 @@
+3.8.18:
+Many of the changes below were to help the early-late game imbalance caused from some of the recent updates.
+* Changed Whirlwind to scale off ALL weapon damage, NOT just physical.
+* Reduced scaling of Whirlwind. In general this will benefit most builds.
+* Increased base damage of Lightning Totem across the board.
+* Increased base damage of Lightning Spear at early levels.
+* Lowered base damage of Lightning Spear at max level by about 6%.
+* Reduced the base damage of Burn at max level by about 8%.
+* Doubled magic shield value from Frost Shield.
+* Greatly increased the frost damage from basic attacks when enemies are frozen.
+* Ice Blade now provides 25% more frost weapon damage.
+* You now get 33% more regen from Cold Essence.
+* Reduced the base value of all Hunting arrow skills.
+* Reduced attack scaling of all Hunting arrow skills and Blast Trap, especially at earlier levels (max level remains more or less unchanged).
+* Increased energy cost of Crossbows and Bows slightly.
+Change to Mapping/Mobs:
+* Mob rarities have been reworked in terms of rewards and stats. They are slightly harder now towards the upper rarities.
+* A lot of players weren't aware that there were different boss types. Hopefully, the changes to difficulty of bosses and the change in summons will make it more inuitive. The 4 boss types: Berserker (speeds up when damaged), Necromancer, Hell Lord, and Replicator (the last 3 summon).
+* Different boss types have been given identifying particle types. They previously only had witch particles.
+* Bosses have had their rewards and difficulties increased GREATLY.
+* Boss summons have been changed from Legendary rarity to Minion rarity, which is essentially between epic and legendary, but provides experience equivalent to an epic mob. this is about 30% of the experience they used to get. Farming the summons was too broken, so I've tried to shift it off the minions to the bosses so on average you will still get a lot of experience.
+Fixes:
+* Probably fixed a bug where dimension tiers weren't being applied properly... Probably.
+* Elemental resists on the talent tree now provide flat resists rather than increased resistances.
+
 3.8.17:
 * Increased rate at which gear is modified/repaired, etc.
 * Hopefully fixed a dupe bug occuring rarely with the modify station.

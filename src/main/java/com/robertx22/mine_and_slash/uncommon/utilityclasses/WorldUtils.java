@@ -200,6 +200,11 @@ public class WorldUtils {
         }
     }
 
+    public static int getWorldTier(World world, BlockPos pos) {
+
+        return SlashRegistry.getDimensionConfig(world).MAP_TIER;
+    }
+
     public static boolean dropsUniques(World world) {
 
         if (isMapWorld(world)) {

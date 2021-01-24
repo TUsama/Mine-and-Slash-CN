@@ -24,7 +24,7 @@ public class ReplicatorBoss extends BaseSummonerBoss {
 
     @Override
     public IParticleData getParticle() {
-        return ParticleTypes.WITCH;
+        return ParticleTypes.DRIPPING_WATER;
     }
 
     @Override

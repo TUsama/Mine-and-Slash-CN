@@ -61,7 +61,7 @@ public class BlastTrapSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 13, 19);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 3.0F, 4.0F);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.5F, 4.0F);
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
