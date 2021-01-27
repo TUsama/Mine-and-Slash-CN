@@ -1,5 +1,6 @@
 3.8.19:
 * Changed Pacifist to reduce spell damage by a flat amount rather than a multi. This was causing some confusion becuase players thought their spell damage would decrease by half.
+* Added stats to plate and leather uniques that were missing.
 
 3.8.18:
 Many of the changes below were to help the early-late game imbalance caused from some of the recent updates.
