@@ -53,7 +53,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public String locNameForLangFile() {
-        return "Frost";
+        return "Chilled";
     }
 
     @Override

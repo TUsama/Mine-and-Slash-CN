@@ -26,7 +26,7 @@ public class TidalWaveFrostSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("If the target has Frost Essence, deal extra damage: "));
+        list.add(new StringTextComponent("If the target is Chilled, deal extra damage: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 

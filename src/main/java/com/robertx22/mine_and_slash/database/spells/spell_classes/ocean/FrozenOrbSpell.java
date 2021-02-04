@@ -87,7 +87,8 @@ public class FrozenOrbSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Summons an orb that damages enemies in its path: "));
+        list.add(new StringTextComponent("Summons an orb that sprays ice to"));
+        list.add(new StringTextComponent("damage enemies in its path: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

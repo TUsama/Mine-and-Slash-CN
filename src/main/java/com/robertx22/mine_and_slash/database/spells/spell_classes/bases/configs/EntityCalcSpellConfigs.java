@@ -82,7 +82,7 @@ public class EntityCalcSpellConfigs {
                         .get(spellsCap, ability));
             }
             else if (pre.has(SC.NATURE_ATTACK_SCALE_VALUE)) {
-                this.calc = SpellCalcData.scaleWithFireAttack(pre.get(SC.NATURE_ATTACK_SCALE_VALUE)
+                this.calc = SpellCalcData.scaleWithNatureAttack(pre.get(SC.NATURE_ATTACK_SCALE_VALUE)
                         .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
                         .get(spellsCap, ability));
             }

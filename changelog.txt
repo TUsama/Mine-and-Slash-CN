@@ -1,3 +1,11 @@
+3.8.21:
+* Fixed Pacifist node.
+
+3.8.20:
+* Renamed Frost to Chilled to help prevent confusion between it and Frozen effects.
+* Fixed Nature scaling not scaling properly.
+* Made a lot of the tooltips more clear.
+
 3.8.19:
 * Changed Pacifist to reduce spell damage by a flat amount rather than a multi. This was causing some confusion becuase players thought their spell damage would decrease by half.
 * Added stats to plate and leather uniques that were missing.
