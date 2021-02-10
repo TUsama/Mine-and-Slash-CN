@@ -76,8 +76,8 @@ public class QuietusEffect extends BasePotionEffect implements IApplyStatPotion,
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-10, CriticalHit.getInstance()));
-        list.add(new PotionStat(-50, CriticalDamage.getInstance()));
+        list.add(new PotionStat(-15, CriticalHit.getInstance()));
+        list.add(new PotionStat(-75, CriticalDamage.getInstance()));
 
         return list;
     }

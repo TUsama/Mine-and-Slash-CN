@@ -13,9 +13,11 @@ public class TeamUtils {
     public static List<PlayerEntity> getOnlineTeamMembers(PlayerEntity player) {
 
         List<PlayerEntity> players = new ArrayList<>();
-        players.add(player);
+        //players.add(player);
 
-        if (player.getTeam() != null) {
+        //System.out.println("Players = " + players);
+
+        /*if (player.getTeam() != null) {
             try {
                 player.getServer()
                     .getPlayerList()
@@ -29,43 +31,50 @@ public class TeamUtils {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }*/
 
-        }
+        //System.out.println("Players (Teams) = " + players);
 
         if (players.size() < 2) {
+
             TeamCap.ITeamData team = TeamCap.getCapability();
 
-            List<PlayerEntity> list = new ArrayList<>();
+            //List<PlayerEntity> list = new ArrayList<>();
 
             if (team.isPlayerInATeam((ServerPlayerEntity) player)) {
-                list.addAll(team.getPlayersInTeam((ServerPlayerEntity) player)
-                    .stream()
-                    .filter(x -> x.getDistance(player) < 500)
-                    .collect(Collectors.toList()));
-            }
-
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (list.isEmpty()) {
-                list.add(player);
+                players.addAll(team.getPlayersInTeam((ServerPlayerEntity) player)
+                        .stream()
+                        .filter(x -> x.getDistance(player) < 500)
+                        .collect(Collectors.toList()));
             }
         }
+
+        //if (players == null) {
+        //    players = new ArrayList<>();
+        //}
+        //if (players.isEmpty()) {
+        //    players.add(player);
+        //}
+
+        //System.out.println("Players (Slash) = " + players);
+
         return players;
 
     }
 
     public static boolean areOnSameTeam(PlayerEntity p1, PlayerEntity p2) {
 
-        boolean vanilla = p1.getTeam() != null && p2.getTeam() != null && p1.getTeam()
+        /*boolean vanilla = p1.getTeam() != null && p2.getTeam() != null && p1.getTeam()
             .isSameTeam(p2.getTeam());
+        //System.out.println("Same team Vanilla: " + vanilla);
 
         if (vanilla) {
             return vanilla;
-        }
+        }*/
 
         boolean mine = TeamCap.getCapability()
             .isOnSameTeam((ServerPlayerEntity) p1, (ServerPlayerEntity) p2);
+        System.out.println("Same team Slash: " + mine);
 
         return mine;
 

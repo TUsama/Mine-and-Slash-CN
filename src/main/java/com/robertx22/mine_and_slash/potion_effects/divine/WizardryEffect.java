@@ -59,7 +59,7 @@ public class WizardryEffect extends BasePotionEffect implements IApplyStatPotion
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(15, new ElementalSpellDamage(Elements.Elemental)));
-        list.add(new PotionStat(3, ManaRegen.getInstance()));
+        list.add(new PotionStat(2, ManaRegen.getInstance()));
         list.add(new PotionStat(15, Intelligence.INSTANCE));
         return list;
     }

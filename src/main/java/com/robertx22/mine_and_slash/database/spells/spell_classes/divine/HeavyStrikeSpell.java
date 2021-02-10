@@ -112,9 +112,9 @@ public class HeavyStrikeSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 6, 10);
+        c.set(SC.MANA_COST, 6, 12);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.1F, 0.2F);
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.12F, 0.19F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 100, 60);
         c.set(SC.TIMES_TO_CAST, 1, 1);

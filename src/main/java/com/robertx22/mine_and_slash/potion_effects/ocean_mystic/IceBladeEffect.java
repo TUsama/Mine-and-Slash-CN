@@ -49,7 +49,7 @@ public class IceBladeEffect extends BasePotionEffect implements IApplyStatPotion
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(10, new ElementalAttackDamage(Elements.Water)));
+        list.add(new PotionStat(12, new ElementalAttackDamage(Elements.Water)));
         return list;
     }
 

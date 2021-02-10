@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.WizardrySpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.SpellBladeSpell;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Intelligence;
+import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalInfusion;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.ManaRegen;
@@ -51,10 +52,10 @@ public class SpellBladeEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(75, new ElementalInfusion(Elements.Water)));
-        list.add(new PotionStat(75, new ElementalInfusion(Elements.Fire)));
-        list.add(new PotionStat(75, new ElementalInfusion(Elements.Thunder)));
-        list.add(new PotionStat(75, new ElementalInfusion(Elements.Nature)));
+        list.add(new PotionStat(6, new ElementalAttackDamage(Elements.Water)));
+        list.add(new PotionStat(6, new ElementalAttackDamage(Elements.Fire)));
+        list.add(new PotionStat(6, new ElementalAttackDamage(Elements.Thunder)));
+        list.add(new PotionStat(6, new ElementalAttackDamage(Elements.Nature)));
         return list;
     }
 

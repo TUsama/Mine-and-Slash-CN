@@ -46,7 +46,7 @@ public class NourishmentEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(8, HealthRegen.getInstance()));
+        list.add(new PotionStat(9, HealthRegen.getInstance()));
         return list;
     }
 

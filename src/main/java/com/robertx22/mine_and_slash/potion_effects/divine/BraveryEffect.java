@@ -61,7 +61,7 @@ public class BraveryEffect extends BasePotionEffect implements IApplyStatPotion,
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(10, Health.getInstance()));
-        list.add(new PotionStat(6, HealthRegen.getInstance()));
+        list.add(new PotionStat(3, HealthRegen.getInstance()));
         list.add(new PotionStat(15, Strength.INSTANCE));
         return list;
     }

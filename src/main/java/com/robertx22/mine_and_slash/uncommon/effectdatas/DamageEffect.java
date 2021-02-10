@@ -221,6 +221,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
 
         if (areBothPlayers()) {
             if (TeamUtils.areOnSameTeam((ServerPlayerEntity) source, (ServerPlayerEntity) target)) {
+                BlockEffect.applyKnockbackResist(target);
                 return;
             }
         } else {

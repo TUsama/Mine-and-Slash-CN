@@ -1,3 +1,22 @@
+3.9.1:
+* Changed the Spell Blade effect from infusion to flat elemental weapon damage. Realistically, no one went for elemental spell damage in all elements so this spell was not very relevant.
+* Increased the effectiveness of Nourishment and Ice Blade, and increased duration of all Ocean buffs slightly at earlier levels.
+* Increased attack scaling and fire attack scaling of the "attack" spells in the Fire tree.
+* Increased armor attack scaling of Retribution at earlier levels.
+* Increased the early game health scaling of Martyrdom, but reduced the max health scaling by max level (by like 1%).
+* Increased the mana cost of Martyrdom at later levels.
+* Increased Spear of Judgment attack scaling.
+* Increased healing values of Holy Flower.
+* Increased the effectiveness of the Nature curses.
+* Reduced base value of Nature Balm at max level slightly.
+* Increased early game attack scaling of Poison Ball greatly.
+* Reduced base value of Poison Ball.
+* Reduced regeneration amounts from Bravery, Trickery, and Wizardry.
+
+3.9.0:
+* Party command now handles all of the party stuff - you no longer need to use /team!
+* Hitting a party member will no longer knock them back.
+
 3.8.22:
 * Increased effectiveness of Healing Wave at higher levels.
 

@@ -24,7 +24,7 @@ public abstract class BaseOceanBuffSpell extends BaseSpell {
         c.set(SC.MANA_COST, 9, 16);
         c.set(SC.CAST_TIME_TICKS, 30, 15);
         c.set(SC.COOLDOWN_SECONDS, 45, 25);
-        c.set(SC.DURATION_TICKS, 20 * 20, 30 * 20);
+        c.set(SC.DURATION_TICKS, 25 * 20, 30 * 20);
         c.set(SC.RADIUS, 4, 8);
 
         c.setMaxLevel(4);
