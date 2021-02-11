@@ -35,7 +35,7 @@ public class TeamUtils {
 
         //System.out.println("Players (Teams) = " + players);
 
-        if (players.size() < 2) {
+        //if (players.size() < 2) {
 
             TeamCap.ITeamData team = TeamCap.getCapability();
 
@@ -47,7 +47,10 @@ public class TeamUtils {
                         .filter(x -> x.getDistance(player) < 500)
                         .collect(Collectors.toList()));
             }
-        }
+            else {
+                players.add(player);
+            }
+        //}
 
         //if (players == null) {
         //    players = new ArrayList<>();
