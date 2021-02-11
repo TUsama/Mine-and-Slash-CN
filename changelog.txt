@@ -1,3 +1,6 @@
+3.9.2:
+* Fixed bug where users were getting no experience when playing alone.
+
 3.9.1:
 * Changed the Spell Blade effect from infusion to flat elemental weapon damage. Realistically, no one went for elemental spell damage in all elements so this spell was not very relevant.
 * Increased the effectiveness of Nourishment and Ice Blade, and increased duration of all Ocean buffs slightly at earlier levels.
