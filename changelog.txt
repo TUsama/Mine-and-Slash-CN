@@ -1,3 +1,10 @@
+3.9.3:
+* Reduced strength of bosses.
+* Bosses now spawn epic mobs instead of "minions" which was causing problems with minion summons.
+* Equipping gear that gives + skills will no longer remove skill points from your tree (no more negative skill points available fix).
+* There is a new stat that gives + all skills (only already allocated skills) - this stat is currently only accessible via modifying the datapacks, it is not available on any gear.
+* The max bonus level for spells is now the max level * 2, rather than max level + 5. That means for example, Healing Wave can go up to level 32 from 16, instead of 21 from 16. This can be achieved from plus skill stats.
+
 3.9.2:
 * Fixed bug where users were getting no experience when playing alone.
 

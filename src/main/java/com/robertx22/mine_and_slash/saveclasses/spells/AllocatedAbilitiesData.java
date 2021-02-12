@@ -193,7 +193,7 @@ public class AllocatedAbilitiesData implements IApplyableStats {
 
         for (AbilityData x : map.values()) {
             if (x.isValid()) {
-                points += x.getCurrentLevel();
+                points += x.getCurrentLevel() - x.getBonusLvls(); // checks current level of each ability - bonus lvls
             }
         }
 

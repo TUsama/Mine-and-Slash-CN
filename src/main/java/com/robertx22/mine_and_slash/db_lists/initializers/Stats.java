@@ -79,6 +79,7 @@ public class Stats implements ISlashRegistryInit {
 
                     add(new LuckStat());
 
+                    add(new PlusLevelToAllAbilitiesStat());
                     add(new PlusAbilityLevelStat(new EmptySpell()));
                     add(new PlusLevelToAllAbilitiesInSchoolStat(Masteries.OCEAN));
                     add(new LootTypeBonus(LootType.NormalItem));

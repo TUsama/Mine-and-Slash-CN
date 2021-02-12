@@ -62,7 +62,7 @@ public enum Masteries {
     public List<ExactStatData> getStatsFor(int schoolLevel, EntityCap.UnitData data) { // TODO make it differ per school;
         List<ExactStatData> list = new ArrayList<>();
 
-        BasePlayerStatContainer.INSTANCE.SPELL_MASTERY_STATS.entrySet()
+        BasePlayerStatContainer.INSTANCE.SPELL_MASTERY_STATS.entrySet() // gives the stats
             .forEach(x -> {
                     list.add(new ExactStatData(x.getValue()
                         .floatValue(), SlashRegistry.Stats()
@@ -71,7 +71,7 @@ public enum Masteries {
             );
 
         int level = getEffectiveLevel(schoolLevel);
-        int lvl = MathHelper.clamp(level, 0, data.getLevel());
+        int lvl = MathHelper.clamp(level, 0, data.getLevel()); // takes mastery level between 0 and player lvl
 
         list.sort(Comparator.comparingDouble(x -> x.getValue()));
 

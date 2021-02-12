@@ -50,6 +50,7 @@ public class StatMods implements ISlashRegistryInit {
             {
                 {
 
+                    add(new PlusAllSkillLevelsFlat());
                     add(new PlusAbiliyLevelFlat(new EmptySpell()));
                     add(new PlusAllSkillLevelsInSchoolFlat(Masteries.OCEAN));
                     add(new ElementalInfusionPercent(Elements.Nature));

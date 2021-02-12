@@ -14,18 +14,7 @@ import com.robertx22.mine_and_slash.uncommon.interfaces.IGenerated;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlusLevelToAllAbilitiesInSchoolStat extends Stat implements IAfterStatCalc, IGenerated<PlusLevelToAllAbilitiesInSchoolStat> {
-
-    private Masteries school;
-
-    public PlusLevelToAllAbilitiesInSchoolStat(Masteries school) {
-        this.school = school;
-        this.isInt = true;
-    }
-
-    public Masteries getSchool() {
-        return school;
-    }
+public class PlusLevelToAllAbilitiesStat extends Stat implements IAfterStatCalc, IGenerated<PlusLevelToAllAbilitiesStat> {
 
     @Override
     public boolean IsPercent() {
@@ -44,31 +33,29 @@ public class PlusLevelToAllAbilitiesInSchoolStat extends Stat implements IAfterS
 
     @Override
     public String locDescForLangFile() {
-        return "Increase all allocated spell levels of that school of magic.";
+        return "Increase all allocated spell levels.";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "To " + school.getFullNameTranslated() + " Spell Levels";
+        return "To All Spell Levels";
     }
 
     @Override
     public String locDescLangFileGUID() {
-        return Ref.MODID + ".stat_desc." + "plus_all_skill_levels";
+        return Ref.MODID + ".stat_desc." + "plus_all_all_skill_levels";
     }
 
     @Override
     public String GUID() {
-        return "plus_" + school.id + "_skill_lvls";
+        return "plus_all_skill_lvls";
     }
 
     @Override
-    public List<PlusLevelToAllAbilitiesInSchoolStat> generateAllPossibleStatVariations() {
-        List<PlusLevelToAllAbilitiesInSchoolStat> list = new ArrayList<>();
+    public List<PlusLevelToAllAbilitiesStat> generateAllPossibleStatVariations() {
+        List<PlusLevelToAllAbilitiesStat> list = new ArrayList<>();
 
-        for (Masteries value : Masteries.values()) {
-            list.add(new PlusLevelToAllAbilitiesInSchoolStat(value));
-        }
+        list.add(new PlusLevelToAllAbilitiesStat());
 
         return list;
     }
@@ -78,8 +65,9 @@ public class PlusLevelToAllAbilitiesInSchoolStat extends Stat implements IAfterS
         int lvls = (int) data
             .getAverageValue();
         if (lvls > 0) {
-            spells.getAbilitiesData()
-                .addBonusAbilityLevelsTo(getSchool(), lvls);
+            for (Masteries x : Masteries.values()) {
+                spells.getAbilitiesData().addBonusAbilityLevelsTo(x, lvls);
+            }
         }
 
     }

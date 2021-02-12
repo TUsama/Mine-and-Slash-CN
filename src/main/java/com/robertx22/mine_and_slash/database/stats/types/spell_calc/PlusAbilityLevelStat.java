@@ -47,13 +47,13 @@ public class PlusAbilityLevelStat extends Stat implements IAfterStatCalc, IGener
 
     @Override
     public String locDescForLangFile() {
-        return "Increase level of that ability.";
+        return "Increase level of that spell.";
     }
 
     @Override
     public String locNameForLangFile() {
         return "To " + CLOC.translate(ability.getLocName())
-            + " Skill Level";
+            + " Spell Level";
     }
 
     @Override
@@ -87,7 +87,7 @@ public class PlusAbilityLevelStat extends Stat implements IAfterStatCalc, IGener
             AbilityData abilityData = spells.getAbilitiesData()
                 .getAbilityMap()
                 .get(ability.GUID());
-            abilityData.setBonusLvl((int) (abilityData.getBonusLvls() + lvls));
+                abilityData.setBonusLvl((int) (abilityData.getBonusLvls() + lvls));
         }
 
     }

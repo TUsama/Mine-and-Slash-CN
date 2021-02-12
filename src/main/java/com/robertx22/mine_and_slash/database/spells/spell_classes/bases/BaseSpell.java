@@ -111,7 +111,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
     }
 
     public final int getMaxSpellLevelBuffed() {
-        return getMaxSpellLevelNormal() + 5;
+        return getMaxSpellLevelNormal() * 2;
     }
 
     public boolean shouldActivateCooldown(PlayerEntity player, PlayerSpellCap.ISpellsCap spells) {
