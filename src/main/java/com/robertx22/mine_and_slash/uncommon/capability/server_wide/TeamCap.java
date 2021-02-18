@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
@@ -150,7 +151,7 @@ public class TeamCap {
 
             try {
                 if (isPlayerInATeam(player)) {
-                    player.sendMessage(new SText("Can't create a team if you're already in one. Leave first."));
+                    player.sendMessage(new SText(TextFormatting.RED + "Cannot create a party if you're already in one."));
                 } else {
 
                     PlayerTeamsData.Team team = new PlayerTeamsData.Team();
@@ -161,6 +162,8 @@ public class TeamCap {
 
                     teams.playerIDxTeamIDMap.put(teams.getPlayerId(player), teamID);
                     teams.teamIDxTeamDataMap.put(teamID, team);
+
+                    player.sendMessage(new SText(TextFormatting.GREEN + "Party created. You may now invite players to your party."));
 
                 }
             } catch (Exception e) {
@@ -198,12 +201,12 @@ public class TeamCap {
         public void leaveTeam(ServerPlayerEntity player) {
             try {
                 if (!isPlayerInATeam(player)) {
-                    player.sendMessage(new SText("You are not inside a team."));
+                    player.sendMessage(new SText(TextFormatting.RED + "You must be in a party to leave."));
                 } else {
                     teams.playerIDxTeamIDMap.remove(teams.getTeamId(player));
                     teams.teamIDxTeamDataMap.get(teams.getTeamId(player))
                         .removePlayer(player);
-                    player.sendMessage(new SText("Left team."));
+                    player.sendMessage(new SText(TextFormatting.GREEN + "You are no longer in a party."));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

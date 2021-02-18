@@ -6,7 +6,10 @@ import info.loenwind.autosave.annotations.Storable;
 import info.loenwind.autosave.annotations.Store;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.util.text.TextFormatting;
+import org.lwjgl.system.CallbackI;
 
+import javax.xml.soap.Text;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -40,25 +43,34 @@ public class PlayerTeamsData {
         public void invite(ServerPlayerEntity player) {
             invites.add(getPlayerId(player));
 
-            player.sendMessage(getPlayer(owner).getDisplayName()
-                .appendText(" invited you to a party. Do /slash party join ")
-                .appendSibling(getPlayer(owner).getDisplayName())
-                .appendText(" to join."));
+            player.sendMessage(new SText(TextFormatting.GREEN + "You have been invited to a party!"));
+            player.sendMessage(new SText(TextFormatting.GREEN + "Type" +
+                    " '/slash party join <player>'" + TextFormatting.GREEN + " to accept."));
+            getPlayer(owner).sendMessage(new SText(TextFormatting.GREEN + "Invitation sent!"));
         }
 
         public boolean tryJoin(ServerPlayerEntity player) {
             String playerID = getPlayerId(player);
 
             if (players.contains(playerID)) {
-                player.sendMessage(new SText("You are already inside the team."));
+                player.sendMessage(new SText(TextFormatting.RED + "You are already in a party."));
                 return false;
             } else if (invites.contains(playerID)) {
                 invites.removeIf(x -> playerID.equals(x));
                 players.add(playerID);
-                player.sendMessage(new SText("Team joined."));
+                player.sendMessage(new SText(TextFormatting.GREEN + "You have joined the party."));
+
+                getPlayerIds().forEach(x -> {
+                    if (x != playerID) {
+                        PlayerEntity p = MapManager.getServer()
+                                .getPlayerList()
+                                .getPlayerByUUID(UUID.fromString(x));
+                        p.sendMessage(new SText(TextFormatting.GREEN + "A player has joined the party!"));
+                    }
+                });
                 return true;
             } else {
-                player.sendMessage(new SText("Can't join team, you aren't invited."));
+                player.sendMessage(new SText(TextFormatting.RED + "You must be invited before joining the party."));
                 return false;
             }
         }

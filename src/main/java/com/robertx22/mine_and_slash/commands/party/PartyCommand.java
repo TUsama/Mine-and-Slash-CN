@@ -43,7 +43,7 @@ public class PartyCommand {
                                         .sendMessage(text);
                                 } else {
                                     player
-                                        .sendMessage(new SText(TextFormatting.GREEN + "You aren't in a party."));
+                                        .sendMessage(new SText(TextFormatting.RED + "You aren't in a party."));
                                 }
                             } catch (CommandSyntaxException e) {
                                 e.printStackTrace();
@@ -56,7 +56,6 @@ public class PartyCommand {
                                 .asPlayer();
                             TeamCap.getCapability()
                                 .createTeam(player);
-                            player.sendMessage(new SText(TextFormatting.GREEN + "Party created. You may now invite players to your party."));
                             return 0;
                         }))
                         .then(literal("leave").executes(c -> {
@@ -65,7 +64,6 @@ public class PartyCommand {
                                 .asPlayer();
                             TeamCap.getCapability()
                                 .leaveTeam(player);
-                            player.sendMessage(new SText(TextFormatting.GREEN + "You are no longer in a party."));
                             return 0;
                         }))
                         .then(literal("join").then(Commands.argument("target", EntityArgument.player())
@@ -77,9 +75,6 @@ public class PartyCommand {
                                 TeamCap.ITeamData cap = TeamCap.getCapability();
                                 cap.joinTeam(player, cap.getTeamId(player2));
 
-                                player2.sendMessage(new SText(TextFormatting.GREEN + "A member has joined the party."));
-                                player.sendMessage(new SText(TextFormatting.GREEN + "You have joined the party."));
-
                                 return 0;
                             })))
                         .then(literal("invite").then(Commands.argument("target", EntityArgument.player())
@@ -89,11 +84,6 @@ public class PartyCommand {
                                 ServerPlayerEntity player2 = EntityArgument.getPlayer(c, "target");
                                 TeamCap.ITeamData cap = TeamCap.getCapability();
                                 cap.invite(player2, cap.getTeamId(player));
-
-                                player.sendMessage(new SText(TextFormatting.GREEN + "Invitation sent."));
-                                player2.sendMessage(new SText(TextFormatting.GREEN + "You have been invited to a party!"));
-                                player2.sendMessage(new SText(TextFormatting.GREEN + "Type" +
-                                        " '/slash party join <player>'" + TextFormatting.GREEN + " to accept."));
 
                                 return 0;
                             })))
