@@ -19,6 +19,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.FMLPlayMessages;
@@ -40,6 +41,14 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
     public FrozenOrbEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
         super(EntityRegister.FROZEN_ORB, world);
 
+    }
+
+    @Override
+    public void initSpellEntity() {
+        this.setNoGravity(true);
+
+        this.setDeathTime(getSpellData().configs.get(SC.DURATION_TICKS)
+                .intValue());
     }
 
     @Override
@@ -141,6 +150,27 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
 
         }
 
+    }
+
+    @Override
+    protected void onImpact(RayTraceResult result) {
+
+        LivingEntity entityHit = getEntityHit(result, 0.3D);
+
+        if (entityHit != null) {
+            if (world.isRemote) {
+                SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
+            }
+
+            onHit(entityHit);
+
+        } else {
+            if (world.isRemote) {
+                SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
+
+                this.remove();
+            }
+        }
     }
 
 }

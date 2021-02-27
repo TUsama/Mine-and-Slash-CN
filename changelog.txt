@@ -1,3 +1,9 @@
+3.9.5:
+* Ice Orb now passes through enemies and deals extra damage to enemies it passes through.
+* Ice Orb tick rate has been nearly doubled.
+* Stout Defender now provides 50% increased block chance instead of 100%.
+* Changed some armor nodes into block nodes and vice-versa.
+
 3.9.4:
 * Cleaned up some party code.
 * Commented out some debugging stuff.
