@@ -61,7 +61,7 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 1, 5);
+        p.set(SC.BASE_VALUE, 24, 32);
         p.set(SC.TICK_RATE, 20, 20);
         return p;
     }

@@ -27,7 +27,7 @@ public class HarmonyEffect extends BaseStatEffect<ModifyResourceEffect> {
     @Override
     public ModifyResourceEffect activate(ModifyResourceEffect effect, StatData data, Stat stat) {
 
-        effect.ctx.amount /= 3;
+        effect.ctx.amount /= 2;
 
         float restored = effect.ctx.amount;
 

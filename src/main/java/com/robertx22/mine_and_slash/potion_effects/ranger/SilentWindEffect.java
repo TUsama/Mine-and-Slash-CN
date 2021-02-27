@@ -36,7 +36,7 @@ public class SilentWindEffect extends BasePotionEffect implements IApplyStatPoti
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
-                (double) -0.05F, AttributeModifier.Operation.MULTIPLY_TOTAL
+                (double) -0.03F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
     }
 
@@ -58,7 +58,7 @@ public class SilentWindEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(10, CriticalHit.getInstance()));
+        list.add(new PotionStat(7, CriticalHit.getInstance()));
         return list;
     }
 

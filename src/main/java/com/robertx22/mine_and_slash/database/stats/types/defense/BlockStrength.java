@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.stats.types.defense;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.defense.BlockEffect;
+import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
@@ -27,18 +28,23 @@ public class BlockStrength extends Stat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Blocks part of DMG when blocking, if all damage is blocked, attack is canceled";
+        return "Percent chance to completely block a hit. Upon failure, still reduce damage by 25 percent.";
     }
 
     public static String GUID = "block_strength";
 
     public BlockStrength() {
+        this.maximumValue = 75;
         this.minimumValue = 0;
     }
 
     @Override
     public String GUID() {
         return GUID;
+    }
+
+    public StatScaling getScaling() {
+        return StatScaling.SLOW_SCALING;
     }
 
     @Override
@@ -48,12 +54,12 @@ public class BlockStrength extends Stat implements IStatEffects {
 
     @Override
     public boolean IsPercent() {
-        return false;
+        return true;
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Block Strength";
+        return "Block Chance";
     }
 
     @Override

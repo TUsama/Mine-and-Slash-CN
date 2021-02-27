@@ -37,12 +37,12 @@ public class DamageShield extends Stat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Decreases that amount of damage from every attack.";
+        return "Decreases flat amount of damage from every hit.";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Damage Shield";
+        return "Damage Reduction";
     }
 
     private static class SingletonHolder {

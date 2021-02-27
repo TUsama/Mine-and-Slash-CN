@@ -23,7 +23,7 @@ public abstract class BaseHuntingBuffSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 18, 26);
         c.set(SC.CAST_TIME_TICKS, 100, 100);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
+        c.set(SC.COOLDOWN_SECONDS, 10, 10);
         c.set(SC.DURATION_TICKS, 180 * 20, 300 * 20);
         c.set(SC.RADIUS, 3, 6);
 

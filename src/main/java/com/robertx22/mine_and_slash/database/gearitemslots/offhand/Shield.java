@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseOffHand;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.BlockStrengthPercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.offhands.NormalShield;
@@ -27,7 +28,7 @@ public class Shield extends BaseOffHand implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new ArmorFlat().size(StatMod.Size.HALF_MORE));
+        return new StatModsHolder(new ArmorFlat(), new BlockStrengthPercent());
     }
 
     static StatReq req = new StatReq(

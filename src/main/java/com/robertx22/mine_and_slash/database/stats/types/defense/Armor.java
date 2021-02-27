@@ -56,7 +56,7 @@ public class Armor extends Stat implements IStatEffects, IUsableStat {
 
     @Override
     public float MaximumPercent() {
-        return 0.8F;
+        return 0.95F;
     }
 
     @Override

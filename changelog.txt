@@ -1,5 +1,92 @@
 3.9.4:
 * Cleaned up some party code.
+* Commented out some debugging stuff.
+* Fixed the tooltip of Mana Battery. It reduces damage by 50%, not 25%.
+-----BALANCE CHANGES-----
+Stats and Traits:
+* Major change to how block works. It now has a % chance to block damage fully, rather than blocking a flat amount of damage. Additionally, if you have your shield up but your block fails, you will still reduce damage by 25%. This is (imo) a major improvement to how shields worked before, and falls in line with how blocking works in other ARPGs.
+* Critical hit and critical damage should now be slightly easier to stack.
+* Dodge rating and armor now max out at 95%, up from 90% and 80%, respectively. Because of how these stats are calculated, this also means it is 5.55% and 18.75% easier to stack the respective stats (huge buff for armor).
+* Dodge rating and armor stats are now slightly more effective, except max dodge rating percent has been reduced by 4%.
+* Health regen, magic shield, and magic shield regen stat values have been increased slightly.
+* Health flat stat values have been decreased slightly.
+* Block Reflect stat has been improved greatly.
+* Block Chance nodes on the talent tree have been changed from percent to flat increases (buff).
+* Magic shield minimum flat value has been adjusted to make it easier to stack magic shield early on.
+* BUFF: Reckless Blows now has a -50% multi on armor from -75%.
+* BUFF: Stout Defender now has a -25% multi on stats from -30%.
+* NERF: Stout Defender now has a 100% increase on block chance instead of multi. This change was made to better accompany the new block mechanic.
+* NERF: Overflowing Vitality now has a -20% multi on heath from -15%.
+* BUFF: True Hit now has a 30% multi on critical hit from 25%.
+* BUFF: Harmony now recovers HP and magic shield at 50% effectiveness, instead of 33%.
+* CHANGE: Arcane Devotion now has a -33% multi on dodge AND armor, instead of reducing dodge to 0.
+General:
+* Reduced the cooldown of Whirlwind, Arrow Storm, Gorgon's Gaze, Volcano, Blizzard, and Thunderstorm.
+* Reduced the cooldown of Fireball, Poison Ball, Frost Ball, and Thunder Spear by ~20%.
+* All "long-lasting" buffs such as the Divine auras, Hunting winds, Storm surges, etc., have had their cooldown reduced to a flat 10 seconds.
+Divine:
+* Reduced the mana cost of Healing Wave.
+* Increased the base value of Healing Wave - especially at earlier levels (100% increase at level 1).
+* Increased the base value of Purifying Flames.
+* Increased the base value of Spear of Judgment.
+* Reduced attack scaling of Whirlwind at higher levels slightly.
+* Increased duration of Whirlwind at lower levels.
+* Reduced the strength/dexterity/intelligence stat bonuses from Divine buffs from 15 --> 8.
+* Reduced the health/critical hit bonus of Bravery and Trickery by 20-33%.
+* Bravery now provides block chance instead of health regen in lieu of the above changes.
+Fire:
+* Increased the base value of Fire Bombs.
+* Reduced the mana cost of Flame Blitz slightly.
+* Increased attack scaling of Flame Blitz.
+* Reduced the mana cost of Magma Flower slightly.
+* Increased initial base value of Magma Flower.
+* Changed Meteoric Strike and Volcano attack scaling to scale off total attack damage rather than just fire.
+* Increased elemental attack damage bonus from Spell Blade by 33%.
+* Increased life and spell steal bonus from Vampiric and Dragonic Blood by ~20-33%.
+Hunting:
+* Reduced potency of Hunting Potion.
+* Reduced initial attack scaling of Arrow Barrage slightly.
+* Reduced attack scaling of Arrow Storm - especially at higher levels.
+Nature:
+* Increased inital attack scaling of Poison Ball.
+* Increased the base value of Poison Ball.
+* Reduced the mana cost of Gorgon's Gaze.
+* Increased the base value of Gorgon's Gaze.
+* Increased attack scaling of Gorgon's Gaze tremendously.
+* Reduced the cooldown of Poison Cloud.
+* Reduced the mana cost of Thorn Bush.
+* Increased the base value of Thorn Bush.
+* Thorn Bush now ticks at a higher rate at higher levels.
+* Reduced the mana cost of the Nature curse spells.
+* Reduced movement speed bonus from Wind Walk by 25%.
+* Reduced critical hit bonus from Silent Wind from 10% -> 7%.
+* Reduced movement speed penalty from Silent Wind by 40%.
+* Increased on-hit nature damage bonus from Petrify from 1-5 --> 24-32. Now it is actually meaningful.
+Ocean:
+* Reduced the mana cost of Ocean buffs at higher levels slightly.
+* Reduced the cooldown of Ocean buffs - especially at earlier levels.
+* Reduced the mana cost of Blizzard at higher levels.
+* Increased the base value of Blizzard.
+* Increased initial base value of Blizzard.
+* Reduced the cooldown of Arctic Breath greatly.
+* Reduced the mana cost of Ice Orb greatly.
+* Reduced the cooldown of Ice Orb greatly.
+* Increased the base value of Ice Orb.
+* Increased initial base value of Heart of Ice, but reduced the base value at higher levels.
+* Increased initial attack scaling of Tidal Wave, but reduced attack scaling at higher levels.
+* Reduced the mana cost of Whirlpool - especially at higher levels.
+* Increased duration of Whirlpool at higher levels.
+* Increased mana and energy regen bonus from Cold Essence by 25%.
+* Increased on-hit frost damage bonus from Frozen by 100%.
+* Increased magic shield bonus from Frost Shield by 25%.
+Storm:
+* Reduced mana cost of Charged Nova greatly.
+* Increased radius of Charged Nova.
+* Increased initial base value of Charged Nova slightly.
+* Increased the base value of Thunder Spear.
+* Increased initial base value of Thunderstorm.
+* Thunderstorm Enhanced synergy is now much more efficient per point.
+* Reduced elemental spell damage bonus from Thunder Essence by 25%.
 
 3.9.3:
 * Reduced strength of bosses.

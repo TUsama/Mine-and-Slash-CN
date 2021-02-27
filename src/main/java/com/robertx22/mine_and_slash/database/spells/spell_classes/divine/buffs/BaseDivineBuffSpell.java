@@ -23,7 +23,7 @@ public abstract class BaseDivineBuffSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 35, 45);
         c.set(SC.CAST_TIME_TICKS, 160, 220);
-        c.set(SC.COOLDOWN_SECONDS, 120, 90);
+        c.set(SC.COOLDOWN_SECONDS, 10, 10);
         c.set(SC.DURATION_TICKS, 600 * 20, 900 * 20);
         c.set(SC.RADIUS, 6, 10);
 

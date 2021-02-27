@@ -61,11 +61,11 @@ public class ChargedNovaSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 22, 36);
-        c.set(SC.BASE_VALUE, 6, 11);
+        c.set(SC.MANA_COST, 18, 22);
+        c.set(SC.BASE_VALUE, 7, 11);
         c.set(SC.CAST_TIME_TICKS, 80, 60);
         c.set(SC.COOLDOWN_SECONDS, 18, 14);
-        c.set(SC.RADIUS, 2, 4);
+        c.set(SC.RADIUS, 4, 6);
         c.set(SC.TIMES_TO_CAST, 3, 5);
 
         c.setMaxLevel(12);

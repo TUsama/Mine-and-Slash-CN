@@ -13,7 +13,7 @@ public class MagicShieldFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 4.5F;
+        return 12;
     }
 
     @Override

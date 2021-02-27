@@ -77,7 +77,7 @@ public class TeamUtils {
 
         boolean mine = TeamCap.getCapability()
             .isOnSameTeam((ServerPlayerEntity) p1, (ServerPlayerEntity) p2);
-        System.out.println("Same team Slash: " + mine);
+        //System.out.println("Same team Slash: " + mine);
 
         return mine;
 

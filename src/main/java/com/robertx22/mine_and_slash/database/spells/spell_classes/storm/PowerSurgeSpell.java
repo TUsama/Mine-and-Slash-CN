@@ -57,7 +57,7 @@ public class PowerSurgeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 32, 42);
         c.set(SC.CAST_TIME_TICKS, 120, 80);
-        c.set(SC.COOLDOWN_SECONDS, 40, 30);
+        c.set(SC.COOLDOWN_SECONDS, 10, 10);
         c.set(SC.DURATION_TICKS, 20 * 120, 20 * 180);
 
         c.setMaxLevel(6);

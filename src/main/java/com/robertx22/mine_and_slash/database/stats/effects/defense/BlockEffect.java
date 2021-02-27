@@ -2,9 +2,12 @@ package com.robertx22.mine_and_slash.database.stats.effects.defense;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
+import com.robertx22.mine_and_slash.database.stats.types.defense.BlockStrength;
+import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -33,18 +36,20 @@ public class BlockEffect extends BaseDamageEffect {
 
         float blockval = data.getAverageValue();
 
-        float afterblock = effect.number - blockval;
+        float postblock = effect.number;
 
-        if (afterblock < 0) {
+        if (RandomUtils.roll(blockval)) {
+            postblock = 0;
             effect.isFullyBlocked = true;
             SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
         } else {
+            postblock *= 0.75F;
             effect.isPartiallyBlocked = true;
             applyKnockbackResist(effect.target);
-            SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 0.75F, 1.25F);
+            SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 0.5F, 1.5F);
         }
 
-        effect.number = afterblock;
+        effect.number = postblock;
 
         return effect;
     }

@@ -63,9 +63,9 @@ public class WhirlwindSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 18, 25);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.45F, 0.6F);
-        c.set(SC.CAST_TIME_TICKS, 100, 260);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.45F, 0.55F);
+        c.set(SC.CAST_TIME_TICKS, 140, 260);
+        c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.RADIUS, 1, 3);
         c.set(SC.TIMES_TO_CAST, 20, 80);
 

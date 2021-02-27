@@ -61,7 +61,7 @@ public class DodgeRating extends Stat implements IStatEffects, IUsableStat {
 
     @Override
     public float MaximumPercent() {
-        return 0.9F;
+        return 0.95F;
     }
 
     @Override

@@ -9,12 +9,12 @@ public class BlockStrengthPercent extends StatMod {
 
     @Override
     public float Min() {
-        return 10;
+        return 8;
     }
 
     @Override
     public float Max() {
-        return 30;
+        return 24;
 
     }
 

@@ -56,7 +56,7 @@ public class QuickChargeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 14, 18);
         c.set(SC.CAST_TIME_TICKS, 60, 180);
-        c.set(SC.COOLDOWN_SECONDS, 40, 30);
+        c.set(SC.COOLDOWN_SECONDS, 10, 10);
         c.set(SC.DURATION_TICKS, 180 * 20, 360 * 20);
         c.set(SC.RADIUS, 3, 6);
 

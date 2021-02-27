@@ -1,5 +1,6 @@
 package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
+import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
@@ -46,7 +47,8 @@ public class ArcaneDevotion extends BaseGameChangerTrait {
         return Arrays.asList(
             new ExactStatData(-1000, StatModTypes.Multi, Health.getInstance()),
             new ExactStatData(-1000, StatModTypes.Multi, HealthRegen.getInstance()),
-            new ExactStatData(-1000, StatModTypes.Multi, DodgeRating.getInstance()),
+            new ExactStatData(-33, StatModTypes.Multi, DodgeRating.getInstance()),
+                new ExactStatData(-33, StatModTypes.Multi, Armor.getInstance()),
             new ExactStatData(MS, StatModTypes.Multi, MagicShield.getInstance())
         );
     }

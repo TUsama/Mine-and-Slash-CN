@@ -62,7 +62,7 @@ public class CorrosiveShadowSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 12, 22);
+        c.set(SC.MANA_COST, 12, 18);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 5, 2);
