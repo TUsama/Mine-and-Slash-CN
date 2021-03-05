@@ -4,7 +4,12 @@
 * Divine auras provide a little more of their core stat.
 * New stats: Physical to Fire/Nature/Lightning/Frost Weapon Damage stat, which ADDS % of physical damage as elemental attack damage.
 * New stat: Elemental to Physical Conversion, which converts all elemental weapon damage into physical damage.
-* The above stats are not implemented in any items, skills, or talents yet. But may be available through datapacks.
+* Shifted some talents around on the tree.
+* Increased the effectiveness of many nodes on the tree: elemental nodes, physical damage nodes, spell damage nodes, heal power nodes. Also improved weapon and elemental weapon damage nodes.
+* New keystone talent on the warrior branch: Berserker's Impartiality. Converts half of your elemental damage into physical damage.
+* New nodes on the left side of the tree which add 25% of physical weapon damage gained as [insert element] weapon damage.
+* Bleed from the Bleed Mastery passive now lasts 8 seconds, up from 3.
+* Bleed from the Bleed Mastery passive now does 25% of your physical weapon damage, up from 15%.
 
 3.9.5:
 * Ice Orb now passes through enemies and deals extra damage to enemies it passes through.

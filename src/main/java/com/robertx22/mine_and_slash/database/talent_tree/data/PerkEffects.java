@@ -54,6 +54,10 @@ public class PerkEffects {
     public static PerkEffectsWrapper LIFESTEAL_HALF;
     public static PerkEffectsWrapper HEAL_PWR;
     public static PerkEffectsWrapper CDR;
+    public static PerkEffectsWrapper PHYS_TO_FIRE;
+    public static PerkEffectsWrapper PHYS_TO_WATER;
+    public static PerkEffectsWrapper PHYS_TO_THUNDER;
+    public static PerkEffectsWrapper PHYS_TO_NATURE;
 
     // COMBINED EFFECTS
     public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG;
@@ -74,11 +78,11 @@ public class PerkEffects {
     public static void create() {
 
         PHYSICAL_DMG = PerkEffectBuilder.build(
-            "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(2, StatModTypes.Percent, PhysicalDamage.GUID));
+            "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(3, StatModTypes.Percent, PhysicalDamage.GUID));
         SPELL_DMG = PerkEffectBuilder.build(
-            "spell_dmg", SpellDamage.getInstance(), new ExactStatData(2, StatModTypes.Flat, SpellDamage.GUID));
+            "spell_dmg", SpellDamage.getInstance(), new ExactStatData(3, StatModTypes.Flat, SpellDamage.GUID));
         HEAL_PWR = PerkEffectBuilder.build(
-                "heal_pwr", HealPower.getInstance(), new ExactStatData(2, StatModTypes.Flat, HealPower.GUID));
+                "heal_pwr", HealPower.getInstance(), new ExactStatData(3, StatModTypes.Flat, HealPower.GUID));
         CDR = PerkEffectBuilder.build(
                 "cdr", ReducedCooldownStat.getInstance(), new ExactStatData(4, StatModTypes.Flat, ReducedCooldownStat.GUID));
         CRIT_HIT = PerkEffectBuilder.build(
@@ -99,6 +103,15 @@ public class PerkEffects {
                 "spellsteal_half", SpellSteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, SpellSteal.GUID));
         LIFESTEAL_HALF = PerkEffectBuilder.build(
                 "lifesteal_half", Lifesteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, Lifesteal.GUID));
+
+        PHYS_TO_FIRE = PerkEffectBuilder.build(
+                "phys_to_fire", Lifesteal.getInstance(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+        PHYS_TO_WATER = PerkEffectBuilder.build(
+                "phys_to_water", Lifesteal.getInstance(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+        PHYS_TO_THUNDER = PerkEffectBuilder.build(
+                "phys_to_thunder", Lifesteal.getInstance(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+        PHYS_TO_NATURE = PerkEffectBuilder.build(
+                "phys_to_nature", Lifesteal.getInstance(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
 
         int core_amount = 1;
 
@@ -144,7 +157,7 @@ public class PerkEffects {
             )
         );
 
-        float wepDmg = 2;
+        float wepDmg = 3;
 
         for (WeaponTypes wep : WeaponTypes.getAll()) {
             WEP_DMG_MAP.put(
@@ -156,7 +169,7 @@ public class PerkEffects {
             WEP_ELE_DMG_MAP.put(
                 wep, PerkEffectBuilder.build(wep.name()
                         .toLowerCase(Locale.ROOT) + "_ele_dmg_percent", EleWepDmg.MAP.get(wep),
-                    new ExactStatData(wepDmg + 1, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
+                    new ExactStatData(wepDmg + 2, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
                 ));
 
         }
@@ -179,7 +192,7 @@ public class PerkEffects {
 
             ELE_PENE_PERCENT_MAP.put(
                 ele, PerkEffectBuilder.build(ele.guidName + "_pene", new ElementalPene(ele),
-                    new ExactStatData(2, StatModTypes.Flat, new ElementalPene(ele))
+                    new ExactStatData(3, StatModTypes.Flat, new ElementalPene(ele))
                 ));
 
             ATTACK_DAMAGE_PERCENT_MAP.put(

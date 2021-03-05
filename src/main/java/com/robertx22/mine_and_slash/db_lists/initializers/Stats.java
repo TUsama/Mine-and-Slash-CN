@@ -72,6 +72,7 @@ public class Stats implements ISlashRegistryInit {
                     add(MagicalLife.INSTANCE);
                     add(SteadyHand.INSTANCE);
                     add(RecklessBlows.INSTANCE);
+                    add(BerserkersImpartiality.INSTANCE);
                     add(Pacifist.INSTANCE);
                     add(Vampire.INSTANCE);
                     add(StoutDefender.INSTANCE);

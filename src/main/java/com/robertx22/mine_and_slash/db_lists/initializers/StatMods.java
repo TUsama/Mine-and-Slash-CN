@@ -80,6 +80,11 @@ public class StatMods implements ISlashRegistryInit {
                     add(new CompletePhysDispersionFlat());
                     add(new HealPowerFlat());
                     add(new AllEleDmgFlat());
+                    add(new EleToPhysTransferFlat());
+                    add(new PhysToFireConvFlat());
+                    add(new PhysToNatureConvFlat());
+                    add(new PhysToWaterConvFlat());
+                    add(new PhysToThunderConvFlat());
 
                     add(new BlockStrengthPercent());
                     add(new SpellDamageFlat());

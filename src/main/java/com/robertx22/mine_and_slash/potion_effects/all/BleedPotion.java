@@ -36,7 +36,7 @@ public class BleedPotion extends BasePotionEffect {
             int num = CALC.getCalculatedValue(ctx.casterData);
 
             if (ctx.entity.world.isRemote) {
-                ParticleUtils.spawnParticles(ParticleTypes.LAVA, ctx.entity, 15);
+                ParticleUtils.spawnParticles(ParticleTypes.LAVA, ctx.entity, 25);
             } else {
                 DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
                     EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
@@ -49,7 +49,7 @@ public class BleedPotion extends BasePotionEffect {
         }, null));
     }
 
-    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.15F);
+    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.25F);
 
     @Override
     public String GUID() {
@@ -70,7 +70,7 @@ public class BleedPotion extends BasePotionEffect {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.TICK_RATE, 20, 20);
-        p.set(SC.DURATION_TICKS, 60, 60);
+        p.set(SC.DURATION_TICKS, 160, 160);
         return p;
     }
 
