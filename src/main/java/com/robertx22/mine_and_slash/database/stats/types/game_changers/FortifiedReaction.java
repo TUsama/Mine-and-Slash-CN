@@ -23,7 +23,7 @@ public class FortifiedReaction extends BaseGameChangerTrait implements IStatTran
 
     @Override
     public String locDescForLangFile() {
-        return "Transforms your dodge rating into armor.";
+        return "Converts your dodge rating into armor.";
     }
 
     @Override

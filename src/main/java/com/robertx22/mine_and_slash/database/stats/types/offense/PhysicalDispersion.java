@@ -17,7 +17,7 @@ public class PhysicalDispersion extends Stat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "If you are doing elemental dmg, transfers physical damage to elemental damage of highest amount.";
+        return "Upon doing elemental damage, all physical damage is converted to the element of the greatest value.";
     }
 
     @Override

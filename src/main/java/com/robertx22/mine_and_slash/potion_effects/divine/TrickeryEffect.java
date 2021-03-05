@@ -57,9 +57,9 @@ public class TrickeryEffect extends BasePotionEffect implements IApplyStatPotion
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(5, CriticalHit.getInstance()));
+        list.add(new PotionStat(6, CriticalHit.getInstance()));
         list.add(new PotionStat(2, EnergyRegen.getInstance()));
-        list.add(new PotionStat(8, Dexterity.INSTANCE));
+        list.add(new PotionStat(10, Dexterity.INSTANCE));
         return list;
     }
 

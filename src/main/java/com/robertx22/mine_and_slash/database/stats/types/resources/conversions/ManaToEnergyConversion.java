@@ -26,12 +26,12 @@ public class ManaToEnergyConversion extends Stat implements IStatConversion {
 
     @Override
     public String locNameForLangFile() {
-        return "Boost Mana Reg to Energy";
+        return "Mana Regen Gained as Energy Regen";
     }
 
     @Override
     public String locDescForLangFile() {
-        return "Adds to 1 based on the others' amount";
+        return "Adds to energy regen based on your max mana regen.";
     }
 
     @Override

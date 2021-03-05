@@ -23,7 +23,7 @@ public class MagicalLife extends BaseGameChangerTrait implements IStatTransfer {
 
     @Override
     public String locDescForLangFile() {
-        return "Transforms your magic shield into health.";
+        return "Converts your magic shield into health.";
     }
 
     @Override

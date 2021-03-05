@@ -1,3 +1,11 @@
+3.9.6:
+* Bravery health and block chance has been improved.
+* Trickery critical hit has been improved.
+* Divine auras provide a little more of their core stat.
+* New stats: Physical to Fire/Nature/Lightning/Frost Weapon Damage stat, which ADDS % of physical damage as elemental attack damage.
+* New stat: Elemental to Physical Conversion, which converts all elemental weapon damage into physical damage.
+* The above stats are not implemented in any items, skills, or talents yet. But may be available through datapacks.
+
 3.9.5:
 * Ice Orb now passes through enemies and deals extra damage to enemies it passes through.
 * Ice Orb tick rate has been nearly doubled.
