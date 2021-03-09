@@ -13,7 +13,7 @@
 * Fixed a localization error.
 * Hopefully improved the responsiveness of Dash and Thunder, also the weird error where the two spells become non-responsive has hopefully been fixed.
 * Increased distance of Thunder Dash, and increased its area of effect.
-* Reduced mana scaling of Battery Fusilade by a flat 1% at max level (8% -> 7%).
+* Reduced mana scaling of Battery Fusillade by a flat 1% at max level (8% -> 7%).
 * Retribution now lasts only 2 seconds but slowly increases back to 3 seconds, down from a flat 3 seconds at all levels.
 * Retribution now pierces through enemies - it will continue to hit enemies beyond the first.
 * Retribution is no longer affected by gravity.
