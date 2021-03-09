@@ -113,7 +113,7 @@ public class ThunderDashSpell extends BaseSpell {
     public static void dashForward(LivingEntity caster) {
 
         Vec3d playerLook = caster.getLook(1);
-        Vec3d dashVec = new Vec3d(playerLook.getX() * 3, caster.getMotion().getY(), playerLook.getZ());
+        Vec3d dashVec = new Vec3d(playerLook.getX() * 3, caster.getMotion().getY(), playerLook.getZ() * 3);
         caster.setMotion(dashVec);
         //float distance = 0.017453292f;
         //caster.setMotion(new Vec3d(0, 0, 0));
