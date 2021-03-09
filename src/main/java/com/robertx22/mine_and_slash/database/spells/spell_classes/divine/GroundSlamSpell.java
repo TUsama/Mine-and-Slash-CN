@@ -89,8 +89,9 @@ public class GroundSlamSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Converts armor to damage, retribute"));
-        list.add(new StringTextComponent("to damage enemies in front of you: "));
+        list.add(new StringTextComponent("Converts armor to damage, unleash to"));
+        list.add(new StringTextComponent("damage and pierce through enemies in"));
+        list.add(new StringTextComponent("of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

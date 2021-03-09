@@ -6,6 +6,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.PoisonedWeaponsSpell;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalFocus;
+import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToNatureConversion;
+import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.PhysicalToNatureTransfer;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
@@ -53,7 +55,8 @@ public class PoisonedWeaponsEffect extends BasePotionEffect implements IApplySta
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(3, new ElementalAttackDamage(Elements.Nature)));
+        list.add(new PotionStat(50, new PhysicalToNatureTransfer()));
+        list.add(new PotionStat(5, new ElementalAttackDamage(Elements.Nature)));
         return list;
     }
 

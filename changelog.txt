@@ -10,6 +10,19 @@
 * New nodes on the left side of the tree which add 25% of physical weapon damage gained as [insert element] weapon damage.
 * Bleed from the Bleed Mastery passive now lasts 8 seconds, up from 3.
 * Bleed from the Bleed Mastery passive now does 25% of your physical weapon damage, up from 15%.
+* Fixed a localization error.
+* Hopefully improved the responsiveness of Dash and Thunder, also the weird error where the two spells become non-responsive has hopefully been fixed.
+* Reduced mana scaling of Battery Fusilade by a flat 1% at max level (8% -> 7%).
+* Retribution now lasts only 2 seconds but slowly increases back to 3 seconds, down from a flat 3 seconds at all levels.
+* Retribution now pierces through enemies - it will continue to hit enemies beyond the first.
+* Retribution is no longer affected by gravity.
+* Blazing Inferno now scales of off all weapon damage rather than just fire weapon damage - I missed this last time.
+* Spell Blade now provides 25% Fire Infusion, and provides "gain 25% of your physical damage as fire weapon damage". That's a straight up 25% increase in attack damage!
+* Poisoned Weapons no longer provides a measly flat nature attack damage boost, but turns at least 50% of your physical damage to nature weapon damage, and then provides a small nature weapon damage bonus.
+* Tick rate of Ice Orb has been reduced slightly at max level (nerf).
+* Reduced attack scaling of Tidal Wave by a flat 10%.
+* Tidal Wave now casts 2 -> 3 times rather than 3 -> 4.
+* Tidal Wave now has a static 1 second channeling time.
 
 3.9.5:
 * Ice Orb now passes through enemies and deals extra damage to enemies it passes through.

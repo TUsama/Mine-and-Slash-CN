@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -21,6 +22,7 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.play.server.SEntityVelocityPacket;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.MathHelper;
@@ -110,11 +112,14 @@ public class ThunderDashSpell extends BaseSpell {
 
     public static void dashForward(LivingEntity caster) {
 
-        float distance = 0.017453292f;
-        caster.setMotion(new Vec3d(0, 0, 0));
-        caster.knockBack(caster, 3.5f, (double) MathHelper.sin(caster.rotationYaw * distance),
-            (double) (-MathHelper.cos(caster.rotationYaw * distance))
-        );
+        Vec3d playerLook = caster.getLook(1);
+        Vec3d dashVec = new Vec3d(playerLook.getX(), caster.getMotion().getY(), playerLook.getZ());
+        caster.setMotion(dashVec);
+        //float distance = 0.017453292f;
+        //caster.setMotion(new Vec3d(0, 0, 0));
+        //caster.knockBack(caster, 3.5f, (double) MathHelper.sin(caster.rotationYaw * distance),
+        //    (double) (-MathHelper.cos(caster.rotationYaw * distance))
+        //);
         if (caster instanceof ServerPlayerEntity) {
             ((ServerPlayerEntity) caster).connection.sendPacket(new SEntityVelocityPacket(caster));
             caster.velocityChanged = false;
@@ -125,6 +130,15 @@ public class ThunderDashSpell extends BaseSpell {
     public void castExtra(SpellCastContext ctx) {
         LivingEntity caster = ctx.caster;
         World world = ctx.caster.world;
+
+        for (int i = 0; i < 20; ++i)
+        {
+            double d0 = world.rand.nextGaussian() * 0.02D;
+            double d1 = world.rand.nextGaussian() * 0.02D;
+            double d2 = world.rand.nextGaussian() * 0.02D;
+            world.addParticle(ParticleRegister.THUNDER, caster.getPosX() + (double) (caster.world.rand.nextFloat() * caster.getWidth() * 2.0F) - (double) caster.getWidth() - d0 * 10.0D, caster.getPosY() + (double) (caster.world.rand.nextFloat() * caster.getHeight()) - d1 * 10.0D, caster.getPosZ() + (double) (caster.world.rand.nextFloat() * caster.getWidth() * 2.0F) - (double) caster.getWidth() - d2 * 10.0D, d0, d1, d2);
+        }
+
 
         dashForward(ctx.caster);
 

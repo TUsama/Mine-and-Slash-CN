@@ -56,7 +56,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 26, 34);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.05F, 0.08F);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.05F, 0.07F);
         c.set(SC.SHOOT_SPEED, 0.4F, 0.6F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 20, 80);

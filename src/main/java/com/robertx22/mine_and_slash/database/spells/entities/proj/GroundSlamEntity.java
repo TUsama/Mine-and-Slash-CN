@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.database.spells.entities.proj;
 
 import com.robertx22.mine_and_slash.database.spells.entities.bases.BaseElementalBoltEntity;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -13,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,8 +35,9 @@ public class GroundSlamEntity extends BaseElementalBoltEntity {
 
     @Override
     public void initSpellEntity() {
-        this.setNoGravity(false);
-        this.setDeathTime(60);
+        this.setNoGravity(true);
+        this.setDeathTime(getSpellData().configs.get(SC.DURATION_TICKS)
+                .intValue());
     }
 
     public GroundSlamEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
@@ -67,12 +70,30 @@ public class GroundSlamEntity extends BaseElementalBoltEntity {
                     Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.2F);
                     ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
                 }
-                if (ticksExisted % 5 == 0) {
-                    ParticleUtils.spawn(ParticleTypes.EXPLOSION, world, getPositionVec());
-                }
             }
         }
 
+    }
+
+    @Override
+    protected void onImpact(RayTraceResult result) {
+
+        LivingEntity entityHit = getEntityHit(result, 0.3D);
+
+        if (entityHit != null) {
+            if (world.isRemote) {
+                SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
+            }
+
+            onHit(entityHit);
+
+        } else {
+            if (world.isRemote) {
+                SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
+                ParticleUtils.spawn(ParticleTypes.EXPLOSION, world, getPositionVec());
+                this.remove();
+            }
+        }
     }
 
 }
