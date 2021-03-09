@@ -113,7 +113,7 @@ public class ThunderDashSpell extends BaseSpell {
     public static void dashForward(LivingEntity caster) {
 
         Vec3d playerLook = caster.getLook(1);
-        Vec3d dashVec = new Vec3d(playerLook.getX(), caster.getMotion().getY(), playerLook.getZ());
+        Vec3d dashVec = new Vec3d(playerLook.getX() * 3, caster.getMotion().getY(), playerLook.getZ());
         caster.setMotion(dashVec);
         //float distance = 0.017453292f;
         //caster.setMotion(new Vec3d(0, 0, 0));
@@ -145,8 +145,8 @@ public class ThunderDashSpell extends BaseSpell {
         int num = getCalculation(ctx).getCalculatedValue(Load.Unit(caster), ctx.spellsCap, ctx.ability);
 
         List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
-            .radius(2)
-            .distance(10)
+            .radius(3)
+            .distance(12)
             .finder(EntityFinder.Finder.IN_FRONT)
             .build();
 
@@ -156,7 +156,7 @@ public class ThunderDashSpell extends BaseSpell {
             dmg.Activate();
         });
 
-        SoundUtils.playSound(caster, ModSounds.DASH.get(), 1, 1);
+        SoundUtils.playSound(caster, ModSounds.DASH.get(), 1, 2);
 
     }
 
