@@ -1656,7 +1656,7 @@
 	"mmorpg.stat_desc.ele_spell_to_attack_dmg": "A percent of your bonus to spell damage is added to your elemental attacks.",
 	"mmorpg.stat_desc.ele_to_phys_transfer": "Converts to physical damage based on all your elemental weapon damage.",
 	"mmorpg.stat_desc.ele_wep_damage": "Increases elemental damage of X weapon.",
-	"mmorpg.stat_desc.elemental_focus": "Increases damage of this element while reducing damage of other elements.",
+	"mmorpg.stat_desc.elemental_focus": "Increases damage of this element while reducing damage of other elements (both spells and attacks).",
 	"mmorpg.stat_desc.elemental_purity_trait": "Purify yourself of worldly affairs.",
 	"mmorpg.stat_desc.energy": "Energy is required to perform basic attacks.",
 	"mmorpg.stat_desc.energy_regen": "Regeneration occurs every 3 seconds.",

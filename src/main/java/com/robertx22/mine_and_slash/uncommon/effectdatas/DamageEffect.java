@@ -13,6 +13,8 @@ import com.robertx22.mine_and_slash.onevent.entity.damage.DmgSourceUtils;
 import com.robertx22.mine_and_slash.packets.DmgNumPacket;
 import com.robertx22.mine_and_slash.potion_effects.bases.IOnBasicAttackPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.IOnBasicAttackedPotion;
+import com.robertx22.mine_and_slash.potion_effects.bases.IOnSpellCastPotion;
+import com.robertx22.mine_and_slash.potion_effects.bases.IOnSpellHitPotion;
 import com.robertx22.mine_and_slash.saveclasses.ResourcesData;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap.UnitData;
 import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
@@ -367,7 +369,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
 
     private void onEventPotions() {
 
-        if (this.getEffectType() == EffectTypes.BASIC_ATTACK) {
+        if (this.getEffectType() == EffectTypes.BASIC_ATTACK || this.getEffectType() == EffectTypes.NORMAL) {
             List<EffectInstance> onAttacks = source.getActivePotionEffects()
                 .stream()
                 .filter(x -> x.getPotion() instanceof IOnBasicAttackPotion)
@@ -381,6 +383,22 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                 .collect(Collectors.toList());
 
             onAttackeds.forEach(x -> ((IOnBasicAttackedPotion) x.getPotion()).onBasicAttacked(x, source, target));
+
+        }
+        if (this.getEffectType() == EffectTypes.SPELL) {
+            List<EffectInstance> onSpellCasts = source.getActivePotionEffects()
+                    .stream()
+                    .filter(x -> x.getPotion() instanceof IOnSpellCastPotion)
+                    .collect(Collectors.toList());
+
+            onSpellCasts.forEach(x -> ((IOnSpellCastPotion) x.getPotion()).onSpellCast(source, target));
+
+            List<EffectInstance> onSpellHits = target.getActivePotionEffects()
+                    .stream()
+                    .filter(x -> x.getPotion() instanceof IOnSpellHitPotion)
+                    .collect(Collectors.toList());
+
+            onSpellHits.forEach(x -> ((IOnSpellHitPotion) x.getPotion()).onSpellHit(x, source, target));
 
         }
     }

@@ -5,10 +5,12 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ThunderspearSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ColdEssenceEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.StaticEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.ThunderEssenceEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
+import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import net.minecraft.util.text.ITextComponent;
@@ -26,7 +28,7 @@ public class ThunderSpearThunderEssenceSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Hits have a chance to give: " + ThunderEssenceEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply on self: " + ThunderEssenceEffect.INSTANCE.locNameForLangFile()));
 
         return list;
     }
@@ -38,7 +40,7 @@ public class ThunderSpearThunderEssenceSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 1, 2);
+        c.set(SC.MANA_COST, 1, 4);
     }
 
     @Override
@@ -57,8 +59,10 @@ public class ThunderSpearThunderEssenceSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
-        if (RandomUtils.roll(get(ctx.source, SC.CHANCE))) {
-            PotionEffectUtils.apply(StaticEffect.INSTANCE, ctx.source, ctx.target);
+        if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
+                .get(SC.CHANCE)
+                .get(Load.spells(ctx.source), this))) {
+            PotionEffectUtils.reApplyToSelf(ThunderEssenceEffect.INSTANCE, ctx.source);
         }
     }
 

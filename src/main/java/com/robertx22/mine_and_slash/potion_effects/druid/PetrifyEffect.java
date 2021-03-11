@@ -10,6 +10,7 @@ import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IOnBasicAttackedPotion;
+import com.robertx22.mine_and_slash.potion_effects.bases.IOnSpellHitPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.OnTickAction;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -97,7 +98,7 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
 
         List<ITextComponent> list = new ArrayList<>();
         list.add(new StringTextComponent("Petrifies the enemy, preventing movement."));
-        list.add(new StringTextComponent("Next attack does extra damage but stops effect: "));
+        list.add(new StringTextComponent("Next hit deals extra nature damage but stops effect: "));
         list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 
         return list;

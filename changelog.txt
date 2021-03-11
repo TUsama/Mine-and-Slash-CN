@@ -1,3 +1,11 @@
+3.9.8:
+* Fixed Lightning Essence being given to enemies rather than the player...
+* Fixed Power Surge and Quick Surge not giving elemental damage.
+* Improved some tooltip descriptions.
+
+3.9.7:
+* Fixed new nodes giving lifesteal instead of the new gain stat.
+
 3.9.6:
 * Bravery health and block chance has been improved.
 * Trickery critical hit has been improved.

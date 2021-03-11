@@ -5,6 +5,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.CriticalSurgeSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.PowerSurgeSpell;
 import com.robertx22.mine_and_slash.database.stats.types.generated.AllElementalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
+import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -55,7 +57,8 @@ public class PowerSurgeEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(15, new AllElementalDamage(Elements.Elemental)));
+        list.add(new PotionStat(15, new ElementalSpellDamage(Elements.Elemental)));
+        list.add(new PotionStat(10, new ElementalAttackDamage(Elements.Elemental)));
         list.add(new PotionStat(-5, CriticalHit.getInstance()));
         return list;
     }

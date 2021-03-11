@@ -9,6 +9,10 @@ import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToFireConversion;
+import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToNatureConversion;
+import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToThunderConversion;
+import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToWaterConversion;
 import com.robertx22.mine_and_slash.database.stats.types.resources.*;
 import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkEffectBuilder;
@@ -105,13 +109,13 @@ public class PerkEffects {
                 "lifesteal_half", Lifesteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, Lifesteal.GUID));
 
         PHYS_TO_FIRE = PerkEffectBuilder.build(
-                "phys_to_fire", Lifesteal.getInstance(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+                "phys_to_fire", new PhysicalToFireConversion(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
         PHYS_TO_WATER = PerkEffectBuilder.build(
-                "phys_to_water", Lifesteal.getInstance(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+                "phys_to_water", new PhysicalToWaterConversion(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
         PHYS_TO_THUNDER = PerkEffectBuilder.build(
-                "phys_to_thunder", Lifesteal.getInstance(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+                "phys_to_thunder", new PhysicalToThunderConversion(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
         PHYS_TO_NATURE = PerkEffectBuilder.build(
-                "phys_to_nature", Lifesteal.getInstance(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+                "phys_to_nature", new PhysicalToNatureConversion(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
 
         int core_amount = 1;
 
