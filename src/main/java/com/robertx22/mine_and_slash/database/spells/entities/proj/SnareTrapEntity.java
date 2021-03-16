@@ -97,7 +97,7 @@ public class SnareTrapEntity extends EntityBaseProjectile {
         if (world.isRemote) {
 
             if (ticksExisted % 2 == 0) {
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 15; i++) {
                     Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(
                         getPositionVector().add(0, 0.2F, 0), RADIUS);
                     ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);

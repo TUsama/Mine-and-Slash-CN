@@ -25,6 +25,8 @@ public enum Chats implements IAutoLocName {
     OceanMastery(" [Utility & Healing]: " +
         "Calling upon the depths of ocean's abyss, you may draw forth the chill of the deep to slow your foes or send the healing waters of the world over yourself and allies."),
 
+    TotalMastery("You shouldn't see this"),
+
     MapStarted("Adventure Map Successfully Sacrificed"),
 
     Youneedheartstone("You need a hearthstone item to attune to this block."),

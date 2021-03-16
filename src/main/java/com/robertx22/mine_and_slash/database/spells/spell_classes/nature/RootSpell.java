@@ -57,7 +57,7 @@ public class RootSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 17, 20);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 45, 35);
+        c.set(SC.COOLDOWN_SECONDS, 32, 22);
         c.set(SC.DURATION_TICKS, 8 * 20, 14 * 20);
 
         c.setMaxLevel(8);

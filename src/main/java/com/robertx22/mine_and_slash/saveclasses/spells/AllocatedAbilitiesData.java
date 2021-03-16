@@ -3,11 +3,14 @@ package com.robertx22.mine_and_slash.saveclasses.spells;
 import com.robertx22.mine_and_slash.config.forge.ModConfig;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.Synergy;
+import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.IApplyableStats;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
+import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import info.loenwind.autosave.annotations.Storable;
 import info.loenwind.autosave.annotations.Store;
+import net.minecraft.entity.player.PlayerEntity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +31,14 @@ public class AllocatedAbilitiesData implements IApplyableStats {
 
     public int getSchoolPoints(Masteries school) {
         return schoolPoints.getOrDefault(school.name(), 0);
+    }
+
+    public int getTotalSchoolPoints() {
+        float total_mastery = 0.0f;
+        for (float f : schoolPoints.values()) {
+            total_mastery += f;
+        }
+        return (int) total_mastery;
     }
 
     public HashMap<String, AbilityData> getAbilityMap() {
@@ -105,6 +116,10 @@ public class AllocatedAbilitiesData implements IApplyableStats {
             }
         }
 
+        if (data.getLevel() <= getTotalSchoolPoints()) {
+            return false;
+        }
+
         return getSchoolPoints(school) < Masteries.MAXIMUM_POINTS;
     }
 
@@ -124,19 +139,15 @@ public class AllocatedAbilitiesData implements IApplyableStats {
     @Override
     public void applyStats(EntityCap.UnitData data, int level) {
 
-        try {
-            schoolPoints.entrySet()
-                .forEach(x -> {
+        try { // need to make just happen once
 
-                    Masteries school = Masteries.valueOf(x.getKey());
-                    int points = x.getValue();
+            Masteries school = Masteries.TOTAL_MASTERY;
+            int points = getTotalSchoolPoints();
 
-                    school.getStatsFor(points, data)
-                        .forEach(s -> {
-                            s.applyStats(data);
-                        });
+            school.getStatsFor(points, data).forEach(s -> {
+                s.applyStats(data);
+            });
 
-                });
         } catch (Exception e) {
             e.printStackTrace();
         }

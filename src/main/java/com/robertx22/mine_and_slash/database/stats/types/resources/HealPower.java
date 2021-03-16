@@ -24,7 +24,7 @@ public class HealPower extends Stat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases all types of healing recieved like health regen, lifesteal, life on hit, spell heals etc";
+        return "Increases all types of healing received like health regen, lifesteal, life on hit, spell heals etc";
     }
 
     @Override

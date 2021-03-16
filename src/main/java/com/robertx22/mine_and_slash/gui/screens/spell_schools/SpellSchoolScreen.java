@@ -130,10 +130,11 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
 
             for (Masteries value : Masteries.values()) {
 
-                addButton(new PickSchoolButton(this, value, xpos, ypos));
+                if (value != Masteries.TOTAL_MASTERY) { // don't want a button for placeholder value
+                    addButton(new PickSchoolButton(this, value, xpos, ypos));
 
-                xpos += PickSchoolButton.xSize + PickSchoolButton.xSize / 8;
-
+                    xpos += PickSchoolButton.xSize + PickSchoolButton.xSize / 8;
+                }
             }
 
         }
@@ -466,24 +467,28 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
                 List<ITextComponent> list = new ArrayList<>();
 
                 school.getStatsFor(spells.getAbilitiesData()
-                    .getSchoolPoints(school), data)
+                        .getTotalSchoolPoints(), data)
                     .forEach(x -> {
                         list.addAll(x.GetTooltipString(info));
                     });
 
-                if (school.getEffectiveLevel(spells) > data.getLevel()) {
-                    list.add(new SText(TextFormatting.RED + "WARNING: Additional points will not provide bonus stats!"));
-                    list.add(new SText(TextFormatting.RED + "Effective stat bonus is capped based on player level."));
-                }
-
                 if (data.getLevel() < Masteries.LVL_TO_UNLOCK_2ND_SCHOOL) {
-                    list.add(new SText(TextFormatting.GOLD + "You unlock a second school of magic at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL + "."));
+                    list.add(new SText(TextFormatting.GOLD + "You can unlock a second mastery tree at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL + "."));
 
                 }
 
                 TooltipUtils.abilityLevel(list, spells.getAbilitiesData()
                         .getSchoolPoints(school)
                     , Masteries.MAXIMUM_POINTS);
+
+                TooltipUtils.totalMasteryLevel(list, spells.getAbilitiesData()
+                                .getTotalSchoolPoints()
+                        , Masteries.MAXIMUM_POINTS * 2);
+
+                if (spells.getAbilitiesData()
+                        .getTotalSchoolPoints() >= data.getLevel()) {
+                    list.add(new SText(TextFormatting.RED + "Your total mastery level cannot go past your max level."));
+                }
 
                 GuiUtils.renderTooltip(list, mouseX, mouseY);
 

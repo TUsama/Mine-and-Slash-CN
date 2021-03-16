@@ -15,6 +15,8 @@ import java.util.List;
 
 public class PhysicalToFireConversion extends Stat implements IStatConversion {
 
+    public static String GUID = "phys_to_fire_conversion";
+
     @Override
     public List<ConversionMethod> conversion() {
         return Arrays.asList(new ConversionMethod(PhysicalDamage.getInstance(), new ElementalAttackDamage(Elements.Fire)));
@@ -22,8 +24,18 @@ public class PhysicalToFireConversion extends Stat implements IStatConversion {
     }
 
     @Override
+    public String getIcon() {
+        return "\u2764";
+    }
+
+    @Override
+    public String getIconPath() {
+        return "ele_atk_dmg/phys_to_fire";
+    }
+
+    @Override
     public String GUID() {
-        return "physical_to_fire_conversion";
+        return GUID;
     }
 
     @Override

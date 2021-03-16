@@ -13,6 +13,8 @@ import java.util.List;
 
 public class PhysicalToNatureConversion extends Stat implements IStatConversion {
 
+    public static String GUID = "phys_to_nature_conversion";
+
     @Override
     public List<ConversionMethod> conversion() {
         return Arrays.asList(new ConversionMethod(PhysicalDamage.getInstance(), new ElementalAttackDamage(Elements.Nature)));
@@ -20,8 +22,18 @@ public class PhysicalToNatureConversion extends Stat implements IStatConversion 
     }
 
     @Override
+    public String getIcon() {
+        return "\u2764";
+    }
+
+    @Override
+    public String getIconPath() {
+        return "ele_atk_dmg/phys_to_nature";
+    }
+
+    @Override
     public String GUID() {
-        return "physical_to_nature_conversion";
+        return GUID;
     }
 
     @Override

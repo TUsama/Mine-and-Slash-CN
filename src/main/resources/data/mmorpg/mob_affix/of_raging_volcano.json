@@ -10,7 +10,7 @@
     "mods": [
       "fire_resist_flat",
       "attack_fire_damage_flat",
-      "very_high_fire_penetration_flat"
+      "high_fire_penetration_flat"
     ]
   }
 }

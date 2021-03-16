@@ -22,23 +22,26 @@ public class WhirlwindEnhancedSynergy extends Synergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Increases radius, duration, and number of hits: "));
+        list.add(new StringTextComponent("Increase damage but reduce radius: "));
 
         return list;
     }
 
     @Override
+    public int getMaxSpellLevelNormal() {
+        return 1;
+    }
+
+    @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 1, 3);
-        c.set(SC.CAST_TIME_TICKS, 20, 100);
-        c.set(SC.RADIUS, 0, 2);
-        c.set(SC.TIMES_TO_CAST, 4, 20);
+        c.set(SC.MANA_COST, 4, 4);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.15F);
+        c.set(SC.RADIUS, -0.5F, -0.5F);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.setMaxLevel(6);
         return c;
     }
 

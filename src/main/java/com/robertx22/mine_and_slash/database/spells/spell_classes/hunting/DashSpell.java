@@ -69,7 +69,7 @@ public class DashSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 6, 11);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 20, 8);
+        c.set(SC.COOLDOWN_SECONDS, 12, 4);
 
         c.setMaxLevel(8);
 

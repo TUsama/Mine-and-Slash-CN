@@ -109,13 +109,13 @@ public class PerkEffects {
                 "lifesteal_half", Lifesteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, Lifesteal.GUID));
 
         PHYS_TO_FIRE = PerkEffectBuilder.build(
-                "phys_to_fire", new PhysicalToFireConversion(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+                "phys_to_fire", new PhysicalToFireConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToFireConversion.GUID));
         PHYS_TO_WATER = PerkEffectBuilder.build(
-                "phys_to_water", new PhysicalToWaterConversion(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+                "phys_to_water", new PhysicalToWaterConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToWaterConversion.GUID));
         PHYS_TO_THUNDER = PerkEffectBuilder.build(
-                "phys_to_thunder", new PhysicalToThunderConversion(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+                "phys_to_thunder", new PhysicalToThunderConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToThunderConversion.GUID));
         PHYS_TO_NATURE = PerkEffectBuilder.build(
-                "phys_to_nature", new PhysicalToNatureConversion(), new ExactStatData(10F, StatModTypes.Flat, Lifesteal.GUID));
+                "phys_to_nature", new PhysicalToNatureConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToNatureConversion.GUID));
 
         int core_amount = 1;
 
@@ -161,7 +161,7 @@ public class PerkEffects {
             )
         );
 
-        float wepDmg = 3;
+        float wepDmg = 5;
 
         for (WeaponTypes wep : WeaponTypes.getAll()) {
             WEP_DMG_MAP.put(
@@ -173,7 +173,7 @@ public class PerkEffects {
             WEP_ELE_DMG_MAP.put(
                 wep, PerkEffectBuilder.build(wep.name()
                         .toLowerCase(Locale.ROOT) + "_ele_dmg_percent", EleWepDmg.MAP.get(wep),
-                    new ExactStatData(wepDmg + 2, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
+                    new ExactStatData(wepDmg + 3, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
                 ));
 
         }

@@ -55,7 +55,7 @@ public enum Words implements IAutoLocName {
     ThunderDash("Thunder Dash"), TripleSlash("Triple Slash"), Dash("Dash"),
     Thunderstorm("Thunderstorm"), Stealth("Stealth"),
     ArrowBarrage("Arrow Barrage"), WideShot("Wide Shot"), ArrowStorm("Arrow Storm"), HuntingPotion("Hunter's Potion"),
-    RecoilShot("Recoil Shot"), TidalWave("Tidal Wave"), ThrowFlames("Meteoric Strike"),
+    RecoilShot("Recoil Shot"), TidalWave("Tidal Wave"), ThrowFlames("Meteoric Strike"), TotalMastery("Total Mastery"),
     LightningTotem("Lightning Totem"), HealingAura("Healing Aura"), ThoughtSeize("Thought Seize"), MortalitySap("Mortality Sap"),
     CorrosiveShadow("Corrosive Shadow"),
     Volcano("Volcano"), VampiricBlood("Vampiric Blood"), DraconicBlood("Draconic Blood"),

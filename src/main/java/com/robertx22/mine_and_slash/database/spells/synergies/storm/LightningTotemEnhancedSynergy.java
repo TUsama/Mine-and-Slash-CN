@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.synergies.storm;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.LightningTotemSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ThunderstormSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.Synergy;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -13,7 +14,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThunderstormEnhancedSynergy extends Synergy {
+public class LightningTotemEnhancedSynergy extends Synergy {
 
     @Override
     public List<ITextComponent> getSynergyTooltipInternal(TooltipInfo info) {
@@ -21,7 +22,7 @@ public class ThunderstormEnhancedSynergy extends Synergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Increase tick rate but reduce radius: "));
+        list.add(new StringTextComponent("Reduce cooldown but reduce damage: "));
 
         return list;
     }
@@ -34,8 +35,8 @@ public class ThunderstormEnhancedSynergy extends Synergy {
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
         c.set(SC.MANA_COST, 5, 5);
-        c.set(SC.TICK_RATE, -10, -10);
-        c.set(SC.RADIUS, -2F, -2F);
+        c.set(SC.BASE_VALUE, -2, -2);
+        c.set(SC.COOLDOWN_SECONDS, -4, -4);
     }
 
     @Override
@@ -46,17 +47,17 @@ public class ThunderstormEnhancedSynergy extends Synergy {
 
     @Override
     public Place getSynergyPlace() {
-        return Place.FIRST;
+        return Place.SECOND;
     }
 
     @Nullable
     @Override
     public IAbility getRequiredAbility() {
-        return ThunderstormSpell.getInstance();
+        return LightningTotemSpell.getInstance();
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Charged Storm";
+        return "Improved Algorithm";
     }
 }

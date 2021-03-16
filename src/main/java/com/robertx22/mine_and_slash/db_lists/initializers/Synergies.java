@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.db_lists.initializers;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ChargedNovaSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.divine.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.fire.*;
+import com.robertx22.mine_and_slash.database.spells.synergies.hunting.BlastTrapEnhancedSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.hunting.ImbueAddHunterSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.hunting.RecoilAddHunterSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.hunting.RecoilAddWoundsSynergy;
@@ -78,10 +79,13 @@ public class Synergies implements ISlashRegistryInit {
         new PurifyingFiresEnergizeSynergy().registerToSlashRegistry();
         new HolySpearSynergy().registerToSlashRegistry();
         new ThunderstormEnhancedSynergy().registerToSlashRegistry();
+        new ChargedNovaStaticSynergy().registerToSlashRegistry();
+        new LightningTotemEnhancedSynergy().registerToSlashRegistry();
         new BlizzardFrostEssenceGenSynergy().registerToSlashRegistry();
         new HeavyStrikeEnrageSynergy().registerToSlashRegistry();;
         new WhirlwindEnhancedSynergy().registerToSlashRegistry();;
         new WhirlwindEnrageSynergy().registerToSlashRegistry();
+        new BlastTrapEnhancedSynergy().registerToSlashRegistry();
 
     }
 }

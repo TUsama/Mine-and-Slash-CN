@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -34,7 +35,7 @@ public class TidalWaveEntity extends BaseElementalBoltEntity {
     @Override
     public void initSpellEntity() {
         this.setNoGravity(false);
-        this.setDeathTime(50);
+        this.setDeathTime(60);
     }
 
     public TidalWaveEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
@@ -64,7 +65,7 @@ public class TidalWaveEntity extends BaseElementalBoltEntity {
         if (world.isRemote) {
             if (this.ticksExisted > 2) {
                 for (int i = 0; i < 10; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.1F);
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.2F);
                     ParticleUtils.spawn(ParticleRegister.BUBBLE, world, p);
                 }
                 if (ticksExisted % 5 == 0) {
@@ -73,6 +74,27 @@ public class TidalWaveEntity extends BaseElementalBoltEntity {
             }
         }
 
+    }
+
+    @Override
+    protected void onImpact(RayTraceResult result) {
+
+        LivingEntity entityHit = getEntityHit(result, 0.3D);
+
+        if (entityHit != null) {
+            if (world.isRemote) {
+                SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
+            }
+
+            onHit(entityHit);
+
+        } else {
+            if (world.isRemote) {
+                SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
+
+                this.remove();
+            }
+        }
     }
 
 }

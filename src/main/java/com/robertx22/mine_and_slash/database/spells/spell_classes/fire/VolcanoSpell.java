@@ -54,7 +54,7 @@ public class VolcanoSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.MANA_COST, 30, 50);
-        c.set(SC.BASE_VALUE, 6, 15);
+        c.set(SC.BASE_VALUE, 6, 14);
         c.set(SC.ATTACK_SCALE_VALUE, 0.35F, 0.55F);
         c.set(SC.CAST_TIME_TICKS, 90, 60);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);

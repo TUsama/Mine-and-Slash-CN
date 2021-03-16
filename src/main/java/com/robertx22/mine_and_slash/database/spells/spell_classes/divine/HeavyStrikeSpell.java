@@ -48,7 +48,7 @@ public class HeavyStrikeSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.BLOCK_SLIME_BLOCK_PLACE;
+                    return SoundEvents.ENTITY_EVOKER_FANGS_ATTACK;
                 }
 
                 @Override
@@ -116,7 +116,7 @@ public class HeavyStrikeSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.12F, 0.19F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 100, 60);
+        c.set(SC.COOLDOWN_TICKS, 80, 50);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
         c.setMaxLevel(16);

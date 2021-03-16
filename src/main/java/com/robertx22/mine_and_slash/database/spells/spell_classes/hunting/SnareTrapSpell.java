@@ -66,7 +66,7 @@ public class SnareTrapSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 30, 24);
+        c.set(SC.COOLDOWN_SECONDS, 24, 18);
         c.set(SC.DURATION_TICKS, 200, 300);
         c.set(SC.RADIUS, 1.5F, 3.0F);
         c.set(SC.TICK_RATE, 20, 20);

@@ -61,7 +61,7 @@ public class GroundSlamSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 1.2F, 1.6F);
         c.set(SC.PROJECTILE_COUNT, 3, 5);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 240, 160);
+        c.set(SC.COOLDOWN_TICKS, 200, 140);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.DURATION_TICKS, 40, 60);
 

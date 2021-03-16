@@ -1,7 +1,8 @@
-package com.robertx22.mine_and_slash.database.spells.synergies.storm;
+package com.robertx22.mine_and_slash.database.spells.synergies.hunting;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.BlastTrapSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ThunderstormSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.Synergy;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -13,7 +14,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThunderstormEnhancedSynergy extends Synergy {
+public class BlastTrapEnhancedSynergy extends Synergy {
 
     @Override
     public List<ITextComponent> getSynergyTooltipInternal(TooltipInfo info) {
@@ -21,7 +22,7 @@ public class ThunderstormEnhancedSynergy extends Synergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Increase tick rate but reduce radius: "));
+        list.add(new StringTextComponent("Throw more traps but reduce damage: "));
 
         return list;
     }
@@ -33,9 +34,9 @@ public class ThunderstormEnhancedSynergy extends Synergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 5, 5);
-        c.set(SC.TICK_RATE, -10, -10);
-        c.set(SC.RADIUS, -2F, -2F);
+        c.set(SC.MANA_COST, 15, 15);
+        c.set(SC.PROJECTILE_COUNT, 2, 2);
+        c.set(SC.ATTACK_SCALE_VALUE, -0.5F, -0.5F);
     }
 
     @Override
@@ -52,11 +53,11 @@ public class ThunderstormEnhancedSynergy extends Synergy {
     @Nullable
     @Override
     public IAbility getRequiredAbility() {
-        return ThunderstormSpell.getInstance();
+        return BlastTrapSpell.getInstance();
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Charged Storm";
+        return "Cluster Traps";
     }
 }

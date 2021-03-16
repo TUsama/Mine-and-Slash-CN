@@ -204,4 +204,11 @@ public class TooltipUtils {
                 .appendSibling(Words.Level.locName())
                 .appendText(": " + current + "/" + max));
     }
+
+    public static void totalMasteryLevel(List<ITextComponent> list, int current, int max) {
+        list.add(
+                new SText(TextFormatting.LIGHT_PURPLE + "").appendText("Total Mastery ")
+                        .appendSibling(Words.Level.locName())
+                        .appendText(": " + current + "/" + max));
+    }
 }

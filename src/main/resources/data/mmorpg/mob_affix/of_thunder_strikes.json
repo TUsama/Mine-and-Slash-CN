@@ -10,7 +10,7 @@
     "mods": [
       "thunder_resist_flat",
       "attack_thunder_damage_flat",
-      "very_high_thunder_penetration_flat"
+      "high_thunder_penetration_flat"
     ]
   }
 }

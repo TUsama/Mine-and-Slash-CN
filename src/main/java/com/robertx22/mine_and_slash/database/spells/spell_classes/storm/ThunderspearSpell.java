@@ -58,7 +58,7 @@ public class ThunderspearSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 2.2F, 2.75F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 50, 50);
+        c.set(SC.COOLDOWN_TICKS, 40, 40);
         c.set(SC.DURATION_TICKS, 40, 60);
 
         c.setMaxLevel(16);

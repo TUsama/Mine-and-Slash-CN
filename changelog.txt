@@ -1,3 +1,23 @@
+3.9.10:
+* Buffed weapon damage and elemental weapon damage nodes on the tree.
+* Fixed the new nodes on the left.
+
+3.9.9:
+* Mastery now scales 1:1 with your max level instead of scaling based on your max level. This also means that spells scale with your total mastery level rather than the mastery level of the tree, encouraging dual-mastery spec. Previously, they scaled at approximately your mastery level * 2 for each individual mastery (capped at about half your max level, so level 10 Fire would be the max for a player level 20, and would scale to level 20). Now, you need 20 points in Fire mastery in order for spells to scale to player level 20. That also means at level 60, you'd need 50 points in Fire (max), and 10 points in another tree to fully scale. Fundamentally, this allows players to go mono-spec and not be punished for allocating all their points into one tree until level 50, where they will probably need to spec into another tree. Additionally, this means that spells will be faster to obtain without punishment - you can get Volcano at level 50, instead of losing on potential stats if you "rushed" for it previously.
+* You can no longer allocate points into your mastery level so that your total mastery level is higher than your max level.
+* The previous mastery system just seemed uninuitive to new players. Most would want to specialize in just one tree, so with the new change, you can do that, and still be rewarded for going dual-spec. Of course, by level 51 you'll need to be speccing into 2 different trees anyway.
+* New synergies for: Lightning Totem, Charged Nova, Blast Trap.
+* Substantially reduced the cooldown of ALL spells except for the "ultimate" spells.
+* Tidal Wave now pierces enemies.
+* Increased shoot speed of Tidal Wave.
+* Increased damage of Purifying Fires.
+* Increased heal of Healing Wave.
+* Healing Wave now casts instantly.
+* Increased damage of "ultimate" spells (except Volcano).
+* Synergies Charged Storm, Magma Bloom, and Piercing Winds have been reworked slightly to augment the spell rather than straight up improve it.
+* Fixed a missing item word.
+* Hopefully fixed zombies spawning like crazy on top of map dungeons.
+
 3.9.8:
 * Fixed Lightning Essence being given to enemies rather than the player...
 * Fixed Power Surge and Quick Surge not giving elemental damage.

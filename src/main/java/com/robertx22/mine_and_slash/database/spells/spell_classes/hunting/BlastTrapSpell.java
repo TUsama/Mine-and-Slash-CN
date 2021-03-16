@@ -65,7 +65,7 @@ public class BlastTrapSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 18, 14);
+        c.set(SC.COOLDOWN_SECONDS, 14, 10);
         c.set(SC.DURATION_TICKS, 200, 300);
         c.set(SC.RADIUS, 1.5F, 3.0F);
 

@@ -71,8 +71,7 @@ public interface IAbility extends IGUID, ITooltipList {
 
     public default int getEffectiveAbilityLevel(PlayerSpellCap.ISpellsCap spells, EntityCap.UnitData data) {
 
-        return MathHelper.clamp(getMastery()
-            .getEffectiveLevel(spells), 0, data.getLevel());
+        return getMastery().getEffectiveLevel(spells, data);
 
         /*
         int spellLvl = spells.getLevelOf(this);

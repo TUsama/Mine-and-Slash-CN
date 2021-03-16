@@ -63,7 +63,7 @@ public class FireBombsSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 50, 40);
-        c.set(SC.COOLDOWN_SECONDS, 18, 14);
+        c.set(SC.COOLDOWN_SECONDS, 14, 8);
         c.set(SC.DURATION_TICKS, 100, 120);
         c.set(SC.TIMES_TO_CAST, 3, 3);
         c.set(SC.RADIUS, 1.5F, 2.25F);

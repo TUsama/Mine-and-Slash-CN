@@ -9,7 +9,7 @@
   "mods": {
     "mods": [
       "attack_fire_damage_flat",
-      "physical_dispersion_flat"
+      "fire_resist_flat"
     ]
   }
 }

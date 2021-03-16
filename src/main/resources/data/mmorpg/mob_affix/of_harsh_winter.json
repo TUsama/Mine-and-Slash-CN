@@ -10,7 +10,7 @@
     "mods": [
       "water_resist_flat",
       "attack_water_damage_flat",
-      "very_high_water_penetration_flat"
+      "high_water_penetration_flat"
     ]
   }
 }

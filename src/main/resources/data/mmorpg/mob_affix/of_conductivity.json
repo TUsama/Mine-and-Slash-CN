@@ -8,8 +8,8 @@
   "type": "suffix",
   "mods": {
     "mods": [
-      "attack_water_damage_flat",
-      "attack_thunder_damage_flat"
+      "low_attack_water_damage_flat",
+      "low_attack_thunder_damage_flat"
     ]
   }
 }

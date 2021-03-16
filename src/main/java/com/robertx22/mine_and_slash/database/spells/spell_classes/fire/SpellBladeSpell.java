@@ -57,7 +57,7 @@ public class SpellBladeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 12, 15);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 40, 30);
+        c.set(SC.COOLDOWN_SECONDS, 34, 26);
         c.set(SC.DURATION_TICKS, 20 * 10, 20 * 20);
 
         c.setMaxLevel(8);

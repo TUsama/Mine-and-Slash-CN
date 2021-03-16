@@ -21,22 +21,26 @@ public class MagmaFlowerEnhancedSynergy extends Synergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Increases tick rate and radius: "));
+        list.add(new StringTextComponent("Increase duration but reduce tick rate: "));
 
         return list;
     }
 
     @Override
+    public int getMaxSpellLevelNormal() {
+        return 1;
+    }
+
+    @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 3, 6);
-        c.set(SC.TICK_RATE, -1, -15);
-        c.set(SC.RADIUS, 0.5F, 2F);
+        c.set(SC.MANA_COST, 5, 5);
+        c.set(SC.TICK_RATE, 5, 5);
+        c.set(SC.DURATION_TICKS, 120, 120);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.setMaxLevel(6);
         return c;
     }
 
