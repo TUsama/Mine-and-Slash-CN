@@ -21,7 +21,8 @@ public class EleToPhysicalTransfer extends Stat implements IStatTransfer {
         return Arrays.asList(new TransferMethod(new ElementalAttackDamage(Elements.Water), PhysicalDamage.getInstance()),
                 new TransferMethod(new ElementalAttackDamage(Elements.Fire), PhysicalDamage.getInstance()),
                 new TransferMethod(new ElementalAttackDamage(Elements.Thunder), PhysicalDamage.getInstance()),
-                new TransferMethod(new ElementalAttackDamage(Elements.Nature), PhysicalDamage.getInstance()));
+                new TransferMethod(new ElementalAttackDamage(Elements.Nature), PhysicalDamage.getInstance()),
+                new TransferMethod(new ElementalAttackDamage(Elements.Elemental), PhysicalDamage.getInstance()));
 
     }
 

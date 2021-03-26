@@ -84,11 +84,11 @@ public class PlayerUtils {
 
         player.setMotion(0, 0, 0);
 
-        player = (ServerPlayerEntity) player.changeDimension(destination, PORTALLESS);
+        EntityUtils.setLoc(player, new Vec3d(pos), player.rotationYaw, player.rotationPitch);
+
+        player.changeDimension(destination, PORTALLESS);
 
         player.addPotionEffect(new EffectInstance(TeleportProtection.INSTANCE, 10 * 20));
-
-        EntityUtils.setLoc(player, new Vec3d(pos), player.rotationYaw, player.rotationPitch);
 
         return player;
 
