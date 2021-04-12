@@ -1,7 +1,7 @@
 3.9.11:
 * Whirlpool now correctly does frost damage instead of elemental damage.
 * Fixed Elemental Damage not being converted properly with Ele to Physical Conversion.
-* Regeration typo.
+* Regeneneration typo.
 
 3.9.10:
 * Buffed weapon damage and elemental weapon damage nodes on the tree.
