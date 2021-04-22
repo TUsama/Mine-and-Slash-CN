@@ -75,26 +75,4 @@ public class TidalWaveEntity extends BaseElementalBoltEntity {
         }
 
     }
-
-    @Override
-    protected void onImpact(RayTraceResult result) {
-
-        LivingEntity entityHit = getEntityHit(result, 0.3D);
-
-        if (entityHit != null) {
-            if (world.isRemote) {
-                SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
-            }
-
-            onHit(entityHit);
-
-        } else {
-            if (world.isRemote) {
-                SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
-
-                this.remove();
-            }
-        }
-    }
-
 }

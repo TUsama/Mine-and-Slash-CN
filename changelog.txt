@@ -1,4 +1,5 @@
 3.9.11:
+* Tidal Wave and Retribution no longer pierce. They have been buffed accordingly to compensate for the unintended multi-hit effect.
 * Whirlpool now correctly does frost damage instead of elemental damage.
 * Fixed Elemental Damage not being converted properly with Ele to Physical Conversion.
 * Regeneneration typo.
