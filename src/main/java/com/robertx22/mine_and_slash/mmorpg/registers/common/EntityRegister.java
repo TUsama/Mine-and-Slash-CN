@@ -1,9 +1,6 @@
 package com.robertx22.mine_and_slash.mmorpg.registers.common;
 
-import com.robertx22.mine_and_slash.database.spells.entities.cloud.ArrowStormEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.cloud.BlizzardEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.cloud.ThunderstormEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.cloud.VolcanoEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.cloud.*;
 import com.robertx22.mine_and_slash.database.spells.entities.proj.*;
 import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.*;
 import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiderPetEntity;
@@ -59,6 +56,7 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> THROW_FLAMES;
     public static final EntityType<? extends Entity> VOLCANO;
 
+    public static final EntityType<? extends Entity> ROCK_SLIDE;
     public static final EntityType<? extends Entity> POISON_BALL;
 
     public static final EntityType<? extends Entity> FROSTBOLT;
@@ -69,6 +67,7 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> FROZEN_ORB;
 
     public static final EntityType<RangerArrowEntity> RANGER_ARROW;
+    public static final EntityType<StoneEntity> STONE_ENTITY;
     public static final EntityType<? extends Entity> ARROW_STORM;
     public static final EntityType<? extends Entity> SNARE_TRAP;
     public static final EntityType<? extends Entity> WEAKEN_TRAP;
@@ -95,6 +94,7 @@ public class EntityRegister {
         GROUND_SLAM = projectile(GroundSlamEntity::new, GroundSlamEntity::new, "ground_slam");
 
         POISON_BALL = projectile(PoisonBallEntity::new, PoisonBallEntity::new, "poison_ball");
+        ROCK_SLIDE = projectile(RockSlideEntity::new, RockSlideEntity::new, "rock_slide");
 
         THUNDERSTORM = projectile(ThunderstormEntity::new, ThunderstormEntity::new, "thunderstorm");
         THUNDER_SPEAR = projectile(ThunderspearEntity::new, ThunderspearEntity::new, "thunder_spear", false);
@@ -106,6 +106,7 @@ public class EntityRegister {
         THROW_FLAMES = projectile(ThrowFlameEntity::new, ThrowFlameEntity::new, "seeker_flame");
         VOLCANO = projectile(VolcanoEntity::new, VolcanoEntity::new, "volcano");
 
+        STONE_ENTITY = projectile(StoneEntity::new, StoneEntity::new, "stone_entity");
         RANGER_ARROW = projectile(RangerArrowEntity::new, RangerArrowEntity::new, "ranger_arrow");
         ARROW_STORM = projectile(ArrowStormEntity::new, ArrowStormEntity::new, "arrow_storm");
         SNARE_TRAP = projectile(SnareTrapEntity::new, SnareTrapEntity::new, "snare_trap");

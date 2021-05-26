@@ -115,7 +115,7 @@ public enum ParticleEnum {
         @Override
         public void activate(ParticlePacketData data, World world) {
 
-            for (int i = 0; i < 150; i++) {
+            for (int i = 0; i < 100; i++) {
                 Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius);
                 world.addParticle(ParticleTypes.FLAME, p.x, p.y, p.z, 0, 0, 0);
                 world.addParticle(ParticleTypes.FLAME, p.x, p.y, p.z, 0, 0, 0);
@@ -129,8 +129,8 @@ public enum ParticleEnum {
         @Override
         public void activate(ParticlePacketData data, World world) {
 
-            for (int i = 0; i < 150; i++) {
-                Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius);
+            for (int i = 0; i < 100; i++) {
+                Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius * i / 100);
                 world.addParticle(ParticleTypes.HAPPY_VILLAGER, p.x, p.y, p.z, 0, 0, 0);
                 world.addParticle(ParticleTypes.SMOKE, p.x, p.y, p.z, 0, 0, 0);
 
@@ -142,7 +142,7 @@ public enum ParticleEnum {
         @Override
         public void activate(ParticlePacketData data, World world) {
 
-            for (int i = 0; i < 150; i++) {
+            for (int i = 0; i < 100; i++) {
                 Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius);
                 world.addParticle(ParticleTypes.COMPOSTER, p.x, p.y, p.z, 0, 0, 0);
                 world.addParticle(ParticleTypes.ITEM_SLIME, p.x, p.y, p.z, 0, 0, 0);

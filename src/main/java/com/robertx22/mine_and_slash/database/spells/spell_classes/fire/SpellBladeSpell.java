@@ -99,7 +99,7 @@ public class SpellBladeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(6, 2);
+        return new AbilityPlace(7, 1);
     }
 
     private static class SingletonHolder {

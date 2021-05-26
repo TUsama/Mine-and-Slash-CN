@@ -68,6 +68,7 @@ public class DashSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.MANA_COST, 6, 11);
+        c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 12, 4);
 
@@ -111,7 +112,7 @@ public class DashSpell extends BaseSpell {
     public static void dashForward(LivingEntity caster) {
 
         Vec3d playerLook = caster.getLook(1);
-        Vec3d dashVec = new Vec3d(playerLook.getX(), caster.getMotion().getY(), playerLook.getZ());
+        Vec3d dashVec = new Vec3d(playerLook.getX() * 2, caster.getMotion().getY(), playerLook.getZ() * 2);
         caster.setMotion(dashVec);
         //float distance = 0.017453292f;
         //caster.setMotion(new Vec3d(0, 0, 0));

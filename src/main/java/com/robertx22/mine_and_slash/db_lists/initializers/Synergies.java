@@ -86,6 +86,8 @@ public class Synergies implements ISlashRegistryInit {
         new WhirlwindEnhancedSynergy().registerToSlashRegistry();;
         new WhirlwindEnrageSynergy().registerToSlashRegistry();
         new BlastTrapEnhancedSynergy().registerToSlashRegistry();
+        new RockSlideEnhancedSynergy().registerToSlashRegistry();
+        new BatteryFusiladeChainSynergy().registerToSlashRegistry();
 
     }
 }

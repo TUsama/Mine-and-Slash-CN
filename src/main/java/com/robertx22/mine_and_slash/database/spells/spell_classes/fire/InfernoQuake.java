@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.fire;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
@@ -7,19 +7,28 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
+import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
+import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
-import com.robertx22.mine_and_slash.potion_effects.druid.PetrifyEffect;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrozenEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
+import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
@@ -27,13 +36,13 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FreezeSpell extends BaseSpell {
+public class InfernoQuake extends BaseSpell {
 
-    private FreezeSpell() {
+    private InfernoQuake() {
         super(new ImmutableSpellConfigs() {
             @Override
             public Masteries school() {
-                return Masteries.OCEAN;
+                return Masteries.FIRE;
             }
 
             @Override
@@ -43,34 +52,35 @@ public class FreezeSpell extends BaseSpell {
 
             @Override
             public SoundEvent sound() {
-                return ModSounds.FREEZE.get();
+                return ModSounds.FIREBALL.get();
             }
 
             @Override
             public Elements element() {
-                return Elements.Water;
+                return Elements.Fire;
             }
         }.setSwingArmOnCast());
     }
 
-    public static FreezeSpell getInstance() {
+    public static InfernoQuake getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 3);
+        return new AbilityPlace(6, 2);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 16, 24);
-        c.set(SC.BASE_VALUE, 1, 4);
+        c.set(SC.MANA_COST, 14, 20);
+        c.set(SC.BASE_VALUE, 1, 3);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 0.9F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
-        c.set(SC.CAST_TIME_TICKS, 60, 20);
-        c.set(SC.COOLDOWN_SECONDS, 26, 18);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
+        c.set(SC.COOLDOWN_SECONDS, 14, 8);
 
         c.setMaxLevel(8);
 
@@ -79,7 +89,7 @@ public class FreezeSpell extends BaseSpell {
 
     @Override
     public String GUID() {
-        return "freeze";
+        return "inferno_quake";
     }
 
     @Override
@@ -87,10 +97,10 @@ public class FreezeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Target enemies in front of you."));
-        list.add(new StringTextComponent("Applies: "));
+        list.add(new StringTextComponent("Converts Weapon DMG to Fire and"));
+        list.add(new StringTextComponent("damage enemies in front of you: "));
 
-        list.addAll(FrozenEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
         return list;
 
@@ -98,29 +108,51 @@ public class FreezeSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.Freeze;
+        return Words.InfernoQuake;
     }
 
     @Override
     public void castExtra(SpellCastContext ctx) {
 
+        if (ctx.caster instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) ctx.caster;
+            player.spawnSweepParticles();
+        }
+
         LivingEntity caster = ctx.caster;
 
         World world = caster.world;
 
-        SoundUtils.playSound(caster, ModSounds.FREEZE.get(), 0.5F, 0.5F);
+        List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
+                .radius(3)
+                .distance(5)
+                .finder(EntityFinder.Finder.IN_FRONT)
+                .build();
 
-        EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
-            .radius(3)
-            .distance(8)
-            .finder(EntityFinder.Finder.IN_FRONT)
-                .searchFor(EntityFinder.SearchFor.ENEMIES)
-            .build()
-            .forEach(x -> PotionEffectUtils.apply(FrozenEffect.INSTANCE, caster, x));
+        for (LivingEntity en : entities) {
 
+            int num = ctx.getConfigFor(this)
+                    .getCalc(ctx.spellsCap, this)
+                    .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+
+            SpellDamageEffect dmg = new SpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
+                    this
+            );
+            dmg.Activate();
+
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.FLAME)
+                            .amount((int) (60)));
+
+        }
+
+        SoundUtils.playSound(caster, SoundEvents.BLOCK_FIRE_EXTINGUISH, 1.0F, 1.1F);
     }
 
     private static class SingletonHolder {
-        private static final FreezeSpell INSTANCE = new FreezeSpell();
+        private static final InfernoQuake INSTANCE = new InfernoQuake();
     }
 }

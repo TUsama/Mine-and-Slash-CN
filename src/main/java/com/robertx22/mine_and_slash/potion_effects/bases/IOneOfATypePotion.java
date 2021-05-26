@@ -7,7 +7,8 @@ public interface IOneOfATypePotion {
         HUNTING_BUFF,
         NATURE_CURSE,
         FIRE_BUFF,
-        STORM_BUFF
+        STORM_BUFF,
+        HUNTING_POTION
     }
 
     public Type getOneOfATypeType();

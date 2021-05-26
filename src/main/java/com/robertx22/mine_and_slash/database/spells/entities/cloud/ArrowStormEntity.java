@@ -44,7 +44,7 @@ public class ArrowStormEntity extends BaseCloudEntity {
 
     }
 
-    public static int ARROWS_PER_SUMMON = 16;
+    public static int ARROWS_PER_SUMMON = 12;
 
     @Override
     public void onTick() {

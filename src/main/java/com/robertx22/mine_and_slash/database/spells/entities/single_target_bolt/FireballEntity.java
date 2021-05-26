@@ -31,6 +31,12 @@ public class FireballEntity extends BaseElementalBoltEntity {
     }
 
     @Override
+    public void initSpellEntity() {
+        this.setNoGravity(true);
+        this.setDeathTime(30);
+    }
+
+    @Override
     public Elements element() {
         return Elements.Fire;
     }
@@ -48,7 +54,7 @@ public class FireballEntity extends BaseElementalBoltEntity {
         if (world.isRemote) {
             if (this.ticksExisted > 1) {
                 for (int i = 0; i < 3; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.1F);
                     ParticleUtils.spawn(ParticleTypes.FLAME, world, p);
                 }
             }

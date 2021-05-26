@@ -31,6 +31,12 @@ public class PoisonBallEntity extends BaseElementalBoltEntity {
     }
 
     @Override
+    public void initSpellEntity() {
+        this.setNoGravity(true);
+        this.setDeathTime(60);
+    }
+
+    @Override
     public Elements element() {
         return Elements.Nature;
     }
@@ -48,7 +54,7 @@ public class PoisonBallEntity extends BaseElementalBoltEntity {
         if (world.isRemote) {
             if (this.ticksExisted > 1) {
                 for (int i = 0; i < 3; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.25F);
                     ParticleUtils.spawn(ParticleTypes.ITEM_SLIME, world, p);
                 }
             }

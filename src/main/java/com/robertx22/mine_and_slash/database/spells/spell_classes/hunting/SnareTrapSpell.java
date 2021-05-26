@@ -78,7 +78,7 @@ public class SnareTrapSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 6);
+        return new AbilityPlace(7, 4);
     }
 
     @Override

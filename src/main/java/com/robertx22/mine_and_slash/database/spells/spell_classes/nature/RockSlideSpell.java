@@ -1,15 +1,14 @@
 package com.robertx22.mine_and_slash.database.spells.spell_classes.nature;
 
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.PoisonBallEntity;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.SpellTooltips;
+import com.robertx22.mine_and_slash.database.spells.entities.cloud.BlizzardEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.cloud.RockSlideEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.potion_effects.druid.ThornsEffect;
-import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -23,9 +22,9 @@ import net.minecraft.util.text.StringTextComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PoisonBallSpell extends BaseSpell {
+public class RockSlideSpell extends BaseSpell {
 
-    private PoisonBallSpell() {
+    private RockSlideSpell() {
         super(
             new ImmutableSpellConfigs() {
 
@@ -36,48 +35,52 @@ public class PoisonBallSpell extends BaseSpell {
 
                 @Override
                 public SpellCastType castType() {
-                    return SpellCastType.PROJECTILE;
+                    return SpellCastType.AT_SIGHT;
                 }
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ENTITY_SNOWBALL_THROW;
+                    return ModSounds.STONE_CRACK.get();
                 }
 
                 @Override
                 public Elements element() {
                     return Elements.Nature;
                 }
-            }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                .summonsEntity(world -> new PoisonBallEntity(world)));
+            }.summonsEntity(w -> new RockSlideEntity(w))
+                .setSwingArmOnCast());
+    }
+
+    public static RockSlideSpell getInstance() {
+        return SingletonHolder.INSTANCE;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 4, 9);
-        c.set(SC.BASE_VALUE, 2, 3);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.35F);
-        c.set(SC.SHOOT_SPEED, 0.2F, 0.3F);
-        c.set(SC.PROJECTILE_COUNT, 3, 3);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 30, 20);
-        c.set(SC.CDR_EFFICIENCY, 0, 0);
-        c.set(SC.DURATION_TICKS, 60, 60);
+        c.set(SC.MANA_COST, 14, 22);
+        c.set(SC.BASE_VALUE, 5, 13);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.3F);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.COOLDOWN_SECONDS, 8, 6);
+        c.set(SC.TICK_RATE, 4, 4);
+        c.set(SC.RADIUS, 2, 2);
+        c.set(SC.DURATION_TICKS, 40, 40);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }
 
-    public static PoisonBallSpell getInstance() {
-        return SingletonHolder.INSTANCE;
+    @Override
+    public AbilityPlace getAbilityPlace() {
+        return new AbilityPlace(3, 3);
     }
 
     @Override
     public String GUID() {
-        return "poison_ball";
+        return "rock_slide";
     }
 
     @Override
@@ -85,7 +88,7 @@ public class PoisonBallSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(SpellTooltips.singleTargetProjectile());
+        list.add(new StringTextComponent("Summon a stone avalanche that damages enemies inside: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -95,15 +98,11 @@ public class PoisonBallSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.PoisonBall;
-    }
-
-    @Override
-    public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return Words.RockSlide;
     }
 
     private static class SingletonHolder {
-        private static final PoisonBallSpell INSTANCE = new PoisonBallSpell();
+        private static final RockSlideSpell INSTANCE = new RockSlideSpell();
     }
 }
+

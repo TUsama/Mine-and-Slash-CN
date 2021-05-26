@@ -47,6 +47,8 @@ public class PotionEffects implements ISlashRegistryInit {
             .registerToSlashRegistry();
         ImbueEffect.getInstance()
             .registerToSlashRegistry();
+        ExertEffect.getInstance()
+                .registerToSlashRegistry();
         WoundsEffect.getInstance()
             .registerToSlashRegistry();
         WindWalkEffect.INSTANCE.registerToSlashRegistry();

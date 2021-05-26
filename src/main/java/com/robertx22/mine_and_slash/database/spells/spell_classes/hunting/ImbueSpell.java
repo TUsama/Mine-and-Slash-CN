@@ -16,6 +16,7 @@ import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,7 @@ public class ImbueSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 15, 25);
         c.set(SC.BASE_VALUE, 2, 5);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.5F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.2F, 0.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.DURATION_TICKS, 20 * 30, 20 * 45);

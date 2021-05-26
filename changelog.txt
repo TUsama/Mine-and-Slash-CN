@@ -1,10 +1,26 @@
+3.9.12:
+* New Nature Spell: Rock Slide - a spell that summons a rock barrage on enemies.
+* New Fire Spell: Lava Quake - a cone AoE melee spell.
+* New Hunting Spell: Exert - similar to Imbue, buffs your arrow spells. But instead of adding damage, arrows will explode on contact and do half damage in a small area. This effect CAN stack with Imbue.
+* New Synergy for Rock Slide: Stone Sharpnel - turns Rock Slide into a "storm" spell.
+* New Synergy for Battery Fusilade: Overcharge - projectiles release a small AoE upon hitting an enemy.
+* Dash now propels you twice as fast/far.
+* Lightning Spear mana cost reduced slightly.
+* Fire Ball now travels almost 3x faster and lasts 1 second instead of 3 seconds. It should feel a lot more responsive to use now.
+* Poison Ball now shoots 3 projectiles instead of 1, and travels much slower. I want to give each "ball" spell more identity.
+* Corrosive Shadow, Thought Seize, Mortality Sap, Poison Cloud, Gorgon's Gaze, and Freeze can no longer affect allies.
+* Reduced number of arrows per wave of Arrow Storm.
+* Imbue now provides less of a damage boost.
+* You can now learn Spell Blade 5 mastery levels earlier.
+* You can now learn the Trap spells earlier.
+
 3.9.11:
 * Tidal Wave and Retribution no longer pierce. They have been buffed accordingly to compensate for the unintended multi-hit effect.
 * Whirlpool now correctly does frost damage instead of elemental damage.
 * Fixed Elemental Damage not being converted properly with Ele to Physical Conversion.
 * Regeneneration typo.
 
-3.9.10:
+3.9.10:s
 * Buffed weapon damage and elemental weapon damage nodes on the tree.
 * Fixed the new nodes on the left.
 

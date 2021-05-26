@@ -5,9 +5,15 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.ImbueSpell;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
+import com.robertx22.mine_and_slash.potion_effects.ranger.ExertEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.ImbueEffect;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.GeometryUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
@@ -23,6 +29,8 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.FMLPlayMessages;
+
+import java.util.List;
 
 public class RangerArrowEntity extends EntityBaseProjectile {
 
@@ -44,12 +52,16 @@ public class RangerArrowEntity extends EntityBaseProjectile {
             this.imbued = this.getSpellData()
                 .getCaster(world)
                 .isPotionActive(ImbueEffect.getInstance());
+            this.exert = this.getSpellData()
+                    .getCaster(world)
+                    .isPotionActive(ExertEffect.getInstance());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public boolean imbued = false;
+    public boolean exert = false;
 
     @Override
     public double radius() {
@@ -59,11 +71,19 @@ public class RangerArrowEntity extends EntityBaseProjectile {
     @Override
     public void onTick() {
 
-        if (imbued && world.isRemote) {
+        if (world.isRemote) {
             if (this.ticksExisted > 1) {
-                for (int i = 0; i < 1; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
-                    ParticleUtils.spawn(ParticleTypes.WITCH, world, p);
+                if (imbued) {
+                    for (int i = 0; i < 2; i++) {
+                        Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
+                        ParticleUtils.spawn(ParticleTypes.WITCH, world, p);
+                    }
+                }
+                if (exert) {
+                    for (int i = 0; i < 2; i++) {
+                        Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
+                        ParticleUtils.spawn(ParticleTypes.SNEEZE, world, p);
+                    }
                 }
             }
         }
@@ -79,13 +99,30 @@ public class RangerArrowEntity extends EntityBaseProjectile {
 
             SpellDamageEffect dmg = this.getSetupSpellDamage(entity);
 
-            if (imbued) {
+            float add = 0;
 
-                float add = (float) (ImbueSpell.getInstance()
+            if (imbued) {
+                add = (float) (ImbueSpell.getInstance()
                     .getCalculation(new SpellCastContext(caster, 0, ImbueSpell.getInstance()))
                     .getCalculatedValue(Load.Unit(caster), Load.spells(caster), ImbueSpell.getInstance()));
 
                 dmg.number += add;
+            }
+
+            if (exert) {
+                List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, entity.getPositionVector())
+                        .radius(1.5F)
+                        .build();
+
+                for (LivingEntity en : entities) {
+                    if (en != entity) {
+                        SpellDamageEffect dmgAoe = this.getSetupSpellDamage(en);
+                        dmgAoe.number = (dmgAoe.number + add) / 2; //halves damage after adding imbue, if available
+                        dmgAoe.Activate();
+                    }
+                }
+
+                SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.1F);
             }
 
             dmg.Activate();
@@ -127,6 +164,7 @@ public class RangerArrowEntity extends EntityBaseProjectile {
     public void writeAdditional(CompoundNBT nbt) {
         super.writeAdditional(nbt);
         nbt.putBoolean("imbued", imbued);
+        nbt.putBoolean("exert", exert);
 
     }
 
@@ -134,6 +172,7 @@ public class RangerArrowEntity extends EntityBaseProjectile {
     public void readAdditional(CompoundNBT nbt) {
         super.readAdditional(nbt);
         this.imbued = nbt.getBoolean("imbued");
+        this.exert = nbt.getBoolean("exert");
     }
 
     @Override

@@ -121,6 +121,7 @@ public class MortalitySapSpell extends BaseSpell {
 
             List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
                 .radius(radius)
+                .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
             for (LivingEntity en : entities) {

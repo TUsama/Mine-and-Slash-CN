@@ -53,7 +53,7 @@ public class ThunderspearSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 7, 15);
+        c.set(SC.MANA_COST, 6, 14);
         c.set(SC.BASE_VALUE, 12, 16);
         c.set(SC.SHOOT_SPEED, 2.2F, 2.75F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);

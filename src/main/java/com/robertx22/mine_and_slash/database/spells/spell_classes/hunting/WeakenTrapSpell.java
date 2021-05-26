@@ -78,7 +78,7 @@ public class WeakenTrapSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 3);
+        return new AbilityPlace(7, 2);
     }
 
     @Override
