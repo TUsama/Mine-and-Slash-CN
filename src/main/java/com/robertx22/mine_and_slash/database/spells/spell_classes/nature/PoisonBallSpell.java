@@ -49,7 +49,7 @@ public class PoisonBallSpell extends BaseSpell {
                     return Elements.Nature;
                 }
             }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                .summonsEntity(world -> new PoisonBallEntity(world)));
+                .summonsEntity(world -> new PoisonBallEntity(world)).setSwingArmOnCast());
     }
 
     @Override

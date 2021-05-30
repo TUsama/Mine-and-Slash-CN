@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAtta
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Energy;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
+import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Mana;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
@@ -169,6 +170,18 @@ public class SpellCalcData {
         List<Stat> list = new ArrayList<>();
         list.add(Mana.getInstance());
         data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.BLUE + "Mana")));
+
+        data.baseValue = base;
+
+        return data;
+    }
+
+    public static SpellCalcData scaleWithMagicShieldAttack(float attack, float base) {
+        SpellCalcData data = new SpellCalcData();
+
+        List<Stat> list = new ArrayList<>();
+        list.add(MagicShield.getInstance());
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.AQUA + "Magic Shield")));
 
         data.baseValue = base;
 

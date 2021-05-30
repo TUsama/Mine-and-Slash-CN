@@ -106,6 +106,11 @@ public class EntityCalcSpellConfigs {
                         .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
                         .get(spellsCap, ability));
             }
+            else if (pre.has(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE)) {
+                this.calc = SpellCalcData.scaleWithMagicShieldAttack(pre.get(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE)
+                        .get(spellsCap, ability), pre.get(SC.BASE_VALUE)
+                        .get(spellsCap, ability));
+            }
             else {
                 this.calc = SpellCalcData.base(pre.get(SC.BASE_VALUE)
                     .get(spellsCap, ability));

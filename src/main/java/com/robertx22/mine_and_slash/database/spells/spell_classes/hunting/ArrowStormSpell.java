@@ -47,7 +47,7 @@ public class ArrowStormSpell extends BaseSpell {
                 }
 
             }.summonsEntity(world -> new ArrowStormEntity(world))
-                .addCastRequirement(SpellPredicates.REQUIRE_SHOOTABLE));
+                .addCastRequirement(SpellPredicates.REQUIRE_SHOOTABLE).setSwingArmOnCast());
     }
 
     @Override

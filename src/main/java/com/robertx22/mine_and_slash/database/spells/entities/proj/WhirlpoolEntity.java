@@ -65,8 +65,7 @@ public class WhirlpoolEntity extends EntityBaseProjectile {
         EntitySpellData sdata = getSpellData();
         int TICK_RATE = sdata.configs.get(SC.TICK_RATE)
             .intValue();
-        int RADIUS = sdata.configs.get(SC.RADIUS)
-            .intValue();
+        float RADIUS = sdata.configs.get(SC.RADIUS);
 
         if (this.inGround || this.ticksExisted > 30) {
             if (this.ticksExisted % TICK_RATE == 0) {

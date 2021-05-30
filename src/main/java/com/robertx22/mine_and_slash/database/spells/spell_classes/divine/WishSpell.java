@@ -26,9 +26,9 @@ import net.minecraft.util.text.StringTextComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HealingAuraSpell extends BaseSpell {
+public class WishSpell extends BaseSpell {
 
-    private HealingAuraSpell() {
+    private WishSpell() {
         super(
             new ImmutableSpellConfigs() {
 
@@ -63,9 +63,8 @@ public class HealingAuraSpell extends BaseSpell {
             .get(ctx.spellsCap, this);
 
         List<LivingEntity> list = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
-            .finder(EntityFinder.Finder.IN_FRONT)
-            .radius(RADIUS/2F)
-                .distance(RADIUS)
+            .finder(EntityFinder.Finder.RADIUS)
+            .radius(RADIUS)
             .searchFor(EntityFinder.SearchFor.ALLIES)
             .build();
 
@@ -80,15 +79,15 @@ public class HealingAuraSpell extends BaseSpell {
             ParticleEnum.sendToClients(
                 en.getPosition(), en.world,
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(RADIUS)
-                    .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleTypes.FALLING_HONEY)
-                    .amount((int) (RADIUS * 5)));
+                    .motion(new Vec3d(0, 1, 0))
+                    .type(ParticleTypes.SNEEZE)
+                    .amount((int) (RADIUS * 25)));
             ParticleEnum.sendToClients(
                     en.getPosition(), en.world,
                     new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(RADIUS)
-                            .motion(new Vec3d(0, 0, 0))
+                            .motion(new Vec3d(0, 1, 0))
                             .type(ParticleTypes.HEART)
-                            .amount((int) (RADIUS * 5)));
+                            .amount((int) (RADIUS * 25)));
         }
     }
 
@@ -96,30 +95,31 @@ public class HealingAuraSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 4, 7);
-        c.set(SC.BASE_VALUE, 8, 18);
+        c.set(SC.MANA_COST, 22, 32);
+        c.set(SC.BASE_VALUE, 16, 34);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.1F, 0.2F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 3, 1);
+        c.set(SC.COOLDOWN_SECONDS, 24, 36);
         c.set(SC.TIMES_TO_CAST, 1, 1);
-        c.set(SC.RADIUS, 3, 6);
+        c.set(SC.RADIUS, 10, 14);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }
 
-    public static HealingAuraSpell getInstance() {
-        return HealingAuraSpell.SingletonHolder.INSTANCE;
+    public static WishSpell getInstance() {
+        return WishSpell.SingletonHolder.INSTANCE;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(2, 6);
     }
 
     @Override
     public String GUID() {
-        return "healing_aura";
+        return "wish";
     }
 
     @Override
@@ -127,7 +127,7 @@ public class HealingAuraSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Heal allies in front of you: "));
+        list.add(new StringTextComponent("Heal allies around you instantly: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -137,11 +137,11 @@ public class HealingAuraSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.HealingAura;
+        return Words.Wish;
     }
 
     private static class SingletonHolder {
-        private static final HealingAuraSpell INSTANCE = new HealingAuraSpell();
+        private static final WishSpell INSTANCE = new WishSpell();
     }
 }
 

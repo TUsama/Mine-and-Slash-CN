@@ -54,7 +54,7 @@ public class NatureBalmSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 24, 38);
+        c.set(SC.MANA_COST, 18, 26);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.CAST_TIME_TICKS, 30, 10);
         c.set(SC.COOLDOWN_SECONDS, 35, 25);

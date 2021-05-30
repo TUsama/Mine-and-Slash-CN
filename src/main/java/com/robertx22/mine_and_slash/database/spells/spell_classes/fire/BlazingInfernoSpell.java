@@ -56,7 +56,7 @@ public class BlazingInfernoSpell extends BaseSpell {
                     return Elements.Fire;
                 }
 
-            }.cooldownIfCanceled(true));
+            }.cooldownIfCanceled(true).setSwingArmOnCast());
     }
 
     @Override

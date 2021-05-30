@@ -46,7 +46,7 @@ public class FrostballSpell extends BaseSpell {
                     return Elements.Water;
                 }
             }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                    .summonsEntity(world -> new FrostballEntity(world)));
+                    .summonsEntity(world -> new FrostballEntity(world)).setSwingArmOnCast());
     }
 
     @Override

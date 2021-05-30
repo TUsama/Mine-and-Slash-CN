@@ -45,7 +45,7 @@ public class ImbueSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Elemental;
                 }
-            }.addsEffect(ImbueEffect.getInstance()));
+            }.addsEffect(ImbueEffect.getInstance()).setSwingArmOnCast());
 
     }
 

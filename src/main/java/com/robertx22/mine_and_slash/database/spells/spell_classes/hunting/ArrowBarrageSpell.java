@@ -48,7 +48,7 @@ public class ArrowBarrageSpell extends BaseSpell {
                 }
             }.addCastRequirement(SpellPredicates.REQUIRE_SHOOTABLE)
                 .cooldownIfCanceled(true)
-                .summonsEntity(world -> new RangerArrowEntity(world)));
+                .summonsEntity(world -> new RangerArrowEntity(world)).setSwingArmOnCast());
     }
 
     @Override

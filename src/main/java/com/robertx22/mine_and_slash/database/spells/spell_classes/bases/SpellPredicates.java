@@ -28,6 +28,6 @@ public class SpellPredicates {
     };
 
     public static SpellPredicate REQUIRE_SHOOTABLE = new SpellPredicate(SHOOTABLE_PRED, new SText(TextFormatting.GREEN + "Requires Bow/Crossbow to use: "));
-    public static SpellPredicate REQUIRE_MELEE = new SpellPredicate(MELEE_PRED, new SText(TextFormatting.GOLD + "Requires Melee weapon to use: "));
+    public static SpellPredicate REQUIRE_MELEE = new SpellPredicate(MELEE_PRED, new SText(TextFormatting.GOLD + "Requires Melee Weapon to use: "));
 }
 

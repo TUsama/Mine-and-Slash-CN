@@ -59,6 +59,8 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> ROCK_SLIDE;
     public static final EntityType<? extends Entity> POISON_BALL;
 
+    public static final EntityType<? extends Entity> STEAM_CLOUD;
+    public static final EntityType<? extends Entity> CHILLING_FIELD;
     public static final EntityType<? extends Entity> FROSTBOLT;
     public static final EntityType<? extends Entity> WHIRPOOL;
     public static final EntityType<? extends Entity> BLIZZARD;
@@ -86,6 +88,8 @@ public class EntityRegister {
 
         HOLY_SPEAR = projectile(SpearOfJudgementEntity::new, SpearOfJudgementEntity::new, "holy_spear", false);
 
+        CHILLING_FIELD = projectile(ChillingFieldEntity::new, ChillingFieldEntity::new, "chilling_field");
+        STEAM_CLOUD = projectile(SteamCloudEntity::new, SteamCloudEntity::new, "steam_cloud");
         BLIZZARD = projectile(BlizzardEntity::new, BlizzardEntity::new, "blizzard");
         FROSTBOLT = projectile(FrostballEntity::new, FrostballEntity::new, "frostball");
         FROZEN_ORB = projectile(FrozenOrbEntity::new, FrozenOrbEntity::new, "frozen_orb");

@@ -57,7 +57,7 @@ public class PoisonCloudSpell extends BaseSpell {
                     return Elements.Nature;
                 }
 
-            }.cooldownIfCanceled(true));
+            }.cooldownIfCanceled(true).setSwingArmOnCast());
     }
 
     @Override

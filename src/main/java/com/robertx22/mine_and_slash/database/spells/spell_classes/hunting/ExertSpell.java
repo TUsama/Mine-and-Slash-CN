@@ -43,7 +43,7 @@ public class ExertSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Elemental;
                 }
-            }.addsEffect(ExertEffect.getInstance()));
+            }.addsEffect(ExertEffect.getInstance()).setSwingArmOnCast());
 
     }
 

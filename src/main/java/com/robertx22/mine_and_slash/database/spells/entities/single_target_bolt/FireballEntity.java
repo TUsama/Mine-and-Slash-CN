@@ -33,7 +33,7 @@ public class FireballEntity extends BaseElementalBoltEntity {
     @Override
     public void initSpellEntity() {
         this.setNoGravity(true);
-        this.setDeathTime(30);
+        this.setDeathTime(20);
     }
 
     @Override

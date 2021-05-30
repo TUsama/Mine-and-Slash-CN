@@ -53,7 +53,7 @@ public class RecoilShotSpell extends BaseSpell {
                 }
             }.cooldownIfCanceled(true)
                 .summonsEntity(w -> new RangerArrowEntity(w))
-                .addCastRequirement(SpellPredicates.REQUIRE_SHOOTABLE));
+                .addCastRequirement(SpellPredicates.REQUIRE_SHOOTABLE).setSwingArmOnCast());
     }
 
     @Override

@@ -30,6 +30,7 @@ public class PotionRegister {
         reg.register(TeleportProtection.INSTANCE);
         reg.register(BleedPotion.INSTANCE);
 
+        reg.register(DefendEffect.INSTANCE);
         reg.register(BraveryEffect.INSTANCE);
         reg.register(WizardryEffect.INSTANCE);
         reg.register(TrickeryEffect.INSTANCE);

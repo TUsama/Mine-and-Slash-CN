@@ -57,8 +57,7 @@ public class RockSlideEntity extends BaseCloudEntity {
             EntitySpellData sdata = getSpellData();
             int tickrate = sdata.configs.get(SC.TICK_RATE)
                     .intValue();
-            int RADIUS = sdata.configs.get(SC.RADIUS)
-                    .intValue();
+            float RADIUS = sdata.configs.get(SC.RADIUS);
 
             super.onTick();
 

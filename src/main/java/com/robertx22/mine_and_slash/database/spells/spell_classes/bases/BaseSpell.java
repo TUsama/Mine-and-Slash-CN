@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnSpellCastSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.Synergy;
+import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Mana;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
@@ -202,6 +203,13 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
                 .get(ctx.spellsCap, this), getEffectiveAbilityLevel(ctx.spellsCap, ctx.data));
     }
 
+    public final int getCalculatedMagicShieldCost(SpellCastContext ctx) {
+        return (int) MagicShield.getInstance()
+                .calculateScalingStatGrowth((int) ctx.getConfigFor(this)
+                        .get(SC.MAGIC_SHIELD_COST)
+                        .get(ctx.spellsCap, this), getEffectiveAbilityLevel(ctx.spellsCap, ctx.data));
+    }
+
     public final int useTimeTicks(SpellCastContext ctx) {
         return (int) ctx.getConfigFor(this)
             .get(SC.CAST_TIME_TICKS)
@@ -272,6 +280,25 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         return new ResourcesData.Context(
             ctx.data, ctx.caster, ResourcesData.Type.MANA, cost, ResourcesData.Use.SPEND);
+    }
+
+    public ResourcesData.Context getMagicShieldCostCtx(SpellCastContext ctx) {
+
+        float cost = 0;
+
+        for (Synergy x : getAllocatedSynergies(ctx.spellsCap)) {
+            if (ctx.getConfigFor(x)
+                    .has(SC.MAGIC_SHIELD_COST)) {
+                cost += ctx.getConfigFor(x)
+                        .get(SC.MAGIC_SHIELD_COST)
+                        .get(ctx.spellsCap, x);
+            }
+        }
+
+        cost += this.getCalculatedMagicShieldCost(ctx);
+
+        return new ResourcesData.Context(
+                ctx.data, ctx.caster, ResourcesData.Type.MAGIC_SHIELD, cost, ResourcesData.Use.SPEND);
     }
 
     public boolean canCast(SpellCastContext ctx) {

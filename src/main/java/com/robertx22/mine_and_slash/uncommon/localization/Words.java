@@ -47,7 +47,7 @@ public enum Words implements IAutoLocName {
     DivineTribulation("Divine Tribulation"), PurifyingFires("Purifying Fires"),
     HeavyStrike("Heavy Strike"), GroundSlam("Ground Slam"), Whirlwind("Whirlwind"),
     Fireball("Fireball"), FireBomb("Fire Bombs"),
-    PoisonBall("Poison Ball"), RockSlide("RockSlide"),
+    PoisonBall("Poison Ball"), RockSlide("RockSlide"), MagicBurst("Magic Burst"),
     Frostball("Frostball"), FrozenOrb("Ice Orb"), FrostShield("Frost Shield"), FlameBlitz("Flame Blitz"),
     Freeze("Freeze"), Root("Root"), InfernoQuake("Inferno Quake"),
     Nourishment("Nourishment"), IceBlade("Ice Blade"), SnareTrap("Snare Trap"), WeakenTrap("Enfeeble Trap"), BlastTrap("Blast Trap"),
@@ -57,7 +57,8 @@ public enum Words implements IAutoLocName {
     ArrowBarrage("Arrow Barrage"), WideShot("Wide Shot"), ArrowStorm("Arrow Storm"), HuntingPotion("Hunter's Potion"),
     RecoilShot("Recoil Shot"), TidalWave("Tidal Wave"), ThrowFlames("Meteoric Strike"), TotalMastery("Total Mastery"),
     LightningTotem("Lightning Totem"), HealingAura("Healing Aura"), ThoughtSeize("Thought Seize"), MortalitySap("Mortality Sap"),
-    CorrosiveShadow("Corrosive Shadow"),
+    CorrosiveShadow("Corrosive Shadow"), ChillingField("Chilling Field"), SteamCloud("Steam Cloud"), Defend("Defend"),
+    Wish("Wish"),
     Volcano("Volcano"), VampiricBlood("Vampiric Blood"), DraconicBlood("Draconic Blood"),
     Blizzard("Blizzard"), QuickCharge("Quick Charge"),
     Whirpool("Whirpool"),
@@ -245,6 +246,8 @@ public enum Words implements IAutoLocName {
     Major_Success_Chance("Major Success Chance"),
 
     Mana_Cost("Mana Cost"),
+
+    Magic_Shield_Cost("Magic Shield Cost"),
 
     Map("Map"),
 

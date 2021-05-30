@@ -108,6 +108,12 @@ public class PreCalcSpellConfigs {
                     get(SC.BASE_VALUE).get(cap, ability)
             );
         }
+        else if (has(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE)){
+            return SpellCalcData.scaleWithMagicShieldAttack(
+                    get(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE).get(cap, ability),
+                    get(SC.BASE_VALUE).get(cap, ability)
+            );
+        }
         else {
             return SpellCalcData.base(
                     get(SC.BASE_VALUE).get(cap, ability)

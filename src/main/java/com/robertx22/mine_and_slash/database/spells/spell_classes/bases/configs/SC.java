@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.uncommon.localization.Words;
 public enum SC {
 
     MANA_COST(0, Words.Mana_Cost),
+    MAGIC_SHIELD_COST(0, Words.Magic_Shield_Cost),
     RADIUS(0, Words.Radius),
     PROJECTILE_COUNT(1, Words.ProjectileCount),
     CAST_TIME_TICKS(0, Words.CastTimeTicks),
@@ -29,6 +30,7 @@ public enum SC {
     ARMOR_ATTACK_SCALE_VALUE(0, null),
     HEALTH_ATTACK_SCALE_VALUE(0, null),
     MANA_ATTACK_SCALE_VALUE(0, null),
+    MAGIC_SHIELD_ATTACK_SCALE_VALUE(0, null),
     ENERGY_ATTACK_SCALE_VALUE(0, null);
 
     public float min;

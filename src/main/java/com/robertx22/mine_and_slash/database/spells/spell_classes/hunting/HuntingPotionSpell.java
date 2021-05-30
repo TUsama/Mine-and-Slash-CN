@@ -47,7 +47,7 @@ public class HuntingPotionSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Elemental;
                 }
-            });
+            }.setSwingArmOnCast());
     }
 
     @Override

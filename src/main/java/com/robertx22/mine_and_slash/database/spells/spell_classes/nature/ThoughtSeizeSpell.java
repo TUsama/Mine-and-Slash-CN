@@ -57,7 +57,7 @@ public class ThoughtSeizeSpell extends BaseSpell {
                     return Elements.Nature;
                 }
 
-            });
+            }.setSwingArmOnCast());
     }
 
     @Override

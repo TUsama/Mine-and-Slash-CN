@@ -1,7 +1,7 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.storm;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.fire;
 
-import com.robertx22.mine_and_slash.database.spells.entities.trident.ThunderspearEntity;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.SpellTooltips;
+import com.robertx22.mine_and_slash.database.spells.entities.cloud.BlizzardEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.cloud.SteamCloudEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
@@ -16,68 +16,69 @@ import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThunderspearSpell extends BaseSpell {
+public class SteamCloudSpell extends BaseSpell {
 
-    private ThunderspearSpell() {
+    private SteamCloudSpell() {
         super(
             new ImmutableSpellConfigs() {
 
                 @Override
                 public Masteries school() {
-                    return Masteries.STORM;
+                    return Masteries.FIRE;
                 }
 
                 @Override
                 public SpellCastType castType() {
-                    return SpellCastType.PROJECTILE;
+                    return SpellCastType.AT_SIGHT;
                 }
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ITEM_TRIDENT_THROW;
+                    return SoundEvents.BLOCK_FIRE_EXTINGUISH;
                 }
 
                 @Override
                 public Elements element() {
-                    return Elements.Thunder;
+                    return Elements.Fire;
                 }
-            }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                .summonsEntity(world -> new ThunderspearEntity(world)).setSwingArmOnCast());
+            }.summonsEntity(w -> new SteamCloudEntity(w))
+                .setSwingArmOnCast());
+    }
+
+    public static SteamCloudSpell getInstance() {
+        return SingletonHolder.INSTANCE;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 6, 14);
-        c.set(SC.BASE_VALUE, 12, 16);
-        c.set(SC.SHOOT_SPEED, 2.2F, 2.75F);
-        c.set(SC.PROJECTILE_COUNT, 1, 1);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 40, 40);
-        c.set(SC.DURATION_TICKS, 40, 60);
+        c.set(SC.MANA_COST, 15, 25);
+        c.set(SC.BASE_VALUE, 5, 14);
+        c.set(SC.CAST_TIME_TICKS, 40, 40);
+        c.set(SC.COOLDOWN_SECONDS, 30, 24);
+        c.set(SC.TICK_RATE, 40, 20);
+        c.set(SC.RADIUS, 2, 3);
+        c.set(SC.DURATION_TICKS, 200, 320);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(10);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
-    }
-
-    public static ThunderspearSpell getInstance() {
-        return SingletonHolder.INSTANCE;
+        return new AbilityPlace(3, 2);
     }
 
     @Override
     public String GUID() {
-        return "thunder_spear";
+        return "steam_cloud";
     }
 
     @Override
@@ -85,7 +86,8 @@ public class ThunderspearSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(SpellTooltips.singleTargetProjectile());
+        list.add(new StringTextComponent("Emit steam from your body to damage"));
+        list.add(new StringTextComponent("nearby enemies for a while: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -95,10 +97,11 @@ public class ThunderspearSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.ThunderSpear;
+        return Words.SteamCloud;
     }
 
     private static class SingletonHolder {
-        private static final ThunderspearSpell INSTANCE = new ThunderspearSpell();
+        private static final SteamCloudSpell INSTANCE = new SteamCloudSpell();
     }
 }
+

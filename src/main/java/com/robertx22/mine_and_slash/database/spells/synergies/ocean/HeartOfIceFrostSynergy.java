@@ -31,7 +31,7 @@ public class HeartOfIceFrostSynergy extends OnSpellCastSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("If user has Cold Essence, increase self-heal: "));
+        list.add(new StringTextComponent("If user has Cold Essence, increase heal power: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -47,6 +47,7 @@ public class HeartOfIceFrostSynergy extends OnSpellCastSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 2, 6);
+        c.set(SC.RADIUS, 0, 0);
         c.setMaxLevel(6);
         return c;
     }
@@ -66,7 +67,19 @@ public class HeartOfIceFrostSynergy extends OnSpellCastSynergy {
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(Load.Unit(ctx.caster), Load.spells(ctx.caster), this) * stacks;
 
-            SpellUtils.heal(ctx.spell, ctx.caster, amount);
+            float RADIUS = ctx.getConfigFor(this)
+                    .get(SC.RADIUS)
+                    .get(ctx.spellsCap, this);
+
+            List<LivingEntity> list = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
+                    .finder(EntityFinder.Finder.RADIUS)
+                    .radius(RADIUS)
+                    .searchFor(EntityFinder.SearchFor.ALLIES)
+                    .build();
+
+            for (LivingEntity en : list) {
+                SpellUtils.heal(ctx.spell, en, amount);
+            }
         }
     }
 

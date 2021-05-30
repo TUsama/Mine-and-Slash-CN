@@ -39,8 +39,7 @@ public abstract class BaseCloudEntity extends BaseInvisibleEntity {
             EntitySpellData sdata = getSpellData();
             int TICK_RATE = sdata.configs.get(SC.TICK_RATE)
                 .intValue();
-            int RADIUS = sdata.configs.get(SC.RADIUS)
-                .intValue();
+            float RADIUS = sdata.configs.get(SC.RADIUS);
 
             if (this.ticksExisted % TICK_RATE == 1) {
 

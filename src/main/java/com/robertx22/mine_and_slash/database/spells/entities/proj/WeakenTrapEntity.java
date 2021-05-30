@@ -61,8 +61,7 @@ public class WeakenTrapEntity extends EntityBaseProjectile {
     public void onTick() {
 
         EntitySpellData sdata = getSpellData();
-        int RADIUS = sdata.configs.get(SC.RADIUS)
-            .intValue();
+        float RADIUS = sdata.configs.get(SC.RADIUS);
 
         if (this.inGround || this.ticksExisted % 5 == 0) {
             if (!world.isRemote) {

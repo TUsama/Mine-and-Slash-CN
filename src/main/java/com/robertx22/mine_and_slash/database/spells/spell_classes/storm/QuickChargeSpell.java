@@ -48,7 +48,7 @@ public class QuickChargeSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Thunder;
                 }
-            }.addsEffect(QuickChargeEffect.INSTANCE));
+            }.addsEffect(QuickChargeEffect.INSTANCE).setSwingArmOnCast());
     }
 
     @Override

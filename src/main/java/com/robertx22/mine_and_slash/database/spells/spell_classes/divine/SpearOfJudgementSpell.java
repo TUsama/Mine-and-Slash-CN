@@ -59,8 +59,8 @@ public class SpearOfJudgementSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 12, 18);
-        c.set(SC.BASE_VALUE, 9, 17);
+        c.set(SC.MANA_COST, 12, 20);
+        c.set(SC.BASE_VALUE, 15, 24);
         c.set(SC.ATTACK_SCALE_VALUE, 0.75F, 0.95F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 10, 6);

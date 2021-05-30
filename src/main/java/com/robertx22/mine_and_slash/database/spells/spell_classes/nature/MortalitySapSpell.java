@@ -56,7 +56,7 @@ public class MortalitySapSpell extends BaseSpell {
                     return Elements.Nature;
                 }
 
-            });
+            }.setSwingArmOnCast());
     }
 
     @Override

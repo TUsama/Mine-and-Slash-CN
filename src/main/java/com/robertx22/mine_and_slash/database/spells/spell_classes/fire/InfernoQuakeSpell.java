@@ -9,15 +9,10 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
-import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrozenEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
@@ -36,9 +31,9 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InfernoQuake extends BaseSpell {
+public class InfernoQuakeSpell extends BaseSpell {
 
-    private InfernoQuake() {
+    private InfernoQuakeSpell() {
         super(new ImmutableSpellConfigs() {
             @Override
             public Masteries school() {
@@ -62,7 +57,7 @@ public class InfernoQuake extends BaseSpell {
         }.setSwingArmOnCast());
     }
 
-    public static InfernoQuake getInstance() {
+    public static InfernoQuakeSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
@@ -153,6 +148,6 @@ public class InfernoQuake extends BaseSpell {
     }
 
     private static class SingletonHolder {
-        private static final InfernoQuake INSTANCE = new InfernoQuake();
+        private static final InfernoQuakeSpell INSTANCE = new InfernoQuakeSpell();
     }
 }

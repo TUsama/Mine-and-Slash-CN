@@ -1,3 +1,19 @@
+3.9.13:
+* New Divine Spell: Wish - heal that scales off mana, instantly heals allies around you in a very large AOE.
+* New Divine Spell: Charge - run through enemies and deal damage.
+* New Divine Spell: Defend - apply a short buff on nearby allies, granting a large boost to armor.
+* New Fire Spell: Steam Cloud - emit steam from your body, damaging nearby enemies for a brief duration.
+* New Ocean Spell: Chilling Field - summon a small field of frost, slowly damaging enemies and applying Chilled. This spell scales slowly with your mana value.
+* New Ocean Spell: Magic Burst - deal damage to nearby enemies based on your magic shield.
+* Heart of Ice synergy now increases heal for all healed rather than just the user.
+* Healing Wave now heals in a cone in front rather than around the user.
+* Lightning Dash now costs MUCH less mana at max level, and has had its cooldown reduced from 4s to 3s.
+* Reduced the mana cost of most Nature spells.
+* Leveling Poison Cloud reduces its cast time more per level.
+* Increased Spear of Judgment damage value.
+* Added swing on arm cast to most spells that were missing it.
+* Area of Effect is now a float rather than int. Before, 2.9 radius was the same as 2.0.
+
 3.9.12:
 * New Nature Spell: Rock Slide - a spell that summons a rock barrage on enemies.
 * New Fire Spell: Lava Quake - a cone AoE melee spell.

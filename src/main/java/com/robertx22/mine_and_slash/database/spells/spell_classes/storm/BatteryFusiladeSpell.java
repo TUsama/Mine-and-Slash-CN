@@ -47,7 +47,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Thunder;
                 }
-            }.summonsEntity(world -> new LightningBallEntity(world)));
+            }.summonsEntity(world -> new LightningBallEntity(world)).setSwingArmOnCast());
     }
 
     @Override
@@ -88,7 +88,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Unload your battery and rapid fire bolts of lightning: "));
+        list.add(new SText("Discharge and rapidly fire bolts of lightning: "));
 
         list.add(SpellTooltips.singleTargetProjectile());
 
