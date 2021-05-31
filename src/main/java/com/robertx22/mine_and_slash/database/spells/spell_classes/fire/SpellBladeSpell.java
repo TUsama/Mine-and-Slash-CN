@@ -60,7 +60,7 @@ public class SpellBladeSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 34, 26);
         c.set(SC.DURATION_TICKS, 20 * 10, 20 * 20);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
         return c;
     }
 

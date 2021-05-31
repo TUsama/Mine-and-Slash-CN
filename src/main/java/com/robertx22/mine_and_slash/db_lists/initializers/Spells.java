@@ -107,6 +107,7 @@ public class Spells implements ISlashRegistryInit {
                     add(GroundSlamSpell.getInstance());
                     add(WhirlwindSpell.getInstance());
                     add(MagicBurstSpell.getInstance());
+                    add(ChargeSpell.getInstance());
 
                 }
             }

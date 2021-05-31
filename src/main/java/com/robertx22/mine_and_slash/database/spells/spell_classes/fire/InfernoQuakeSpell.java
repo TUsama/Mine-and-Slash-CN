@@ -72,12 +72,12 @@ public class InfernoQuakeSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 14, 20);
         c.set(SC.BASE_VALUE, 1, 3);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 0.9F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 1.2F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 14, 8);
+        c.set(SC.COOLDOWN_SECONDS, 10, 4);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(16);
 
         return c;
     }

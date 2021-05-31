@@ -1,3 +1,21 @@
+3.9.15:
+* Improved late-game all melee spells significantly.
+* All melee spell attack scaling per level has increased.
+* Many melee spells have had their max level increased.
+* The cooldown of many melee spells has decreased.
+
+3.9.14:
+* Fixed Charge spell not being registered.
+* Magma Flower heal synergy has been improved.
+* Increased saturation of GUI bar elements.
+* Swapped colour for energy bar and EXP bar.
+* Changed colour of mana and magic shield to keep it more consistent. Magic Shield = Aqua, Mana = Blue.
+* Magic Shield overlay now doesn't completely overlap the health bar. Now you can see how much HP you're losing due to environmental effects (no more random deaths?).
+* Arcane Devotion is now a -95% multi to HP instead of -1000%. Users should be able to "counterplay" environmental effects rather than being killed with no way out.
+* Battery Fusilade's Overcharge synergy now has an AOE of 1, down from 2.
+* Exert now grants arrows with an AOE of 1, down from 2.
+* Reworded Magma Flower synergies.
+
 3.9.13:
 * New Divine Spell: Wish - heal that scales off mana, instantly heals allies around you in a very large AOE.
 * New Divine Spell: Charge - run through enemies and deal damage.

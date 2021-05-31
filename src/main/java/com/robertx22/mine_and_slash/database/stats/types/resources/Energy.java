@@ -14,7 +14,7 @@ public class Energy extends FillableStat {
 
     @Override
     public TextFormatting getIconFormat() {
-        return TextFormatting.GREEN;
+        return TextFormatting.YELLOW;
     }
 
     @Override

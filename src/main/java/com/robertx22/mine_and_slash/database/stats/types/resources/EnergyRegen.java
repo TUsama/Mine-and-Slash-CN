@@ -11,7 +11,7 @@ public class EnergyRegen extends BaseRegenClass {
 
     @Override
     public TextFormatting getIconFormat() {
-        return TextFormatting.GREEN;
+        return TextFormatting.YELLOW;
     }
 
     @Override

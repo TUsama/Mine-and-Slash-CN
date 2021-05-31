@@ -66,13 +66,13 @@ public class ChargeSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 13, 24);
+        c.set(SC.MANA_COST, 11, 21);
         c.set(SC.BASE_VALUE, 2, 9);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.4F, 3.0F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.4F, 3.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 14, 14);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }
@@ -107,7 +107,7 @@ public class ChargeSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.ThunderDash;
+        return Words.Charge;
     }
 
     public static void dashForward(LivingEntity caster) {

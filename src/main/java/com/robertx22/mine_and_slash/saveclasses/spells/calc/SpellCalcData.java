@@ -97,7 +97,7 @@ public class SpellCalcData {
 
         List<Stat> list = new ArrayList<>();
         list.add(new ElementalAttackDamage(Elements.Water));
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.AQUA + "Water Attack Damage")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.AQUA + "Frost Attack Damage")));
 
         data.baseValue = base;
 
@@ -109,7 +109,7 @@ public class SpellCalcData {
 
         List<Stat> list = new ArrayList<>();
         list.add(new ElementalAttackDamage(Elements.Thunder));
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.YELLOW + "Thunder Attack Damage")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.YELLOW + "Lightning Attack Damage")));
 
         data.baseValue = base;
 
@@ -157,7 +157,7 @@ public class SpellCalcData {
 
         List<Stat> list = new ArrayList<>();
         list.add(Energy.getInstance());
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GREEN + "Energy")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.YELLOW + "Energy")));
 
         data.baseValue = base;
 

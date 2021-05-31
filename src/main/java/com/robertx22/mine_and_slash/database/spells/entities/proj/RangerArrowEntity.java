@@ -111,7 +111,7 @@ public class RangerArrowEntity extends EntityBaseProjectile {
 
             if (exert) {
                 List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, entity.getPositionVector())
-                        .radius(1.5F)
+                        .radius(1F)
                         .build();
 
                 for (LivingEntity en : entities) {

@@ -9,6 +9,8 @@ import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
@@ -24,7 +26,8 @@ public class MagmaFlowerHealSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Also restores health: "));
+        list.add(new StringTextComponent("Enables the flower to recover health"));
+        list.add(new StringTextComponent("to the user: "));
 
         list.addAll(getCalc(Load.spells(info.player))
             .GetTooltipString(info, Load.spells(info.player), this));
@@ -45,8 +48,8 @@ public class MagmaFlowerHealSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 1, 6);
-        c.setMaxLevel(12);
+        c.set(SC.BASE_VALUE, 3, 8);
+        c.setMaxLevel(8);
         return c;
     }
 

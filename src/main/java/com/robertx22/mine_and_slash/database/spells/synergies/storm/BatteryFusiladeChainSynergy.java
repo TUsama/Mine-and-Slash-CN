@@ -72,7 +72,7 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
 
-        float radius = 2;
+        float radius = 1F;
 
         int num = getCalcVal(ctx.source);
 

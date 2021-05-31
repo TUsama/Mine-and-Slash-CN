@@ -112,10 +112,10 @@ public class FlameBlitzSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 5, 15);
+        c.set(SC.MANA_COST, 5, 13);
         c.set(SC.BASE_VALUE, 2, 3);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.7F, 0.9F);
-        c.set(SC.CAST_TIME_TICKS, 40, 80);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.7F, 1.1F);
+        c.set(SC.CAST_TIME_TICKS, 40, 60);
         c.set(SC.COOLDOWN_SECONDS, 10, 6);
         c.set(SC.TIMES_TO_CAST, 4, 8);
 

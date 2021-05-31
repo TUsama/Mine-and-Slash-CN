@@ -60,7 +60,7 @@ public class ThornBushSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 1, 3);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.BASE_VALUE, 6, 12);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.1F, 0.15F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.1F, 0.18F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 26, 18);
         c.set(SC.TICK_RATE, 30, 20);

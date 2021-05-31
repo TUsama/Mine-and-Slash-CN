@@ -62,11 +62,11 @@ public class ThrowFlamesSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 11, 16);
         c.set(SC.BASE_VALUE, 3, 5);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.75F, 1.0F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.75F, 1.2F);
         c.set(SC.SHOOT_SPEED, 1.0F, 1.25F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 12, 7);
+        c.set(SC.COOLDOWN_SECONDS, 9, 3);
         c.set(SC.DURATION_TICKS, 60, 60);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 

@@ -55,17 +55,17 @@ public class GroundSlamSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 14, 20);
+        c.set(SC.MANA_COST, 12, 20);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.8F, 1.2F);
+        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.8F, 1.4F);
         c.set(SC.SHOOT_SPEED, 1.2F, 1.6F);
         c.set(SC.PROJECTILE_COUNT, 3, 7);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 200, 140);
+        c.set(SC.COOLDOWN_TICKS, 180, 100);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.DURATION_TICKS, 40, 60);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }

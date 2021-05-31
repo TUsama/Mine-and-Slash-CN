@@ -25,7 +25,7 @@ public class MagicShield extends Stat implements IStatEffects {
 
     @Override
     public TextFormatting getIconFormat() {
-        return TextFormatting.BLUE;
+        return TextFormatting.AQUA;
     }
 
     @Override

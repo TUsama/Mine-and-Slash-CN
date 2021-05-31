@@ -11,7 +11,7 @@ public class ManaRegen extends BaseRegenClass {
 
     @Override
     public TextFormatting getIconFormat() {
-        return TextFormatting.AQUA;
+        return TextFormatting.BLUE;
     }
 
     @Override

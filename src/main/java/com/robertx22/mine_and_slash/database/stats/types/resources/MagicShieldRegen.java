@@ -22,7 +22,7 @@ public class MagicShieldRegen extends BaseRegenClass {
 
     @Override
     public TextFormatting getIconFormat() {
-        return TextFormatting.BLUE;
+        return TextFormatting.AQUA;
     }
 
     @Override

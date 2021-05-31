@@ -154,7 +154,7 @@ public class GearTooltipUtils {
                 tip.add(new StringTextComponent(""));
                 if (costs
                     .GetEnergyCost(data.getLvlForResourceCosts()) > 0) {
-                    tip.add(Styles.GREENCOMP()
+                    tip.add(Styles.YELLOWCOMP()
                         .appendSibling(Energy.getInstance()
                             .locName()
                             .appendText(": " + (int) costs
