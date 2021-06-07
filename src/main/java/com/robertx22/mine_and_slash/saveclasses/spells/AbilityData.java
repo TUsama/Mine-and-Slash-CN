@@ -52,6 +52,10 @@ public class AbilityData {
 
     }
 
+    public int getRealCurrentLevel() {
+        return MathHelper.clamp(currentLvl, 0, getAbility().getMaxSpellLevelNormal());
+    }
+
     public AbilityData(IAbility ability) {
         this.id = ability.GUID();
         this.type = ability.getAbilityType();

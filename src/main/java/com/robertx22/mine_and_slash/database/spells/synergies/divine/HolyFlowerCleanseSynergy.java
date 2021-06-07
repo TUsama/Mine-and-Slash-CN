@@ -24,7 +24,7 @@ public class HolyFlowerCleanseSynergy extends OnHealedSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Cleanses 1 negative effect with each heal."));
+        list.add(new StringTextComponent("Cleanses a negative effect with each heal."));
 
         return list;
     }

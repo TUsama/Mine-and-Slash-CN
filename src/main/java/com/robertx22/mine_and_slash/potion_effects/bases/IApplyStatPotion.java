@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 public interface IApplyStatPotion {
 
+    // applyStats is not taking the correct BasePotionEffect level... It's using the level of the person who it's applied on instead of caster.
     default void applyStats(EntityCap.UnitData data, PlayerSpellCap.ISpellsCap cap, EffectInstance instance) {
         ExtraPotionData extraData = PotionDataSaving.getData(instance);
 
@@ -33,6 +34,12 @@ public interface IApplyStatPotion {
             .collect(Collectors.toList());
     }
 
+    default List<ExactStatData> getOwnStatsAffected(BasePotionEffect effect, EntityCap.UnitData data, PlayerSpellCap.ISpellsCap cap, ExtraPotionData extraData) {
+        return getPotionStats().stream()
+                .map(x -> x.getOwnExactStat(data, cap, extraData, effect))
+                .collect(Collectors.toList());
+    }
+
     List<PotionStat> getPotionStats();
 
     default List<ITextComponent> getStatTooltip(TooltipInfo info, BasePotionEffect effect) {
@@ -44,7 +51,7 @@ public interface IApplyStatPotion {
 
         list.add(new StringTextComponent(TextFormatting.GREEN + "Affects stats: "));
 
-        getStatsAffected(effect, info.unitdata, Load.spells(info.player), minStacks).forEach(x -> {
+        getOwnStatsAffected(effect, info.unitdata, Load.spells(info.player), minStacks).forEach(x -> {
             list.addAll(x.GetTooltipString(info));
         });
 

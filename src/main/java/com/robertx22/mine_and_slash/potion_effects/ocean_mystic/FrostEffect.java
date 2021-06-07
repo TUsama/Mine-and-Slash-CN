@@ -63,13 +63,13 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 1;
+        return 3;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-10, new AllElementalDamage(Elements.Elemental)));
+        list.add(new PotionStat(-6, new AllElementalDamage(Elements.Elemental)));
         return list;
     }
 

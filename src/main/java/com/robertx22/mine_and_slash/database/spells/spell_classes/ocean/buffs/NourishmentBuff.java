@@ -20,7 +20,7 @@ public class NourishmentBuff extends BaseOceanBuffSpell{
 
             @Override
             public SpellCastType castType() {
-                return SpellCastType.AOE_EFFECT;
+                return SpellCastType.AOE_ALLIES_EFFECT;
             }
 
             @Override

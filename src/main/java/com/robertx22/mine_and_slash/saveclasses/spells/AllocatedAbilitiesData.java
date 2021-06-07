@@ -269,6 +269,16 @@ public class AllocatedAbilitiesData implements IApplyableStats {
             .getCurrentLevel();
     }
 
+    public int getRealLevelOf(IAbility ability) {
+        return map.getOrDefault(ability.GUID(), EMPTY_ABILITY)
+                .getRealCurrentLevel();
+    }
+
+    public int getBonusLevelOf(IAbility ability) {
+        return map.getOrDefault(ability.GUID(), EMPTY_ABILITY)
+                .getBonusLvls();
+    }
+
     public boolean isAllocated(IAbility ability) {
         return getLevelOf(ability) > 0;
     }

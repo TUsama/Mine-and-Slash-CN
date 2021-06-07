@@ -61,14 +61,14 @@ public class EnrageEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 1;
+        return 5;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-33, Armor.getInstance()));
-        list.add(new PotionStat(20, PhysicalDamage.getInstance()));
+        list.add(new PotionStat(-8, Armor.getInstance()));
+        list.add(new PotionStat(4, PhysicalDamage.getInstance()));
         return list;
     }
 

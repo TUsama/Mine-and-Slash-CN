@@ -51,14 +51,14 @@ public class ThunderEssenceEffect extends BasePotionEffect implements IApplyStat
 
     @Override
     public int getMaxStacks() {
-        return 1;
+        return 3;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(15, new ElementalSpellDamage(Elements.Elemental)));
-        list.add(new PotionStat(3, CriticalHit.getInstance()));
+        list.add(new PotionStat(6, new ElementalSpellDamage(Elements.Elemental)));
+        list.add(new PotionStat(1, CriticalHit.getInstance()));
         return list;
     }
 

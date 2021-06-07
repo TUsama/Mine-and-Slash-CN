@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
+import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShieldRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
@@ -51,7 +52,8 @@ public class FrostShieldEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(125, MagicShield.getInstance()));
+        list.add(new PotionStat(80, MagicShield.getInstance()));
+        list.add(new PotionStat(80, MagicShieldRegen.getInstance()));
         return list;
     }
 

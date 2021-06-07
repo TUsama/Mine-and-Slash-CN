@@ -1,3 +1,22 @@
+3.9.16:
+* Fixed effects not actually applying to enemies/allies... This whole time buffs and curses didn't even work as intended!!!
+* Damage from allies should no longer affect magic shield!
+* Managed to get the stack effects working again! That means effects like Burn, Thorns, Bleed now have more than a max stack of 1, and stacking the effect will increase the stat and damage effects! Most of the effects have been reworked (and in most cases, buffed).
+* An example of above: Bleed now has a max of 8 stacks, and instead of doing 25% of your phys damage per second, you do 8% per stack for a max of 64% (yes this is also a huge buff).
+* Buff spells now apply to allies only and not enemies. Yeah, I know.
+* Effect levels can now have points put into them starting at level 5. It didn't make sense to be able to Burn enemies at level 5, but the Burn effect itself did nothing till level 10.
+* Defend armor buff has been nerfed by 20%.
+* Frost Shield now has a longer cooldown but also applies Magic Shield Regen.
+* Reduced the power, increased the cooldown of Retribution - especially the early game.
+* Increased number of projectiles at max level for Retribution.
+* Fires of Judgment now gives Purifying Fires a chance to apply Judgment instead of dealing extra damage to targets with Judgment.
+* Holy Retribution now provides extra armor scaling to damage if target has Judgment instead of giving Retribution the chance to apply Judgment.
+* Judgment is now a skillable passive rather than being tied to Spear of Judgment.
+* Judgment now scales alone rather than off of the Spear of Judgment spell.
+* Burn, Thorns are now DOT damage type and not spell damage type.
+* Revamped Spell GUI a bit - colour of text now indicates whether you cannot put points, have points in it, or are receiving + bonus level to spells. Also, unavailable spells no longer have a "red background" and instead have lower saturation.
+* Completely new set of spell icons thanks to Skullbushi! Check out their work here: https://www.instagram.com/skullbushi/
+
 3.9.15:
 * Improved late-game all melee spells significantly.
 * All melee spell attack scaling per level has increased.

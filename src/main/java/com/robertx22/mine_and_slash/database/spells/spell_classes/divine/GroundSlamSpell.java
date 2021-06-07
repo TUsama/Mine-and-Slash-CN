@@ -55,15 +55,15 @@ public class GroundSlamSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 12, 20);
+        c.set(SC.MANA_COST, 12, 22);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.8F, 1.4F);
-        c.set(SC.SHOOT_SPEED, 1.2F, 1.6F);
-        c.set(SC.PROJECTILE_COUNT, 3, 7);
+        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.3F, 0.5F);
+        c.set(SC.SHOOT_SPEED, 1.0F, 1.5F);
+        c.set(SC.PROJECTILE_COUNT, 1, 9);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 180, 100);
+        c.set(SC.COOLDOWN_TICKS, 200, 100);
         c.set(SC.TIMES_TO_CAST, 1, 1);
-        c.set(SC.DURATION_TICKS, 40, 60);
+        c.set(SC.DURATION_TICKS, 10, 10);
 
         c.setMaxLevel(16);
 
@@ -89,9 +89,8 @@ public class GroundSlamSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Converts armor to damage, unleash to"));
-        list.add(new StringTextComponent("damage and pierce through enemies in"));
-        list.add(new StringTextComponent("of you: "));
+        list.add(new StringTextComponent("Converts armor to damage - unleash to"));
+        list.add(new StringTextComponent("damage enemies in front of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

@@ -41,8 +41,10 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
         this.tickActions.add(new OnTickAction(ctx -> {
             int num = getCalc(ctx.caster).getCalculatedValue(ctx.casterData, ctx.spellsCap, this);
 
+            num *= ctx.data.getStacks();
+
             DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
-                EffectData.EffectTypes.SPELL, WeaponTypes.None
+                EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
             );
             dmg.element = Elements.Fire;
             dmg.removeKnockback();
@@ -59,7 +61,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
-            list.add(new StringTextComponent("Does damage:"));
+            list.add(new StringTextComponent("Does damage per stack: "));
             list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), getAbilityThatDeterminesLevel()));
             return list;
         }));
@@ -83,7 +85,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 1;
+        return 4;
     }
 
     @Override
@@ -96,7 +98,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 2, 5.5F);
+        p.set(SC.BASE_VALUE, 0.8F, 2.4F);
         p.set(SC.DURATION_TICKS, 3 * 20, 6 * 20);
         p.set(SC.TICK_RATE, 30, 15);
         return p;

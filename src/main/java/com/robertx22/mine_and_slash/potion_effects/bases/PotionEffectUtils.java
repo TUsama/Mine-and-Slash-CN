@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.potion_effects.bases;
 
 import com.robertx22.mine_and_slash.potion_effects.bases.data.ExtraPotionData;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
+import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;
@@ -16,17 +17,25 @@ public class PotionEffectUtils {
         apply(effect, caster, caster);
     }
 
+    // POTION EFFECT ISN'T USING LEVEL OF CASTER, IT'S USING THE POTION EFFECT LEVEL OF THE APPLIED...
     public static void apply(BasePotionEffect effect, LivingEntity caster, LivingEntity target) {
 
+        //System.out.println("1. Effect: " + effect + "\nCaster: " + caster + "\nTarget: " + target);
+
         if (caster.world.isRemote) {
+            //System.out.println("1b. Potion apply, caster world is remote.");
             return;
         }
 
         int duration = effect.getDurationInTicks(caster);
+        //System.out.println("2. Duration: " + duration);
 
         EntityCap.UnitData casterData = Load.Unit(caster);
+        PlayerSpellCap.ISpellsCap casterCap= Load.spells(caster);
+        //System.out.println("3. Caster Data: " + casterData);
 
         EffectInstance instance = target.getActivePotionEffect(effect);
+        //System.out.println("4. Effect Instance: " + instance);
         ExtraPotionData extraData;
 
         if (instance != null) {
@@ -39,18 +48,25 @@ public class PotionEffectUtils {
             extraData = new ExtraPotionData();
         }
 
+        //System.out.println("5. Extra Data: " + extraData);
+
         if (extraData.getInitialDurationTicks() > 0) {
+            //System.out.println("5b. Potion reapplied.");
             duration = extraData.getInitialDurationTicks(); // if reapplied, apply existing duration
         }
 
         EffectInstance newInstance = new EffectInstance(effect, duration, extraData.getStacks(), false, false, true);
+        //System.out.println("6. New Instance : " + newInstance);
 
         if (instance == null) {
 
             extraData.casterLvl = casterData.getLevel();
             extraData.casterID = caster.getUniqueID()
                 .toString();
+            extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
+            extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
             extraData.setInitialDurationTicks(duration);
+            //System.out.println("7. Instance Null, Extra Data : " + extraData);
 
             PotionDataSaving.saveData(newInstance, extraData);
 
@@ -64,8 +80,11 @@ public class PotionEffectUtils {
             extraData.casterLvl = casterData.getLevel();
             extraData.casterID = caster.getUniqueID()
                 .toString();
+            extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
+            extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
             extraData.setInitialDurationTicks(duration);
             extraData.addStacks(1, effect);
+            //System.out.println("7b. Instance Refreshed, Extra Data : " + extraData);
 
             PotionDataSaving.saveData(newInstance, extraData);
 

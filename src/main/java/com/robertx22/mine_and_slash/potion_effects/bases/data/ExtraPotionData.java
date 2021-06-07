@@ -1,6 +1,9 @@
 package com.robertx22.mine_and_slash.potion_effects.bases.data;
 
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
+import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
+import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
+import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.Utilities;
 import info.loenwind.autosave.annotations.Storable;
 import info.loenwind.autosave.annotations.Store;
@@ -31,6 +34,12 @@ public class ExtraPotionData {
     @Store
     public int casterLvl = 1;
 
+    @Store
+    private float levelPowerMulti = 0;
+
+    @Store
+    private int effectiveAbilityLevel = 0;
+
     public int getInitialDurationTicks() {
         return initialDurationTicks;
     }
@@ -53,12 +62,26 @@ public class ExtraPotionData {
         return stacks;
     }
 
+    public void setLevelPowerMulti(float num) {
+        this.levelPowerMulti = num;
+    }
+
+    public void setEffectiveAbilityLevel(int num) {
+        this.effectiveAbilityLevel= num;
+    }
+
+    public float getLevelPowerMulti() {
+        return levelPowerMulti;
+    }
+
+    public int getEffectiveAbilityLevel() {
+        return effectiveAbilityLevel;
+    }
+
     public LivingEntity getCaster(World world) {
         if (casterID.isEmpty()) {
             return null;
         }
         return Utilities.getLivingEntityByUUID(world, UUID.fromString(casterID));
-
     }
-
 }

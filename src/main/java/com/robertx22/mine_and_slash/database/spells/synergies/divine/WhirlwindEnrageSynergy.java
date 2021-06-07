@@ -58,7 +58,7 @@ public class WhirlwindEnrageSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 5, 15);
+        c.set(SC.CHANCE, 5, 20);
         c.setMaxLevel(6);
         return c;
     }

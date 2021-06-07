@@ -43,6 +43,8 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
         this.tickActions.add(new OnTickAction(ctx -> {
             int num = getCalc(ctx.caster).getCalculatedValue(ctx.casterData, ctx.spellsCap, this);
 
+            num *= ctx.data.getStacks();
+
             DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
                 EffectData.EffectTypes.SPELL, WeaponTypes.None
             );
@@ -59,7 +61,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
-            list.add(new StringTextComponent("Does damage:"));
+            list.add(new StringTextComponent("Does damage per stack:"));
             list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
             return list;
         }));
@@ -87,20 +89,20 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 1;
+        return 3;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-50, HealPower.getInstance()));
+        list.add(new PotionStat(-30, HealPower.getInstance()));
         return list;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 3, 5);
+        p.set(SC.BASE_VALUE, 1, 2);
         p.set(SC.TICK_RATE, 30, 20);
         p.set(SC.DURATION_TICKS, 15 * 60, 25 * 60);
         return p;

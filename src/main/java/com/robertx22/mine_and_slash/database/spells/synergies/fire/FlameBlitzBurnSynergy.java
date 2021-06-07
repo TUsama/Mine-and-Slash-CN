@@ -58,7 +58,7 @@ public class FlameBlitzBurnSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 15, 30);
+        c.set(SC.CHANCE, 15, 35);
         c.setMaxLevel(6);
         return c;
     }

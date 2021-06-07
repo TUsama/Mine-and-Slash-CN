@@ -1,5 +1,6 @@
 package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs;
 
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -12,6 +13,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 
 public class FrostShieldBuff extends BaseOceanBuffSpell{
     private FrostShieldBuff() {
@@ -23,7 +25,7 @@ public class FrostShieldBuff extends BaseOceanBuffSpell{
 
             @Override
             public SpellCastType castType() {
-                return SpellCastType.AOE_EFFECT;
+                return SpellCastType.AOE_ALLIES_EFFECT;
             }
 
             @Override
@@ -40,6 +42,19 @@ public class FrostShieldBuff extends BaseOceanBuffSpell{
 
     public static FrostShieldBuff getInstance() {
         return SingletonHolder.INSTANCE;
+    }
+
+    @Override
+    public PreCalcSpellConfigs getPreCalcConfig() {
+        PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.set(SC.MANA_COST, 9, 15);
+        c.set(SC.CAST_TIME_TICKS, 30, 15);
+        c.set(SC.COOLDOWN_SECONDS, 60, 45);
+        c.set(SC.DURATION_TICKS, 20 * 20, 30 * 20);
+        c.set(SC.RADIUS, 4, 8);
+
+        c.setMaxLevel(4);
+        return c;
     }
 
     @Override

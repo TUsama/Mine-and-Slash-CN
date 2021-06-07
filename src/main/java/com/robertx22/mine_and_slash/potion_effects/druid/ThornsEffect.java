@@ -42,8 +42,10 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
         this.tickActions.add(new OnTickAction(ctx -> {
             int num = getCalc(ctx.caster).getCalculatedValue(ctx.casterData, ctx.spellsCap, this);
 
+            num *= ctx.data.getStacks();
+
             DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
-                EffectData.EffectTypes.SPELL, WeaponTypes.None
+                EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
             );
             dmg.element = Elements.Nature;
             dmg.removeKnockback();
@@ -56,7 +58,7 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
-            list.add(new StringTextComponent("Does damage:"));
+            list.add(new StringTextComponent("Does damage per stack: "));
             list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 
             return list;
@@ -80,14 +82,14 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 1;
+        return 10;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-10, HealPower.getInstance()));
-        list.add(new PotionStat(-10, HealthRegen.getInstance()));
+        list.add(new PotionStat(-3, HealPower.getInstance()));
+        list.add(new PotionStat(-3, HealthRegen.getInstance()));
 
         return list;
     }
@@ -95,8 +97,8 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 1, 1.5F);
-        p.set(SC.NATURE_ATTACK_SCALE_VALUE, 0.3F, 0.6F);
+        p.set(SC.BASE_VALUE, 0.05F, 0.3F);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.01F, 0.03F);
         p.set(SC.TICK_RATE, 40, 30);
         p.set(SC.DURATION_TICKS, 200, 600);
         return p;

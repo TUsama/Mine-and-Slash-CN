@@ -46,7 +46,7 @@ public class ThunderSpearThunderEssenceSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.CHANCE, 20, 75);
+        c.set(SC.CHANCE, 25, 60);
         c.setMaxLevel(8);
         return c;
     }

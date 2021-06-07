@@ -35,6 +35,8 @@ public class BleedPotion extends BasePotionEffect {
 
             int num = CALC.getCalculatedValue(ctx.casterData);
 
+            num *= ctx.data.getStacks();
+
             if (ctx.entity.world.isRemote) {
                 ParticleUtils.spawnParticles(ParticleTypes.LAVA, ctx.entity, 25);
             } else {
@@ -49,7 +51,7 @@ public class BleedPotion extends BasePotionEffect {
         }, null));
     }
 
-    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.25F);
+    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.08F);
 
     @Override
     public String GUID() {
@@ -64,6 +66,11 @@ public class BleedPotion extends BasePotionEffect {
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         return new ArrayList<>();
+    }
+
+    @Override
+    public int getMaxStacks() {
+        return 8;
     }
 
     @Override

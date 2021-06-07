@@ -311,18 +311,39 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
 
                 float s = 0.5F;
                 float as = 1 / s;
-
                 RenderSystem.scalef(s, s, s);
+
+                if (spells.getAbilitiesData()
+                        .getFreeAbilityPoints(data) > 0 && spells.getLevelOf(ability) < 1 && !spells
+                        .getAbilitiesData()
+                        .canAddPointsOrHasPoints(ability, data)) {
+                    RenderSystem.color4f(0.25F, 0.25F, 0.25F, 1.0F);
+                }
+
                 RenderUtils.render32Icon(
                     ability.getIconLoc(),
                     (int) ((this.x + 5) * as),
                     (int) ((this.y + 5) * as));
                 RenderSystem.scalef(as, as, as);
+                RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
 
                 String str = spells.getLevelOf(ability) + "/" + ability.getMaxSpellLevelNormal();
                 int xp = (int) (this.x + xSize / 2);
                 int yp = this.y + xSize - 2;
-                GuiUtils.renderScaledText(xp, yp, 0.75F, str, ability.getMastery().format);
+
+                if (spells.getAbilitiesData()
+                        .getFreeAbilityPoints(data) > 0 && spells.getLevelOf(ability) < 1 && !spells
+                        .getAbilitiesData()
+                        .canAddPointsOrHasPoints(ability, data)) {
+                    GuiUtils.renderScaledText(xp, yp, 0.75F, str, TextFormatting.GRAY);
+                } else if (spells.getBonusLevelOf(ability) >= 1 && spells.getRealLevelOf(ability) >= 1) {
+                    GuiUtils.renderScaledText(xp, yp, 0.75F, str, TextFormatting.AQUA);
+                } else if (spells.getRealLevelOf(ability) >= 1) {
+                    GuiUtils.renderScaledText(xp, yp, 0.75F, str, TextFormatting.GREEN);
+                } else {
+                    GuiUtils.renderScaledText(xp, yp, 0.75F, str, TextFormatting.WHITE);
+                }
+                //GuiUtils.renderScaledText(xp, yp, 0.75F, str, ability.getMastery().format);
 
             }
 

@@ -28,7 +28,7 @@ public class BleedMastery extends BaseGameChangerTrait implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Your basic attacks inflict " + BleedPotion.CALC.getMultiAsPercent() + " percent of your physical damage as bleed on targets."
+        return "Your basic attacks inflict bleed stacks (max 8) which each deal " + BleedPotion.CALC.getMultiAsPercent() + " percent of your physical damage."
             ;
     }
 

@@ -1668,7 +1668,7 @@
 	"mmorpg.stat_desc.armor_penetration": "Ignores X armor.",
 	"mmorpg.stat_desc.assassin": "On Crit, 25 Percent Chance to Buff Speed",
 	"mmorpg.stat_desc.berserkers_impartiality_trait": "Charge through your foes with brute force.",
-	"mmorpg.stat_desc.bleed_mastery_trait": "Your basic attacks inflict 25 percent of your physical damage as bleed on targets.",
+	"mmorpg.stat_desc.bleed_mastery_trait": "Your basic attacks inflict bleed stacks (max 8) which each deal 8 percent of your physical damage.",
 	"mmorpg.stat_desc.block_reflect": "When blocking an attack, damage the enemy.",
 	"mmorpg.stat_desc.block_strength": "Percent chance to completely block a hit. Upon failure, still reduce damage by 25 percent.",
 	"mmorpg.stat_desc.blood_mage_trait": "Mana is converted into blood. Max blood is half of your max health. You replenish blood with any non-spell related health restoration method like regeneration or lifesteal.",

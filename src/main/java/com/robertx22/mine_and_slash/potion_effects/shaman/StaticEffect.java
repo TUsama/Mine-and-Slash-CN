@@ -54,13 +54,13 @@ public class StaticEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 1;
+        return 6;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-20, new ElementalResist(Elements.Elemental)));
+        list.add(new PotionStat(-5, new ElementalResist(Elements.Elemental)));
         return list;
     }
 

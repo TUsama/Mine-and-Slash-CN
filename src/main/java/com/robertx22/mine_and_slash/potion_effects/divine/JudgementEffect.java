@@ -13,7 +13,10 @@ import com.robertx22.mine_and_slash.potion_effects.bases.data.ExtraPotionData;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
@@ -65,13 +68,15 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(-3, new ElementalResist(Elements.Elemental)));
-        list.add(new PotionStat(-12, Armor.getInstance()));
+        list.add(new PotionStat(-10, Armor.getInstance()));
         return list;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
+        p.set(SC.BASE_VALUE, 0, 0);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.5F);
         p.set(SC.DURATION_TICKS, 100, 120);
         p.set(SC.TICK_RATE, 20, 20);
         return p;
@@ -80,12 +85,12 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
     @Nullable
     @Override
     public BaseSpell getSpell() {
-        return SpearOfJudgementSpell.getInstance();
+        return null;
     }
 
     @Override
     public Masteries getMastery() {
-        return getSpell().getMastery();
+        return Masteries.DIVINE;
     }
 
     @Override
@@ -93,7 +98,8 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent("Attack to add additional stacks. At max"));
-        list.add(new StringTextComponent("stacks, consume to deal extra damage: "));
+        list.add(new StringTextComponent("stacks, consume to deal extra based on"));
+        list.add(new StringTextComponent("applicator's weapon DMG: "));
 
         return list;
 
@@ -114,11 +120,9 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
 
             SoundUtils.playSound(target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 1, 1);
 
-            int num = getCalc(source).getCalculatedValue(Load.Unit(caster), Load.spells(caster), getSpell());
+            int num = getCalc(source).getCalculatedValue(Load.Unit(caster), Load.spells(caster), this);
+            DamageEffect dmg = new DamageEffect(null, source, target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
 
-            SpellDamageEffect dmg = new SpellDamageEffect(caster, target, num, Load.Unit(caster), Load.Unit(target),
-                getSpell()
-            );
             dmg.element = Elements.Thunder;
             dmg.Activate();
 

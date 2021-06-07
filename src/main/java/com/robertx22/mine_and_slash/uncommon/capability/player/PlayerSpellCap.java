@@ -56,6 +56,10 @@ public class PlayerSpellCap {
 
         public abstract int getLevelOf(IAbility ability);
 
+        public abstract int getRealLevelOf(IAbility ability);
+
+        public abstract int getBonusLevelOf(IAbility ability);
+
         public abstract boolean hasSynergy(Synergy synergy);
 
         public abstract void reset();
@@ -197,6 +201,18 @@ public class PlayerSpellCap {
         public int getLevelOf(IAbility ability) {
             return this.getAbilitiesData()
                 .getLevelOf(ability);
+        }
+
+        @Override
+        public int getRealLevelOf(IAbility ability) {
+            return this.getAbilitiesData()
+                    .getRealLevelOf(ability);
+        }
+
+        @Override
+        public int getBonusLevelOf(IAbility ability) {
+            return this.getAbilitiesData()
+                    .getBonusLevelOf(ability);
         }
 
         @Override

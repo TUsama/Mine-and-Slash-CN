@@ -20,7 +20,7 @@ public class BraverySpell extends BaseDivineBuffSpell {
 
             @Override
             public SpellCastType castType() {
-                return SpellCastType.AOE_EFFECT;
+                return SpellCastType.AOE_ALLIES_EFFECT;
             }
 
             @Override
