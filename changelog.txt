@@ -1,3 +1,6 @@
+3.9.18:
+* Oops, forgot to add tooltip indicators for which damage is DoT damage. Currently only Wounds, Burn, Thorns, and Bleed.
+
 3.9.17:
 * Medium-sized talent tree update: some areas of the tree have been reworked to incorporate FOUR new gamechanger perks, and a new perk type. A lot of the changes are top-right heavy. Some general balance changes have also been made.
 * New Perk/Stat type: Increased Damage over Time Damage - this affects DoT effects ONLY (not spells like Blizzard). Currently, this means Burn, Thorns, Wounds, and Bleed. These perks can be found throughout the tree.

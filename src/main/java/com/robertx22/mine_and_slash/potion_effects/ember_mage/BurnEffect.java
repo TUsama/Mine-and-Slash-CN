@@ -61,7 +61,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
-            list.add(new StringTextComponent("Does damage per stack: "));
+            list.add(new StringTextComponent("Does DoT damage per stack: "));
             list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), getAbilityThatDeterminesLevel()));
             return list;
         }));

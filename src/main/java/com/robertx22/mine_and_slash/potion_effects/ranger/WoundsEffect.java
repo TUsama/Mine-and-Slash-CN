@@ -47,7 +47,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
             num *= ctx.data.getStacks();
 
             DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
-                EffectData.EffectTypes.SPELL, WeaponTypes.None
+                EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
             );
             dmg.element = Elements.Elemental;
             dmg.removeKnockback();
@@ -62,7 +62,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
-            list.add(new StringTextComponent("Does damage per stack:"));
+            list.add(new StringTextComponent("Does DoT damage per stack:"));
             list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
             return list;
         }));
