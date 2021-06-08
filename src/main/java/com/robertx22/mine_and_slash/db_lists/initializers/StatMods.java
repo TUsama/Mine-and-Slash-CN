@@ -10,6 +10,7 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.corestats.CoreStatF
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.BlockStrengthFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DodgeRatingFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.elemental.AllDotDmgFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.elemental.AllEleDmgFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.*;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.*;
@@ -73,6 +74,7 @@ public class StatMods implements ISlashRegistryInit {
 
                     add(Mod.LUCK_FLAT());
 
+                    //add(new IncreasedDurationFlat());
                     add(new CooldownReductionFlat());
                     add(new ReducedManaCostFlat());
                     add(new FasterCastRateFlat());
@@ -80,6 +82,7 @@ public class StatMods implements ISlashRegistryInit {
                     add(new CompletePhysDispersionFlat());
                     add(new HealPowerFlat());
                     add(new AllEleDmgFlat());
+                    add(new AllDotDmgFlat());
                     add(new EleToPhysTransferFlat());
                     add(new PhysToFireConvFlat());
                     add(new PhysToNatureConvFlat());
@@ -145,6 +148,8 @@ public class StatMods implements ISlashRegistryInit {
                     add(new ManaOnHitFlat());
                     add(new SpellStealFlat());
                     add(new SpellStealPercent());
+                    add(new DoTStealFlat());
+                    add(new DoTStealPercent());
                     // Resources
 
                     add(new ArmorPercent());

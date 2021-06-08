@@ -28,6 +28,8 @@ public class FrostballFrostEssenceGenSynergy extends OnDamageDoneSynergy {
 
         list.add(new StringTextComponent("Hits have a chance to apply on self: " + ColdEssenceEffect.INSTANCE.locNameForLangFile()));
 
+        list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
+
         return list;
     }
 

@@ -1,20 +1,20 @@
-package com.robertx22.mine_and_slash.database.spells.synergies.nature;
+package com.robertx22.mine_and_slash.database.spells.synergies.fire;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.PoisonedWeaponsSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.SpellBladeSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnBasicAttackSynergy;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
-import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
-import com.robertx22.mine_and_slash.potion_effects.druid.ThornsEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.SynergyDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -22,7 +22,7 @@ import net.minecraft.util.text.StringTextComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
+public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
 
     @Override
     public List<ITextComponent> getSynergyTooltipInternal(TooltipInfo info) {
@@ -30,7 +30,9 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Basic attacks deals extra damage to targets affected by Thorns: "));
+        list.add(new StringTextComponent("Basic attacks cause enemies to send out fiery"));
+        list.add(new StringTextComponent("novas, damaging other nearby enemies. Scales"));
+        list.add(new StringTextComponent("with Fire Weapon DMG: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -39,13 +41,14 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 1, 4);
+        c.set(SC.MANA_COST, 2, 5);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 9);
+        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 5.0F, 1.5F);
+        c.set(SC.RADIUS, 1.0F, 2.0F);
         c.setMaxLevel(8);
         return c;
     }
@@ -53,29 +56,34 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
     @Override
     public void tryActivate(DamageEffect ctx) {
 
+        float radius = getContext(ctx.source).getConfigFor(this)
+                .get(SC.RADIUS)
+                .get(Load.spells(ctx.source), this);
+
         if (ctx.getEffectType()
             .equals(EffectData.EffectTypes.BASIC_ATTACK)) {
 
-            if (PotionEffectUtils.has(ctx.target, ThornsEffect.INSTANCE)) {
-
-                ParticleEnum.sendToClients(ctx.target,
-                    new ParticlePacketData(ctx.target.getPosition(), ParticleEnum.NOVA).radius(
-                        2)
-                        .type(ParticleTypes.CRIT)
-                        .amount(30)
-                );
-
-                int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
+            int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
                     .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
 
-                //SynergyDamageEffect dmg = new SynergyDamageEffect(this,
-                //    ctx.source, ctx.target, num, ctx.sourceData, ctx.targetData, getSpell());
-                DamageEffect dmg = new DamageEffect(
-                        null, ctx.source, ctx.target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-                dmg.element = getSpell()
-                    .getElement();
-                dmg.Activate();
+            ParticleEnum.sendToClients(ctx.target,
+                new ParticlePacketData(ctx.target.getPosition(), ParticleEnum.NOVA).radius(
+                    radius)
+                    .type(ParticleTypes.FLAME)
+                    .amount(30)
+            );
 
+            List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
+                    .radius(radius)
+                    .build();
+
+            for (LivingEntity en : entities) {
+                if (en != ctx.target) {
+                    DamageEffect dmg = new DamageEffect(
+                            null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                    dmg.element = Elements.Fire;
+                    dmg.Activate();
+                }
             }
         }
     }
@@ -87,11 +95,11 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
 
     @Override
     public IAbility getRequiredAbility() {
-        return PoisonedWeaponsSpell.getInstance();
+        return SpellBladeSpell.getInstance();
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Poison Thorn Seeker";
+        return "Flame Blade";
     }
 }

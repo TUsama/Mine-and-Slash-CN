@@ -27,10 +27,11 @@ public class ThornArmorThornsSynergy extends OnBasicAttackSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Hits have a chance"));
-        list.add(new StringTextComponent("of applying effect: "));
+        list.add(new StringTextComponent("Hits have a chance to apply: " + ThornsEffect.INSTANCE.locNameForLangFile()));
 
         list.addAll(ThornsEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+
+        list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
         return list;
     }

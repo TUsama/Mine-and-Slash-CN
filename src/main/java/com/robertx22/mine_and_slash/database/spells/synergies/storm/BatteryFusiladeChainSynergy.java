@@ -54,6 +54,7 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
         c.set(SC.MANA_COST, 2, 4);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.02F, 0.06F);
+        c.set(SC.RADIUS, 1F, 2F);
         c.setMaxLevel(10);
         return c;
     }
@@ -72,7 +73,9 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
 
-        float radius = 1F;
+        float radius = getContext(ctx.source).getConfigFor(this)
+                .get(SC.RADIUS)
+                .get(Load.spells(ctx.source), this);
 
         int num = getCalcVal(ctx.source);
 

@@ -85,7 +85,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 4;
+        return 6;
     }
 
     @Override
@@ -98,9 +98,9 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 0.8F, 2.4F);
+        p.set(SC.BASE_VALUE, 0.8F, 2.0F);
         p.set(SC.DURATION_TICKS, 3 * 20, 6 * 20);
-        p.set(SC.TICK_RATE, 30, 15);
+        p.set(SC.TICK_RATE, 20, 20);
         return p;
     }
 

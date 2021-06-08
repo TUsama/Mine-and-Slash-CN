@@ -25,7 +25,7 @@ public class ThornBushMajorThornsSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Adds extra damage to enemies affected by thorns: "));
+        list.add(new StringTextComponent("Deal extra damage to enemies affected by Thorns: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 

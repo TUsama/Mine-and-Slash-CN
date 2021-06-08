@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.stats.types.UnknownStat;
 import com.robertx22.mine_and_slash.database.stats.types.class_based.RogueStealth;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.*;
 import com.robertx22.mine_and_slash.database.stats.types.defense.*;
+import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllDotDmg;
 import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllEleDmg;
 import com.robertx22.mine_and_slash.database.stats.types.game_changers.*;
 import com.robertx22.mine_and_slash.database.stats.types.generated.*;
@@ -73,6 +74,8 @@ public class Stats implements ISlashRegistryInit {
                     add(MagicalLife.INSTANCE);
                     add(SteadyHand.INSTANCE);
                     add(RecklessBlows.INSTANCE);
+                    add(SideStep.INSTANCE);
+                    add(PowerOverwhelming.INSTANCE);
                     add(BerserkersImpartiality.INSTANCE);
                     add(Pacifist.INSTANCE);
                     add(Vampire.INSTANCE);
@@ -83,6 +86,8 @@ public class Stats implements ISlashRegistryInit {
                     add(OverflowingVitality.getInstance());
                     add(ArcaneDevotion.getInstance());
                     add(FamiliarInstincts.getInstance());
+                    add(Ruthless.INSTANCE);
+                    add(EnergySiphoner.INSTANCE);
 
                     add(new LuckStat());
 
@@ -102,6 +107,7 @@ public class Stats implements ISlashRegistryInit {
 
                     // generated
 
+                    //add(IncreasedDurationStat.getInstance());
                     add(ReducedCooldownStat.getInstance());
                     add(ReducedManaCost.getInstance());
                     add(FasterCastRate.getInstance());
@@ -110,6 +116,7 @@ public class Stats implements ISlashRegistryInit {
                     add(new PhysicalDispersion());
                     add(new AllAttributes());
                     add(new AllEleDmg());
+                    add(new AllDotDmg());
                     add(SpellDamage.getInstance());
                     // major arcana tarot
                     add(new Judgement());
@@ -179,6 +186,7 @@ public class Stats implements ISlashRegistryInit {
                     add(MagicShield.getInstance());
                     add(MagicShieldRegen.getInstance());
                     add(SpellSteal.getInstance());
+                    add(DoTSteal.getInstance());
                     // Resources
 
                     add(new BlockStrength());

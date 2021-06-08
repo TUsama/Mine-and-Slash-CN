@@ -82,7 +82,7 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public int getMaxStacks() {
-        return 10;
+        return 12;
     }
 
     @Override
@@ -97,10 +97,10 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 0.05F, 0.3F);
+        p.set(SC.BASE_VALUE, 0.2F, 0.5F);
         p.set(SC.ATTACK_SCALE_VALUE, 0.01F, 0.03F);
-        p.set(SC.TICK_RATE, 40, 30);
-        p.set(SC.DURATION_TICKS, 200, 600);
+        p.set(SC.TICK_RATE, 40, 40);
+        p.set(SC.DURATION_TICKS, 400, 800);
         return p;
     }
 

@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.types.core_stats.*;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.BlockStrength;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
+import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllDotDmg;
 import com.robertx22.mine_and_slash.database.stats.types.generated.*;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
@@ -62,6 +63,7 @@ public class PerkEffects {
     public static PerkEffectsWrapper PHYS_TO_WATER;
     public static PerkEffectsWrapper PHYS_TO_THUNDER;
     public static PerkEffectsWrapper PHYS_TO_NATURE;
+    public static PerkEffectsWrapper DOT_DMG;
 
     // COMBINED EFFECTS
     public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG;
@@ -82,7 +84,7 @@ public class PerkEffects {
     public static void create() {
 
         PHYSICAL_DMG = PerkEffectBuilder.build(
-            "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(3, StatModTypes.Percent, PhysicalDamage.GUID));
+            "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(8, StatModTypes.Percent, PhysicalDamage.GUID));
         SPELL_DMG = PerkEffectBuilder.build(
             "spell_dmg", SpellDamage.getInstance(), new ExactStatData(3, StatModTypes.Flat, SpellDamage.GUID));
         HEAL_PWR = PerkEffectBuilder.build(
@@ -116,6 +118,9 @@ public class PerkEffects {
                 "phys_to_thunder", new PhysicalToThunderConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToThunderConversion.GUID));
         PHYS_TO_NATURE = PerkEffectBuilder.build(
                 "phys_to_nature", new PhysicalToNatureConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToNatureConversion.GUID));
+
+        DOT_DMG = PerkEffectBuilder.build(
+                "dot_dmg", new AllDotDmg(), new ExactStatData(8F, StatModTypes.Flat, AllDotDmg.GUID));
 
         int core_amount = 1;
 
@@ -161,7 +166,7 @@ public class PerkEffects {
             )
         );
 
-        float wepDmg = 5;
+        float wepDmg = 6;
 
         for (WeaponTypes wep : WeaponTypes.getAll()) {
             WEP_DMG_MAP.put(
@@ -173,7 +178,7 @@ public class PerkEffects {
             WEP_ELE_DMG_MAP.put(
                 wep, PerkEffectBuilder.build(wep.name()
                         .toLowerCase(Locale.ROOT) + "_ele_dmg_percent", EleWepDmg.MAP.get(wep),
-                    new ExactStatData(wepDmg + 3, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
+                    new ExactStatData(wepDmg + 6, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
                 ));
 
         }

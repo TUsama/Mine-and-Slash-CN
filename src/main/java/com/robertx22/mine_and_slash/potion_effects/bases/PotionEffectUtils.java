@@ -1,5 +1,6 @@
 package com.robertx22.mine_and_slash.potion_effects.bases;
 
+import com.robertx22.mine_and_slash.potion_effects.all.BleedPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.ExtraPotionData;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
@@ -63,8 +64,10 @@ public class PotionEffectUtils {
             extraData.casterLvl = casterData.getLevel();
             extraData.casterID = caster.getUniqueID()
                 .toString();
-            extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
-            extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
+            if (effect != BleedPotion.INSTANCE) {
+                extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
+                extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
+            }
             extraData.setInitialDurationTicks(duration);
             //System.out.println("7. Instance Null, Extra Data : " + extraData);
 
@@ -80,8 +83,10 @@ public class PotionEffectUtils {
             extraData.casterLvl = casterData.getLevel();
             extraData.casterID = caster.getUniqueID()
                 .toString();
-            extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
-            extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
+            if (effect != BleedPotion.INSTANCE) {
+                extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
+                extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
+            }
             extraData.setInitialDurationTicks(duration);
             extraData.addStacks(1, effect);
             //System.out.println("7b. Instance Refreshed, Extra Data : " + extraData);

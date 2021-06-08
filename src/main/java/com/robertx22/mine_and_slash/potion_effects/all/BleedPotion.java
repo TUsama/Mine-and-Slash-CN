@@ -12,6 +12,7 @@ import com.robertx22.mine_and_slash.saveclasses.spells.calc.ScalingStatCalc;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import net.minecraft.particles.ParticleTypes;
@@ -43,6 +44,7 @@ public class BleedPotion extends BasePotionEffect {
                 DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
                     EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
                 );
+                dmg.element = Elements.Physical;
                 dmg.removeKnockback();
                 dmg.Activate();
             }
@@ -51,7 +53,7 @@ public class BleedPotion extends BasePotionEffect {
         }, null));
     }
 
-    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.08F);
+    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.25F);
 
     @Override
     public String GUID() {
@@ -77,7 +79,7 @@ public class BleedPotion extends BasePotionEffect {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.TICK_RATE, 20, 20);
-        p.set(SC.DURATION_TICKS, 160, 160);
+        p.set(SC.DURATION_TICKS, 120, 120);
         return p;
     }
 

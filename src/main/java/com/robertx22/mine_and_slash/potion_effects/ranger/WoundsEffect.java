@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealPower;
+import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
@@ -95,16 +96,17 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-30, HealPower.getInstance()));
+        list.add(new PotionStat(-10, HealthRegen.getInstance()));
         return list;
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 1, 2);
-        p.set(SC.TICK_RATE, 30, 20);
-        p.set(SC.DURATION_TICKS, 15 * 60, 25 * 60);
+        p.set(SC.BASE_VALUE, 0, 0);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        p.set(SC.TICK_RATE, 20, 20);
+        p.set(SC.DURATION_TICKS, 10 * 20, 20 * 20);
         return p;
     }
 

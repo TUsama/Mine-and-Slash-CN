@@ -39,7 +39,7 @@ public class ThrowFlamesBurnSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Consumes Burn to erupt in AOE: "));
+        list.add(new StringTextComponent("Consumes a Burn stack on the target deal AOE damage: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 

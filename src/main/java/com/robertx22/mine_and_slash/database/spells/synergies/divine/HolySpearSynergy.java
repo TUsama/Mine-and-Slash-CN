@@ -12,8 +12,12 @@ import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SynergyDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.text.ITextComponent;
@@ -68,7 +72,9 @@ public class HolySpearSynergy extends OnDamageDoneSynergy {
                     .getCalc(Load.spells(ctx.source), this)
                     .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
 
-            SynergyDamageEffect dmg = getSynergyDamage(ctx, num);
+            //SynergyDamageEffect dmg = getSynergyDamage(ctx, num);
+            DamageEffect dmg = new DamageEffect(
+                    null, ctx.source, ctx.target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
             dmg.element = getSpell()
                     .getElement();
             dmg.Activate();

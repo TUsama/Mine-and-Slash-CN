@@ -30,6 +30,8 @@ public class ImbueAddHunterSynergy extends OnBasicAttackSynergy {
         list.add(new StringTextComponent("Basic attacks have chance to give: " + HunterInstinctEffect.getInstance()
             .locNameForLangFile()));
 
+        list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
+
         return list;
     }
 

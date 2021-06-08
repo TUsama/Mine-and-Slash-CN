@@ -30,6 +30,8 @@ public class BlizzardFrostEssenceGenSynergy extends OnDamageDoneSynergy {
 
         list.add(new StringTextComponent("Hits have a chance to apply: " + FrozenEffect.INSTANCE.locNameForLangFile()));
 
+        list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
+
         return list;
     }
 
