@@ -38,6 +38,7 @@ public class PotionEffects implements ISlashRegistryInit {
         FrostEffect.INSTANCE.registerToSlashRegistry();
         //ShiverEffect.INSTANCE.registerToSlashRegistry();
         JudgementEffect.INSTANCE.registerToSlashRegistry();
+        ShatterCastEffect.INSTANCE.registerToSlashRegistry();
         FrozenEffect.INSTANCE.registerToSlashRegistry();
         IceBladeEffect.INSTANCE.registerToSlashRegistry();
         NourishmentEffect.INSTANCE.registerToSlashRegistry();

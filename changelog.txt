@@ -1,3 +1,10 @@
+3.10.0:
+* New Ocean Spell: Shatter Cast - applies a buff on the user that boosts frost spell damage. Also, while under the effects of the buff, whenever you cast a spell, send out a frost nova dealing damage to nearby enemies.
+* Poison Cloud now applies more stacks of Thorns per cast.
+* Fixed a bug where Flame Blade gave way more scaling than it was supposed to.
+* Petrify can now be broken with spell hits as well.
+* Cleaned up Judgment tooltip.
+
 3.9.18:
 * Oops, forgot to add tooltip indicators for which damage is DoT damage. Currently only Wounds, Burn, Thorns, and Bleed.
 

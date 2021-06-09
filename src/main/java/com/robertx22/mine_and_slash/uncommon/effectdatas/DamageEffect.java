@@ -375,7 +375,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                 .filter(x -> x.getPotion() instanceof IOnBasicAttackPotion)
                 .collect(Collectors.toList());
 
-            onAttacks.forEach(x -> ((IOnBasicAttackPotion) x.getPotion()).OnBasicAttack(source, target));
+            onAttacks.forEach(x -> ((IOnBasicAttackPotion) x.getPotion()).OnBasicAttack(x, source, target));
 
             List<EffectInstance> onAttackeds = target.getActivePotionEffects()
                 .stream()
@@ -391,7 +391,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                     .filter(x -> x.getPotion() instanceof IOnSpellCastPotion)
                     .collect(Collectors.toList());
 
-            onSpellCasts.forEach(x -> ((IOnSpellCastPotion) x.getPotion()).onSpellCast(source, target));
+            onSpellCasts.forEach(x -> ((IOnSpellCastPotion) x.getPotion()).onSpellCast(x, source, target));
 
             List<EffectInstance> onSpellHits = target.getActivePotionEffects()
                     .stream()

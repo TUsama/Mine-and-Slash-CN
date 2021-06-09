@@ -47,7 +47,7 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 5.0F, 1.5F);
+        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 0.5F, 1.5F);
         c.set(SC.RADIUS, 1.0F, 2.0F);
         c.setMaxLevel(8);
         return c;

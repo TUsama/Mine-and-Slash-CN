@@ -25,7 +25,7 @@ public class RecoilAddHunterSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Gives: " + HunterInstinctEffect.getInstance()
+        list.add(new StringTextComponent("Also applies: " + HunterInstinctEffect.getInstance()
             .locNameForLangFile()));
 
         return list;

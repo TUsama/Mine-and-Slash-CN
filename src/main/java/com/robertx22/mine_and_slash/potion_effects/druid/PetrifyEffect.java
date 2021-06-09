@@ -35,7 +35,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedPotion {
+public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedPotion, IOnSpellHitPotion {
 
     public static final PetrifyEffect INSTANCE = new PetrifyEffect();
 
@@ -98,7 +98,7 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
 
         List<ITextComponent> list = new ArrayList<>();
         list.add(new StringTextComponent("Petrifies the enemy, preventing movement."));
-        list.add(new StringTextComponent("Next hit deals extra nature damage but stops effect: "));
+        list.add(new StringTextComponent("Next hit deals extra nature damage but breaks effect: "));
         list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 
         return list;
@@ -117,6 +117,26 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
             target, new ParticlePacketData(target.getPosition(), ParticleEnum.PETRIFY).radius(1)
                 .type(ParticleTypes.CLOUD)
                 .amount(20));
+
+        target.playSound(SoundEvents.BLOCK_STONE_BREAK, 1, 1);
+
+        target.removePotionEffect(this);
+
+    }
+
+    @Override
+    public void onSpellHit(EffectInstance instance, LivingEntity source, LivingEntity target) {
+
+        int num = getCalc(source).getCalculatedValue(Load.Unit(source), Load.spells(source), this);
+
+        DamageEffect dmg = new DamageEffect(null, source, target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+        dmg.element = Elements.Nature;
+        dmg.Activate();
+
+        ParticleEnum.sendToClients(
+                target, new ParticlePacketData(target.getPosition(), ParticleEnum.PETRIFY).radius(1)
+                        .type(ParticleTypes.CLOUD)
+                        .amount(20));
 
         target.playSound(SoundEvents.BLOCK_STONE_BREAK, 1, 1);
 

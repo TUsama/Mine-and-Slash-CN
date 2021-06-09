@@ -49,6 +49,7 @@ public class PotionRegister {
         //reg.register(ShiverEffect.INSTANCE);
         reg.register(ColdEssenceEffect.INSTANCE);
         reg.register(JudgementEffect.INSTANCE);
+        reg.register(ShatterCastEffect.INSTANCE);
         reg.register(ThornArmorEffect.INSTANCE);
         reg.register(StaticEffect.INSTANCE);
         reg.register(CriticalSurgeEffect.INSTANCE);

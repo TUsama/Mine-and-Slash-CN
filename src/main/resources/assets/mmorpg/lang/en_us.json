@@ -748,6 +748,7 @@
 	"mmorpg.word.secondary_stats": "Secondary Stats",
 	"mmorpg.word.seconds": "Seconds",
 	"mmorpg.word.set": "Set",
+	"mmorpg.word.shattercast": "Shatter Cast",
 	"mmorpg.word.shootspeed": "Shoot Speed",
 	"mmorpg.word.silentwind": "Silent Wind",
 	"mmorpg.word.snaretrap": "Snare Trap",
@@ -963,6 +964,7 @@
 	"mmorpg.stat.plus_burn_effect_lvl": "To Burn Effect Level",
 	"mmorpg.stat.plus_divine_skill_lvls": "To Divine Mastery Spell Levels",
 	"mmorpg.stat.plus_enrage_effect_lvl": "To Enrage Effect Level",
+	"mmorpg.stat.plus_shatter_cast_effect_lvl": "To Shatter Cast Effect Level",
 	"mmorpg.stat.plus_fire_bombs_spell_lvl": "To Fire Bombs Spell Level",
 	"mmorpg.stat.plus_fire_skill_lvls": "To Fire Mastery Spell Levels",
 	"mmorpg.stat.plus_fireball_spell_lvl": "To Fireball Spell Level",
@@ -1103,6 +1105,7 @@
 	"mmorpg.stat.plus_rock_slide_spell_lvl": "To Rock Slide Spell Level",
 	"mmorpg.stat.plus_rock_slide_syn_1_synergy_lvl": "To Stone Shrapnel Spell Level",
 	"mmorpg.stat.plus_chilling_field_spell_lvl": "To Chilling Field Spell Level",
+	"mmorpg.stat.plus_shatter_cast_spell_lvl": "To Shatter Cast Spell Level",
 	"mmorpg.stat.plus_magic_burst_spell_lvl": "To Magic Burst Spell Level",
 	"mmorpg.stat.plus_charge_spell_lvl": "To Charge Spell Level",
 	"mmorpg.stat.plus_steam_cloud_spell_lvl": "To Steam Cloud Spell Level",
@@ -1492,6 +1495,7 @@
 	"effect.mmorpg.wizardry": "Wizardry",
 	"effect.mmorpg.wounds": "Wounds",
 	"effect.mmorpg.enrage": "Enrage",
+	"effect.mmorpg.shatter_cast": "Shatter Cast",
 
 "_comment": " [CATEGORY]: POTIONS - NAMES",
 

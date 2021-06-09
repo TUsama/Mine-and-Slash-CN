@@ -4,5 +4,5 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;
 
 public interface IOnSpellCastPotion {
-    void onSpellCast(LivingEntity source, LivingEntity target);
+    void onSpellCast(EffectInstance instance, LivingEntity source, LivingEntity target);
 }
