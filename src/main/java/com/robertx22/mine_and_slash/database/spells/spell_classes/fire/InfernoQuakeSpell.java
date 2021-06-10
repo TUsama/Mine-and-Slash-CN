@@ -12,12 +12,14 @@ import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particles.ParticleTypes;
@@ -26,6 +28,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -54,7 +57,7 @@ public class InfernoQuakeSpell extends BaseSpell {
             public Elements element() {
                 return Elements.Fire;
             }
-        }.setSwingArmOnCast());
+        }.setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON));
     }
 
     public static InfernoQuakeSpell getInstance() {
@@ -72,7 +75,7 @@ public class InfernoQuakeSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 14, 20);
         c.set(SC.BASE_VALUE, 1, 3);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 1.2F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.6F, 1.2F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 10, 4);
@@ -92,7 +95,13 @@ public class InfernoQuakeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Converts Weapon DMG to Fire and"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Melee"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new StringTextComponent("Converts Phys Weapon DMG to Fire and"));
         list.add(new StringTextComponent("damage enemies in front of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
@@ -130,7 +139,7 @@ public class InfernoQuakeSpell extends BaseSpell {
                     .getCalc(ctx.spellsCap, this)
                     .getCalculatedValue(ctx.data, ctx.spellsCap, this);
 
-            SpellDamageEffect dmg = new SpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
+            AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                     this
             );
             dmg.Activate();

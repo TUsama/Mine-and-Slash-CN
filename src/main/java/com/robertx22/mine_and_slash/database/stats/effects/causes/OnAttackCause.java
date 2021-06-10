@@ -12,7 +12,8 @@ public class OnAttackCause extends BaseCause {
 
             DamageEffect dmgeffect = (DamageEffect) Effect;
 
-            if (dmgeffect.getEffectType() == EffectData.EffectTypes.BASIC_ATTACK && dmgeffect.isDmgAllowed()) {
+            if ((dmgeffect.getEffectType() == EffectData.EffectTypes.BASIC_ATTACK || dmgeffect.getEffectType()
+                    .equals(EffectData.EffectTypes.ATTACK_SPELL)) && dmgeffect.isDmgAllowed()) {
                 return true;
             }
 

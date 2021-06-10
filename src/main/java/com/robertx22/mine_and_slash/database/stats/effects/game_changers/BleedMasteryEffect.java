@@ -30,7 +30,7 @@ public class BleedMasteryEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        return effect.getEffectType() == EffectData.EffectTypes.BASIC_ATTACK && effect.isDmgAllowed();
+        return (effect.getEffectType() == EffectData.EffectTypes.BASIC_ATTACK) || (effect.getEffectType() == EffectData.EffectTypes.ATTACK_SPELL) && effect.isDmgAllowed();
     }
 
 }

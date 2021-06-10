@@ -13,10 +13,12 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +46,7 @@ public class BlastTrapSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Physical;
+                    return Elements.Fire;
                 }
             }.cooldownIfCanceled(true)
                 .summonsEntity(w -> new BlastTrapEntity(w))
@@ -61,7 +63,7 @@ public class BlastTrapSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 13, 19);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 2.5F, 4.0F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 2.5F, 4.0F);
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
@@ -89,8 +91,13 @@ public class BlastTrapSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Entity"));
+
+        TooltipUtils.addEmpty(list);
+
         list.add(new StringTextComponent("Throw out a trap that explodes,"));
-        list.add(new StringTextComponent("dealing AOE damage: "));
+        list.add(new StringTextComponent("dealing AOE fire damage: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

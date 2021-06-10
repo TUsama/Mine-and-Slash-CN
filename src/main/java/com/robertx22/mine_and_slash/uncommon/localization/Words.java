@@ -49,7 +49,7 @@ public enum Words implements IAutoLocName {
     Fireball("Fireball"), FireBomb("Fire Bombs"),
     PoisonBall("Poison Ball"), RockSlide("RockSlide"), MagicBurst("Magic Burst"), Charge("Charge"),
     Frostball("Frostball"), FrozenOrb("Ice Orb"), FrostShield("Frost Shield"), FlameBlitz("Flame Blitz"),
-    Freeze("Freeze"), Root("Root"), InfernoQuake("Inferno Quake"),
+    Freeze("Freeze"), Root("Root"), InfernoQuake("Inferno Quake"), Shockwave("Divine Blade"),
     Nourishment("Nourishment"), IceBlade("Ice Blade"), SnareTrap("Snare Trap"), WeakenTrap("Enfeeble Trap"), BlastTrap("Blast Trap"),
     ThunderSpear("Thunder Spear"), ShatterCast("Shatter Cast"),
     ThunderDash("Thunder Dash"), TripleSlash("Triple Slash"), Dash("Dash"),

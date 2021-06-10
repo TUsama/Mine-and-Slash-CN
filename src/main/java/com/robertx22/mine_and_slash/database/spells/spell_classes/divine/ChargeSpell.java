@@ -19,6 +19,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.network.play.server.SEntityVelocityPacket;
@@ -28,6 +29,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -58,7 +60,7 @@ public class ChargeSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Physical;
                 }
-            }
+            }.rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
         );
     }
 
@@ -68,7 +70,7 @@ public class ChargeSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 11, 21);
         c.set(SC.BASE_VALUE, 2, 9);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.4F, 3.4F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.4F, 3.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 14, 14);
 
@@ -95,6 +97,12 @@ public class ChargeSpell extends BaseSpell {
     public List<ITextComponent> GetDescription(TooltipInfo info, SpellCastContext ctx) {
 
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Movement"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Dash in your current direction,"));
         list.add(new StringTextComponent("damages all enemies in the path: "));
@@ -151,7 +159,7 @@ public class ChargeSpell extends BaseSpell {
             .build();
 
         entities.forEach(x -> {
-            DamageEffect dmg = new DamageEffect(null, caster, x, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+            DamageEffect dmg = new DamageEffect(null, caster, x, num, EffectData.EffectTypes.ATTACK_SPELL, WeaponTypes.None);
             dmg.element = Elements.Physical;
             dmg.Activate();
         });

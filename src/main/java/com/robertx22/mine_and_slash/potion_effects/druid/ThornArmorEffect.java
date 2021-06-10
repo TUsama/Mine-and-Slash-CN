@@ -76,9 +76,7 @@ public class ThornArmorEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-
         return list;
-
     }
 
 }

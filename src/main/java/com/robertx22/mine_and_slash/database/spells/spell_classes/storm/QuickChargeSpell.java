@@ -15,10 +15,12 @@ import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +86,12 @@ public class QuickChargeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Applies buff to all nearby allies: "));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Buff"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new StringTextComponent("Applies buff to nearby allies: "));
         list.addAll(QuickChargeEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         return list;

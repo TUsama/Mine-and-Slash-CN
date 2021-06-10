@@ -13,10 +13,12 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +46,7 @@ public class ArrowBarrageSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Elemental;
+                    return Elements.Physical;
                 }
             }.addCastRequirement(SpellPredicates.REQUIRE_SHOOTABLE)
                 .cooldownIfCanceled(true)
@@ -57,7 +59,7 @@ public class ArrowBarrageSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 8, 16);
         c.set(SC.BASE_VALUE, 1, 4);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.1F, 2.5F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.1F, 2.5F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.SHOOT_SPEED, 2.5F, 3.75F);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
@@ -88,6 +90,12 @@ public class ArrowBarrageSpell extends BaseSpell {
     public List<ITextComponent> GetDescription(TooltipInfo info, SpellCastContext ctx) {
 
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Channel, Projectile"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Shoots out many arrows while casting."));
         list.add(new StringTextComponent("Requires Bow/Crossbow to use: "));

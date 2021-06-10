@@ -14,10 +14,13 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +50,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Thunder;
                 }
-            }.summonsEntity(world -> new LightningBallEntity(world)).setSwingArmOnCast());
+            }.summonsEntity(world -> new LightningBallEntity(world)).setSwingArmOnCast().cooldownIfCanceled(true));
     }
 
     @Override
@@ -88,7 +91,12 @@ public class BatteryFusiladeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Discharge and rapidly fire bolts of lightning: "));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Channel, Projectile"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new SText("Discharge mana and rapidly fire bolts of lightning: "));
 
         list.add(SpellTooltips.singleTargetProjectile());
 

@@ -41,9 +41,10 @@ public class Spells implements ISlashRegistryInit {
                     add(HealingAuraSpell.getInstance());
                     add(DefendSpell.getInstance());
                     add(WishSpell.getInstance());
+                    //add(ShockwaveSpell.getInstance());
 
                     add(FrostballSpell.getInstance());
-                    add(ShatterCastSpell.getInstance());
+                    //add(ShatterCastSpell.getInstance());
                     add(WhirlpoolSpell.getInstance());
                     add(HeartOfIceSpell.getInstance());
                     add(TidalWaveSpell.getInstance());

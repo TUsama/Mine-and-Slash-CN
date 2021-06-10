@@ -6,8 +6,10 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.Thunders
 import com.robertx22.mine_and_slash.database.spells.synergies.base.Synergy;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -20,6 +22,11 @@ public class ThunderstormEnhancedSynergy extends Synergy {
         List<ITextComponent> list = new ArrayList<>();
 
         addSpellName(list);
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Thunderstorm"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Increase tick rate but reduce radius: "));
 

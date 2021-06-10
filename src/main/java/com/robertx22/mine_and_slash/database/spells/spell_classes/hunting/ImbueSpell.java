@@ -13,10 +13,12 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +56,7 @@ public class ImbueSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 15, 25);
         c.set(SC.BASE_VALUE, 2, 5);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.DURATION_TICKS, 20 * 30, 20 * 45);
@@ -81,6 +83,11 @@ public class ImbueSpell extends BaseSpell {
     public List<ITextComponent> GetDescription(TooltipInfo info, SpellCastContext ctx) {
 
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Self"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(SpellTooltips.buff());
 

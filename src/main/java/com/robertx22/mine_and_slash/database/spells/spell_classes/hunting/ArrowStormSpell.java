@@ -13,9 +13,11 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,7 @@ public class ArrowStormSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Elemental;
+                    return Elements.Physical;
                 }
 
             }.summonsEntity(world -> new ArrowStormEntity(world))
@@ -56,7 +58,7 @@ public class ArrowStormSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 25, 34);
         c.set(SC.BASE_VALUE, 3, 7);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.2F, 2.1F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.2F, 2.1F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.TICK_RATE, 15, 5);
@@ -86,6 +88,12 @@ public class ArrowStormSpell extends BaseSpell {
     public List<ITextComponent> GetDescription(TooltipInfo info, SpellCastContext ctx) {
 
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Projectile, Storm"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Summons an arrow storm, dealing damage with each arrow: "));
 

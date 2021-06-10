@@ -72,7 +72,6 @@ public class ShatterCastEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 2, 8);
         p.set(SC.RADIUS, 2F, 2F);
         return p;
     }
@@ -102,7 +101,7 @@ public class ShatterCastEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public void onSpellCast(EffectInstance instance, LivingEntity source, LivingEntity target) {
 
-        int num = getCalc(source).getCalculatedValue(Load.Unit(source), Load.spells(source), this);
+        int num = getCalc(source).getCalculatedValue(Load.Unit(source), Load.spells(source), getAbilityThatDeterminesLevel());
 
         float radius = 2;
 

@@ -100,7 +100,6 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
         list.add(new StringTextComponent("Increases base weapon attack speed by 25%."));
-
         return list;
 
     }

@@ -33,7 +33,8 @@ public class EleSpellDmgEffect extends BaseDamageEffect {
         }
 
         if (effect.getEffectType()
-            .equals(EffectData.EffectTypes.SPELL)) {
+            .equals(EffectData.EffectTypes.SPELL) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.ATTACK_SPELL)) {
             if (stat.getElement() != null && stat.getElement()
                 .equals(effect.GetElement())) {
                 return true;

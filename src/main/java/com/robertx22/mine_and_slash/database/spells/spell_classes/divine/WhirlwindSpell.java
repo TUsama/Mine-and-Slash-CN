@@ -19,11 +19,14 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +66,7 @@ public class WhirlwindSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 18, 25);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.45F, 0.6F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.45F, 0.6F);
         c.set(SC.CAST_TIME_TICKS, 140, 260);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.RADIUS, 1, 3);
@@ -92,6 +95,12 @@ public class WhirlwindSpell extends BaseSpell {
     public List<ITextComponent> GetDescription(TooltipInfo info, SpellCastContext ctx) {
 
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Channel"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new SText("Spin to do damage to enemies around you: "));
 
@@ -122,7 +131,7 @@ public class WhirlwindSpell extends BaseSpell {
 
             for (LivingEntity en : entities) {
                 DamageEffect dmg = new DamageEffect(
-                    null, caster, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                    null, caster, en, num, EffectData.EffectTypes.ATTACK_SPELL, WeaponTypes.None);
                 dmg.element = Elements.Physical;
                 dmg.removeKnockback();
                 dmg.Activate();

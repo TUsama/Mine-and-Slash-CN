@@ -8,6 +8,7 @@ import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.potion_effects.ranger.ExertEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.ImbueEffect;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
@@ -97,7 +98,7 @@ public class RangerArrowEntity extends EntityBaseProjectile {
 
             BaseSpell spell = getSpellData().getSpell();
 
-            SpellDamageEffect dmg = this.getSetupSpellDamage(entity);
+            AttackSpellDamageEffect dmg = this.getStartupAttackSpellDamage(entity);
 
             float add = 0;
 

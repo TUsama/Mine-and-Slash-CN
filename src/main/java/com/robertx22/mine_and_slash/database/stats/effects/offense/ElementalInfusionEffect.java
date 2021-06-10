@@ -33,8 +33,9 @@ public class ElementalInfusionEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        return effect.getEffectType()
-            .equals(EffectTypes.BASIC_ATTACK) && stat.getElement()
+        return (effect.getEffectType()
+            .equals(EffectTypes.BASIC_ATTACK) || effect.getEffectType()
+                .equals(EffectTypes.ATTACK_SPELL)) && stat.getElement()
             .equals(effect.GetElement());
     }
 

@@ -38,7 +38,8 @@ public class MagicStealEffect extends BaseDamageEffect {
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
         return effect.getEffectType()
-            .equals(EffectData.EffectTypes.BASIC_ATTACK);
+            .equals(EffectData.EffectTypes.BASIC_ATTACK) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.ATTACK_SPELL);
     }
 
     private static class SingletonHolder {

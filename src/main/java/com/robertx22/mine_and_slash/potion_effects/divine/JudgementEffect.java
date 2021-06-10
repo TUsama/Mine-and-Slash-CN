@@ -21,6 +21,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
@@ -29,6 +30,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -76,7 +78,7 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 0, 0);
-        p.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.5F);
+        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.25F, 0.5F);
         p.set(SC.DURATION_TICKS, 100, 120);
         p.set(SC.TICK_RATE, 20, 20);
         return p;
@@ -97,9 +99,11 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Lightning Spell Damage"));
+
         list.add(new StringTextComponent("Attack to add additional stacks. At max stacks,"));
-        list.add(new StringTextComponent("consume the stacks to deal extra lightning DMG"));
-        list.add(new StringTextComponent("based on the applicator's weapon DMG: "));
+        list.add(new StringTextComponent("consume the stacks to deal extra damage based"));
+        list.add(new StringTextComponent("on the applicator's Phys Weapon DMG: "));
 
         return list;
 

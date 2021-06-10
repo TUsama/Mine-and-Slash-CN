@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.OnTickAction;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
+import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
@@ -25,6 +26,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -61,7 +63,6 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
-            list.add(new StringTextComponent("Does DoT damage per stack: "));
             list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), getAbilityThatDeterminesLevel()));
             return list;
         }));
@@ -113,6 +114,13 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public Masteries getMastery() {
         return Masteries.FIRE;
+    }
+
+    @Override
+    public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
+        List<ITextComponent> list = new ArrayList<>();
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Fire DoT Damage"));
+        return list;
     }
 
 }

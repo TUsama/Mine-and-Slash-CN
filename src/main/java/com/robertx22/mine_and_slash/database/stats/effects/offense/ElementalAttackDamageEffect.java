@@ -28,7 +28,8 @@ public class ElementalAttackDamageEffect extends BaseDamageEffect {
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
         return effect.getEffectType()
-            .equals(EffectTypes.BASIC_ATTACK);
+            .equals(EffectTypes.BASIC_ATTACK) || effect.getEffectType()
+                .equals(EffectTypes.ATTACK_SPELL);
     }
 
 }

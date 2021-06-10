@@ -15,6 +15,7 @@ import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
@@ -69,7 +70,8 @@ public class ExertEffect extends BasePotionEffect {
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText(TextFormatting.GREEN + "Hunting arrows will explode on contact"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical Spell Damage"));
+        list.add(new SText(TextFormatting.GREEN + "Hunting spell arrows will explode on contact"));
         list.add(new SText(TextFormatting.GREEN + "and deal half damage in a small area."));
 
         list.addAll(getCalc(info.player)

@@ -14,10 +14,12 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +50,7 @@ public class RockSlideSpell extends BaseSpell {
                     return Elements.Nature;
                 }
             }.summonsEntity(w -> new RockSlideEntity(w))
-                .setSwingArmOnCast());
+                .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON));
     }
 
     public static RockSlideSpell getInstance() {
@@ -61,7 +63,7 @@ public class RockSlideSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 14, 22);
         c.set(SC.BASE_VALUE, 5, 13);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.35F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.15F, 0.35F);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 8, 6);
         c.set(SC.TICK_RATE, 4, 4);
@@ -87,6 +89,11 @@ public class RockSlideSpell extends BaseSpell {
     public List<ITextComponent> GetDescription(TooltipInfo info, SpellCastContext ctx) {
 
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Projectile, Storm"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Summon a stone avalanche that damages enemies inside: "));
 

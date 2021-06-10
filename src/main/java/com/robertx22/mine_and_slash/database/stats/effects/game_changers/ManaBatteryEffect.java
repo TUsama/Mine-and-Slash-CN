@@ -31,7 +31,7 @@ public class ManaBatteryEffect extends BaseDamageEffect {
             .manaData()
             .getAverageValue();
 
-        float dmgReduced = MathHelper.clamp(effect.number / 2, 0, currentMana - (maxMana * 0.25F));
+        float dmgReduced = MathHelper.clamp(effect.number * 0.3F, 0, currentMana);
 
         if (dmgReduced > 0) {
 

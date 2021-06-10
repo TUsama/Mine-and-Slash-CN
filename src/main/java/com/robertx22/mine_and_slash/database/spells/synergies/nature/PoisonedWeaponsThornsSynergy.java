@@ -13,11 +13,12 @@ import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.SynergyDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,13 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Basic attacks deals extra damage to targets affected by Thorns: "));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Poisoned Weapons"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new StringTextComponent("Attacks deals extra damage to"));
+        list.add(new StringTextComponent("targets affected by Thorns: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -54,7 +61,8 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
     public void tryActivate(DamageEffect ctx) {
 
         if (ctx.getEffectType()
-            .equals(EffectData.EffectTypes.BASIC_ATTACK)) {
+            .equals(EffectData.EffectTypes.BASIC_ATTACK) || ctx.getEffectType()
+                .equals(EffectData.EffectTypes.ATTACK_SPELL)) {
 
             if (PotionEffectUtils.has(ctx.target, ThornsEffect.INSTANCE)) {
 

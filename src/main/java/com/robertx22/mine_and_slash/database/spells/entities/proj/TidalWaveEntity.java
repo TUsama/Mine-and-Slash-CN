@@ -55,7 +55,7 @@ public class TidalWaveEntity extends BaseElementalBoltEntity {
 
     @Override
     public void onHit(LivingEntity entity) {
-        dealSpellDamageTo(entity);
+        dealAttackSpellDamageTo(entity);
 
         SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 0.8F, 1F);
     }

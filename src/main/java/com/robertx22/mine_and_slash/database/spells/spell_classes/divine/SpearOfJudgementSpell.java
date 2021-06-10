@@ -13,10 +13,12 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +49,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
                     return Elements.Thunder;
                 }
             }.summonsEntity(x -> new SpearOfJudgementEntity(x))
-                .setSwingArmOnCast()
+                .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
         );
     }
 
@@ -61,7 +63,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 12, 20);
         c.set(SC.BASE_VALUE, 13, 21);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.75F, 0.95F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.75F, 0.95F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 11, 7);
         c.set(SC.TIMES_TO_CAST, 1, 1);
@@ -90,7 +92,12 @@ public class SpearOfJudgementSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Converts Weapon DMG to Lightning and"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Projectile"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new StringTextComponent("Converts Phys Weapon DMG to Lightning and"));
         list.add(new StringTextComponent("throws out a spear that deals damage"));
         list.add(new StringTextComponent("which applies Judgment: "));
 

@@ -20,12 +20,14 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +58,7 @@ public class MortalitySapSpell extends BaseSpell {
                     return Elements.Nature;
                 }
 
-            }.setSwingArmOnCast());
+            }.setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON));
     }
 
     @Override
@@ -96,9 +98,14 @@ public class MortalitySapSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Curses enemies around you with quietus: "));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new SText("Curses enemies around you with: "));
         list.addAll(QuietusEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
-        list.add(new StringTextComponent("Only one curse is allowed at a time!"));
+        list.add(new StringTextComponent(TextFormatting.RED + "Only one Curse debuff is allowed at a time!"));
 
         return list;
 

@@ -47,7 +47,7 @@ public class RecklessBlows extends BaseGameChangerTrait {
 
         list.add(new ExactStatData(25, StatModTypes.Multi, ArmorPenetration.getInstance()));
 
-        list.add(new ExactStatData(-50, StatModTypes.Multi, Armor.getInstance()));
+        list.add(new ExactStatData(-30, StatModTypes.Multi, Armor.getInstance()));
 
         return list;
     }

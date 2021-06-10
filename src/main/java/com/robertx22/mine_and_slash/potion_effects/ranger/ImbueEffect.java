@@ -17,6 +17,7 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
@@ -53,7 +54,7 @@ public class ImbueEffect extends BasePotionEffect {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 2, 5);
-        p.set(SC.ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
         return p;
     }
 
@@ -72,7 +73,9 @@ public class ImbueEffect extends BasePotionEffect {
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText(TextFormatting.GREEN + "Adds damage to Hunting arrow spells."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical Attack Damage"));
+        list.add(new SText(TextFormatting.GREEN + "Hunting spell arrows will deal additional"));
+        list.add(new SText(TextFormatting.GREEN + "damage: "));
 
         list.addAll(getCalc(info.player)
             .GetTooltipString(info, Load.spells(info.player), this));

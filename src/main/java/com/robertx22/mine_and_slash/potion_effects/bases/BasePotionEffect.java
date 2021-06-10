@@ -141,7 +141,7 @@ public abstract class BasePotionEffect extends Effect implements ISlashRegistryE
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.BOLD).appendSibling(
+        list.add(new StringTextComponent(TextFormatting.DARK_AQUA + "" + TextFormatting.BOLD + "").appendSibling(
             locName()));
 
         list.addAll(getEffectTooltip(info));
@@ -149,8 +149,6 @@ public abstract class BasePotionEffect extends Effect implements ISlashRegistryE
         if (this instanceof IApplyStatPotion) {
             list.addAll(((IApplyStatPotion) this).getStatTooltip(info, this));
         }
-
-        list.add(new SText(""));
 
         tickActions.forEach(x -> list.addAll(x.getTooltip(info, this)));
 

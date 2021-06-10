@@ -350,7 +350,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent(TextFormatting.BOLD + "" + getMastery().format).appendSibling(
+        list.add(new StringTextComponent(getMastery().format + "" + TextFormatting.BOLD + "").appendSibling(
             getName().locName()));
 
         TooltipUtils.addEmpty(list);
@@ -361,7 +361,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         list.add(new StringTextComponent(TextFormatting.BLUE + "Mana Cost: " + getCalculatedManaCost(ctx)));
         list.add(new StringTextComponent(TextFormatting.YELLOW + "Cooldown: " + getCooldownInSeconds(ctx) + "s"));
-        list.add(new StringTextComponent(TextFormatting.GREEN + "Cast time: " + getUseDurationInSeconds(ctx) + "s"));
+        list.add(new StringTextComponent(TextFormatting.GREEN + "Cast Time: " + getUseDurationInSeconds(ctx) + "s"));
 
         TooltipUtils.addEmpty(list);
 
@@ -374,7 +374,10 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         if (this.immutableConfigs.allowedAsRightClickOn() == AllowedAsRightClickOn.MAGE_WEAPON) {
             TooltipUtils.addEmpty(list);
-            list.add(new SText(TextFormatting.LIGHT_PURPLE + "Can be set as right click for a Mage Weapon"));
+            list.add(new SText(TextFormatting.GRAY + "Can be set as right-click on mage weapons."));
+        } else if (this.immutableConfigs.allowedAsRightClickOn() == AllowedAsRightClickOn.MELEE_WEAPON) {
+            TooltipUtils.addEmpty(list);
+            list.add(new SText(TextFormatting.GRAY + "Can be set as right-click on melee weapons."));
         }
         TooltipUtils.addEmpty(list);
 

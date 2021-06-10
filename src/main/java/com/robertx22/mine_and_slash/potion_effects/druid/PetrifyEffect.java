@@ -10,7 +10,6 @@ import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IOnBasicAttackedPotion;
-import com.robertx22.mine_and_slash.potion_effects.bases.IOnSpellHitPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.OnTickAction;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -30,12 +29,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedPotion, IOnSpellHitPotion {
+public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedPotion {
 
     public static final PetrifyEffect INSTANCE = new PetrifyEffect();
 
@@ -97,8 +97,9 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
 
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent("Petrifies the enemy, preventing movement."));
-        list.add(new StringTextComponent("Next hit deals extra nature damage but breaks effect: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Nature Spell Damage"));
+        list.add(new StringTextComponent("Petrifies the enemy, preventing movement. Next"));
+        list.add(new StringTextComponent("attack deals extra damage but breaks this effect: "));
         list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 
         return list;
@@ -117,26 +118,6 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
             target, new ParticlePacketData(target.getPosition(), ParticleEnum.PETRIFY).radius(1)
                 .type(ParticleTypes.CLOUD)
                 .amount(20));
-
-        target.playSound(SoundEvents.BLOCK_STONE_BREAK, 1, 1);
-
-        target.removePotionEffect(this);
-
-    }
-
-    @Override
-    public void onSpellHit(EffectInstance instance, LivingEntity source, LivingEntity target) {
-
-        int num = getCalc(source).getCalculatedValue(Load.Unit(source), Load.spells(source), this);
-
-        DamageEffect dmg = new DamageEffect(null, source, target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-        dmg.element = Elements.Nature;
-        dmg.Activate();
-
-        ParticleEnum.sendToClients(
-                target, new ParticlePacketData(target.getPosition(), ParticleEnum.PETRIFY).radius(1)
-                        .type(ParticleTypes.CLOUD)
-                        .amount(20));
 
         target.playSound(SoundEvents.BLOCK_STONE_BREAK, 1, 1);
 

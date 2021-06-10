@@ -14,10 +14,12 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +32,14 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent("Basic attacks cause enemies to send out fiery"));
-        list.add(new StringTextComponent("novas, damaging other nearby enemies. Scales"));
-        list.add(new StringTextComponent("with Fire Weapon DMG: "));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Spell Blade"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new StringTextComponent("Attacks cause enemies to send out fiery"));
+        list.add(new StringTextComponent("novas, damaging other nearby enemies."));
+        list.add(new StringTextComponent("Scales with Fire Weapon DMG: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -47,6 +54,7 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.FIRE_ATTACK_SCALE_VALUE, 0.5F, 1.5F);
         c.set(SC.RADIUS, 1.0F, 2.0F);
         c.setMaxLevel(8);
@@ -61,7 +69,8 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
                 .get(Load.spells(ctx.source), this);
 
         if (ctx.getEffectType()
-            .equals(EffectData.EffectTypes.BASIC_ATTACK)) {
+            .equals(EffectData.EffectTypes.BASIC_ATTACK) || ctx.getEffectType()
+                .equals(EffectData.EffectTypes.ATTACK_SPELL)) {
 
             int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
                     .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);

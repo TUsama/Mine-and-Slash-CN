@@ -13,6 +13,7 @@ import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.OnTickAction;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
+import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
@@ -26,6 +27,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -58,7 +60,6 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
-            list.add(new StringTextComponent("Does DoT damage per stack: "));
             list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 
             return list;
@@ -97,8 +98,8 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 0.2F, 0.5F);
-        p.set(SC.ATTACK_SCALE_VALUE, 0.01F, 0.03F);
+        p.set(SC.BASE_VALUE, 0.7F, 1.1F);
+        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.01F, 0.03F);
         p.set(SC.TICK_RATE, 40, 40);
         p.set(SC.DURATION_TICKS, 400, 800);
         return p;
@@ -113,6 +114,13 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public Masteries getMastery() {
         return Masteries.NATURE;
+    }
+
+    @Override
+    public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
+        List<ITextComponent> list = new ArrayList<>();
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Nature DoT Damage"));
+        return list;
     }
 
 }

@@ -23,7 +23,7 @@ public class OnAttackBuffSpeed extends Trait implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "On Attack, 25 Percent Chance to Buff Speed";
+        return "On attack or technique, 25 percent chance to buff speed";
     }
 
     @Override

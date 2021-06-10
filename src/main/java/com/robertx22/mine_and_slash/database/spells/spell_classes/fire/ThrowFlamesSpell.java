@@ -12,12 +12,14 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +51,7 @@ public class ThrowFlamesSpell extends BaseSpell {
                     }
                 }.cooldownIfCanceled(true)
                         .summonsEntity(w -> new ThrowFlameEntity(w))
-                        .setSwingArmOnCast());
+                        .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON));
     }
 
     public static ThrowFlamesSpell getInstance() {
@@ -62,7 +64,7 @@ public class ThrowFlamesSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 11, 16);
         c.set(SC.BASE_VALUE, 3, 5);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.75F, 1.2F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.75F, 1.2F);
         c.set(SC.SHOOT_SPEED, 1.0F, 1.25F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
@@ -90,7 +92,13 @@ public class ThrowFlamesSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent("Converts Weapon DMG to Fire."));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Projectile"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new StringTextComponent("Converts Phys Weapon DMG to Fire."));
         list.add(new StringTextComponent("Strike the air in front of you, sending out fiery waves: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

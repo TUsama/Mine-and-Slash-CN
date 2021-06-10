@@ -7,10 +7,12 @@ import com.robertx22.mine_and_slash.database.spells.synergies.base.OnHealedSyner
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellHealEffect;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,11 @@ public class HolyFlowerCleanseSynergy extends OnHealedSynergy {
         List<ITextComponent> list = new ArrayList<>();
 
         addSpellName(list);
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Holy Flower"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Cleanses a negative effect with each heal."));
 

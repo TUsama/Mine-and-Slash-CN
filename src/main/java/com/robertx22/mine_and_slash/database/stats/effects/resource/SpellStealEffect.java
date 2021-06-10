@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData.EffectTypes;
 
 public class SpellStealEffect extends BaseDamageEffect {
@@ -31,7 +32,8 @@ public class SpellStealEffect extends BaseDamageEffect {
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
         return effect.getEffectType()
-            .equals(EffectTypes.SPELL);
+            .equals(EffectTypes.SPELL) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.ATTACK_SPELL);
     }
 
 }

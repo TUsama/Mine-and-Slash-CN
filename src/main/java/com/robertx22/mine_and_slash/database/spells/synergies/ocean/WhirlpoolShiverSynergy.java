@@ -13,8 +13,10 @@ import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -27,6 +29,11 @@ public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
         List<ITextComponent> list = new ArrayList<>();
 
         addSpellName(list);
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Whirlpool"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Hits have a chance to apply on self: " + ColdEssenceEffect.INSTANCE.locNameForLangFile()));
 
@@ -48,6 +55,7 @@ public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CHANCE, 25, 50);
         c.setMaxLevel(4);
         return c;

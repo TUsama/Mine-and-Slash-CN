@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.saveclasses.EntitySpellData;
 import com.robertx22.mine_and_slash.saveclasses.ResourcesData;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellHealEffect;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -117,6 +118,45 @@ public interface ISpellEntity extends IEntityAdditionalSpawnData {
 
         SpellDamageEffect dmg = new SpellDamageEffect(caster, target, num, casterData, Load.Unit(target),
             data.getSpell()
+        );
+
+        if (opt.knockback == false) {
+            dmg.removeKnockback();
+        }
+
+        dmg.element = spell.getElement();
+
+        if (opt.activateEffect) {
+            dmg.Activate();
+        }
+
+        return dmg;
+
+    }
+
+    default AttackSpellDamageEffect dealAttackSpellDamageTo(LivingEntity target) {
+        return dealAttackSpellDamageTo(target, new Options());
+    }
+
+    default AttackSpellDamageEffect getStartupAttackSpellDamage(LivingEntity target) {
+        return dealAttackSpellDamageTo(target, new Options().activatesEffect(false));
+    }
+
+    default AttackSpellDamageEffect dealAttackSpellDamageTo(LivingEntity target, Options opt) {
+
+        EntitySpellData data = getSpellData();
+
+        LivingEntity caster = data.getCaster(target.world);
+
+        BaseSpell spell = data.getSpell();
+
+        EntityCap.UnitData casterData = Load.Unit(caster);
+
+        int num = data.configs.calc
+                .getCalculatedValue(casterData, Load.spells(caster), spell);
+
+        AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(caster, target, num, casterData, Load.Unit(target),
+                data.getSpell()
         );
 
         if (opt.knockback == false) {

@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.effects.game_changers;
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
 import com.robertx22.mine_and_slash.database.stats.types.game_changers.RefreshingBreeze;
+import com.robertx22.mine_and_slash.database.stats.types.resources.Energy;
 import com.robertx22.mine_and_slash.database.stats.types.resources.EnergyRegen;
 import com.robertx22.mine_and_slash.saveclasses.ResourcesData;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
@@ -26,16 +27,13 @@ public class RefreshingBreezeEffect extends BaseDamageEffect {
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
         float energy = effect.targetData.getUnit()
-            .peekAtStat(EnergyRegen.GUID)
+            .peekAtStat(Energy.GUID)
             .getAverageValue() * RefreshingBreeze.PERCENT / 100;
 
-        ResourcesData.Use use;
+        ResourcesData.Use use = ResourcesData.Use.RESTORE;
 
-        if (effect.isDodged) {
-            use = ResourcesData.Use.RESTORE;
-        } else {
-            use = ResourcesData.Use.SPEND;
-            energy /= 4;
+        if (!effect.isDodged) {
+            energy = 0;
         }
 
         ResourcesData.Context ene = new ResourcesData.Context(

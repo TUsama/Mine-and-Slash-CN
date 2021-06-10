@@ -105,6 +105,7 @@ public abstract class EffectData {
     public enum EffectTypes {
         NORMAL,
         SPELL,
+        ATTACK_SPELL,
         BASIC_ATTACK,
         BONUS_ATTACK,
         REFLECT,

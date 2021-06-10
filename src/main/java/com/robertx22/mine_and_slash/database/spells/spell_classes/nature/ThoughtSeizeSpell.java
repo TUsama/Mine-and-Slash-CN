@@ -10,6 +10,7 @@ import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
+import com.robertx22.mine_and_slash.potion_effects.druid.CorrosionEffect;
 import com.robertx22.mine_and_slash.potion_effects.druid.MindRotEffect;
 import com.robertx22.mine_and_slash.potion_effects.druid.ThornsEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -20,6 +21,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
@@ -27,6 +29,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +60,7 @@ public class ThoughtSeizeSpell extends BaseSpell {
                     return Elements.Nature;
                 }
 
-            }.setSwingArmOnCast());
+            }.setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON));
     }
 
     @Override
@@ -97,9 +100,14 @@ public class ThoughtSeizeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Curses enemies around you with mind rot: "));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new SText("Curses enemies around you with: "));
         list.addAll(MindRotEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
-        list.add(new StringTextComponent("Only one curse is allowed at a time!"));
+        list.add(new StringTextComponent(TextFormatting.RED + "Only one Curse debuff is allowed at a time!"));
 
         return list;
 

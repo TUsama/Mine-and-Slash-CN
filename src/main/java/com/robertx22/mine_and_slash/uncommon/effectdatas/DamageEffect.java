@@ -193,7 +193,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                     });
             } else {
                 if (this.getEffectType()
-                    .equals(EffectTypes.BASIC_ATTACK)) {
+                    .equals(EffectTypes.BASIC_ATTACK) || this.getEffectType().equals(EffectTypes.ATTACK_SPELL)) {
 
                     PlayerSpellCap.ISpellsCap cap = Load.spells(source);
 
@@ -400,6 +400,34 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
 
             onSpellHits.forEach(x -> ((IOnSpellHitPotion) x.getPotion()).onSpellHit(x, source, target));
 
+        }
+        if (this.getEffectType() == EffectTypes.ATTACK_SPELL) {
+            List<EffectInstance> onAttacks = source.getActivePotionEffects()
+                    .stream()
+                    .filter(x -> x.getPotion() instanceof IOnBasicAttackPotion)
+                    .collect(Collectors.toList());
+
+            onAttacks.forEach(x -> ((IOnBasicAttackPotion) x.getPotion()).OnBasicAttack(x, source, target));
+
+            List<EffectInstance> onAttackeds = target.getActivePotionEffects()
+                    .stream()
+                    .filter(x -> x.getPotion() instanceof IOnBasicAttackedPotion)
+                    .collect(Collectors.toList());
+
+            onAttackeds.forEach(x -> ((IOnBasicAttackedPotion) x.getPotion()).onBasicAttacked(x, source, target));
+            List<EffectInstance> onSpellCasts = source.getActivePotionEffects()
+                    .stream()
+                    .filter(x -> x.getPotion() instanceof IOnSpellCastPotion)
+                    .collect(Collectors.toList());
+
+            onSpellCasts.forEach(x -> ((IOnSpellCastPotion) x.getPotion()).onSpellCast(x, source, target));
+
+            List<EffectInstance> onSpellHits = target.getActivePotionEffects()
+                    .stream()
+                    .filter(x -> x.getPotion() instanceof IOnSpellHitPotion)
+                    .collect(Collectors.toList());
+
+            onSpellHits.forEach(x -> ((IOnSpellHitPotion) x.getPotion()).onSpellHit(x, source, target));
         }
     }
 

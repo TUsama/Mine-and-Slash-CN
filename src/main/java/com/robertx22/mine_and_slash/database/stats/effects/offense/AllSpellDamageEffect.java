@@ -33,7 +33,8 @@ public class AllSpellDamageEffect extends BaseStatEffect<SpellDamageEffect> {
     @Override
     public boolean canActivate(SpellDamageEffect effect, StatData data, Stat stat) {
         return effect.getEffectType()
-            .equals(EffectData.EffectTypes.SPELL);
+            .equals(EffectData.EffectTypes.SPELL) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.ATTACK_SPELL);
     }
 
 }

@@ -7,8 +7,10 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.Thunders
 import com.robertx22.mine_and_slash.database.spells.synergies.base.Synergy;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -21,6 +23,11 @@ public class BlastTrapEnhancedSynergy extends Synergy {
         List<ITextComponent> list = new ArrayList<>();
 
         addSpellName(list);
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Blast Trap"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Throw more traps but reduce damage: "));
 
@@ -36,7 +43,7 @@ public class BlastTrapEnhancedSynergy extends Synergy {
     public void alterSpell(PreCalcSpellConfigs c) {
         c.set(SC.MANA_COST, 15, 15);
         c.set(SC.PROJECTILE_COUNT, 2, 2);
-        c.set(SC.ATTACK_SCALE_VALUE, -0.5F, -0.5F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, -0.5F, -0.5F);
     }
 
     @Override

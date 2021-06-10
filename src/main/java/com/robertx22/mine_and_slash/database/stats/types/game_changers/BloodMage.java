@@ -53,9 +53,9 @@ public class BloodMage extends BaseGameChangerTrait implements IStatMultipleEffe
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
             new ExactStatData(-HP_DECREASE, StatModTypes.Multi, Health.getInstance()),
+            new ExactStatData(-HP_DECREASE, StatModTypes.Multi, HealthRegen.getInstance()),
             new ExactStatData(-1000, StatModTypes.Multi, Mana.getInstance()),
-            new ExactStatData(-1000, StatModTypes.Multi, ManaRegen.getInstance()),
-            new ExactStatData(-HP_DECREASE, StatModTypes.Multi, HealthRegen.getInstance())
+            new ExactStatData(-1000, StatModTypes.Multi, ManaRegen.getInstance())
         );
     }
 

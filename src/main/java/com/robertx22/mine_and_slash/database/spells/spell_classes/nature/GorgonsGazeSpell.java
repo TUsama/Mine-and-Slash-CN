@@ -16,11 +16,13 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -67,7 +69,7 @@ public class GorgonsGazeSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 20, 25);
         c.set(SC.BASE_VALUE, 13, 17);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.4F, 2.2F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.4F, 2.2F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.CAST_TIME_TICKS, 25, 20);
         c.set(SC.COOLDOWN_SECONDS, 36, 24);
@@ -88,6 +90,11 @@ public class GorgonsGazeSpell extends BaseSpell {
     public List<ITextComponent> GetDescription(TooltipInfo info, SpellCastContext ctx) {
 
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff"));
+
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Turn all enemies in front of you into stone."));
         list.add(new StringTextComponent("Applies: "));

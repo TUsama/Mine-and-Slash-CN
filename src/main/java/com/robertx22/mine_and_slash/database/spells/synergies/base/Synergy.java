@@ -18,6 +18,7 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.SynergyDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IAutoLocName;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
@@ -175,6 +176,8 @@ public abstract class Synergy implements IAbility, ISlashRegistryEntry<Synergy>,
     public void addSpellName(List<ITextComponent> tooltip) {
 
         tooltip.add(new SText(getSpell().getElement().format + "").appendSibling(getLocName()));
+
+        TooltipUtils.addEmpty(tooltip);
 
     }
 

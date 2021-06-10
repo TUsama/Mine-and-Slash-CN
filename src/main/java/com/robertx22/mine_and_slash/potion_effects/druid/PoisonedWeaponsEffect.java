@@ -80,9 +80,7 @@ public class PoisonedWeaponsEffect extends BasePotionEffect implements IApplySta
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-
         return list;
-
     }
 
     private static class SingletonHolder {

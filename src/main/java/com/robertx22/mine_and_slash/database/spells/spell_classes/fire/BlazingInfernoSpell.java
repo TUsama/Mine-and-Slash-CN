@@ -20,12 +20,14 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +67,7 @@ public class BlazingInfernoSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 18, 24);
         c.set(SC.BASE_VALUE, 4, 8);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.45F, 0.65F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.45F, 0.65F);
         c.set(SC.CAST_TIME_TICKS, 60, 40);
         c.set(SC.COOLDOWN_SECONDS, 16, 10);
         c.set(SC.RADIUS, 3, 5);
@@ -95,7 +97,12 @@ public class BlazingInfernoSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new SText("Deal damage to enemies around you: "));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Channel"));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new SText("Converts Phys Weapon DMG to Fire to damage to enemies around you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
