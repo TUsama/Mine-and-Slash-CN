@@ -1734,7 +1734,7 @@
 	"mmorpg.stat_desc.magic_steal": "Percent of attack damage restores magic shield.",
 	"mmorpg.stat_desc.magical_life_trait": "Converts your magic shield into health.",
 	"mmorpg.stat_desc.mana": "Mana is used to cast spells.",
-	"mmorpg.stat_desc.mana_battery_trait": "While mana is above 25 percent, absorb 50 percent of damage as mana.",
+	"mmorpg.stat_desc.mana_battery_trait": "30 percent of damage is taken from mana before health.",
 	"mmorpg.stat_desc.mana_cost_red": "Reduces mana cost of all spells.",
 	"mmorpg.stat_desc.mana_on_hit": "Restore a flat amount of mana on attack.",
 	"mmorpg.stat_desc.mana_regen": "Regeneration occurs every 3 seconds.",

@@ -1,3 +1,6 @@
+3.10.1:
+* Fixed Mana Battery tooltip being incorrect.
+
 3.10.0:
 * New damage type: Attack Spells. These can trigger "on-attack" effects such as Poisoned Weapon's synergy, or Frozen/Petrify on-attack effects. They are also still affected by changes to spell damage.
 * Previous spells such as Whirlwind, Martyrdom, Retribution, Tidal Waves, Flame Blitz, etc., are now Attack Spells.
