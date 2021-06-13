@@ -24,7 +24,7 @@ public class AddRemoveSpellPotionItem extends BaseInstantPotion implements IShap
     @Override
     public ITextComponent tooltip() {
         ITextComponent comp = new StringTextComponent(
-            "Gives you 10 remove spell points. Use by right clicking on spell screen.");
+            "Gives you 10 remove spell points. Remove points by right clicking on the spell.");
         return comp;
 
     }

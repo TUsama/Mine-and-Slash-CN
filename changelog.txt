@@ -1,5 +1,21 @@
 3.10.1:
+* Attack Spells now cost energy as well as mana.
+* Divine spells and Hunting arrow spells cost more energy than other attack spells, but now cost less mana as a result.
+* Magic Burst now costs magic shield to cast.
+* Magic Burst now does 25% less damage.
+* Defend now gives less armor but also gives physical reflect.
+* Mana and mana regen talent nodes give slightly less mana/regen.
+* Magic shield regen talent nodes give more regen.
+* Dodge and armor talent nodes give more dodge/armor.
+* Heal power talent nodes now gives a base of 5%, up from 3%.
+* Mana and mana regen stats have had their values lowered a bit.
+* Energy and energy regen stats have had their values lowered a bit.
+* Slightly increased critical hit flat and percent stats.
+* Slightly increased critical damage percent stats.
 * Fixed Mana Battery tooltip being incorrect.
+* Fixed a bug where Mana Battery was still only applying above 25% of max mana.
+* Changed the sound of out of mana or energy to that of a villager to make it more OBVIOUS you're OOM.
+* Reworded some of the reset potions to make more sense.
 
 3.10.0:
 * New damage type: Attack Spells. These can trigger "on-attack" effects such as Poisoned Weapon's synergy, or Frozen/Petrify on-attack effects. They are also still affected by changes to spell damage.

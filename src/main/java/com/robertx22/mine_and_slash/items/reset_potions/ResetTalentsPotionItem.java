@@ -24,7 +24,7 @@ public class ResetTalentsPotionItem extends BaseInstantPotion implements IShaped
 
     @Override
     public ITextComponent tooltip() {
-        ITextComponent comp = new StringTextComponent("Resets all your talent points");
+        ITextComponent comp = new StringTextComponent("Resets all your talent points.");
         return comp;
 
     }

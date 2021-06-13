@@ -24,7 +24,7 @@ public class ResetStatsPotionItem extends BaseInstantPotion implements IShapedRe
 
     @Override
     public ITextComponent tooltip() {
-        ITextComponent comp = new StringTextComponent("Removes all allocated Stat Points");
+        ITextComponent comp = new StringTextComponent("Removes all allocated stat points.");
         return comp;
 
     }

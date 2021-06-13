@@ -170,6 +170,7 @@ public enum ParticleEnum {
             for (int i = 0; i < 80; i++) {
                 Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius);
                 world.addParticle(ParticleTypes.WITCH, p.x, p.y, p.z, 0, 0, 0);
+                world.addParticle(ParticleTypes.POOF, p.x, p.y, p.z, 0, 0, 0);
 
             }
 

@@ -88,7 +88,7 @@ public class PerkEffects {
         SPELL_DMG = PerkEffectBuilder.build(
             "spell_dmg", SpellDamage.getInstance(), new ExactStatData(3, StatModTypes.Flat, SpellDamage.GUID));
         HEAL_PWR = PerkEffectBuilder.build(
-                "heal_pwr", HealPower.getInstance(), new ExactStatData(3, StatModTypes.Flat, HealPower.GUID));
+                "heal_pwr", HealPower.getInstance(), new ExactStatData(5, StatModTypes.Flat, HealPower.GUID));
         CDR = PerkEffectBuilder.build(
                 "cdr", ReducedCooldownStat.getInstance(), new ExactStatData(4, StatModTypes.Flat, ReducedCooldownStat.GUID));
         CRIT_HIT = PerkEffectBuilder.build(
@@ -142,26 +142,26 @@ public class PerkEffects {
         MAGIC_SHIELD_PERCENT = PerkEffectBuilder.build(
             "ms_percent", MagicShield.getInstance(), new ExactStatData(4, StatModTypes.Percent, MagicShield.GUID));
         MANA_PERCENT = PerkEffectBuilder.build(
-            "mana_percent", Mana.getInstance(), new ExactStatData(4, StatModTypes.Percent, Mana.GUID));
+            "mana_percent", Mana.getInstance(), new ExactStatData(3, StatModTypes.Percent, Mana.GUID));
         HEALTH_PERCENT = PerkEffectBuilder.build(
             "hp_percent", Health.getInstance(), new ExactStatData(3, StatModTypes.Percent, Health.GUID));
         ENERGY_PERCENT = PerkEffectBuilder.build(
             "energy_percent", Energy.getInstance(), new ExactStatData(4, StatModTypes.Percent, Energy.GUID));
         DODGE_PERCENT = PerkEffectBuilder.build(
-            "dodge_percent", DodgeRating.getInstance(), new ExactStatData(5, StatModTypes.Percent, DodgeRating.GUID));
+            "dodge_percent", DodgeRating.getInstance(), new ExactStatData(6, StatModTypes.Percent, DodgeRating.GUID));
         ARMOR_PERCENT = PerkEffectBuilder.build(
-            "armor_percent", Armor.getInstance(), new ExactStatData(5, StatModTypes.Percent, Armor.GUID));
+            "armor_percent", Armor.getInstance(), new ExactStatData(6, StatModTypes.Percent, Armor.GUID));
 
         MANA_REGEN_PERCENT = PerkEffectBuilder.build(
-            "mana_regen_percent", ManaRegen.getInstance(), new ExactStatData(5, StatModTypes.Percent, ManaRegen.GUID));
+            "mana_regen_percent", ManaRegen.getInstance(), new ExactStatData(4, StatModTypes.Percent, ManaRegen.GUID));
         HEALTH_REGEN_PERCENT = PerkEffectBuilder.build("hp_regen_percent", HealthRegen.getInstance(),
-            new ExactStatData(5, StatModTypes.Percent, HealthRegen.GUID)
+            new ExactStatData(4, StatModTypes.Percent, HealthRegen.GUID)
         );
         ENERGY_REGEN_PERCENT = PerkEffectBuilder.build("energy_regen_percent", EnergyRegen.getInstance(),
             new ExactStatData(5, StatModTypes.Percent, EnergyRegen.GUID)
         );
         MAGIC_SHIELD_REGEN_PERCENT = PerkEffectBuilder.build("ms_regen_percent", MagicShieldRegen.getInstance(),
-            new ExactStatData(5, StatModTypes.Percent,
+            new ExactStatData(6, StatModTypes.Percent,
                 MagicShieldRegen.GUID
             )
         );

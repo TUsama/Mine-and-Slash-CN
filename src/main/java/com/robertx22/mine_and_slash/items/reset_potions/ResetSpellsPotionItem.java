@@ -24,7 +24,7 @@ public class ResetSpellsPotionItem extends BaseInstantPotion implements IShapedR
 
     @Override
     public ITextComponent tooltip() {
-        ITextComponent comp = new StringTextComponent("Resets all your spell points");
+        ITextComponent comp = new StringTextComponent("Resets all your spell points.");
         return comp;
 
     }

@@ -57,7 +57,8 @@ public class MultiShotSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 10, 22);
+        c.set(SC.MANA_COST, 5, 11);
+        c.set(SC.ENERGY_COST, 10, 22);
         c.set(SC.BASE_VALUE, 3, 6);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.0F, 1.5F);
         c.set(SC.SHOOT_SPEED, 2.5F, 3.75F);

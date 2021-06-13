@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnSpellCastSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.Synergy;
+import com.robertx22.mine_and_slash.database.stats.types.resources.Energy;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Mana;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
@@ -210,6 +211,13 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
                         .get(ctx.spellsCap, this), getEffectiveAbilityLevel(ctx.spellsCap, ctx.data));
     }
 
+    public final int getCalculatedEnergyCost(SpellCastContext ctx) {
+        return (int) Energy.getInstance()
+                .calculateScalingStatGrowth((int) ctx.getConfigFor(this)
+                        .get(SC.ENERGY_COST)
+                        .get(ctx.spellsCap, this), getEffectiveAbilityLevel(ctx.spellsCap, ctx.data));
+    }
+
     public final int useTimeTicks(SpellCastContext ctx) {
         return (int) ctx.getConfigFor(this)
             .get(SC.CAST_TIME_TICKS)
@@ -259,8 +267,18 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
     }
 
     public void spendResources(SpellCastContext ctx) {
-        ctx.data.getResources()
-            .modify(getManaCostCtx(ctx));
+        if (getCalculatedManaCost(ctx) > 0) {
+            ctx.data.getResources()
+                    .modify(getManaCostCtx(ctx));
+        }
+        if (getCalculatedEnergyCost(ctx) > 0) {
+            ctx.data.getResources()
+                    .modify(getEnergyCostCtx(ctx));
+        }
+        if (getCalculatedMagicShieldCost(ctx) > 0) {
+            ctx.data.getResources()
+                    .modify(getMagicShieldCostCtx(ctx));
+        }
     }
 
     public ResourcesData.Context getManaCostCtx(SpellCastContext ctx) {
@@ -301,6 +319,25 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
                 ctx.data, ctx.caster, ResourcesData.Type.MAGIC_SHIELD, cost, ResourcesData.Use.SPEND);
     }
 
+    public ResourcesData.Context getEnergyCostCtx(SpellCastContext ctx) {
+
+        float cost = 0;
+
+        for (Synergy x : getAllocatedSynergies(ctx.spellsCap)) {
+            if (ctx.getConfigFor(x)
+                    .has(SC.ENERGY_COST)) {
+                cost += ctx.getConfigFor(x)
+                        .get(SC.ENERGY_COST)
+                        .get(ctx.spellsCap, x);
+            }
+        }
+
+        cost += this.getCalculatedEnergyCost(ctx);
+
+        return new ResourcesData.Context(
+                ctx.data, ctx.caster, ResourcesData.Type.ENERGY, cost, ResourcesData.Use.SPEND);
+    }
+
     public boolean canCast(SpellCastContext ctx) {
 
         LivingEntity caster = ctx.caster;
@@ -318,9 +355,13 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
             if (data != null) {
 
                 ResourcesData.Context rctx = getManaCostCtx(ctx);
+                ResourcesData.Context ectx = getEnergyCostCtx(ctx);
+                ResourcesData.Context msctx = getMagicShieldCostCtx(ctx);
 
                 if (data.getResources()
-                    .hasEnough(rctx)) {
+                    .hasEnough(rctx) && data.getResources()
+                        .hasEnough(ectx) && data.getResources()
+                        .hasEnough(msctx)) {
 
                     if (immutableConfigs.castRequirements()
                         .stream()
@@ -359,8 +400,16 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.BLUE + "Mana Cost: " + getCalculatedManaCost(ctx)));
-        list.add(new StringTextComponent(TextFormatting.YELLOW + "Cooldown: " + getCooldownInSeconds(ctx) + "s"));
+        if (getCalculatedManaCost(ctx) > 0) {
+            list.add(new StringTextComponent(TextFormatting.BLUE + "Mana Cost: " + getCalculatedManaCost(ctx)));
+        }
+        if (getCalculatedEnergyCost(ctx) > 0) {
+            list.add(new StringTextComponent(TextFormatting.YELLOW + "Energy Cost: " + getCalculatedEnergyCost(ctx)));
+        }
+        if (getCalculatedMagicShieldCost(ctx) > 0) {
+            list.add(new StringTextComponent(TextFormatting.AQUA + "Magic Shield Cost: " + getCalculatedMagicShieldCost(ctx)));
+        }
+        list.add(new StringTextComponent(TextFormatting.GREEN + "Cooldown: " + getCooldownInSeconds(ctx) + "s"));
         list.add(new StringTextComponent(TextFormatting.GREEN + "Cast Time: " + getUseDurationInSeconds(ctx) + "s"));
 
         TooltipUtils.addEmpty(list);

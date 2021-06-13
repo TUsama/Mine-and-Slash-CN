@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.Corrosi
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.ThoughtSeizeSpell;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
+import com.robertx22.mine_and_slash.database.stats.types.game_changers.BloodMage;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShieldRegen;
 import com.robertx22.mine_and_slash.database.stats.types.resources.ManaRegen;

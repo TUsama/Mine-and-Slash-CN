@@ -74,6 +74,7 @@ public class InfernoQuakeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.MANA_COST, 14, 20);
+        c.set(SC.ENERGY_COST, 4, 8);
         c.set(SC.BASE_VALUE, 1, 3);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.6F, 1.2F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);

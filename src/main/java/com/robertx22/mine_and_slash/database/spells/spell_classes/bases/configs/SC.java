@@ -6,6 +6,7 @@ public enum SC {
 
     MANA_COST(0, Words.Mana_Cost),
     MAGIC_SHIELD_COST(0, Words.Magic_Shield_Cost),
+    ENERGY_COST(0, Words.Energy_Cost),
     RADIUS(0, Words.Radius),
     PROJECTILE_COUNT(1, Words.ProjectileCount),
     CAST_TIME_TICKS(0, Words.CastTimeTicks),

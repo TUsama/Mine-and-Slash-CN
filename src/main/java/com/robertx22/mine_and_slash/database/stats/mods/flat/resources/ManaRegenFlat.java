@@ -17,7 +17,7 @@ public class ManaRegenFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 2;
+        return 1.5F;
     }
 
     @Override

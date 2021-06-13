@@ -39,7 +39,7 @@ public class NoEnergyPacket {
                 if (ClientContainer.INSTANCE.SHOW_LOW_ENERGY_MANA_WARNING.get()) {
 
                     PlayerEntity player = MMORPG.proxy.getPlayerEntityFromContext(ctx);
-                    player.playSound(SoundEvents.BLOCK_REDSTONE_TORCH_BURNOUT, 0.5F, 0);
+                    player.playSound(SoundEvents.ENTITY_VILLAGER_AMBIENT, 0.8F, 1.1F);
 
                 }
 

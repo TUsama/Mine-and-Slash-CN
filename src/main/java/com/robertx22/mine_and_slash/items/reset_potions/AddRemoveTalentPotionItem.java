@@ -24,7 +24,7 @@ public class AddRemoveTalentPotionItem extends BaseInstantPotion implements ISha
     @Override
     public ITextComponent tooltip() {
         ITextComponent comp = new StringTextComponent(
-            "Gives you 1 remove talent point. Use by right clicking on talent screen.");
+            "Gives you 1 remove talent point. Remove points by right clicking on the talent.");
         return comp;
 
     }

@@ -57,7 +57,8 @@ public class GroundSlamSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 12, 22);
+        c.set(SC.MANA_COST, 6, 11);
+        c.set(SC.ENERGY_COST, 8, 17);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.3F, 0.5F);
         c.set(SC.SHOOT_SPEED, 1.0F, 1.5F);

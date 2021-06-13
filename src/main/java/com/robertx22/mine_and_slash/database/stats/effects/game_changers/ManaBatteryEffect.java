@@ -52,12 +52,13 @@ public class ManaBatteryEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        float currentMana = effect.targetData.getResources()
+        /*float currentMana = effect.targetData.getResources()
             .getMana();
 
         return currentMana / effect.targetData.getUnit()
             .manaData()
-            .getAverageValue() > 0.25F;
+            .getAverageValue() > 0;*/
+        return true;
     }
 
 }
