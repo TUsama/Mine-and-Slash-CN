@@ -56,6 +56,8 @@ public class ShockwaveSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 7, 12);
+        c.set(SC.ENERGY_COST, 0, 0);
+        c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 0.35F, 1.0F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);

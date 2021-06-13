@@ -71,6 +71,7 @@ public class DashSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 3, 6);
         c.set(SC.ENERGY_COST, 8, 16);
+        c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 12, 4);

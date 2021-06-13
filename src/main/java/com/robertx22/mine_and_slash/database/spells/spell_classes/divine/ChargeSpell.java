@@ -70,6 +70,7 @@ public class ChargeSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 6, 11);
         c.set(SC.ENERGY_COST, 8, 16);
+        c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 9);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.4F, 3.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);

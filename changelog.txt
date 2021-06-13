@@ -4,6 +4,7 @@
 * Magic Burst now costs magic shield to cast.
 * Magic Burst now does 25% less damage.
 * Defend now gives less armor but also gives physical reflect.
+* Cold Essence now gives 25% less mana regen per stack than it used to.
 * Mana and mana regen talent nodes give slightly less mana/regen.
 * Magic shield regen talent nodes give more regen.
 * Dodge and armor talent nodes give more dodge/armor.

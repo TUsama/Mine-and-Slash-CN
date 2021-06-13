@@ -98,6 +98,8 @@ public class WishSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.MANA_COST, 22, 32);
+        c.set(SC.ENERGY_COST, 0, 0);
+        c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 16, 34);
         c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.1F, 0.2F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);

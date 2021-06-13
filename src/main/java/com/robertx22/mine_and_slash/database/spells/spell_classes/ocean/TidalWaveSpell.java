@@ -58,6 +58,7 @@ public class TidalWaveSpell extends BaseSpell {
 
         c.set(SC.MANA_COST, 10, 15);
         c.set(SC.ENERGY_COST, 4, 7);
+        c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 3, 5);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.8F, 1.2F);
         c.set(SC.SHOOT_SPEED, 1.2F, 1.4F);

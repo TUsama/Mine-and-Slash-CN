@@ -56,6 +56,8 @@ public class HuntingPotionSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 0, 0);
+        c.set(SC.ENERGY_COST, 0, 0);
+        c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.BASE_VALUE, 1, 2);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.3F, 0.6F);
