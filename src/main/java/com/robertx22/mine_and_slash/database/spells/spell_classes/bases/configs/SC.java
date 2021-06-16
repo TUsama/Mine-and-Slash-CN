@@ -23,7 +23,7 @@ public enum SC {
     AMOUNT(0, Words.Amount),
     ATTACK_SCALE_VALUE(0, null),
     ELEMENTAL_ATTACK_SCALE_VALUE(0, null),
-    PHYSICAL_ATTACK_SCALE_VALUE(0, null),
+    PHYSICAL_ATTACK_SCALE_VALUE(0, Words.PhysicalAttackScaleValue),
     FIRE_ATTACK_SCALE_VALUE(0, null),
     WATER_ATTACK_SCALE_VALUE(0, null),
     THUNDER_ATTACK_SCALE_VALUE(0, null),

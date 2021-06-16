@@ -140,7 +140,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
                 return false;
             }
             case MELEE_WEAPON: {
-                return slot.isMeleeWeapon();
+                return slot.isMeleeWeapon() || slot.isMageWeapon();
             }
             case MAGE_WEAPON: {
                 return slot.isMageWeapon();
@@ -414,16 +414,16 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(getMastery().format + "").appendSibling(getMastery().getFullName()));
+        //list.add(new StringTextComponent(getMastery().format + "").appendSibling(getMastery().getFullName()));
 
-        TooltipUtils.addEmpty(list);
+        //TooltipUtils.addEmpty(list);
 
         this.immutableConfigs.castRequirements()
             .forEach(x -> list.add(x.text));
 
         if (this.immutableConfigs.allowedAsRightClickOn() == AllowedAsRightClickOn.MAGE_WEAPON) {
             TooltipUtils.addEmpty(list);
-            list.add(new SText(TextFormatting.GRAY + "Can be set as right-click on mage weapons."));
+            list.add(new SText(TextFormatting.GRAY + "Can be set as right-click on staves/wands."));
         } else if (this.immutableConfigs.allowedAsRightClickOn() == AllowedAsRightClickOn.MELEE_WEAPON) {
             TooltipUtils.addEmpty(list);
             list.add(new SText(TextFormatting.GRAY + "Can be set as right-click on melee weapons."));

@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.spell_classes.storm;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -57,21 +58,23 @@ public class ChargedNovaSpell extends BaseSpell {
                     return Elements.Thunder;
                 }
 
-            }.cooldownIfCanceled(true).setSwingArmOnCast());
+            }.cooldownIfCanceled(true).setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON).addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 18, 22);
+        c.set(SC.MANA_COST, 13, 21);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 7, 11);
-        c.set(SC.CAST_TIME_TICKS, 80, 60);
-        c.set(SC.COOLDOWN_SECONDS, 15, 10);
-        c.set(SC.RADIUS, 4, 6);
-        c.set(SC.TIMES_TO_CAST, 3, 5);
+        c.set(SC.BASE_VALUE, 3, 4);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.0F, 1.0F);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.04F, 0.16F);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
+        c.set(SC.COOLDOWN_SECONDS, 8, 5);
+        c.set(SC.RADIUS, 3, 5);
+        c.set(SC.TIMES_TO_CAST, 1, 1);
 
         c.setMaxLevel(12);
 
@@ -97,12 +100,15 @@ public class ChargedNovaSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Channel"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "AOE"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new SText("Do damage to enemies around you: "));
+        list.add(new SText("Convert Phys Weapon DMG to Lightning, and channel"));
+        list.add(new SText("your mana into your blade to damage enemies around"));
+        list.add(new SText("you in a sweeping motion: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -131,7 +137,7 @@ public class ChargedNovaSpell extends BaseSpell {
 
             for (LivingEntity en : entities) {
                 DamageEffect dmg = new DamageEffect(
-                    null, caster, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                    null, caster, en, num, EffectData.EffectTypes.ATTACK_SPELL, WeaponTypes.None);
                 dmg.element = Elements.Thunder;
                 dmg.Activate();
 

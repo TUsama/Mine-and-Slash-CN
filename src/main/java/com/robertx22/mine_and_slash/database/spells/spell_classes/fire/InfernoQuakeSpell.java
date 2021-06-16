@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.spell_classes.fire;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -57,7 +58,7 @@ public class InfernoQuakeSpell extends BaseSpell {
             public Elements element() {
                 return Elements.Fire;
             }
-        }.setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON));
+        }.setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON).addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     public static InfernoQuakeSpell getInstance() {
@@ -77,7 +78,7 @@ public class InfernoQuakeSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 4, 8);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 1, 3);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.6F, 1.2F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.5F, 2.5F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 10, 4);

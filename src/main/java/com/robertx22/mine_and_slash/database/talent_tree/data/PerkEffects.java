@@ -140,7 +140,7 @@ public class PerkEffects {
             "str", Strength.INSTANCE, new ExactStatData(core_amount, StatModTypes.Flat, Strength.GUID));
 
         MAGIC_SHIELD_PERCENT = PerkEffectBuilder.build(
-            "ms_percent", MagicShield.getInstance(), new ExactStatData(4, StatModTypes.Percent, MagicShield.GUID));
+            "ms_percent", MagicShield.getInstance(), new ExactStatData(5, StatModTypes.Percent, MagicShield.GUID));
         MANA_PERCENT = PerkEffectBuilder.build(
             "mana_percent", Mana.getInstance(), new ExactStatData(3, StatModTypes.Percent, Mana.GUID));
         HEALTH_PERCENT = PerkEffectBuilder.build(
@@ -161,7 +161,7 @@ public class PerkEffects {
             new ExactStatData(5, StatModTypes.Percent, EnergyRegen.GUID)
         );
         MAGIC_SHIELD_REGEN_PERCENT = PerkEffectBuilder.build("ms_regen_percent", MagicShieldRegen.getInstance(),
-            new ExactStatData(6, StatModTypes.Percent,
+            new ExactStatData(8, StatModTypes.Percent,
                 MagicShieldRegen.GUID
             )
         );

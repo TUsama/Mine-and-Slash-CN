@@ -15,6 +15,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
@@ -76,6 +77,8 @@ public class HealingAuraSpell extends BaseSpell {
             int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+
+            SoundUtils.playSound(en, SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
 
             SpellUtils.heal(this, en, num);
 

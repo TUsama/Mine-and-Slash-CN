@@ -36,7 +36,8 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Attacks deals extra damage to"));
+        list.add(new StringTextComponent("While Poisoned Weapons is active,"));
+        list.add(new StringTextComponent("attacks deals extra damage to"));
         list.add(new StringTextComponent("targets affected by Thorns: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));

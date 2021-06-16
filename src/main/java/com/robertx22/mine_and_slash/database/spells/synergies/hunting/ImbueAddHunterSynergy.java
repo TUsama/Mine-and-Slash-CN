@@ -34,8 +34,9 @@ public class ImbueAddHunterSynergy extends OnBasicAttackSynergy {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("While Imbued, your attacks have a chance to"));
-        list.add(new StringTextComponent("apply on self: " + HunterInstinctEffect.getInstance()
+        list.add(new StringTextComponent("While Imbue is active, your"));
+        list.add(new StringTextComponent("attacks have a chance to apply"));
+        list.add(new StringTextComponent("on self: " + HunterInstinctEffect.getInstance()
             .locNameForLangFile()));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));

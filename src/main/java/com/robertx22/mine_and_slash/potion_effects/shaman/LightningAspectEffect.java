@@ -1,17 +1,16 @@
-package com.robertx22.mine_and_slash.potion_effects.ember_mage;
+package com.robertx22.mine_and_slash.potion_effects.shaman;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.buffs.DraconicBloodSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.buffs.VampiricBloodSpell;
-import com.robertx22.mine_and_slash.database.stats.types.resources.Lifesteal;
-import com.robertx22.mine_and_slash.database.stats.types.resources.SpellSteal;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.SpellBladeSpell;
+import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalInfusion;
+import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToFireConversion;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
-import com.robertx22.mine_and_slash.potion_effects.bases.IOneOfATypePotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
@@ -21,28 +20,23 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AttackSiphonEffect extends BasePotionEffect implements IApplyStatPotion, IOneOfATypePotion {
+public class LightningAspectEffect extends BasePotionEffect implements IApplyStatPotion {
 
-    @Override
-    public IOneOfATypePotion.Type getOneOfATypeType() {
-        return IOneOfATypePotion.Type.FIRE_BUFF;
-    }
+    public static final LightningAspectEffect INSTANCE = new LightningAspectEffect();
 
-    public static final AttackSiphonEffect INSTANCE = new AttackSiphonEffect();
-
-    private AttackSiphonEffect() {
+    private LightningAspectEffect() {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
     }
 
     @Override
     public String GUID() {
-        return "attack_siphon";
+        return "lightning_aspect";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Attack Siphon";
+        return "Lightning Aspect";
     }
 
     @Override
@@ -53,7 +47,8 @@ public class AttackSiphonEffect extends BasePotionEffect implements IApplyStatPo
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(12, Lifesteal.getInstance()));
+        list.add(new PotionStat(100, new PhysicalToFireConversion()));
+        list.add(new PotionStat(100, new ElementalInfusion(Elements.Fire)));
         return list;
     }
 
@@ -66,7 +61,7 @@ public class AttackSiphonEffect extends BasePotionEffect implements IApplyStatPo
     @Nullable
     @Override
     public BaseSpell getSpell() {
-        return VampiricBloodSpell.getInstance();
+        return SpellBladeSpell.getInstance();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.spell_classes.divine;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -60,7 +61,7 @@ public class HeavyStrikeSpell extends BaseSpell {
                 }
             }.cooldownIfCanceled(true)
                 .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
-                .setSwingArmOnCast());
+                .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override
@@ -119,7 +120,7 @@ public class HeavyStrikeSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 4.5F, 9);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.12F, 0.22F);
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.12F, 0.24F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 80, 50);
         c.set(SC.TIMES_TO_CAST, 1, 1);

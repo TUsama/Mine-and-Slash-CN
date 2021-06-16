@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.spell_classes.divine;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -57,7 +58,7 @@ public class WhirlwindSpell extends BaseSpell {
                     return Elements.Physical;
                 }
 
-            }.cooldownIfCanceled(true));
+            }.cooldownIfCanceled(true).setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override
@@ -68,7 +69,7 @@ public class WhirlwindSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 16, 25);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.45F, 0.6F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.6F, 1.1F);
         c.set(SC.CAST_TIME_TICKS, 140, 260);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.RADIUS, 1, 3);

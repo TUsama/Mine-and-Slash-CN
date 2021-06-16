@@ -155,14 +155,14 @@ public interface IAbility extends IGUID, ITooltipList {
 
             TooltipUtils.abilityLevel(list, ctx.spellsCap.getLevelOf(this), getMaxSpellLevelNormal());
 
-            list.add(new SText(TextFormatting.YELLOW + "Effective Ability level: " + getEffectiveAbilityLevel(ctx.spellsCap, ctx.data)));
+            list.add(new SText(TextFormatting.YELLOW + "Effective Ability Level: " + getEffectiveAbilityLevel(ctx.spellsCap, ctx.data)));
 
             list.add(new SText(getElement().format + "Element: " + getElement().name()));
 
             if (ctx.spellsCap.getAbilitiesData()
                 .getSchoolPoints(this.getMastery()) < getSchoolPointsNeeded()) {
                 list.add(new SText(TextFormatting.RED + "Needs ").appendSibling(getMastery().getFullName()
-                    .appendText(" of Level: " + getSchoolPointsNeeded())));
+                    .appendText(" Level: " + getSchoolPointsNeeded())));
             }
 
             list.add(new SText(""));

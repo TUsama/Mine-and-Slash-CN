@@ -29,7 +29,7 @@ public class WhirlwindEnhancedSynergy extends Synergy {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Increase damage but reduce radius: "));
+        list.add(new StringTextComponent("Reduce cooldown but reduce damage: "));
 
         return list;
     }
@@ -41,9 +41,10 @@ public class WhirlwindEnhancedSynergy extends Synergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 4, 4);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.15F, 0.15F);
-        c.set(SC.RADIUS, -0.5F, -0.5F);
+        c.set(SC.MANA_COST, 3, 3);
+        c.set(SC.ENERGY_COST, 5, 5);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, -0.4F, -0.4F);
+        c.set(SC.COOLDOWN_SECONDS, -10F, -10F);
     }
 
     @Override

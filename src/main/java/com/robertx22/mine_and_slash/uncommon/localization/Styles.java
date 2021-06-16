@@ -15,6 +15,7 @@ public class Styles {
     public static TextFormatting GRAY = TextFormatting.GRAY;
     public static TextFormatting LIGHT_PURPLE = TextFormatting.LIGHT_PURPLE;
     public static TextFormatting AQUA = TextFormatting.AQUA;
+    public static TextFormatting ITALIC = TextFormatting.ITALIC;
 
     public static ITextComponent BLUECOMP() {
         return new StringTextComponent(BLUE + "");
@@ -28,12 +29,20 @@ public class Styles {
         return new StringTextComponent(GREEN + "");
     }
 
+    public static ITextComponent GRAYITALICCOMP() {
+        return new StringTextComponent(GRAY + "" + ITALIC + "");
+    }
+
     public static ITextComponent YELLOWCOMP() {
         return new StringTextComponent(YELLOW + "");
     }
 
     public static ITextComponent REDCOMP() {
         return new StringTextComponent(RED + "");
+    }
+
+    public static ITextComponent REDITALICCOMP() {
+        return new StringTextComponent(RED + "" + ITALIC + "");
     }
 
     public static ITextComponent DARK_GREENCOMP() {

@@ -59,9 +59,9 @@ public class HuntingPotionSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.BASE_VALUE, 1, 2);
+        c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.3F, 0.6F);
-        c.set(SC.COOLDOWN_SECONDS, 120, 90);
+        c.set(SC.COOLDOWN_SECONDS, 120, 60);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
 
         c.setMaxLevel(4);

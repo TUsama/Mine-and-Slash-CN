@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.spells.spell_classes.divine;
 import com.robertx22.mine_and_slash.database.spells.entities.proj.GroundSlamEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -50,7 +51,7 @@ public class GroundSlamSpell extends BaseSpell {
             }.cooldownIfCanceled(true)
                     .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
                     .summonsEntity(w -> new GroundSlamEntity(w))
-                    .setSwingArmOnCast());
+                    .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override

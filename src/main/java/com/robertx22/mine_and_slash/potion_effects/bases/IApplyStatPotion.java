@@ -49,7 +49,7 @@ public interface IApplyStatPotion {
         ExtraPotionData minStacks = new ExtraPotionData();
         minStacks.casterLvl = info.unitdata.getLevel();
 
-        list.add(new StringTextComponent(TextFormatting.GREEN + "Affects stats: "));
+        list.add(new StringTextComponent(TextFormatting.GREEN + "Affects Stats: "));
 
         getOwnStatsAffected(effect, info.unitdata, Load.spells(info.player), minStacks).forEach(x -> {
             list.addAll(x.GetTooltipString(info));

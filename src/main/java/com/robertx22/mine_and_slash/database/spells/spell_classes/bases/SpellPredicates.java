@@ -20,14 +20,14 @@ public class SpellPredicates {
     private static Predicate<LivingEntity> MELEE_PRED = x -> {
         try {
             GearItemData data = Gear.Load(x.getHeldItemMainhand());
-            return data != null && data.GetBaseGearType()
-                .isMeleeWeapon();
+            return data != null && (data.GetBaseGearType()
+                .isMeleeWeapon() || data.GetBaseGearType().isMageWeapon());
         } catch (Exception e) {
             return false;
         }
     };
 
-    public static SpellPredicate REQUIRE_SHOOTABLE = new SpellPredicate(SHOOTABLE_PRED, new SText(TextFormatting.GREEN + "Requires Bow/Crossbow to use: "));
-    public static SpellPredicate REQUIRE_MELEE = new SpellPredicate(MELEE_PRED, new SText(TextFormatting.GOLD + "Requires Melee Weapon to use: "));
+    public static SpellPredicate REQUIRE_SHOOTABLE = new SpellPredicate(SHOOTABLE_PRED, new SText(TextFormatting.RED + "" + TextFormatting.ITALIC + "Requires Ranged Weapon"));
+    public static SpellPredicate REQUIRE_MELEE = new SpellPredicate(MELEE_PRED, new SText(TextFormatting.RED + "" + TextFormatting.ITALIC + "Requires Melee Weapon"));
 }
 

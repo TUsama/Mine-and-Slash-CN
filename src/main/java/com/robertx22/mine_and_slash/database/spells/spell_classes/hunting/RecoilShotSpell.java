@@ -65,9 +65,9 @@ public class RecoilShotSpell extends BaseSpell {
         c.set(SC.MANA_COST, 2, 5);
         c.set(SC.ENERGY_COST, 4, 10);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 2, 3);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.5F, 2.0F);
-        c.set(SC.SHOOT_SPEED, 2.5F, 3.75F);
+        c.set(SC.BASE_VALUE, 0, 0);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 2F, 3F);
+        c.set(SC.SHOOT_SPEED, 3F, 3F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 12, 8);
@@ -123,7 +123,7 @@ public class RecoilShotSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Shoots an arrow and dash back: "));
+        list.add(new StringTextComponent("Shoot an arrow and quickly step back: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

@@ -44,7 +44,8 @@ public class ThrowFlamesBurnSynergy extends OnDamageDoneSynergy {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Consumes a Burn stack on the target deal AOE damage: "));
+        list.add(new StringTextComponent("Consumes a Burn stack on the target to explode"));
+        list.add(new StringTextComponent("dealing AOE damage: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -53,14 +54,16 @@ public class ThrowFlamesBurnSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 2, 3);
+        c.set(SC.MANA_COST, 2, 4);
+        c.set(SC.ENERGY_COST, 1, 2);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 12, 16);
-        c.set(SC.RADIUS, 6F, 8);
+        c.set(SC.BASE_VALUE, 0, 0);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.0F, 2.0F);
+        c.set(SC.RADIUS, 4, 8);
         c.setMaxLevel(6);
         return c;
     }

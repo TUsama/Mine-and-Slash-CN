@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.gui.screens.spell_schools;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.robertx22.mine_and_slash.config.forge.ModConfig;
 import com.robertx22.mine_and_slash.database.talent_tree.RenderUtils;
 import com.robertx22.mine_and_slash.gui.bases.BaseScreen;
 import com.robertx22.mine_and_slash.gui.bases.IAlertScreen;
@@ -25,6 +26,7 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.GuiUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.spectator.categories.TeleportToPlayer;
 import net.minecraft.client.gui.widget.button.ImageButton;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -158,7 +160,7 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
         Minecraft mc = Minecraft.getInstance();
 
         if (school != null) {
-            String str = "Skill Points: " + spells.getAbilitiesData()
+            String str = "Spell Points: " + spells.getAbilitiesData()
                 .getFreeAbilityPoints(data);
             int xp = (int) (guiLeft + 5);
             int yp = guiTop + Y + 5;
@@ -494,7 +496,7 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
                     });
 
                 if (data.getLevel() < Masteries.LVL_TO_UNLOCK_2ND_SCHOOL) {
-                    list.add(new SText(TextFormatting.GOLD + "You can unlock a second mastery tree at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL + "."));
+                    list.add(new SText(TextFormatting.AQUA + "" + TextFormatting.ITALIC + "You can unlock a second Mastery tree at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL + "."));
 
                 }
 
@@ -504,11 +506,11 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
 
                 TooltipUtils.totalMasteryLevel(list, spells.getAbilitiesData()
                                 .getTotalSchoolPoints()
-                        , Masteries.MAXIMUM_POINTS * 2);
+                        , ModConfig.INSTANCE.Server.MAXIMUM_PLAYER_LEVEL.get());
 
                 if (spells.getAbilitiesData()
                         .getTotalSchoolPoints() >= data.getLevel()) {
-                    list.add(new SText(TextFormatting.RED + "Your total mastery level cannot go past your max level."));
+                    list.add(new SText(TextFormatting.RED + "" + TextFormatting.ITALIC + "Your total Mastery level cannot go past your max level."));
                 }
 
                 GuiUtils.renderTooltip(list, mouseX, mouseY);

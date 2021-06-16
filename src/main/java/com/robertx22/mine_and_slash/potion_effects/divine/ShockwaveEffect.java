@@ -114,7 +114,7 @@ public class ShockwaveEffect extends BasePotionEffect implements IApplyStatPotio
         float radius = 4;
 
         int element = RandomUtils.RandomRange(1,4);
-        System.out.println("element: " + element);
+        //System.out.println("element: " + element);
         int rand = RandomUtils.RandomRange(1,2);
 
         if (element == 2) {

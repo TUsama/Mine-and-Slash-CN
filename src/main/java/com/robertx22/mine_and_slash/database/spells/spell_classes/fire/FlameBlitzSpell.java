@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.spell_classes.fire;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -60,7 +61,7 @@ public class FlameBlitzSpell extends BaseSpell {
                 }
             }.cooldownIfCanceled(true)
                 .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
-                .setSwingArmOnCast());
+                .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override
@@ -118,11 +119,11 @@ public class FlameBlitzSpell extends BaseSpell {
         c.set(SC.MANA_COST, 5, 13);
         c.set(SC.ENERGY_COST, 2, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 2, 3);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.7F, 1.1F);
-        c.set(SC.CAST_TIME_TICKS, 40, 60);
+        c.set(SC.BASE_VALUE, 1, 2);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.7F, 0.9F);
+        c.set(SC.CAST_TIME_TICKS, 30, 40);
         c.set(SC.COOLDOWN_SECONDS, 10, 6);
-        c.set(SC.TIMES_TO_CAST, 4, 8);
+        c.set(SC.TIMES_TO_CAST, 4, 6);
 
         c.setMaxLevel(16);
 

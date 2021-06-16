@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean;
 import com.robertx22.mine_and_slash.database.spells.entities.proj.TidalWaveEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -49,7 +50,7 @@ public class TidalWaveSpell extends BaseSpell {
                 }
             }.cooldownIfCanceled(true)
                 .summonsEntity(w -> new TidalWaveEntity(w))
-                .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON));
+                .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON).addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override
@@ -59,7 +60,7 @@ public class TidalWaveSpell extends BaseSpell {
         c.set(SC.MANA_COST, 10, 15);
         c.set(SC.ENERGY_COST, 4, 7);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 3, 5);
+        c.set(SC.BASE_VALUE, 3, 7);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.8F, 1.2F);
         c.set(SC.SHOOT_SPEED, 1.2F, 1.4F);
         c.set(SC.PROJECTILE_COUNT, 3, 5);
@@ -98,7 +99,8 @@ public class TidalWaveSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Spew waves from your blade, damaging enemies: "));
+        list.add(new StringTextComponent("Converts Phys Weapon DMG to Frost, spew"));
+        list.add(new StringTextComponent("waves from your blade, damaging enemies: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

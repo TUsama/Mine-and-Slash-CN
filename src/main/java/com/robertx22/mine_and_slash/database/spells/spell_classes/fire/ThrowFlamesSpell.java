@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.spells.spell_classes.fire;
 import com.robertx22.mine_and_slash.database.spells.entities.proj.ThrowFlameEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
@@ -51,7 +52,7 @@ public class ThrowFlamesSpell extends BaseSpell {
                     }
                 }.cooldownIfCanceled(true)
                         .summonsEntity(w -> new ThrowFlameEntity(w))
-                        .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON));
+                        .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON).addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     public static ThrowFlamesSpell getInstance() {
@@ -65,8 +66,8 @@ public class ThrowFlamesSpell extends BaseSpell {
         c.set(SC.MANA_COST, 11, 16);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.ENERGY_COST, 3, 7);
-        c.set(SC.BASE_VALUE, 3, 5);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.75F, 1.2F);
+        c.set(SC.BASE_VALUE, 1, 3);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.8F, 1.3F);
         c.set(SC.SHOOT_SPEED, 1.0F, 1.25F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);

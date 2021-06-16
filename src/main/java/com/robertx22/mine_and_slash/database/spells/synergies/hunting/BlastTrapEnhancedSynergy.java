@@ -41,9 +41,9 @@ public class BlastTrapEnhancedSynergy extends Synergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 15, 15);
+        c.set(SC.MANA_COST, 16, 16);
         c.set(SC.PROJECTILE_COUNT, 2, 2);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, -0.5F, -0.5F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, -1.0F, -1.0F);
     }
 
     @Override

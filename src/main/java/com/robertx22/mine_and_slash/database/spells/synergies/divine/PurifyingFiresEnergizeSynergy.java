@@ -40,6 +40,7 @@ public class PurifyingFiresEnergizeSynergy extends OnDamageDoneSynergy {
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
         c.set(SC.MANA_COST, 1, 2);
+        c.set(SC.ENERGY_COST, 1, 2);
     }
 
     @Override

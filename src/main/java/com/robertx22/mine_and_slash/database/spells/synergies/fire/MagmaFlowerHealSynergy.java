@@ -5,6 +5,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.MagmaFlowerSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
+import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
+import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -12,6 +14,9 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -71,6 +76,13 @@ public class MagmaFlowerHealSynergy extends OnDamageDoneSynergy {
 
         float amount = getCalc(Load.spells(effect.source)).getCalculatedValue(effect.sourceData, Load.spells(effect.source
         ), this);
+
+        ParticleEnum.sendToClients(
+                effect.source.getPosition(), effect.source.world,
+                new ParticlePacketData(effect.source.getPositionVector(), ParticleEnum.AOE).radius(1)
+                        .motion(new Vec3d(0, 0, 0))
+                        .type(ParticleTypes.HEART)
+                        .amount(25));
 
         SpellUtils.heal(getSpell(), effect.source, amount);
 

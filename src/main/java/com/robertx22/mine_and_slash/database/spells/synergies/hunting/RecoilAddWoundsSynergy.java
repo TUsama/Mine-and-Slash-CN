@@ -43,7 +43,8 @@ public class RecoilAddWoundsSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 1, 2);
+        c.set(SC.MANA_COST, 1, 1);
+        c.set(SC.ENERGY_COST, 2, 4);
     }
 
     @Override

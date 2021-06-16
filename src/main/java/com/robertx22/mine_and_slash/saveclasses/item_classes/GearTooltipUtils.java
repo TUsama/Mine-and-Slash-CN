@@ -137,11 +137,9 @@ public class GearTooltipUtils {
         GearRarity rarity = gear.getRarity();
         tip.add(TooltipUtils.rarity(rarity));
 
-        if (Screen.hasShiftDown()) {
-            if (!gear.isSalvagable) {
-                tip.add(Styles.REDCOMP()
-                    .appendSibling(Words.Unsalvagable.locName()));
-            }
+        if (!gear.isSalvagable) {
+            tip.add(Styles.REDITALICCOMP()
+                .appendSibling(Words.Unsalvagable.locName()));
         }
 
         if (Screen.hasShiftDown()) {
@@ -204,16 +202,16 @@ public class GearTooltipUtils {
 
             int i = 0;
             for (String desc : lores) {
-                ITextComponent comp = Styles.GREENCOMP();
+                ITextComponent comp = Styles.GRAYITALICCOMP();
 
-                if (i == 0) {
+                /*if (i == 0) {
                     comp.appendText("'");
-                }
+                }*/
                 comp.appendText(desc);
 
-                if (i == lores.size() - 1) {
+                /*if (i == lores.size() - 1) {
                     comp.appendText("'");
-                }
+                }*/
                 i++;
                 tip.add(comp);
 
@@ -231,7 +229,7 @@ public class GearTooltipUtils {
         if (spell != null) {
             tip.add(new SText(""));
 
-            tip.add(new SText(spell.getElement().format + "Right click: ").appendSibling(spell
+            tip.add(new SText(spell.getElement().format + "Right Click: ").appendSibling(spell
                 .getName()
                 .locName()));
 

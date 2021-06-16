@@ -1,21 +1,20 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.nature;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.storm;
 
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.PoisonBallEntity;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.SpellTooltips;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.potion_effects.druid.ThornsEffect;
-import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
+import com.robertx22.mine_and_slash.potion_effects.ember_mage.SpellBladeEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -25,63 +24,56 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PoisonBallSpell extends BaseSpell {
+public class LightningAspectSpell extends BaseSpell {
 
-    private PoisonBallSpell() {
+    private LightningAspectSpell() {
         super(
             new ImmutableSpellConfigs() {
-
                 @Override
                 public Masteries school() {
-                    return Masteries.NATURE;
+                    return Masteries.STORM;
                 }
 
                 @Override
                 public SpellCastType castType() {
-                    return SpellCastType.PROJECTILE;
+                    return SpellCastType.GIVE_EFFECT;
                 }
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ENTITY_SNOWBALL_THROW;
+                    return SoundEvents.ENTITY_LIGHTNING_BOLT_THUNDER;
                 }
 
                 @Override
                 public Elements element() {
-                    return Elements.Nature;
+                    return Elements.Thunder;
                 }
-            }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                .summonsEntity(world -> new PoisonBallEntity(world)).setSwingArmOnCast());
+            }.addsEffect(SpellBladeEffect.INSTANCE)
+                .setSwingArmOnCast());
+
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-
-        c.set(SC.MANA_COST, 4, 9);
+        c.set(SC.MANA_COST, 12, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 1, 3);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.35F, 0.55F);
-        c.set(SC.SHOOT_SPEED, 0.2F, 0.3F);
-        c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 30, 20);
-        c.set(SC.CDR_EFFICIENCY, 0, 0);
-        c.set(SC.DURATION_TICKS, 60, 60);
+        c.set(SC.COOLDOWN_SECONDS, 34, 26);
+        c.set(SC.DURATION_TICKS, 20 * 10, 20 * 20);
 
-        c.setMaxLevel(16);
-
+        c.setMaxLevel(10);
         return c;
     }
 
-    public static PoisonBallSpell getInstance() {
+    public static LightningAspectSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "poison_ball";
+        return "spell_blade";
     }
 
     @Override
@@ -90,13 +82,12 @@ public class PoisonBallSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Self"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(SpellTooltips.singleTargetProjectile());
-
-        list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
+        list.add(new StringTextComponent("Applies buff: "));
+        list.addAll(SpellBladeEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         return list;
 
@@ -104,15 +95,23 @@ public class PoisonBallSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.PoisonBall;
+        return Words.SpellBlade;
+    }
+
+    @Override
+    public void spawnParticles(SpellCastContext ctx) {
+        if (ctx.caster.world.isRemote) {
+            ParticleUtils.spawnParticles(ParticleTypes.FLAME, ctx.caster, 20);
+            ParticleUtils.spawnParticles(ParticleTypes.WITCH, ctx.caster, 10);
+        }
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(7, 1);
     }
 
     private static class SingletonHolder {
-        private static final PoisonBallSpell INSTANCE = new PoisonBallSpell();
+        private static final LightningAspectSpell INSTANCE = new LightningAspectSpell();
     }
 }

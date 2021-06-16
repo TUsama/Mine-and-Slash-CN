@@ -45,7 +45,8 @@ public class PurifyingFiresJudgementSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 4, 7);
+        c.set(SC.MANA_COST, 1, 2);
+        c.set(SC.ENERGY_COST, 4, 7);
     }
 
     @Override

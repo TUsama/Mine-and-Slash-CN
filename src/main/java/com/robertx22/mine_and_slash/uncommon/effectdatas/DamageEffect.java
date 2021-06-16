@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.config.forge.ModConfig;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.MyDamageSource;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnBasicAttackSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
+import com.robertx22.mine_and_slash.database.spells.synergies.base.OnHitSynergy;
 import com.robertx22.mine_and_slash.database.stats.effects.defense.BlockEffect;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -191,27 +192,38 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                             s.tryActivate(e);
                         }
                     });
-            } else {
-                if (this.getEffectType()
-                    .equals(EffectTypes.BASIC_ATTACK) || this.getEffectType().equals(EffectTypes.ATTACK_SPELL)) {
+            }
 
-                    PlayerSpellCap.ISpellsCap cap = Load.spells(source);
+            PlayerSpellCap.ISpellsCap cap = Load.spells(source);
 
-                    cap.getAbilitiesData()
+            if (this.getEffectType()
+                .equals(EffectTypes.BASIC_ATTACK) || this.getEffectType().equals(EffectTypes.ATTACK_SPELL)) {
+
+                cap.getAbilitiesData()
+                    .getAllocatedSynergies()
+                    .forEach(x -> {
+                        if (x instanceof OnBasicAttackSynergy) {
+                            OnBasicAttackSynergy s = (OnBasicAttackSynergy) x;
+                            s.tryActivate(this);
+                        }
+                        if (x instanceof OnHitSynergy) {
+                            OnHitSynergy s = (OnHitSynergy) x;
+                            s.tryActivate(this);
+                        }
+                    });
+            } else if (this.getEffectType()
+                    .equals(EffectTypes.SPELL)) {
+
+                cap.getAbilitiesData()
                         .getAllocatedSynergies()
                         .forEach(x -> {
-                            if (x instanceof OnBasicAttackSynergy) {
-                                OnBasicAttackSynergy s = (OnBasicAttackSynergy) x;
+                            if (x instanceof OnHitSynergy) {
+                                OnHitSynergy s = (OnHitSynergy) x;
                                 s.tryActivate(this);
                             }
                         });
-
-                }
-
             }
-
         }
-
     }
 
     @Override

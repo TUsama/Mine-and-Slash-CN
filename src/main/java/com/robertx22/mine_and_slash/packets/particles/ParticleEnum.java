@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.packets.particles;
 
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.RGB;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.GeometryUtils;
 import net.minecraft.block.Blocks;
@@ -130,7 +131,7 @@ public enum ParticleEnum {
 
             for (int i = 0; i < 80; i++) {
                 Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius * i / 100);
-                world.addParticle(ParticleTypes.HAPPY_VILLAGER, p.x, p.y, p.z, 0, 0, 0);
+                world.addParticle(ParticleRegister.THUNDER, p.x, p.y, p.z, 0, 0, 0);
                 world.addParticle(ParticleTypes.SMOKE, p.x, p.y, p.z, 0, 0, 0);
 
             }

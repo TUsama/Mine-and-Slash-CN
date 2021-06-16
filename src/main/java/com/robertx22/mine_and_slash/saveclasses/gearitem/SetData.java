@@ -59,7 +59,7 @@ public class SetData implements IGearPartTooltip {
                     color = TextFormatting.GREEN;
                     has = true;
                 } else {
-                    color = TextFormatting.DARK_GREEN;
+                    color = TextFormatting.RED;
                 }
 
                 int avgLvl = info.unitdata.getUnit().wornSets.get(baseSet)
@@ -75,13 +75,16 @@ public class SetData implements IGearPartTooltip {
                     ITextComponent comp = new StringTextComponent(color + "").appendSibling(
                         new StringTextComponent("(" + entry.getKey() + ")"));
 
+                    comp.appendText(": ")
+                            .appendSibling(str);
+                    /*
                     if (has) {
                         comp.appendText(": ")
                             .appendSibling(str);
                     } else {
                         comp.appendText(": ")
                             .appendSibling(Words.Locked.locName());
-                    }
+                    }*/
 
                     list.add(comp);
                 }

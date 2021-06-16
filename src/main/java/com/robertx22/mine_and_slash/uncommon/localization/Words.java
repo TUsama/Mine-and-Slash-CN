@@ -249,6 +249,8 @@ public enum Words implements IAutoLocName {
 
     Magic_Shield_Cost("Magic Shield Cost"),
 
+    PhysicalAttackScaleValue("Physical Attack Scaling"),
+
     Energy_Cost("Energy Cost"),
 
     Map("Map"),

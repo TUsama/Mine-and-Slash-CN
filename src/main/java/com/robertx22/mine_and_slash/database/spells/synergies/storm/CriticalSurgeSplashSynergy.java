@@ -1,9 +1,11 @@
-package com.robertx22.mine_and_slash.database.spells.synergies.fire;
+package com.robertx22.mine_and_slash.database.spells.synergies.storm;
 
+import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.SpellBladeSpell;
-import com.robertx22.mine_and_slash.database.spells.synergies.base.OnBasicAttackSynergy;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.CriticalSurgeSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.PowerSurgeSpell;
+import com.robertx22.mine_and_slash.database.spells.synergies.base.OnHitSynergy;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -11,12 +13,15 @@ import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.ICrittable;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -24,7 +29,7 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
+public class CriticalSurgeSplashSynergy extends OnHitSynergy {
 
     @Override
     public List<ITextComponent> getSynergyTooltipInternal(TooltipInfo info) {
@@ -33,12 +38,14 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
         addSpellName(list);
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Spell Blade"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Critical Surge"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Attacks cause enemies to send out fiery"));
-        list.add(new StringTextComponent("novas, damaging other nearby enemies: "));
+        list.add(new StringTextComponent("While Critical Surge is active,"));
+        list.add(new StringTextComponent("critical hits have chance to"));
+        list.add(new StringTextComponent("cause the target to send out a"));
+        list.add(new StringTextComponent("nova, dealing damage: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -47,15 +54,15 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 2, 5);
+        c.set(SC.CAST_TIME_TICKS, 40, 20);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 0.5F, 1.5F);
-        c.set(SC.RADIUS, 1.0F, 2.0F);
+        c.set(SC.BASE_VALUE, 8, 16);
+        c.set(SC.CHANCE, 10, 25);
+        c.set(SC.RADIUS, 1.5F, 3F);
         c.setMaxLevel(8);
         return c;
     }
@@ -63,33 +70,34 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
     @Override
     public void tryActivate(DamageEffect ctx) {
 
-        float radius = getContext(ctx.source).getConfigFor(this)
-                .get(SC.RADIUS)
+        float chance = getContext(ctx.source).getConfigFor(this)
+                .get(SC.CHANCE)
                 .get(Load.spells(ctx.source), this);
 
-        if (ctx.getEffectType()
-            .equals(EffectData.EffectTypes.BASIC_ATTACK) || ctx.getEffectType()
-                .equals(EffectData.EffectTypes.ATTACK_SPELL)) {
+        if (ctx.isCriticalHit() && RandomUtils.roll(chance)) {
 
-            int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
-                    .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
+            float radius = getContext(ctx.source).getConfigFor(this)
+                    .get(SC.RADIUS)
+                    .get(Load.spells(ctx.source), this);
 
-            ParticleEnum.sendToClients(ctx.target,
-                new ParticlePacketData(ctx.target.getPosition(), ParticleEnum.NOVA).radius(
-                    radius)
-                    .type(ParticleTypes.FLAME)
-                    .amount(30)
-            );
+            int num = getCalcVal(ctx.source);
 
             List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
                     .radius(radius)
                     .build();
 
+            ParticlePacketData pdata = new ParticlePacketData(ctx.target.getPosition()
+                    .up(1), ParticleEnum.CHARGED_NOVA);
+            pdata.radius = radius;
+            ParticleEnum.CHARGED_NOVA.sendToClients(ctx.source, pdata);
+
+            SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.8F, 1.3F);
+
             for (LivingEntity en : entities) {
                 if (en != ctx.target) {
                     DamageEffect dmg = new DamageEffect(
                             null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-                    dmg.element = Elements.Fire;
+                    dmg.element = Elements.Thunder;
                     dmg.Activate();
                 }
             }
@@ -103,11 +111,11 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
 
     @Override
     public IAbility getRequiredAbility() {
-        return SpellBladeSpell.getInstance();
+        return CriticalSurgeSpell.getInstance();
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Flame Blade";
+        return "Voltaic Blast";
     }
 }
