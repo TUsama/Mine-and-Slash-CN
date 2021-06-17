@@ -9,7 +9,9 @@ import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneS
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ColdEssenceEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.StaticEffect;
+import com.robertx22.mine_and_slash.potion_effects.shaman.ThunderEssenceEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -19,6 +21,7 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.text.ITextComponent;
@@ -42,8 +45,9 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Battery Fusillade projectiles release a small"));
-        list.add(new StringTextComponent("nova upon hitting an enemy: "));
+        list.add(new StringTextComponent("If user has Lightning Essence, projectiles"));
+        list.add(new StringTextComponent("have a chance to release a small nova upon"));
+        list.add(new StringTextComponent("hitting an enemy: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -58,10 +62,11 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 2, 4);
+        c.set(SC.MANA_COST, 2, 6);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.02F, 0.06F);
-        c.set(SC.RADIUS, 1F, 2F);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.03F, 0.09F);
+        c.set(SC.CHANCE, 25, 50);
+        c.set(SC.RADIUS, 1F, 3F);
         c.setMaxLevel(10);
         return c;
     }
@@ -80,27 +85,34 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
 
-        float radius = getContext(ctx.source).getConfigFor(this)
-                .get(SC.RADIUS)
+        int stacks = PotionEffectUtils.getStacks(ctx.source, ThunderEssenceEffect.INSTANCE);
+        float chance = getContext(ctx.source).getConfigFor(this)
+                .get(SC.CHANCE)
                 .get(Load.spells(ctx.source), this);
 
-        int num = getCalcVal(ctx.source);
+        if (stacks > 0 && RandomUtils.roll(chance)) {
+            float radius = getContext(ctx.source).getConfigFor(this)
+                    .get(SC.RADIUS)
+                    .get(Load.spells(ctx.source), this);
 
-        List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
-                .radius(radius)
-                .build();
+            int num = getCalcVal(ctx.source);
 
-        ParticlePacketData pdata = new ParticlePacketData(ctx.target.getPosition()
-                .up(1), ParticleEnum.CHARGED_NOVA);
-        pdata.radius = radius;
-        ParticleEnum.CHARGED_NOVA.sendToClients(ctx.source, pdata);
+            List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
+                    .radius(radius)
+                    .build();
 
-        for (LivingEntity en : entities) {
-            if (en != ctx.target) {
-                DamageEffect dmg = new DamageEffect(
-                        null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-                dmg.element = Elements.Thunder;
-                dmg.Activate();
+            ParticlePacketData pdata = new ParticlePacketData(ctx.target.getPosition()
+                    .up(1), ParticleEnum.CHARGED_NOVA);
+            pdata.radius = radius;
+            ParticleEnum.CHARGED_NOVA.sendToClients(ctx.source, pdata);
+
+            for (LivingEntity en : entities) {
+                if (en != ctx.target) {
+                    DamageEffect dmg = new DamageEffect(
+                            null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                    dmg.element = Elements.Thunder;
+                    dmg.Activate();
+                }
             }
         }
     }

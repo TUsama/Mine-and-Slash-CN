@@ -52,6 +52,11 @@ public class FasterCastRate extends Stat implements IStatEffects {
         return new ReduceCastTimeEffect();
     }
 
+    @Override
+    public StatGroup statGroup() {
+        return StatGroup.SpellDamage;
+    }
+
     private static class SingletonHolder {
         private static final FasterCastRate INSTANCE = new FasterCastRate();
     }

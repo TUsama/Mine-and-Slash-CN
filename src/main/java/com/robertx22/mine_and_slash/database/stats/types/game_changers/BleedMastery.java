@@ -19,7 +19,7 @@ public class BleedMastery extends BaseGameChangerTrait implements IStatEffects {
 
     public static final BleedMastery INSTANCE = new BleedMastery();
 
-    static int LOSE_PERC = 20;
+    static int LOSE_PERC = 25;
 
     @Override
     public String getIconPath() {

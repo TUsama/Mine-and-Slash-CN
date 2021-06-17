@@ -24,6 +24,11 @@ public class AllElementalDamage extends ElementalStat implements IStatEffects {
 
     }
 
+    @Override
+    public StatGroup statGroup() {
+        return StatGroup.Damage;
+    }
+
     public AllElementalDamage(Elements element) {
         super(element);
     }

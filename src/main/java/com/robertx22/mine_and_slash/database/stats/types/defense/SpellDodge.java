@@ -20,6 +20,11 @@ public class SpellDodge extends Stat implements IStatEffects {
         return new SpellDodgeEffect();
     }
 
+    @Override
+    public StatGroup statGroup() {
+        return StatGroup.Defenses;
+    }
+
     public SpellDodge() {
     }
 

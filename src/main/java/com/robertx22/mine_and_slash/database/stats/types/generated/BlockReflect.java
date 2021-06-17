@@ -67,4 +67,9 @@ public class BlockReflect extends ElementalStat implements IStatEffects {
     public IStatEffect getEffect() {
         return new BlockReflectEffect(element);
     }
+
+    @Override
+    public StatGroup statGroup() {
+        return StatGroup.Defenses;
+    }
 }

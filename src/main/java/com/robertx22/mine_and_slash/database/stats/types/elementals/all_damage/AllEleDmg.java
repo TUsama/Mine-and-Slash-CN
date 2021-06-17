@@ -26,6 +26,11 @@ public class AllEleDmg extends Stat implements IStatEffects {
     }
 
     @Override
+    public StatGroup statGroup() {
+        return StatGroup.Damage;
+    }
+
+    @Override
     public boolean IsPercent() {
         return true;
     }

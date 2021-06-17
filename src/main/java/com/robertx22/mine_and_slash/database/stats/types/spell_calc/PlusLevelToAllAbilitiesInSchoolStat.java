@@ -83,4 +83,9 @@ public class PlusLevelToAllAbilitiesInSchoolStat extends Stat implements IAfterS
         }
 
     }
+
+    @Override
+    public boolean IsShownOnStatGui() {
+        return false;
+    }
 }

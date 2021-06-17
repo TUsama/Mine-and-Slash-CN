@@ -18,7 +18,7 @@ public class OverflowingVitality extends BaseGameChangerTrait implements IAffect
     static int INCREASE = 1;
     static int ELE_DECREASE = 50;
 
-    static int HP_DECREASE = 20;
+    static int HP_DECREASE = 10;
 
     private OverflowingVitality() {
     }

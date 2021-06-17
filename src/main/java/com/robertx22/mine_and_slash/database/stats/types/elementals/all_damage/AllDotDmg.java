@@ -22,6 +22,11 @@ public class AllDotDmg extends Stat implements IStatEffects {
     }
 
     @Override
+    public StatGroup statGroup() {
+        return StatGroup.Damage;
+    }
+
+    @Override
     public String getIconPath() {
         return GUID;
     }

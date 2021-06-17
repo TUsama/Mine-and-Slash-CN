@@ -1,12 +1,26 @@
 3.10.2:
 General Changes:
+* Salvage Station now only takes 3 seconds per item, instead of 5.
 * Magic shield flat stat has been reduced in effectiveness by about 20%. It is now slightly harder to get magic shield, but by investing in it, you can get even more than previously.
 * Magic shield percent stat has been improved by more than double.
 * Improved item tooltips. You can now see if the item is unsalvagable without holding shift. Unique "lore" text is now a italicized and gray.
 * You can now see what bonuses set items give without needing to equip them. No more "locked" set bonuses, they number now appears red instead, indicating they're not applying.
 * Fixed missing localization for spell costs.
 * Spells that modify attack scaling now display how much they'll modify it by if you hold shift.
+* Cleaned up the Stat Info GUI.
+* I'm slowly trying to phase out "increased" stats as they cause a lot of confusion.
 Talent Tree:
+* Blood Mage HP multi has increased from 10% -> 15%.
+* Overflowing Vitality now gives a -10% HP multi instead of 20%.
+* Bleed Mastery now gives -25% to all elemental damage instead of -20%.
+* Fortified Reaction now gives a -20% multi to armor instead of -25% multi to dodge. I believe the multiplier was applying after the conversion, therefore not doing anything.
+* Warlock now gives 20% DoT lifesteal instead of 80%. Yeah I don't really know what I was thinking. I made this before the DoT buffs, okay?
+* Magical Life now gives -20% multi to health instead of -25% multi to magic shield for reasons similar to above. It also now only gives 20% cooldown reduction instead of 25%.
+* Pacifist now gives 30% FLAT heal power instead of multi, and -30% FLAT spell power instead of -90% multi.
+* Reckless Blows now gives 25% FLAT penetration rather than multi. It now gives -30% multi also to dodge and magic shield.
+* Ruthless now gives 40% DoT damage instead of 50%. It also gives -25% spell damage instead of -30%.
+* Steady Hand now gives 20% more damage, down from 25%.
+* Vampire now give a FLAT 6% attack lifesteal and 3% spell lifesteal instead of giving multi. This was a good node but only after investing enough points. I want this to be impactful early game as well.
 * Changed the Talent Tree major elemental weapon damage nodes to big. So that's 60% -> 30%. 60% is crazy.
 * Changed the Talent Tree weapon nodes at the bottom of the tree from big to major.
 * Changed some Talent Tree mana nodes from big to small, and major to big.
@@ -36,6 +50,16 @@ Storm Spells:
 * Critical Surge no longer reduces elemental damage.
 * Power Surge no longer reduces critical hit chance.
 * Power Surge now gives lightning attack damage instead of "elemental".
+* Battery Fusillade projectiles per cast now scales at a lower rate per level (less projectiles by max level) by 25%.
+* Battery Fusillade mana scaling has increased slightly at lower levels, but increased at higher levels.
+* Battery Fusillade costs less mana at lower levels.
+* Battery Fusillade now has an increased firing rate (more bursty).
+* Battery Fusillade's cooldown has been reduced by a flat 3s.
+* Battery Fusillade synergy, Overcharge, now requires the user to have at least a stack of Lightning Essence.
+* Overcharge now adds more mana required per level.
+* Overcharge now scales with mana at a higher rate.
+* Overcharge now has increased AOE per level, up to 50% at max.
+* Overcharge now has a chance to create an AOE rather than always creating an AOE.
 * Charged Nova has been renamed Charged Sweep.
 * Charged Sweep is now an Attack Spell.
 * Charged Sweep has had a small rework. It now gains less AOE per level, casts instantly instead of being a channel, and has a much lower cooldown.

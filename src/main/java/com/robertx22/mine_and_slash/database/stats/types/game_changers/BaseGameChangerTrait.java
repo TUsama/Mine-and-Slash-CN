@@ -21,7 +21,7 @@ public abstract class BaseGameChangerTrait extends Trait {
 
     @Override
     public boolean IsShownOnStatGui() {
-        return true;
+        return false;
     }
 
     @Override

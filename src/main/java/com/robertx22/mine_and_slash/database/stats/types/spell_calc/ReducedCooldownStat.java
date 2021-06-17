@@ -54,6 +54,11 @@ public class ReducedCooldownStat extends Stat implements IStatEffects {
         return new ReduceCooldownEffect();
     }
 
+    @Override
+    public StatGroup statGroup() {
+        return StatGroup.SpellDamage;
+    }
+
     private static class SingletonHolder {
         private static final ReducedCooldownStat INSTANCE = new ReducedCooldownStat();
     }

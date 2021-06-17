@@ -44,7 +44,7 @@ public class FortifiedReaction extends BaseGameChangerTrait implements IStatTran
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-                new ExactStatData(-25, StatModTypes.Multi, DodgeRating.getInstance())
+                new ExactStatData(-20, StatModTypes.Multi, Armor.getInstance())
         );
     }
 

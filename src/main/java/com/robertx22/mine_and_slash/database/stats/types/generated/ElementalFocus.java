@@ -30,6 +30,11 @@ public class ElementalFocus extends SingleElementalStat implements IStatEffects 
     }
 
     @Override
+    public StatGroup statGroup() {
+        return StatGroup.Damage;
+    }
+
+    @Override
     public String locNameForLangFile() {
         return element.name() + " Focus";
     }

@@ -121,7 +121,7 @@ public class TileGearSalvage extends BaseTile {
     public static final int FIRST_OUTPUT_SLOT = FIRST_INPUT_SLOT + INPUT_SLOTS_COUNT;
     public static final int FIRST_CAPACITOR_SLOT = FIRST_OUTPUT_SLOT + OUTPUT_SLOTS_COUNT;
 
-    private static final short COOK_TIME_FOR_COMPLETION = 100; // vanilla value is 200 = 10 seconds
+    private static final short COOK_TIME_FOR_COMPLETION = 60; // vanilla value is 200 = 10 seconds
 
     public TileGearSalvage() {
         super(ModTileEntities.GEAR_SALVAGE.get());

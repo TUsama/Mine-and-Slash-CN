@@ -91,5 +91,10 @@ public class PlusAbilityLevelStat extends Stat implements IAfterStatCalc, IGener
         }
 
     }
+
+    @Override
+    public boolean IsShownOnStatGui() {
+        return false;
+    }
 }
 

@@ -44,7 +44,7 @@ public class MagicalLife extends BaseGameChangerTrait implements IStatTransfer {
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-                new ExactStatData(-25, StatModTypes.Multi, MagicShield.getInstance())
+                new ExactStatData(-20, StatModTypes.Multi, Health.getInstance())
         );
     }
 

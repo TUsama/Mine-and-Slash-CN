@@ -71,4 +71,9 @@ public class PlusLevelToAllAbilitiesStat extends Stat implements IAfterStatCalc,
         }
 
     }
+
+    @Override
+    public boolean IsShownOnStatGui() {
+        return false;
+    }
 }

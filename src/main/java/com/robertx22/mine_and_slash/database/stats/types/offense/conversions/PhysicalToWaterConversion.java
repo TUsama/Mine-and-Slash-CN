@@ -22,6 +22,11 @@ public class PhysicalToWaterConversion extends Stat implements IStatConversion {
     }
 
     @Override
+    public StatGroup statGroup() {
+        return StatGroup.EleAttackDamage;
+    }
+
+    @Override
     public String getIcon() {
         return "\u2764";
     }
