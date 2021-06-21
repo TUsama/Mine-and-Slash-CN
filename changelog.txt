@@ -1,3 +1,7 @@
+3.10.3:
+* Wisdom now gives some heal power.
+* Tooltip improvement for dodge/spell dodge.
+
 3.10.2:
 General Changes:
 * Salvage Station now only takes 3 seconds per item, instead of 5.
