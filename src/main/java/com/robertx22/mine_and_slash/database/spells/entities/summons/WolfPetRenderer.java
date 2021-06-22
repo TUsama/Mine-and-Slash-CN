@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class WolfPetRenderer extends MobRenderer<BaseSummonedEntity, WolfPetModel<BaseSummonedEntity>> {
+public class WolfPetRenderer extends MobRenderer<SpiritWolfPetEntity, WolfPetModel<SpiritWolfPetEntity>> {
     private static final ResourceLocation WOLF_TEXTURES = new ResourceLocation(Ref.MODID, "textures/entity/wolf.png");
 
     public WolfPetRenderer(EntityRendererManager renderManagerIn) {
@@ -15,18 +15,17 @@ public class WolfPetRenderer extends MobRenderer<BaseSummonedEntity, WolfPetMode
     }
 
     @Override
-    protected float handleRotationFloat(BaseSummonedEntity livingBase, float partialTicks) {
+    protected float handleRotationFloat(SpiritWolfPetEntity livingBase, float partialTicks) {
         return 1.5393804F;
     }
 
     @Override
-    public void render(BaseSummonedEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
+    public void render(SpiritWolfPetEntity entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn) {
         super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
-
     }
 
     @Override
-    public ResourceLocation getEntityTexture(BaseSummonedEntity entity) {
+    public ResourceLocation getEntityTexture(SpiritWolfPetEntity entity) {
         return WOLF_TEXTURES;
     }
 

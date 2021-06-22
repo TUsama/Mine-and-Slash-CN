@@ -31,6 +31,12 @@ public class EntitySpellData {
     public int lifeInTicks = 100;
 
     @Store
+    public int maxEntities = 1;
+
+    @Store
+    private int currentEntities = 0;
+
+    @Store
     public int ticksExisted = 0;
 
     @Store
@@ -62,6 +68,7 @@ public class EntitySpellData {
 
         this.lifeInTicks = config.get(SC.DURATION_TICKS)
             .intValue();
+        //this.maxEntities = config.get(SC.SUMMONED_ENTITIES).intValue();
         this.configs = config;
     }
 

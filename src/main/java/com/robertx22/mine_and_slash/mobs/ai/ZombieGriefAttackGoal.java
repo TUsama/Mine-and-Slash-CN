@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.mobs.entity;
+package com.robertx22.mine_and_slash.mobs.ai;
 
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityUtils;
 import net.minecraft.block.Blocks;

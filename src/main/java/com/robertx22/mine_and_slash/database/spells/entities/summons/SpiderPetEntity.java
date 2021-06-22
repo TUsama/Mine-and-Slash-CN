@@ -67,23 +67,4 @@ public class SpiderPetEntity extends BaseSummonedEntity {
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.ENTITY_SPIDER_STEP, 0.15F, 1.0F);
     }
-
-    @Override
-    public boolean attackEntityAsMob(Entity en) {
-
-        if (super.attackEntityAsMob(en)) {
-            if (en instanceof LivingEntity) {
-                if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
-
-                    System.out.println("meow");
-                    // do dmg
-
-                }
-            }
-
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
