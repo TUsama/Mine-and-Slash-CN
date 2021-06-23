@@ -20,4 +20,9 @@ public class BonusLifestealAffix extends BeneficialMapAffix {
         return Arrays.asList(StatModData.Load(new LifestealFlat().size(StatMod.Size.DOUBLE), percent));
     }
 
+    @Override
+    public float lootMulti() {
+        return 1.1F;
+    }
+
 }

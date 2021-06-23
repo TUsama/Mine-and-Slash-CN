@@ -14,6 +14,7 @@ public class SewersRoomAdder extends BaseRoomAdder {
     public void addAllRooms() {
 
         add("sewers", RoomType.FOUR_WAY);
+        add("sewers_flow", RoomType.FOUR_WAY);
         add("sewers", RoomType.ENTRANCE);
         add("sewers_treasure", RoomType.END).weight(300);
         add("sewers_puzzle_easy", RoomType.TRIPLE_HALLWAY);

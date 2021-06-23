@@ -20,4 +20,9 @@ public class LessLifeOnHitAffix extends DetrimentalMapAffix {
         return Arrays.asList(StatModData.Load(new LifeOnHitFlat().size(StatMod.Size.ONE_LESS), percent));
     }
 
+    @Override
+    public float lootMulti() {
+        return 1F;
+    }
+
 }

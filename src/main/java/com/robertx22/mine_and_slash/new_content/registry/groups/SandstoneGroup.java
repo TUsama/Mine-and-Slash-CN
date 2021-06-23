@@ -12,6 +12,6 @@ public class SandstoneGroup extends RoomGroup {
 
     @Override
     public List<RoomGroup> possibleOtherTypes() {
-        return Arrays.asList();
+        return Arrays.asList(RoomGroup.ALL);
     }
 }

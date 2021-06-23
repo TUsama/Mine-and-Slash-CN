@@ -33,7 +33,7 @@ public class LessWeaponDamageMapAffix extends DetrimentalMapAffix implements IGe
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new WeaponDamageFlat(weaponType).size(StatMod.Size.TRIPLE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new WeaponDamageFlat(weaponType).size(StatMod.Size.DOUBLE_LESS), percent));
 
     }
 
@@ -44,5 +44,10 @@ public class LessWeaponDamageMapAffix extends DetrimentalMapAffix implements IGe
         WeaponTypes.getAll()
             .forEach(x -> list.add(new LessWeaponDamageMapAffix(x)));
         return list;
+    }
+
+    @Override
+    public float lootMulti() {
+        return 1.2F;
     }
 }

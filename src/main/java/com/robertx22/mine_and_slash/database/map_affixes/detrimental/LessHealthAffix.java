@@ -20,4 +20,9 @@ public class LessHealthAffix extends DetrimentalMapAffix {
         return Arrays.asList(StatModData.Load(new HealthPercent().size(StatMod.Size.ONE_LESS), percent));
     }
 
+    @Override
+    public float lootMulti() {
+        return 1.15F;
+    }
+
 }

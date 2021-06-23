@@ -17,11 +17,11 @@ public class LessManaRegenAffix extends DetrimentalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new ManaRegenPercent().size(StatMod.Size.ONE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new ManaRegenPercent().size(StatMod.Size.DOUBLE_LESS), percent));
     }
 
     @Override
     public float lootMulti() {
-        return 2;
+        return 1.1F;
     }
 }

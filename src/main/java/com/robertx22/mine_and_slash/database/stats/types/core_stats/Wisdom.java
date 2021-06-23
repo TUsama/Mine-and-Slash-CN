@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealPowerFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldRegenFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.MagicShieldPercent;
@@ -34,7 +35,7 @@ public class Wisdom extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Magic Shield and Magic Shield Regen";
+        return "Increases Heal Power, Magic Shield Regen, and Mana Regen";
     }
 
     @Override
@@ -46,8 +47,8 @@ public class Wisdom extends BaseCoreStat {
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
                 new HealPowerFlat().size(StatMod.Size.HALF),
-                new MagicShieldPercent(),
-                new MagicShieldRegenFlat().size(StatMod.Size.LOW));
+                new MagicShieldRegenFlat().size(StatMod.Size.LOW),
+                new ManaRegenFlat().size(StatMod.Size.HALF));
     }
 
     @Override

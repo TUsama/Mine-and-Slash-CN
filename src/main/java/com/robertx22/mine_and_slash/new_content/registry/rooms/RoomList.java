@@ -33,6 +33,7 @@ public class RoomList {
             new NetherRoomAdder().addAllRooms();
             new IceTempleRoomAdder().addAllRooms();
             new WideNatureRoomAdder().addAllRooms();
+            new AllRoomAdder().addAllRooms();
 
             rooms.add(new DungeonRoom("simple_prismarine", RoomType.FOUR_WAY, RoomGroup.MISC));
             rooms.add(new DungeonRoom("prismarine", RoomType.ENTRANCE, RoomGroup.MISC));

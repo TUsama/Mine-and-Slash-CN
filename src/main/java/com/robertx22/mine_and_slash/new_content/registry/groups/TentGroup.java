@@ -6,12 +6,12 @@ import java.util.List;
 public class TentGroup extends RoomGroup {
 
     public TentGroup() {
-        super("tent", 100);
+        super("tent", 600);
     }
 
     @Override
     public List<RoomGroup> possibleOtherTypes() {
-        return Arrays.asList();
+        return Arrays.asList(RoomGroup.ALL);
     }
 
 }

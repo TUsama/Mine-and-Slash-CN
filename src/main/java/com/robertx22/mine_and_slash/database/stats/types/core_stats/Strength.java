@@ -33,7 +33,7 @@ public class Strength extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Physical DMG and Armor";
+        return "Increases Physical Attack Damage and Critical Damage";
     }
 
     @Override
@@ -44,8 +44,8 @@ public class Strength extends BaseCoreStat {
     @Override
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
-                new PhysicalDamagePercent().size(StatMod.Size.LOW),
-                new ArmorFlat());
+                new PhysicalDamagePercent(),
+                new CriticalDamageFlat().size(StatMod.Size.HALF));
     }
 
     @Override

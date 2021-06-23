@@ -7,7 +7,7 @@ import java.util.Random;
 public class MiscGroup extends RoomGroup {
 
     public MiscGroup() {
-        super("misc", 10);
+        super("misc", 25);
         this.canBeMainTheme = false;
     }
 

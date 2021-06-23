@@ -21,4 +21,9 @@ public class LessCriticalHitAffix extends DetrimentalMapAffix {
             .size(StatMod.Size.ONE_LESS), percent));
     }
 
+    @Override
+    public float lootMulti() {
+        return 1.2F;
+    }
+
 }

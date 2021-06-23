@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.map_affixes.detrimental;
 import com.robertx22.mine_and_slash.database.map_affixes.DetrimentalMapAffix;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.EnergyRegenPercent;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.StatModData;
 
 import java.util.Arrays;
@@ -17,12 +18,12 @@ public class LessEnergyRegenAffix extends DetrimentalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new EnergyRegenFlat().size(StatMod.Size.ONE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new EnergyRegenPercent().size(StatMod.Size.DOUBLE_LESS), percent));
     }
 
     @Override
     public float lootMulti() {
-        return 2;
+        return 1.1F;
     }
 
 }

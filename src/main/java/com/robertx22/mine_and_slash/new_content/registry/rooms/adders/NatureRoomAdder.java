@@ -14,6 +14,7 @@ public class NatureRoomAdder extends BaseRoomAdder {
     public void addAllRooms() {
 
         add("trader", RoomType.CURVED_HALLWAY);
+        add("0", RoomType.CURVED_HALLWAY);
 
         add("boss_evoker", RoomType.END);
         add("mythic_mob_house", RoomType.END);

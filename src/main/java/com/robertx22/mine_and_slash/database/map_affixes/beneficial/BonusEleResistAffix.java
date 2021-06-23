@@ -46,4 +46,9 @@ public class BonusEleResistAffix extends BaseElementalMapAffix {
     public BaseMapAffix newGeneratedInstance(Elements element) {
         return new BonusEleResistAffix(element);
     }
+
+    @Override
+    public float lootMulti() {
+        return 1.35F;
+    }
 }

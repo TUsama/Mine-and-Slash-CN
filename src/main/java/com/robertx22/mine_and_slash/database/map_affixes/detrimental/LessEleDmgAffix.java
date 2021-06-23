@@ -19,7 +19,7 @@ public class LessEleDmgAffix extends BaseElementalMapAffix {
 
     @Override
     public StatMod.Size getSize() {
-        return StatMod.Size.TRIPLE_LESS;
+        return StatMod.Size.DOUBLE_LESS;
     }
 
     @Override
@@ -46,5 +46,10 @@ public class LessEleDmgAffix extends BaseElementalMapAffix {
     @Override
     public BaseMapAffix newGeneratedInstance(Elements element) {
         return new LessEleDmgAffix(element);
+    }
+
+    @Override
+    public float lootMulti() {
+        return 1.2F;
     }
 }

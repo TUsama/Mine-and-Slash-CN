@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.new_content.data_processors.bases.ChunkProce
 import com.robertx22.mine_and_slash.new_content.data_processors.bases.SpawnedMob;
 import com.robertx22.mine_and_slash.new_content.registry.DataProcessor;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.MobSpawnUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +21,10 @@ public class MobProcessor extends DataProcessor {
 
         EntityType<? extends MobEntity> type = SpawnedMob.random(data.getRoom()).type;
 
-        MobSpawnUtils.summonMinion(type, world, pos);
+        int amount = RandomUtils.RandomRange(0, 2); // hacky solution
 
+        for (int i = 0; i < amount; i++) {
+            MobSpawnUtils.summonMinion(type, world, pos);
+        }
     }
 }

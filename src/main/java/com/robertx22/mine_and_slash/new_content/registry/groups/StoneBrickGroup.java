@@ -12,7 +12,7 @@ public class StoneBrickGroup extends RoomGroup {
 
     @Override
     public List<RoomGroup> possibleOtherTypes() {
-        return Arrays.asList(RoomGroup.MOSSY_BRICK, RoomGroup.BRICK, RoomGroup.STEAMPUNK);
+        return Arrays.asList(RoomGroup.MOSSY_BRICK, RoomGroup.BRICK, RoomGroup.STEAMPUNK, RoomGroup.ALL);
     }
 
 }

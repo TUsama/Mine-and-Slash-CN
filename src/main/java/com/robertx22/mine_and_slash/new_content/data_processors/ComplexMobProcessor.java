@@ -142,7 +142,8 @@ public class ComplexMobProcessor extends DataProcessor {
                             .getFilterWrapped(x -> !x.isFire)
                             .random();
                 }
-
+            } else if (RandomUtils.RandomRange(1,4) == 1) { // hacky solution to increase mob density
+                amount++;
             }
 
             for (int i = 0; i < amount; i++) {

@@ -15,6 +15,7 @@ public class IceTempleRoomAdder extends BaseRoomAdder {
 
         add("caverns", RoomType.CURVED_HALLWAY);
         add("ice_windows", RoomType.CURVED_HALLWAY);
+        add("ice_rooms", RoomType.CURVED_HALLWAY);
         add("prayer_room", RoomType.CURVED_HALLWAY);
 
         add("boss_pool", RoomType.END).setBoss();

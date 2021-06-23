@@ -13,6 +13,6 @@ public class NetherGroup extends RoomGroup {
 
     @Override
     public List<RoomGroup> possibleOtherTypes() {
-        return Arrays.asList();
+        return Arrays.asList(RoomGroup.ALL);
     }
 }

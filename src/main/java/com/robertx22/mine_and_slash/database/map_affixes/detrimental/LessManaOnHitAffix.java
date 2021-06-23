@@ -21,4 +21,9 @@ public class LessManaOnHitAffix extends DetrimentalMapAffix {
 
     }
 
+    @Override
+    public float lootMulti() {
+        return 1F;
+    }
+
 }

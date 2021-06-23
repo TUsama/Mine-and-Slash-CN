@@ -80,8 +80,7 @@ public class MapBlueprint extends ItemBlueprint {
                 .values());
 
             while (affixes.contains(
-                affix.GUID()) || affix.isBeneficial()) { // can't have moba affixes arndom anymore. only on
-                // dimension types
+                affix.GUID()) /*|| affix.isBeneficial()*/) {
                 affix = RandomUtils.weightedRandom(SlashRegistry.MapAffixes()
                     .getAll()
                     .values());
@@ -93,9 +92,11 @@ public class MapBlueprint extends ItemBlueprint {
 
         }
 
+        /*
         int percent = RandomUtils.RandomRange(rarity.StatPercents().min, rarity.StatPercents().max);
         List<BaseMapAffix> possible = new BonusEleDmgAffix(Elements.Nature).generateAllSingleVariations();
         map.affixes.add(new MapAffixData(RandomUtils.weightedRandom(possible), percent));
+        */
 
         return map;
     }

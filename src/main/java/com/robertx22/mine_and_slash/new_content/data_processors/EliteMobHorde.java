@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.new_content.data_processors.bases.ChunkProce
 import com.robertx22.mine_and_slash.new_content.data_processors.bases.SpawnedMob;
 import com.robertx22.mine_and_slash.new_content.registry.DataProcessor;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.MobSpawnUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +21,9 @@ public class EliteMobHorde extends DataProcessor {
 
         EntityType<? extends MobEntity> type = SpawnedMob.random(data.getRoom()).type;
 
-        for (int i = 0; i < 3; i++) {
+        int amount = RandomUtils.RandomRange(2, 4); // add variability
+
+        for (int i = 0; i < amount; i++) {
             MobSpawnUtils.summonElite(type, world, pos);
         }
     }

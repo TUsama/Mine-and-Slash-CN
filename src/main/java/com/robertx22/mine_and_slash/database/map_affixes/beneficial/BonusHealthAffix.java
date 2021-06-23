@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.map_affixes.beneficial;
 import com.robertx22.mine_and_slash.database.map_affixes.BeneficialMapAffix;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.HealthPercent;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.StatModData;
 
 import java.util.Arrays;
@@ -17,7 +18,12 @@ public class BonusHealthAffix extends BeneficialMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new HealthFlat().size(StatMod.Size.HALF_MORE), percent));
+        return Arrays.asList(StatModData.Load(new HealthPercent().size(StatMod.Size.DOUBLE), percent));
+    }
+
+    @Override
+    public float lootMulti() {
+        return 1.5F;
     }
 
 }

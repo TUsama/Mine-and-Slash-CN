@@ -46,4 +46,9 @@ public class BonusEleDmgAffix extends BaseElementalMapAffix {
     public BaseMapAffix newGeneratedInstance(Elements element) {
         return new BonusEleDmgAffix(element);
     }
+
+    @Override
+    public float lootMulti() {
+        return 1.6F;
+    }
 }

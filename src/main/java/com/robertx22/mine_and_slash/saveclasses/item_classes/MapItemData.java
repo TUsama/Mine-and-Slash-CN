@@ -129,7 +129,7 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
     @Override
     public float getBonusLootMulti() {
         if (isExp) {
-            return 1;
+            return 1 + (bonusFormula() * 0.5F);
         } else {
             return 1 + bonusFormula();
         }
@@ -141,9 +141,9 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
 
     public float getBonusExpMulti() {
         if (isExp) {
-            return 1 + (bonusFormula() * 2);
+            return 1 + (bonusFormula() * 1F);
         } else {
-            return 1;
+            return 1 + (bonusFormula() * 0.25F);
         }
     }
 
@@ -307,7 +307,7 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
 
         ITextComponent comp = TooltipUtils.rarityShort(rarity)
             .appendText(TextFormatting.GRAY + ", ")
-            .appendSibling(Styles.YELLOWCOMP());
+            .appendSibling(Styles.GREENCOMP());
 
         boolean addedExp = false;
         if (getBonusExpAmountInPercent() > 0) {
@@ -319,11 +319,11 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
 
         if (getBonusLootAmountInPercent() > 0) {
             if (addedExp) {
-                comp.appendText(", ");
+                comp.appendText(TextFormatting.GRAY + ", ");
             }
 
             comp.appendSibling(Words.Loot.locName()
-                .appendText(
+                .appendText(TextFormatting.YELLOW +
                     ": +" + this.getBonusLootAmountInPercent() + "%"));
         }
         comp.appendText(TextFormatting.GRAY + ", ")
@@ -379,7 +379,7 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
             str.appendSibling(Words.Affixes_Affecting_All.locName());
         }
 
-        tooltip.add(Styles.GREENCOMP()
+        tooltip.add(Styles.AQUACOMP()
             .appendSibling(str));
 
         for (MapAffixData affix : affixes) {

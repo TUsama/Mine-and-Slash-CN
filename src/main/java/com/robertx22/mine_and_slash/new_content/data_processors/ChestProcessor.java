@@ -34,78 +34,82 @@ public class ChestProcessor extends DataProcessor {
 
         boolean useVanilla = RandomUtils.roll(20);
 
-        if (isTrapped) {
+        int chestChance = RandomUtils.RandomRange(1,4);
+
+        if (chestChance > 1) {
+            if (isTrapped) {
+                if (useVanilla) {
+                    world.setBlockState(pos, Blocks.TRAPPED_CHEST
+                            .getDefaultState(), 2);
+                } else {
+                    world.setBlockState(pos, ModBlocks.TRAPPED_MAP_CHEST.get()
+                            .getDefaultState(), 2);
+                }
+            } else {
+                if (useVanilla) {
+                    world.setBlockState(pos, Blocks.CHEST
+                            .getDefaultState(), 2);
+                } else {
+                    world.setBlockState(pos, ModBlocks.MAP_CHEST.get()
+                            .getDefaultState(), 2);
+                }
+            }
+
+            TileEntity tile = world.getTileEntity(pos);
+
             if (useVanilla) {
-                world.setBlockState(pos, Blocks.TRAPPED_CHEST
-                    .getDefaultState(), 2);
+                if (tile instanceof ChestTileEntity) {
+                    ChestTileEntity chest = (ChestTileEntity) tile;
+
+                    float lvm = (float) Load.world(world.getWorld())
+                            .getLevel(pos, world) / (float) ModConfig.INSTANCE.Server.MAXIMUM_PLAYER_LEVEL.get();
+
+                    ResourceLocation table = ModLootTables.TIER_1_DUNGEON_CHEST;
+
+                    if (lvm > 0.3F) {
+                        table = ModLootTables.TIER_2_DUNGEON_CHEST;
+                    }
+                    if (lvm > 0.5F) {
+                        table = ModLootTables.TIER_3_DUNGEON_CHEST;
+                    }
+                    if (lvm > 0.7F) {
+                        table = ModLootTables.TIER_4_DUNGEON_CHEST;
+                    }
+                    if (lvm > 0.9F) {
+                        table = ModLootTables.TIER_5_DUNGEON_CHEST;
+                    }
+
+                    LockableLootTileEntity.setLootTable(world, world.getRandom(), pos, table);
+
+                } else {
+                    System.out.println("Chest gen failed, tile not instanceof vanilla chest.");
+                }
             } else {
-                world.setBlockState(pos, ModBlocks.TRAPPED_MAP_CHEST.get()
-                    .getDefaultState(), 2);
-            }
-        } else {
-            if (useVanilla) {
-                world.setBlockState(pos, Blocks.CHEST
-                    .getDefaultState(), 2);
-            } else {
-                world.setBlockState(pos, ModBlocks.MAP_CHEST.get()
-                    .getDefaultState(), 2);
-            }
-        }
+                if (tile instanceof MapChestTile) {
 
-        TileEntity tile = world.getTileEntity(pos);
+                    MapChestTile chest = (MapChestTile) tile;
 
-        if (useVanilla) {
-            if (tile instanceof ChestTileEntity) {
-                ChestTileEntity chest = (ChestTileEntity) tile;
+                    NonNullList<ItemStack> items = NonNullList.create();
 
-                float lvm = (float) Load.world(world.getWorld())
-                    .getLevel(pos, world) / (float) ModConfig.INSTANCE.Server.MAXIMUM_PLAYER_LEVEL.get();
+                    LootCrate crate = SlashRegistry.LootCrates()
+                            .random();
 
-                ResourceLocation table = ModLootTables.TIER_1_DUNGEON_CHEST;
+                    int times = 1;
 
-                if (lvm > 0.3F) {
-                    table = ModLootTables.TIER_2_DUNGEON_CHEST;
+                    if (key.contains("big")) {
+                        times *= 3;
+                    }
+
+                    for (int i = 0; i < times; i++) {
+                        crate.generateItems(new LootInfo(world.getWorld(), pos))
+                                .forEach(x -> items.add(x));
+                    }
+
+                    chest.addItems(items);
+
+                } else {
+                    System.out.println("Chest gen failed, tile not instanceof map chest.");
                 }
-                if (lvm > 0.5F) {
-                    table = ModLootTables.TIER_3_DUNGEON_CHEST;
-                }
-                if (lvm > 0.7F) {
-                    table = ModLootTables.TIER_4_DUNGEON_CHEST;
-                }
-                if (lvm > 0.9F) {
-                    table = ModLootTables.TIER_5_DUNGEON_CHEST;
-                }
-
-                LockableLootTileEntity.setLootTable(world, world.getRandom(), pos, table);
-
-            } else {
-                System.out.println("Chest gen failed, tile not instanceof vanilla chest.");
-            }
-        } else {
-            if (tile instanceof MapChestTile) {
-
-                MapChestTile chest = (MapChestTile) tile;
-
-                NonNullList<ItemStack> items = NonNullList.create();
-
-                LootCrate crate = SlashRegistry.LootCrates()
-                    .random();
-
-                int times = 1;
-
-                if (key.contains("big")) {
-                    times = 3;
-                }
-
-                for (int i = 0; i < times; i++) {
-                    crate.generateItems(new LootInfo(world.getWorld(), pos))
-                        .forEach(x -> items.add(x));
-                }
-
-                chest.addItems(items);
-
-            } else {
-                System.out.println("Chest gen failed, tile not instanceof map chest.");
             }
         }
     }

@@ -11,6 +11,6 @@ public class MineGroup extends RoomGroup {
 
     @Override
     public List<RoomGroup> possibleOtherTypes() {
-        return Arrays.asList();
+        return Arrays.asList(RoomGroup.ALL);
     }
 }

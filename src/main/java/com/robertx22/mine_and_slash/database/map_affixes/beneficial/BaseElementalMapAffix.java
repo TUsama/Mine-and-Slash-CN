@@ -30,6 +30,8 @@ public abstract class BaseElementalMapAffix extends BaseMapAffix implements IEle
         List<StatMod> all = getGenStat().generateAllPossibleStatVariations();
 
         for (StatMod sg : all) {
+            if (sg.GetBaseStat()
+                    .getElement() != Elements.Elemental)
             list.add(this.newGeneratedInstance(sg.GetBaseStat()
                 .getElement()));
         }

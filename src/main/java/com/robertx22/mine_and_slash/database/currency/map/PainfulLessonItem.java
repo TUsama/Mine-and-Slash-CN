@@ -86,7 +86,7 @@ public class PainfulLessonItem extends CurrencyItem implements ICurrencyItemEffe
 
     @Override
     public String locDescForLangFile() {
-        return "Transforms loot into exp bonus, times two.";
+        return "Halve the map's loot bonus to quadruple the experience bonus.";
     }
 
     @Override

@@ -1,10 +1,7 @@
 package com.robertx22.mine_and_slash.db_lists.initializers;
 
 import com.robertx22.mine_and_slash.database.map_affixes.BaseMapAffix;
-import com.robertx22.mine_and_slash.database.map_affixes.beneficial.BonusEleDmgAffix;
-import com.robertx22.mine_and_slash.database.map_affixes.beneficial.BonusEleResistAffix;
-import com.robertx22.mine_and_slash.database.map_affixes.beneficial.BonusHealthAffix;
-import com.robertx22.mine_and_slash.database.map_affixes.beneficial.BonusLifestealAffix;
+import com.robertx22.mine_and_slash.database.map_affixes.beneficial.*;
 import com.robertx22.mine_and_slash.database.map_affixes.detrimental.*;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
@@ -25,24 +22,41 @@ public class MapAffixes implements ISlashRegistryInit {
             {
                 {
 
-                    add(new LessWeaponDamageMapAffix(WeaponTypes.None));
+                    //add(new LessWeaponDamageMapAffix(WeaponTypes.None));
+                    add(new LessPhysDmgAffix());
 
                     add(new BonusHealthAffix());
                     add(new BonusLifestealAffix());
+                    add(new BonusArmorAffix());
+                    add(new BonusDodgeAffix());
+                    add(new BonusAllResistAffix());
+                    add(new BonusArmorPenAffix());
+
+                    add(new BonusPhysDmgAffix());
 
                     add(new BonusEleDmgAffix(Elements.Nature));
                     add(new BonusEleResistAffix(Elements.Nature));
+                    add(new BonusElePenAffix(Elements.Nature));
                     add(new LessEleDmgAffix(Elements.Nature));
 
                     add(new LessDodgeAffix());
+                    add(new LessArmorAffix());
                     add(new LessCriticalHitAffix());
+                    add(new LessCriticalDamageAffix());
+                    add(new LessSpellDmgAffix());
+                    add(new LessCooldownAffix());
+                    add(new MoreManaCostAffix());
+                    add(new LessHealPowerAffix());
 
                     // resources
                     add(new LessEnergyRegenAffix());
                     add(new LessManaRegenAffix());
                     add(new LessHealthRegenAffix());
+                    add(new LessMagicShieldAffix());
+                    add(new LessMagicShieldRegenAffix());
                     add(new LessLifeOnHitAffix());
                     add(new LessLifestealAffix());
+                    add(new LessSpellstealAffix());
                     add(new LessHealthAffix());
                     add(new LessManaOnHitAffix());
 
