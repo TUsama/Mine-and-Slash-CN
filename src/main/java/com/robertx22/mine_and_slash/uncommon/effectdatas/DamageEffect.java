@@ -1,8 +1,10 @@
 package com.robertx22.mine_and_slash.uncommon.effectdatas;
 
+import com.mojang.datafixers.types.templates.Sum;
 import com.robertx22.mine_and_slash.api.MineAndSlashEvents;
 import com.robertx22.mine_and_slash.config.forge.ModConfig;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.MyDamageSource;
+import com.robertx22.mine_and_slash.database.spells.synergies.base.OnAttackSpellDmgDoneSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnBasicAttackSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnHitSynergy;
@@ -192,12 +194,22 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                             s.tryActivate(e);
                         }
                     });
+            } else if (this instanceof  AttackSpellDamageEffect) {
+                AttackSpellDamageEffect ae = (AttackSpellDamageEffect) this;
+
+                ae.spell.getAllocatedSynergies(Load.spells(ae.source))
+                    .forEach(x -> {
+                        if (x instanceof OnAttackSpellDmgDoneSynergy) {
+                            OnAttackSpellDmgDoneSynergy as = (OnAttackSpellDmgDoneSynergy) x;
+                            as.tryActivate(ae);
+                        }
+                    });
             }
 
             PlayerSpellCap.ISpellsCap cap = Load.spells(source);
 
             if (this.getEffectType()
-                .equals(EffectTypes.BASIC_ATTACK) || this.getEffectType().equals(EffectTypes.ATTACK_SPELL)) {
+                .equals(EffectTypes.BASIC_ATTACK) || this.getEffectType().equals(EffectTypes.ATTACK_SPELL) || this.getEffectType().equals(EffectTypes.SUMMON_DMG)) {
 
                 cap.getAbilitiesData()
                     .getAllocatedSynergies()
@@ -239,11 +251,11 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                 return;
             }
         } else {
-            if (this instanceof SpellDamageEffect) {
+            if (this instanceof SpellDamageEffect || this instanceof AttackSpellDamageEffect || this instanceof SummonDamageEffect) {
                 if (target instanceof TameableEntity) {
                     if (source instanceof PlayerEntity) {
                         TameableEntity tame = (TameableEntity) target;
-                        if (tame.isOwner(source)) {
+                        if (tame.isOwner(source) || TeamUtils.areOnSameTeam((ServerPlayerEntity) source, (ServerPlayerEntity) tame.getOwner())) {
                             cancelDamage();
                             return;
                         }
@@ -381,7 +393,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
 
     private void onEventPotions() {
 
-        if (this.getEffectType() == EffectTypes.BASIC_ATTACK || this.getEffectType() == EffectTypes.NORMAL) {
+        if (this.getEffectType() == EffectTypes.BASIC_ATTACK || this.getEffectType() == EffectTypes.NORMAL || this.getEffectType() == EffectTypes.SUMMON_DMG) {
             List<EffectInstance> onAttacks = source.getActivePotionEffects()
                 .stream()
                 .filter(x -> x.getPotion() instanceof IOnBasicAttackPotion)

@@ -1,0 +1,21 @@
+{
+  "id": "necromancers",
+  "weight": 2500,
+  "rarity": 2,
+  "tier": 0,
+  "registry": "affix",
+  "lang_file_string": "mmorpg.affix.necromancers",
+  "type": "prefix",
+  "requirements": {
+    "list": [
+      {
+        "slots": [
+          "staff"
+        ]
+      }
+    ]
+  },
+  "mods": [
+    "summon_damage_flat"
+  ]
+}

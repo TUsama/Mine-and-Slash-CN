@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.uncommon.localization.Words;
 
 public enum SC {
 
+    HEALTH_COST(0, Words.Health_Cost),
     MANA_COST(0, Words.Mana_Cost),
     MAGIC_SHIELD_COST(0, Words.Magic_Shield_Cost),
     ENERGY_COST(0, Words.Energy_Cost),
@@ -20,6 +21,7 @@ public enum SC {
     TICK_RATE(-100, Words.TickRate),
     TIMES_TO_CAST(1, Words.TimesToCast),
     BASE_VALUE(0, null),
+    BONUS_HEALTH(0, null),
     AMOUNT(0, Words.Amount),
     ATTACK_SCALE_VALUE(0, null),
     ELEMENTAL_ATTACK_SCALE_VALUE(0, null),

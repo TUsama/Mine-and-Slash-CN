@@ -55,6 +55,7 @@ public class ThunderstormSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
+        c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 32, 58);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);

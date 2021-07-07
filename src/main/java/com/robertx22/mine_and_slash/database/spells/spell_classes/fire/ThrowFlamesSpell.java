@@ -63,6 +63,7 @@ public class ThrowFlamesSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
+        c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 11, 16);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.ENERGY_COST, 3, 7);

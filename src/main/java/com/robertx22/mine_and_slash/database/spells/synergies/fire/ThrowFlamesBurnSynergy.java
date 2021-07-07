@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.spells.synergies.fire;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.ThrowFlamesSpell;
+import com.robertx22.mine_and_slash.database.spells.synergies.base.OnAttackSpellDmgDoneSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
@@ -11,7 +12,11 @@ import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
@@ -31,7 +36,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThrowFlamesBurnSynergy extends OnDamageDoneSynergy {
+public class ThrowFlamesBurnSynergy extends OnAttackSpellDmgDoneSynergy {
 
     @Override
     public List<ITextComponent> getSynergyTooltipInternal(TooltipInfo info) {
@@ -80,7 +85,7 @@ public class ThrowFlamesBurnSynergy extends OnDamageDoneSynergy {
     }
 
     @Override
-    public void tryActivate(SpellDamageEffect ctx) {
+    public void tryActivate(AttackSpellDamageEffect ctx) {
 
         if (PotionEffectUtils.has(ctx.target, BurnEffect.INSTANCE)) {
 
@@ -107,7 +112,12 @@ public class ThrowFlamesBurnSynergy extends OnDamageDoneSynergy {
 
             entities.forEach(e -> {
 
-                getSynergyDamage(ctx, e, num).Activate();
+                //getSynergyDamage(ctx, e, num).Activate();
+                DamageEffect dmg = new DamageEffect(
+                        null, ctx.source, e, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                dmg.element = getSpell()
+                        .getElement();
+                dmg.Activate();
 
             });
         }

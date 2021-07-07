@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.database.spells.entities.bases;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.Summon;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.saveclasses.EntitySpellData;
 import com.robertx22.mine_and_slash.saveclasses.ResourcesData;
@@ -9,6 +10,7 @@ import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellHealEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.SummonDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import net.minecraft.entity.LivingEntity;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
@@ -156,6 +158,45 @@ public interface ISpellEntity extends IEntityAdditionalSpawnData {
                 .getCalculatedValue(casterData, Load.spells(caster), spell);
 
         AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(caster, target, num, casterData, Load.Unit(target),
+                data.getSpell()
+        );
+
+        if (opt.knockback == false) {
+            dmg.removeKnockback();
+        }
+
+        dmg.element = spell.getElement();
+
+        if (opt.activateEffect) {
+            dmg.Activate();
+        }
+
+        return dmg;
+
+    }
+
+    default SummonDamageEffect dealSummonDamageTo(LivingEntity target) {
+        return dealSummonDamageTo(target, new Options());
+    }
+
+    default SummonDamageEffect getStartupSummonDamage(LivingEntity target) {
+        return dealSummonDamageTo(target, new Options().activatesEffect(false));
+    }
+
+    default SummonDamageEffect dealSummonDamageTo(LivingEntity target, Options opt) {
+
+        EntitySpellData data = getSpellData();
+
+        LivingEntity caster = data.getCaster(target.world);
+
+        BaseSpell spell = data.getSpell();
+
+        EntityCap.UnitData casterData = Load.Unit(caster);
+
+        int num = data.configs.calc
+                .getCalculatedValue(casterData, Load.spells(caster), spell);
+
+        SummonDamageEffect dmg = new SummonDamageEffect(caster, target, num, casterData, Load.Unit(target),
                 data.getSpell()
         );
 

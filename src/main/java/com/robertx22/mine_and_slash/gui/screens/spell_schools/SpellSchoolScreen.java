@@ -126,17 +126,26 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
         } else {
 
             int xpos = guiLeft + 17;
-            int ypos = guiTop + 15;
+            int ypos = guiTop + 40;
 
             addButton(new MainBackButton(guiLeft, guiTop - MainBackButton.ySize));
 
+            int masteryTrack = 1;
+
             for (Masteries value : Masteries.values()) {
 
-                if (value != Masteries.TOTAL_MASTERY) { // don't want a button for placeholder value
+                if (masteryTrack <= 4) { // don't want a button for placeholder value
                     addButton(new PickSchoolButton(this, value, xpos, ypos));
 
-                    xpos += PickSchoolButton.xSize + PickSchoolButton.xSize / 8;
+                    xpos += PickSchoolButton.xSize + 28;
                 }
+                else if (masteryTrack <= 7) { // can't use else we don't want total mastery
+                    xpos = guiLeft + 47 + (60 * (masteryTrack - 5)) ;
+                    ypos = guiTop + 92;
+
+                    addButton(new PickSchoolButton(this, value, xpos, ypos));
+                }
+                masteryTrack++;
             }
 
         }

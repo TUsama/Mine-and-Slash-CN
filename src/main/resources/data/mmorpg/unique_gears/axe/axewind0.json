@@ -1,0 +1,27 @@
+{
+  "id": "axewind0",
+  "weight": 10000,
+  "rarity": 1,
+  "tier": 3,
+  "registry": "unique_gear",
+  "lang_file_string": "item.mmorpg.uniques.axe.axewind0",
+  "lang_file_desc_string": "item.mmorpg.uniques.axe.axewind0.desc",
+  "primary_stats": [
+    "high_physical_damage_flat"
+  ],
+  "unique_stats": [
+    "plus_whirlwind_spell_lvl_flat",
+    "low_armor_penetration_flat",
+    "very_high_cdr_flat",
+	"much_less_health_percent",
+	"much_less_dodge_percent",
+	"double_less_critical_damage_percent"
+  ],
+  "can_get_set": false,
+  "requirements": {
+    "strength": 0.75,
+    "stamina": 0.5
+  },
+  "gear_type": "axe",
+  "item_id": "mmorpg:uniques/axe/axewind0"
+}

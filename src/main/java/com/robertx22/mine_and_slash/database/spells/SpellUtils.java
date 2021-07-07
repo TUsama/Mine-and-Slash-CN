@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellHealEffect;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.LightningBoltEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.network.play.server.SSpawnGlobalEntityPacket;
@@ -86,13 +87,7 @@ public class SpellUtils {
 
     }
 
-    public static <T extends Entity> T getSpellEntity(EntityCalcSpellConfigs config, T spellEntity,
-
-                                                      BaseSpell spell,
-
-                                                      LivingEntity caster
-
-    ) {
+    public static <T extends Entity> T getSpellEntity(EntityCalcSpellConfigs config, T spellEntity, BaseSpell spell, LivingEntity caster) {
 
         ISpellEntity se = (ISpellEntity) spellEntity;
 
@@ -108,31 +103,32 @@ public class SpellUtils {
 
     }
 
-    /*
-    public static <T extends TameableEntity> T spawnSummon(T spellEntity,
+    public static <T extends TameableEntity> T spawnSummon(EntityCalcSpellConfigs config, T spellEntity, BaseSpell spell, LivingEntity caster) {
 
-                                                           BaseSpell spell,
-
-                                                           LivingEntity caster) {
-
-        T en = SpellUtils.getSpellEntity(spellEntity, spell, caster);
+        T en = SpellUtils.getSpellEntity(config, spellEntity, spell, caster);
         if (caster instanceof PlayerEntity) {
             en.setTamedBy((PlayerEntity) caster);
         }
-        caster.world.addEntity(en);
-
+        Load.Unit(en).setLevel(Load.Unit(caster).getLevel(), en);
         return en;
 
     }
 
-
-     */
     public static void heal(BaseSpell spell, LivingEntity en, float amount) {
         SpellHealEffect heal = new SpellHealEffect(
             new ResourcesData.Context(Load.Unit(en), en, ResourcesData.Type.HEALTH,
                 amount, ResourcesData.Use.RESTORE,
                 spell
             ));
+        heal.Activate();
+    }
+
+    public static void healMagicShield(BaseSpell spell, LivingEntity en, float amount) {
+        SpellHealEffect heal = new SpellHealEffect(
+                new ResourcesData.Context(Load.Unit(en), en, ResourcesData.Type.MAGIC_SHIELD,
+                        amount, ResourcesData.Use.RESTORE,
+                        spell
+                ));
         heal.Activate();
     }
 

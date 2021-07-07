@@ -56,6 +56,7 @@ public class ThornArmorSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 20, 25);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);

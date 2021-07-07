@@ -17,6 +17,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.Fr
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.IceBladeBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.NourishmentBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.*;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.*;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.buffs.SpiritShroudSpell;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
 
 import java.util.ArrayList;
@@ -99,7 +101,7 @@ public class Spells implements ISlashRegistryInit {
                     add(ExertSpell.getInstance());
                     add(HuntingPotionSpell.getInstance());
                     add(ArrowStormSpell.getInstance());
-                    //add(HuntingWolfSpell.getInstance());
+                    add(HuntingWolfSpell.getInstance());
                     add(WindWalkBuff.getInstance());
                     add(SilentWindBuff.getInstance());
                     add(SnareTrapSpell.getInstance());
@@ -111,6 +113,22 @@ public class Spells implements ISlashRegistryInit {
                     add(WhirlwindSpell.getInstance());
                     add(MagicBurstSpell.getInstance());
                     add(ChargeSpell.getInstance());
+
+                    // unholy spells
+                    add(ChillingTouchSpell.getInstance());
+                    add(UnholyMeditationSpell.getInstance());
+                    add(SummonZombieSpell.getInstance());
+                    add(AnimateScytheSpell.getInstance());
+                    add(BlightSpell.getInstance());
+                    add(SpiritShroudSpell.getInstance());
+                    add(LifeSiphonSpell.getInstance());
+                    add(BloodTetherSpell.getInstance());
+                    add(FleshandMindSacrificeSpell.getInstance());
+                    add(MalevolentOfferingSpell.getInstance());
+                    add(SoulShredSpell.getInstance());
+                    add(HellfireCloakSpell.getInstance());
+                    add(BoneSquallSpell.getInstance());
+                    add(SummonSkeletalArmySpell.getInstance());
 
                 }
             }

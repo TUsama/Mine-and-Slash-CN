@@ -31,10 +31,16 @@ public class EntitySpellData {
     public int lifeInTicks = 100;
 
     @Store
+    public float bonusHealth = 0;
+
+    @Store
     public int maxEntities = 1;
 
     @Store
-    private int currentEntities = 0;
+    public int currentEntities = 0;
+
+    @Store
+    private boolean init = false;
 
     @Store
     public int ticksExisted = 0;
@@ -54,6 +60,14 @@ public class EntitySpellData {
         return Elements.Physical;
     }
 
+    public void setInit(boolean isIt) {
+        init = isIt;
+    }
+
+    public boolean getInit() {
+        return init;
+    }
+
     public int getRemainingLifeTicks() {
         return lifeInTicks - ticksExisted;
     }
@@ -68,7 +82,10 @@ public class EntitySpellData {
 
         this.lifeInTicks = config.get(SC.DURATION_TICKS)
             .intValue();
+
+        //this.bonusHealth = config.get(SC.BONUS_HEALTH);
         //this.maxEntities = config.get(SC.SUMMONED_ENTITIES).intValue();
+        //this.currentEntities++;
         this.configs = config;
     }
 

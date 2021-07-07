@@ -59,6 +59,8 @@ public class VolcanoEntity extends BaseInvisibleEntity {
                         .radius(radius)
                         .build();
 
+                    SoundUtils.playSound(getSpellData().getCaster(world), SoundEvents.BLOCK_FIRE_AMBIENT, 1.1F, 0.8F);
+
                     for (LivingEntity target : entities) {
 
                         this.dealSpellDamageTo(target, new ISpellEntity.Options().knockbacks(true));

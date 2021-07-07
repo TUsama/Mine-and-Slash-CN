@@ -25,6 +25,9 @@ public enum Chats implements IAutoLocName {
     OceanMastery(" [Utility & Healing]: " +
         "Calling upon the depths of ocean's abyss, you may draw forth the chill of the deep to slow your foes or send the healing waters of the world over yourself and allies."),
 
+    UnholyMastery(" [Damage & Utility]: " +
+            "At the cost of your own life force, call upon the aid of the dead to devastate your enemies. Summon undead creatures, cast powerful spells, and draw life from the enemy."),
+
     TotalMastery("You shouldn't see this"),
 
     MapStarted("Adventure Map Successfully Sacrificed"),

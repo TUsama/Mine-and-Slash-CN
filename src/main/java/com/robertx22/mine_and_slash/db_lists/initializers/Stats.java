@@ -118,6 +118,7 @@ public class Stats implements ISlashRegistryInit {
                     add(new AllEleDmg());
                     add(new AllDotDmg());
                     add(SpellDamage.getInstance());
+                    add(SummonDamage.getInstance());
                     // major arcana tarot
                     add(new Judgement());
                     add(new StrengthArcana());

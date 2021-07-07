@@ -14,6 +14,7 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.NumberUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -21,6 +22,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 
+import javax.xml.soap.Text;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,13 +63,14 @@ public class HuntingWolfSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
+        c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 18, 28);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 8);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.25F, 0.5F);
-        c.set(SC.CAST_TIME_TICKS, 60, 60);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
+        c.set(SC.CAST_TIME_TICKS, 120, 60);
+        c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.DURATION_TICKS, 20 * 60, 20 * 90);
         c.set(SC.TICK_RATE, 20, 20);
 
@@ -91,14 +94,13 @@ public class HuntingWolfSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Summon Attack"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Summons also triggers on-attack effects."));
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Entity, Summon"));
 
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Summon a hunting wolf that aids in combat."));
-        list.add(new StringTextComponent("Summons trigger on-hit effects for the caster: "));
-
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
         return list;

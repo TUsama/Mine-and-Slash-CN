@@ -12,6 +12,7 @@ public abstract class SpellCastType {
     public static CastSpecial SPECIAL = new CastSpecial();
     public static CastAoeEffect AOE_EFFECT = new CastAoeEffect();
     public static CastAoeAlliesEffect AOE_ALLIES_EFFECT = new CastAoeAlliesEffect();
+    //public static Summon SUMMON = new Summon();
 
     public abstract boolean cast(SpellCastContext ctx);
 

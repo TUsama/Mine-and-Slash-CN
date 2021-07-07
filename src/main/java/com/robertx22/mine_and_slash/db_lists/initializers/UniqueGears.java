@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.unique_items.IUnique;
 import com.robertx22.mine_and_slash.database.unique_items.axes.AxeFire;
 import com.robertx22.mine_and_slash.database.unique_items.axes.AxeThunder;
 import com.robertx22.mine_and_slash.database.unique_items.axes.AxeWaterFire;
+import com.robertx22.mine_and_slash.database.unique_items.axes.AxeWind;
 import com.robertx22.mine_and_slash.database.unique_items.boots.cloth.EleClothBoots;
 import com.robertx22.mine_and_slash.database.unique_items.boots.plate.BootsFire;
 import com.robertx22.mine_and_slash.database.unique_items.boots.plate.BootsNature;
@@ -121,6 +122,7 @@ public class UniqueGears implements ISlashRegistryInit {
         add(new AxeWaterFire());
         add(new AxeFire());
         add(new AxeThunder());
+        add(new AxeWind());
 
         // rings
         add(new RingDodge());

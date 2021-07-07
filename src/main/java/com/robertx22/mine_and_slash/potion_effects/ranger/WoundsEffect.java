@@ -12,6 +12,7 @@ import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.OnTickAction;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
+import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
@@ -26,6 +27,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -46,6 +48,12 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
 
             num *= ctx.data.getStacks();
 
+            ParticleEnum.sendToClients(
+                    ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.AOE).type(
+                            ParticleTypes.DUST)
+                            .motion(new Vec3d(0, 0, 0))
+                            .amount(15));
+
             DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
                 EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
             );
@@ -53,16 +61,9 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
             dmg.removeKnockback();
             dmg.Activate();
 
-            ParticleEnum.sendToClients(
-                ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.AOE).type(
-                    ParticleTypes.DUST)
-                    .motion(new Vec3d(0, 0, 0))
-                    .amount(15));
-
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
-            list.add(new StringTextComponent("Does DoT damage per stack:"));
             list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
             return list;
         }));
@@ -104,7 +105,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 0, 0);
-        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.5F);
         p.set(SC.TICK_RATE, 20, 20);
         p.set(SC.DURATION_TICKS, 10 * 20, 20 * 20);
         return p;
@@ -123,6 +124,13 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
 
     private static class SingletonHolder {
         private static final WoundsEffect INSTANCE = new WoundsEffect();
+    }
+
+    @Override
+    public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
+        List<ITextComponent> list = new ArrayList<>();
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical DoT Damage"));
+        return list;
     }
 }
 

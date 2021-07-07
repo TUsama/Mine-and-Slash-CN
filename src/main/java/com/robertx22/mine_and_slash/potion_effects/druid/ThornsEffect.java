@@ -46,17 +46,17 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
 
             num *= ctx.data.getStacks();
 
+            ParticleEnum.sendToClients(
+                    ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.THORNS).amount(15));
+
+            SoundUtils.playSound(ctx.entity, SoundEvents.BLOCK_GRASS_BREAK, 1, 1);
+
             DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
                 EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
             );
             dmg.element = Elements.Nature;
             dmg.removeKnockback();
             dmg.Activate();
-
-            ParticleEnum.sendToClients(
-                    ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.THORNS).amount(15));
-
-            SoundUtils.playSound(ctx.entity, SoundEvents.BLOCK_GRASS_BREAK, 1, 1);
             return ctx;
         }, info -> {
             List<ITextComponent> list = new ArrayList<>();
@@ -98,8 +98,8 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 0.7F, 1.1F);
-        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.01F, 0.03F);
+        p.set(SC.BASE_VALUE, 0.5F, 1.5F);
+        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.1F, 0.3F);
         p.set(SC.TICK_RATE, 40, 40);
         p.set(SC.DURATION_TICKS, 400, 800);
         return p;

@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseOffHand;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.PosStats;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaRegenFlat;
@@ -30,11 +31,11 @@ public class Torch extends BaseOffHand implements ISpecificStatReq {
         return "torch";
     }
 
-    static StatReq req = new StatReq(LvlPointStat.WISDOM, StatReq.Size.MEDIUM);
+    static StatReq req = new StatReq(LvlPointStat.DEXTERITY, StatReq.Size.TINY, LvlPointStat.STAMINA, StatReq.Size.TINY);
 
     @Override
     public PlayStyle getPlayStyle() {
-        return PlayStyle.MAGE;
+        return PlayStyle.THIEF;
     }
 
     @Override
@@ -59,8 +60,7 @@ public class Torch extends BaseOffHand implements ISpecificStatReq {
 
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
-        return Arrays.asList(new PosStats(new ManaRegenFlat().size(StatMod.Size.HALF_MORE)), new PosStats(new EnergyRegenFlat().size(StatMod.Size.HALF_MORE)),
-            new PosStats(new MagicShieldRegenFlat().size(StatMod.Size.HALF_MORE))
+        return Arrays.asList(new PosStats(new CriticalHitFlat().size(StatMod.Size.LOW)), new PosStats(new EnergyRegenFlat().size(StatMod.Size.HALF_MORE))
         );
     }
 

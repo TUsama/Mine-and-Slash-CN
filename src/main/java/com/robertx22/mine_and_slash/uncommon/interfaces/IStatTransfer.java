@@ -18,11 +18,15 @@ public interface IStatTransfer extends IGUID {
             float val = copy.peekAtStat(stat.converted.GUID())
                 .getFlatAverage() * data.getAverageValue() /* percent */ / 100;
 
+
+            float total = copy.peekAtStat(stat.converted.GUID())
+                    .getTotalVal() * data.getAverageValue() /* percent */ / 100;
+
             if (val != 0) {
                 unit.getCreateStat(stat.converted)
                     .addFlat(-val);
                 unit.getCreateStat(stat.statThatBenefits)
-                    .addFlat(val);
+                    .addFlat(total);
             }
         }
 

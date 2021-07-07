@@ -6,10 +6,7 @@ import com.robertx22.mine_and_slash.database.stats.types.defense.BlockStrength;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllDotDmg;
 import com.robertx22.mine_and_slash.database.stats.types.generated.*;
-import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
-import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
-import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
-import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.*;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToFireConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToNatureConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToThunderConversion;
@@ -64,6 +61,7 @@ public class PerkEffects {
     public static PerkEffectsWrapper PHYS_TO_THUNDER;
     public static PerkEffectsWrapper PHYS_TO_NATURE;
     public static PerkEffectsWrapper DOT_DMG;
+    public static PerkEffectsWrapper SUMMON_DMG;
 
     // COMBINED EFFECTS
     public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG;
@@ -121,6 +119,9 @@ public class PerkEffects {
 
         DOT_DMG = PerkEffectBuilder.build(
                 "dot_dmg", new AllDotDmg(), new ExactStatData(8F, StatModTypes.Flat, AllDotDmg.GUID));
+
+        SUMMON_DMG = PerkEffectBuilder.build(
+                "summon_dmg", SummonDamage.getInstance(), new ExactStatData(4F, StatModTypes.Flat, SummonDamage.GUID));
 
         int core_amount = 1;
 

@@ -59,16 +59,17 @@ public class FortifiedReaction extends BaseGameChangerTrait implements IStatTran
         for (TransferMethod stat : this.Transfer()) {
 
             float val = copy.peekAtStat(stat.converted.GUID())
-                .getFlatAverage();
+                    .getFlatAverage();
+
+            float total = copy.peekAtStat(stat.converted.GUID())
+                    .getTotalVal();
 
             if (val != 0) {
                 unit.getCreateStat(stat.converted)
-                    .addFlat(-val);
+                        .addFlat(-val);
                 unit.getCreateStat(stat.statThatBenefits)
-                    .addFlat(val);
+                        .addFlat(total);
             }
         }
-
     }
-
 }

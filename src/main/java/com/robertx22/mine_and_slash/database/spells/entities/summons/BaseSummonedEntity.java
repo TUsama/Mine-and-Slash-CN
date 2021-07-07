@@ -15,16 +15,24 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TeamUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
+import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.monster.GhastEntity;
 import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.WolfEntity;
+import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.IPacket;
 import net.minecraft.network.PacketBuffer;
+import net.minecraft.scoreboard.Team;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
@@ -62,6 +70,11 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
     }
 
     @Override
+    public IPacket<?> createSpawnPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
+    }
+
+    @Override
     public void writeSpawnData(PacketBuffer buf) {
         CompoundNBT nbt = new CompoundNBT();
         writeAdditional(nbt);
@@ -71,11 +84,12 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
     @Override
     protected void registerAttributes() {
         super.registerAttributes();
+
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
-            .setBaseValue((double) 0.3F);
+            .setBaseValue((double) 0.5F);
 
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
-            .setBaseValue(20.0D);
+            .setBaseValue(15.0D);
 
         this.getAttributes()
             .registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE)
@@ -95,6 +109,16 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
             remove();
             return;
         }
+        else if (this.spellData.getInit() == false){ // hacky init solution
+            //this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
+            //        .setBaseValue(this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue() * (1 + this.spellData.bonusHealth)); // sets bonus health from spell stat
+            //this.setHealth(this.getMaxHealth());
+            this.setTamedBy((PlayerEntity) this.getSpellData().getCaster(world)); // sets tamed
+            Load.Unit(this).setLevel(Load.Unit(this.getSpellData().getCaster(world)).getLevel(), this); // sets level
+            Load.Unit(this).setRarity(0);
+            Load.Unit(this).setTier(1);
+            this.spellData.setInit(true);
+        }
 
         super.tick();
 
@@ -102,6 +126,11 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
             this.remove();
         }
 
+    }
+
+    @Override
+    public boolean canAttack(LivingEntity target) {
+        return !this.isOwner(target) && !this.isOnSameTeam(target) && super.canAttack(target);
     }
 
     @Override
@@ -128,14 +157,16 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
 
     @Override
     public boolean isOnSameTeam(Entity entityIn) {
-        if (this.isTamed()) {
-            LivingEntity livingentity = this.getOwner();
-            if (entityIn == livingentity) {
-                return true;
-            }
+        if (this.spellData.getInit() == true) {
+            if (this.isTamed()) {
+                LivingEntity livingentity = this.getOwner();
+                if (entityIn == livingentity) {
+                    return true;
+                }
 
-            if (livingentity != null) {
-                return livingentity.isOnSameTeam(entityIn) || TeamUtils.areOnSameTeam((ServerPlayerEntity) livingentity, (ServerPlayerEntity) entityIn);
+                if (livingentity != null && entityIn instanceof PlayerEntity) {
+                    return livingentity.isOnSameTeam(entityIn) || TeamUtils.areOnSameTeam((ServerPlayerEntity) livingentity, (ServerPlayerEntity) entityIn);
+                }
             }
         }
 
@@ -149,8 +180,11 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
             if (en instanceof LivingEntity) {
                 if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
 
-                    dealSpellDamageTo((LivingEntity) en);
-
+                    dealSummonDamageTo((LivingEntity) en);
+                    if (this != null && en != null) {
+                        ((LivingEntity) en).setRevengeTarget(this);
+                        ((LivingEntity) en).setLastAttackedEntity(this);
+                    }
                 }
             }
 
@@ -158,6 +192,33 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
         } else {
             return false;
         }
+    }
+
+    public boolean shouldAttackEntity(LivingEntity target, LivingEntity owner) {
+        if (target instanceof SpiritWolfPetEntity) {
+            SpiritWolfPetEntity wolfentity = (SpiritWolfPetEntity) target;
+            return !wolfentity.isTamed() || wolfentity.getOwner() != owner;
+        } else if (target instanceof ZombiePetEntity){
+            ZombiePetEntity zombieentity = (ZombiePetEntity) target;
+            return !zombieentity.isTamed() || zombieentity.getOwner() != owner;
+        } else if (target instanceof SkeletonPetEntity) {
+            SkeletonPetEntity skeletonentity = (SkeletonPetEntity) target;
+            return !skeletonentity.isTamed() || skeletonentity.getOwner() != owner;
+        } else if (target instanceof PlayerEntity && owner instanceof PlayerEntity && !((PlayerEntity)owner).canAttackPlayer((PlayerEntity)target)) {
+            return false;
+        } else if (this.isOnSameTeam(target)) {
+            return false;
+        }  else if (target instanceof AbstractHorseEntity && ((AbstractHorseEntity)target).isTame()) {
+            return false;
+        } else {
+            return !(target instanceof TameableEntity) || !((TameableEntity)target).isTamed();
+        }
+    }
+
+    @Override
+    public void onDeath(DamageSource cause) {
+        //this.spellData.currentEntities--;
+        super.onDeath(cause);
     }
 
 }

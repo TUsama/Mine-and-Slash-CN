@@ -45,13 +45,6 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
 
             num *= ctx.data.getStacks();
 
-            DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
-                EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
-            );
-            dmg.element = Elements.Fire;
-            dmg.removeKnockback();
-            dmg.Activate();
-
             SoundUtils.playSound(ctx.entity, SoundEvents.BLOCK_CAMPFIRE_CRACKLE, 0.5F, 1F);
 
             ParticleEnum.sendToClients(
@@ -59,6 +52,13 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
                     ParticleTypes.FLAME)
                     .motion(new Vec3d(0, 0, 0))
                     .amount(15));
+
+            DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,
+                    EffectData.EffectTypes.DOT_DMG, WeaponTypes.None
+            );
+            dmg.element = Elements.Fire;
+            dmg.removeKnockback();
+            dmg.Activate();
 
             return ctx;
         }, info -> {
@@ -99,7 +99,7 @@ public class BurnEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 0.8F, 2.0F);
+        p.set(SC.BASE_VALUE, 0.8F, 3.0F);
         p.set(SC.DURATION_TICKS, 3 * 20, 6 * 20);
         p.set(SC.TICK_RATE, 20, 20);
         return p;

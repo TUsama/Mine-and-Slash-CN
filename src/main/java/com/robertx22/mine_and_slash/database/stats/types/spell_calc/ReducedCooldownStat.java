@@ -28,6 +28,11 @@ public class ReducedCooldownStat extends Stat implements IStatEffects {
     }
 
     @Override
+    public String getIconPath() {
+        return "cdr";
+    }
+
+    @Override
     public StatScaling getScaling() {
         return StatScaling.NONE;
     }

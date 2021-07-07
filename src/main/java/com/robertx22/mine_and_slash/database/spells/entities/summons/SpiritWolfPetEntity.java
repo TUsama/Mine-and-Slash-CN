@@ -2,14 +2,18 @@ package com.robertx22.mine_and_slash.database.spells.entities.summons;
 
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
+import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.GeometryUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.LevelUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -32,15 +36,33 @@ public class SpiritWolfPetEntity extends BaseSummonedEntity {
         super(EntityRegister.SPIRIT_WOLF_PET, world);
     }
 
+    /*
+    @Override
+    protected void registerAttributes() {
+        super.registerAttributes();
+
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
+                .setBaseValue((double) 0.5F);
+
+        this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
+                .setBaseValue(15.0D);
+
+        this.getAttributes()
+                .registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE)
+                .setBaseValue(0.5D); // atk only with a tiny bit of damage to proc the vanilla stuff like knockback
+    }
+
+     */
+
     @Override
     public void tick() {
         super.tick();
 
         if (world.isRemote) {
             if (this.ticksExisted > 1) {
-                for (int i = 0; i < 5; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.4F);
-                    ParticleUtils.spawn(ParticleRegister.THUNDER, world, p);
+                for (int i = 0; i < 3; i++) {
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.2F);
+                    ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
                 }
             }
 
@@ -61,12 +83,12 @@ public class SpiritWolfPetEntity extends BaseSummonedEntity {
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setCallsForHelp());
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, MobEntity.class, false));
+        //this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, MobEntity.class, false));
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_WOLF_GROWL;
+        return SoundEvents.ENTITY_WOLF_AMBIENT;
     }
 
     @Override

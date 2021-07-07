@@ -102,7 +102,7 @@ public class HeavyStrikeSpell extends BaseSpell {
                 en.getPosition(), en.world,
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                     .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleTypes.DUST)
+                    .type(ParticleTypes.INSTANT_EFFECT)
                     .amount((int) (60)));
 
         }
@@ -116,6 +116,7 @@ public class HeavyStrikeSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
+        c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 3, 6);
         c.set(SC.ENERGY_COST, 4.5F, 9);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);

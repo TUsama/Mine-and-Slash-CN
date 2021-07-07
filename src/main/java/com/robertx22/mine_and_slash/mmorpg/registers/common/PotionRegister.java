@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.potion_effects.ember_mage.AttackSiphonEffect
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.SpellBladeEffect;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.SpellSiphonEffect;
+import com.robertx22.mine_and_slash.potion_effects.necromancer.*;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.*;
 import com.robertx22.mine_and_slash.potion_effects.shaman.*;
@@ -71,6 +72,12 @@ public class PotionRegister {
         reg.register(WeakenEffect.INSTANCE);
         reg.register(WoundsEffect.getInstance());
         reg.register(EnrageEffect.INSTANCE);
+        reg.register(CrippleEffect.INSTANCE);
+        reg.register(NecroticTetherEffect.INSTANCE);
+        reg.register(BlightEffect.INSTANCE);
+        reg.register(SpiritShroudEffect.INSTANCE);
+        reg.register(FleshandMindSacrificeEffect.INSTANCE);
+        reg.register(SoulShredEffect.INSTANCE);
 
     }
 

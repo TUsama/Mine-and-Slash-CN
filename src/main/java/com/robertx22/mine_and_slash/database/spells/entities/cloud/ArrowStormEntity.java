@@ -60,7 +60,7 @@ public class ArrowStormEntity extends BaseCloudEntity {
             if (!this.world.isRemote) {
                 for (int i = 0; i < ARROWS_PER_SUMMON; i++) {
                     float yRandom = (float) RandomUtils.RandomRange(1, 100) / 40F;
-                    float height = 4;
+                    float height = 3;
                     Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(
                         posX, posY + height + yRandom, posZ, radius());
 

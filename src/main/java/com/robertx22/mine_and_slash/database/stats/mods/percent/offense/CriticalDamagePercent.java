@@ -18,7 +18,7 @@ public class CriticalDamagePercent extends StatMod {
 
     @Override
     public float Max() {
-        return 14;
+        return 16;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
 import com.robertx22.mine_and_slash.database.stats.TransferMethod;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldFlat;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
@@ -55,7 +56,7 @@ public class MagicalLife extends BaseGameChangerTrait implements IStatTransfer {
 
     @Override
     public void transferStats(Unit copy, Unit unit, StatData data) {
-
+        /*
         for (TransferMethod stat : this.Transfer()) {
 
             float val = copy.peekAtStat(stat.converted.GUID())
@@ -67,8 +68,21 @@ public class MagicalLife extends BaseGameChangerTrait implements IStatTransfer {
                 unit.getCreateStat(stat.statThatBenefits)
                     .addFlat(val);
             }
+        }*/
+        for (TransferMethod stat : this.Transfer()) {
+
+            float val = copy.peekAtStat(stat.converted.GUID())
+                    .getFlatAverage();
+
+            float total = copy.peekAtStat(stat.converted.GUID())
+                    .getTotalVal();
+
+            if (val != 0) {
+                unit.getCreateStat(stat.converted)
+                        .addFlat(-val);
+                unit.getCreateStat(stat.statThatBenefits)
+                        .addFlat(total);
+            }
         }
-
     }
-
 }

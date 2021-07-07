@@ -73,6 +73,29 @@ public class StatData {
         return (Flat + Flat2) / 2;
     }
 
+    public float getPercentAverage() {
+        return Percent;
+    }
+
+    public float getMultiAverage() {
+        return Multi;
+    }
+
+    public float getTotalVal() {
+        Stat stat = this.GetStat();
+        float finalValue = stat.BaseFlat;
+
+        finalValue += (Flat + Flat2) / 2;
+
+        finalValue *= 1 + Percent / 100;
+
+        finalValue *= 1 + Multi / 100;
+
+        val = MathHelper.clamp(finalValue, stat.minimumValue, stat.maximumValue);
+
+        return val;
+    }
+
     public void CalcVal(EntityCap.UnitData data) {
 
         Stat stat = this.GetStat();

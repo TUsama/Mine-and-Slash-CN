@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.potion_effects.ember_mage.AttackSiphonEffect
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.SpellBladeEffect;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.SpellSiphonEffect;
+import com.robertx22.mine_and_slash.potion_effects.necromancer.*;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.*;
 import com.robertx22.mine_and_slash.potion_effects.shaman.*;
@@ -66,6 +67,13 @@ public class PotionEffects implements ISlashRegistryInit {
         QuickChargeEffect.INSTANCE.registerToSlashRegistry();
 
         EnrageEffect.INSTANCE.registerToSlashRegistry();
+
+        CrippleEffect.INSTANCE.registerToSlashRegistry();
+        NecroticTetherEffect.INSTANCE.registerToSlashRegistry();
+        BlightEffect.INSTANCE.registerToSlashRegistry();
+        SpiritShroudEffect.INSTANCE.registerToSlashRegistry();
+        FleshandMindSacrificeEffect.INSTANCE.registerToSlashRegistry();
+        SoulShredEffect.INSTANCE.registerToSlashRegistry();
 
     }
 }

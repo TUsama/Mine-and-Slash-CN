@@ -110,6 +110,7 @@ public abstract class EffectData {
         BONUS_ATTACK,
         REFLECT,
         DOT_DMG,
+        SUMMON_DMG,
     }
 
     public Unit GetSource() {

@@ -69,12 +69,13 @@ public class ThunderDashSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.MANA_COST, 40, 4);
+        c.set(SC.HEALTH_COST, 0, 0);
+        c.set(SC.MANA_COST, 30, 3);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 3, 6);
+        c.set(SC.BASE_VALUE, 3, 7);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 3, 3);
+        c.set(SC.COOLDOWN_SECONDS, 2, 2);
 
         c.setMaxLevel(8);
 

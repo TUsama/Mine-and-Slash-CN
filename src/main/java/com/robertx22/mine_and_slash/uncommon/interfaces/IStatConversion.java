@@ -16,7 +16,7 @@ public interface IStatConversion extends IGUID {
         for (ConversionMethod stat : this.conversion()) {
 
             float val = copy.getCreateStat(stat.converted)
-                .getFlatAverage() * data.getAverageValue() /* percent */ / 100;
+                .getTotalVal() * data.getAverageValue() /* percent */ / 100;
             unit.getCreateStat(stat.statThatBenefits)
                 .addFlat(val);
 

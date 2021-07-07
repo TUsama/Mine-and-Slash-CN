@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.synergies.hunting.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.nature.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.ocean.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.storm.*;
+import com.robertx22.mine_and_slash.database.spells.synergies.unholy.*;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
 
 public class Synergies implements ISlashRegistryInit {
@@ -89,6 +90,13 @@ public class Synergies implements ISlashRegistryInit {
         new BatteryFusiladeChainSynergy().registerToSlashRegistry();
         new CriticalSurgeSplashSynergy().registerToSlashRegistry();
         new PowerSurgeBoltSynergy().registerToSlashRegistry();
+
+        new ChillingTouchCrippleSynergy().registerToSlashRegistry();
+        new SummonZombieCrippleSynergy().registerToSlashRegistry();
+        new SummonZombieMasterySynergy().registerToSlashRegistry();
+        new AnimateScytheNecroticSynergy().registerToSlashRegistry();
+        new LifeSiphonEssenceSynergy().registerToSlashRegistry();
+        new MalevolentOfferingShrewdSynergy().registerToSlashRegistry();
 
     }
 }

@@ -68,6 +68,8 @@ public class SteamCloudEntity extends BaseCloudEntity {
                             .radius(RADIUS)
                             .build();
 
+                    SoundUtils.playSound(sdata.getCaster(world), SoundEvents.BLOCK_FIRE_EXTINGUISH, 1.1F, 0.9F);
+
                     entities.forEach(x -> onHit(x));
 
                 }
@@ -87,7 +89,7 @@ public class SteamCloudEntity extends BaseCloudEntity {
 
                     if (spawnCloudParticles()) {
                         for (int a = 1; a < 2; a++) {
-                            ParticleUtils.spawn(ParticleTypes.CLOUD, world, p.add(0, 0, 0));
+                            ParticleUtils.spawn(ParticleTypes.CLOUD, world, p.add(0, 0.25F, 0));
                         }
                     }
 

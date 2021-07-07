@@ -73,6 +73,7 @@ public class ChillingFieldEntity extends BaseCloudEntity {
                             .radius(RADIUS)
                             .build();
 
+                    SoundUtils.playSound(sdata.getCaster(world), SoundEvents.ENTITY_HORSE_BREATHE, 1.1F, 1.5F);
                     entities.forEach(x -> {PotionEffectUtils.apply(FrostEffect.INSTANCE, getCaster(), x);});
                     entities.forEach(x -> onHit(x));
 

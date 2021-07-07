@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnSpellCastSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.Synergy;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Energy;
+import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Mana;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
@@ -197,6 +198,12 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
     public abstract String GUID();
 
+    public final float getCalculatedHealthCost(SpellCastContext ctx) {
+        return ctx.getConfigFor(this)
+                .get(SC.HEALTH_COST)
+                .get(ctx.spellsCap, this) * ctx.data.getUnit().healthData().getTotalVal();
+    }
+
     public final int getCalculatedManaCost(SpellCastContext ctx) {
         return (int) Mana.getInstance()
             .calculateScalingStatGrowth((int) ctx.getConfigFor(this)
@@ -267,6 +274,10 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
     }
 
     public void spendResources(SpellCastContext ctx) {
+        if (getCalculatedHealthCost(ctx) > 0) {
+            ctx.data.getResources()
+                    .modify(getHealthCostCtx(ctx));
+        }
         if (getCalculatedManaCost(ctx) > 0) {
             ctx.data.getResources()
                     .modify(getManaCostCtx(ctx));
@@ -298,6 +309,25 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         return new ResourcesData.Context(
             ctx.data, ctx.caster, ResourcesData.Type.MANA, cost, ResourcesData.Use.SPEND);
+    }
+
+    public ResourcesData.Context getHealthCostCtx(SpellCastContext ctx) {
+
+        float cost = 0;
+
+        for (Synergy x : getAllocatedSynergies(ctx.spellsCap)) {
+            if (ctx.getConfigFor(x)
+                    .has(SC.HEALTH_COST)) {
+                cost += ctx.getConfigFor(x)
+                        .get(SC.HEALTH_COST)
+                        .get(ctx.spellsCap, x) * ctx.data.getUnit().healthData().getTotalVal();
+            }
+        }
+
+        cost += this.getCalculatedHealthCost(ctx);
+
+        return new ResourcesData.Context(
+                ctx.data, ctx.caster, ResourcesData.Type.HEALTH, cost, ResourcesData.Use.SPEND);
     }
 
     public ResourcesData.Context getMagicShieldCostCtx(SpellCastContext ctx) {
@@ -354,6 +384,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
             if (data != null) {
 
+                ResourcesData.Context hctx = getHealthCostCtx(ctx);
                 ResourcesData.Context rctx = getManaCostCtx(ctx);
                 ResourcesData.Context ectx = getEnergyCostCtx(ctx);
                 ResourcesData.Context msctx = getMagicShieldCostCtx(ctx);
@@ -361,7 +392,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
                 if (data.getResources()
                     .hasEnough(rctx) && data.getResources()
                         .hasEnough(ectx) && data.getResources()
-                        .hasEnough(msctx)) {
+                        .hasEnough(msctx) && data.getResources().hasEnough(hctx)) {
 
                     if (immutableConfigs.castRequirements()
                         .stream()
@@ -400,6 +431,9 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         TooltipUtils.addEmpty(list);
 
+        if (getCalculatedHealthCost(ctx) > 0.00) {
+            list.add(new StringTextComponent(TextFormatting.RED + "Health Cost: " + (Math.round((getCalculatedHealthCost(ctx) * 100) * 100) / 100) + "%"));
+        }
         if (getCalculatedManaCost(ctx) > 0) {
             list.add(new StringTextComponent(TextFormatting.BLUE + "Mana Cost: " + getCalculatedManaCost(ctx)));
         }

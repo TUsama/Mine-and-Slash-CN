@@ -3,8 +3,10 @@ package com.robertx22.mine_and_slash.mmorpg.registers.common;
 import com.robertx22.mine_and_slash.database.spells.entities.cloud.*;
 import com.robertx22.mine_and_slash.database.spells.entities.proj.*;
 import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.*;
+import com.robertx22.mine_and_slash.database.spells.entities.summons.SkeletonPetEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiderPetEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiritWolfPetEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.summons.ZombiePetEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.trident.SpearOfJudgementEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.trident.ThunderspearEntity;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -59,6 +61,7 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> ROCK_SLIDE;
     public static final EntityType<? extends Entity> POISON_BALL;
 
+    public static final EntityType<? extends Entity> HELLFIRE;
     public static final EntityType<? extends Entity> STEAM_CLOUD;
     public static final EntityType<? extends Entity> CHILLING_FIELD;
     public static final EntityType<? extends Entity> FROSTBOLT;
@@ -67,6 +70,7 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> TIDAL_WAVE;
     public static final EntityType<? extends Entity> GROUND_SLAM;
     public static final EntityType<? extends Entity> FROZEN_ORB;
+    public static final EntityType<? extends Entity> LIFE_SIPHON;
 
     public static final EntityType<RangerArrowEntity> RANGER_ARROW;
     public static final EntityType<StoneEntity> STONE_ENTITY;
@@ -83,6 +87,8 @@ public class EntityRegister {
 
     public static final EntityType<SpiderPetEntity> SPIDER_PET;
     public static final EntityType<SpiritWolfPetEntity> SPIRIT_WOLF_PET;
+    public static final EntityType<ZombiePetEntity> ZOMBIE_PET;
+    public static final EntityType<SkeletonPetEntity> SKELETON_PET;
 
     static {
 
@@ -96,6 +102,8 @@ public class EntityRegister {
         WHIRPOOL = projectile(WhirlpoolEntity::new, WhirlpoolEntity::new, "whirlpool");
         TIDAL_WAVE = projectile(TidalWaveEntity::new, TidalWaveEntity::new, "tidal_wave");
         GROUND_SLAM = projectile(GroundSlamEntity::new, GroundSlamEntity::new, "ground_slam");
+        LIFE_SIPHON = projectile(LifeSiphonEntity::new, LifeSiphonEntity::new, "life_siphon");
+        HELLFIRE = projectile(HellFireEntity::new, HellFireEntity::new, "hell_fire");
 
         POISON_BALL = projectile(PoisonBallEntity::new, PoisonBallEntity::new, "poison_ball");
         ROCK_SLIDE = projectile(RockSlideEntity::new, RockSlideEntity::new, "rock_slide");
@@ -141,6 +149,20 @@ public class EntityRegister {
             .build(Ref.MODID + ":spirit_wolf_pet");
         SPIRIT_WOLF_PET.setRegistryName(new ResourceLocation(Ref.MODID, "spirit_wolf_pet"));
         ENTITY_TYPES.add(SPIRIT_WOLF_PET);
+
+        ZOMBIE_PET = EntityType.Builder.<ZombiePetEntity>create(ZombiePetEntity::new, EntityClassification.MONSTER).setCustomClientFactory(
+                ZombiePetEntity::new)
+                .size(1.4F, 0.9F)
+                .build(Ref.MODID + ":zombie_pet");
+        ZOMBIE_PET.setRegistryName(new ResourceLocation(Ref.MODID, "zombie_pet"));
+        ENTITY_TYPES.add(ZOMBIE_PET);
+
+        SKELETON_PET = EntityType.Builder.<SkeletonPetEntity>create(SkeletonPetEntity::new, EntityClassification.MONSTER).setCustomClientFactory(
+                SkeletonPetEntity::new)
+                .size(1.4F, 0.9F)
+                .build(Ref.MODID + ":skeleton_pet");
+        SKELETON_PET.setRegistryName(new ResourceLocation(Ref.MODID, "skeleton_pet"));
+        ENTITY_TYPES.add(SKELETON_PET);
     }
 
     public static EntityType addBoss(EntityType type, String id) {
