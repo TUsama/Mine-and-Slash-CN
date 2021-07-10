@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.database.stats.types.offense;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
+import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 
 public class PhysicalDamage extends Stat {
@@ -39,6 +40,11 @@ public class PhysicalDamage extends Stat {
     @Override
     public Elements getElement() {
         return Elements.Physical;
+    }
+
+    @Override
+    public StatScaling getScaling() {
+        return StatScaling.WEAPON;
     }
 
     @Override

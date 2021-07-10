@@ -33,7 +33,7 @@ public class WindWalkBuff extends BaseHuntingBuffSpell {
 
             @Override
             public Elements element() {
-                return Elements.Elemental;
+                return Elements.Physical;
             }
         }.addsEffect(WindWalkEffect.INSTANCE));
     }

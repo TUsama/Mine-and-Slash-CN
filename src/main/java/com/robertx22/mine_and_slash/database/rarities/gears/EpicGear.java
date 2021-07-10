@@ -69,7 +69,7 @@ public class EpicGear extends BaseEpic implements GearRarity {
 
     @Override
     public int Weight() {
-        return 250;
+        return 375;
     }
 
     @Override

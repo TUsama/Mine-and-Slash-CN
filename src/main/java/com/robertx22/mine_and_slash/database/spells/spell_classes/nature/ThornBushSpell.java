@@ -60,18 +60,18 @@ public class ThornBushSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 17, 23);
+        c.set(SC.MANA_COST, 13, 22);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.PROJECTILE_COUNT, 1, 3);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
-        c.set(SC.BASE_VALUE, 6, 12);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.1F, 0.18F);
+        c.set(SC.BASE_VALUE, 4, 12);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.5F, 0.7F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 26, 18);
+        c.set(SC.COOLDOWN_SECONDS, 23, 16);
         c.set(SC.TICK_RATE, 30, 20);
         c.set(SC.RADIUS, 3.0F, 6);
-        c.set(SC.DURATION_TICKS, 100, 150);
+        c.set(SC.DURATION_TICKS, 120, 200);
 
         c.setMaxLevel(12);
         return c;

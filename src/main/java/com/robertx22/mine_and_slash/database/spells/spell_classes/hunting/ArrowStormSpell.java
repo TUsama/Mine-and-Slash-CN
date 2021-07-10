@@ -58,10 +58,10 @@ public class ArrowStormSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 13, 18);
-        c.set(SC.ENERGY_COST, 24, 32);
+        c.set(SC.ENERGY_COST, 16, 24);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.0F, 2.1F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.75F, 1.3F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.TICK_RATE, 15, 5);

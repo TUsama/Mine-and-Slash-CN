@@ -60,8 +60,8 @@ public class MobStatUtils {
 
     public static void increaseMobStatsPerLevel(UnitData mobdata) {
 
-        float lvlMulti = 1 + (ModConfig.INSTANCE.Server.MOB_STRENGTH_PER_LEVEL_MULTI.get()
-            .floatValue() * mobdata.getLevel());
+        float lvlMulti = (float) (Math.pow(mobdata.getLevel(), mobdata.getLevel() / ModConfig.INSTANCE.Server.MOB_STRENGTH_PER_LEVEL_MULTI.get()
+                        .floatValue()) - 0.5F);
 
         for (StatData data : mobdata.getUnit()
             .getStats()

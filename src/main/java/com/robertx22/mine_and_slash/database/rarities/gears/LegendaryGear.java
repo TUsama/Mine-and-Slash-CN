@@ -69,7 +69,7 @@ public class LegendaryGear extends BaseLegendary implements GearRarity {
 
     @Override
     public int Weight() {
-        return 50;
+        return 75;
     }
 
     @Override

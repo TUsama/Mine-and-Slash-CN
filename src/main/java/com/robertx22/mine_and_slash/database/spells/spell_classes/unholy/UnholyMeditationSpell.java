@@ -66,10 +66,10 @@ public class UnholyMeditationSpell extends BaseSpell {
         c.set(SC.MANA_COST, 0, 0);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 2, 12);
+        c.set(SC.BASE_VALUE, 2, 9);
         c.set(SC.CAST_TIME_TICKS, 120, 120);
         c.set(SC.TIMES_TO_CAST, 6, 6);
-        c.set(SC.COOLDOWN_SECONDS, 35, 25);
+        c.set(SC.COOLDOWN_SECONDS, 24, 18);
 
         c.setMaxLevel(8);
 

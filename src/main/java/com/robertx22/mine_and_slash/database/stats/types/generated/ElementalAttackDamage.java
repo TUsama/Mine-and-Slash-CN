@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.offense.ElementalAttackDamageEffect;
 import com.robertx22.mine_and_slash.database.stats.types.ElementalStat;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
+import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
@@ -48,6 +49,11 @@ public class ElementalAttackDamage extends ElementalStat implements IStatEffects
     @Override
     public IStatEffect getEffect() {
         return new ElementalAttackDamageEffect();
+    }
+
+    @Override
+    public StatScaling getScaling() {
+        return StatScaling.WEAPON;
     }
 
     @Override

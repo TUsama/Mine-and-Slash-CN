@@ -45,7 +45,7 @@ public class ExertSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Elemental;
+                    return Elements.Physical;
                 }
             }.addsEffect(ExertEffect.getInstance()).setSwingArmOnCast());
 

@@ -14,6 +14,7 @@ import com.robertx22.mine_and_slash.commands.open_gui.OpenHub;
 import com.robertx22.mine_and_slash.commands.party.PartyCommand;
 import com.robertx22.mine_and_slash.commands.reset.ResetSpellCooldowns;
 import com.robertx22.mine_and_slash.commands.reset.ResetSpells;
+import com.robertx22.mine_and_slash.commands.reset.ResetStats;
 import com.robertx22.mine_and_slash.commands.reset.ResetTalents;
 import com.robertx22.mine_and_slash.commands.stats.*;
 import net.minecraft.command.CommandSource;
@@ -60,6 +61,7 @@ public class CommandRegister {
         ModifyItem.register(dispatcher);
         GiveUniqueRune.register(dispatcher);
         ResetTalents.register(dispatcher);
+        ResetStats.register(dispatcher);
         OpenHub.register(dispatcher);
 
         GenDefaultCompItemsOfMod.register(dispatcher);

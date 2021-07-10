@@ -33,7 +33,7 @@ public class AllDotDmg extends Stat implements IStatEffects {
 
     @Override
     public StatScaling getScaling() {
-        return StatScaling.NONE;
+        return StatScaling.SLOW_SCALING;
     }
 
     @Override

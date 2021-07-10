@@ -69,7 +69,7 @@ public class UncommonGear extends BaseUncommon implements GearRarity {
 
     @Override
     public int Weight() {
-        return 10000;
+        return 6666;
     }
 
     @Override

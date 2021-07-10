@@ -31,7 +31,7 @@ public class SilentWindBuff extends BaseHuntingBuffSpell {
 
             @Override
             public Elements element() {
-                return Elements.Elemental;
+                return Elements.Physical;
             }
         }.addsEffect(SilentWindEffect.INSTANCE));
     }

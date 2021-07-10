@@ -64,7 +64,7 @@ public class CommonGear extends BaseCommon implements GearRarity {
 
     @Override
     public int Weight() {
-        return 30000;
+        return 20000;
     }
 
     @Override

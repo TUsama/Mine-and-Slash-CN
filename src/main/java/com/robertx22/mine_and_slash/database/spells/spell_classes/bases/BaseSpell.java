@@ -211,11 +211,10 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
                 .get(ctx.spellsCap, this), getEffectiveAbilityLevel(ctx.spellsCap, ctx.data));
     }
 
-    public final int getCalculatedMagicShieldCost(SpellCastContext ctx) {
-        return (int) MagicShield.getInstance()
-                .calculateScalingStatGrowth((int) ctx.getConfigFor(this)
-                        .get(SC.MAGIC_SHIELD_COST)
-                        .get(ctx.spellsCap, this), getEffectiveAbilityLevel(ctx.spellsCap, ctx.data));
+    public final float getCalculatedMagicShieldCost(SpellCastContext ctx) {
+        return ctx.getConfigFor(this)
+                .get(SC.MAGIC_SHIELD_COST)
+                .get(ctx.spellsCap, this) * ctx.data.getUnit().magicShieldData().getTotalVal();
     }
 
     public final int getCalculatedEnergyCost(SpellCastContext ctx) {
@@ -434,14 +433,14 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
         if (getCalculatedHealthCost(ctx) > 0.00) {
             list.add(new StringTextComponent(TextFormatting.RED + "Health Cost: " + (Math.round((getCalculatedHealthCost(ctx) * 100) * 100) / 100) + "%"));
         }
+        if (getCalculatedMagicShieldCost(ctx) > 0.00) {
+            list.add(new StringTextComponent(TextFormatting.AQUA + "Magic Shield Cost: " + (Math.round((getCalculatedMagicShieldCost(ctx) * 100) * 100) / 100) + "%"));
+        }
         if (getCalculatedManaCost(ctx) > 0) {
             list.add(new StringTextComponent(TextFormatting.BLUE + "Mana Cost: " + getCalculatedManaCost(ctx)));
         }
         if (getCalculatedEnergyCost(ctx) > 0) {
             list.add(new StringTextComponent(TextFormatting.YELLOW + "Energy Cost: " + getCalculatedEnergyCost(ctx)));
-        }
-        if (getCalculatedMagicShieldCost(ctx) > 0) {
-            list.add(new StringTextComponent(TextFormatting.AQUA + "Magic Shield Cost: " + getCalculatedMagicShieldCost(ctx)));
         }
         list.add(new StringTextComponent(TextFormatting.GREEN + "Cooldown: " + getCooldownInSeconds(ctx) + "s"));
         list.add(new StringTextComponent(TextFormatting.GREEN + "Cast Time: " + getUseDurationInSeconds(ctx) + "s"));

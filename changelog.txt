@@ -1,3 +1,57 @@
+3.11.2:
+* Increased default max level to 100.
+* New scaling for attack damage: it now starts off slower but scales at a higher rate at later levels.
+* Mob scaling now starts slower but picks up rapidly by level 70. Mobs at lower levels are now easier and at max level are much harder.
+* Common items are less common.
+* Hunting arrow spells have been buffed again slightly.
+
+3.11.1:
+* New Hunting Spell: Craft Arrows - craft half a stack of arrows. Has a relatively long cooldown. This should help with the early game!
+* Chilling Field's mana scaling has been increased.
+* Chilling Field's tick rate now increases a little bit with each level.
+* Magic Burst now uses percent magic shield instead of a flat amount.
+* Magic Burst's mana cost has been reduced slightly at lower levels.
+* Magic Burst's magic shield scaling has been increased greatly.
+* Ice Orb's mana cost has been reduced at lower levels.
+* Ice Orb's base value has been increased at higher levels.
+* Ice Orb's tick rate has been increased at higher levels.
+* Blizzard and Thunderstorm cooldowns have been reduced by a flat 10s.
+* Poison Cloud's mana cost has been reduced at early levels.
+* Poison Cloud's cooldown has been reduced.
+* Poison Cloud's radius has been reduced at higher levels.
+* Rock Slide's mana cost has been reduced very slightly at lower levels.
+* Rock Slide's physical attack scaling has increased slightly.
+* Thorn Armor's mana cost has been reduced.
+* Thorn Armor's cooldown has increased at lower levels.
+* Thorn Armor's duration has been increased at lower levels.
+* Thorny Armor (Thorn Armor Synergy) gives the user a much higher chance of applying Thorns on basic attacks.
+* Root's mana cost has been reduced at lower levels.
+* Thorn Bush's mana cost has been reduced, especially at earlier levels.
+* Thorn Bush's base value has been reduced at earlier levels.
+* Thorn Bush's physical attack scaling has been increased GREATLY (like 4x more).
+* Thorn Bush's cooldown has been reduced.
+* Thorn Bush's duration has been increased by about 20%.
+* Gorgon's Gaze's mana cost has been reduced at early levels.
+* Gorgon's Gaze's base value has been reduced at earlier levels but increased at higher levels.
+* Gorgon's Gaze's physical attack scaling has been increased at lower levels.
+* Gorgon's Gaze's Petrify duration has been increased by about 40%.
+* Nature's Balm's mana cost has been reduced.
+* Nature's Balm's duration has been reduced at early levels but increased at higher levels.
+* Reduced the mana cost of many Ocean, Fire, and Storm spells early on.
+* Magma Flower's mana cost has been reduced.
+* Flame Blitz physical attack scaling has been reduced.
+* Volcano's cooldown has been reduced by a flat 3s.
+* Whirlwind's radius has been increased by 50% at level 1. It's still the same at max level.
+* Whirlwind's physical attack scaling has increased slightly at lower levels.
+* Unholy Meditation's base value has been reduced at higher levels.
+* Unholy Meditation's cooldown has been reduced.
+* Hunting spells have had their costs reduced overall.
+* Hunting arrow spells have had their physical attack scaling reduced greatly.
+* Dodge Rating percent stat have been reduced in effectiveness by about 25%.
+* Weapon damage nodes on the tree have been reduced in effectiveness slightly.
+* Spell damage nodes now provide 4% spell damage instead of 3%.
+* Added the reset stat command for permission level 2+.
+
 3.11.0:
 NEW MASTERYYYYY:
 * Unholy Mastery - a new spell tree which focuses on "undead" and "hellish" abilities. Most of these abilities will also use % HP to cast.

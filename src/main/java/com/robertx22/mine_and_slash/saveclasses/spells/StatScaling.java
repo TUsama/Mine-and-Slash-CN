@@ -51,6 +51,26 @@ public enum StatScaling {
                 lvl, MathHelper.clamp(FIRST_VALUE + (float) lvl / SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE));
 
         }
+    },
+    WEAPON {
+        @Override
+        public float scale(float val, int lvl) {
+
+            StatScaleValue config = ModConfig.INSTANCE.StatScaling.WEAPON_SCALING;
+
+            float FIRST_VALUE = config.FIRST_VALUE.get()
+                    .floatValue();
+            float SECOND_VALUE = config.SECOND_VALUE.get()
+                    .floatValue();
+            float THIRD_VALUE = config.THIRD_VALUE.get()
+                    .floatValue();
+            float FOURTH_VALUE = config.FOURTH_VALUE.get()
+                    .floatValue();
+
+            return val * (float) Math.pow(
+                    lvl, MathHelper.clamp(FIRST_VALUE + (float) lvl / SECOND_VALUE, THIRD_VALUE, FOURTH_VALUE));
+
+        }
     };
 
     StatScaling() {

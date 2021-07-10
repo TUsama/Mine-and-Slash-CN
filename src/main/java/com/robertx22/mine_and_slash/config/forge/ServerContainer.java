@@ -77,9 +77,9 @@ public class ServerContainer {
             .translation("mmorpg.word.")
             .defineInRange("REGEN_HUNGER_COST", 3D, 0, 1000D);
 
-        MOB_STRENGTH_PER_LEVEL_MULTI = builder.comment("This makes mobs increasingly stronger, by default at lvl 100 mobs will be 50% stronger, formula works as multiplying by 1 + [CONFIG_VALUE]")
+        MOB_STRENGTH_PER_LEVEL_MULTI = builder.comment("This makes mobs increasingly weaker, by default at lvl 100 mobs will be 3x stronger, formula: Math.pow(lvl, (lvl / VALUE)) - 0.5")
             .translation("mmorpg.word.")
-            .defineInRange("MOB_STRENGTH_PER_LEVEL_MULTI", 0.005F, 0, 1);
+            .defineInRange("MOB_STRENGTH_PER_LEVEL_MULTI", 360F, 0, 1000D);
 
         FUEL_NEEDED_PER_MAP_ACTIVATION = builder.comment("")
             .translation("mmorpg.word.")
@@ -178,7 +178,7 @@ public class ServerContainer {
 
         MAXIMUM_PLAYER_LEVEL = builder.comment(".")
             .translation("mmorpg.word.")
-            .defineInRange("MAXIMUM_PLAYER_LEVEL", 60, 0, Integer.MAX_VALUE);
+            .defineInRange("MAXIMUM_PLAYER_LEVEL", 100, 0, Integer.MAX_VALUE);
 
         NON_MOD_DAMAGE_MULTI = builder.comment(".")
             .translation("mmorpg.word.")
