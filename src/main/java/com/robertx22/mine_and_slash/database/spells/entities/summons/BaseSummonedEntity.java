@@ -17,6 +17,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.GhastEntity;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
@@ -89,7 +90,7 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
             .setBaseValue((double) 0.5F);
 
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
-            .setBaseValue(15.0D);
+            .setBaseValue(20.0D);
 
         this.getAttributes()
             .registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE)
@@ -110,12 +111,12 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
             return;
         }
         else if (this.spellData.getInit() == false){ // hacky init solution
-            //this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
-            //        .setBaseValue(this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue() * (1 + this.spellData.bonusHealth)); // sets bonus health from spell stat
-            //this.setHealth(this.getMaxHealth());
+            this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
+                    .setBaseValue(this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue() * (1 + this.spellData.bonusHealth)); // sets bonus health from spell stat
+            this.setHealth(this.getMaxHealth());
             this.setTamedBy((PlayerEntity) this.getSpellData().getCaster(world)); // sets tamed
             Load.Unit(this).setLevel(Load.Unit(this.getSpellData().getCaster(world)).getLevel(), this); // sets level
-            Load.Unit(this).setRarity(0);
+            Load.Unit(this).setRarity(2);
             Load.Unit(this).setTier(1);
             this.spellData.setInit(true);
         }
@@ -183,7 +184,9 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
                     dealSummonDamageTo((LivingEntity) en);
                     if (this != null && en != null) {
                         ((LivingEntity) en).setRevengeTarget(this);
-                        ((LivingEntity) en).setLastAttackedEntity(this);
+                        if (en instanceof MobEntity) {
+                            ((MobEntity) en).setAttackTarget(this);
+                        }
                     }
                 }
             }

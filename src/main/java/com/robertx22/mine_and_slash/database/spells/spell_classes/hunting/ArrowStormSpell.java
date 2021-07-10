@@ -67,6 +67,7 @@ public class ArrowStormSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 15, 5);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.DURATION_TICKS, 120, 200);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(8);
 

@@ -66,6 +66,7 @@ public class VolcanoSpell extends BaseSpell {
         c.set(SC.RADIUS, 3.0F, 6.0F);
         c.set(SC.DURATION_TICKS, 120, 200);
         c.set(SC.TICK_RATE, 20, 15);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(8);
 

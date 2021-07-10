@@ -67,6 +67,7 @@ public class WhirlpoolSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 30, 20);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.DURATION_TICKS, 80, 140);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);
 

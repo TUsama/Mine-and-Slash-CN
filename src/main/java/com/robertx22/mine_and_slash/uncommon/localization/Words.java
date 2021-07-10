@@ -65,7 +65,7 @@ public enum Words implements IAutoLocName {
     Geyser("Geyser"), FleshAndMindSacrifice("Flesh & Mind Sacrifice"), MalevolentOffering("Malevolent Offering"),
     GorgonsGaze("Gorgon's Gaze"), SoulShred("Soul Shred"), BoneSquall("Bone Squall"),
     Regenerate("Regenerate"), SummonSkeletalArmy("Summon Skeletal Army"),
-    InstantHeal("Instant Heal"), HellfireCloak("Hellfire Cloak"),
+    InstantHeal("Instant Heal"), HellfireCloak("Hellfire Cloak"), Provoke("Provoke"),
     RighteousFury("Righteous Fury"),
     DivineShield("Divine Shield"), Imbue("Imbue"), Exert("exert"),
     Spellbar("Spellbar"), SpellBlade("Spell Blade"), PowerSurge("Power Surge"), CriticalSurge("Critical Surge"),

@@ -69,6 +69,7 @@ public class BlizzardSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 30, 20);
         c.set(SC.RADIUS, 4, 8);
         c.set(SC.DURATION_TICKS, 200, 300);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(8);
 

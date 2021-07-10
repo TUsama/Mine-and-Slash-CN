@@ -41,7 +41,7 @@ public class GroundSlamSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.BLOCK_ANVIL_PLACE;
+                    return SoundEvents.ITEM_ARMOR_EQUIP_IRON;
                 }
 
                 @Override
@@ -70,6 +70,7 @@ public class GroundSlamSpell extends BaseSpell {
         c.set(SC.COOLDOWN_TICKS, 200, 120);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.DURATION_TICKS, 10, 10);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(16);
 

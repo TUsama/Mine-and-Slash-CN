@@ -70,6 +70,7 @@ public class HellfireCloakSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.DURATION_TICKS, 240, 400);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);
 

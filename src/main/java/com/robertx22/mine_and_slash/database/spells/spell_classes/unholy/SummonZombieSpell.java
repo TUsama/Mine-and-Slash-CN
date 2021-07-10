@@ -8,6 +8,9 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.necromancer.BlightEffect;
+import com.robertx22.mine_and_slash.potion_effects.necromancer.SummonedZombieEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -64,9 +67,10 @@ public class SummonZombieSpell extends BaseSpell {
         c.set(SC.MANA_COST, 12, 20);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 3, 9);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.1F, 0.3F);
-        c.set(SC.CAST_TIME_TICKS, 60, 60);
+        c.set(SC.BASE_VALUE, 3, 14);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.25F, 1.5F);
+        c.set(SC.BONUS_HEALTH, 0F, 0.5F);
+        c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.DURATION_TICKS, 20 * 60, 20 * 90);
         c.set(SC.TICK_RATE, 20, 20);
@@ -84,6 +88,11 @@ public class SummonZombieSpell extends BaseSpell {
     @Override
     public String GUID() {
         return "summon_zombie";
+    }
+
+    @Override
+    public void castExtra(SpellCastContext ctx) {
+        PotionEffectUtils.reApplyToSelf(SummonedZombieEffect.INSTANCE, ctx.caster);
     }
 
     @Override

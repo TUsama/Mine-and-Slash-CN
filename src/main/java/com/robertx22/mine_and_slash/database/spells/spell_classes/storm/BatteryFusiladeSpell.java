@@ -69,6 +69,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
         c.set(SC.COOLDOWN_TICKS, 300, 220);
         c.set(SC.DURATION_TICKS, 60, 80);
         c.set(SC.TIMES_TO_CAST, 3, 8);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);
 

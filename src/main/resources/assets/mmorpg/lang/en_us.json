@@ -171,7 +171,7 @@
 	"mmorpg.synergy.tidal_wave_syn_1": "Freezing Waves",
 	"mmorpg.synergy.volcano_syn_1": "Volcano Burn",
 	"mmorpg.synergy.whirlpool_syn_1": "Shiver Pool",
-	"mmorpg.synergy.whirlwind_syn_1": "Taunt",
+	"mmorpg.synergy.whirlwind_syn_1": "Vexing Strikes",
 	"mmorpg.synergy.whirlwind_syn_2": "Piercing Winds",
 	"mmorpg.synergy.power_surge_syn_1": "Stray Currents",
 	"mmorpg.synergy.critical_surge_syn_1": "Voltaic Blast",
@@ -837,6 +837,7 @@
 	"mmorpg.word.weaponcrafterscrate": "Weapon Crafter's Crate",
 	"mmorpg.word.weaponoffhand": "Weapon/Offhand",
 	"mmorpg.word.whirlwind": "Whirlwind",
+	"mmorpg.word.provoke": "Provoke",
 	"mmorpg.word.whirpool": "Whirlpool",
 	"mmorpg.word.wideshot": "Wide Shot",
 	"mmorpg.word.wish": "Wish",
@@ -1107,7 +1108,8 @@
 	"mmorpg.stat.plus_ground_slam_spell_lvl": "To Retribution Spell Level",
 	"mmorpg.stat.plus_ground_slam_syn_1_synergy_lvl": "To Holy Retribution Spell Level",
 	"mmorpg.stat.plus_whirlwind_spell_lvl": "To Whirlwind Spell Level",
-	"mmorpg.stat.plus_whirlwind_syn_1_synergy_lvl": "To Taunt Spell Level",
+	"mmorpg.stat.plus_whirlwind_syn_1_synergy_lvl": "To Vexing Strikes Spell Level",
+	"mmorpg.stat.plus_provoke_spell_lvl": "To Provoke Spell Level",
 	"mmorpg.stat.plus_whirlwind_syn_2_synergy_lvl": "To Piercing Winds Spell Level",
 	"mmorpg.stat.plus_critical_surge_syn_1_synergy_lvl": "To Voltaic Blast Spell Level",
 	"mmorpg.stat.plus_power_surge_syn_1_synergy_lvl": "To Stray Currents Spell Level",
@@ -1243,6 +1245,9 @@
 	"mmorpg.stat.plus_spirit_shroud_effect_lvl": "To Spirit Shroud Effect Level",
 	"mmorpg.stat.plus_flesh_and_mind_sacrifice_effect_lvl": "To Flesh & Mind Sacrifice Effect Level",
 	"mmorpg.stat.plus_soul_shred_effect_lvl": "To Soul Shred Effect Level",
+	"mmorpg.stat.plus_summoned_zombie_effect_lvl": "To Summoned Zombie Effect Level",
+	"mmorpg.stat.plus_summoned_skeleton_effect_lvl": "To Summoned Skeleton Effect Level",
+	"mmorpg.stat.plus_summoned_wolf_effect_lvl": "To Summoned Wolf Effect Level",
 
 "_comment": " [CATEGORY]: STATS - NAMES",
 
@@ -1587,6 +1592,9 @@
 	"effect.mmorpg.spirit_shroud": "Spirit Shroud",
 	"effect.mmorpg.flesh_and_mind_sacrifice": "Flesh & Mind Sacrifice",
 	"effect.mmorpg.soul_shred": "Soul Shred",
+	"effect.mmorpg.summoned_zombie": "Summoned Zombie",
+	"effect.mmorpg.summoned_skeleton": "Summoned Skeleton",
+	"effect.mmorpg.summoned_wolf": "Summoned Wolf",
 
 "_comment": " [CATEGORY]: POTIONS - NAMES",
 

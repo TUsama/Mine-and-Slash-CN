@@ -164,6 +164,18 @@ public enum ParticleEnum {
 
         }
     },
+    PROVOKE() {
+        @Override
+        public void activate(ParticlePacketData data, World world) {
+
+            for (int i = 0; i < 80; i++) {
+                Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(data.getPos(), data.radius);
+                world.addParticle(ParticleTypes.ANGRY_VILLAGER, p.x, p.y, p.z, 0, 0, 0);
+
+            }
+
+        }
+    },
     MAGIC_BURST() {
         @Override
         public void activate(ParticlePacketData data, World world) {

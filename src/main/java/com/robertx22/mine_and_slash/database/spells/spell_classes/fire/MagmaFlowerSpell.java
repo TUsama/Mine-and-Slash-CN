@@ -70,6 +70,7 @@ public class MagmaFlowerSpell extends BaseSpell {
         c.set(SC.RADIUS, 3.0F, 5.0F);
         c.set(SC.TICK_RATE, 30, 30);
         c.set(SC.DURATION_TICKS, 200, 300);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(8);
 

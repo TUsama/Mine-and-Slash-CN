@@ -73,6 +73,7 @@ public class BlastTrapSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 14, 10);
         c.set(SC.DURATION_TICKS, 200, 300);
         c.set(SC.RADIUS, 1.5F, 3.0F);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);
 

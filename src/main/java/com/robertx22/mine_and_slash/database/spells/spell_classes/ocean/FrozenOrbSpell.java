@@ -67,6 +67,7 @@ public class FrozenOrbSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 24, 18);
         c.set(SC.TICK_RATE, 7, 3);
         c.set(SC.DURATION_TICKS, 120, 140);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);
 

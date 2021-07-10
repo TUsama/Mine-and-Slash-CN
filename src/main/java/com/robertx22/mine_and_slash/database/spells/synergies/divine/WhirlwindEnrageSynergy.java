@@ -84,6 +84,6 @@ public class WhirlwindEnrageSynergy extends OnAttackSpellDmgDoneSynergy {
 
     @Override
     public String locNameForLangFile() {
-        return "Taunt";
+        return "Vexing Strikes";
     }
 }

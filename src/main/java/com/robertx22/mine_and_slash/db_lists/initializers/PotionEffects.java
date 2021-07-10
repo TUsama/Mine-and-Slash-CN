@@ -57,6 +57,9 @@ public class PotionEffects implements ISlashRegistryInit {
             .registerToSlashRegistry();
         WindWalkEffect.INSTANCE.registerToSlashRegistry();
         SilentWindEffect.INSTANCE.registerToSlashRegistry();
+        SummonedZombieEffect.INSTANCE.registerToSlashRegistry();
+        SummonedSkeletonEffect.INSTANCE.registerToSlashRegistry();
+        SummonedWolfEffect.INSTANCE.registerToSlashRegistry();
         SnareEffect.INSTANCE.registerToSlashRegistry();
         WeakenEffect.INSTANCE.registerToSlashRegistry();
 

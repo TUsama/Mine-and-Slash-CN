@@ -66,6 +66,7 @@ public class ThunderspearSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 40, 40);
         c.set(SC.DURATION_TICKS, 40, 60);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(16);
 

@@ -21,7 +21,7 @@ public enum SC {
     TICK_RATE(-100, Words.TickRate),
     TIMES_TO_CAST(1, Words.TimesToCast),
     BASE_VALUE(0, null),
-    BONUS_HEALTH(0, null),
+    BONUS_HEALTH(0, Words.BonusHealth),
     AMOUNT(0, Words.Amount),
     ATTACK_SCALE_VALUE(0, null),
     ELEMENTAL_ATTACK_SCALE_VALUE(0, null),

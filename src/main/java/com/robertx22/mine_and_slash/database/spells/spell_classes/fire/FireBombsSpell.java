@@ -72,6 +72,7 @@ public class FireBombsSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 100, 120);
         c.set(SC.TIMES_TO_CAST, 3, 3);
         c.set(SC.RADIUS, 1.5F, 2.25F);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);
 

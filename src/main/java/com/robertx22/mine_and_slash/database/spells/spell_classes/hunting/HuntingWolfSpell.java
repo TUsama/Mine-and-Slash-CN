@@ -8,7 +8,10 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.necromancer.SummonedZombieEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.SnareEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.SummonedWolfEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -68,8 +71,9 @@ public class HuntingWolfSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 7);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.25F, 0.5F);
-        c.set(SC.CAST_TIME_TICKS, 120, 60);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.5F, 4.0F);
+        c.set(SC.BONUS_HEALTH, 0F, 1.0F);
+        c.set(SC.CAST_TIME_TICKS, 60, 60);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);
         c.set(SC.DURATION_TICKS, 20 * 60, 20 * 90);
         c.set(SC.TICK_RATE, 20, 20);
@@ -82,6 +86,11 @@ public class HuntingWolfSpell extends BaseSpell {
     @Override
     public AbilityPlace getAbilityPlace() {
         return new AbilityPlace(5, 1);
+    }
+
+    @Override
+    public void castExtra(SpellCastContext ctx) {
+        PotionEffectUtils.reApplyToSelf(SummonedWolfEffect.INSTANCE, ctx.caster);
     }
 
     @Override

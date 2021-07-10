@@ -8,6 +8,9 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.necromancer.SummonedSkeletonEffect;
+import com.robertx22.mine_and_slash.potion_effects.necromancer.SummonedZombieEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -64,8 +67,9 @@ public class SummonSkeletalArmySpell extends BaseSpell {
         c.set(SC.MANA_COST, 8, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 7, 19);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.6F);
+        c.set(SC.BASE_VALUE, 11, 23);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.0F, 5.0F);
+        c.set(SC.BONUS_HEALTH, 0F, 0.25F);
         c.set(SC.TIMES_TO_CAST, 3, 6);
         c.set(SC.CAST_TIME_TICKS, 30, 30);
         c.set(SC.COOLDOWN_SECONDS, 60, 45);
@@ -80,6 +84,11 @@ public class SummonSkeletalArmySpell extends BaseSpell {
     @Override
     public AbilityPlace getAbilityPlace() {
         return new AbilityPlace(4, 6);
+    }
+
+    @Override
+    public void castExtra(SpellCastContext ctx) {
+        PotionEffectUtils.reApplyToSelf(SummonedSkeletonEffect.INSTANCE, ctx.caster);
     }
 
     @Override

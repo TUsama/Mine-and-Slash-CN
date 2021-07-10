@@ -72,6 +72,7 @@ public class RockSlideSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 4, 4);
         c.set(SC.RADIUS, 2, 2);
         c.set(SC.DURATION_TICKS, 40, 40);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);
 

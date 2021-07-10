@@ -78,6 +78,9 @@ public class PotionRegister {
         reg.register(SpiritShroudEffect.INSTANCE);
         reg.register(FleshandMindSacrificeEffect.INSTANCE);
         reg.register(SoulShredEffect.INSTANCE);
+        reg.register(SummonedZombieEffect.INSTANCE);
+        reg.register(SummonedSkeletonEffect.INSTANCE);
+        reg.register(SummonedWolfEffect.INSTANCE);
 
     }
 

@@ -70,6 +70,7 @@ public class SteamCloudSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 40, 20);
         c.set(SC.RADIUS, 2, 3);
         c.set(SC.DURATION_TICKS, 200, 320);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(10);
 

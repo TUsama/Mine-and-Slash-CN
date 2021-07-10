@@ -83,7 +83,7 @@ public class EntitySpellData {
         this.lifeInTicks = config.get(SC.DURATION_TICKS)
             .intValue();
 
-        //this.bonusHealth = config.get(SC.BONUS_HEALTH);
+        this.bonusHealth = config.get(SC.BONUS_HEALTH);
         //this.maxEntities = config.get(SC.SUMMONED_ENTITIES).intValue();
         //this.currentEntities++;
         this.configs = config;

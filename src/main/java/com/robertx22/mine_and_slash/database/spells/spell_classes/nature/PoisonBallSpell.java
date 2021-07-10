@@ -43,7 +43,7 @@ public class PoisonBallSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ENTITY_SNOWBALL_THROW;
+                    return SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE;
                 }
 
                 @Override
@@ -70,6 +70,7 @@ public class PoisonBallSpell extends BaseSpell {
         c.set(SC.COOLDOWN_TICKS, 30, 20);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.DURATION_TICKS, 60, 60);
+        c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(16);
 

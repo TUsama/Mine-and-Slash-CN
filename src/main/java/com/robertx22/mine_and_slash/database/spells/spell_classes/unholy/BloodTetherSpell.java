@@ -84,7 +84,7 @@ public class BloodTetherSpell extends BaseSpell {
                 .get(SC.AMOUNT).get(Load.spells(ctx.caster), this)) - 1;
 
         for (int i = 0; i < amount; i++) {
-            PotionEffectUtils.apply(NecroticTetherEffect.INSTANCE, ctx.caster, ctx.caster);
+            PotionEffectUtils.reApplyToSelf(NecroticTetherEffect.INSTANCE, ctx.caster);
         }
     }
 

@@ -1,3 +1,21 @@
+3.11.3:
+* New Level 5 Divine Spell: Provoke - taunt nearby enemies and apply Enrage stacks (yes, this really taunts them).
+* A new indicator for how long the summons lasts has been added. It uses the potion effects bar.
+* Summon spells have received overall buffs.
+* Summon spells now gain additional HP per spell level.
+* Summons are now spawned in at rare rather than common.
+* Summon AI has been improved and they should attack nearby enemies on their own.
+* Summons hitting a mob should now grab the mob's attention (effectively taunting them).
+* The cast times of Summon Zombies and Summon Hunting Wolf have been reduced significantly.
+* Craft Arrows mana cost has been increased, and a small energy cost has been added.
+* Retribution sound has been changed (and subsequently lowered).
+* Tidal Wave base value and physical attack scaling has increased.
+* Charged Sweep base value has increased.
+* Charge, Purifying Fires, Flame Blitz, Meteoric Strike, and Lava Quake have had their physical attack scaling reduced at higher levels very slightly.
+* Whirlwind physical attack scaling has been reduced.
+* Change sound of Poison Ball and Healing Wave.
+* Renamed Taunt synergy of Whirlwind to Vexing Strikes.
+
 3.11.2:
 * Increased default max level to 100.
 * New scaling for attack damage: it now starts off slower but scales at a higher rate at later levels.

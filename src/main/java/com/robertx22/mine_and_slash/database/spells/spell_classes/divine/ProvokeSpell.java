@@ -1,6 +1,5 @@
 package com.robertx22.mine_and_slash.database.spells.spell_classes.divine;
 
-import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
@@ -9,8 +8,11 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.divine.EnrageEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
+import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
@@ -18,10 +20,9 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.particles.ParticleTypes;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -29,9 +30,9 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HealingAuraSpell extends BaseSpell {
+public class ProvokeSpell extends BaseSpell {
 
-    private HealingAuraSpell() {
+    private ProvokeSpell() {
         super(
             new ImmutableSpellConfigs() {
 
@@ -42,59 +43,20 @@ public class HealingAuraSpell extends BaseSpell {
 
                 @Override
                 public SpellCastType castType() {
-                    return SpellCastType.SELF_HEAL;
+                    return SpellCastType.SPECIAL;
                 }
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE;
+                    return SoundEvents.ENTITY_POLAR_BEAR_WARNING;
                 }
 
                 @Override
                 public Elements element() {
-                    return Elements.Elemental;
+                    return Elements.Physical;
                 }
-            }.setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-        );
-    }
 
-    @Override
-    public void castExtra(SpellCastContext ctx) {
-
-        float RADIUS = ctx.getConfigFor(this)
-            .get(SC.RADIUS)
-            .get(ctx.spellsCap, this);
-
-        List<LivingEntity> list = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
-            .finder(EntityFinder.Finder.IN_FRONT)
-            .radius(RADIUS/2F)
-                .distance(RADIUS)
-            .searchFor(EntityFinder.SearchFor.ALLIES)
-            .build();
-
-        for (LivingEntity en : list) {
-
-            int num = ctx.getConfigFor(this)
-                .getCalc(ctx.spellsCap, this)
-                .getCalculatedValue(ctx.data, ctx.spellsCap, this);
-
-            SoundUtils.playSound(en, SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
-
-            SpellUtils.heal(this, en, num);
-
-            ParticleEnum.sendToClients(
-                en.getPosition(), en.world,
-                new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(RADIUS)
-                    .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleTypes.FALLING_HONEY)
-                    .amount((int) (RADIUS * 5)));
-            ParticleEnum.sendToClients(
-                    en.getPosition(), en.world,
-                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(RADIUS)
-                            .motion(new Vec3d(0, 0, 0))
-                            .type(ParticleTypes.HEART)
-                            .amount((int) (RADIUS * 5)));
-        }
+            }.setSwingArmOnCast());
     }
 
     @Override
@@ -102,32 +64,34 @@ public class HealingAuraSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 4, 7);
+        c.set(SC.MANA_COST, 14, 3);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 8, 18);
+        c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 3, 1);
+        c.set(SC.COOLDOWN_SECONDS, 14, 7);
+        c.set(SC.AMOUNT,1, 5);
+        c.set(SC.RADIUS, 3, 7);
         c.set(SC.TIMES_TO_CAST, 1, 1);
-        c.set(SC.RADIUS, 3, 6);
+        c.set(SC.TICK_RATE, 20, 20);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }
 
-    public static HealingAuraSpell getInstance() {
-        return HealingAuraSpell.SingletonHolder.INSTANCE;
-    }
-
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(5,1);
+    }
+
+    public static ProvokeSpell getInstance() {
+        return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "healing_aura";
+        return "provoke";
     }
 
     @Override
@@ -136,25 +100,71 @@ public class HealingAuraSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Heal"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff, Taunt"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Heal allies in front of you: "));
+        list.add(new StringTextComponent("Draw the attention of nearby enemies by provoking them."));
+        list.add(new StringTextComponent("Also applies: "));
 
-        list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
+        list.addAll(EnrageEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         return list;
 
     }
 
+    public void damageMobsAroundYou(SpellCastContext ctx, LivingEntity caster) {
+
+
+        float amount = ((int) ctx.getConfigFor(this)
+                .get(SC.AMOUNT).get(Load.spells(ctx.caster), this)) - 1;
+
+        if (!caster.world.isRemote) {
+
+            float radius = ctx.getConfigFor(this)
+                .get(SC.RADIUS)
+                .get(ctx.spellsCap, this);
+
+            ParticlePacketData pdata = new ParticlePacketData(caster.getPosition()
+                .up(1), ParticleEnum.PROVOKE);
+            pdata.radius = radius;
+            ParticleEnum.PROVOKE.sendToClients(caster, pdata);
+
+            List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
+                .radius(radius)
+                    .searchFor(EntityFinder.SearchFor.ENEMIES)
+                .build();
+
+            for (LivingEntity en : entities) {
+
+                if (en instanceof MobEntity) {
+                    en.setRevengeTarget(ctx.caster);
+                    ((MobEntity) en).setAttackTarget(ctx.caster);
+                }
+
+                for (int i = 0; i < amount; i++) {
+                    PotionEffectUtils.apply(EnrageEffect.INSTANCE, ctx.caster, en);
+                }
+
+            }
+        }
+    }
+
     @Override
     public Words getName() {
-        return Words.HealingAura;
+        return Words.Provoke;
+    }
+
+    @Override
+    public void castExtra(SpellCastContext ctx) {
+
+        damageMobsAroundYou(ctx, ctx.caster);
+
+        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_POLAR_BEAR_WARNING, 0.7F, 1.2F);
+
     }
 
     private static class SingletonHolder {
-        private static final HealingAuraSpell INSTANCE = new HealingAuraSpell();
+        private static final ProvokeSpell INSTANCE = new ProvokeSpell();
     }
 }
-
