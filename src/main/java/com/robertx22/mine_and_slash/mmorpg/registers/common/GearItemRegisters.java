@@ -18,6 +18,7 @@ import com.robertx22.mine_and_slash.items.gearitems.baubles.ItemBracelet;
 import com.robertx22.mine_and_slash.items.gearitems.baubles.ItemCharm;
 import com.robertx22.mine_and_slash.items.gearitems.baubles.ItemNecklace;
 import com.robertx22.mine_and_slash.items.gearitems.baubles.ItemRing;
+import com.robertx22.mine_and_slash.items.gearitems.offhands.MyOrb;
 import com.robertx22.mine_and_slash.items.gearitems.offhands.MyTorch;
 import com.robertx22.mine_and_slash.items.gearitems.offhands.NormalShield;
 import com.robertx22.mine_and_slash.items.gearitems.offhands.ShieldRenderer;
@@ -63,6 +64,7 @@ public class GearItemRegisters {
             );
 
             regRarities(new MyTorch(rarity.Rank()), MyTorch.Items, "torch/torch", rarity.Rank());
+            regRarities(new MyOrb(rarity.Rank()), MyOrb.Items, "orb/orb", rarity.Rank());
 
             //regRarities(new MagicOrb(orbprop, "orb" + rarity.rarity()), MagicOrb.Items, "magic_orb/orb", rarity
             //       .rarity());

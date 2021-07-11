@@ -1,3 +1,9 @@
+3.11.5:
+* Another fix for orbs not working.
+
+3.11.4:
+* Fixed orbs not working.
+
 3.11.3:
 * New Level 5 Divine Spell: Provoke - taunt nearby enemies and apply Enrage stacks (yes, this really taunts them).
 * A new indicator for how long the summons lasts has been added. It uses the potion effects bar.
