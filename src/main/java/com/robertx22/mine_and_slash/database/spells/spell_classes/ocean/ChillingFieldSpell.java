@@ -74,7 +74,7 @@ public class ChillingFieldSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 2, 5);
         c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.02F, 0.06F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 18, 14);
+        c.set(SC.COOLDOWN_SECONDS, 17, 13);
         c.set(SC.TICK_RATE, 40, 30);
         c.set(SC.RADIUS, 2, 4);
         c.set(SC.DURATION_TICKS, 160, 260);

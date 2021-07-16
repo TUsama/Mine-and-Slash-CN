@@ -67,7 +67,7 @@ public class PoisonballThornsSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 60, 100);
+        c.set(SC.CHANCE, 60, 110);
         c.setMaxLevel(6);
         return c;
     }

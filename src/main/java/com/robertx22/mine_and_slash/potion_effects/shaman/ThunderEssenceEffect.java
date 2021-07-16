@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.stats.types.generated.AllElementalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedManaCost;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -58,6 +59,7 @@ public class ThunderEssenceEffect extends BasePotionEffect implements IApplyStat
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(6, new ElementalSpellDamage(Elements.Elemental)));
+        list.add(new PotionStat(3, ReducedManaCost.getInstance()));
         list.add(new PotionStat(1, CriticalHit.getInstance()));
         return list;
     }

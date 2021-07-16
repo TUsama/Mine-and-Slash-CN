@@ -51,6 +51,8 @@ public class MagmaFlowerTileEntity extends BaseSpellTileEntity {
                     .radius(RADIUS)
                     .build();
 
+                SoundUtils.playSound(sdata.getCaster(world), SoundEvents.BLOCK_FIRE_EXTINGUISH, 1, 1);
+
                 entities.forEach(x -> {
                     SpellDamageEffect dmg = getSetupSpellDamage(x);
                     dmg.Activate();

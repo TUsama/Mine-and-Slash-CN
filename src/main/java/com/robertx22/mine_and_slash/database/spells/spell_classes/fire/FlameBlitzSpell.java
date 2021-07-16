@@ -123,7 +123,7 @@ public class FlameBlitzSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 1, 2);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.55F, 0.75F);
         c.set(SC.CAST_TIME_TICKS, 30, 40);
-        c.set(SC.COOLDOWN_SECONDS, 10, 6);
+        c.set(SC.COOLDOWN_SECONDS, 9, 5);
         c.set(SC.TIMES_TO_CAST, 4, 6);
 
         c.setMaxLevel(16);

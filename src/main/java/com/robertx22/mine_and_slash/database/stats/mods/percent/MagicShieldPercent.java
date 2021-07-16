@@ -12,7 +12,7 @@ public class MagicShieldPercent extends StatMod {
 
     @Override
     public float Min() {
-        return 8;
+        return 6;
     }
 
     @Override

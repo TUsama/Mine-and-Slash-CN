@@ -59,26 +59,26 @@ public class ArrowBarrageSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 4, 8);
-        c.set(SC.ENERGY_COST, 6, 12);
+        c.set(SC.ENERGY_COST, 5, 11);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.6F, 1.1F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.SHOOT_SPEED, 3.0F, 3.0F);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
-        c.set(SC.COOLDOWN_SECONDS, 9, 5);
-        c.set(SC.TIMES_TO_CAST, 4, 12);
+        c.set(SC.COOLDOWN_SECONDS, 14, 8);
+        c.set(SC.TIMES_TO_CAST, 4, 10);
         c.set(SC.DURATION_TICKS, 80, 120);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(0, 4);
     }
 
     public static ArrowBarrageSpell getInstance() {

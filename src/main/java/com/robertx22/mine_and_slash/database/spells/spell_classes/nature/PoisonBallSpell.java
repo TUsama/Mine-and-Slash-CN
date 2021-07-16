@@ -62,15 +62,18 @@ public class PoisonBallSpell extends BaseSpell {
         c.set(SC.MANA_COST, 4, 9);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 2, 6);
+        c.set(SC.BASE_VALUE, 4, 8);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.4F, 0.6F);
-        c.set(SC.SHOOT_SPEED, 0.2F, 0.4F);
-        c.set(SC.PROJECTILE_COUNT, 3, 3);
+        c.set(SC.SHOOT_SPEED, 0.25F, 0.25F);
+        c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 30, 20);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
-        c.set(SC.DURATION_TICKS, 60, 60);
+        c.set(SC.RADIUS, 1.5F, 3F);
+        c.set(SC.DURATION_TICKS, 60, 120);
         c.set(SC.BONUS_HEALTH, 0, 0);
+        c.set(SC.TICK_RATE, 30, 10);
+
 
         c.setMaxLevel(16);
 
@@ -92,7 +95,7 @@ public class PoisonBallSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Projectile"));
 
         TooltipUtils.addEmpty(list);
 

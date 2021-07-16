@@ -54,7 +54,7 @@ public class WindWalkBuff extends BaseHuntingBuffSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(1, 5);
+        return new AbilityPlace(2, 5);
     }
 
     private static class SingletonHolder {

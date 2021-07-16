@@ -67,11 +67,11 @@ public class HuntingWolfSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 18, 26);
+        c.set(SC.MANA_COST, 17, 25);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 2, 7);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.5F, 4.0F);
+        c.set(SC.BASE_VALUE, 2, 6);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.5F, 3.5F);
         c.set(SC.BONUS_HEALTH, 0F, 1.0F);
         c.set(SC.CAST_TIME_TICKS, 60, 60);
         c.set(SC.COOLDOWN_SECONDS, 45, 30);

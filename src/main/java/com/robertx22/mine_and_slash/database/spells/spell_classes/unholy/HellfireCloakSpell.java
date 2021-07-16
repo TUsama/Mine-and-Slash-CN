@@ -66,7 +66,7 @@ public class HellfireCloakSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 7, 18);
         c.set(SC.CAST_TIME_TICKS, 60, 60);
-        c.set(SC.COOLDOWN_SECONDS, 32, 26);
+        c.set(SC.COOLDOWN_SECONDS, 31, 23);
         c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.DURATION_TICKS, 240, 400);

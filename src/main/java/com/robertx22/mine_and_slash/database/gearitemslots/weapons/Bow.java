@@ -4,22 +4,29 @@ import com.robertx22.mine_and_slash.data_generation.wrappers.StatModsHolder;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponDamageMulti;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponSwingCost;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseWeapon;
+import com.robertx22.mine_and_slash.database.gearitemslots.bases.PosStats;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.NormalWeaponMechanic;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
+import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DodgeRatingFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.PhysicalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifeOnHitFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifestealFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicStealFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalAttackDamageFlat;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemBow;
 import com.robertx22.mine_and_slash.saveclasses.player_stat_points.LvlPointStat;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import net.minecraft.item.Item;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Bow extends BaseWeapon implements ISpecificStatReq {
 
@@ -38,7 +45,7 @@ public class Bow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponDamageMulti weaponDamageMulti() {
-        return new WeaponDamageMulti(2);
+        return new WeaponDamageMulti(1);
     }
 
     @Override
@@ -53,7 +60,7 @@ public class Bow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(14);
+        return new WeaponSwingCost(9);
     }
 
     @Override
@@ -79,6 +86,17 @@ public class Bow extends BaseWeapon implements ISpecificStatReq {
     @Override
     public String locNameForLangFile() {
         return "Bow";
+    }
+
+    @Override
+    public List<PosStats> getPossiblePrimaryStats() {
+        return Arrays.asList(
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW)).weight(26000),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF))
+        );
     }
 
     @Override

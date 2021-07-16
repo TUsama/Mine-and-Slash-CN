@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.FrostShieldBuff;
+import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
 import com.robertx22.mine_and_slash.packets.NoEnergyPacket;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
@@ -19,6 +20,7 @@ import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
@@ -80,7 +82,7 @@ public class MagicBurstSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE, 0.15F, 0.45F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 6, 3);
+        c.set(SC.COOLDOWN_SECONDS, 5, 3);
         c.set(SC.RADIUS, 2, 4);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
@@ -142,8 +144,8 @@ public class MagicBurstSpell extends BaseSpell {
                 .build();
 
             for (LivingEntity en : entities) {
-                DamageEffect dmg = new DamageEffect(
-                    null, caster, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                SpellDamageEffect dmg = new SpellDamageEffect(
+                        caster, en, num, ctx.data, Load.Unit(en), this);
                 dmg.element = Elements.Water;
                 dmg.Activate();
 

@@ -250,15 +250,14 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                 BlockEffect.applyKnockbackResist(target);
                 return;
             }
-        } else {
-            if (this instanceof SpellDamageEffect || this instanceof AttackSpellDamageEffect || this instanceof SummonDamageEffect) {
-                if (target instanceof TameableEntity) {
-                    if (source instanceof PlayerEntity) {
-                        TameableEntity tame = (TameableEntity) target;
-                        if (tame.isOwner(source) || TeamUtils.areOnSameTeam((ServerPlayerEntity) source, (ServerPlayerEntity) tame.getOwner())) {
-                            cancelDamage();
-                            return;
-                        }
+        } else if (target instanceof TameableEntity) {
+            if (source instanceof PlayerEntity) {
+                TameableEntity tame = (TameableEntity) target;
+                if (tame.isTamed()) {
+                    if (tame.isOwner(source) || TeamUtils.areOnSameTeam((ServerPlayerEntity) source, (ServerPlayerEntity) tame.getOwner())) {
+                        BlockEffect.applyKnockbackResist(target);
+                        cancelDamage();
+                        return;
                     }
                 }
             }

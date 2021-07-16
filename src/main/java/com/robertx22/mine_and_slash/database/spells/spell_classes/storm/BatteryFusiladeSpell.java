@@ -66,7 +66,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 0.4F, 0.6F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 20, 40);
-        c.set(SC.COOLDOWN_TICKS, 300, 220);
+        c.set(SC.COOLDOWN_SECONDS, 14, 9);
         c.set(SC.DURATION_TICKS, 60, 80);
         c.set(SC.TIMES_TO_CAST, 3, 8);
         c.set(SC.BONUS_HEALTH, 0, 0);

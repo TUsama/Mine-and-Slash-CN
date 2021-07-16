@@ -53,7 +53,7 @@ public class BleedPotion extends BasePotionEffect {
         }, null));
     }
 
-    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.25F);
+    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.1F);
 
     @Override
     public String GUID() {
@@ -72,7 +72,7 @@ public class BleedPotion extends BasePotionEffect {
 
     @Override
     public int getMaxStacks() {
-        return 8;
+        return 20;
     }
 
     @Override

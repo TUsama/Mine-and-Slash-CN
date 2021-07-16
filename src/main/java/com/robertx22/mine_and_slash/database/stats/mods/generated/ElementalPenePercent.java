@@ -31,12 +31,12 @@ public class ElementalPenePercent extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 3;
     }
 
     @Override
     public float Max() {
-        return 12;
+        return 8;
     }
 
     @Override

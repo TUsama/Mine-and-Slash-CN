@@ -5,6 +5,7 @@ import net.minecraft.util.ResourceLocation;
 
 public enum PerkType {
 
+    COMBINE(24, 24, 0, 0.5F),
     SMALL(24, 24, 0, 1),
     BIG(35, 39, 48, 2.5F),
     MAJOR(50, 50, 101, 5);

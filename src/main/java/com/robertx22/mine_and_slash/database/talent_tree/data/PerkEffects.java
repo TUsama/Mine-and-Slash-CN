@@ -12,7 +12,9 @@ import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.Phy
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToThunderConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToWaterConversion;
 import com.robertx22.mine_and_slash.database.stats.types.resources.*;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.FasterCastRate;
 import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedManaCost;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkEffectBuilder;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkEffectsWrapper;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
@@ -62,11 +64,13 @@ public class PerkEffects {
     public static PerkEffectsWrapper PHYS_TO_NATURE;
     public static PerkEffectsWrapper DOT_DMG;
     public static PerkEffectsWrapper SUMMON_DMG;
+    public static PerkEffectsWrapper FCR;
+    public static PerkEffectsWrapper MANA_COST;
 
     // COMBINED EFFECTS
-    public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG;
-    public static PerkEffectsWrapper INT_WIS, STR_CRIT_DMG, ENE_ENE_REGEN, STA_DEX, DODGE_ENE_REGEN, DODGE_ENE;
-    public static PerkEffectsWrapper HP_HP_REGEN, PHYS_DMG_CRIT_DMG, PHYS_DMG_CRIT_HIT, MANA_MANA_REGEN, LIFE_SPELL_STEAL;
+    public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG, CDR_FCR, SPELL_SUMMON_DMG, CRIT_HIT_DODGE;
+    public static PerkEffectsWrapper INT_WIS, STR_STA, STR_CRIT_DMG, ENE_ENE_REGEN, STA_DEX, DODGE_ENE_REGEN, DODGE_ENE, HP_ENE, HP_DODGE, HP_ARMOR;
+    public static PerkEffectsWrapper HP_HP_REGEN, PHYS_DMG_CRIT_DMG, PHYS_DMG_CRIT_HIT, HP_PHYS_DMG, MANA_MANA_REGEN, HP_MANA, LIFE_SPELL_STEAL, MANA_ENE_REGEN;
 
     public static HashMap<WeaponTypes, PerkEffectsWrapper> WEP_DMG_MAP = new HashMap<>();
     public static HashMap<WeaponTypes, PerkEffectsWrapper> WEP_ELE_DMG_MAP = new HashMap<>();
@@ -82,9 +86,9 @@ public class PerkEffects {
     public static void create() {
 
         PHYSICAL_DMG = PerkEffectBuilder.build(
-            "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(8, StatModTypes.Percent, PhysicalDamage.GUID));
+            "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(6, StatModTypes.Percent, PhysicalDamage.GUID));
         SPELL_DMG = PerkEffectBuilder.build(
-            "spell_dmg", SpellDamage.getInstance(), new ExactStatData(4, StatModTypes.Flat, SpellDamage.GUID));
+            "spell_dmg", SpellDamage.getInstance(), new ExactStatData(3, StatModTypes.Flat, SpellDamage.GUID));
         HEAL_PWR = PerkEffectBuilder.build(
                 "heal_pwr", HealPower.getInstance(), new ExactStatData(5, StatModTypes.Flat, HealPower.GUID));
         CDR = PerkEffectBuilder.build(
@@ -92,7 +96,7 @@ public class PerkEffects {
         CRIT_HIT = PerkEffectBuilder.build(
             "crit_hit", CriticalHit.getInstance(), new ExactStatData(1, StatModTypes.Flat, CriticalHit.GUID));
         CRIT_DMG = PerkEffectBuilder.build(
-            "crit_dmg", CriticalDamage.getInstance(), new ExactStatData(2.5F, StatModTypes.Flat, CriticalDamage.GUID));
+            "crit_dmg", CriticalDamage.getInstance(), new ExactStatData(3F, StatModTypes.Flat, CriticalDamage.GUID));
         BLOCK_PERCENT = PerkEffectBuilder.build(
             "block_percent", BlockStrength.INSTANCE, new ExactStatData(1F, StatModTypes.Flat, BlockStrength.GUID));
         SPELLSTEAL = PerkEffectBuilder.build(
@@ -104,9 +108,9 @@ public class PerkEffects {
         LIFESTEAL_PERCENT = PerkEffectBuilder.build(
                 "lifesteal_percent", Lifesteal.getInstance(), new ExactStatData(5, StatModTypes.Percent, Lifesteal.GUID));
         SPELLSTEAL_HALF = PerkEffectBuilder.build(
-                "spellsteal_half", SpellSteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, SpellSteal.GUID));
+                "spellsteal_half", SpellSteal.getInstance(), new ExactStatData(0.5F, StatModTypes.Flat, SpellSteal.GUID));
         LIFESTEAL_HALF = PerkEffectBuilder.build(
-                "lifesteal_half", Lifesteal.getInstance(), new ExactStatData(0.25F, StatModTypes.Flat, Lifesteal.GUID));
+                "lifesteal_half", Lifesteal.getInstance(), new ExactStatData(0.5F, StatModTypes.Flat, Lifesteal.GUID));
 
         PHYS_TO_FIRE = PerkEffectBuilder.build(
                 "phys_to_fire", new PhysicalToFireConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToFireConversion.GUID));
@@ -118,10 +122,13 @@ public class PerkEffects {
                 "phys_to_nature", new PhysicalToNatureConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToNatureConversion.GUID));
 
         DOT_DMG = PerkEffectBuilder.build(
-                "dot_dmg", new AllDotDmg(), new ExactStatData(8F, StatModTypes.Flat, AllDotDmg.GUID));
-
+                "dot_dmg", new AllDotDmg(), new ExactStatData(6F, StatModTypes.Flat, AllDotDmg.GUID));
         SUMMON_DMG = PerkEffectBuilder.build(
                 "summon_dmg", SummonDamage.getInstance(), new ExactStatData(4F, StatModTypes.Flat, SummonDamage.GUID));
+        FCR = PerkEffectBuilder.build(
+                "fcr", FasterCastRate.getInstance(), new ExactStatData(2F, StatModTypes.Flat, FasterCastRate.GUID));
+        MANA_COST = PerkEffectBuilder.build(
+                "mana_cost", ReducedManaCost.getInstance(), new ExactStatData(3, StatModTypes.Flat, ReducedManaCost.GUID));
 
         int core_amount = 1;
 
@@ -167,7 +174,7 @@ public class PerkEffects {
             )
         );
 
-        float wepDmg = 5;
+        float wepDmg = 8;
 
         for (WeaponTypes wep : WeaponTypes.getAll()) {
             WEP_DMG_MAP.put(
@@ -179,7 +186,7 @@ public class PerkEffects {
             WEP_ELE_DMG_MAP.put(
                 wep, PerkEffectBuilder.build(wep.name()
                         .toLowerCase(Locale.ROOT) + "_ele_dmg_percent", EleWepDmg.MAP.get(wep),
-                    new ExactStatData(wepDmg + 5, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
+                    new ExactStatData(wepDmg + 2, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
                 ));
 
         }
@@ -195,14 +202,14 @@ public class PerkEffects {
 
             SPELL_DMG_PERCENT_MAP.put(
                 ele, PerkEffectBuilder.build(ele.guidName + "_spell_dmg", new ElementalSpellDamage(ele),
-                    new ExactStatData(elenum, StatModTypes.Flat,
+                    new ExactStatData(4, StatModTypes.Flat,
                         new ElementalSpellDamage(ele)
                     )
                 ));
 
             ELE_PENE_PERCENT_MAP.put(
                 ele, PerkEffectBuilder.build(ele.guidName + "_pene", new ElementalPene(ele),
-                    new ExactStatData(3, StatModTypes.Flat, new ElementalPene(ele))
+                    new ExactStatData(2, StatModTypes.Flat, new ElementalPene(ele))
                 ));
 
             ATTACK_DAMAGE_PERCENT_MAP.put(
@@ -231,7 +238,7 @@ public class PerkEffects {
 
             All_ELE_DMG_MAP.put(
                 ele, PerkEffectBuilder.build(ele.guidName + "_all_dmg", new AllElementalDamage(ele),
-                    new ExactStatData(elenum, StatModTypes.Flat, new AllElementalDamage(ele))
+                    new ExactStatData(3, StatModTypes.Flat, new AllElementalDamage(ele))
                 ));
 
         }
@@ -241,24 +248,34 @@ public class PerkEffects {
     public static void createCombined() {
 
         MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT = PerkEffectBuilder.build(
-            "mana_ms_percent", MAGIC_SHIELD_PERCENT.small(), MANA_PERCENT.small());
+            "mana_ms_percent", MAGIC_SHIELD_PERCENT.combine(), MANA_PERCENT.combine());
 
-        INT_WIS = PerkEffectBuilder.build("int_wis", INTELLIGENCE.small(), WISDOM.small());
-        STA_DEX = PerkEffectBuilder.build("sta_dex", STAMINA.small(), DEXTERITY.small());
-        HP_HP_REGEN = PerkEffectBuilder.build("hp_hp_regen", HEALTH_PERCENT.small(), HEALTH_REGEN_PERCENT.small());
-        ENE_ENE_REGEN = PerkEffectBuilder.build("ene_ene_regen", ENERGY_REGEN_PERCENT.small(), ENERGY_PERCENT.small());
-        MANA_MANA_REGEN = PerkEffectBuilder.build("mana_mana_regen", MANA_REGEN_PERCENT.small(), MANA_PERCENT.small());
+        INT_WIS = PerkEffectBuilder.build("int_wis", INTELLIGENCE.combine(), WISDOM.combine());
+        STA_DEX = PerkEffectBuilder.build("sta_dex", STAMINA.combine(), DEXTERITY.combine());
+        STR_STA = PerkEffectBuilder.build("str_sta", STRENGTH.combine(), STAMINA.combine());
+        HP_HP_REGEN = PerkEffectBuilder.build("hp_hp_regen", HEALTH_PERCENT.combine(), HEALTH_REGEN_PERCENT.combine());
+        ENE_ENE_REGEN = PerkEffectBuilder.build("ene_ene_regen", ENERGY_REGEN_PERCENT.combine(), ENERGY_PERCENT.combine());
+        MANA_MANA_REGEN = PerkEffectBuilder.build("mana_mana_regen", MANA_REGEN_PERCENT.combine(), MANA_PERCENT.combine());
+        MANA_ENE_REGEN = PerkEffectBuilder.build("mana_ene_regen", MANA_REGEN_PERCENT.combine(), ENERGY_REGEN_PERCENT.combine());
+        HP_MANA = PerkEffectBuilder.build("hp_mana", HEALTH_PERCENT.combine(), MANA_PERCENT.combine());
+        HP_ENE = PerkEffectBuilder.build("hp_ene", HEALTH_PERCENT.combine(), ENERGY_PERCENT.combine());
 
-        PHYS_DMG_CRIT_DMG = PerkEffectBuilder.build("phys_dmg_crit_dmg", PHYSICAL_DMG.small(), CRIT_DMG.small());
+        PHYS_DMG_CRIT_DMG = PerkEffectBuilder.build("phys_dmg_crit_dmg", PHYSICAL_DMG.combine(), CRIT_DMG.combine());
+        SPELL_SUMMON_DMG = PerkEffectBuilder.build("spell_summon_dmg", SPELL_DMG.combine(), SUMMON_DMG.combine());
 
-        PHYS_DMG_CRIT_HIT = PerkEffectBuilder.build("phys_dmg_crit_hit", PHYSICAL_DMG.small(), CRIT_HIT.small());
-        CRIT_HIT_CRIT_DMG = PerkEffectBuilder.build("crit_hit_crit_dmg", CRIT_DMG.small(), CRIT_HIT.small());
+        PHYS_DMG_CRIT_HIT = PerkEffectBuilder.build("phys_dmg_crit_hit", PHYSICAL_DMG.combine(), CRIT_HIT.combine());
+        HP_PHYS_DMG = PerkEffectBuilder.build("hp_phys_dmg", HEALTH_PERCENT.combine(), PHYSICAL_DMG.combine());
+        CRIT_HIT_CRIT_DMG = PerkEffectBuilder.build("crit_hit_crit_dmg", CRIT_DMG.combine(), CRIT_HIT.combine());
+        CDR_FCR = PerkEffectBuilder.build("cdr_fcr", CDR.combine(), FCR.combine());
 
-        STR_CRIT_DMG = PerkEffectBuilder.build("str_crit_dmg", STRENGTH.small(), CRIT_DMG.small());
+        STR_CRIT_DMG = PerkEffectBuilder.build("str_crit_dmg", STRENGTH.combine(), CRIT_DMG.combine());
+        CRIT_HIT_DODGE = PerkEffectBuilder.build("crit_hit_dodge", CRIT_HIT.combine(), DODGE_PERCENT.combine());
         DODGE_ENE_REGEN = PerkEffectBuilder.build(
-            "dodge_ene_regen", DODGE_PERCENT.small(), ENERGY_REGEN_PERCENT.small());
-        DODGE_ENE = PerkEffectBuilder.build("dodge_ene", DODGE_PERCENT.small(), ENERGY_PERCENT.small());
-        LIFE_SPELL_STEAL = PerkEffectBuilder.build("life_spell_steal", LIFESTEAL_HALF.small(), SPELLSTEAL_HALF.small());
+            "dodge_ene_regen", DODGE_PERCENT.combine(), ENERGY_REGEN_PERCENT.combine());
+        DODGE_ENE = PerkEffectBuilder.build("dodge_ene", DODGE_PERCENT.combine(), ENERGY_PERCENT.combine());
+        HP_DODGE = PerkEffectBuilder.build("hp_dodge", HEALTH_PERCENT.combine(), DODGE_PERCENT.combine());
+        HP_ARMOR = PerkEffectBuilder.build("hp_armor", HEALTH_PERCENT.combine(), ARMOR_PERCENT.combine());
+        LIFE_SPELL_STEAL = PerkEffectBuilder.build("life_spell_steal", LIFESTEAL_HALF.combine(), SPELLSTEAL_HALF.combine());
 
     }
 

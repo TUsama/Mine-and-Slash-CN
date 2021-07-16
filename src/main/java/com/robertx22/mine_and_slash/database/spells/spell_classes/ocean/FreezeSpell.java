@@ -74,7 +74,7 @@ public class FreezeSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 60, 20);
-        c.set(SC.COOLDOWN_SECONDS, 26, 18);
+        c.set(SC.COOLDOWN_SECONDS, 24, 17);
         c.set(SC.BASE_VALUE, 4, 16);
         c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.DURATION_TICKS, 120, 240);

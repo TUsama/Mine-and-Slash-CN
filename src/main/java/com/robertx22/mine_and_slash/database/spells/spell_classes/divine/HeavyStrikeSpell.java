@@ -118,7 +118,7 @@ public class HeavyStrikeSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 3, 6);
-        c.set(SC.ENERGY_COST, 4.5F, 9);
+        c.set(SC.ENERGY_COST, 4, 8);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.12F, 0.24F);

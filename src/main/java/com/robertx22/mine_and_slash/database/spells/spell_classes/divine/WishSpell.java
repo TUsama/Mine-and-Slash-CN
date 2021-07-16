@@ -106,7 +106,7 @@ public class WishSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 16, 34);
         c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.1F, 0.2F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 24, 36);
+        c.set(SC.COOLDOWN_SECONDS, 22, 32);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.RADIUS, 10, 14);
 

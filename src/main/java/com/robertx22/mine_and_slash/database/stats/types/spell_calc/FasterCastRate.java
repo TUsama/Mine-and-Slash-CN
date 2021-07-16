@@ -13,6 +13,8 @@ public class FasterCastRate extends Stat implements IStatEffects {
         this.maximumValue = 75;
     }
 
+    public static String GUID = "faster_cast_rate";
+
     public static FasterCastRate getInstance() {
         return SingletonHolder.INSTANCE;
     }
@@ -25,6 +27,11 @@ public class FasterCastRate extends Stat implements IStatEffects {
     @Override
     public Elements getElement() {
         return null;
+    }
+
+    @Override
+    public String getIconPath() {
+        return "fcr";
     }
 
     @Override
@@ -44,7 +51,7 @@ public class FasterCastRate extends Stat implements IStatEffects {
 
     @Override
     public String GUID() {
-        return "faster_cast_rate";
+        return GUID;
     }
 
     @Override

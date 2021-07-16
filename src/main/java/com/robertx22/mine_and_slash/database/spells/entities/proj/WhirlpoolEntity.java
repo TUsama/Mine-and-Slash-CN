@@ -87,7 +87,7 @@ public class WhirlpoolEntity extends EntityBaseProjectile {
 
                         dmg.Activate();
 
-                        x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 5, 5));
+                        x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 5));
 
                         SoundUtils.playSound(this, SoundEvents.ENTITY_DROWNED_HURT_WATER, 1, 1);
 
@@ -112,7 +112,7 @@ public class WhirlpoolEntity extends EntityBaseProjectile {
 
                     yUp += 0.1F;
 
-                    for (int i = 0; i < 40; i++) {
+                    for (int i = 0; i < 15; i++) {
                         Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(
                             getPositionVector().add(0, yUp, 0), rad);
                         ParticleUtils.spawn(ParticleRegister.BUBBLE, world, p);

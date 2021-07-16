@@ -66,25 +66,24 @@ public class ChargedNovaSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 13, 21);
-        c.set(SC.ENERGY_COST, 0, 0);
+        c.set(SC.MANA_COST, 12, 18);
+        c.set(SC.ENERGY_COST, 2, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 5);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.0F, 1.0F);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.04F, 0.16F);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.06F, 0.24F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 8, 5);
+        c.set(SC.COOLDOWN_SECONDS, 7, 4);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(7, 1);
+        return new AbilityPlace(6, 0);
     }
 
     public static ChargedNovaSpell getInstance() {

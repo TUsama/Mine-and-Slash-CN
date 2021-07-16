@@ -1,6 +1,5 @@
 package com.robertx22.mine_and_slash.db_lists.initializers;
 
-import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ChargedNovaSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.divine.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.fire.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.hunting.*;
@@ -21,6 +20,7 @@ public class Synergies implements ISlashRegistryInit {
     private static ThunderSpearLightningStrikeSynergy THUNDER_SPEAR_LIGHTNING = new ThunderSpearLightningStrikeSynergy();
     private static LightningTotemStaticSynergy LIGHTNING_TOTEM_STATIC = new LightningTotemStaticSynergy();
     private static ThunderSpearThunderEssenceSynergy THUNDER_SPEAR_ESSENCE = new ThunderSpearThunderEssenceSynergy();
+    private static ElectricalDischargeLightningEssenceSynergy ELECTRICAL_DISCHARGE_ESSENCE = new ElectricalDischargeLightningEssenceSynergy();
     private static ThunderDashEnergySynergy THUNDER_DASH_ENERGY = new ThunderDashEnergySynergy();
 
     private static ThornArmorThornsSynergy THORN_ARMOR_THORNS = new ThornArmorThornsSynergy();
@@ -49,6 +49,7 @@ public class Synergies implements ISlashRegistryInit {
         //HEART_OF_ICE_MAGIC_SHIELD.registerToSlashRegistry();
 
         THUNDER_SPEAR_LIGHTNING.registerToSlashRegistry();
+        ELECTRICAL_DISCHARGE_ESSENCE.registerToSlashRegistry();
         LIGHTNING_TOTEM_STATIC.registerToSlashRegistry();
         THUNDER_SPEAR_ESSENCE.registerToSlashRegistry();
         THUNDER_DASH_ENERGY.registerToSlashRegistry();
@@ -85,13 +86,15 @@ public class Synergies implements ISlashRegistryInit {
         new WhirlwindEnhancedSynergy().registerToSlashRegistry();
         new WhirlwindEnrageSynergy().registerToSlashRegistry();
         new BlastTrapEnhancedSynergy().registerToSlashRegistry();
-        new ArrowBarrageAddWoundsSynergy().registerToSlashRegistry();
+        new DoubleShotAddWoundsSynergy().registerToSlashRegistry();
+        new ArrowStormAddWoundsSynergy().registerToSlashRegistry();
         new RockSlideEnhancedSynergy().registerToSlashRegistry();
         new BatteryFusiladeChainSynergy().registerToSlashRegistry();
         new CriticalSurgeSplashSynergy().registerToSlashRegistry();
         new PowerSurgeBoltSynergy().registerToSlashRegistry();
 
         new ChillingTouchCrippleSynergy().registerToSlashRegistry();
+        new ChillingTouchHexSynergy().registerToSlashRegistry();
         new SummonZombieCrippleSynergy().registerToSlashRegistry();
         new SummonZombieMasterySynergy().registerToSlashRegistry();
         new AnimateScytheNecroticSynergy().registerToSlashRegistry();

@@ -12,13 +12,13 @@ public class DodgeRatingPercent extends StatMod {
 
     @Override
     public float Min() {
-        return 6;
+        return 7;
 
     }
 
     @Override
     public float Max() {
-        return 16;
+        return 21;
     }
 
     @Override

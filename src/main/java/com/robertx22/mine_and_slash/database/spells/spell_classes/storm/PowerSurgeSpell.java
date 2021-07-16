@@ -110,7 +110,7 @@ public class PowerSurgeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 1);
+        return new AbilityPlace(4, 1);
     }
 
     private static class SingletonHolder {

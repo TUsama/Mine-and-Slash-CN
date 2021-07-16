@@ -76,11 +76,13 @@ public class Spells implements ISlashRegistryInit {
                     add(ThunderspearSpell.getInstance());
                     add(ThunderDashSpell.getInstance());
                     add(LightningTotemSpell.getInstance());
+                    add(ElectricalDischargeSpell.getInstance());
                     add(ChargedNovaSpell.getInstance());
                     add(CriticalSurgeSpell.getInstance());
                     add(PowerSurgeSpell.getInstance());
                     add(QuickChargeSpell.getInstance());
                     add(BatteryFusiladeSpell.getInstance());
+                    add(RechargeSpell.getInstance());
 
                     add(BlazingInfernoSpell.getInstance());
                     add(FireballSpell.getInstance());
@@ -96,6 +98,7 @@ public class Spells implements ISlashRegistryInit {
                     add(SteamCloudSpell.getInstance());
 
                     add(ArrowBarrageSpell.getInstance());
+                    add(DoubleShotSpell.getInstance());
                     add(RecoilShotSpell.getInstance());
                     add(MultiShotSpell.getInstance());
                     add(ImbueSpell.getInstance());

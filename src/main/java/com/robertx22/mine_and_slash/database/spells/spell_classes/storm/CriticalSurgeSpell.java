@@ -110,7 +110,7 @@ public class CriticalSurgeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 1);
+        return new AbilityPlace(3, 1);
     }
 
     private static class SingletonHolder {

@@ -10,12 +10,12 @@ public class SpellDamageFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 2;
+        return 3;
     }
 
     @Override
     public float Max() {
-        return 8;
+        return 6;
     }
 
     @Override

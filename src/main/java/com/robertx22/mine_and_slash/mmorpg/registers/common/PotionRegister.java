@@ -28,6 +28,7 @@ public class PotionRegister {
         IForgeRegistry<Effect> reg = event.getRegistry();
 
         reg.register(RegenerateEffect.INSTANCE);
+        reg.register(RechargeEffect.INSTANCE);
         reg.register(TeleportProtection.INSTANCE);
         reg.register(BleedPotion.INSTANCE);
 

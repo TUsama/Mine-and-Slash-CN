@@ -13,6 +13,7 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
@@ -161,7 +162,8 @@ public class ThunderDashSpell extends BaseSpell {
             .build();
 
         entities.forEach(x -> {
-            DamageEffect dmg = new DamageEffect(null, caster, x, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+            SpellDamageEffect dmg = new SpellDamageEffect(
+                    caster, x, num, ctx.data, Load.Unit(x), this);
             dmg.element = Elements.Thunder;
             dmg.Activate();
         });

@@ -66,7 +66,7 @@ public class ElementalSpellDamage extends ElementalStat implements IStatEffects 
     @Override
     public String locNameForLangFile() {
         return this.getElement()
-            .dmgName + " Skill Damage";
+            .dmgName + " Spell Damage";
 
     }
 

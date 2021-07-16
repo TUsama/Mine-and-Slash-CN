@@ -14,6 +14,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
+import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -60,7 +61,7 @@ public class ThunderspearSpell extends BaseSpell {
         c.set(SC.MANA_COST, 6, 14);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 9, 17);
+        c.set(SC.BASE_VALUE, 7, 11);
         c.set(SC.SHOOT_SPEED, 2.2F, 2.75F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
@@ -93,11 +94,14 @@ public class ThunderspearSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Projectile"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(SpellTooltips.singleTargetProjectile());
+        list.add(new SText("Shoot out a crackling spear of lightning, damaging"));
+        list.add(new SText("the first enemy hit. Upon hitting an enemy, the"));
+        list.add(new SText("caster receives a 20% movement speed bonus for 2"));
+        list.add(new SText("seconds: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

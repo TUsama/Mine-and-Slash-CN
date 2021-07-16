@@ -9,13 +9,13 @@ public class ArmorFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 5;
 
     }
 
     @Override
     public float Max() {
-        return 9;
+        return 10;
     }
 
     @Override

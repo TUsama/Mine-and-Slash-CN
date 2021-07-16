@@ -56,12 +56,14 @@ public class HolyFlowerTileEntity extends BaseSpellTileEntity {
                     .searchFor(EntityFinder.SearchFor.ALLIES)
                     .build();
 
+                SoundUtils.playSound(sdata.getCaster(world), SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
+
                 entities.forEach(x -> {
 
                     this.healTarget(x)
                         .Activate();
 
-                    SoundUtils.playSound(x, SoundEvents.ITEM_CROP_PLANT, 1, 1);
+                    SoundUtils.playSound(x, SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
 
                 });
 

@@ -64,14 +64,14 @@ public class WeakenTrapSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 1, 17);
+        c.set(SC.MANA_COST, 5, 11);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 18, 12);
+        c.set(SC.COOLDOWN_SECONDS, 16, 10);
         c.set(SC.DURATION_TICKS, 200, 300);
         c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.RADIUS, 1.5F, 3.0F);

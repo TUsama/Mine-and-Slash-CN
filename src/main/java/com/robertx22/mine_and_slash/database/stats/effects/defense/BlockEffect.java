@@ -43,7 +43,7 @@ public class BlockEffect extends BaseDamageEffect {
             effect.isFullyBlocked = true;
             SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
         } else {
-            postblock *= 0.75F;
+            postblock *= 0.5F;
             effect.isPartiallyBlocked = true;
             applyKnockbackResist(effect.target);
             SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 0.5F, 1.5F);

@@ -10,7 +10,7 @@ import net.minecraft.util.text.TextFormatting;
 
 public class SpellDamage extends Stat implements IStatEffects {
 
-    private SpellDamage() {
+    public SpellDamage() {
 
     }
 
@@ -67,7 +67,7 @@ public class SpellDamage extends Stat implements IStatEffects {
 
     @Override
     public IStatEffect getEffect() {
-        return AllSpellDamageEffect.INSTANCE;
+        return new AllSpellDamageEffect();
     }
 
     @Override
@@ -78,4 +78,5 @@ public class SpellDamage extends Stat implements IStatEffects {
     private static class SingletonHolder {
         private static final SpellDamage INSTANCE = new SpellDamage();
     }
+
 }

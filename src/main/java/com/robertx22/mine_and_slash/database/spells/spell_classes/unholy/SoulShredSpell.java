@@ -77,7 +77,7 @@ public class SoulShredSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 1, 4);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 40, 20);
-        c.set(SC.COOLDOWN_SECONDS, 22, 14);
+        c.set(SC.COOLDOWN_SECONDS, 20, 12);
         c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.DURATION_TICKS, 140, 200);
 

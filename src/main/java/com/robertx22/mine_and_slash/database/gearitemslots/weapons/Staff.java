@@ -5,21 +5,28 @@ import com.robertx22.mine_and_slash.database.gearitemslots.WeaponDamageMulti;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponSwingCost;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseWeapon;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
+import com.robertx22.mine_and_slash.database.gearitemslots.bases.PosStats;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.NormalWeaponMechanic;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
+import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.PhysicalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.SpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.*;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalAttackDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.SpellDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemStaff;
 import com.robertx22.mine_and_slash.saveclasses.player_stat_points.LvlPointStat;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import net.minecraft.item.Item;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Staff extends BaseWeapon implements ISpecificStatReq {
     public static GearItemSlot INSTANCE = new Staff();
@@ -93,6 +100,23 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
     @Override
     public int Weight() {
         return 1000;
+    }
+
+    @Override
+    public List<PosStats> getPossiblePrimaryStats() {
+        return Arrays.asList(
+                new PosStats(new PhysicalDamageFlat()).weight(16000),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW)),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW)),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW)),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW)),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW)),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW)),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW))
+        );
     }
 
     @Override

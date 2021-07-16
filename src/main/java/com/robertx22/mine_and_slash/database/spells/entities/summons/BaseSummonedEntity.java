@@ -1,38 +1,21 @@
 package com.robertx22.mine_and_slash.database.spells.entities.summons;
 
 import com.robertx22.mine_and_slash.database.spells.entities.bases.ISpellEntity;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.saveclasses.EntitySpellData;
-import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
-import com.robertx22.mine_and_slash.saveclasses.spells.calc.SpellCalcData;
 import com.robertx22.mine_and_slash.uncommon.datasaving.EntitySpellDataSaving;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
-import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TeamUtils;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
-import net.minecraft.entity.monster.CreeperEntity;
-import net.minecraft.entity.monster.GhastEntity;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.scoreboard.Team;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
@@ -87,10 +70,10 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
         super.registerAttributes();
 
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
-            .setBaseValue((double) 0.5F);
+            .setBaseValue((double) 0.3F);
 
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
-            .setBaseValue(20.0D);
+            .setBaseValue(15.0D);
 
         this.getAttributes()
             .registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE)
@@ -110,7 +93,7 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
             remove();
             return;
         }
-        else if (this.spellData.getInit() == false){ // hacky init solution
+        else if (!this.spellData.getInit()) { // hacky init solution
             this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
                     .setBaseValue(this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue() * (1 + this.spellData.bonusHealth)); // sets bonus health from spell stat
             this.setHealth(this.getMaxHealth());
@@ -123,8 +106,15 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
 
         super.tick();
 
-        if (this.ticksExisted > this.durationInTicks()) {
+        if (this.ticksExisted > this.durationInTicks() || this.getOwner() == null) {
             this.remove();
+            for(int i = 0; i < 20; ++i) {
+                double d0 = this.rand.nextGaussian() * 0.02D;
+                double d1 = this.rand.nextGaussian() * 0.02D;
+                double d2 = this.rand.nextGaussian() * 0.02D;
+                this.world.addParticle(ParticleTypes.POOF, this.getPosXRandom(1.0D), this.getPosYRandom(), this.getPosZRandom(1.0D), d0, d1, d2);
+            }
+            //this.spellData.setInit(false);
         }
 
     }
@@ -158,7 +148,7 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
 
     @Override
     public boolean isOnSameTeam(Entity entityIn) {
-        if (this.spellData.getInit() == true) {
+        if (this.spellData.getInit()) {
             if (this.isTamed()) {
                 LivingEntity livingentity = this.getOwner();
                 if (entityIn == livingentity) {
@@ -181,11 +171,20 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
             if (en instanceof LivingEntity) {
                 if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
 
-                    dealSummonDamageTo((LivingEntity) en);
-                    if (this != null && en != null) {
-                        ((LivingEntity) en).setRevengeTarget(this);
-                        if (en instanceof MobEntity) {
-                            ((MobEntity) en).setAttackTarget(this);
+                    if (this.spellData != null) {
+                        if (this.spellData.getInit() && !this.dead && this.isTamed())
+                        {
+                            if (this.getOwner() != null && this.world != null) {
+                                if (this.getOwner().getEntityWorld() == this.world) {
+                                    dealSummonDamageTo((LivingEntity) en);
+                                    if (this != null && en != null) {
+                                        ((LivingEntity) en).setRevengeTarget(this);
+                                        if (en instanceof MobEntity) {
+                                            ((MobEntity) en).setAttackTarget(this);
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -207,6 +206,9 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
         } else if (target instanceof SkeletonPetEntity) {
             SkeletonPetEntity skeletonentity = (SkeletonPetEntity) target;
             return !skeletonentity.isTamed() || skeletonentity.getOwner() != owner;
+        } else if (target instanceof ArchonPetEntity) {
+            ArchonPetEntity archonentity = (ArchonPetEntity) target;
+            return !archonentity.isTamed() || archonentity.getOwner() != owner;
         } else if (target instanceof PlayerEntity && owner instanceof PlayerEntity && !((PlayerEntity)owner).canAttackPlayer((PlayerEntity)target)) {
             return false;
         } else if (this.isOnSameTeam(target)) {
@@ -218,10 +220,12 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
         }
     }
 
+
     @Override
     public void onDeath(DamageSource cause) {
         //this.spellData.currentEntities--;
         super.onDeath(cause);
+        //this.spellData.setInit(false);
     }
 
 }

@@ -31,7 +31,7 @@ public class ElementalPeneFlat extends ElementalStatMod {
 
     @Override
     public float Max() {
-        return 6;
+        return 5;
     }
 
     @Override

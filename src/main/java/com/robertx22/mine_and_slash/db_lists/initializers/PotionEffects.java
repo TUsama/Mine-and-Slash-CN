@@ -24,6 +24,7 @@ public class PotionEffects implements ISlashRegistryInit {
         PoisonedWeaponsEffect.getInstance()
             .registerToSlashRegistry();
         RegenerateEffect.INSTANCE.registerToSlashRegistry();
+        RechargeEffect.INSTANCE.registerToSlashRegistry();
         ThornArmorEffect.INSTANCE.registerToSlashRegistry();
         ThornsEffect.INSTANCE.registerToSlashRegistry();
         RootEffect.INSTANCE.registerToSlashRegistry();

@@ -1,7 +1,6 @@
 package com.robertx22.mine_and_slash.database.stats.types.offense;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
-import com.robertx22.mine_and_slash.database.stats.effects.offense.AllSpellDamageEffect;
 import com.robertx22.mine_and_slash.database.stats.effects.offense.AllSummonDamageEffect;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -11,14 +10,14 @@ import net.minecraft.util.text.TextFormatting;
 
 public class SummonDamage extends Stat implements IStatEffects {
 
-    private SummonDamage() {
+    public SummonDamage() {
 
     }
 
     public static String GUID = "summon_damage";
 
     public static SummonDamage getInstance() {
-        return SingletonHolder.INSTANCE;
+        return SummonDamage.SingletonHolder.INSTANCE;
     }
 
     @Override
@@ -68,7 +67,7 @@ public class SummonDamage extends Stat implements IStatEffects {
 
     @Override
     public IStatEffect getEffect() {
-        return AllSummonDamageEffect.INSTANCE;
+        return new AllSummonDamageEffect();
     }
 
     @Override

@@ -124,7 +124,7 @@ public class ChillingTouchSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0.02F, 0.06F);
         c.set(SC.MANA_COST, 2.5F, 7);
-        c.set(SC.ENERGY_COST, 0.5F, 2F);
+        c.set(SC.ENERGY_COST, 1F, 2.5F);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 3, 9);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.2F, 1.8F);

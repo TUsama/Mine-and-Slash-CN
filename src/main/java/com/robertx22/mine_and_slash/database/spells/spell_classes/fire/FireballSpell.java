@@ -60,8 +60,8 @@ public class FireballSpell extends BaseSpell {
         c.set(SC.MANA_COST, 5, 11);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 7, 12);
-        c.set(SC.SHOOT_SPEED, 2.25F, 3.0F);
+        c.set(SC.BASE_VALUE, 6, 10);
+        c.set(SC.SHOOT_SPEED, 2.2F, 2.6F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 30, 30);

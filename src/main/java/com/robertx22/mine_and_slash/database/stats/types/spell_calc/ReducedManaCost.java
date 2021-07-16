@@ -13,6 +13,8 @@ public class ReducedManaCost extends Stat implements IStatEffects {
         this.maximumValue = 75;
     }
 
+    public static String GUID = "mana_cost_red";
+
     public static ReducedManaCost getInstance() {
         return SingletonHolder.INSTANCE;
     }
@@ -25,6 +27,11 @@ public class ReducedManaCost extends Stat implements IStatEffects {
     @Override
     public Elements getElement() {
         return null;
+    }
+
+    @Override
+    public String getIconPath() {
+        return "resource/reduced_mana_cost";
     }
 
     @Override
@@ -44,7 +51,7 @@ public class ReducedManaCost extends Stat implements IStatEffects {
 
     @Override
     public String GUID() {
-        return "mana_cost_red";
+        return GUID;
     }
 
     @Override

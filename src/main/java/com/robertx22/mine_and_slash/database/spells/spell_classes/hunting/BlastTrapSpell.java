@@ -62,7 +62,7 @@ public class BlastTrapSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 11, 17);
+        c.set(SC.MANA_COST, 9, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
@@ -70,7 +70,7 @@ public class BlastTrapSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 14, 10);
+        c.set(SC.COOLDOWN_SECONDS, 13, 8);
         c.set(SC.DURATION_TICKS, 200, 300);
         c.set(SC.RADIUS, 1.5F, 3.0F);
         c.set(SC.BONUS_HEALTH, 0, 0);

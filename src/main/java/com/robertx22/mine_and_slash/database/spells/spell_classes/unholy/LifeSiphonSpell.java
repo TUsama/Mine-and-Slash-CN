@@ -49,8 +49,7 @@ public class LifeSiphonSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Physical;
                 }
-            }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                    .summonsEntity(world -> new LifeSiphonEntity(world)).setSwingArmOnCast());
+            }.summonsEntity(world -> new LifeSiphonEntity(world)).setSwingArmOnCast());
     }
 
     @Override
@@ -66,7 +65,7 @@ public class LifeSiphonSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.TIMES_TO_CAST, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 30, 30);
-        c.set(SC.COOLDOWN_TICKS, 100, 60);
+        c.set(SC.COOLDOWN_SECONDS, 9, 6);
         c.set(SC.DURATION_TICKS, 80, 100);
         c.set(SC.BONUS_HEALTH, 0, 0);
 

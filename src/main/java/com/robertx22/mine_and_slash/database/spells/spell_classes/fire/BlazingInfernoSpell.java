@@ -14,6 +14,7 @@ import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
@@ -72,7 +73,7 @@ public class BlazingInfernoSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 4, 8);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.45F, 0.65F);
         c.set(SC.CAST_TIME_TICKS, 60, 40);
-        c.set(SC.COOLDOWN_SECONDS, 16, 10);
+        c.set(SC.COOLDOWN_SECONDS, 14, 7);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.TIMES_TO_CAST, 4, 4);
 
@@ -133,8 +134,8 @@ public class BlazingInfernoSpell extends BaseSpell {
                 .build();
 
             for (LivingEntity en : entities) {
-                DamageEffect dmg = new DamageEffect(
-                    null, caster, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                SpellDamageEffect dmg = new SpellDamageEffect(
+                        caster, en, num, ctx.data, Load.Unit(en), this);
                 dmg.element = Elements.Fire;
                 dmg.Activate();
 

@@ -26,12 +26,12 @@ public class ElementalSpellDamageMulti extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 7;
+        return 4;
     }
 
     @Override
     public float Max() {
-        return 15;
+        return 12;
     }
 
     @Override

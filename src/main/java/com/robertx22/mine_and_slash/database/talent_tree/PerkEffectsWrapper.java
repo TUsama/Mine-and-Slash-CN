@@ -22,4 +22,8 @@ public class PerkEffectsWrapper {
         return map.get(PerkType.MAJOR);
     }
 
+    public PerkEffect combine() {
+        return map.get(PerkType.COMBINE);
+    }
+
 }

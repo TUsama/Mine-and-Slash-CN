@@ -125,12 +125,12 @@ public class PurifyingFiresSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 2.5F, 7);
-        c.set(SC.ENERGY_COST, 4, 10);
+        c.set(SC.ENERGY_COST, 4, 8);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 3, 9);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.2F, 1.7F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 3, 2);
+        c.set(SC.COOLDOWN_TICKS, 50, 30);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
         c.setMaxLevel(16);

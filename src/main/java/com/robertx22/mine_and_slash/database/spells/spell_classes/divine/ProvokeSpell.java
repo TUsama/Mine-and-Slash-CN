@@ -10,6 +10,7 @@ import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.divine.EnrageEffect;
+import com.robertx22.mine_and_slash.potion_effects.shaman.StaticEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -69,7 +70,7 @@ public class ProvokeSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 14, 7);
+        c.set(SC.COOLDOWN_SECONDS, 13, 6);
         c.set(SC.AMOUNT,1, 5);
         c.set(SC.RADIUS, 3, 7);
         c.set(SC.TIMES_TO_CAST, 1, 1);
@@ -105,9 +106,7 @@ public class ProvokeSpell extends BaseSpell {
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Draw the attention of nearby enemies by provoking them."));
-        list.add(new StringTextComponent("Also applies: "));
-
-        list.addAll(EnrageEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.add(new StringTextComponent("Also applies: " + EnrageEffect.INSTANCE.locNameForLangFile()));
 
         return list;
 

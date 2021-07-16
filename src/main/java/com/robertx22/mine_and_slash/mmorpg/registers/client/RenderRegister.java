@@ -2,10 +2,7 @@ package com.robertx22.mine_and_slash.mmorpg.registers.client;
 
 import com.robertx22.mine_and_slash.database.spells.entities.bases.MySpriteRenderer;
 import com.robertx22.mine_and_slash.database.spells.entities.special.RangerArrowRenderer;
-import com.robertx22.mine_and_slash.database.spells.entities.summons.SkeletonPetRenderer;
-import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiderPetRenderer;
-import com.robertx22.mine_and_slash.database.spells.entities.summons.WolfPetRenderer;
-import com.robertx22.mine_and_slash.database.spells.entities.summons.ZombiePetRenderer;
+import com.robertx22.mine_and_slash.database.spells.entities.summons.*;
 import com.robertx22.mine_and_slash.database.spells.entities.trident.HolyTridentRenderer;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
@@ -39,6 +36,7 @@ public class RenderRegister {
         RenderingRegistry.registerEntityRenderingHandler(EntityRegister.SPIRIT_WOLF_PET, WolfPetRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityRegister.ZOMBIE_PET, ZombiePetRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityRegister.SKELETON_PET, SkeletonPetRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityRegister.ARCHON_PET, ArchonPetRenderer::new);
 
     }
 

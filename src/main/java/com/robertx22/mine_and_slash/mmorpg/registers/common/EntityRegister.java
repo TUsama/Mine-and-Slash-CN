@@ -3,10 +3,7 @@ package com.robertx22.mine_and_slash.mmorpg.registers.common;
 import com.robertx22.mine_and_slash.database.spells.entities.cloud.*;
 import com.robertx22.mine_and_slash.database.spells.entities.proj.*;
 import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.*;
-import com.robertx22.mine_and_slash.database.spells.entities.summons.SkeletonPetEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiderPetEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiritWolfPetEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.summons.ZombiePetEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.summons.*;
 import com.robertx22.mine_and_slash.database.spells.entities.trident.SpearOfJudgementEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.trident.ThunderspearEntity;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -89,6 +86,7 @@ public class EntityRegister {
     public static final EntityType<SpiritWolfPetEntity> SPIRIT_WOLF_PET;
     public static final EntityType<ZombiePetEntity> ZOMBIE_PET;
     public static final EntityType<SkeletonPetEntity> SKELETON_PET;
+    public static final EntityType<ArchonPetEntity> ARCHON_PET;
 
     static {
 
@@ -163,6 +161,13 @@ public class EntityRegister {
                 .build(Ref.MODID + ":skeleton_pet");
         SKELETON_PET.setRegistryName(new ResourceLocation(Ref.MODID, "skeleton_pet"));
         ENTITY_TYPES.add(SKELETON_PET);
+
+        ARCHON_PET = EntityType.Builder.<ArchonPetEntity>create(ArchonPetEntity::new, EntityClassification.MONSTER).setCustomClientFactory(
+                ArchonPetEntity::new)
+                .size(1.4F, 0.9F)
+                .build(Ref.MODID + ":archon_pet");
+        ARCHON_PET.setRegistryName(new ResourceLocation(Ref.MODID, "archon_pet"));
+        ENTITY_TYPES.add(ARCHON_PET);
     }
 
     public static EntityType addBoss(EntityType type, String id) {

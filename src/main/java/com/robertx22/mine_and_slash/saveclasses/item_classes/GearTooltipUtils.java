@@ -167,8 +167,6 @@ public class GearTooltipUtils {
                                 .GetManaCost(gear.getLevel()))));
                 }
 
-                tip.addAll(slot.weaponDamageMulti()
-                    .tooltipDesc());
                 tip.addAll(slot
                     .getWeaponMechanic()
                     .tooltipDesc());

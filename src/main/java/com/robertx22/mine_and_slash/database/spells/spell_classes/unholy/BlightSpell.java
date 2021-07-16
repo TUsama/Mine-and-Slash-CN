@@ -71,7 +71,7 @@ public class BlightSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 4, 16);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 16, 12);
+        c.set(SC.COOLDOWN_SECONDS, 15, 11);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.TICK_RATE, 30, 30);

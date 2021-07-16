@@ -80,12 +80,12 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
 
         entities.forEach(x -> {
 
-            DamageEffect dmg = dealSpellDamageTo(x, new Options().knockbacks(false)
+            SpellDamageEffect dmg = dealSpellDamageTo(x, new Options().knockbacks(false)
                     .activatesEffect(false));
 
             dmg.Activate();
 
-            x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 3, 5));
+            x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 5));
 
             SoundUtils.playSound(this, SoundEvents.ENTITY_SNOWBALL_THROW, 1.5F, 1.25F);
 
@@ -128,6 +128,7 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
                             .knockbacks(false));
 
                     dmg.Activate();
+                    x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 5));
 
                     SoundUtils.playSound(this, SoundEvents.ENTITY_SNOWBALL_THROW, 1, 1);
 
@@ -147,7 +148,10 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
                 ParticleUtils.spawn(ParticleTypes.ITEM_SNOWBALL, world, p);
 
             }
+        }
 
+        if (this.inGround) {
+            this.remove();
         }
 
     }
@@ -155,22 +159,21 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
     @Override
     protected void onImpact(RayTraceResult result) {
 
+        RayTraceResult.Type raytraceresult$type = result.getType();
+
         LivingEntity entityHit = getEntityHit(result, 0.3D);
 
+        if (world.isRemote && raytraceresult$type == RayTraceResult.Type.BLOCK) {
+            SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 1.0F, 0.9F);
+            this.remove();
+        }
         if (entityHit != null) {
             if (world.isRemote) {
                 SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
-            }
-
-            onHit(entityHit);
-
-        } else {
-            if (world.isRemote) {
-                SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
-
-                this.remove();
+                onHit(entityHit);
             }
         }
+
     }
 
 }

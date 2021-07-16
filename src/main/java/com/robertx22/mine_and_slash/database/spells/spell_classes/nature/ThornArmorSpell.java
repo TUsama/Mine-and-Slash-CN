@@ -61,7 +61,7 @@ public class ThornArmorSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 40, 30);
-        c.set(SC.COOLDOWN_SECONDS, 90, 60);
+        c.set(SC.COOLDOWN_SECONDS, 75, 60);
         c.set(SC.DURATION_TICKS, 60 * 40, 60 * 60);
 
         c.setMaxLevel(12);
