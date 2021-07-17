@@ -85,6 +85,7 @@
 
 "_comment": " [CATEGORY]: MISC - NAMES",
 
+	"mmorpg.mob_affix.accurate": "Accurate",
 	"mmorpg.mob_affix.cold": "Cold",
 	"mmorpg.mob_affix.evasive": "Evasive",
 	"mmorpg.mob_affix.flaming": "Flaming",
@@ -99,6 +100,7 @@
 	"mmorpg.mob_affix.of_rock_skin": "Of Rock Skin",
 	"mmorpg.mob_affix.of_scalding": "Of Scalding",
 	"mmorpg.mob_affix.of_the_cobra": "Of the Cobra",
+	"mmorpg.mob_affix.of_the_sniper": "Of the Sniper",
 	"mmorpg.mob_affix.of_thunder_strikes": "Of Lightning Strikes",
 	"mmorpg.mob_affix.of_toxic_fumes": "Of Toxic Fumes",
 	"mmorpg.mob_affix.of_venom_shock": "Of Venom Shock",
@@ -886,6 +888,7 @@
 	"mmorpg.stat.arcane_devotion_trait": "Arcane Devotion",
 	"mmorpg.stat.armor": "Armor",
 	"mmorpg.stat.armor_penetration": "Armor Penetration",
+	"mmorpg.stat.dodge_ignore": "Dodge Ignore",
 	"mmorpg.stat.armored": "Armored",
 	"mmorpg.stat.assassin": "Assassin",
 	"mmorpg.stat.attack_elemental_damage": "Elemental Attack Damage",
@@ -1800,7 +1803,8 @@
 	"mmorpg.stat_desc.all_ele_dmg": "Increases all damage of that element (both spells and attacks).",
 	"mmorpg.stat_desc.arcane_devotion_trait": "Completely devote yourself to the arcane.",
 	"mmorpg.stat_desc.armor": "Decreases damage taken by a percent.",
-	"mmorpg.stat_desc.armor_penetration": "Ignores X armor.",
+	"mmorpg.stat_desc.armor_penetration": "Physical hits ignore X armor.",
+	"mmorpg.stat_desc.dodge_ignore": "Hits ignore X dodge.",
 	"mmorpg.stat_desc.assassin": "On Crit, 25 Percent Chance to Buff Speed",
 	"mmorpg.stat_desc.berserkers_impartiality_trait": "Charge through your foes with brute force.",
 	"mmorpg.stat_desc.bleed_mastery_trait": "Your attacks inflict bleed stacks (max 20) which each deal 10 percent of your physical damage.",

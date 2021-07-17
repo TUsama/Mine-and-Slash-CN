@@ -41,11 +41,13 @@ public class BlockEffect extends BaseDamageEffect {
         if (RandomUtils.roll(blockval)) {
             postblock = 0;
             effect.isFullyBlocked = true;
+            SoundUtils.playSound(effect.source, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
             SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1, 1);
         } else {
             postblock *= 0.5F;
             effect.isPartiallyBlocked = true;
             applyKnockbackResist(effect.target);
+            SoundUtils.playSound(effect.source, SoundEvents.ITEM_SHIELD_BLOCK, 0.5F, 1.5F);
             SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 0.5F, 1.5F);
         }
 

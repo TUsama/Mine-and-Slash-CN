@@ -75,7 +75,7 @@ public class StatMods implements ISlashRegistryInit {
 
                     add(Mod.LUCK_FLAT());
 
-                    //add(new IncreasedDurationFlat());
+                    add(new IncreasedDurationFlat());
                     add(new CooldownReductionFlat());
                     add(new ReducedManaCostFlat());
                     add(new FasterCastRateFlat());
@@ -95,6 +95,7 @@ public class StatMods implements ISlashRegistryInit {
                     add(new SummonDamageFlat());
                     add(new SpellDamagePercent());
                     add(new ArmorPenetrationFlat());
+                    add(new DodgeIgnoreFlat());
 
                     add(new BonusExpFlat());
 

@@ -2,14 +2,15 @@ package com.robertx22.mine_and_slash.database.stats.types.defense;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.offense.ArmorPeneEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.offense.DodgeIgnoreEffect;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 
-public class ArmorPenetration extends Stat implements IStatEffects {
+public class DodgeIgnore extends Stat implements IStatEffects {
 
-    public static ArmorPenetration getInstance() {
+    public static DodgeIgnore getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
@@ -25,17 +26,17 @@ public class ArmorPenetration extends Stat implements IStatEffects {
 
     @Override
     public String getIconPath() {
-        return "armor";
+        return "dodge";
     }
 
     @Override
     public String locDescForLangFile() {
-        return "Ignores x armor";
+        return "Ignores X dodge.";
     }
 
-    public static String GUID = "armor_penetration";
+    public static String GUID = "dodge_ignore";
 
-    private ArmorPenetration() {
+    private DodgeIgnore() {
         this.minimumValue = 0;
     }
 
@@ -46,7 +47,7 @@ public class ArmorPenetration extends Stat implements IStatEffects {
 
     @Override
     public Elements getElement() {
-        return Elements.Physical;
+        return Elements.Elemental;
     }
 
     @Override
@@ -61,16 +62,16 @@ public class ArmorPenetration extends Stat implements IStatEffects {
 
     @Override
     public IStatEffect getEffect() {
-        return new ArmorPeneEffect();
+        return new DodgeIgnoreEffect();
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Armor Penetration";
+        return "Dodge Ignore";
     }
 
     private static class SingletonHolder {
-        private static final ArmorPenetration INSTANCE = new ArmorPenetration();
+        private static final DodgeIgnore INSTANCE = new DodgeIgnore();
     }
 }
 

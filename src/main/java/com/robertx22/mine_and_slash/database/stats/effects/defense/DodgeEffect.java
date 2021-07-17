@@ -7,6 +7,8 @@ import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData.EffectTypes;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.IIgnorable;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.IPenetrable;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.LivingEntity;
@@ -31,9 +33,17 @@ public class DodgeEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
+        int pene = 0;
+
+        if (effect instanceof IIgnorable) {
+            IIgnorable ipen = (IIgnorable) effect;
+            pene = ipen.GetDodgeIgnore();
+            pene = 1 - pene / 100;
+        }
+
         DodgeRating dodge = (DodgeRating) stat;
 
-        float chance = dodge.GetUsableValue(effect.targetData.getLevel(), (int) data.getAverageValue()) * 100;
+        float chance = dodge.GetUsableValue(effect.targetData.getLevel(), (int) data.getAverageValue() * pene) * 100;
 
         if (RandomUtils.roll(chance)) {
             DamageEffect dmgeffect = effect;
@@ -41,6 +51,7 @@ public class DodgeEffect extends BaseDamageEffect {
             effect.number = 0;
             dmgeffect.isDodged = true;
             applyKnockbackResist(effect.target);
+            SoundUtils.playSound(effect.source, SoundEvents.ENTITY_HORSE_BREATHE, 1.5F, 1.5F);
             SoundUtils.playSound(effect.target, SoundEvents.ENTITY_HORSE_BREATHE, 1.5F, 1.5F);
 
         }

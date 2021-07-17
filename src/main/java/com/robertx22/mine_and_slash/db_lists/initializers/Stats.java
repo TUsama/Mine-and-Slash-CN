@@ -64,6 +64,7 @@ public class Stats implements ISlashRegistryInit {
                 {
 
                     add(ArmorPenetration.getInstance());
+                    add(DodgeIgnore.getInstance());
 
                     // GAME CHANGERS
                     add(ManaBattery.INSTANCE);
@@ -107,7 +108,7 @@ public class Stats implements ISlashRegistryInit {
 
                     // generated
 
-                    //add(IncreasedDurationStat.getInstance());
+                    add(IncreasedDurationStat.getInstance());
                     add(ReducedCooldownStat.getInstance());
                     add(ReducedManaCost.getInstance());
                     add(FasterCastRate.getInstance());
