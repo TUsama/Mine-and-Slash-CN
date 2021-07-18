@@ -1,3 +1,6 @@
+3.12.1:
+* Fixed some spells spamming console.
+
 3.12.0:
 Talent Tree Rehaul:
 * Basically the entire tree has been remade. The pathing choices should be a lot more interesting, and lots of paths branch to improve pathing. For instance, the mage (top) section no longer contains 4 huge node wheels, 1 for each element, and instead has one small section for all elements. The rest of the space is used for other new stats that have been slowly introduced over the past few updates.
