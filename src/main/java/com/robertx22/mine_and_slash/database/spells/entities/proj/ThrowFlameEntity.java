@@ -35,7 +35,7 @@ public class ThrowFlameEntity extends BaseElementalBoltEntity {
     @Override
     public void initSpellEntity() {
         this.setNoGravity(true);
-        this.setDeathTime(120);
+        this.setDeathTime(60);
     }
 
     @OnlyIn(Dist.CLIENT)

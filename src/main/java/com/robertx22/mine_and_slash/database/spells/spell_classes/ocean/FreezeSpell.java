@@ -95,7 +95,7 @@ public class FreezeSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff, Duration"));
 
         TooltipUtils.addEmpty(list);
 

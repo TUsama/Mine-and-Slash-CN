@@ -59,6 +59,7 @@ public class RangerArrowEntity extends EntityBaseProjectile {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        this.setDeathTime(80);
     }
 
     public boolean imbued = false;

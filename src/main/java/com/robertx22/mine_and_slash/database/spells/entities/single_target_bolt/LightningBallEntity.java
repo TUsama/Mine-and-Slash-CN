@@ -34,6 +34,11 @@ public class LightningBallEntity extends BaseElementalBoltEntity {
     }
 
     @Override
+    public void initSpellEntity() {
+        this.setDeathTime(40);
+    }
+
+    @Override
     public Elements element() {
         return Elements.Thunder;
     }

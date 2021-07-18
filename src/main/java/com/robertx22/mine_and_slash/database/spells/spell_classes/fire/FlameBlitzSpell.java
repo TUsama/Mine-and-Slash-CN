@@ -60,7 +60,6 @@ public class FlameBlitzSpell extends BaseSpell {
                     return Elements.Fire;
                 }
             }.cooldownIfCanceled(true)
-                .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
                 .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 

@@ -96,7 +96,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Duration, Projectile"));
 
         TooltipUtils.addEmpty(list);
 

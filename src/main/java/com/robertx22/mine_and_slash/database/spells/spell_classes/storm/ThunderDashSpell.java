@@ -85,7 +85,7 @@ public class ThunderDashSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 3);
+        return new AbilityPlace(4, 2);
     }
 
     public static ThunderDashSpell getInstance() {

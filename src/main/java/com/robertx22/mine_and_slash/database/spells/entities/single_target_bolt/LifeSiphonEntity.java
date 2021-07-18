@@ -34,6 +34,11 @@ public class LifeSiphonEntity extends BaseElementalBoltEntity {
     }
 
     @Override
+    public void initSpellEntity() {
+        this.setDeathTime(60);
+    }
+
+    @Override
     public Elements element() {
         return Elements.Physical;
     }

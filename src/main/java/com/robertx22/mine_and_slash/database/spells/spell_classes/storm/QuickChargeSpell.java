@@ -90,7 +90,7 @@ public class QuickChargeSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Buff"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Buff, Duration"));
 
         TooltipUtils.addEmpty(list);
 

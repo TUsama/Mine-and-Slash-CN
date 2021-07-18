@@ -84,7 +84,7 @@ public class PowerSurgeSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Self"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Duration, Self"));
 
         TooltipUtils.addEmpty(list);
 
@@ -110,7 +110,7 @@ public class PowerSurgeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 1);
+        return new AbilityPlace(4, 4);
     }
 
     private static class SingletonHolder {

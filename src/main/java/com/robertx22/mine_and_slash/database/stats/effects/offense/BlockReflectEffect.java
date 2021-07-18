@@ -70,7 +70,8 @@ public class BlockReflectEffect extends BaseDamageEffect {
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
         if ((effect.getEffectType()
             .equals(EffectTypes.BASIC_ATTACK) || effect.getEffectType()
-                .equals(EffectTypes.ATTACK_SPELL)) && effect.isBlocked()) {
+                .equals(EffectTypes.ATTACK_SPELL) || effect.getEffectType()
+                .equals(EffectTypes.SUMMON_DMG)) && effect.isBlocked()) {
 
             float cost = getEnergyCost(effect.targetData.getLevel());
 

@@ -66,8 +66,8 @@ public class LifeSiphonSpell extends BaseSpell {
         c.set(SC.TIMES_TO_CAST, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 30, 30);
         c.set(SC.COOLDOWN_SECONDS, 9, 6);
-        c.set(SC.DURATION_TICKS, 80, 100);
         c.set(SC.BONUS_HEALTH, 0, 0);
+        c.set(SC.DURATION_TICKS, 60, 60);
 
         c.setMaxLevel(12);
 

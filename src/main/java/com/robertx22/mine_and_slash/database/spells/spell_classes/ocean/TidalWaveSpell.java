@@ -50,7 +50,7 @@ public class TidalWaveSpell extends BaseSpell {
                 }
             }.cooldownIfCanceled(true)
                 .summonsEntity(w -> new TidalWaveEntity(w))
-                .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON).addCastRequirement(SpellPredicates.REQUIRE_MELEE));
+                .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override
@@ -68,8 +68,8 @@ public class TidalWaveSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 7, 4);
         c.set(SC.TIMES_TO_CAST, 3, 5);
-        c.set(SC.DURATION_TICKS, 60, 80);
         c.set(SC.BONUS_HEALTH, 0, 0);
+        c.set(SC.DURATION_TICKS, 60, 60);
 
         c.setMaxLevel(16);
 

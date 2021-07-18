@@ -73,9 +73,9 @@ public class ThrowFlamesSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 8, 3);
-        c.set(SC.DURATION_TICKS, 60, 60);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.BONUS_HEALTH, 0, 0);
+        c.set(SC.DURATION_TICKS, 60, 60);
 
         c.setMaxLevel(12);
 

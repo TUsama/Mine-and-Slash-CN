@@ -62,6 +62,7 @@ public class LightningTotemSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 3, 8);
         c.set(SC.SHOOT_SPEED, 2F, 2.4F);
+        c.set(SC.RADIUS, 2F, 4F);
         c.set(SC.PROJECTILE_COUNT, 1, 3);
         c.set(SC.CAST_TIME_TICKS, 20, 10);
         c.set(SC.COOLDOWN_SECONDS, 16, 12);
@@ -94,7 +95,7 @@ public class LightningTotemSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Entity"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Entity"));
 
         TooltipUtils.addEmpty(list);
 

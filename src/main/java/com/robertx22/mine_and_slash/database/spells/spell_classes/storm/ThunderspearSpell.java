@@ -66,8 +66,8 @@ public class ThunderspearSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 40, 40);
-        c.set(SC.DURATION_TICKS, 40, 60);
         c.set(SC.BONUS_HEALTH, 0, 0);
+        c.set(SC.DURATION_TICKS, 50, 50);
 
         c.setMaxLevel(16);
 
@@ -94,7 +94,7 @@ public class ThunderspearSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Projectile, Self"));
 
         TooltipUtils.addEmpty(list);
 

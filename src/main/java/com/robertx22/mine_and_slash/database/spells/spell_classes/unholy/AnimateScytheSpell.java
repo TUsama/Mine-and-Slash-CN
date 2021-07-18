@@ -96,6 +96,7 @@ public class AnimateScytheSpell extends BaseSpell {
                 this
             );
             dmg.Activate();
+            dmg.Activate();
 
             ParticleEnum.sendToClients(
                 en.getPosition(), en.world,
@@ -128,9 +129,8 @@ public class AnimateScytheSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.04F, 0.16F);
-        c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 4, 2);
-        c.set(SC.TIMES_TO_CAST, 2, 2);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
 
         c.setMaxLevel(16);
 
@@ -154,7 +154,7 @@ public class AnimateScytheSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Channel, Melee"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Melee"));
 
         TooltipUtils.addEmpty(list);
 

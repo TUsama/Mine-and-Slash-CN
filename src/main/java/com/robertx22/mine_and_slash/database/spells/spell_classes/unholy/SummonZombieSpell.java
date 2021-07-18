@@ -102,7 +102,7 @@ public class SummonZombieSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Summon Attack"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Summons also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Entity, Summon"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Duration, Entity, Summon"));
 
         TooltipUtils.addEmpty(list);
 

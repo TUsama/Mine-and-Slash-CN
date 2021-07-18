@@ -109,6 +109,8 @@ public class Stats implements ISlashRegistryInit {
                     // generated
 
                     add(IncreasedDurationStat.getInstance());
+                    add(IncreasedProjSpeedStat.getInstance());
+                    add(IncreasedAreaStat.getInstance());
                     add(ReducedCooldownStat.getInstance());
                     add(ReducedManaCost.getInstance());
                     add(FasterCastRate.getInstance());

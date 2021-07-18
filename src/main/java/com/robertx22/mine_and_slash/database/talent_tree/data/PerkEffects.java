@@ -12,9 +12,7 @@ import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.Phy
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToThunderConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToWaterConversion;
 import com.robertx22.mine_and_slash.database.stats.types.resources.*;
-import com.robertx22.mine_and_slash.database.stats.types.spell_calc.FasterCastRate;
-import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
-import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedManaCost;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.*;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkEffectBuilder;
 import com.robertx22.mine_and_slash.database.talent_tree.PerkEffectsWrapper;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
@@ -66,6 +64,9 @@ public class PerkEffects {
     public static PerkEffectsWrapper SUMMON_DMG;
     public static PerkEffectsWrapper FCR;
     public static PerkEffectsWrapper MANA_COST;
+    public static PerkEffectsWrapper PROJ_SPEED;
+    public static PerkEffectsWrapper INCREASED_DURATION;
+    public static PerkEffectsWrapper AREA;
 
     // COMBINED EFFECTS
     public static PerkEffectsWrapper MANA_PERC_PLUS_MAGIC_SHIELD_PERCENT, CRIT_HIT_CRIT_DMG, CDR_FCR, SPELL_SUMMON_DMG, CRIT_HIT_DODGE;
@@ -122,13 +123,19 @@ public class PerkEffects {
                 "phys_to_nature", new PhysicalToNatureConversion(), new ExactStatData(10F, StatModTypes.Flat, PhysicalToNatureConversion.GUID));
 
         DOT_DMG = PerkEffectBuilder.build(
-                "dot_dmg", new AllDotDmg(), new ExactStatData(6F, StatModTypes.Flat, AllDotDmg.GUID));
+                "dot_dmg", new AllDotDmg(), new ExactStatData(6, StatModTypes.Flat, AllDotDmg.GUID));
         SUMMON_DMG = PerkEffectBuilder.build(
-                "summon_dmg", SummonDamage.getInstance(), new ExactStatData(4F, StatModTypes.Flat, SummonDamage.GUID));
+                "summon_dmg", SummonDamage.getInstance(), new ExactStatData(4, StatModTypes.Flat, SummonDamage.GUID));
         FCR = PerkEffectBuilder.build(
-                "fcr", FasterCastRate.getInstance(), new ExactStatData(2F, StatModTypes.Flat, FasterCastRate.GUID));
+                "fcr", FasterCastRate.getInstance(), new ExactStatData(2, StatModTypes.Flat, FasterCastRate.GUID));
         MANA_COST = PerkEffectBuilder.build(
                 "mana_cost", ReducedManaCost.getInstance(), new ExactStatData(3, StatModTypes.Flat, ReducedManaCost.GUID));
+        INCREASED_DURATION = PerkEffectBuilder.build(
+                "increased_duration", IncreasedDurationStat.getInstance(), new ExactStatData(2, StatModTypes.Flat, IncreasedDurationStat.GUID));
+        PROJ_SPEED = PerkEffectBuilder.build(
+                "proj_speed", IncreasedProjSpeedStat.getInstance(), new ExactStatData(4, StatModTypes.Flat, IncreasedProjSpeedStat.GUID));
+        AREA = PerkEffectBuilder.build(
+                "area", IncreasedAreaStat.getInstance(), new ExactStatData(2, StatModTypes.Flat, IncreasedAreaStat.GUID));
 
         int core_amount = 1;
 

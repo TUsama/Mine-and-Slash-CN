@@ -2,18 +2,19 @@ package com.robertx22.mine_and_slash.database.stats.types.spell_calc;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.spell_calc.IncreasedDurationEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.spell_calc.IncreasedProjSpeedEffect;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 
-public class IncreasedDurationStat extends Stat implements IStatEffects {
+public class IncreasedProjSpeedStat extends Stat implements IStatEffects {
 
-    private IncreasedDurationStat() {
+    private IncreasedProjSpeedStat() {
         this.maximumValue = 75;
     }
 
-    public static IncreasedDurationStat getInstance() {
+    public static IncreasedProjSpeedStat getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
@@ -24,7 +25,7 @@ public class IncreasedDurationStat extends Stat implements IStatEffects {
 
     @Override
     public String getIconPath() {
-        return "increased_duration";
+        return "increased_proj_speed";
     }
 
     @Override
@@ -39,15 +40,15 @@ public class IncreasedDurationStat extends Stat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases the duration of spells and effects.";
+        return "Increases the speed of your spell projectiles.";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Increased Duration";
+        return "Increased Projectile Speed";
     }
 
-    public static String GUID = "increased_duration";
+    public static String GUID = "increased_proj_speed";
 
     @Override
     public String GUID() {
@@ -56,10 +57,10 @@ public class IncreasedDurationStat extends Stat implements IStatEffects {
 
     @Override
     public IStatEffect getEffect() {
-        return new IncreasedDurationEffect();
+        return new IncreasedProjSpeedEffect();
     }
 
     private static class SingletonHolder {
-        private static final IncreasedDurationStat INSTANCE = new IncreasedDurationStat();
+        private static final IncreasedProjSpeedStat INSTANCE = new IncreasedProjSpeedStat();
     }
 }

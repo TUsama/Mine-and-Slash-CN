@@ -42,7 +42,7 @@ public class FireBombEntity extends EntityBaseProjectile {
 
     @Override
     public double radius() {
-        return 3.5F;
+        return getSpellData().configs.get(SC.RADIUS);
     }
 
     @Override

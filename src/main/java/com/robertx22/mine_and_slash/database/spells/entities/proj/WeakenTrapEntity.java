@@ -44,7 +44,7 @@ public class WeakenTrapEntity extends EntityBaseProjectile {
 
     @Override
     public double radius() {
-        return 3.0F;
+        return getSpellData().configs.get(SC.RADIUS);
     }
 
     @Override

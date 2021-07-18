@@ -58,7 +58,7 @@ public class ChargedNovaSpell extends BaseSpell {
                     return Elements.Thunder;
                 }
 
-            }.cooldownIfCanceled(true).setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON).addCastRequirement(SpellPredicates.REQUIRE_MELEE));
+            }.cooldownIfCanceled(true).setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override
@@ -102,7 +102,7 @@ public class ChargedNovaSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "AOE"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area"));
 
         TooltipUtils.addEmpty(list);
 

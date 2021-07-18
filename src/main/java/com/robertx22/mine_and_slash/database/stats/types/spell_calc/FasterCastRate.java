@@ -13,8 +13,6 @@ public class FasterCastRate extends Stat implements IStatEffects {
         this.maximumValue = 75;
     }
 
-    public static String GUID = "faster_cast_rate";
-
     public static FasterCastRate getInstance() {
         return SingletonHolder.INSTANCE;
     }
@@ -48,6 +46,8 @@ public class FasterCastRate extends Stat implements IStatEffects {
     public String locNameForLangFile() {
         return "Faster Cast Rate";
     }
+
+    public static String GUID = "faster_cast_rate";
 
     @Override
     public String GUID() {

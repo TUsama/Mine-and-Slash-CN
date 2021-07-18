@@ -1,19 +1,20 @@
 package com.robertx22.mine_and_slash.database.stats.types.spell_calc;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
-import com.robertx22.mine_and_slash.database.stats.effects.spell_calc.IncreasedDurationEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.spell_calc.IncreasedAreaEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.spell_calc.IncreasedProjSpeedEffect;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 
-public class IncreasedDurationStat extends Stat implements IStatEffects {
+public class IncreasedAreaStat extends Stat implements IStatEffects {
 
-    private IncreasedDurationStat() {
+    private IncreasedAreaStat() {
         this.maximumValue = 75;
     }
 
-    public static IncreasedDurationStat getInstance() {
+    public static IncreasedAreaStat getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
@@ -24,7 +25,7 @@ public class IncreasedDurationStat extends Stat implements IStatEffects {
 
     @Override
     public String getIconPath() {
-        return "increased_duration";
+        return "increased_area";
     }
 
     @Override
@@ -39,15 +40,15 @@ public class IncreasedDurationStat extends Stat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases the duration of spells and effects.";
+        return "Increases the radius of your spells.";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Increased Duration";
+        return "Increased Area of Effect";
     }
 
-    public static String GUID = "increased_duration";
+    public static String GUID = "increased_area";
 
     @Override
     public String GUID() {
@@ -56,10 +57,10 @@ public class IncreasedDurationStat extends Stat implements IStatEffects {
 
     @Override
     public IStatEffect getEffect() {
-        return new IncreasedDurationEffect();
+        return new IncreasedAreaEffect();
     }
 
     private static class SingletonHolder {
-        private static final IncreasedDurationStat INSTANCE = new IncreasedDurationStat();
+        private static final IncreasedAreaStat INSTANCE = new IncreasedAreaStat();
     }
 }

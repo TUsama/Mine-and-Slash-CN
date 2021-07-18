@@ -71,7 +71,7 @@ public class FireBombsSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 13, 7);
         c.set(SC.DURATION_TICKS, 100, 120);
         c.set(SC.TIMES_TO_CAST, 3, 3);
-        c.set(SC.RADIUS, 1.5F, 2.25F);
+        c.set(SC.RADIUS, 2.5F, 3.5F);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);
@@ -95,7 +95,7 @@ public class FireBombsSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Projectile"));
 
         TooltipUtils.addEmpty(list);
 

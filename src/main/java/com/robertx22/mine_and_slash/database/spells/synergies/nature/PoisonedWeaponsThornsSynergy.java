@@ -63,7 +63,8 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
 
         if (ctx.getEffectType()
             .equals(EffectData.EffectTypes.BASIC_ATTACK) || ctx.getEffectType()
-                .equals(EffectData.EffectTypes.ATTACK_SPELL)) {
+                .equals(EffectData.EffectTypes.ATTACK_SPELL) || ctx.getEffectType()
+                .equals(EffectData.EffectTypes.SUMMON_DMG)) {
 
             if (PotionEffectUtils.has(ctx.target, ThornsEffect.INSTANCE)) {
 

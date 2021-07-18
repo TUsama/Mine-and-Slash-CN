@@ -76,6 +76,8 @@ public class StatMods implements ISlashRegistryInit {
                     add(Mod.LUCK_FLAT());
 
                     add(new IncreasedDurationFlat());
+                    add(new IncreasedAreaFlat());
+                    add(new IncreasedProjSpeedFlat());
                     add(new CooldownReductionFlat());
                     add(new ReducedManaCostFlat());
                     add(new FasterCastRateFlat());

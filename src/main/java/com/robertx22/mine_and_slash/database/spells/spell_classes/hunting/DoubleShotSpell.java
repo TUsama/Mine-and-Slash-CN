@@ -68,8 +68,8 @@ public class DoubleShotSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 10, 10);
         c.set(SC.COOLDOWN_SECONDS, 4, 2);
         c.set(SC.TIMES_TO_CAST, 2, 2);
-        c.set(SC.DURATION_TICKS, 80, 120);
         c.set(SC.BONUS_HEALTH, 0, 0);
+        c.set(SC.DURATION_TICKS, 80, 80);
 
         c.setMaxLevel(16);
 

@@ -69,7 +69,8 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
 
         if (ctx.getEffectType()
             .equals(EffectData.EffectTypes.BASIC_ATTACK) || ctx.getEffectType()
-                .equals(EffectData.EffectTypes.ATTACK_SPELL)) {
+                .equals(EffectData.EffectTypes.ATTACK_SPELL) || ctx.getEffectType()
+                .equals(EffectData.EffectTypes.SUMMON_DMG)) {
 
             int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
                     .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
