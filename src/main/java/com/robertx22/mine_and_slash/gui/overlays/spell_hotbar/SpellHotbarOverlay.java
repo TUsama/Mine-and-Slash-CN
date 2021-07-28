@@ -3,18 +3,25 @@ package com.robertx22.mine_and_slash.gui.overlays.spell_hotbar;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
+import com.robertx22.mine_and_slash.mmorpg.registers.client.KeybindsRegister;
 import com.robertx22.mine_and_slash.onevent.ontick.OnClientTick;
 import com.robertx22.mine_and_slash.saveclasses.spells.SpellCastingData;
 import com.robertx22.mine_and_slash.saveclasses.spells.SpellData;
 import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.localization.CLOC;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.GuiUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.AbstractGui;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import java.util.Locale;
 
 public class SpellHotbarOverlay extends AbstractGui {
 
@@ -114,6 +121,11 @@ public class SpellHotbarOverlay extends AbstractGui {
                         }
                     }
                 }
+                String txt = KeybindsRegister.HOTBAR_BY_NUMBER.get(i).toString().toUpperCase(Locale.ROOT);
+                if (txt.length() > 3) {
+                    txt = txt.substring(0, 2);
+                }
+                GuiUtils.renderScaledText(xs+23, ys+23, 1.4, txt, TextFormatting.GREEN);
             }
             y += 20;
         }

@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.gui.screens.main_hub.MainHubScreen;
 import com.robertx22.mine_and_slash.gui.screens.map_info_gui.MapInfoScreen;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
+import com.robertx22.mine_and_slash.mmorpg.registers.client.KeybindsRegister;
 import com.robertx22.mine_and_slash.packets.spells.HotbarSetupPacket;
 import com.robertx22.mine_and_slash.packets.spells.WeaponRightClickSpellPacket;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -31,6 +32,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class SpellHotbatSetupScreen extends BaseScreen implements INamedScreen {
 
@@ -100,6 +102,13 @@ public class SpellHotbatSetupScreen extends BaseScreen implements INamedScreen {
                 HotbarButton but = new HotbarButton(i, bar, x, y);
 
                 this.addButton(but);
+
+                String txt = KeybindsRegister.HOTBAR_BY_NUMBER.get(i).toString().toUpperCase(Locale.ROOT);
+
+                if (txt.length() > 3) {
+                    txt = txt.substring(0, 2);
+                }
+                GuiUtils.renderScaledText(x+23, y+23, 1.4, txt, TextFormatting.GREEN);
 
                 x += HotbarButton.xSize;
 

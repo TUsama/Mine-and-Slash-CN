@@ -25,21 +25,20 @@ public class KeybindsRegister {
      */
 
     public static KeyBinding hubScreen = new KeyBinding("Main Hub Screen", GLFW.GLFW_KEY_H, Ref.MOD_NAME);
-    public static KeyBinding swapHotbar = new KeyBinding("Swap Spell Hotbar", GLFW.GLFW_KEY_R, Ref.MOD_NAME);
+    public static KeyBinding swapHotbar = new KeyBinding("Swap Spell Hotbar", GLFW.GLFW_KEY_LEFT_ALT, Ref.MOD_NAME);
 
     static String HOTBAR_NAME = Ref.MOD_NAME + " Hotbar";
 
-    static KeyBinding SPELL_1 = hotbar(1, GLFW.GLFW_KEY_1);
-    static KeyBinding SPELL_2 = hotbar(2, GLFW.GLFW_KEY_2);
-    static KeyBinding SPELL_3 = hotbar(3, GLFW.GLFW_KEY_3);
-    static KeyBinding SPELL_4 = hotbar(4, GLFW.GLFW_KEY_4);
-    static KeyBinding SPELL_5 = hotbar(5, GLFW.GLFW_KEY_5);
+    static KeyBinding SPELL_1 = hotbar(1, GLFW.GLFW_KEY_R);
+    static KeyBinding SPELL_2 = hotbar(2, GLFW.GLFW_KEY_G);
+    static KeyBinding SPELL_3 = hotbar(3, GLFW.GLFW_KEY_X);
+    static KeyBinding SPELL_4 = hotbar(4, GLFW.GLFW_KEY_C);
+    static KeyBinding SPELL_5 = hotbar(5, GLFW.GLFW_KEY_V);
 
     public static KeyBinding hotbar(int num, int keycode) {
-        return new KeyBinding("Spell Hotbar key " + num, KeyConflictContext.IN_GAME, KeyModifier.SHIFT,
+        return new KeyBinding("Spell Hotbar Key " + num, KeyConflictContext.IN_GAME,
                               InputMappings.Type.KEYSYM, keycode, HOTBAR_NAME
         );
-
     }
 
     public static HashMap<KeyBinding, Integer> HOTBAR = new HashMap<KeyBinding, Integer>() {{

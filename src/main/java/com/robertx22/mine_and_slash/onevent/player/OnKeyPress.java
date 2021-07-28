@@ -36,8 +36,9 @@ public class OnKeyPress {
                 } else if (isCorrectKey(KeybindsRegister.swapHotbar, event)) {
 
                     SpellHotbarOverlay.CURRENT_HOTBAR =
-                        SpellHotbarOverlay.CURRENT_HOTBAR == SpellCastingData.Hotbar.FIRST ?
-                            SpellCastingData.Hotbar.SECOND : SpellCastingData.Hotbar.FIRST;
+                            SpellHotbarOverlay.CURRENT_HOTBAR == SpellCastingData.Hotbar.FIRST ?
+                                    SpellCastingData.Hotbar.SECOND : SpellCastingData.Hotbar.FIRST;
+
                 } else {
 
                     for (KeyBinding entry : KeybindsRegister.HOTBAR.keySet()) {

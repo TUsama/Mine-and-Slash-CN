@@ -1,3 +1,7 @@
+3.12.2:
+* Changed the health and physical damage nodes in the bottom near the start to big instead of major.
+* Hopefully fixed an issue with Dodge Ignore stat.
+
 3.12.1:
 * Fixed some spells spamming console.
 
