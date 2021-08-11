@@ -121,11 +121,11 @@ public class SpellHotbarOverlay extends AbstractGui {
                         }
                     }
                 }
-                String txt = KeybindsRegister.HOTBAR_BY_NUMBER.get(i).toString().toUpperCase(Locale.ROOT);
+                /*String txt = KeybindsRegister.HOTBAR_BY_NUMBER.get(i).toString().toUpperCase(Locale.ROOT);
                 if (txt.length() > 3) {
                     txt = txt.substring(0, 2);
                 }
-                GuiUtils.renderScaledText(xs+23, ys+23, 1.4, txt, TextFormatting.GREEN);
+                GuiUtils.renderScaledText(xs+23, ys+23, 1.4, txt, TextFormatting.GREEN);*/
             }
             y += 20;
         }

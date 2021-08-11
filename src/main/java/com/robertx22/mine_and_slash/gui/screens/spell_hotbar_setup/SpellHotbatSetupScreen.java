@@ -103,12 +103,12 @@ public class SpellHotbatSetupScreen extends BaseScreen implements INamedScreen {
 
                 this.addButton(but);
 
-                String txt = KeybindsRegister.HOTBAR_BY_NUMBER.get(i).toString().toUpperCase(Locale.ROOT);
+                /*String txt = KeybindsRegister.HOTBAR_BY_NUMBER.get(i).toString().toUpperCase(Locale.ROOT);
 
                 if (txt.length() > 3) {
                     txt = txt.substring(0, 2);
                 }
-                GuiUtils.renderScaledText(x+23, y+23, 1.4, txt, TextFormatting.GREEN);
+                GuiUtils.renderScaledText(x+23, y+23, 1.4, txt, TextFormatting.GREEN);*/
 
                 x += HotbarButton.xSize;
 
