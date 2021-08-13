@@ -89,11 +89,11 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
     @Override
     public void tick() {
 
-        if (this.spellData == null) {
+        if (this.spellData == null || this.getSpellData().getCaster(world) == null) {
             remove();
             return;
         }
-        else if (!this.spellData.getInit()) { // hacky init solution
+        else if (!this.spellData.getInit() && this.getSpellData().getCaster(world) != null) { // hacky init solution
             this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
                     .setBaseValue(this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue() * (1 + this.spellData.bonusHealth)); // sets bonus health from spell stat
             this.setHealth(this.getMaxHealth());

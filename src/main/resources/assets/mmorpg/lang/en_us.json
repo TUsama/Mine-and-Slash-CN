@@ -1840,7 +1840,7 @@
 	"mmorpg.stat_desc.harmony_trait": "Health restoration effects now simultaneously apply to health and magic shield at 50 percent effectiveness.",
 	"mmorpg.stat_desc.health": "Allows you to take more damage.",
 	"mmorpg.stat_desc.health_regen": "Regeneration occurs every 3 seconds.",
-	"mmorpg.stat_desc.increase_healing": "Increases all types of healing recieved like health regen, lifesteal, life on hit, spell heals, etc.",
+	"mmorpg.stat_desc.increase_healing": "Increases the potency of heals.",
 	"mmorpg.stat_desc.increased_duration": "Increases duration of spells and effects.",
 	"mmorpg.stat_desc.increased_area": "Increases radius of spells.",
 	"mmorpg.stat_desc.increased_proj_speed": "Increases speed of spell projectiles.",
