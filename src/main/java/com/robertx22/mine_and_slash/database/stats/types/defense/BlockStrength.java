@@ -28,7 +28,7 @@ public class BlockStrength extends Stat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "Percent chance to completely block a hit. Upon failure, still reduce damage by 25 percent.";
+        return "Percent chance to completely block a hit. Upon failure, still reduce damage by 50 percent.";
     }
 
     public static String GUID = "block_strength";

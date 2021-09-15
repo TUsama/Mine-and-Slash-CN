@@ -58,7 +58,7 @@ public class BlockReflectEffect extends BaseDamageEffect {
 
         dmgeffect.element = stat.getElement();
 
-        SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1.0F, 2);
+        SoundUtils.playSound(effect.target, SoundEvents.BLOCK_GLASS_BREAK, 1.0F, 2);
 
         dmgeffect.Activate();
 
@@ -71,7 +71,7 @@ public class BlockReflectEffect extends BaseDamageEffect {
         if ((effect.getEffectType()
             .equals(EffectTypes.BASIC_ATTACK) || effect.getEffectType()
                 .equals(EffectTypes.ATTACK_SPELL) || effect.getEffectType()
-                .equals(EffectTypes.SUMMON_DMG)) && effect.isBlocked()) {
+                .equals(EffectTypes.SUMMON_DMG)) && !effect.isDodged) {
 
             float cost = getEnergyCost(effect.targetData.getLevel());
 

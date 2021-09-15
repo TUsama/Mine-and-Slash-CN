@@ -45,7 +45,7 @@ public class BlockReflect extends ElementalStat implements IStatEffects {
 
     @Override
     public String locDescForLangFile() {
-        return "When blocking an attack, damage the enemy";
+        return "Upon being hit, retaliate and damage the enemy (does not apply upon dodge).";
     }
 
     @Override

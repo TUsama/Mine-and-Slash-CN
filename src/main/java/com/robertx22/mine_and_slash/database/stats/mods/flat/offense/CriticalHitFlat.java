@@ -12,7 +12,7 @@ public class CriticalHitFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 2;
+        return 2.5F;
     }
 
     @Override
