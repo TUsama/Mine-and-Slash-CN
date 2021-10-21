@@ -11,16 +11,18 @@ public class StatScaleContainer {
     public StatScaleContainer(ForgeConfigSpec.Builder builder) {
         builder.push("STAT SCALING");
 
+        // scale ends at lvl 80, power = 164.854
         NORMAL_SCALING = builder.comment(
             "val * (float) Math.pow(lvl, MathHelper.clamp(FIRST_VALUE + (float) lvl / " + "SECOND_VALUE, " +
                 "THIRD_VALUE, FOURTH_VALUE))")
-            .configure((ForgeConfigSpec.Builder b) -> new StatScaleValue(b, "Normal", 0.2D, 50D, 0.2D, 1.25D))
+            .configure((ForgeConfigSpec.Builder b) -> new StatScaleValue(b, "Normal", 0.525D, 100D, 0.525D, 1.225D))
             .getLeft();
 
+        //scale ends at lvl 80, power = 147.748
         WEAPON_SCALING = builder.comment(
                 "val * (float) Math.pow(lvl, MathHelper.clamp(FIRST_VALUE + (float) lvl / " + "SECOND_VALUE, " +
                         "THIRD_VALUE, FOURTH_VALUE))")
-                .configure((ForgeConfigSpec.Builder b) -> new StatScaleValue(b, "Weapon", 0.15D, 55D, 0.15D, 1.3D))
+                .configure((ForgeConfigSpec.Builder b) -> new StatScaleValue(b, "Weapon", 0.5D, 100D, 0.5D, 1.2D))
                 .getLeft();
 
         CORE_STAT_SCALING = builder.comment("val * (FIRST_VALUE + (float) lvl / SECOND_VALUE)")
