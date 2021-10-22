@@ -19,6 +19,7 @@ public class IncreaseHealingEffect extends BaseHealEffect {
 
     @Override
     public HealEffect activate(HealEffect effect, StatData data, Stat stat) {
+        float healPower = effect.sourceData
         effect.number *= data.getMultiplier(); //need to fix this
 
         return effect;

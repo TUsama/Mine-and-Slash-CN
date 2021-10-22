@@ -40,7 +40,7 @@ public class CrossBow extends BaseWeapon implements ISpecificStatReq {
     }
 
     static StatReq req = new StatReq(
-        LvlPointStat.DEXTERITY, StatReq.Size.SMALL, LvlPointStat.STRENGTH, StatReq.Size.TINY);
+        LvlPointStat.DEXTERITY, StatReq.Size.MEDIUM, LvlPointStat.STRENGTH, StatReq.Size.TINY);
 
     @Override
     public WeaponDamageMulti weaponDamageMulti() {

@@ -77,7 +77,7 @@ public class ItemSword extends SwordItem implements IAutoLocName, IGearItem {
     @Override
     public Multimap<String, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot) {
 
-        float attackSpeed = -1.5F;
+        float attackSpeed = -1.6F;
 
         Multimap<String, AttributeModifier> map = super.getAttributeModifiers(slot);
         if (slot == EquipmentSlotType.MAINHAND) {

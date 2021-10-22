@@ -34,7 +34,7 @@ public class Axe extends BaseWeapon implements ISpecificStatReq {
 
     }
 
-    static StatReq req = new StatReq(LvlPointStat.STRENGTH, StatReq.Size.SMALL);
+    static StatReq req = new StatReq(LvlPointStat.STRENGTH, StatReq.Size.MEDIUM, LvlPointStat.DEXTERITY, StatReq.Size.SMALL);
 
     @Override
     public boolean isMeleeWeapon() {

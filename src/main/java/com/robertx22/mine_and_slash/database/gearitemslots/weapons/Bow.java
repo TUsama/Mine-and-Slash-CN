@@ -41,7 +41,7 @@ public class Bow extends BaseWeapon implements ISpecificStatReq {
         return "bow";
     }
 
-    static StatReq req = new StatReq(LvlPointStat.DEXTERITY, StatReq.Size.MEDIUM);
+    static StatReq req = new StatReq(LvlPointStat.DEXTERITY, StatReq.Size.NORMAL);
 
     @Override
     public WeaponDamageMulti weaponDamageMulti() {
