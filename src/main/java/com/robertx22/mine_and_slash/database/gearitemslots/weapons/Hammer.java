@@ -59,7 +59,7 @@ public class Hammer extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(10);
+        return new WeaponSwingCost(11);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Hammer extends BaseWeapon implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-                new PosStats(new PhysicalDamageFlat())
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.DOUBLE))
         );
     }
 

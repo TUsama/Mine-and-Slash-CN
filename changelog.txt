@@ -4,6 +4,8 @@
 - In general, you will feel weaker, but scaling should be more balanced between the play styles. Keep in mind that mobs will also scale slower too.
 - Decreased Mine and Slash sword attack speed to be more in line with vanilla swords.
 - Increased Mine and Slash axe and staff attack speed to be more in line with vanilla axes.
+- Increased damage rolls of axes and hammers to offset the decrease in attack speed. The same change has been applied to uniques.
+- Increased hammer energy consumption by 10%.
 - Staves now can roll pure elemental attack damage rather than physical + elemental.
 - Stat requirements for weapon types have been changed slightly. In general, stat requirements have been increased. The general trend for stat requirements is that each weapon type has a "main" stat, and a "secondary" stat. Secondary stat requirements are almost negligible. You may require a respec!
 
