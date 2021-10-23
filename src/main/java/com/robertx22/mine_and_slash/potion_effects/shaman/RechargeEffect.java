@@ -38,7 +38,6 @@ public class RechargeEffect extends BasePotionEffect {
             } else {
 
                 ParticleUtils.spawnParticles(ParticleRegister.THUNDER, ctx.entity, 5);
-                SoundUtils.playSound(ctx.entity, SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
 
                 SpellUtils.healCasterMana(getCtx(ctx.caster));
             }

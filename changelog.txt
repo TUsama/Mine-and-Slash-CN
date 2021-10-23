@@ -8,6 +8,7 @@
 - Increased hammer energy consumption by 10%.
 - Staves now can roll pure elemental attack damage rather than physical + elemental.
 - Stat requirements for weapon types have been changed slightly. In general, stat requirements have been increased. The general trend for stat requirements is that each weapon type has a "main" stat, and a "secondary" stat. Secondary stat requirements are almost negligible. You may require a respec!
+- Removed annoying ping from Recharge skill.
 
 3.12.3:
 * Updated Chinese localization. Thank you gulugulu!
