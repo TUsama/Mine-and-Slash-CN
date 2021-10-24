@@ -24,9 +24,10 @@ public enum Words implements IAutoLocName {
     Amount("Amount"),
 
     RightClickToTeleport("Use to teleport back from Adventure Map."),
-    RightClickToIdentifyFirst("Use to identify first item in inventory."),
+    RightClickToIdentifyFirst("Use to identify the first item in your inventory."),
+    RightClickToIdentifyAll("Use to identify all items in your inventory."),
     ItemIsUnidentified("This item is currently sealed."),
-    UseAnIdentifyScroll("An Identify Scroll can reveal it."),
+    UseAnIdentifyScroll("An identification item can reveal it."),
     KillBoss("Kill Boss: "), BlinkStrike("Blink Strike"),
     Kill("Kill"),
     Magic_Missile("Magic Missiles"),

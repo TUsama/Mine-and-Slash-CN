@@ -7,7 +7,7 @@ public class CommonLeatherMat extends CommonMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":common_leather";
+        return Ref.MODID + ":leather0";
     }
 
 }

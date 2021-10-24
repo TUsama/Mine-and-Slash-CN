@@ -24,7 +24,7 @@ public class CommonMat extends BaseMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":common";
+        return Ref.MODID + ":plate0";
     }
 
     @Override

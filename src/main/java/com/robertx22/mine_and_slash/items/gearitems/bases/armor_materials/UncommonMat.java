@@ -24,7 +24,7 @@ public class UncommonMat extends BaseMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":" + "uncommon";
+        return Ref.MODID + ":" + "plate1";
     }
 
     @Override

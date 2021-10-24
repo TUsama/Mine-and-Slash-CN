@@ -14,10 +14,15 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DodgeRatingFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.SpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.BlockReflectFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.ArmorPercent;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.DodgeRatingPercent;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.MagicShieldPercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.*;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
@@ -96,11 +101,15 @@ public abstract class GearItemSlot implements IWeighted, IAutoLocName, ISlashReg
     }
 
     public List<PosStats> clothPrimary() {
-        return Arrays.asList(new PosStats(new MagicShieldFlat()));
+        return Arrays.asList(new PosStats(new MagicShieldFlat().size(StatMod.Size.HALF_MORE)),
+                new PosStats(new MagicShieldFlat(), new ArmorFlat().size(StatMod.Size.HALF)),
+                new PosStats(new MagicShieldFlat(), new DodgeRatingFlat().size(StatMod.Size.LOW)));
     }
 
     public List<PosStats> leatherPrimary() {
-        return Arrays.asList(new PosStats(new DodgeRatingFlat(), new HealthFlat().size(StatMod.Size.HALF)));
+        return Arrays.asList(new PosStats(new DodgeRatingFlat().size(StatMod.Size.HALF_MORE)),
+                new PosStats(new DodgeRatingFlat(), new ArmorFlat().size(StatMod.Size.HALF)),
+                new PosStats(new DodgeRatingFlat(), new MagicShieldFlat().size(StatMod.Size.LOW)));
     }
 
     public List<PosStats> eleDmgs() {
@@ -209,28 +218,34 @@ public abstract class GearItemSlot implements IWeighted, IAutoLocName, ISlashReg
 
     public static List<StatMod> leatherArmorSecondary() {
         List<StatMod> list = new ArrayList<>();
-        list.add(new ArmorFlat());
-        list.add(new CoreStatFlat(Stamina.INSTANCE));
-        list.add(new CoreStatFlat(Dexterity.INSTANCE));
+        list.add(new HealthFlat().size(StatMod.Size.HALF));
+        list.add(new DodgeRatingFlat().size(StatMod.Size.HALF));
+        list.add(new DodgeRatingPercent());
+        list.add(new HealthRegenFlat().size(StatMod.Size.QUARTER));
+        list.add(new BlockReflectFlat(Elements.Physical).size(StatMod.Size.QUARTER));
         list.addAll(allResists());
         return list;
     }
 
     public static List<StatMod> plateArmorSecondary() {
         List<StatMod> list = new ArrayList<>();
-        list.add(new ArmorFlat());
-        list.add(new CoreStatFlat(Vitality.INSTANCE));
-        list.add(new CoreStatFlat(Strength.INSTANCE));
+        list.add(new HealthFlat().size(StatMod.Size.LOW));
+        list.add(new ArmorFlat().size(StatMod.Size.QUARTER));
+        list.add(new ArmorPercent());
+        list.add(new HealthRegenFlat().size(StatMod.Size.QUARTER));
+        list.add(new BlockReflectFlat(Elements.Physical).size(StatMod.Size.QUARTER));
         list.addAll(allResists());
         return list;
     }
 
     public static List<StatMod> clothArmorSecondary() {
         List<StatMod> list = new ArrayList<>();
-        list.add(new ArmorFlat().size(StatMod.Size.LOW));
-        list.add(new ManaFlat().size(StatMod.Size.HALF_MORE));
-        list.add(new CoreStatFlat(Intelligence.INSTANCE));
-        list.add(new CoreStatFlat(Wisdom.INSTANCE));
+        list.add(new HealthFlat().size(StatMod.Size.HALF));
+        list.add(new ManaFlat());
+        list.add(new MagicShieldFlat().size(StatMod.Size.HALF));
+        list.add(new MagicShieldPercent());
+        list.add(new HealthRegenFlat().size(StatMod.Size.QUARTER));
+        list.add(new BlockReflectFlat(Elements.Physical).size(StatMod.Size.QUARTER));
         list.addAll(allResists());
         return list;
     }

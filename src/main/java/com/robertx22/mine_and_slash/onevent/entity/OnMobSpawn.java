@@ -125,9 +125,14 @@ public class OnMobSpawn {
 
         UnitData endata = Load.Unit(entity);
 
-        if (WorldUtils.isMapWorldClass(entity.world)) {
-            endata.setTier(mapData.getTier(entity.getPosition(), entity.world));
+        if (WorldUtils.isMapWorldClass(entity.world)) { // if map world
+            endata.setTier(mapData.getTier(entity.getPosition(), entity.world)); // set tier
+        } else if (entity.world != null) {
+            endata.setTier(WorldUtils.getWorldTier(entity.world, entity.getPosition()));
         }
+
+        //System.out.println("Mob Map Tier: " + endata.getMapTier());
+        //System.out.println("Mob Tier: " + endata.getTier());
 
         endata.SetMobLevelAtSpawn(mapData, entity, nearestPlayer);
 

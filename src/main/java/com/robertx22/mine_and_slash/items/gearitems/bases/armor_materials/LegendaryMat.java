@@ -24,7 +24,7 @@ public class LegendaryMat extends BaseMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":" + "legendary";
+        return Ref.MODID + ":" + "plate4";
     }
 
     @Override

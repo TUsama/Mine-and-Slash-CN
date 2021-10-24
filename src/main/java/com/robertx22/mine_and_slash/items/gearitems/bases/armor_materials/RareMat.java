@@ -24,7 +24,7 @@ public class RareMat extends BaseMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":" + "rare";
+        return Ref.MODID + ":" + "plate2";
     }
 
     @Override

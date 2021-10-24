@@ -7,7 +7,7 @@ public class EpicLeatherMat extends EpicMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":common_leather";
+        return Ref.MODID + ":leather3";
     }
 
 }

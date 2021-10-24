@@ -1,9 +1,21 @@
+3.12.6:
+- Reworked primary stats of armors. Plate and leather no longer give HP as a primary stat, this has been moved to the secondary stats. All armors now give 1.5x rate of their main stat (plate = armor, etc.), or 1x rate of their main stat and 0.75x rate of another defensive stat (plate = 1x armor + 0.75x magic shield, etc.). This should improve diversity by allowing players to spec into two defensive options and not feel forced to go into just one.
+- Secondary stat of armors has also been reworked. You can no longer get raw "core stats" from secondary stats (vit, dex, etc.). Secondary stats now are more specific to the armor type, and all armors can roll HP (plate rolls the highest, cloth and leather tied). Added some more useful stats to secondary stat pools for armors, but also added 2 junk stats to offset it.
+- Armors have been re-textured to look 100x nicer.
+
+3.12.5:
+- FINALLY FIXED a long-standing bug where dimensions with tiers were given a tier of 0 instead of the tier they were set to.
+- Loot crate scores are now hidden since they don't do anything.
+- Renamed and retextured the old Identification Tome to Identification Scroll.
+- Added a new item: Identification Tome - identifies your entire inventory at once. The recipe for making this consists of scrolls, an ore, and leather.
+
 3.12.4:
 - Changed stat scaling to be more linear from level 1-50, spiking from that point on and capping at level 70. Before, it spiked at level 30/40 and capped out too early.
 - Weapon damage scaling has been toned down. Previously, weapon scaling would be almost 50% more than that of spells and other stats. Now, it should be roughly the same.
 - In general, you will feel weaker, but scaling should be more balanced between the play styles. Keep in mind that mobs will also scale slower too.
 - Decreased Mine and Slash sword attack speed to be more in line with vanilla swords.
-- Increased Mine and Slash axe and staff attack speed to be more in line with vanilla axes.
+- Decreased Mine and Slash axe and staff attack speed to be more in line with vanilla axes.
+- Decreased Mine and Slash hammer attack speed.
 - Increased damage rolls of axes and hammers to offset the decrease in attack speed. The same change has been applied to uniques.
 - Increased hammer energy consumption by 10%.
 - Staves now can roll pure elemental attack damage rather than physical + elemental.

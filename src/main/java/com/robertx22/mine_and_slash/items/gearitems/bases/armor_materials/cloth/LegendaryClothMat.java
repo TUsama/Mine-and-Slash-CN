@@ -7,7 +7,7 @@ public class LegendaryClothMat extends LegendaryMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":common_leather";
+        return Ref.MODID + ":cloth4";
     }
 
 }
