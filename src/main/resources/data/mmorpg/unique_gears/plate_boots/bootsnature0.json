@@ -7,10 +7,10 @@
   "lang_file_string": "item.mmorpg.uniques.boots.bootsnature0",
   "lang_file_desc_string": "item.mmorpg.uniques.boots.bootsnature0.desc",
   "primary_stats": [
-	"very_low_armor_flat",
-    "high_health_flat"
+	"slightly_high_armor_flat"
   ],
   "unique_stats": [
+    "health_flat",
     "high_health_percent",
     "high_mana_regen_flat",
     "nature_resist_flat"

@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.corestats.CoreStatF
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.BlockStrengthFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DodgeRatingFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.SpellDodgeFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.elemental.AllDotDmgFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.elemental.AllEleDmgFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.*;
@@ -159,6 +160,7 @@ public class StatMods implements ISlashRegistryInit {
 
                     add(new ArmorPercent());
                     add(new DodgeRatingFlat());
+                    add(new SpellDodgeFlat());
 
                     // bonus dmg
 

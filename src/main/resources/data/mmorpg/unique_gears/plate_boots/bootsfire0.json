@@ -7,10 +7,10 @@
   "lang_file_string": "item.mmorpg.uniques.boots.bootsfire0",
   "lang_file_desc_string": "item.mmorpg.uniques.boots.bootsfire0.desc",
   "primary_stats": [
-	"very_low_armor_flat",
-    "health_flat"
+	"slightly_high_armor_flat"
   ],
   "unique_stats": [
+    "health_flat",
     "axe_damage_flat",
     "fire_spell_to_attack_dmg_flat",
     "critical_damage_percent"

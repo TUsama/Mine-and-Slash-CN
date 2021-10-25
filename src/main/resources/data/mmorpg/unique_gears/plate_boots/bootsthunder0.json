@@ -7,10 +7,10 @@
   "lang_file_string": "item.mmorpg.uniques.boots.bootsthunder0",
   "lang_file_desc_string": "item.mmorpg.uniques.boots.bootsthunder0.desc",
   "primary_stats": [
-	"very_low_armor_flat",
-    "health_flat"
+	"slightly_high_armor_flat"
   ],
   "unique_stats": [
+    "health_flat",
     "hammer_damage_flat",
     "thunder_spell_to_attack_dmg_flat",
     "critical_damage_percent",

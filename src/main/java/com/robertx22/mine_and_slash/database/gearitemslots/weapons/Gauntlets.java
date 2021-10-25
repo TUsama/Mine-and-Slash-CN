@@ -54,7 +54,7 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
         return true;
     }
 
-    static StatReq req = new StatReq(LvlPointStat.STAMINA, StatReq.Size.MEDIUM, LvlPointStat.DEXTERITY, StatReq.Size.TINY);
+    static StatReq req = new StatReq(LvlPointStat.STAMINA, StatReq.Size.MEDIUM, LvlPointStat.INTELLIGENCE, StatReq.Size.TINY);
 
     @Override
     public PlayStyle getPlayStyle() {

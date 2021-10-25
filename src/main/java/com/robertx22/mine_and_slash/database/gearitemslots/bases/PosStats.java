@@ -23,6 +23,13 @@ public class PosStats implements IWeighted {
         this.mods.add(mod2);
     }
 
+    public PosStats(StatMod mod, StatMod mod2, StatMod mod3) {
+        this.mods = new ArrayList<StatMod>();
+        this.mods.add(mod);
+        this.mods.add(mod2);
+        this.mods.add(mod3);
+    }
+
     public List<StatMod> mods;
     public int weight = 1000;
 

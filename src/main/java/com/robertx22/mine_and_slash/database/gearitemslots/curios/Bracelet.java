@@ -4,13 +4,15 @@ import com.robertx22.mine_and_slash.data_generation.wrappers.StatModsHolder;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseCurio;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.PosStats;
+import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.BonusExpFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthRegenFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldRegenFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.*;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.LootTypeBonusFlat;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.baubles.ItemBracelet;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.LootType;
 import net.minecraft.item.Item;
 
 import java.util.Arrays;
@@ -47,15 +49,21 @@ public class Bracelet extends BaseCurio {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-            new PosStats(new HealthRegenFlat()),
-            new PosStats(new BonusExpFlat()),
-            new PosStats(new MagicShieldRegenFlat())
+                new PosStats(new HealthRegenFlat().size(StatMod.Size.HALF_MORE)),
+                new PosStats(new ManaRegenFlat().size(StatMod.Size.TRIPLE)),
+                new PosStats(new EnergyRegenFlat().size(StatMod.Size.TRIPLE)),
+                new PosStats(new MagicShieldRegenFlat().size(StatMod.Size.HALF_MORE))
         );
     }
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new ElementalResistFlat(Elements.Physical).allSingleElementVariations());
+        return new StatModsHolder(
+                new ElementalResistFlat(Elements.Fire).size(StatMod.Size.HALF),
+                new ElementalResistFlat(Elements.Water).size(StatMod.Size.HALF),
+                new ElementalResistFlat(Elements.Nature).size(StatMod.Size.HALF),
+                new ElementalResistFlat(Elements.Thunder).size(StatMod.Size.HALF)
+        );
     }
 
     @Override

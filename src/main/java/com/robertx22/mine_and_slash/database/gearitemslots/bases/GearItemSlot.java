@@ -51,12 +51,9 @@ public abstract class GearItemSlot implements IWeighted, IAutoLocName, ISlashReg
 
     public static StatReq.Size doubleArmorStatSize = StatReq.Size.SMALL;
 
-    public static StatReq clothArmorReq = new StatReq(
-        LvlPointStat.WISDOM, doubleArmorStatSize, LvlPointStat.INTELLIGENCE, doubleArmorStatSize);
-    public static StatReq leatherArmorReq = new StatReq(
-        LvlPointStat.DEXTERITY, doubleArmorStatSize, LvlPointStat.STAMINA, doubleArmorStatSize);
-    public static StatReq plateArmorReq = new StatReq(
-        LvlPointStat.VITALITY, doubleArmorStatSize, LvlPointStat.STRENGTH, doubleArmorStatSize);
+    public static StatReq clothArmorReq = new StatReq(LvlPointStat.INTELLIGENCE, doubleArmorStatSize);
+    public static StatReq leatherArmorReq = new StatReq(LvlPointStat.DEXTERITY, doubleArmorStatSize);
+    public static StatReq plateArmorReq = new StatReq(LvlPointStat.STRENGTH, doubleArmorStatSize);
 
     public static StatReq noReq = StatReq.nothing();
 
