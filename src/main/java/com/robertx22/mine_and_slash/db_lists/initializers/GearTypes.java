@@ -64,7 +64,9 @@ public class GearTypes implements ISlashRegistryInit {
                     add(CrossBow.INSTANCE);
                     add(Sword.INSTANCE);
                     //add(Gauntlets.INSTANCE);
+                    add(Dagger.INSTANCE);
                     add(Trident.INSTANCE);
+                    add(Wand.INSTANCE);
 
                 }
 

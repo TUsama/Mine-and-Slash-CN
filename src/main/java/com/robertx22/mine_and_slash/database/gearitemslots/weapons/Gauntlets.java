@@ -46,7 +46,7 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public boolean isMageWeapon() {
-        return false;
+        return true;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public PlayStyle getPlayStyle() {
-        return PlayStyle.THIEF;
+        return PlayStyle.MAGE;
     }
 
     @Override
@@ -110,10 +110,10 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
             new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW)).weight(16000),
-                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF)),
-                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF)),
-                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF)),
-                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF)),
+                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW)).weight(3000),
+                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW)).weight(3000),
+                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW)).weight(3000),
+                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW)).weight(3000),
                     new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF)),
                     new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF)),
                     new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF)),

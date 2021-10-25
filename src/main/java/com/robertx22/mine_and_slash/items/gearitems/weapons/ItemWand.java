@@ -14,18 +14,18 @@ import net.minecraft.world.World;
 
 import java.util.HashMap;
 
-public class ItemGauntlets extends BaseWeaponItem {
+public class ItemWand extends BaseWeaponItem {
     public static HashMap<Integer, Item> Items = new HashMap<Integer, Item>();
 
-    public ItemGauntlets(int rar) {
+    public ItemWand(int rar) {
         super(rar);
-        this.attackSpeed = -1.8F;
+        this.attackSpeed = -2.6F;
     }
 
     @Override
     public String locNameForLangFile() {
         Rarity rar = Rarities.Gears.get(rarity);
-        return rar.textFormatting() + "Gauntlets";
+        return rar.textFormatting() + "Wand";
     }
 
     @Override

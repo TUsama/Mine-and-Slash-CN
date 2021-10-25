@@ -13,7 +13,9 @@ public enum WeaponTypes {
     Sword(true, "sword", true),
     CrossBow(true, "crossbow", false),
     Staff(true, "staff", true),
-    Gauntlets(true, "gauntlets", true);
+    Gauntlets(true, "gauntlets", true),
+    Dagger(true, "dagger", true),
+    Wand(true, "wand", true);
 
     WeaponTypes(boolean bool, String id, boolean melee) {
         this.isSingleType = bool;

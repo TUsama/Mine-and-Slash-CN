@@ -1,9 +1,13 @@
 package com.robertx22.mine_and_slash.items.gearitems.weapons;
 
+import com.google.common.collect.Multimap;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.items.gearitems.bases.BaseWeaponItem;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.Rarity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
@@ -14,10 +18,10 @@ import net.minecraft.world.World;
 
 import java.util.HashMap;
 
-public class ItemGauntlets extends BaseWeaponItem {
+public class ItemDagger extends BaseWeaponItem {
     public static HashMap<Integer, Item> Items = new HashMap<Integer, Item>();
 
-    public ItemGauntlets(int rar) {
+    public ItemDagger(int rar) {
         super(rar);
         this.attackSpeed = -1.8F;
     }
@@ -25,7 +29,7 @@ public class ItemGauntlets extends BaseWeaponItem {
     @Override
     public String locNameForLangFile() {
         Rarity rar = Rarities.Gears.get(rarity);
-        return rar.textFormatting() + "Gauntlets";
+        return rar.textFormatting() + "Dagger";
     }
 
     @Override
