@@ -1,13 +1,9 @@
 package com.robertx22.mine_and_slash.items.gearitems.weapons;
 
-import com.google.common.collect.Multimap;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.items.gearitems.bases.BaseWeaponItem;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.Rarity;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;

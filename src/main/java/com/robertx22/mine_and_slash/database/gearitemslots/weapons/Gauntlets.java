@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.database.gearitemslots.weapons;
+/*package com.robertx22.mine_and_slash.database.gearitemslots.weapons;
 
 import com.robertx22.mine_and_slash.data_generation.wrappers.StatModsHolder;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponDamageMulti;
@@ -133,3 +133,4 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
         return "Gauntlets";
     }
 }
+ */
