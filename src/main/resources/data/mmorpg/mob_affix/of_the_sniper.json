@@ -8,8 +8,8 @@
   "type": "suffix",
   "mods": {
     "mods": [
-      "dodge_ignore_flat",
-      "armor_penetration_flat"
+      "armor_penetration_flat",
+      "dodge_ignore_flat"
     ]
   }
 }
