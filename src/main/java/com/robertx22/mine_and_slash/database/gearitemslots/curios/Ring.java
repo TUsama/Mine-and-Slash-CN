@@ -5,12 +5,13 @@ import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseCurio;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.PosStats;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaRegenFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.*;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.LootTypeBonusFlat;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.baubles.ItemRing;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.LootType;
 import net.minecraft.item.Item;
 
 import java.util.Arrays;
@@ -48,22 +49,26 @@ public class Ring extends BaseCurio {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-            new PosStats(
-                new EnergyRegenFlat().size(StatMod.Size.HALF),
-                new ManaRegenFlat().size(StatMod.Size.HALF)
-            ),
-            new PosStats(new ManaRegenFlat()),
-            new PosStats(new EnergyRegenFlat())
-
+                new PosStats(new ElementalResistFlat(Elements.Fire)).weight(3000),
+                new PosStats(new ElementalResistFlat(Elements.Water)).weight(3000),
+                new PosStats(new ElementalResistFlat(Elements.Thunder)).weight(3000),
+                new PosStats(new ElementalResistFlat(Elements.Nature)).weight(3000),
+                new PosStats(new ElementalResistFlat(Elements.Fire).size(StatMod.Size.HALF), new ElementalResistFlat(Elements.Water).size(StatMod.Size.HALF)),
+                new PosStats(new ElementalResistFlat(Elements.Fire).size(StatMod.Size.HALF), new ElementalResistFlat(Elements.Thunder).size(StatMod.Size.HALF)),
+                new PosStats(new ElementalResistFlat(Elements.Fire).size(StatMod.Size.HALF), new ElementalResistFlat(Elements.Nature).size(StatMod.Size.HALF)),
+                new PosStats(new ElementalResistFlat(Elements.Water).size(StatMod.Size.HALF), new ElementalResistFlat(Elements.Thunder).size(StatMod.Size.HALF)),
+                new PosStats(new ElementalResistFlat(Elements.Water).size(StatMod.Size.HALF), new ElementalResistFlat(Elements.Nature).size(StatMod.Size.HALF)),
+                new PosStats(new ElementalResistFlat(Elements.Thunder).size(StatMod.Size.HALF), new ElementalResistFlat(Elements.Nature).size(StatMod.Size.HALF))
         );
     }
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
         return new StatModsHolder(
-            GearItemSlot.allResists(),
-            new ManaFlat().size(StatMod.Size.LOW),
-            new EnergyFlat().size(StatMod.Size.LOW)
+                new ElementalResistFlat(Elements.Fire).size(StatMod.Size.QUARTER),
+                new ElementalResistFlat(Elements.Water).size(StatMod.Size.QUARTER),
+                new ElementalResistFlat(Elements.Nature).size(StatMod.Size.QUARTER),
+                new ElementalResistFlat(Elements.Thunder).size(StatMod.Size.QUARTER)
         );
 
     }

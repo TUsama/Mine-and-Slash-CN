@@ -7,7 +7,7 @@ public class RareLeatherMat extends RareMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":common_leather";
+        return Ref.MODID + ":leather2";
     }
 
 }

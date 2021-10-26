@@ -93,17 +93,17 @@ public class MapLootCrateItem extends Item {
 
             tooltip.add(TooltipUtils.level(lvl));
 
-            TooltipUtils.addEmpty(tooltip);
+            //TooltipUtils.addEmpty(tooltip);
 
             tooltip.add(TooltipUtils.tier(tier));
 
             TooltipUtils.addEmpty(tooltip);
 
-            tooltip.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Score: " + score.getTooltipLine()));
+            //tooltip.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Score: " + score.getTooltipLine()));
 
-            TooltipUtils.addEmpty(tooltip);
+            //TooltipUtils.addEmpty(tooltip);
 
-            tooltip.add(new StringTextComponent(TextFormatting.BLUE + "Right click to open!"));
+            tooltip.add(new StringTextComponent(TextFormatting.BLUE + "Right-click in hand to open!"));
 
         } catch (Exception e) {
             e.printStackTrace();

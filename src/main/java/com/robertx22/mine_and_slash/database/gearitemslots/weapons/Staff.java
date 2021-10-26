@@ -8,7 +8,9 @@ import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.PosStats;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.NormalWeaponMechanic;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
+import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.FasterCastRateFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.PhysicalDamageFlat;
@@ -50,7 +52,7 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
         return true;
     }
 
-    static StatReq req = new StatReq(LvlPointStat.INTELLIGENCE, StatReq.Size.MEDIUM, LvlPointStat.INTELLIGENCE, StatReq.Size.TINY);
+    static StatReq req = new StatReq(LvlPointStat.INTELLIGENCE, StatReq.Size.MEDIUM, LvlPointStat.WISDOM, StatReq.Size.TINY);
 
     @Override
     public PlayStyle getPlayStyle() {
@@ -105,23 +107,23 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-                new PosStats(new PhysicalDamageFlat()).weight(16000),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.NORMAL)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.NORMAL)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.NORMAL)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.NORMAL)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW)),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW))
+                new PosStats(new PhysicalDamageFlat(), new SpellDamageFlat()).weight(16000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.NORMAL), new SpellDamageFlat()).weight(3000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.NORMAL), new SpellDamageFlat()).weight(3000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.NORMAL), new SpellDamageFlat()).weight(3000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.NORMAL), new SpellDamageFlat()).weight(3000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW), new SpellDamageFlat()),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW), new SpellDamageFlat()),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW), new SpellDamageFlat()),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW), new SpellDamageFlat()),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW), new SpellDamageFlat()),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW), new SpellDamageFlat())
         );
     }
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new SpellDamageFlat(), new HealPowerFlat());
+        return new StatModsHolder(new SpellDamageFlat(), new FasterCastRateFlat());
     }
 
     @Override

@@ -7,7 +7,7 @@ public class MythicClothMat extends MythicalMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":common_leather";
+        return Ref.MODID + ":cloth5";
     }
 
 }

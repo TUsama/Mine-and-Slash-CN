@@ -6,9 +6,11 @@ import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.PosStats;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.corestats.CoreStatFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Stamina;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.baubles.ItemCharm;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import net.minecraft.item.Item;
 
 import java.util.HashMap;
@@ -52,7 +54,12 @@ public class Charm extends BaseCurio {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(allResists());
+        return new StatModsHolder(
+                new ElementalResistFlat(Elements.Fire).size(StatMod.Size.HALF),
+                new ElementalResistFlat(Elements.Water).size(StatMod.Size.HALF),
+                new ElementalResistFlat(Elements.Nature).size(StatMod.Size.HALF),
+                new ElementalResistFlat(Elements.Thunder).size(StatMod.Size.HALF)
+        );
     }
 
     @Override

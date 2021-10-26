@@ -24,7 +24,7 @@ public class UniqueMat extends BaseMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":" + "unique";
+        return Ref.MODID + ":" + "plate_unique";
     }
 
     @Override

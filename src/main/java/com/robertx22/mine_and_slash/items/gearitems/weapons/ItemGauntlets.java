@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.items.gearitems.weapons;
+/*package com.robertx22.mine_and_slash.items.gearitems.weapons;
 
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.items.gearitems.bases.BaseWeaponItem;
@@ -19,7 +19,7 @@ public class ItemGauntlets extends BaseWeaponItem {
 
     public ItemGauntlets(int rar) {
         super(rar);
-        this.attackSpeed = -0.8F;
+        this.attackSpeed = -1.8F;
     }
 
     @Override
@@ -45,3 +45,5 @@ public class ItemGauntlets extends BaseWeaponItem {
     }
 
 }
+
+ */

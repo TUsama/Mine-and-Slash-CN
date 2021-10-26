@@ -24,7 +24,7 @@ public class MythicalMat extends BaseMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":" + "mythical";
+        return Ref.MODID + ":" + "plate5";
     }
 
     @Override

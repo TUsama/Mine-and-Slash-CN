@@ -24,7 +24,7 @@ public class EpicMat extends BaseMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":" + "epic";
+        return Ref.MODID + ":" + "plate3";
     }
 
     @Override

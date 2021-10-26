@@ -7,7 +7,7 @@ public class UniqueClothMat extends UniqueMat {
 
     @Override
     public String getName() {
-        return Ref.MODID + ":common_leather";
+        return Ref.MODID + ":cloth_unique";
     }
 
 }

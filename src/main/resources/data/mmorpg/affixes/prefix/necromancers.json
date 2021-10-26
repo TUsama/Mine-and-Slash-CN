@@ -10,7 +10,8 @@
     "list": [
       {
         "slots": [
-          "staff"
+          "staff",
+          "wand"
         ]
       }
     ]

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "lol",
+    "obo",
+    "lol"
+  ],
+  "key": {
+    "o": {
+      "item": "mmorpg:identify_tome"
+    },
+    "b": {
+      "item": "mmorpg:ore3"
+    },
+    "l": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "mmorpg:identify_tome_plus",
+    "count": 1
+  }
+}

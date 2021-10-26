@@ -18,7 +18,7 @@ public class ItemAxe extends BaseWeaponItem {
     public ItemAxe(int rar) {
         super(rar);
 
-        this.attackSpeed = -2.4F;
+        this.attackSpeed = -3.0F;
     }
 
     @Override

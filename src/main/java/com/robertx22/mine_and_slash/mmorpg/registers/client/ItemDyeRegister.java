@@ -25,16 +25,16 @@ public class ItemDyeRegister {
         List<IItemProvider> list = new ArrayList<>();
 
         // LEATHER
-        list.addAll(LeatherHelmetItem.Items.values());
-        list.addAll(LeatherPantsItem.Items.values());
-        list.addAll(LeatherChestItem.Items.values());
-        list.addAll(LeatherBootsItem.Items.values());
+        //list.addAll(LeatherHelmetItem.Items.values());
+        //list.addAll(LeatherPantsItem.Items.values());
+        //list.addAll(LeatherChestItem.Items.values());
+        //list.addAll(LeatherBootsItem.Items.values());
 
         //CLOTH
-        list.addAll(ClothHelmetItem.Items.values());
-        list.addAll(ClothPantsItem.Items.values());
-        list.addAll(ClothChestItem.Items.values());
-        list.addAll(ClothBootsItem.Items.values());
+        //list.addAll(ClothHelmetItem.Items.values());
+        //list.addAll(ClothPantsItem.Items.values());
+        //list.addAll(ClothChestItem.Items.values());
+        //list.addAll(ClothBootsItem.Items.values());
 
         evt.getItemColors()
                 .register(ItemDyeRegister::getColor, list.toArray(new IItemProvider[]{}));

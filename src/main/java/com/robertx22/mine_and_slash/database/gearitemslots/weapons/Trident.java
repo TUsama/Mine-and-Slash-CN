@@ -30,7 +30,7 @@ public class Trident extends BaseWeapon implements ISpecificStatReq {
 
     }
 
-    static StatReq req = new StatReq(LvlPointStat.STAMINA, StatReq.Size.MEDIUM, LvlPointStat.INTELLIGENCE, StatReq.Size.TINY);
+    static StatReq req = new StatReq(LvlPointStat.STAMINA, StatReq.Size.MEDIUM, LvlPointStat.VITALITY, StatReq.Size.TINY);
 
     @Override
     public boolean isMeleeWeapon() {

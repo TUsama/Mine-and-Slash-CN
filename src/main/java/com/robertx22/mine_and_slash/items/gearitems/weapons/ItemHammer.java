@@ -12,7 +12,7 @@ public class ItemHammer extends BaseWeaponItem {
 
     public ItemHammer(int rar) {
         super(rar);
-        this.attackSpeed = -2.8F;
+        this.attackSpeed = -3.0F;
     }
 
     @Override
