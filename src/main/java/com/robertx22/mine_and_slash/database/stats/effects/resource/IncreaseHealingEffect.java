@@ -9,12 +9,12 @@ public class IncreaseHealingEffect extends BaseHealEffect {
 
     @Override
     public int GetPriority() {
-        return Priority.First.priority;
+        return Priority.Second.priority;
     }
 
     @Override
     public EffectSides Side() {
-        return EffectSides.Target;
+        return EffectSides.Source;
     }
 
     @Override

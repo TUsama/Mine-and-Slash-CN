@@ -1,3 +1,6 @@
+3.12.9:
+- Fixed? increase heal stat. It now properly increases outgoing heals instead of incoming heals.
+
 3.12.8:
 - 2 new weapon types: Daggers, and Wands.
 - Daggers are fast attacking critical-based melee weapons.
