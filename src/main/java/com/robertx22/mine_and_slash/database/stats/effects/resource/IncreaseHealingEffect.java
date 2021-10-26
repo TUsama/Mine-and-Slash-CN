@@ -2,6 +2,8 @@ package com.robertx22.mine_and_slash.database.stats.effects.resource;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseHealEffect;
+import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalInfusion;
+import com.robertx22.mine_and_slash.database.stats.types.resources.HealPower;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.HealEffect;
 
@@ -19,8 +21,10 @@ public class IncreaseHealingEffect extends BaseHealEffect {
 
     @Override
     public HealEffect activate(HealEffect effect, StatData data, Stat stat) {
-        float healPower = effect.sourceData
-        effect.number *= data.getMultiplier(); //need to fix this
+
+        effect.number *= getSource(effect).peekAtStat(stat).getMultiplier();
+
+        //effect.number *= data.getMultiplier();
 
         return effect;
     }
