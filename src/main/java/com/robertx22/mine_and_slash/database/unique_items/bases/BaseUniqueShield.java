@@ -24,7 +24,8 @@ public final class BaseUniqueShield extends ShieldItem implements IEffectItem {
 
         list.add(new StringTextComponent(color() + "" + TextFormatting.BOLD + "[Active]: " + TextFormatting.RESET + color() + "Block"));
         if (moreInfo) {
-            list.add(new StringTextComponent(color() + "Hold To Reduce DMG"));
+            list.add(new StringTextComponent(color() + "Hold for chance to reduce DMG fully."));
+            list.add(new StringTextComponent(color() + "On failed block, still reduce by half."));
         }
         return list;
     }

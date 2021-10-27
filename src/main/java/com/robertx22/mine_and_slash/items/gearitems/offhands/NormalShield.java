@@ -74,7 +74,8 @@ public class NormalShield extends ShieldItem implements IEffectItem, IAutoLocNam
         list.add(new StringTextComponent(
             color() + "" + TextFormatting.BOLD + "[Active]: " + TextFormatting.RESET + color() + "Block"));
         if (moreInfo) {
-            list.add(new StringTextComponent(color() + "DMG Reduced Based on Block Strength"));
+            list.add(new StringTextComponent(color() + "Hold for chance to reduce DMG fully."));
+            list.add(new StringTextComponent(color() + "On failed block, still reduce by half."));
         }
         return list;
     }

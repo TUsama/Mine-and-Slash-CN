@@ -1840,7 +1840,7 @@
 	"mmorpg.stat_desc.cdr": "Reduces spell cooldown.",
 	"mmorpg.stat_desc.critical_damage": "On critical hit, multiply damage by X.",
 	"mmorpg.stat_desc.critical_hit": "Chance to multiply damage by critical damage.",
-	"mmorpg.stat_desc.damage_shield": "Decreases flat amount of damage from every hit.",
+	"mmorpg.stat_desc.damage_shield": "Decreases all damage received by a percentage.",
 	"mmorpg.stat_desc.dexterity": "Increases Dodge Rating, Critical Hit, and Armor Pen.",
 	"mmorpg.stat_desc.dodge": "Chance to evade attack damage.",
 	"mmorpg.stat_desc.dotsteal": "Percent of DoT damage restores health.",

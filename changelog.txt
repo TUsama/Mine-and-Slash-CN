@@ -16,6 +16,9 @@
 - Fire spells have relatively higher damage than other masteries, but have higher cooldowns.
 - Reduced scaling of Purifying Fires slightly.
 - Fixed runes giving twice the stats they were supposed to give.
+- New stat: Damage Reduction which reduces damage by a percent. At the moment, only one Major Arcana trait uses it.
+- Cooldown reduction stat has been lowered in power slightly.
+- Improved shield tooltips when holding shift.
 
 3.12.8:
 - 2 new weapon types: Daggers, and Wands.
