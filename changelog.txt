@@ -1,6 +1,8 @@
 3.12.9:
-- Fixed? increase heal stat. It now properly increases outgoing heals instead of incoming heals.
 - "Rare" mobs (which were actually uncommon) have been renamed to "Adept" to prevent confusion.
+- Experience required to level up past 100 scales significantly faster than 1-100 (max level is 100 by default, this is for people who may want to increase it).
+- There is a new EXP multiplier config in the dimension config.
+- Fixed a bug where instead of giving a 20% bonus chance for map drops while in a map, it was actually a -80% chance... Map sustain should be much more bearable after this fix!
 
 3.12.8:
 - 2 new weapon types: Daggers, and Wands.

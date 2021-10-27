@@ -18,9 +18,7 @@ public class MapLootGen extends BaseLootGen<MapBlueprint> {
             .floatValue();
 
         if (info.isMapWorld) {
-            chance *= 0.15F;
-        } else {
-
+            chance *= 1.2F;
         }
 
         return chance;

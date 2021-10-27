@@ -92,7 +92,7 @@ public class OnMobDeathDrops {
     private static void GiveExp(LivingEntity victim, PlayerEntity killer, UnitData killerData, UnitData mobData, float multi) {
 
         int exp = (int) (mobData.getLevel() * Rarities.Mobs.get(mobData.getRarity())
-            .ExpOnKill() * multi);
+            .ExpOnKill() * multi * SlashRegistry.getDimensionConfig(victim.world).EXP_MULTIPLIER);
 
         exp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, killerData, exp);
 
