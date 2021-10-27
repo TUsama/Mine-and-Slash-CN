@@ -156,6 +156,23 @@ public abstract class EffectData {
 
     }
 
+    public void calculateHealEffects() {
+        if (!effectsCalculated) {
+            effectsCalculated = true;
+            if (source == null || target == null || canceled == true || sourceUnit == null || targetUnit == null || sourceData == null || targetData == null) {
+                return;
+            }
+
+            logOnStartData();
+
+            TryApplyHealEffects(this.GetSource(), this.GetTarget(), EffectSides.Source);
+
+            logOnEndData();
+
+        }
+
+    }
+
     public void logOnStartData() {
         if (MMORPG.statEffectDebuggingEnabled()) {
             System.out.println(
@@ -179,7 +196,7 @@ public abstract class EffectData {
 
     protected abstract void activate();
 
-    protected EffectData TryApplyEffects(Unit unit, EffectSides side) {
+    protected EffectData TryApplyEffects(Unit unit, EffectSides side) { // source, target
 
         if (this.canceled) {
             return this;
@@ -187,7 +204,7 @@ public abstract class EffectData {
 
         List<EffectUnitStat> Effects = new ArrayList<EffectUnitStat>();
 
-        Effects = AddEffects(Effects, unit, side);
+        Effects = AddEffects(Effects, unit, side); // source, target
 
         Effects.sort(new EffectUnitStat());
 
@@ -195,6 +212,32 @@ public abstract class EffectData {
             if (item.stat.isNotZero()) {
                 if (item.effect.Side()
                     .equals(side)) {
+                    item.effect.TryModifyEffect(this, item.source, item.stat, item.stat.GetStat());
+
+                }
+
+            }
+        }
+
+        return this;
+    }
+
+    protected EffectData TryApplyHealEffects(Unit source, Unit target, EffectSides side) { // source, target
+
+        if (this.canceled) {
+            return this;
+        }
+
+        List<EffectUnitStat> Effects = new ArrayList<EffectUnitStat>();
+
+        Effects = AddHealEffects(Effects, source, target, side); // source, target
+
+        Effects.sort(new EffectUnitStat());
+
+        for (EffectUnitStat item : Effects) {
+            if (item.stat.isNotZero()) {
+                if (item.effect.Side()
+                        .equals(side)) {
                     item.effect.TryModifyEffect(this, item.source, item.stat, item.stat.GetStat());
 
                 }
@@ -228,19 +271,36 @@ public abstract class EffectData {
      */
     private List<EffectUnitStat> AddEffects(List<EffectUnitStat> effects, Unit unit, EffectSides side) {
         if (unit != null) {
-            unit.getStats()
+            unit.getStats() // gets the stats of the unit
                 .values()
-                .forEach(data -> {
+                .forEach(data -> { // for each stat
                     if (data.isNotZero()) {
                         Stat stat = data.GetStat();
                         if (stat instanceof IStatEffects) {
                             ((IStatEffects) stat).getEffects()
                                 .forEach(effect -> {
-                                    effects.add(new EffectUnitStat(effect, unit, data));
+                                    effects.add(new EffectUnitStat(effect, unit, data)); // add to the list of effects data = the number, unit = who it is applied to
                                 });
                         }
                     }
                 });
+        }
+
+        return effects;
+    }
+
+    private List<EffectUnitStat> AddHealEffects(List<EffectUnitStat> effects, Unit source, Unit target, EffectSides side) {
+        if (source != null && target != null) {
+            source.getStats().values().forEach(data -> { // get the source's stats
+                        if (data.isNotZero()) { // make sure the stat value is not 0
+                            Stat stat = data.GetStat(); // actually get the stat
+                            if (stat instanceof IStatEffects) { // for each effect, add data to the stat?
+                                ((IStatEffects) stat).getEffects().forEach(effect -> {
+                                            effects.add(new EffectUnitStat(effect, source, data)); // add to the list of effects data = the number, unit = who it is applied to
+                                        });
+                            } // always use source?
+                        }
+                    });
         }
 
         return effects;

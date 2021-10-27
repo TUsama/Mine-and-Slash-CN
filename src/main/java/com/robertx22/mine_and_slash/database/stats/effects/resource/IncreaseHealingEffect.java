@@ -22,9 +22,7 @@ public class IncreaseHealingEffect extends BaseHealEffect {
     @Override
     public HealEffect activate(HealEffect effect, StatData data, Stat stat) {
 
-        effect.number *= getSource(effect).peekAtStat(stat).getMultiplier();
-
-        //effect.number *= data.getMultiplier();
+        effect.number *= data.getMultiplier();
 
         return effect;
     }
