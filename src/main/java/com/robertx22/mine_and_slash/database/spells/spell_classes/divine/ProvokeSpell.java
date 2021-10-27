@@ -69,8 +69,8 @@ public class ProvokeSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 13, 6);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.COOLDOWN_SECONDS, 10, 6);
         c.set(SC.AMOUNT,1, 5);
         c.set(SC.RADIUS, 3, 7);
         c.set(SC.TIMES_TO_CAST, 1, 1);

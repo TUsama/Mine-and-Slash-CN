@@ -55,13 +55,13 @@ public class ImbueSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 15, 25);
+        c.set(SC.MANA_COST, 14, 21);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 5);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 45, 30);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.COOLDOWN_SECONDS, 36, 30);
         c.set(SC.DURATION_TICKS, 20 * 30, 20 * 45);
 
         c.setMaxLevel(12);

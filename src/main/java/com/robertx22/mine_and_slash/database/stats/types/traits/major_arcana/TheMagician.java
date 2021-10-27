@@ -22,7 +22,7 @@ public class TheMagician extends BaseMajorArcana {
     @Override
     public List<StatMod> getStats() {
         return Arrays.asList(
-                new CoreStatFlat(Intelligence.INSTANCE), new ManaMulti(),
+                new CoreStatFlat(Intelligence.INSTANCE), new ManaMulti().size(StatMod.Size.HALF),
                 new ElementalSpellDamageFlat(Elements.Thunder)
         );
     }

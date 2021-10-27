@@ -14,7 +14,7 @@ public class LordOfEarthquakesTrait extends Trait implements IAffectsOtherStats 
     @Override
     public List<StatMod> getStats() {
 
-        return Arrays.asList(new AllElementalDamageMulti(Elements.Nature));
+        return Arrays.asList(new AllElementalDamageMulti(Elements.Nature).size(StatMod.Size.HALF));
 
     }
 

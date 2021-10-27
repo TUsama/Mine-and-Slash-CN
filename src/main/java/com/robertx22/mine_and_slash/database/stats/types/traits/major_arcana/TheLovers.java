@@ -19,7 +19,7 @@ public class TheLovers extends BaseMajorArcana {
     @Override
     public List<StatMod> getStats() {
         return Arrays.asList(
-            new HealthRegenFlat(), new MagicShieldRegenFlat());
+            new HealthRegenFlat().size(StatMod.Size.HALF_MORE), new MagicShieldRegenFlat().size(StatMod.Size.HALF_MORE));
     }
 
     @Override

@@ -18,7 +18,7 @@ public class Clumsy extends Trait {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new PhysicalDamagePercent().size(StatMod.Size.HALF_LESS));
+        return Arrays.asList(new PhysicalDamagePercent().size(StatMod.Size.ONE_LESS));
 
     }
 

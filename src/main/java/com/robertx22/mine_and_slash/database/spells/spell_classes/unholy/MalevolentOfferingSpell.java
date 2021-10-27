@@ -64,7 +64,7 @@ public class MalevolentOfferingSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0.2F, 0.2F);
-        c.set(SC.MANA_COST, 4, 11);
+        c.set(SC.MANA_COST, 6, 9);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.1F, 0.2F);
@@ -72,7 +72,7 @@ public class MalevolentOfferingSpell extends BaseSpell {
         c.set(SC.RADIUS, 5, 8);
         c.set(SC.CAST_TIME_TICKS, 120, 120);
         c.set(SC.TIMES_TO_CAST, 6, 6);
-        c.set(SC.COOLDOWN_SECONDS, 32, 22);
+        c.set(SC.COOLDOWN_SECONDS, 14, 9);
 
         c.setMaxLevel(8);
 

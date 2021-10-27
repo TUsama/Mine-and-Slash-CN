@@ -66,12 +66,12 @@ public class BlightSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0.06F, 0.18F);
-        c.set(SC.MANA_COST, 4, 12);
+        c.set(SC.MANA_COST, 7, 11);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 4, 16);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 15, 11);
+        c.set(SC.COOLDOWN_SECONDS, 9, 6);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.TICK_RATE, 30, 30);

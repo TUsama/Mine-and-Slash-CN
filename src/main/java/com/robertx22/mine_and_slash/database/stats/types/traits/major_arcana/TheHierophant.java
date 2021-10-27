@@ -22,7 +22,7 @@ public class TheHierophant extends BaseMajorArcana {
     @Override
     public List<StatMod> getStats() {
         return Arrays.asList(
-                new CoreStatFlat(Wisdom.INSTANCE), new ManaMulti(), new ElementalPeneFlat(Elements.Nature));
+                new CoreStatFlat(Wisdom.INSTANCE), new ManaMulti().size(StatMod.Size.HALF), new ElementalPeneFlat(Elements.Nature));
     }
 
     @Override

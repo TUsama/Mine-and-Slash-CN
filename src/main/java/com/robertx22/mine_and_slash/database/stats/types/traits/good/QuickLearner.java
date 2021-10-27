@@ -19,7 +19,7 @@ public class QuickLearner extends Trait implements IAffectsOtherStats {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new BonusExpFlat());
+        return Arrays.asList(new BonusExpFlat().size(StatMod.Size.HALF_MORE));
 
     }
 

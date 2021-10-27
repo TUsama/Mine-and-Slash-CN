@@ -60,8 +60,8 @@ public class LightningAspectSpell extends BaseSpell {
         c.set(SC.MANA_COST, 10, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 32, 22);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.COOLDOWN_SECONDS, 23, 19);
         c.set(SC.DURATION_TICKS, 20 * 10, 20 * 20);
 
         c.setMaxLevel(10);

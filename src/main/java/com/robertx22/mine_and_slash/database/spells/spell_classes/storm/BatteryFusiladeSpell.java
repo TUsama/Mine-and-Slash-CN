@@ -58,7 +58,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 22, 34);
+        c.set(SC.MANA_COST, 22, 33);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
@@ -66,7 +66,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 0.4F, 0.6F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 20, 40);
-        c.set(SC.COOLDOWN_SECONDS, 14, 9);
+        c.set(SC.COOLDOWN_SECONDS, 9, 6);
         c.set(SC.TIMES_TO_CAST, 3, 8);
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.DURATION_TICKS, 40, 40);

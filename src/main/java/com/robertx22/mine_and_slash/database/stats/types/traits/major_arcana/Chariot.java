@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.types.traits.major_arcana;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.corestats.CoreStatFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalInfusionFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.ElementalAttackDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Intelligence;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Strength;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -21,8 +22,8 @@ public class Chariot extends BaseMajorArcana {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new CoreStatFlat(Intelligence.INSTANCE), new CoreStatFlat(Strength.INSTANCE),
-            new ElementalInfusionFlat(Elements.Water)
+        return Arrays.asList(new CoreStatFlat(Strength.INSTANCE), new CoreStatFlat(Intelligence.INSTANCE),
+            new ElementalAttackDamagePercent(Elements.Fire).size(StatMod.Size.HALF_MORE)
         );
     }
 

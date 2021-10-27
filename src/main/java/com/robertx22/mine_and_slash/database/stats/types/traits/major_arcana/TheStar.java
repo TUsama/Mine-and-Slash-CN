@@ -20,7 +20,7 @@ public class TheStar extends BaseMajorArcana {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new HealthRegenFlat(), new ElementalResistFlat(Elements.Thunder), new BonusExpFlat());
+        return Arrays.asList(new HealthRegenFlat().size(StatMod.Size.HALF_MORE), new ElementalResistFlat(Elements.Thunder), new BonusExpFlat());
     }
 
     @Override

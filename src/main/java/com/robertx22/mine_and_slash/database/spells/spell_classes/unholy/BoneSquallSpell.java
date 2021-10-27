@@ -66,13 +66,13 @@ public class BoneSquallSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0.12F, 0.27F);
-        c.set(SC.MANA_COST, 1, 3);
-        c.set(SC.ENERGY_COST, 3, 9);
+        c.set(SC.MANA_COST, 2, 3);
+        c.set(SC.ENERGY_COST, 6, 9);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.03F, 0.09F);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 8, 4);
+        c.set(SC.COOLDOWN_SECONDS, 6, 3);
         c.set(SC.RADIUS, 2, 4);
         c.set(SC.TIMES_TO_CAST, 4, 6);
 

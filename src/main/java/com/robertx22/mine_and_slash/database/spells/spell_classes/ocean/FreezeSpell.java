@@ -69,12 +69,12 @@ public class FreezeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 15, 24);
+        c.set(SC.MANA_COST, 15, 22);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
-        c.set(SC.CAST_TIME_TICKS, 60, 20);
-        c.set(SC.COOLDOWN_SECONDS, 24, 17);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.COOLDOWN_SECONDS, 18, 14);
         c.set(SC.BASE_VALUE, 4, 16);
         c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.DURATION_TICKS, 120, 240);

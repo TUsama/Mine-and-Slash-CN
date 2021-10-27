@@ -14,7 +14,7 @@ public class LordOfVolcanoesTrait extends Trait implements IAffectsOtherStats {
     @Override
     public List<StatMod> getStats() {
 
-        return Arrays.asList(new AllElementalDamageMulti(Elements.Fire));
+        return Arrays.asList(new AllElementalDamageMulti(Elements.Fire).size(StatMod.Size.HALF));
 
     }
 

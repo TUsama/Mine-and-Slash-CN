@@ -57,7 +57,7 @@ public class LifeSiphonSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 5, 13);
+        c.set(SC.MANA_COST, 6, 9);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 3, 7);
@@ -65,7 +65,7 @@ public class LifeSiphonSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.TIMES_TO_CAST, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 30, 30);
-        c.set(SC.COOLDOWN_SECONDS, 9, 6);
+        c.set(SC.COOLDOWN_SECONDS, 7, 4);
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.DURATION_TICKS, 60, 60);
 

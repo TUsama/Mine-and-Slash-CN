@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.Trait;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.ArmorMulti;
+import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.DodgeRatingMulti;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.resources.ManaMulti;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IAffectsOtherStats;
 
@@ -20,7 +21,7 @@ public class ClumsyScholar extends Trait implements IAffectsOtherStats {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new ManaMulti(), new ArmorMulti().size(StatMod.Size.HALF_LESS));
+        return Arrays.asList(new ManaMulti(), new ArmorMulti().size(StatMod.Size.HALF_LESS), new DodgeRatingMulti().size(StatMod.Size.HALF_LESS));
     }
 
     @Override

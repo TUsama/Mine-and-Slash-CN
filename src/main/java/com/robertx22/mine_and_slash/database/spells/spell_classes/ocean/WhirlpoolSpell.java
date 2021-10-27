@@ -56,17 +56,17 @@ public class WhirlpoolSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 15, 25);
+        c.set(SC.MANA_COST, 15, 21);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 6, 12);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 50, 40);
-        c.set(SC.COOLDOWN_SECONDS, 17, 13);
+        c.set(SC.COOLDOWN_SECONDS, 16, 13);
         c.set(SC.TICK_RATE, 30, 20);
         c.set(SC.RADIUS, 4, 6);
-        c.set(SC.DURATION_TICKS, 80, 140);
+        c.set(SC.DURATION_TICKS, 140, 140);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(12);

@@ -83,7 +83,7 @@ public class ChaoticWispItem extends CurrencyItem implements ICurrencyItemEffect
 
     @Override
     public float additionalBreakChance() {
-        return 20;
+        return 25;
     }
 
     @Override

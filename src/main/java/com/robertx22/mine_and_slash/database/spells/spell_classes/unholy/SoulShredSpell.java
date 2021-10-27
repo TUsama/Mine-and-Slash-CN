@@ -70,16 +70,16 @@ public class SoulShredSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0.07F, 0.21F);
-        c.set(SC.MANA_COST, 6, 13);
+        c.set(SC.MANA_COST, 7, 10);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE, 0.02F, 0.07F);
         c.set(SC.BASE_VALUE, 1, 4);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 40, 20);
-        c.set(SC.COOLDOWN_SECONDS, 20, 12);
+        c.set(SC.COOLDOWN_SECONDS, 15, 11);
         c.set(SC.TICK_RATE, 20, 20);
-        c.set(SC.DURATION_TICKS, 140, 200);
+        c.set(SC.DURATION_TICKS, 200, 200);
 
         c.setMaxLevel(8);
 
@@ -101,7 +101,7 @@ public class SoulShredSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Corrupt your own spirit transmit fragments to"));
+        list.add(new StringTextComponent("Corrupt your own spirit and transmit fragments to"));
         list.add(new StringTextComponent("enemies in front of you, causing them to take"));
         list.add(new StringTextComponent("damage when attacked and damage over time."));
         list.add(new StringTextComponent("Applies: "));

@@ -73,11 +73,11 @@ public class ChillingFieldSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 5);
         c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.02F, 0.06F);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 17, 13);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.COOLDOWN_SECONDS, 16, 13);
         c.set(SC.TICK_RATE, 40, 30);
         c.set(SC.RADIUS, 2, 4);
-        c.set(SC.DURATION_TICKS, 160, 260);
+        c.set(SC.DURATION_TICKS, 260, 260);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(8);

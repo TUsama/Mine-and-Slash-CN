@@ -14,7 +14,7 @@ public class LordOfThunderstormsTrait extends Trait implements IAffectsOtherStat
     @Override
     public List<StatMod> getStats() {
 
-        return Arrays.asList(new AllElementalDamageMulti(Elements.Thunder));
+        return Arrays.asList(new AllElementalDamageMulti(Elements.Thunder).size(StatMod.Size.HALF));
 
     }
 

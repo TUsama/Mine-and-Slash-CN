@@ -62,13 +62,13 @@ public class RockSlideSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 13, 22);
+        c.set(SC.MANA_COST, 13, 19);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 12, 26);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.4F, 0.6F);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 7, 4);
+        c.set(SC.COOLDOWN_SECONDS, 6, 3);
         c.set(SC.TICK_RATE, 4, 4);
         c.set(SC.RADIUS, 2, 2);
         c.set(SC.DURATION_TICKS, 40, 40);

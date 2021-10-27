@@ -62,12 +62,12 @@ public class BloodTetherSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0.04F, 0.012F);
-        c.set(SC.MANA_COST, 12, 15);
+        c.set(SC.MANA_COST, 10, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.AMOUNT, 1, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 32, 22);
+        c.set(SC.COOLDOWN_SECONDS, 20, 16);
 
         c.setMaxLevel(10);
         return c;

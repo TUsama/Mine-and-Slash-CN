@@ -149,6 +149,7 @@ public abstract class EffectData {
             // this makes stats not apply twice if  caster is both target and source.. hmm
             TryApplyEffects(this.GetTarget(), EffectSides.Target);
             // }
+
             logOnEndData();
 
         }

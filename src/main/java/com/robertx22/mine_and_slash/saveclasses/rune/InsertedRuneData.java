@@ -55,7 +55,7 @@ public class InsertedRuneData extends StatGroupData implements ITooltipList {
     @Override
     public List<LevelAndStats> GetAllStats(int level) {
 
-        List<StatModData> list = new ArrayList<StatModData>(Mods);
+        List<StatModData> list = new ArrayList<StatModData>();
         list.addAll(this.Mods);
 
         return Arrays.asList(new LevelAndStats(list, this.level));

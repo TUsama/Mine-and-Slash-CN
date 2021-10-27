@@ -21,7 +21,7 @@ public class Crippled extends Trait implements IAffectsOtherStats {
     @Override
     public List<StatMod> getStats() {
 
-        return Arrays.asList(new HealthRegenPercent().size(StatMod.Size.HALF_LESS), new PhysicalDamageMulti().size(StatMod.Size.HALF_LESS));
+        return Arrays.asList(new PhysicalDamageMulti().size(StatMod.Size.HALF_LESS), new HealthRegenPercent().size(StatMod.Size.HALF_LESS));
 
     }
 

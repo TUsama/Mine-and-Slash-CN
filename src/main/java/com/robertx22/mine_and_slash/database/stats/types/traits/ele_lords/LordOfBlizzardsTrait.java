@@ -14,7 +14,7 @@ public class LordOfBlizzardsTrait extends Trait implements IAffectsOtherStats {
     @Override
     public List<StatMod> getStats() {
 
-        return Arrays.asList(new AllElementalDamageMulti(Elements.Water));
+        return Arrays.asList(new AllElementalDamageMulti(Elements.Water).size(StatMod.Size.HALF));
 
     }
 

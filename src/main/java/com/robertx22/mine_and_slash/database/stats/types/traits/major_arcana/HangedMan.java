@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.types.traits.major_arcana;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalPeneFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.DodgeRatingMulti;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.DodgeRatingPercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.HealthRegenPercent;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 
@@ -20,8 +21,8 @@ public class HangedMan extends BaseMajorArcana {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new HealthRegenPercent().size(StatMod.Size.ONE_LESS), new DodgeRatingMulti(),
-            new ElementalPeneFlat(Elements.Water)
+        return Arrays.asList(new HealthRegenPercent().size(StatMod.Size.ONE_LESS), new DodgeRatingPercent().size(StatMod.Size.HALF_MORE),
+            new ElementalPeneFlat(Elements.Elemental)
         );
     }
 

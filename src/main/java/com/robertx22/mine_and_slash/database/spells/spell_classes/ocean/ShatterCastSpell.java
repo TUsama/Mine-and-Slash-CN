@@ -56,13 +56,13 @@ public class ShatterCastSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 6, 14);
+        c.set(SC.MANA_COST, 6, 9);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 8);
         c.set(SC.RADIUS, 2F, 2F);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 32, 24);
+        c.set(SC.COOLDOWN_SECONDS, 24, 20);
         c.set(SC.DURATION_TICKS, 20 * 12, 20 * 20);
 
         c.setMaxLevel(8);

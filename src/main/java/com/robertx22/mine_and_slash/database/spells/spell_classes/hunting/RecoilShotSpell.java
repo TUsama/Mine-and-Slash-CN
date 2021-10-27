@@ -63,15 +63,15 @@ public class RecoilShotSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 2, 5);
-        c.set(SC.ENERGY_COST, 4, 8);
+        c.set(SC.MANA_COST, 3, 5);
+        c.set(SC.ENERGY_COST, 4, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.2F, 2.0F);
         c.set(SC.SHOOT_SPEED, 3F, 3F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 11, 7);
+        c.set(SC.COOLDOWN_SECONDS, 12, 8);
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.DURATION_TICKS, 80, 80);
 

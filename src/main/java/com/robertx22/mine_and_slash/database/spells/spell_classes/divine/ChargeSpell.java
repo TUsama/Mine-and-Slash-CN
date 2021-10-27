@@ -69,8 +69,8 @@ public class ChargeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 3, 6);
-        c.set(SC.ENERGY_COST, 5, 10);
+        c.set(SC.MANA_COST, 3, 5);
+        c.set(SC.ENERGY_COST, 5, 8);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 9);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.4F, 3.0F);

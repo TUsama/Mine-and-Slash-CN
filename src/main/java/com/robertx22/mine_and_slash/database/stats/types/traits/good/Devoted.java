@@ -19,7 +19,7 @@ public class Devoted extends Trait implements IAffectsOtherStats {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new MagicShieldPercent());
+        return Arrays.asList(new MagicShieldPercent().size(StatMod.Size.DOUBLE));
 
     }
 
