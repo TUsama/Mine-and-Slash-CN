@@ -1,3 +1,6 @@
+3.12.10:
+- Minor texture fixes.
+
 3.12.9:
 - "Rare" mobs (which were actually uncommon) have been renamed to "Adept" to prevent confusion.
 - Experience required to level up past 100 scales significantly faster than 1-100 (max level is 100 by default, this is for people who may want to increase it).
