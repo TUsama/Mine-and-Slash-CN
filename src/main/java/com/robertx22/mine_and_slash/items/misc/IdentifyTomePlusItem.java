@@ -48,6 +48,7 @@ public class IdentifyTomePlusItem extends Item implements IShapedRecipe {
                 ItemStack tome = player.getHeldItem(hand);
 
                 if (tome.getItem() instanceof IdentifyTomePlusItem) {
+                    tome.shrink(1);
                     for (ItemStack x : player.inventory.mainInventory) {
                         if (tryIdentify(x, tome)) {
                             spawnEffects(player);
@@ -73,8 +74,6 @@ public class IdentifyTomePlusItem extends Item implements IShapedRecipe {
                 gear.setIdentified(true);
 
                 Gear.Save(stack, gear);
-
-                tome.shrink(1);
 
                 return true;
             }
