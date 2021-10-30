@@ -62,7 +62,7 @@ public class DefendSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 12, 7);
+        c.set(SC.COOLDOWN_SECONDS, 12, 8);
         c.set(SC.DURATION_TICKS, 20 * 6, 20 * 6);
 
         c.setMaxLevel(10);

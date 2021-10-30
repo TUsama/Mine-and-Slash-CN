@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.DefendS
 import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.SpellBladeSpell;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.ArmorPercent;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.database.stats.types.defense.DamageShield;
 import com.robertx22.mine_and_slash.database.stats.types.generated.BlockReflect;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalInfusion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToFireConversion;
@@ -53,6 +54,7 @@ public class DefendEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
+        list.add(new PotionStat(15, DamageShield.getInstance()));
         list.add(new PotionStat(100, Armor.getInstance()));
         list.add(new PotionStat(10, new BlockReflect(Elements.Physical)));
         return list;

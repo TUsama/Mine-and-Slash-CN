@@ -127,7 +127,7 @@ public class AnimateScytheSpell extends BaseSpell {
         c.set(SC.MANA_COST, 0, 0);
         c.set(SC.ENERGY_COST, 3, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 0, 0);
+        c.set(SC.BASE_VALUE, 1, 1);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.04F, 0.16F);
         c.set(SC.COOLDOWN_SECONDS, 4, 2);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
@@ -159,7 +159,7 @@ public class AnimateScytheSpell extends BaseSpell {
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Conjure an animated scythe using your own"));
-        list.add(new StringTextComponent("health to attack enemies in melee: "));
+        list.add(new StringTextComponent("health to attack enemies twice in melee: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
