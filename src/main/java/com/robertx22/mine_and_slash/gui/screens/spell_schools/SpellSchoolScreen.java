@@ -506,7 +506,8 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
 
                 if (data.getLevel() < Masteries.LVL_TO_UNLOCK_2ND_SCHOOL) {
                     list.add(new SText(TextFormatting.AQUA + "" + TextFormatting.ITALIC + "You can unlock a second Mastery tree at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL + "."));
-
+                } else if (data.getLevel() < Masteries.LVL_TO_UNLOCK_3RD_SCHOOL) {
+                    list.add(new SText(TextFormatting.AQUA + "" + TextFormatting.ITALIC + "You can unlock a third Mastery tree at level " + Masteries.LVL_TO_UNLOCK_3RD_SCHOOL + "."));
                 }
 
                 TooltipUtils.abilityLevel(list, spells.getAbilitiesData()

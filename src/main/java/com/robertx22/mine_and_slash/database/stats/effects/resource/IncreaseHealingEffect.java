@@ -11,7 +11,7 @@ public class IncreaseHealingEffect extends BaseHealEffect {
 
     @Override
     public int GetPriority() {
-        return Priority.Second.priority;
+        return Priority.First.priority;
     }
 
     @Override

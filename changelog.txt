@@ -1,4 +1,7 @@
 3.12.10:
+- At maximum level, you can now unlock a 3rd mastery tree.
+- Fixed experience curve not working past level 100. I've changed it to continue the regular curve, just 10x more experience for now.
+- Fixed NPE for Dodge Ignore (hopefully).
 - Fixed Identify Tome using all stacks.
 
 3.12.9:

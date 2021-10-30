@@ -408,10 +408,12 @@ public class EntityCap {
         }
 
         public static int levelToExp(int level) {
-            if (level <= 100) {
-                return level * level * level * 10;
-            } else if (level > 100) {
-                return (int) Math.pow(level, 7)/10000000;
+            if (true) {
+                int expReq = level * level * level * 10;
+                if (level > 100) {
+                    expReq *= 10;
+                }
+                return expReq;
             }
 
             double xp = 0;

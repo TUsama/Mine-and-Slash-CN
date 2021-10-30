@@ -102,7 +102,7 @@ public class AllocatedAbilitiesData implements IApplyableStats {
             return false;
         }
 
-        if (data.getLevel() < Masteries.LVL_TO_UNLOCK_2ND_SCHOOL) {
+        if (data.getLevel() < Masteries.LVL_TO_UNLOCK_2ND_SCHOOL) { // check level 10 and below
             if (getSchoolsWithAllocatedPoints() == 1) {
                 if (getSchoolPoints(school) < 1) {
                     return false;
@@ -110,7 +110,13 @@ public class AllocatedAbilitiesData implements IApplyableStats {
             }
         }
 
-        if (getSchoolsWithAllocatedPoints() > 1) {
+        if (getSchoolsWithAllocatedPoints() > 1 && data.getLevel() < Masteries.LVL_TO_UNLOCK_3RD_SCHOOL) { // if past 10 and below 100, limit to 2
+            if (getSchoolPoints(school) < 1) {
+                return false; // only allow picking 2 spell schools
+            }
+        }
+
+        if (getSchoolsWithAllocatedPoints() > 2) { // if level 100+,  limit to 3
             if (getSchoolPoints(school) < 1) {
                 return false; // only allow picking 2 spell schools
             }

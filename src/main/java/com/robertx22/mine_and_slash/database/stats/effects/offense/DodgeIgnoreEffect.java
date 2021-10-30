@@ -32,8 +32,8 @@ public class DodgeIgnoreEffect extends BaseAnyEffect {
 
     @Override
     public boolean canActivate(EffectData effect, StatData data, Stat stat) {
-        return !effect.getEffectType()
-                .equals(EffectData.EffectTypes.SPELL);
+        return effect.getEffectType()
+                .equals(EffectData.EffectTypes.BASIC_ATTACK);
     }
 
 }
