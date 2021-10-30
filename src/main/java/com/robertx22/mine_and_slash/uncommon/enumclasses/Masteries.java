@@ -97,7 +97,7 @@ public enum Masteries {
     }
 
     public static int LVL_TO_UNLOCK_2ND_SCHOOL = 10;
-    public static int LVL_TO_UNLOCK_3RD_SCHOOL = ModConfig.INSTANCE.Server.MAXIMUM_PLAYER_LEVEL.get();
+    public static int LVL_TO_UNLOCK_3RD_SCHOOL = 120;
 
     public int getEffectiveLevel(int totalSchoolLevel, EntityCap.UnitData data) { //need to fix so it scales properly
 

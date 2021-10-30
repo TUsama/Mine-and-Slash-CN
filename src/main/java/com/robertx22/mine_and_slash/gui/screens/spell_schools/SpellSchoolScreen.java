@@ -498,6 +498,8 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
 
                 List<ITextComponent> list = new ArrayList<>();
 
+                boolean maxLevelIs120Plus = ModConfig.INSTANCE.Server.MAXIMUM_PLAYER_LEVEL.get() >= Masteries.LVL_TO_UNLOCK_3RD_SCHOOL;
+
                 school.getStatsFor(spells.getAbilitiesData()
                         .getTotalSchoolPoints(), data)
                     .forEach(x -> {
@@ -506,7 +508,7 @@ public class SpellSchoolScreen extends BaseScreen implements INamedScreen, IAler
 
                 if (data.getLevel() < Masteries.LVL_TO_UNLOCK_2ND_SCHOOL) {
                     list.add(new SText(TextFormatting.AQUA + "" + TextFormatting.ITALIC + "You can unlock a second Mastery tree at level " + Masteries.LVL_TO_UNLOCK_2ND_SCHOOL + "."));
-                } else if (data.getLevel() < Masteries.LVL_TO_UNLOCK_3RD_SCHOOL) {
+                } else if (maxLevelIs120Plus && data.getLevel() < Masteries.LVL_TO_UNLOCK_3RD_SCHOOL) {
                     list.add(new SText(TextFormatting.AQUA + "" + TextFormatting.ITALIC + "You can unlock a third Mastery tree at level " + Masteries.LVL_TO_UNLOCK_3RD_SCHOOL + "."));
                 }
 
