@@ -1,3 +1,10 @@
+3.12.12:
+- Buffed Spell Damage, Elemental Spell Damage, and Elemental Penetration stats.
+- Buffed Armor Penetration stat.
+- Fixed Magic Burst and Rock Slide not able to be right-click casted when holding off hands. Had to remove their cast times. Increased their cooldowns to compensate.
+- Bone Squall is no longer right-click castable (never worked to begin with).
+- Charged Nova synergy not applying Static effect should be fixed.
+
 3.12.11:
 - Fixed missing wand name.
 

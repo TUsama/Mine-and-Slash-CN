@@ -58,7 +58,7 @@ public class BoneSquallSpell extends BaseSpell {
                     return Elements.Physical;
                 }
 
-            }.cooldownIfCanceled(true).rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON).setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
+            }.cooldownIfCanceled(true).setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override

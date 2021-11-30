@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.Lightnin
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnAttackSpellDmgDoneSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.necromancer.CrippleEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.StaticEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
@@ -70,7 +71,9 @@ public class ChargedNovaStaticSynergy extends OnAttackSpellDmgDoneSynergy {
 
     @Override
     public void tryActivate(AttackSpellDamageEffect ctx) {
-        if (RandomUtils.roll(get(ctx.source, SC.CHANCE))) {
+        if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
+                .get(SC.CHANCE)
+                .get(Load.spells(ctx.source), this))) {
             PotionEffectUtils.apply(StaticEffect.INSTANCE, ctx.source, ctx.target);
         }
     }
