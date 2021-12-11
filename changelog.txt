@@ -1,3 +1,27 @@
+3.12.13:
+Nature Mastery Rework:
+- Poison Ball and Thorn Bush have swapped places (Thorn Bush is the new level 1 spell).
+- Thorn Armor and Rock Slide have swapped places.
+- Poison Ball now fire 3 projectiles and is much stronger.
+- Poison Ball has been renamed to Spirit Blast.
+- Plague Balls no longer procs Thorns and instead deals additional damage if the target is affected by it.
+- Thorn Bush no longer deals additional damage if the target is affected by it, and instead procs Thorns.
+- Thorn Bush now only fires 1 seed across all levels.
+- Thorn Bush no longer has a cast time.
+- Thorn Bush can be bound to a mage weapon.
+- Thorn Bush has been reworked to be more bursty - it lasts only 2 seconds but hits multiple times, and has a smaller radius.
+- Poison Cloud has a lower cooldown and lower mana cost.
+- Rock Slide has been buffed and is now more appropriate as an "ultimate".
+- Rock Slide synergy Stone Shrapnel is now Virulent Shrapnel and causes Rock Slide to deal much more damage if the target is affected by at least 6 stacks of Thorns.
+Other Spells:
+- Ice Bolt now travels faster and pierces enemies, but deals slightly less damage. It also costs slightly less mana.
+Renamed:
+- Thorns has been renamed to Plague. A bunch of Nature spells have been renamed to reflect this change.
+- Hunter Instinct has been renamed to Hunter's Instinct.
+- Chilled has been renamed to Chill.
+Fixed:
+- Nature Synergy dealing extra damage when target had Thorns effect no longer removes a stack of Thorns (mistake).
+
 3.12.12:
 - Buffed Spell Damage, Elemental Spell Damage, and Elemental Penetration stats.
 - Buffed Armor Penetration stat.

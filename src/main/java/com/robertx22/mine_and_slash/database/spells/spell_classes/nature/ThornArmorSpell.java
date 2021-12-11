@@ -70,7 +70,7 @@ public class ThornArmorSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 5);
+        return new AbilityPlace(3, 3);
     }
 
     @Override

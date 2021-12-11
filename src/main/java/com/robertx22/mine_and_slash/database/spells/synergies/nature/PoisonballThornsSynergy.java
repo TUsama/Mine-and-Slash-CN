@@ -9,7 +9,10 @@ import com.robertx22.mine_and_slash.potion_effects.druid.ThornsEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.text.ITextComponent;
@@ -29,11 +32,11 @@ public class PoisonballThornsSynergy extends OnDamageDoneSynergy {
         addSpellName(list);
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Poison Ball"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Spirit Blast"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Hits have a chance to apply: " + ThornsEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Deal extra damage to enemies affected by Plague: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -46,29 +49,36 @@ public class PoisonballThornsSynergy extends OnDamageDoneSynergy {
     }
 
     @Override
-    public void tryActivate(SpellDamageEffect effect) {
+    public void tryActivate(SpellDamageEffect ctx) {
+        if (PotionEffectUtils.has(ctx.target, ThornsEffect.INSTANCE)) {
 
-        float chance = getContext(effect.source).getConfigFor(this)
-                .get(SC.CHANCE)
-                .get(Load.spells(effect.source), this);
+            /*int dmg = getCalc(Load.spells(ctx.source)).getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
 
-        if (RandomUtils.roll(chance)) {
-            PotionEffectUtils.apply(ThornsEffect.INSTANCE, effect.source, effect.target);
+            getSynergyDamage(ctx, dmg)
+                .Activate();*/
+
+            int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
+                    .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
+
+            DamageEffect dmg = new DamageEffect(
+                    null, ctx.source, ctx.target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+            dmg.element = getSpell()
+                    .getElement();
+            dmg.Activate();
 
         }
     }
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 1, 2);
+        c.set(SC.MANA_COST, 2, 3);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 60, 110);
-        c.setMaxLevel(6);
+        c.set(SC.BASE_VALUE, 1, 3);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.1F, 0.3F);
         return c;
     }
 

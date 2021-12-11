@@ -53,7 +53,7 @@ public class FireballEntity extends BaseElementalBoltEntity {
 
         if (world.isRemote) {
             if (this.ticksExisted > 1) {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < 5; i++) {
                     Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.1F);
                     ParticleUtils.spawn(ParticleTypes.FLAME, world, p);
                 }

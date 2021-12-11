@@ -47,7 +47,7 @@ public class ThornBushSpell extends BaseSpell {
             public Elements element() {
                 return Elements.Nature;
             }
-        }.spawnBlock(ModBlocks.THORN_BUSH)
+        }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON).spawnBlock(ModBlocks.THORN_BUSH)
             .summonsEntity((world) -> new SeedEntity(world))
             .setSwingArmOnCast());
     }
@@ -60,27 +60,27 @@ public class ThornBushSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 12, 18);
+        c.set(SC.MANA_COST, 5, 8);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.PROJECTILE_COUNT, 1, 3);
-        c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
-        c.set(SC.BASE_VALUE, 4, 12);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.5F, 0.7F);
-        c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 13, 10);
-        c.set(SC.TICK_RATE, 30, 20);
-        c.set(SC.RADIUS, 3.0F, 6);
-        c.set(SC.DURATION_TICKS, 200, 200);
+        c.set(SC.PROJECTILE_COUNT, 1, 1);
+        c.set(SC.SHOOT_SPEED, 0.8F, 1.6F);
+        c.set(SC.BASE_VALUE, 1, 3);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.1F, 0.25F);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
+        c.set(SC.COOLDOWN_TICKS, 60, 40);
+        c.set(SC.TICK_RATE, 8, 4);
+        c.set(SC.RADIUS, 1F, 2F);
+        c.set(SC.DURATION_TICKS, 40, 40);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 2);
+        return new AbilityPlace(0, 0);
     }
 
     @Override
