@@ -12,6 +12,7 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.GeometryUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -20,6 +21,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -40,6 +42,11 @@ public class StoneEntity extends EntityBaseProjectile {
     }
 
     @Override
+    public void initSpellEntity() {
+        this.setDeathTime(80);
+    }
+
+    @Override
     public double radius() {
         return 0.5F;
     }
@@ -54,6 +61,35 @@ public class StoneEntity extends EntityBaseProjectile {
                     ParticleUtils.spawn(ParticleTypes.EFFECT, world, p);
                 }
             }
+        }
+    }
+
+    @Override
+    protected void onHit(RayTraceResult raytraceResultIn) {
+
+        RayTraceResult.Type raytraceresult$type = raytraceResultIn.getType();
+        if (raytraceresult$type == RayTraceResult.Type.ENTITY) {
+            this.onImpact(raytraceResultIn);
+            this.playSound(SoundEvents.ENTITY_SHULKER_BULLET_HIT, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+
+        } else if (raytraceresult$type == RayTraceResult.Type.BLOCK && this.getTicksInAir() > 40) {
+            BlockRayTraceResult blockraytraceresult = (BlockRayTraceResult) raytraceResultIn;
+            BlockState blockstate = this.world.getBlockState(blockraytraceresult.getPos());
+
+            Vec3d vec3d = blockraytraceresult.getHitVec()
+                    .subtract(this.posX, this.posY, this.posZ);
+            this.setMotion(vec3d);
+            Vec3d vec3d1 = vec3d.normalize()
+                    .scale((double) 0.05F);
+            this.posX -= vec3d1.x;
+            this.posY -= vec3d1.y;
+            this.posZ -= vec3d1.z;
+            this.inGround = true;
+
+            this.onImpact(blockraytraceresult);
+
+            blockstate.onProjectileCollision(this.world, blockstate, blockraytraceresult, this);
+
         }
     }
 
@@ -100,7 +136,9 @@ public class StoneEntity extends EntityBaseProjectile {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         this.remove();
+
     }
 
 

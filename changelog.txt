@@ -1,3 +1,6 @@
+3.12.14:
+- Made it so Arrow Storm and Rock Slide can go through ceilings to some extent. Basically, the first 1.5 seconds they're active they can go through blocks.
+
 3.12.13:
 Nature Mastery Rework:
 - Poison Ball and Thorn Bush have swapped places (Thorn Bush is the new level 1 spell).
