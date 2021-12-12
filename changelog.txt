@@ -1,5 +1,5 @@
 3.12.14:
-- Made it so Arrow Storm and Rock Slide can go through ceilings to some extent. Basically, the first 1.5 seconds they're active they can go through blocks.
+- XX Made it so Arrow Storm and Rock Slide can go through ceilings to some extent. Basically, the first few seconds they're active they can go through blocks.
 
 3.12.13:
 Nature Mastery Rework:
