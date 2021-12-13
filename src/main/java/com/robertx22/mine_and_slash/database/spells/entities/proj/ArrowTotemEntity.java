@@ -89,14 +89,14 @@ public class ArrowTotemEntity extends EntityBaseProjectile {
                         Vec3d t = new Vec3d(closest.posX, closest.posY, closest.posZ);
 
                         RangerArrowEntity en = SpellUtils.getSpellEntity(getSpellData().configs, new RangerArrowEntity(world), getSpellData().getSpell(), caster);
-                        SpellUtils.setupProjectileForCasting(en, caster, 3.0F);
+                        SpellUtils.setupProjectileForCasting(en, caster, 2.5F);
 
                         en.setLocationAndAngles(p.x, p.y, p.z, 0, 0);
-                        en.setMotion(new Vec3d(t.x - p.x, t.y - t.y, p.z - t.z));
+                        en.setMotion(new Vec3d(t.x - p.x, t.y - p.y, t.z - p.z));
                         ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
                         caster.world.addEntity(en);
 
-                        SoundUtils.playSound(en, SoundEvents.ENTITY_ARROW_SHOOT, 1, 1);
+                        SoundUtils.playSound(this, SoundEvents.ENTITY_ARROW_SHOOT, 1, 1);
                     }
                 }
             } else {

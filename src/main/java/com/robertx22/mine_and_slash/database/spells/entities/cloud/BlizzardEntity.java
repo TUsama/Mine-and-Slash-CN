@@ -38,14 +38,12 @@ public class BlizzardEntity extends BaseCloudEntity {
     @Override
     public void onHit(LivingEntity entity) {
 
-        this.playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0f, 1.0f);
+        entity.playSound(SoundEvents.BLOCK_GLASS_BREAK, 1.0f, 1.4f);
 
         DamageEffect dmg = dealSpellDamageTo(entity, new Options().knockbacks(false)
             .activatesEffect(false));
 
         dmg.Activate();
-
-        SoundUtils.playSound(this, SoundEvents.ENTITY_SNOWBALL_THROW, 1, 1);
 
     }
 
@@ -72,10 +70,9 @@ public class BlizzardEntity extends BaseCloudEntity {
                             .radius(RADIUS)
                             .build();
 
-                    SoundUtils.playSound(sdata.getCaster(world), SoundEvents.ENTITY_HORSE_BREATHE, 1.1F, 1.5F);
-
                     entities.forEach(x -> onHit(x));
 
+                    SoundUtils.playSound(this, SoundEvents.ENTITY_HORSE_BREATHE, 1.25F, 2.0F);
                 }
             }
 

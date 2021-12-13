@@ -77,30 +77,28 @@ public class WhirlpoolEntity extends EntityBaseProjectile {
                     }
 
                     List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, getPositionVector())
-                        .radius(RADIUS)
-                        .build();
+                            .radius(RADIUS)
+                            .build();
 
                     entities.forEach(x -> {
 
                         DamageEffect dmg = dealSpellDamageTo(x, new Options().knockbacks(false)
-                            .activatesEffect(false));
+                                .activatesEffect(false));
 
                         dmg.Activate();
 
                         x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 5));
 
-                        SoundUtils.playSound(this, SoundEvents.ENTITY_DROWNED_HURT_WATER, 1, 1);
+                        SoundUtils.playSound(x, SoundEvents.ENTITY_DROWNED_HURT_WATER, 1, 1);
 
                     });
-                } else {
+                }
+            }
+            if (this.ticksExisted % TICK_RATE == 5) {
+                if (!world.isRemote) {
                     Vec3d p = this.getPositionVector();
 
-                    world.playSound(p.x, p.y, p.z, SoundEvents.BLOCK_BUBBLE_COLUMN_BUBBLE_POP, SoundCategory.BLOCKS, 1F,
-                        1F,
-
-                        false
-                    );
-
+                    SoundUtils.playSound(this, SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_INSIDE, 1, 1);
                 }
             }
 
@@ -123,10 +121,6 @@ public class WhirlpoolEntity extends EntityBaseProjectile {
                 }
 
                 Vec3d p = this.getPositionVector();
-
-                world.playSound(p.x, p.y, p.z, SoundEvents.BLOCK_BUBBLE_COLUMN_WHIRLPOOL_AMBIENT, SoundCategory.BLOCKS,
-                    0.2F, 0.9F, false
-                );
             }
         }
 

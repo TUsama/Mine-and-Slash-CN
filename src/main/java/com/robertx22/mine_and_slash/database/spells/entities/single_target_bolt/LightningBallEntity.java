@@ -35,6 +35,7 @@ public class LightningBallEntity extends BaseElementalBoltEntity {
 
     @Override
     public void initSpellEntity() {
+        this.setNoGravity(true);
         this.setDeathTime(40);
     }
 
@@ -47,10 +48,10 @@ public class LightningBallEntity extends BaseElementalBoltEntity {
     public void onHit(LivingEntity entity) {
 
         SpellDamageEffect dmg = dealSpellDamageTo(entity, new Options().activatesEffect(false));
+        entity.playSound(SoundEvents.ENTITY_BAT_TAKEOFF, 1.4f, 2.5f);
 
         dmg.Activate();
 
-        SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 0.8F, 1F);
 
     }
 

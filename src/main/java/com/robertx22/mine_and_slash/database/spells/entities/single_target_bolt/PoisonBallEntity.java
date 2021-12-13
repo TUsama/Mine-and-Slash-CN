@@ -96,7 +96,7 @@ public class PoisonBallEntity extends BaseElementalBoltEntity {
 
                     dmg.Activate();
 
-                    SoundUtils.playSound(this, SoundEvents.ENTITY_SLIME_SQUISH, 1, 1);
+                    x.playSound(SoundEvents.ENTITY_SLIME_SQUISH, 1, 1);
 
                 });
             } else {
@@ -127,7 +127,7 @@ public class PoisonBallEntity extends BaseElementalBoltEntity {
         RayTraceResult.Type raytraceresult$type = result.getType();
 
         if (world.isRemote && raytraceresult$type == RayTraceResult.Type.BLOCK) {
-            SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 1.0F, 0.9F);
+            this.playSound(SoundEvents.BLOCK_STONE_HIT, 1.0f, 0.9F);
             this.remove();
         }
     }

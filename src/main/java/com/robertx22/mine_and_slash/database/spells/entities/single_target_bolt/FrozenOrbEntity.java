@@ -87,7 +87,7 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
 
             x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 5));
 
-            SoundUtils.playSound(this, SoundEvents.ENTITY_SNOWBALL_THROW, 1.5F, 1.25F);
+            this.playSound(SoundEvents.BLOCK_GLASS_BREAK, 1.0f, 1.8f);
 
         });
     }
@@ -130,14 +130,19 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
                     dmg.Activate();
                     x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 5));
 
-                    SoundUtils.playSound(this, SoundEvents.ENTITY_SNOWBALL_THROW, 1, 1);
-
                 });
+
             } else {
 
                 SoundUtils.playSound(this, SoundEvents.ENTITY_SNOWBALL_THROW, 1, 1);
                 // TODO why isnt this being cast?
 
+            }
+        }
+
+        if (this.ticksExisted % tickRate == 5) {
+            if (!world.isRemote) {
+                SoundUtils.playSound(this, SoundEvents.ENTITY_HORSE_BREATHE, 3.0F, 4.0F);
             }
         }
 
@@ -164,12 +169,14 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
         LivingEntity entityHit = getEntityHit(result, 0.3D);
 
         if (world.isRemote && raytraceresult$type == RayTraceResult.Type.BLOCK) {
-            SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 1.0F, 0.9F);
+            //SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 1.0F, 0.9F);
+            this.playSound(SoundEvents.BLOCK_STONE_HIT, 1.0F, 0.9F);
             this.remove();
         }
         if (entityHit != null) {
             if (world.isRemote) {
-                SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
+                //SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
+                this.playSound(SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
                 onHit(entityHit);
             }
         }

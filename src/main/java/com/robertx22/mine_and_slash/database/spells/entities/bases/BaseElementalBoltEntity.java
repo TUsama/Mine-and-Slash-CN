@@ -46,14 +46,14 @@ public abstract class BaseElementalBoltEntity extends EntityBaseProjectile {
 
         if (entityHit != null) {
             if (world.isRemote) {
-                SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
+                this.playSound(SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
             }
 
             onHit(entityHit);
 
         } else {
             if (world.isRemote) {
-                SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
+                this.playSound(SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
             }
         }
 

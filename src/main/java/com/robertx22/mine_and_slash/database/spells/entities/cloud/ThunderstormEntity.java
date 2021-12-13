@@ -38,6 +38,7 @@ public class ThunderstormEntity extends BaseCloudEntity {
     @Override
     public void onHit(LivingEntity entity) {
         this.dealSpellDamageTo(entity, new Options().knockbacks(false));
+        entity.playSound(SoundEvents.ENTITY_BAT_TAKEOFF, 1.4f, 2.5f);
 
         SpellUtils.summonLightningStrike(entity);
 
@@ -67,7 +68,7 @@ public class ThunderstormEntity extends BaseCloudEntity {
                             .radius(RADIUS)
                             .build();
 
-                    SoundUtils.playSound(sdata.getCaster(world), SoundEvents.WEATHER_RAIN, 1.1F, 0.8F);
+                    SoundUtils.playSound(this, SoundEvents.WEATHER_RAIN, 1.1F, 0.8F);
 
                     entities.forEach(x -> onHit(x));
 

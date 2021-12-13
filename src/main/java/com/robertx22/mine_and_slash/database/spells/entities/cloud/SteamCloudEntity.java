@@ -38,14 +38,12 @@ public class SteamCloudEntity extends BaseCloudEntity {
     @Override
     public void onHit(LivingEntity entity) {
 
-        this.playSound(SoundEvents.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.2f);
+        entity.playSound(SoundEvents.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.2f);
 
         DamageEffect dmg = dealSpellDamageTo(entity, new Options().knockbacks(false)
             .activatesEffect(false));
 
         dmg.Activate();
-
-        SoundUtils.playSound(this, SoundEvents.BLOCK_FIRE_EXTINGUISH, 1, 1.2F);
 
     }
 
@@ -68,7 +66,7 @@ public class SteamCloudEntity extends BaseCloudEntity {
                             .radius(RADIUS)
                             .build();
 
-                    SoundUtils.playSound(sdata.getCaster(world), SoundEvents.BLOCK_FIRE_EXTINGUISH, 1.1F, 0.9F);
+                    SoundUtils.playSound(this, SoundEvents.BLOCK_FIRE_EXTINGUISH, 1.1F, 0.9F);
 
                     entities.forEach(x -> onHit(x));
 

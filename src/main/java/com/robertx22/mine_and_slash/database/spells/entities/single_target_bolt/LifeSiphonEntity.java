@@ -48,11 +48,12 @@ public class LifeSiphonEntity extends BaseElementalBoltEntity {
 
         SpellDamageEffect dmg = dealSpellDamageTo(entity, new Options().activatesEffect(false));
 
+        entity.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0f, 0.7f);
+
         SpellUtils.heal(this.getSpellData().getSpell(), this.getSpellData().getCaster(world), dmg.number);
 
         dmg.Activate();
 
-        SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 0.8F, 1F);
 
     }
 

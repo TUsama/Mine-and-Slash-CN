@@ -55,9 +55,8 @@ public class FrostballEntity extends BaseElementalBoltEntity {
 
     @Override
     public void onHit(LivingEntity entity) {
+        entity.playSound(SoundEvents.BLOCK_GLASS_BREAK, 0.8f, 1.4f);
         dealSpellDamageTo(entity);
-
-        SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 0.8F, 1F);
 
     }
 
@@ -87,14 +86,14 @@ public class FrostballEntity extends BaseElementalBoltEntity {
 
         if (entityHit != null) {
             if (world.isRemote) {
-                SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
+                this.playSound(SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
             }
             onHit(entityHit);
 
         } else {
             RayTraceResult.Type raytraceresult$type = result.getType();
             if (world.isRemote && raytraceresult$type == RayTraceResult.Type.BLOCK) {
-                SoundUtils.playSound(this, SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
+                this.playSound(SoundEvents.BLOCK_STONE_HIT, 0.7F, 0.9F);
                 this.remove();
             }
         }

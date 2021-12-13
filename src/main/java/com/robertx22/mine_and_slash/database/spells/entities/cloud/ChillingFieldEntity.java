@@ -45,14 +45,12 @@ public class ChillingFieldEntity extends BaseCloudEntity {
     @Override
     public void onHit(LivingEntity entity) {
 
-        this.playSound(SoundEvents.ENTITY_HORSE_BREATHE, 1, 1.5F);
+        entity.playSound(SoundEvents.ENTITY_HORSE_BREATHE, 1, 1.5F);
 
         DamageEffect dmg = dealSpellDamageTo(entity, new Options().knockbacks(false)
             .activatesEffect(false));
 
         dmg.Activate();
-
-        SoundUtils.playSound(this, SoundEvents.ENTITY_HORSE_BREATHE, 1, 1.5F);
 
     }
 
@@ -68,12 +66,13 @@ public class ChillingFieldEntity extends BaseCloudEntity {
 
                 if (!this.world.isRemote) {
 
+                    SoundUtils.playSound(this, SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_INSIDE, 2, 2);
+
                     List<LivingEntity> entities = EntityFinder.start(
                             getCaster(), LivingEntity.class, getPositionVector())
                             .radius(RADIUS)
                             .build();
 
-                    SoundUtils.playSound(sdata.getCaster(world), SoundEvents.ENTITY_HORSE_BREATHE, 1.1F, 1.5F);
                     entities.forEach(x -> {PotionEffectUtils.apply(FrostEffect.INSTANCE, getCaster(), x);});
                     entities.forEach(x -> onHit(x));
 

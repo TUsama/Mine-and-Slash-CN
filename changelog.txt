@@ -7,6 +7,7 @@
 - Increased mana scaling of Chilling Field by 25% at higher levels.
 - Magic Burst mana cost no longer increases as it levels. Instead, the magic shield cost increases, but damage has been increased to compensate.
 - Slightly reduced mana cost of Blizzard.
+- Fixed a bug where Battery Fusilade projectiles were affected by gravity - surprised no one brought this up over the past year. :P
 - Increased health scaling of Martyrdom and some Unholy spells.
 - Increased armor scaling of Retribution.
 - Increased physical attack scaling of Purifying Fires at higher levels.
@@ -26,6 +27,8 @@
 - Fixed Recoil of the Hunter having a max level of 8. Should be 1.
 - Fixed some incorrect Nature Mastery localization.
 - Fixed a bug where synergies had incorrect max levels. You will notice a bunch of them have changed - these were the intended values.
+- Fixed a bug where a lot of the spell sounds weren't playing properly.
+- Improved the sounds of some of the spells to make them feel more responsive.
 
 3.12.13:
 Nature Mastery Rework:
