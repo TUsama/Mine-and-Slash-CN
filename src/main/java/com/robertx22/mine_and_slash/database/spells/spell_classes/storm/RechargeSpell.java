@@ -70,7 +70,7 @@ public class RechargeSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.01F, 0.01F);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(4);
         return c;
     }
 

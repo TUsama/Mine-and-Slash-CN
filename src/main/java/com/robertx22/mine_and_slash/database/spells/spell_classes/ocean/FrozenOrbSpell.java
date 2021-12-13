@@ -57,10 +57,10 @@ public class FrozenOrbSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 20, 30);
+        c.set(SC.MANA_COST, 16, 24);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 3, 9);
+        c.set(SC.BASE_VALUE, 3, 11);
         c.set(SC.SHOOT_SPEED, 0.2F, 0.2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 20, 20);

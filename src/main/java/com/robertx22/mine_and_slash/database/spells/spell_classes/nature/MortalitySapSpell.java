@@ -77,7 +77,7 @@ public class MortalitySapSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 350, 500);
         c.set(SC.TICK_RATE, 40, 40);
 
-        c.setMaxLevel(6);
+        c.setMaxLevel(4);
 
         return c;
     }

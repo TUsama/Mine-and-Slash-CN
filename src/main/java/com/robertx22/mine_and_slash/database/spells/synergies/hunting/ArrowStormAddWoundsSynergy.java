@@ -69,7 +69,7 @@ public class ArrowStormAddWoundsSynergy extends OnAttackSpellDmgDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 5, 20);
+        c.set(SC.CHANCE, 5, 25);
         c.setMaxLevel(8);
         return c;
     }

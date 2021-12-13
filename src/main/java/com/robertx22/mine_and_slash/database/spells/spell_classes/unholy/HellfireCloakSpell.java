@@ -60,11 +60,11 @@ public class HellfireCloakSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.HEALTH_COST, 0.17F, 0.34F);
+        c.set(SC.HEALTH_COST, 0.15F, 0.3F);
         c.set(SC.MANA_COST, 6, 9);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 7, 18);
+        c.set(SC.BASE_VALUE, 7, 22);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_SECONDS, 27, 22);
         c.set(SC.TICK_RATE, 20, 20);
@@ -72,7 +72,7 @@ public class HellfireCloakSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 400, 400);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

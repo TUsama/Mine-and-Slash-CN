@@ -50,7 +50,7 @@ public class RockSlideSpell extends BaseSpell {
                     return Elements.Nature;
                 }
             }.summonsEntity(w -> new RockSlideEntity(w))
-                .setSwingArmOnCast().rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON));
+                .setSwingArmOnCast());
     }
 
     public static RockSlideSpell getInstance() {
@@ -65,16 +65,16 @@ public class RockSlideSpell extends BaseSpell {
         c.set(SC.MANA_COST, 11, 16);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 12, 24);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.5F, 1.0F);
+        c.set(SC.BASE_VALUE, 8, 16);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.4F, 0.8F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 6, 3);
-        c.set(SC.TICK_RATE, 4, 4);
-        c.set(SC.RADIUS, 2, 2);
+        c.set(SC.TICK_RATE, 8, 8);
+        c.set(SC.RADIUS, 2, 4);
         c.set(SC.DURATION_TICKS, 40, 40);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }
@@ -95,7 +95,7 @@ public class RockSlideSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Projectile, Storm"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Storm"));
 
         TooltipUtils.addEmpty(list);
 

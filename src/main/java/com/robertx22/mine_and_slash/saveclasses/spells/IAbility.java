@@ -94,7 +94,7 @@ public interface IAbility extends IGUID, ITooltipList {
     public Type getAbilityType();
 
     public default float getLevelPowerMulti(PlayerSpellCap.ISpellsCap cap) {
-        return (float) cap.getLevelOf(this) / (float) getMaxSpellLevelBuffed();
+        return (float) cap.getLevelOf(this) / (float) getMaxSpellLevelNormal();
     }
 
     public int getMaxSpellLevelNormal();

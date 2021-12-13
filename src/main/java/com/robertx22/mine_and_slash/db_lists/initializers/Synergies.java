@@ -76,6 +76,7 @@ public class Synergies implements ISlashRegistryInit {
         new PurifyingFiresJudgementSynergy().registerToSlashRegistry();
         new HolyFlowerCleanseSynergy().registerToSlashRegistry();
         new PurifyingFiresEnergizeSynergy().registerToSlashRegistry();
+        new SpearEnlightenmentSynergy().registerToSlashRegistry();
         new HolySpearSynergy().registerToSlashRegistry();
         new SpellBladeBurstSynergy().registerToSlashRegistry();
         new ThunderstormEnhancedSynergy().registerToSlashRegistry();

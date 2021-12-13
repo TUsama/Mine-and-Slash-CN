@@ -55,14 +55,14 @@ public class PoisonedWeaponsSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 14, 21);
+        c.set(SC.MANA_COST, 13, 16);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 50, 10);
         c.set(SC.COOLDOWN_SECONDS, 60, 45);
         c.set(SC.DURATION_TICKS, 45 * 20, 100 * 20);
 
-        c.setMaxLevel(10);
+        c.setMaxLevel(8);
         return c;
     }
 

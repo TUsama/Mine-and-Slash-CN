@@ -75,7 +75,7 @@ public class InfernoQuakeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 13, 20);
+        c.set(SC.MANA_COST, 11, 18);
         c.set(SC.ENERGY_COST, 4, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 1, 3);
@@ -84,7 +84,7 @@ public class InfernoQuakeSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 7, 4);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }

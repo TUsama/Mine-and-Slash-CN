@@ -54,8 +54,8 @@ public class TidalWaveFrostSynergy extends OnAttackSpellDmgDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 4, 10);
-        c.setMaxLevel(6);
+        c.set(SC.BASE_VALUE, 4, 11);
+        c.setMaxLevel(8);
         return c;
     }
 

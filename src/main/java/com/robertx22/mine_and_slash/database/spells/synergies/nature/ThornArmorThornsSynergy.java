@@ -30,7 +30,7 @@ public class ThornArmorThornsSynergy extends OnBasicAttackSynergy {
         addSpellName(list);
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Thorn Armor"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Nature's Armor"));
 
         TooltipUtils.addEmpty(list);
 
@@ -65,7 +65,7 @@ public class ThornArmorThornsSynergy extends OnBasicAttackSynergy {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CHANCE, 25, 75);
-        c.setMaxLevel(6);
+        c.setMaxLevel(4);
         return c;
     }
 

@@ -38,7 +38,7 @@ public class RockSlideEnhancedSynergy extends OnDamageDoneSynergy {
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Deal extra damage to enemies affected by at"));
-        list.add(new StringTextComponent("least 6 (half of max) stacks of Plague: "));
+        list.add(new StringTextComponent("least 6 (half of max) stacks of " + ThornsEffect.INSTANCE.locNameForLangFile() + ": "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -79,8 +79,9 @@ public class RockSlideEnhancedSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 6, 12);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.25F, 0.5F);
+        c.set(SC.BASE_VALUE, 4, 8);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        c.setMaxLevel(8);
         return c;
     }
 

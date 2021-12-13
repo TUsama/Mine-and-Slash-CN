@@ -64,10 +64,10 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.MANA_COST, 2, 6);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.03F, 0.09F);
-        c.set(SC.CHANCE, 25, 50);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.03F, 0.12F);
+        c.set(SC.CHANCE, 25, 60);
         c.set(SC.RADIUS, 1F, 3F);
-        c.setMaxLevel(10);
+        c.setMaxLevel(12);
         return c;
     }
 

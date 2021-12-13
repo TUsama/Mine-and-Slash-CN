@@ -34,15 +34,11 @@ public class ThunderstormEnhancedSynergy extends Synergy {
     }
 
     @Override
-    public int getMaxSpellLevelNormal() {
-        return 1;
-    }
-
-    @Override
     public void alterSpell(PreCalcSpellConfigs c) {
         c.set(SC.MANA_COST, 5, 5);
         c.set(SC.TICK_RATE, -10, -10);
         c.set(SC.RADIUS, -2F, -2F);
+        c.setMaxLevel(1);
     }
 
     @Override

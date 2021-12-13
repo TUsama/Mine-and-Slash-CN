@@ -59,7 +59,7 @@ public enum Words implements IAutoLocName {
     RecoilShot("Recoil Shot"), TidalWave("Tidal Wave"), ThrowFlames("Meteoric Strike"), TotalMastery("Total Mastery"),
     LightningTotem("Lightning Totem"), HealingAura("Healing Aura"), ThoughtSeize("Thought Seize"), MortalitySap("Mortality Sap"),
     CorrosiveShadow("Corrosive Shadow"), ChillingField("Chilling Field"), SteamCloud("Steam Cloud"), Defend("Defend"),
-    Wish("Wish"), HuntingWolf("Summon Hunting Wolf"), SpiritShroud("Spirit Shroud"),
+    Wish("Wish"), HuntingWolf("Summon Hunting Wolf"), SpiritShroud("Spirit Shroud"), ArrowTotem("Arrow Totem"),
     Volcano("Volcano"), VampiricBlood("Vampiric Blood"), DraconicBlood("Draconic Blood"),
     Blizzard("Blizzard"), QuickCharge("Quick Charge"), LifeSiphon("Life Siphon"), BloodTether("Blood Tether"),
     Whirpool("Whirpool"), AnimateScythe("Animate Scythe"), Blight("Blight"),

@@ -78,7 +78,7 @@ public class DashSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 7, 2);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(4);
 
         return c;
     }

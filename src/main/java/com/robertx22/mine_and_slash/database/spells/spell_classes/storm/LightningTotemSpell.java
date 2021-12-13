@@ -57,10 +57,10 @@ public class LightningTotemSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 13, 20);
+        c.set(SC.MANA_COST, 10, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 3, 8);
+        c.set(SC.BASE_VALUE, 3, 9);
         c.set(SC.SHOOT_SPEED, 2F, 2.4F);
         c.set(SC.RADIUS, 2F, 4F);
         c.set(SC.PROJECTILE_COUNT, 1, 3);
@@ -99,7 +99,7 @@ public class LightningTotemSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Summons a totem that damages enemies: "));
+        list.add(new StringTextComponent("Summons a totem that periodically damages nearby enemies: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

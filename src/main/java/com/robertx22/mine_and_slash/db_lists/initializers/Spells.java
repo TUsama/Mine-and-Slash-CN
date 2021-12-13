@@ -118,6 +118,7 @@ public class Spells implements ISlashRegistryInit {
                     add(WhirlwindSpell.getInstance());
                     add(MagicBurstSpell.getInstance());
                     add(ChargeSpell.getInstance());
+                    add(ArrowTotemSpell.getInstance());
 
                     // unholy spells
                     add(ChillingTouchSpell.getInstance());

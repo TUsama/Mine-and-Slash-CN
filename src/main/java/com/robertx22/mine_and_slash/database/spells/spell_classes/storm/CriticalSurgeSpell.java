@@ -65,7 +65,7 @@ public class CriticalSurgeSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 10, 10);
         c.set(SC.DURATION_TICKS, 20 * 120, 20 * 180);
 
-        c.setMaxLevel(6);
+        c.setMaxLevel(8);
         return c;
     }
 

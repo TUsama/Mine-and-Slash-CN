@@ -66,7 +66,7 @@ public class HolyFlowerSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
-        c.set(SC.BASE_VALUE, 18, 28);
+        c.set(SC.BASE_VALUE, 18, 32);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 20, 17);
         c.set(SC.TICK_RATE, 30, 15);

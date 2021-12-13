@@ -58,7 +58,7 @@ public class ImbueAddHunterSynergy extends OnBasicAttackSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 15, 25);
+        c.set(SC.CHANCE, 15, 30);
         c.setMaxLevel(8);
         return c;
     }

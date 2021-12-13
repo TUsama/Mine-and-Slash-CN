@@ -36,7 +36,7 @@ public class PoisonballThornsSynergy extends OnDamageDoneSynergy {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Deal extra damage to enemies affected by Plague: "));
+        list.add(new StringTextComponent("Deal extra damage to enemies affected by " + ThornsEffect.INSTANCE.locNameForLangFile() + ": "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -79,6 +79,7 @@ public class PoisonballThornsSynergy extends OnDamageDoneSynergy {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 1, 3);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.1F, 0.3F);
+        c.setMaxLevel(8);
         return c;
     }
 

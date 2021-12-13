@@ -49,8 +49,8 @@ public class VolcanoBurnSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 15, 35);
-        c.setMaxLevel(6);
+        c.set(SC.CHANCE, 15, 45);
+        c.setMaxLevel(8);
         return c;
     }
 

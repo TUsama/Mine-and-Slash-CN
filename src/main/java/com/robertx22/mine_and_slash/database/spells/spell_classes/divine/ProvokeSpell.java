@@ -76,7 +76,7 @@ public class ProvokeSpell extends BaseSpell {
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.TICK_RATE, 20, 20);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(4);
 
         return c;
     }

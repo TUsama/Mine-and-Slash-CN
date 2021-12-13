@@ -65,7 +65,7 @@ public class RootSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 26, 22);
         c.set(SC.DURATION_TICKS, 8 * 20, 14 * 20);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(4);
         return c;
     }
 

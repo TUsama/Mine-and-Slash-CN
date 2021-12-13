@@ -62,8 +62,8 @@ public class RegenerateAoeSynergy extends OnSpellCastSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.RADIUS, 3F, 5F);
-        c.setMaxLevel(3);
+        c.set(SC.RADIUS, 3F, 6F);
+        c.setMaxLevel(4);
         return c;
     }
 

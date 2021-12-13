@@ -35,15 +35,11 @@ public class LightningTotemEnhancedSynergy extends Synergy {
     }
 
     @Override
-    public int getMaxSpellLevelNormal() {
-        return 1;
-    }
-
-    @Override
     public void alterSpell(PreCalcSpellConfigs c) {
         c.set(SC.MANA_COST, 5, 5);
         c.set(SC.BASE_VALUE, -2, -2);
         c.set(SC.COOLDOWN_SECONDS, -4, -4);
+        c.setMaxLevel(1);
     }
 
     @Override

@@ -1,8 +1,7 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.storm;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.hunting;
 
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.FrostballEntity;
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.LightningBallEntity;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.SpellTooltips;
+import com.robertx22.mine_and_slash.database.spells.entities.proj.ArrowTotemEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.proj.LightningTotemEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
@@ -15,7 +14,6 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
-import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -25,15 +23,15 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BatteryFusiladeSpell extends BaseSpell {
+public class ArrowTotemSpell extends BaseSpell {
 
-    private BatteryFusiladeSpell() {
+    private ArrowTotemSpell() {
         super(
             new ImmutableSpellConfigs() {
 
                 @Override
                 public Masteries school() {
-                    return Masteries.STORM;
+                    return Masteries.HUNTING;
                 }
 
                 @Override
@@ -43,51 +41,54 @@ public class BatteryFusiladeSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ENTITY_SNOWBALL_THROW;
+                    return SoundEvents.ENTITY_ARROW_SHOOT;
                 }
 
                 @Override
                 public Elements element() {
-                    return Elements.Thunder;
+                    return Elements.Physical;
                 }
-            }.summonsEntity(world -> new LightningBallEntity(world)).setSwingArmOnCast().cooldownIfCanceled(true));
+            }.cooldownIfCanceled(true)
+                .summonsEntity(w -> new ArrowTotemEntity(w))
+                .setSwingArmOnCast()
+        );
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 18, 27);
+        c.set(SC.MANA_COST, 7, 11);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.03F, 0.12F);
-        c.set(SC.SHOOT_SPEED, 0.4F, 0.6F);
+        c.set(SC.SHOOT_SPEED, 2F, 2.4F);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.0F, 3.0F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
-        c.set(SC.CAST_TIME_TICKS, 20, 40);
-        c.set(SC.COOLDOWN_SECONDS, 9, 6);
-        c.set(SC.TIMES_TO_CAST, 3, 8);
+        c.set(SC.RADIUS, 8, 8);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.COOLDOWN_SECONDS, 16, 12);
+        c.set(SC.TICK_RATE, 30, 30);
+        c.set(SC.DURATION_TICKS, 300, 300);
         c.set(SC.BONUS_HEALTH, 0, 0);
-        c.set(SC.DURATION_TICKS, 40, 40);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(1, 5);
+        return new AbilityPlace(1, 2);
     }
 
-    public static BatteryFusiladeSpell getInstance() {
+    public static ArrowTotemSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "battery_fusilade";
+        return "arrow_totem";
     }
 
     @Override
@@ -96,13 +97,12 @@ public class BatteryFusiladeSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Channel, Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Entity"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new SText("Discharge mana and rapidly fire bolts of lightning: "));
-
-        list.add(SpellTooltips.singleTargetProjectile());
+        list.add(new StringTextComponent("Summons a totem that fires arrows at the"));
+        list.add(new StringTextComponent("closest enemy: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -112,10 +112,10 @@ public class BatteryFusiladeSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.BatteryFusilade;
+        return Words.ArrowTotem;
     }
 
     private static class SingletonHolder {
-        private static final BatteryFusiladeSpell INSTANCE = new BatteryFusiladeSpell();
+        private static final ArrowTotemSpell INSTANCE = new ArrowTotemSpell();
     }
 }

@@ -61,7 +61,7 @@ public class SummonZombieMasterySynergy extends OnBasicAttackSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 2, 11);
-        c.set(SC.CHANCE, 15, 60);
+        c.set(SC.CHANCE, 15, 75);
         c.setMaxLevel(8);
         return c;
     }

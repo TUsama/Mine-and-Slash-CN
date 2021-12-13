@@ -76,7 +76,7 @@ public class ElectricalDischargeSpell extends BaseSpell {
         c.set(SC.RADIUS, 3, 6);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

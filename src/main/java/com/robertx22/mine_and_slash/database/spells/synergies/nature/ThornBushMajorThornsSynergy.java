@@ -70,7 +70,8 @@ public class ThornBushMajorThornsSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 30, 90);
+        c.set(SC.CHANCE, 30, 80);
+        c.setMaxLevel(8);
         return c;
     }
 

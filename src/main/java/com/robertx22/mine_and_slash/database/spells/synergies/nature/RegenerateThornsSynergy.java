@@ -69,8 +69,8 @@ public class RegenerateThornsSynergy extends OnSpellCastSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.RADIUS, 2, 4);
-        c.setMaxLevel(3);
+        c.set(SC.RADIUS, 2, 5);
+        c.setMaxLevel(4);
         return c;
     }
 

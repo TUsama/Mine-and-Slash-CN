@@ -51,8 +51,8 @@ public class HeartOfIceMagicShieldSynergy extends OnSpellCastSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 12);
-        c.setMaxLevel(6);
+        c.set(SC.BASE_VALUE, 2, 13);
+        c.setMaxLevel(4);
         return c;
     }
 

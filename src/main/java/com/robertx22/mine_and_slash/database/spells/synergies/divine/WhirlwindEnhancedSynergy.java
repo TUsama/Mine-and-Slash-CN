@@ -35,16 +35,12 @@ public class WhirlwindEnhancedSynergy extends Synergy {
     }
 
     @Override
-    public int getMaxSpellLevelNormal() {
-        return 1;
-    }
-
-    @Override
     public void alterSpell(PreCalcSpellConfigs c) {
         c.set(SC.MANA_COST, 3, 3);
         c.set(SC.ENERGY_COST, 6, 6);
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, -0.3F, -0.3F);
         c.set(SC.COOLDOWN_SECONDS, -12F, -12F);
+        c.setMaxLevel(1);
     }
 
     @Override

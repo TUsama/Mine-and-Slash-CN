@@ -62,8 +62,8 @@ public class PoisonBallSpell extends BaseSpell {
         c.set(SC.MANA_COST, 10, 14);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 6, 9);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.6F, 0.9F);
+        c.set(SC.BASE_VALUE, 6, 10);
+        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.6F, 1.0F);
         c.set(SC.SHOOT_SPEED, 0.25F, 0.25F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
@@ -75,7 +75,7 @@ public class PoisonBallSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 10, 10);
 
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }
@@ -99,7 +99,7 @@ public class PoisonBallSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(SpellTooltips.singleTargetProjectile());
+        list.add(new StringTextComponent("Throw a projectile, damaging enemies in its path : "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

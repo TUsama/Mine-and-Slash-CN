@@ -75,7 +75,7 @@ public class BlastTrapSpell extends BaseSpell {
         c.set(SC.RADIUS, 1.5F, 3.0F);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

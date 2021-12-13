@@ -73,7 +73,7 @@ public class ThornsEffect extends BasePotionEffect implements IApplyStatPotion {
 
     @Override
     public String locNameForLangFile() {
-        return "Thorns";
+        return "Plague";
     }
 
     @Override

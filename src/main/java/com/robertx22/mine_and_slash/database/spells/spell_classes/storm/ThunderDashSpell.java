@@ -74,11 +74,11 @@ public class ThunderDashSpell extends BaseSpell {
         c.set(SC.MANA_COST, 20, 2);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 3, 7);
+        c.set(SC.BASE_VALUE, 3, 14);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 1, 1);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(4);
 
         return c;
     }

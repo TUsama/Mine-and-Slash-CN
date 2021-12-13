@@ -64,7 +64,7 @@ public class LightningAspectSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 23, 19);
         c.set(SC.DURATION_TICKS, 20 * 10, 20 * 20);
 
-        c.setMaxLevel(10);
+        c.setMaxLevel(8);
         return c;
     }
 

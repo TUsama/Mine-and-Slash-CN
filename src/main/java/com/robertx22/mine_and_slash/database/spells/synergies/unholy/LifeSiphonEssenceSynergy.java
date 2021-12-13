@@ -60,7 +60,7 @@ public class LifeSiphonEssenceSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 5, 16);
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
         return c;
     }
 

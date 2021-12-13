@@ -48,14 +48,14 @@ public class HolySpearSynergy extends OnAttackSpellDmgDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 4, 7);
+        c.set(SC.MANA_COST, 3, 6);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.15F, 0.3F);
+        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.15F, 0.35F);
         c.setMaxLevel(8);
         return c;
     }

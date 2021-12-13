@@ -156,12 +156,12 @@ public abstract class Synergy implements IAbility, ISlashRegistryEntry<Synergy>,
 
     @Override
     public int getMaxSpellLevelNormal() {
-        return 8;
+        return getPreCalcConfig().maxSpellLevel;
     }
 
     @Override
     public int getMaxSpellLevelBuffed() {
-        return getMaxSpellLevelNormal() + 5;
+        return getMaxSpellLevelNormal() * 2;
     }
 
     public boolean has(PlayerSpellCap.ISpellsCap spells) {

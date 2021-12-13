@@ -54,14 +54,14 @@ public class CriticalSurgeSplashSynergy extends OnHitSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.CAST_TIME_TICKS, 40, 20);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 8, 16);
-        c.set(SC.CHANCE, 10, 25);
+        c.set(SC.BASE_VALUE, 8, 18);
+        c.set(SC.CHANCE, 10, 30);
         c.set(SC.RADIUS, 1.5F, 3F);
         c.setMaxLevel(8);
         return c;

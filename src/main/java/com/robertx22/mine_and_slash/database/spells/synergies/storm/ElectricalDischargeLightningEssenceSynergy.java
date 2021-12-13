@@ -55,7 +55,7 @@ public class ElectricalDischargeLightningEssenceSynergy extends OnDamageDoneSyne
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 20, 50);
+        c.set(SC.CHANCE, 20, 60);
         c.setMaxLevel(8);
         return c;
     }

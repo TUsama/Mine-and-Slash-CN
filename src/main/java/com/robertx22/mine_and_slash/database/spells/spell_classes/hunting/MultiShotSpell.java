@@ -70,7 +70,7 @@ public class MultiShotSpell extends BaseSpell {
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.DURATION_TICKS, 80, 80);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }

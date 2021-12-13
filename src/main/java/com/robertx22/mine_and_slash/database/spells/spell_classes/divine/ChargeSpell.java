@@ -77,7 +77,7 @@ public class ChargeSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 13, 6);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }

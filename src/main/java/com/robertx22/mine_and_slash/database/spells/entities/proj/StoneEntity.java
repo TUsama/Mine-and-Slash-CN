@@ -43,12 +43,12 @@ public class StoneEntity extends EntityBaseProjectile {
 
     @Override
     public void initSpellEntity() {
-        this.setDeathTime(80);
+        this.setDeathTime(40);
     }
 
     @Override
     public double radius() {
-        return 0.5F;
+        return 0.3F;
     }
 
     @Override
@@ -64,67 +64,37 @@ public class StoneEntity extends EntityBaseProjectile {
         }
     }
 
-    @Override
-    protected void onHit(RayTraceResult raytraceResultIn) {
-
-        RayTraceResult.Type raytraceresult$type = raytraceResultIn.getType();
-        if (raytraceresult$type == RayTraceResult.Type.ENTITY) {
-            this.onImpact(raytraceResultIn);
-            this.playSound(SoundEvents.ENTITY_SHULKER_BULLET_HIT, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
-
-        } else if (raytraceresult$type == RayTraceResult.Type.BLOCK && this.getTicksInAir() > 40) {
-            BlockRayTraceResult blockraytraceresult = (BlockRayTraceResult) raytraceResultIn;
-            BlockState blockstate = this.world.getBlockState(blockraytraceresult.getPos());
-
-            Vec3d vec3d = blockraytraceresult.getHitVec()
-                    .subtract(this.posX, this.posY, this.posZ);
-            this.setMotion(vec3d);
-            Vec3d vec3d1 = vec3d.normalize()
-                    .scale((double) 0.05F);
-            this.posX -= vec3d1.x;
-            this.posY -= vec3d1.y;
-            this.posZ -= vec3d1.z;
-            this.inGround = true;
-
-            this.onImpact(blockraytraceresult);
-
-            blockstate.onProjectileCollision(this.world, blockstate, blockraytraceresult, this);
-
-        }
-    }
-
     public void onHit(LivingEntity entity) {
 
+        /*
         try {
 
             LivingEntity caster = getCaster();
 
             BaseSpell spell = getSpellData().getSpell();
 
+            this.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.1F);
+
             SpellDamageEffect dmg = this.getSetupSpellDamage(entity);
             ParticleUtils.spawn(ParticleTypes.EXPLOSION, world, entity.getPositionVector());
-            SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.1F);
 
             dmg.Activate();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
 
     }
 
     @Override
     protected void onImpact(RayTraceResult result) {
         try {
-            LivingEntity entityHit = getEntityHit(result, 0.5D);
+            LivingEntity entityHit = getEntityHit(result, 0.3D);
 
             if (entityHit != null) {
                 if (world.isRemote) {
                     SoundUtils.playSound(this, SoundEvents.ENTITY_GENERIC_HURT, 1F, 0.9F);
-                }
-
-                if (!entityHit.world.isRemote) {
-                    onHit(entityHit);
                 }
 
             } else {
@@ -137,6 +107,7 @@ public class StoneEntity extends EntityBaseProjectile {
             e.printStackTrace();
         }
 
+        this.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 0.25F, 1.2F);
         this.remove();
 
     }

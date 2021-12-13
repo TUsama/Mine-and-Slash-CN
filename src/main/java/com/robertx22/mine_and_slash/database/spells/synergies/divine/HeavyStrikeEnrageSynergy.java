@@ -72,8 +72,8 @@ public class HeavyStrikeEnrageSynergy extends OnAttackSpellDmgDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 15, 40);
-        c.setMaxLevel(6);
+        c.set(SC.CHANCE, 15, 45);
+        c.setMaxLevel(8);
         return c;
     }
 

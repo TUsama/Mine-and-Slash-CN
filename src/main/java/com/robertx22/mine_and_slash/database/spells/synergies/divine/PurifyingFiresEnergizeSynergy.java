@@ -41,15 +41,15 @@ public class PurifyingFiresEnergizeSynergy extends OnAttackSpellDmgDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 1, 2);
-        c.set(SC.ENERGY_COST, 1, 2);
+        c.set(SC.MANA_COST, 1, 1);
+        c.set(SC.ENERGY_COST, 1, 1);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 1, 4);
-        c.setMaxLevel(8);
+        c.setMaxLevel(4);
         return c;
     }
 

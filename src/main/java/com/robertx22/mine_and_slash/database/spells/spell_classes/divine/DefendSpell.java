@@ -65,7 +65,7 @@ public class DefendSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 12, 8);
         c.set(SC.DURATION_TICKS, 20 * 6, 20 * 6);
 
-        c.setMaxLevel(10);
+        c.setMaxLevel(8);
         return c;
     }
 

@@ -46,7 +46,7 @@ public class ThunderDashEnergySynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 10);
+        c.set(SC.BASE_VALUE, 2, 12);
         c.setMaxLevel(4);
         return c;
     }

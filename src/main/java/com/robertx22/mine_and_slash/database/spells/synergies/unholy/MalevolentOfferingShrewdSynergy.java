@@ -53,7 +53,7 @@ public class MalevolentOfferingShrewdSynergy extends OnSpellCastSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.05F, 0.1F);
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.05F, 0.15F);
         c.set(SC.BASE_VALUE, 0, 0);
         c.setMaxLevel(8);
         return c;

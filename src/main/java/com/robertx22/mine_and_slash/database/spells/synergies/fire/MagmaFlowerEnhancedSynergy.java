@@ -34,15 +34,11 @@ public class MagmaFlowerEnhancedSynergy extends Synergy {
     }
 
     @Override
-    public int getMaxSpellLevelNormal() {
-        return 1;
-    }
-
-    @Override
     public void alterSpell(PreCalcSpellConfigs c) {
         c.set(SC.MANA_COST, 5, 5);
         c.set(SC.TICK_RATE, 5, 5);
         c.set(SC.DURATION_TICKS, 120, 120);
+        c.setMaxLevel(1);
     }
 
     @Override

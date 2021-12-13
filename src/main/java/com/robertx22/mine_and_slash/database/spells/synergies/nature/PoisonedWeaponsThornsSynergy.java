@@ -38,7 +38,7 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
 
         list.add(new StringTextComponent("While Poisoned Weapons is active,"));
         list.add(new StringTextComponent("attacks deals extra damage to"));
-        list.add(new StringTextComponent("targets affected by Plague: "));
+        list.add(new StringTextComponent("targets affected by " + ThornsEffect.INSTANCE.locNameForLangFile() + ": "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -53,7 +53,7 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 9);
+        c.set(SC.BASE_VALUE, 2, 11);
         c.setMaxLevel(8);
         return c;
     }

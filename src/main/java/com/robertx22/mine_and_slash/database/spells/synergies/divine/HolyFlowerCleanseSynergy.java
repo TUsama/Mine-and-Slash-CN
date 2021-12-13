@@ -44,17 +44,8 @@ public class HolyFlowerCleanseSynergy extends OnHealedSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.setMaxLevel(1);
         return c;
-    }
-
-    @Override
-    public int getMaxSpellLevelNormal() {
-        return 1;
-    }
-
-    @Override
-    public int getMaxSpellLevelBuffed() {
-        return 1;
     }
 
     @Override

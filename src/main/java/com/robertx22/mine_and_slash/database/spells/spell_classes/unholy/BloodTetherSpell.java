@@ -69,7 +69,7 @@ public class BloodTetherSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 20, 16);
 
-        c.setMaxLevel(10);
+        c.setMaxLevel(8);
         return c;
     }
 

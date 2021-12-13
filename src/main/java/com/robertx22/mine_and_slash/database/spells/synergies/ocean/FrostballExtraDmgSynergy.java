@@ -54,8 +54,8 @@ public class FrostballExtraDmgSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 50, 90);
-        c.setMaxLevel(8);
+        c.set(SC.CHANCE, 50, 80);
+        c.setMaxLevel(4);
         return c;
     }
 
