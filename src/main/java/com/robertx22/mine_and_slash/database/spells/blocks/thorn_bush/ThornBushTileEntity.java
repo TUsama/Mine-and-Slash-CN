@@ -57,6 +57,7 @@ public class ThornBushTileEntity extends BaseSpellTileEntity {
 
                 entities.forEach(target -> {
                     SpellDamageEffect dmg = getSetupSpellDamage(target);
+                    dmg.removeKnockback();
                     dmg.Activate();
 
                     SoundUtils.playSound(target, SoundEvents.BLOCK_WET_GRASS_BREAK, 1, 1);
