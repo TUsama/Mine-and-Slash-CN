@@ -1,5 +1,9 @@
 3.12.15:
+- Nature's Armor has a lower mana cost and cast time at max level.
+- Nature's Armor now has a static 60 second cooldown instead of going from 70 -> 60 seconds.
 - Thorny Bush no longer knocks back enemies.
+- Defend now casts instantly.
+- Defend now lasts 5 seconds instead of 6.
 
 3.12.14:
 - Spell Changes:
