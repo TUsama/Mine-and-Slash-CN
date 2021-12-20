@@ -12,6 +12,7 @@ import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectType;
@@ -54,7 +55,7 @@ public class ImbueEffect extends BasePotionEffect {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 2, 5);
-        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.18F, 0.36F);
         return p;
     }
 
@@ -74,7 +75,10 @@ public class ImbueEffect extends BasePotionEffect {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical Attack Damage"));
-        list.add(new SText(TextFormatting.GREEN + "Hunting spell arrows will deal additional"));
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        TooltipUtils.addEmpty(list);
+        list.add(new SText(TextFormatting.GREEN + "Hunting spell arrows deal additional"));
         list.add(new SText(TextFormatting.GREEN + "damage: "));
 
         list.addAll(getCalc(info.player)

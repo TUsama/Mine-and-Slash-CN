@@ -38,7 +38,7 @@ public class WhirlwindEnhancedSynergy extends Synergy {
     public void alterSpell(PreCalcSpellConfigs c) {
         c.set(SC.MANA_COST, 3, 3);
         c.set(SC.ENERGY_COST, 6, 6);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, -0.3F, -0.3F);
+        c.set(SC.ATTACK_SCALE_VALUE, -0.25F, -0.25F);
         c.set(SC.COOLDOWN_SECONDS, -12F, -12F);
         c.setMaxLevel(1);
     }

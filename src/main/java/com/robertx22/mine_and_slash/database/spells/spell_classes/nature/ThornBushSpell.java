@@ -66,7 +66,7 @@ public class ThornBushSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.6F);
         c.set(SC.BASE_VALUE, 1, 5);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.1F, 0.35F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.1F, 0.3F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 60, 40);
         c.set(SC.TICK_RATE, 8, 4);
@@ -98,6 +98,8 @@ public class ThornBushSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        TooltipUtils.addEmpty(list);
         list.add(new SText("Summons a bush that attacks enemies nearby: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

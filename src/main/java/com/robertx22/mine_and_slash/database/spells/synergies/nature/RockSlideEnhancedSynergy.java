@@ -36,6 +36,8 @@ public class RockSlideEnhancedSynergy extends OnDamageDoneSynergy {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Rock Slide"));
 
         TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Deal extra damage to enemies affected by at"));
         list.add(new StringTextComponent("least 6 (half of max) stacks of " + ThornsEffect.INSTANCE.locNameForLangFile() + ": "));
@@ -80,7 +82,7 @@ public class RockSlideEnhancedSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 4, 8);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.2F, 0.35F);
         c.setMaxLevel(8);
         return c;
     }

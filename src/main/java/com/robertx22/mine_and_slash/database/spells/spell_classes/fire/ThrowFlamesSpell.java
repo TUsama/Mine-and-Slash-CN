@@ -68,7 +68,7 @@ public class ThrowFlamesSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.ENERGY_COST, 3, 5);
         c.set(SC.BASE_VALUE, 1, 5);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.7F, 1.2F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 1.05F);
         c.set(SC.SHOOT_SPEED, 1.0F, 1.25F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
@@ -103,7 +103,8 @@ public class ThrowFlamesSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Converts Phys Weapon DMG to Fire."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Strike the air in front of you, sending out fiery waves: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

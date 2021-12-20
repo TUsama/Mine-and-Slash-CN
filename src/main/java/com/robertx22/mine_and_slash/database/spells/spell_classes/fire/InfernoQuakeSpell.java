@@ -79,7 +79,7 @@ public class InfernoQuakeSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 4, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 1, 3);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.5F, 2.25F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.3F, 2F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 7, 4);
@@ -105,8 +105,9 @@ public class InfernoQuakeSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Converts Phys Weapon DMG to Fire and"));
-        list.add(new StringTextComponent("damage enemies in front of you: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent("Damage enemies in front of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

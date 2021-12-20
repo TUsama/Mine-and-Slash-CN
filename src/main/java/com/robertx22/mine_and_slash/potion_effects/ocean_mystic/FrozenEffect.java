@@ -103,7 +103,7 @@ public class FrozenEffect extends BasePotionEffect implements IOnBasicAttackedPo
 
         List<ITextComponent> list = new ArrayList<>();
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Frost Spell Damage"));
-        list.add(new StringTextComponent("Freezes enemy, preventing movement."));
+        list.add(new StringTextComponent(TextFormatting.AQUA + "Freezes enemy, preventing movement."));
         list.add(new StringTextComponent("Attacks against the enemy deal extra damage: "));
         list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 

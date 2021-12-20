@@ -151,9 +151,9 @@ public class HeavyStrikeSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Melee"));
 
         TooltipUtils.addEmpty(list);
-
-        list.add(new StringTextComponent("Converts health to damage"));
-        list.add(new StringTextComponent("enemies in melee: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Health to Phys DMG."));
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent("Damage enemies in front of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

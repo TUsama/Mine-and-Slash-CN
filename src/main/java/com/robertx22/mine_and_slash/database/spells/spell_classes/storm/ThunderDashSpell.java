@@ -8,6 +8,8 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
+import com.robertx22.mine_and_slash.potion_effects.shaman.PowerSurgeEffect;
+import com.robertx22.mine_and_slash.potion_effects.shaman.ThunderDashEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -19,6 +21,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
@@ -50,7 +53,7 @@ public class ThunderDashSpell extends BaseSpell {
 
                 @Override
                 public SpellCastType castType() {
-                    return SpellCastType.SPECIAL;
+                    return SpellCastType.GIVE_EFFECT;
                 }
 
                 @Override
@@ -62,7 +65,8 @@ public class ThunderDashSpell extends BaseSpell {
                 public Elements element() {
                     return Elements.Thunder;
                 }
-            }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
+            }.addsEffect(ThunderDashEffect.INSTANCE)
+                    .setSwingArmOnCast()
         );
     }
 
@@ -74,9 +78,9 @@ public class ThunderDashSpell extends BaseSpell {
         c.set(SC.MANA_COST, 20, 2);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 3, 14);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 1, 1);
+        c.set(SC.COOLDOWN_SECONDS, 10, 10);
+        c.set(SC.DURATION_TICKS, 20 * 3, 20 * 6);
 
         c.setMaxLevel(4);
 
@@ -103,14 +107,17 @@ public class ThunderDashSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Movement"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Duration, Self"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Dash in your current direction,"));
-        list.add(new StringTextComponent("damages all enemies in the path: "));
+        list.add(new StringTextComponent("Applies buff: "));
+        list.addAll(ThunderDashEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
-        list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
+        //list.add(new StringTextComponent("Dash in your current direction,"));
+        //list.add(new StringTextComponent("damages all enemies in the path: "));
+
+        //list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
         return list;
 
@@ -121,6 +128,14 @@ public class ThunderDashSpell extends BaseSpell {
         return Words.ThunderDash;
     }
 
+    @Override
+    public void spawnParticles(SpellCastContext ctx) {
+        if (ctx.caster.world.isRemote) {
+            ParticleUtils.spawnParticles(ParticleTypes.POOF, ctx.caster, 10);
+        }
+    }
+
+    /*
     public static void dashForward(LivingEntity caster) {
 
         Vec3d playerLook = caster.getLook(1);
@@ -171,6 +186,7 @@ public class ThunderDashSpell extends BaseSpell {
         SoundUtils.playSound(caster, ModSounds.DASH.get(), 1, 2);
 
     }
+    */
 
     private static class SingletonHolder {
         private static final ThunderDashSpell INSTANCE = new ThunderDashSpell();

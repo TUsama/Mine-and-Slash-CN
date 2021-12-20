@@ -60,7 +60,7 @@ public class VolcanoSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 6, 17);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.35F, 0.6F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.3F, 0.55F);
         c.set(SC.CAST_TIME_TICKS, 90, 60);
         c.set(SC.COOLDOWN_SECONDS, 28, 25);
         c.set(SC.RADIUS, 3.0F, 6.0F);
@@ -97,6 +97,8 @@ public class VolcanoSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summons an erupting volcano: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

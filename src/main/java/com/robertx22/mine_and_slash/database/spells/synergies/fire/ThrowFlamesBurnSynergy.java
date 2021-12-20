@@ -48,6 +48,8 @@ public class ThrowFlamesBurnSynergy extends OnAttackSpellDmgDoneSynergy {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Meteoric Strike"));
 
         TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Consumes a Burn stack on the target to"));
         list.add(new StringTextComponent("explode, dealing AOE damage: "));
@@ -67,7 +69,7 @@ public class ThrowFlamesBurnSynergy extends OnAttackSpellDmgDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.0F, 2.25F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.9F, 2F);
         c.set(SC.RADIUS, 4, 8);
         c.setMaxLevel(8);
         return c;

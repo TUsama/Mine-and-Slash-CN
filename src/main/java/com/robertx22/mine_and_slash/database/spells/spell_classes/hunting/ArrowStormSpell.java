@@ -61,7 +61,7 @@ public class ArrowStormSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 13, 19);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.75F, 1.3F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.7F, 1.2F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 36, 26);
         c.set(SC.TICK_RATE, 15, 5);
@@ -99,6 +99,8 @@ public class ArrowStormSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summons an arrow storm, dealing damage with each arrow: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

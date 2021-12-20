@@ -45,7 +45,7 @@ public class ImbueSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Elemental;
+                    return Elements.Physical;
                 }
             }.addsEffect(ImbueEffect.getInstance()).setSwingArmOnCast());
 
@@ -59,7 +59,7 @@ public class ImbueSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 5);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.18F, 0.36F);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 36, 30);
         c.set(SC.DURATION_TICKS, 20 * 30, 20 * 45);

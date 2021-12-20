@@ -104,7 +104,8 @@ public class ChillingFieldSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Storm"));
 
         TooltipUtils.addEmpty(list);
-
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Mana to Frost DMG."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summon a field of frost, slowly damaging"));
         list.add(new StringTextComponent("enemies inside and applying: " + FrostEffect.INSTANCE.locNameForLangFile()));
 

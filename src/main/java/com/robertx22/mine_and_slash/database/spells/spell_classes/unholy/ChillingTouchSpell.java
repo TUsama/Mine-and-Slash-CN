@@ -127,7 +127,7 @@ public class ChillingTouchSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 1.5F, 2.5F);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 3, 10);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.1F, 1.7F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1F, 1.5F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 3, 2);
         c.set(SC.TIMES_TO_CAST, 1, 1);
@@ -158,8 +158,9 @@ public class ChillingTouchSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Converts Phys Weapon DMG to Frost and"));
-        list.add(new StringTextComponent("attack enemies in melee: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Frost."));
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent("Attack enemies in front of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

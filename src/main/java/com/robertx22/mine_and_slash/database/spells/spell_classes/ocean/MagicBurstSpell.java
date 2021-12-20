@@ -114,7 +114,8 @@ public class MagicBurstSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area"));
 
         TooltipUtils.addEmpty(list);
-
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Magic Shield to Frost DMG."));
+        TooltipUtils.addEmpty(list);
         list.add(new SText("Draw power from your magic shield"));
         list.add(new SText("to damage nearby enemies: "));
 

@@ -68,7 +68,7 @@ public class SummonZombieSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 3, 18);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.25F, 0.85F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.85F);
         c.set(SC.BONUS_HEALTH, 0F, 2.0F);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_SECONDS, 30, 30);
@@ -106,6 +106,8 @@ public class SummonZombieSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summon a zombie that aids in combat."));
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

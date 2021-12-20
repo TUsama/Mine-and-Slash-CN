@@ -120,7 +120,7 @@ public class FlameBlitzSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 3, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 1, 2);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.55F, 0.8F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.45F, 0.65F);
         c.set(SC.CAST_TIME_TICKS, 30, 40);
         c.set(SC.COOLDOWN_SECONDS, 9, 6);
         c.set(SC.TIMES_TO_CAST, 4, 6);
@@ -151,8 +151,9 @@ public class FlameBlitzSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Converts Phys Weapon DMG to Fire and"));
-        list.add(new StringTextComponent("rapidly strikes enemies in melee: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent("Rapidly strikes enemies directly in front of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

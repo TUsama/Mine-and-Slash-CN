@@ -40,7 +40,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160895",
-            (double) -0.1F, AttributeModifier.Operation.MULTIPLY_TOTAL
+            (double) -0.1F, AttributeModifier.Operation.MULTIPLY_BASE
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -105,7 +105,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 1, 1);
-        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.05F, 0.15F);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.05F, 0.15F);
         p.set(SC.TICK_RATE, 20, 20);
         p.set(SC.DURATION_TICKS, 10 * 20, 20 * 20);
         return p;
@@ -130,7 +130,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical DoT Damage"));
-        list.add(new StringTextComponent("Reduces movement speed by 10%."));
+        list.add(new StringTextComponent(TextFormatting.AQUA + "Reduces movement speed by 10%."));
         return list;
     }
 }

@@ -72,7 +72,7 @@ public class GorgonsGazeSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 12, 26);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.6F, 2.2F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.4F, 2F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.CAST_TIME_TICKS, 25, 20);
         c.set(SC.COOLDOWN_SECONDS, 22, 18);
@@ -99,6 +99,8 @@ public class GorgonsGazeSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Turn all enemies in front of you into stone."));
         list.add(new StringTextComponent("Applies: "));
 

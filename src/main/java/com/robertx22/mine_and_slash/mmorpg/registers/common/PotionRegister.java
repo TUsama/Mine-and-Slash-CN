@@ -68,6 +68,7 @@ public class PotionRegister {
         reg.register(ExertEffect.getInstance());
         reg.register(HunterInstinctEffect.getInstance());
         reg.register(WindWalkEffect.INSTANCE);
+        reg.register(ThunderDashEffect.INSTANCE);
         reg.register(SilentWindEffect.INSTANCE);
         reg.register(SnareEffect.INSTANCE);
         reg.register(WeakenEffect.INSTANCE);

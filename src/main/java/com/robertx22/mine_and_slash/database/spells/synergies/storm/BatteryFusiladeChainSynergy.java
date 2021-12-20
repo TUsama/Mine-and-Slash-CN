@@ -44,6 +44,8 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Battery Fusillade"));
 
         TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Mana to Lightning DMG."));
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("If user has Lightning Essence, projectiles"));
         list.add(new StringTextComponent("have a chance to release a small nova upon"));

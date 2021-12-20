@@ -66,7 +66,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 13, 24);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.75F, 1.05F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.65F, 0.95F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 9, 5);
         c.set(SC.TIMES_TO_CAST, 1, 1);
@@ -101,8 +101,9 @@ public class SpearOfJudgementSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Converts Phys Weapon DMG to Lightning and"));
-        list.add(new StringTextComponent("throws out a spear that deals damage and"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Lightning."));
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent("Throw out a spear that deals damage and"));
         list.add(new StringTextComponent("applies Judgment: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

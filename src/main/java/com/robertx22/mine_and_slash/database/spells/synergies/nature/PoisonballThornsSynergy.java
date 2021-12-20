@@ -35,6 +35,8 @@ public class PoisonballThornsSynergy extends OnDamageDoneSynergy {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Spirit Blast"));
 
         TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Deal extra damage to enemies affected by " + ThornsEffect.INSTANCE.locNameForLangFile() + ": "));
 
@@ -78,7 +80,7 @@ public class PoisonballThornsSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 1, 3);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.1F, 0.3F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.1F, 0.25F);
         c.setMaxLevel(8);
         return c;
     }

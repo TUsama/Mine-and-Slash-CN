@@ -71,7 +71,7 @@ public class HuntingWolfSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 1, 3);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.5F, 2.25F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.5F, 2.25F);
         c.set(SC.BONUS_HEALTH, 0F, 3.0F);
         c.set(SC.CAST_TIME_TICKS, 60, 60);
         c.set(SC.COOLDOWN_SECONDS, 45, 45);
@@ -109,6 +109,8 @@ public class HuntingWolfSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summon a hunting wolf that aids in combat."));
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

@@ -103,7 +103,7 @@ public class Hammer extends BaseWeapon implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.DOUBLE))
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF_MORE))
         );
     }
 

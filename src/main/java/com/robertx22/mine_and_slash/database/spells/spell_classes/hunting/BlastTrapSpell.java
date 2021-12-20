@@ -66,7 +66,7 @@ public class BlastTrapSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 2.5F, 4.0F);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.25F, 3.5F);
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
@@ -100,6 +100,7 @@ public class BlastTrapSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
         list.add(new StringTextComponent("Throw out a trap that explodes,"));
         list.add(new StringTextComponent("dealing AOE fire damage: "));
 

@@ -44,7 +44,7 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160892",
-            (double) -0.95F, AttributeModifier.Operation.MULTIPLY_TOTAL
+            (double) -0.95F, AttributeModifier.Operation.MULTIPLY_BASE
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -98,8 +98,8 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
 
         List<ITextComponent> list = new ArrayList<>();
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Nature Spell Damage"));
-        list.add(new StringTextComponent("Petrifies the enemy, preventing movement. Next"));
-        list.add(new StringTextComponent("attack deals extra damage but breaks this effect: "));
+        list.add(new StringTextComponent(TextFormatting.AQUA + "Petrifies the enemy, preventing movement."));
+        list.add(new StringTextComponent("Next attack deals extra damage but breaks this effect: "));
         list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
 
         return list;

@@ -105,7 +105,8 @@ public class BoneSquallSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Channel"));
 
         TooltipUtils.addEmpty(list);
-
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Health to Phys DMG."));
+        TooltipUtils.addEmpty(list);
         list.add(new SText("Expend your own health and send out a flurry"));
         list.add(new SText("of bones to damage enemies around you: "));
 

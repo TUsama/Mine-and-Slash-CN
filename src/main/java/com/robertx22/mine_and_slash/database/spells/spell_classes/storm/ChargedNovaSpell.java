@@ -106,9 +106,10 @@ public class ChargedNovaSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new SText("Convert Phys Weapon DMG to Lightning, and channel"));
-        list.add(new SText("your mana into your blade to damage enemies around"));
-        list.add(new SText("you in a sweeping motion: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Mana to Lightning DMG."));
+        TooltipUtils.addEmpty(list);
+        list.add(new SText("Channel your mana into your blade to damage enemies"));
+        list.add(new SText("around you in a sweeping motion: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

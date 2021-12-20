@@ -28,6 +28,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160892",
-                (double) 0.25, AttributeModifier.Operation.MULTIPLY_TOTAL
+                (double) 0.25, AttributeModifier.Operation.MULTIPLY_BASE
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -99,7 +100,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent("Increases base weapon attack speed by 25%."));
+        list.add(new StringTextComponent(TextFormatting.AQUA + "Increases base weapon attack speed by 25%."));
         return list;
 
     }

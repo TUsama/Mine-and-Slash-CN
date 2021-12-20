@@ -70,7 +70,7 @@ public class WhirlwindSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 12, 18);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.5F, 1.1F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.45F, 1.0F);
         c.set(SC.CAST_TIME_TICKS, 140, 260);
         c.set(SC.COOLDOWN_SECONDS, 36, 26);
         c.set(SC.RADIUS, 1.5F, 3);
@@ -106,6 +106,8 @@ public class WhirlwindSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        TooltipUtils.addEmpty(list);
         list.add(new SText("Spin to do damage to enemies around you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

@@ -78,7 +78,7 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 0, 0);
-        p.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.25F, 0.5F);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.25F, 0.5F);
         p.set(SC.DURATION_TICKS, 100, 120);
         p.set(SC.TICK_RATE, 20, 20);
         return p;
@@ -103,7 +103,7 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
 
         list.add(new StringTextComponent("Attack to add additional stacks. At max stacks,"));
         list.add(new StringTextComponent("consume the stacks to deal extra damage based"));
-        list.add(new StringTextComponent("on the applicator's Phys Weapon DMG: "));
+        list.add(new StringTextComponent("on the applicator's Weapon DMG: "));
 
         return list;
 

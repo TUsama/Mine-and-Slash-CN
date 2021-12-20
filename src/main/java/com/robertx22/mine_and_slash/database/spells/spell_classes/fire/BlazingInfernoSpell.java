@@ -71,7 +71,7 @@ public class BlazingInfernoSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 4, 10);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.45F, 0.75F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.4F, 0.7F);
         c.set(SC.CAST_TIME_TICKS, 60, 40);
         c.set(SC.COOLDOWN_SECONDS, 10, 7);
         c.set(SC.RADIUS, 3, 5);
@@ -106,7 +106,9 @@ public class BlazingInfernoSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new SText("Converts Phys Weapon DMG to Fire to damage to enemies around you: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        TooltipUtils.addEmpty(list);
+        list.add(new SText("Damage enemies around you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

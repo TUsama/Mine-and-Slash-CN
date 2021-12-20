@@ -128,7 +128,7 @@ public class PurifyingFiresSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 4, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 3, 7);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.2F, 1.65F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.1F, 1.5F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 50, 30);
         c.set(SC.TIMES_TO_CAST, 1, 1);
@@ -159,8 +159,9 @@ public class PurifyingFiresSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Converts Phys Weapon DMG to Fire and"));
-        list.add(new StringTextComponent("attack enemies in melee: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent("Attack enemies in front of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

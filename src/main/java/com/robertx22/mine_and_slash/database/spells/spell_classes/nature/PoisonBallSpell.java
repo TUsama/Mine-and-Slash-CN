@@ -63,7 +63,7 @@ public class PoisonBallSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 6, 10);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.6F, 1.0F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.55F, 0.9F);
         c.set(SC.SHOOT_SPEED, 0.25F, 0.25F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
@@ -99,6 +99,8 @@ public class PoisonBallSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Throw a projectile, damaging enemies in its path : "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

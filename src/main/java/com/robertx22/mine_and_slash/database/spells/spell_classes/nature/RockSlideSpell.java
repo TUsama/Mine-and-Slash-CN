@@ -66,7 +66,7 @@ public class RockSlideSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 8, 16);
-        c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 0.4F, 0.8F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.35F, 0.7F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 6, 3);
         c.set(SC.TICK_RATE, 8, 8);
@@ -99,6 +99,8 @@ public class RockSlideSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summon a stone avalanche that damages enemies inside: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

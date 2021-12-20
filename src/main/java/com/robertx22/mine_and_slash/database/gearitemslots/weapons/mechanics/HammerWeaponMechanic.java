@@ -19,7 +19,7 @@ public class HammerWeaponMechanic extends WeaponMechanic {
     @Override
     public List<ITextComponent> tooltipDesc() {
         return Arrays.asList(
-            new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attacking single target 2X Damage"),
+            new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Deals damage in a small AOE."),
             new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Max targets: 5")
         );
     }
@@ -32,7 +32,7 @@ public class HammerWeaponMechanic extends WeaponMechanic {
             .getRandomRangeValue();
 
         List<LivingEntity> targets = EntityFinder.start(data.source, LivingEntity.class, data.target.getPositionVector())
-            .radius(1.2F)
+            .radius(1F)
             .build();
 
         if (targets.size() > 5) {
