@@ -1,3 +1,6 @@
+3.13.2:
+- Fixed a bug where the dodge map affix was actually giving mobs armor.
+
 3.13.1:
 - Hammers deal 16% more damage than previously. They're down 12.5% from patch 3.12.15 instead of 25%.
 - Increased the AOE radius of hammers by 50% from 1 -> 1.5.
