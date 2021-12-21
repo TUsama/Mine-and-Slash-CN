@@ -19,8 +19,8 @@ public class HammerWeaponMechanic extends WeaponMechanic {
     @Override
     public List<ITextComponent> tooltipDesc() {
         return Arrays.asList(
-            new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Deals damage in a small AOE."),
-            new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Max targets: 5")
+            new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Deals half damage to enemies near the target."),
+            new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Max Targets: 5")
         );
     }
 
@@ -32,16 +32,16 @@ public class HammerWeaponMechanic extends WeaponMechanic {
             .getRandomRangeValue();
 
         List<LivingEntity> targets = EntityFinder.start(data.source, LivingEntity.class, data.target.getPositionVector())
-            .radius(1F)
+            .radius(1.5F)
             .build();
 
         if (targets.size() > 5) {
             targets = targets.subList(0, 5);
         }
 
-        if (targets.size() == 1) {
-            num *= 2;
-        }
+        //if (targets.size() == 1) {
+        //    num *= 2;
+        //}
 
         for (LivingEntity en : targets) {
 
@@ -51,7 +51,7 @@ public class HammerWeaponMechanic extends WeaponMechanic {
                 );
                 dmg.Activate();
             } else {
-                DamageEffect dmg = new DamageEffect(null, data.source, en, num, data.sourceData, data.targetData,
+                DamageEffect dmg = new DamageEffect(null, data.source, en, (int) (num * 0.5F), data.sourceData, data.targetData,
                     EffectData.EffectTypes.BASIC_ATTACK, WeaponTypes.Hammer
                 );
                 dmg.Activate();
