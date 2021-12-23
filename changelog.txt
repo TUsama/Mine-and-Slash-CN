@@ -1,4 +1,16 @@
 3.13.2:
+- The goal of the following changes is to make each "ball" spell feel unique to play. Nature is unchanged because I just changed it. I also aimed to improve the feeling of Storm early-game.
+- XX New Ocean Spell: Frost Totem - fires piercing glacial blasts at the nearest enemy that deal frost damage.
+- XX New Storm Spell: Chain Lightning - fire a crackling streak of lightning that has a chance to bounce from the initial target to the next closest target (can bounce between two targets!).
+- Ice Bolt no longer pierces and has reverted to its original 'bolt' form. It has received a buff to damage to keep it in line with the other new ball spells, however.
+- Fireballs now explode upon contact and deal AOE damage.
+- Lightning Spear has been reworked and now fires a piercing projectile. It functions similarly to Ice Bolt but goes further and is larger. The below changes were made to keep it in line with the power of the other projectiles. It's still stronger than before.
+- Lightning Spear now has a longer cooldown and deals about 9% less damage.
+- Lightning Spear no longer gives the caster a movement speed boost upon hitting the enemy.
+- Electric Prowess chance to apply Lightning Essence on self has been reduced greatly since the projectile now pierces.
+- Lightning Totem can now be learnt at level 5 instead of 10.
+- Battery Fusilade can now be learnt at level 40 instead of 50.
+- Added the "Pierce" tag to Ice Orb, Spirit Blast, and Lightning Spear.
 - Fixed a bug where the dodge map affix was actually giving mobs armor.
 
 3.13.1:

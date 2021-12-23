@@ -58,6 +58,7 @@ public class Spells implements ISlashRegistryInit {
                     add(IceBladeBuff.getInstance());
                     add(FreezeSpell.getInstance());
                     add(ChillingFieldSpell.getInstance());
+                    add(FrostTotemSpell.getInstance());
 
                     add(RockSlideSpell.getInstance());
                     add(NatureBalmSpell.getInstance());
@@ -83,6 +84,7 @@ public class Spells implements ISlashRegistryInit {
                     add(QuickChargeSpell.getInstance());
                     add(BatteryFusiladeSpell.getInstance());
                     add(RechargeSpell.getInstance());
+                    add(ChainLightningSpell.getInstance());
 
                     add(BlazingInfernoSpell.getInstance());
                     add(FireballSpell.getInstance());

@@ -78,7 +78,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(1, 5);
+        return new AbilityPlace(6, 4);
     }
 
     public static BatteryFusiladeSpell getInstance() {
@@ -101,7 +101,7 @@ public class BatteryFusiladeSpell extends BaseSpell {
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Mana to Lightning DMG."));
         TooltipUtils.addEmpty(list);
-        list.add(new SText("Discharge mana and rapidly fire bolts of lightning: "));
+        list.add(new SText("Discharge mana and rapidly fire bolts of lightning."));
 
         list.add(SpellTooltips.singleTargetProjectile());
 

@@ -1,7 +1,7 @@
 package com.robertx22.mine_and_slash.database.spells.spell_classes.ocean;
 
-import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.FrostballEntity;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.SpellTooltips;
+import com.robertx22.mine_and_slash.database.spells.entities.proj.FrostTotemEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.proj.LightningTotemEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.SpellCastType;
@@ -23,9 +23,9 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FrostballSpell extends BaseSpell {
+public class FrostTotemSpell extends BaseSpell {
 
-    private FrostballSpell() {
+    private FrostTotemSpell() {
         super(
             new ImmutableSpellConfigs() {
 
@@ -41,50 +41,53 @@ public class FrostballSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ENTITY_SNOWBALL_THROW;
+                    return SoundEvents.ENTITY_ARROW_SHOOT;
                 }
 
                 @Override
                 public Elements element() {
                     return Elements.Water;
                 }
-            }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                    .summonsEntity(world -> new FrostballEntity(world)).setSwingArmOnCast());
+            }.cooldownIfCanceled(true)
+                .summonsEntity(w -> new FrostTotemEntity(w))
+                .setSwingArmOnCast()
+        );
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 4, 7);
+        c.set(SC.MANA_COST, 9, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 6F, 12F);
-        c.set(SC.SHOOT_SPEED, 1.8F, 2.2F);
+        c.set(SC.BASE_VALUE, 5, 10);
+        c.set(SC.SHOOT_SPEED, 2F, 2.4F);
+        c.set(SC.RADIUS, 8F, 8F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 30, 30);
-        c.set(SC.DURATION_TICKS, 20, 20);
+        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.COOLDOWN_SECONDS, 16, 12);
+        c.set(SC.TICK_RATE, 50, 30);
+        c.set(SC.DURATION_TICKS, 300, 300);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(3, 2);
     }
 
-    public static FrostballSpell getInstance() {
+    public static FrostTotemSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "frostball";
+        return "frost_totem";
     }
 
     @Override
@@ -93,13 +96,15 @@ public class FrostballSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Duration, Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Entity, Projectile"));
 
         TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Explosion AOE is half of the totem's detection AOE."));
+        TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Fire a bolt of ice, dealing cold damage to"));
-        list.add(new StringTextComponent("the first enemy hit: "));
-
+        list.add(new StringTextComponent("Summons a totem that fires a glacial blast at the"));
+        list.add(new StringTextComponent("nearest enemy that explodes upon contact, dealing"));
+        list.add(new StringTextComponent("frost damage: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -109,10 +114,10 @@ public class FrostballSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.Frostball;
+        return Words.FrostTotem;
     }
 
     private static class SingletonHolder {
-        private static final FrostballSpell INSTANCE = new FrostballSpell();
+        private static final FrostTotemSpell INSTANCE = new FrostTotemSpell();
     }
 }

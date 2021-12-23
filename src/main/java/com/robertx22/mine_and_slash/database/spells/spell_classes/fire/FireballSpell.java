@@ -60,13 +60,14 @@ public class FireballSpell extends BaseSpell {
         c.set(SC.MANA_COST, 5, 8);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 6, 12);
+        c.set(SC.BASE_VALUE, 5, 11);
         c.set(SC.SHOOT_SPEED, 2.2F, 2.6F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 35, 35);
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.DURATION_TICKS, 20, 20);
+        c.set(SC.RADIUS, 1F, 2F);
 
         c.setMaxLevel(16);
 
@@ -93,11 +94,12 @@ public class FireballSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Projectile"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Projectile"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(SpellTooltips.singleTargetProjectile());
+        list.add(new StringTextComponent("Send forth an uncontrollable flame that explodes"));
+        list.add(new StringTextComponent("upon contact, dealing fire damage in an area: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

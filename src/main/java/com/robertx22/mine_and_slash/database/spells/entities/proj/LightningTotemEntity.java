@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.spells.entities.proj;
 import com.robertx22.mine_and_slash.database.spells.entities.bases.EntityBaseProjectile;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
@@ -78,14 +79,14 @@ public class LightningTotemEntity extends EntityBaseProjectile {
                 });
             } else {
 
-                SoundUtils.playSound(this, SoundEvents.BLOCK_REDSTONE_TORCH_BURNOUT, 1, 1);
+                this.playSound(ModSounds.THUNDER.get(), 1f, 1.4f);
                 // TODO why isnt this being cast?
 
             }
         }
         if (this.ticksExisted % tickRate == 4) {
             if (!world.isRemote) {
-                SoundUtils.playSound(this, SoundEvents.BLOCK_REDSTONE_TORCH_BURNOUT, 1, 1);
+                this.playSound(ModSounds.THUNDER.get(), 1f, 1.4f);
             }
         }
 

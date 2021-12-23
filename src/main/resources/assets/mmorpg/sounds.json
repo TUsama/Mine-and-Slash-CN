@@ -18,6 +18,10 @@
     "splash": {
         "category": "hostile",
         "sounds": [{"name": "mmorpg:splash", "stream": true}]
+    },
+    "thunder": {
+        "category": "hostile",
+        "sounds": [{"name": "mmorpg:thunder", "stream": true}]
     }
 
 }

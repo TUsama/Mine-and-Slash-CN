@@ -1,8 +1,11 @@
 package com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt;
 
 import com.robertx22.mine_and_slash.database.spells.entities.bases.BaseElementalBoltEntity;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
+import com.robertx22.mine_and_slash.saveclasses.EntitySpellData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.GeometryUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
@@ -13,6 +16,8 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.FMLPlayMessages;
+
+import java.util.List;
 
 public class FireballEntity extends BaseElementalBoltEntity {
 
@@ -33,7 +38,8 @@ public class FireballEntity extends BaseElementalBoltEntity {
     @Override
     public void initSpellEntity() {
         this.setNoGravity(true);
-        this.setDeathTime(20);
+        this.setDeathTime(getSpellData().configs.get(SC.DURATION_TICKS)
+                .intValue());
     }
 
     @Override
@@ -43,9 +49,19 @@ public class FireballEntity extends BaseElementalBoltEntity {
 
     @Override
     public void onHit(LivingEntity entity) {
-        dealSpellDamageTo(entity);
 
-        entity.playSound(SoundEvents.ENTITY_GENERIC_HURT, 0.8F, 1F);
+        EntitySpellData sdata = getSpellData();
+        float RADIUS = sdata.configs.get(SC.RADIUS);
+
+        List<LivingEntity> entities = EntityFinder.start(
+                getCaster(), LivingEntity.class, getPositionVector())
+                .radius(RADIUS)
+                .build();
+
+        entities.forEach(x -> dealSpellDamageTo(x));
+
+        ParticleUtils.spawn(ParticleTypes.EXPLOSION, world, getPositionVector());
+        entity.playSound(SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, 0.9F, 1F);
     }
 
     @Override
@@ -54,7 +70,7 @@ public class FireballEntity extends BaseElementalBoltEntity {
         if (world.isRemote) {
             if (this.ticksExisted > 1) {
                 for (int i = 0; i < 5; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.1F);
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.2F);
                     ParticleUtils.spawn(ParticleTypes.FLAME, world, p);
                 }
             }

@@ -49,6 +49,8 @@ public class EntityRegister {
     public static final EntityType<? extends TridentEntity> HOLY_SPEAR;
     public static final EntityType<? extends Entity> LIGHTNING_TOTEM;
     public static final EntityType<? extends Entity> LIGHTNING_BALL;
+    public static final EntityType<? extends Entity> LIGHTNING;
+    public static final EntityType<? extends Entity> CHAIN_LIGHTNING;
 
     public static final EntityType<? extends Entity> FIREBOLT;
     public static final EntityType<? extends Entity> FIRE_BOMB;
@@ -67,6 +69,8 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> TIDAL_WAVE;
     public static final EntityType<? extends Entity> GROUND_SLAM;
     public static final EntityType<? extends Entity> FROZEN_ORB;
+    public static final EntityType<? extends Entity> FROST_TOTEM;
+    public static final EntityType<? extends Entity> FROST_BLAST;
     public static final EntityType<? extends Entity> LIFE_SIPHON;
 
     public static final EntityType<RangerArrowEntity> RANGER_ARROW;
@@ -94,6 +98,8 @@ public class EntityRegister {
         HOLY_SPEAR = projectile(SpearOfJudgementEntity::new, SpearOfJudgementEntity::new, "holy_spear", false);
 
         CHILLING_FIELD = projectile(ChillingFieldEntity::new, ChillingFieldEntity::new, "chilling_field");
+        FROST_BLAST = projectile(FrostBlastEntity::new, FrostBlastEntity::new, "frost_blast");
+        FROST_TOTEM = projectile(FrostTotemEntity::new, FrostTotemEntity::new, "frost_totem");
         STEAM_CLOUD = projectile(SteamCloudEntity::new, SteamCloudEntity::new, "steam_cloud");
         BLIZZARD = projectile(BlizzardEntity::new, BlizzardEntity::new, "blizzard");
         FROSTBOLT = projectile(FrostballEntity::new, FrostballEntity::new, "frostball");
@@ -111,6 +117,8 @@ public class EntityRegister {
         THUNDER_SPEAR = projectile(ThunderspearEntity::new, ThunderspearEntity::new, "thunder_spear", false);
         LIGHTNING_TOTEM = projectile(LightningTotemEntity::new, LightningTotemEntity::new, "lightning_totem");
         LIGHTNING_BALL = projectile(LightningBallEntity::new, LightningBallEntity::new, "lightning_ball");
+        LIGHTNING = projectile(LightningEntity::new, LightningEntity::new, "lightning");
+        CHAIN_LIGHTNING = projectile(ChainLightningEntity::new, ChainLightningEntity::new, "chain_lightning");
 
         FIREBOLT = projectile(FireballEntity::new, FireballEntity::new, "fireball");
         FIRE_BOMB = projectile(FireBombEntity::new, FireBombEntity::new, "fire_bomb");

@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.entities.proj;
 
 import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.entities.bases.EntityBaseProjectile;
+import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.FrostBlastEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
@@ -13,7 +14,6 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -26,19 +26,19 @@ import net.minecraftforge.fml.network.FMLPlayMessages;
 
 import java.util.List;
 
-public class ArrowTotemEntity extends EntityBaseProjectile {
+public class FrostTotemEntity extends EntityBaseProjectile {
 
-    public ArrowTotemEntity(EntityType<? extends Entity> type, World world) {
+    public FrostTotemEntity(EntityType<? extends Entity> type, World world) {
         super(type, world);
     }
 
-    public ArrowTotemEntity(World worldIn) {
-        super(EntityRegister.ARROW_TOTEM, worldIn);
+    public FrostTotemEntity(World worldIn) {
+        super(EntityRegister.FROST_TOTEM, worldIn);
 
     }
 
-    public ArrowTotemEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
-        super(EntityRegister.ARROW_TOTEM, world);
+    public FrostTotemEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
+        super(EntityRegister.FROST_TOTEM, world);
 
     }
 
@@ -69,8 +69,8 @@ public class ArrowTotemEntity extends EntityBaseProjectile {
             if (!world.isRemote) {
 
                 List<MonsterEntity> entities = EntityFinder.start(getCaster(), MonsterEntity.class, getPositionVector())
-                    .radius(radius()).searchFor(EntityFinder.SearchFor.ENEMIES)
-                    .build();
+                        .radius(radius()).searchFor(EntityFinder.SearchFor.ENEMIES)
+                        .build();
 
                 if (entities.size() > 0) {
 
@@ -88,15 +88,15 @@ public class ArrowTotemEntity extends EntityBaseProjectile {
                         Vec3d p = new Vec3d(posX, posY + 1.5F, posZ);
                         Vec3d t = new Vec3d(closest.posX, closest.posY + closest.getEyeHeight(), closest.posZ);
 
-                        RangerArrowEntity en = SpellUtils.getSpellEntity(getSpellData().configs, new RangerArrowEntity(world), getSpellData().getSpell(), caster);
-                        SpellUtils.setupProjectileForCasting(en, caster, 2.5F);
+                        FrostBlastEntity en = SpellUtils.getSpellEntity(getSpellData().configs, new FrostBlastEntity(world), getSpellData().getSpell(), caster);
+                        SpellUtils.setupProjectileForCasting(en, caster, 1F);
 
                         en.setLocationAndAngles(p.x, p.y, p.z, 0, 0);
                         en.setMotion(new Vec3d(t.x - p.x, t.y - p.y, t.z - p.z));
-                        ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
+                        ParticleUtils.spawn(ParticleTypes.CLOUD, world, p);
                         caster.world.addEntity(en);
 
-                        SoundUtils.playSound(en, SoundEvents.ENTITY_ARROW_SHOOT, 1, 1);
+                        SoundUtils.playSound(en, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1, 1.4F);
                     }
                 }
             } else {
@@ -106,12 +106,17 @@ public class ArrowTotemEntity extends EntityBaseProjectile {
 
             }
         }
+        if (this.ticksExisted % tickRate == 4) {
+            if (!world.isRemote) {
+                SoundUtils.playSound(this, SoundEvents.BLOCK_REDSTONE_TORCH_BURNOUT, 1, 1);
+            }
+        }
 
         if (this.inGround && world.isRemote) {
 
             for (int i = 0; i < 8; i++) {
                 Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), (float) radius());
-                ParticleUtils.spawn(ParticleTypes.INSTANT_EFFECT, world, p);
+                ParticleUtils.spawn(ParticleTypes.ITEM_SNOWBALL, world, p);
 
             }
 

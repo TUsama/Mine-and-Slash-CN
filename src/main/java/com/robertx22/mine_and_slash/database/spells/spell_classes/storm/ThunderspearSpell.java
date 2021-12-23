@@ -1,5 +1,6 @@
 package com.robertx22.mine_and_slash.database.spells.spell_classes.storm;
 
+import com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt.LightningEntity;
 import com.robertx22.mine_and_slash.database.spells.entities.trident.ThunderspearEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.SpellTooltips;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
@@ -8,6 +9,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -42,7 +44,7 @@ public class ThunderspearSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ITEM_TRIDENT_THROW;
+                    return ModSounds.THUNDER.get();
                 }
 
                 @Override
@@ -50,7 +52,7 @@ public class ThunderspearSpell extends BaseSpell {
                     return Elements.Thunder;
                 }
             }.rightClickFor(AllowedAsRightClickOn.MAGE_WEAPON)
-                .summonsEntity(world -> new ThunderspearEntity(world)).setSwingArmOnCast());
+                .summonsEntity(world -> new LightningEntity(world)).setSwingArmOnCast());
     }
 
     @Override
@@ -58,16 +60,16 @@ public class ThunderspearSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 6, 10);
+        c.set(SC.MANA_COST, 6, 11);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 7, 13);
-        c.set(SC.SHOOT_SPEED, 2.2F, 2.75F);
+        c.set(SC.BASE_VALUE, 6, 12);
+        c.set(SC.SHOOT_SPEED, 1.3F, 1.5F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 30, 30);
+        c.set(SC.COOLDOWN_TICKS, 50, 50);
         c.set(SC.BONUS_HEALTH, 0, 0);
-        c.set(SC.DURATION_TICKS, 50, 50);
+        c.set(SC.DURATION_TICKS, 40, 40);
 
         c.setMaxLevel(16);
 
@@ -94,14 +96,12 @@ public class ThunderspearSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Projectile, Self"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Duration, Pierce, Projectile"));
 
         TooltipUtils.addEmpty(list);
 
         list.add(new SText("Shoot out a crackling spear of lightning, damaging"));
-        list.add(new SText("the first enemy hit. Upon hitting an enemy, the"));
-        list.add(new SText("caster receives a 20% movement speed bonus for 2"));
-        list.add(new SText("seconds: "));
+        list.add(new SText("all enemies in its wake: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

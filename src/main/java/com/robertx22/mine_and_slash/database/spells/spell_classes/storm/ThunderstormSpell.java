@@ -74,7 +74,7 @@ public class ThunderstormSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 5);
+        return new AbilityPlace(7, 5);
     }
 
     public static ThunderstormSpell getInstance() {

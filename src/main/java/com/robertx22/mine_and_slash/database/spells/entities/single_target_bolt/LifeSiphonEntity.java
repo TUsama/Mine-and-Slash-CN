@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt
 
 import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.entities.bases.BaseElementalBoltEntity;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -35,7 +36,8 @@ public class LifeSiphonEntity extends BaseElementalBoltEntity {
 
     @Override
     public void initSpellEntity() {
-        this.setDeathTime(60);
+        this.setDeathTime(getSpellData().configs.get(SC.DURATION_TICKS)
+                .intValue());
     }
 
     @Override

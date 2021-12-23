@@ -22,8 +22,9 @@ public class ParticleFactoryRegister {
         ParticleManager man = Minecraft.getInstance().particles;
 
         man.registerFactory(ParticleRegister.DRIP, DripEleParticle.DrippingElementalFactory::new);
-        man.registerFactory(ParticleRegister.THUNDER, BubbleParticle.Factory::new);
+        man.registerFactory(ParticleRegister.THUNDER, MyBubbleParticle.Factory::new);
         man.registerFactory(ParticleRegister.BUBBLE, MyBubbleParticle.Factory::new);
+        man.registerFactory(ParticleRegister.THUNDER3, MyBubbleParticle.Factory::new);
 
         MMORPG.devToolsLog("Registered Particles");
     }

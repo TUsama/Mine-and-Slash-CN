@@ -3,13 +3,16 @@ package com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt
 import com.robertx22.mine_and_slash.database.spells.entities.bases.BaseElementalBoltEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
+import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
+import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.GeometryUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
-import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particles.ParticleTypes;
@@ -21,9 +24,11 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.FMLPlayMessages;
 
-public class FrostballEntity extends BaseElementalBoltEntity {
+import java.util.List;
 
-    public FrostballEntity(EntityType<? extends FrostballEntity> type, World world) {
+public class FrostBlastEntity extends BaseElementalBoltEntity {
+
+    public FrostBlastEntity(EntityType<? extends FrostBlastEntity> type, World world) {
         super(type, world);
     }
 
@@ -33,21 +38,24 @@ public class FrostballEntity extends BaseElementalBoltEntity {
         return new ItemStack(Items.AIR);
     }
 
-    public FrostballEntity(World worldIn) {
+    public FrostBlastEntity(World worldIn) {
 
-        super(EntityRegister.FROSTBOLT, worldIn);
+        super(EntityRegister.FROST_BLAST, worldIn);
 
     }
 
-    public FrostballEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
-        super(EntityRegister.FROSTBOLT, world);
+    public FrostBlastEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
+        super(EntityRegister.FROST_BLAST, world);
+    }
+    @Override
+    public double radius() {
+        return getSpellData().configs.get(SC.RADIUS) / 2;
     }
 
     @Override
     public void initSpellEntity() {
         this.setNoGravity(true);
-        this.setDeathTime(getSpellData().configs.get(SC.DURATION_TICKS)
-                .intValue());
+        this.setDeathTime(40);
     }
 
     @Override
@@ -58,7 +66,19 @@ public class FrostballEntity extends BaseElementalBoltEntity {
     @Override
     public void onHit(LivingEntity entity) {
         entity.playSound(SoundEvents.BLOCK_GLASS_BREAK, 0.8f, 1.4f);
-        dealSpellDamageTo(entity);
+
+        ParticlePacketData pdata = new ParticlePacketData(getPosition()
+                .up(1), ParticleEnum.FROST_NOVA);
+        pdata.radius = (float) radius();
+        ParticleEnum.FROST_NOVA.sendToClients(this, pdata);
+
+        List<LivingEntity> entities = EntityFinder.start(getCaster(), LivingEntity.class, getPositionVector())
+                .radius(radius()).searchFor(EntityFinder.SearchFor.ENEMIES)
+                .build();
+
+        for (LivingEntity x : entities) {
+            dealSpellDamageTo(x);
+        }
 
     }
 
@@ -67,12 +87,14 @@ public class FrostballEntity extends BaseElementalBoltEntity {
 
         if (world.isRemote) {
             if (this.ticksExisted > 1) {
-                for (int i = 0; i < 5; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.2F);
+                Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.3F);
+                for (int i = 0; i < 20; i++) {
                     ParticleUtils.spawn(ParticleTypes.ITEM_SNOWBALL, world, p);
                 }
+                ParticleUtils.spawn(ParticleTypes.CLOUD, world, p);
             }
 
         }
+
     }
 }
