@@ -49,12 +49,12 @@ public class FrostBlastEntity extends BaseElementalBoltEntity {
     }
     @Override
     public double radius() {
-        return getSpellData().configs.get(SC.RADIUS) / 2;
+        return getSpellData().configs.get(SC.RADIUS) / 4;
     }
 
     @Override
     public void initSpellEntity() {
-        this.setNoGravity(true);
+        this.setNoGravity(false);
         this.setDeathTime(40);
     }
 

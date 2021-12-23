@@ -10,6 +10,7 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.GeometryUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -85,14 +86,17 @@ public class ArrowTotemEntity extends EntityBaseProjectile {
                     }
 
                     if (closest.isAlive()) {
-                        Vec3d p = new Vec3d(posX, posY + 1.5F, posZ);
-                        Vec3d t = new Vec3d(closest.posX, closest.posY + closest.getEyeHeight(), closest.posZ);
+                        Vec3d p = new Vec3d(posX, posY + 1F, posZ);
+                        Vec3d t = new Vec3d(closest.posX, closest.posY + (closest.getEyeHeight() / 2), closest.posZ);
+
+                        this.lookAt(EntityAnchorArgument.Type.EYES, t);
 
                         RangerArrowEntity en = SpellUtils.getSpellEntity(getSpellData().configs, new RangerArrowEntity(world), getSpellData().getSpell(), caster);
-                        SpellUtils.setupProjectileForCasting(en, caster, 2.5F);
+                        SpellUtils.setupProjectileForCasting(en, caster, 2.5F, this.rotationPitch, this.rotationYaw);
 
-                        en.setLocationAndAngles(p.x, p.y, p.z, 0, 0);
-                        en.setMotion(new Vec3d(t.x - p.x, t.y - p.y, t.z - p.z));
+                        en.setLocationAndAngles(p.x, p.y, p.z, this.rotationPitch, this.rotationYaw);
+
+                        //en.setMotion(new Vec3d(t.x - p.x, t.y - p.y, t.z - p.z));
                         ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
                         caster.world.addEntity(en);
 

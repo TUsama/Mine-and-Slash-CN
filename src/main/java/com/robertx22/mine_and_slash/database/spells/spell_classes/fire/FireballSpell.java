@@ -66,7 +66,7 @@ public class FireballSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 35, 35);
         c.set(SC.BONUS_HEALTH, 0, 0);
-        c.set(SC.DURATION_TICKS, 20, 20);
+        c.set(SC.DURATION_TICKS, 15, 15);
         c.set(SC.RADIUS, 1F, 2F);
 
         c.setMaxLevel(16);

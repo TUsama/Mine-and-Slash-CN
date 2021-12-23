@@ -1,5 +1,6 @@
 3.13.2:
 - The goal of the following changes is to make each "ball" spell feel unique to play. Nature is unchanged because I just changed it. I also aimed to improve the feeling of Storm early-game.
+- Shortened the duration that the ball spells stay active.
 - XX New Ocean Spell: Frost Totem - fires piercing glacial blasts at the nearest enemy that deal frost damage.
 - XX New Storm Spell: Chain Lightning - fire a crackling streak of lightning that has a chance to bounce from the initial target to the next closest target (can bounce between two targets!).
 - Ice Bolt no longer pierces and has reverted to its original 'bolt' form. It has received a buff to damage to keep it in line with the other new ball spells, however.

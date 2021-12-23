@@ -18,6 +18,7 @@ public class ParticleRegister {
     private final static String eleId = Ref.MODID + ":drip";
     private final static String thunderId = Ref.MODID + ":thunder";
     private final static String thunder3Id = Ref.MODID + ":thunder3";
+    private final static String thunder_purpleId = Ref.MODID + ":thunder_purple";
     private final static String bubbleID = Ref.MODID + ":bubble";
 
     @ObjectHolder(eleId)
@@ -32,6 +33,9 @@ public class ParticleRegister {
     @ObjectHolder(thunder3Id)
     public static final BasicParticleType THUNDER3 = null;
 
+    @ObjectHolder(thunder_purpleId)
+    public static final BasicParticleType THUNDER_PURPLE = null;
+
     @SubscribeEvent
     public static void register(RegistryEvent.Register<ParticleType<?>> event) {
 
@@ -39,6 +43,7 @@ public class ParticleRegister {
         register(thunderId, new BasicParticleType(false));
         register(bubbleID, new BasicParticleType(false));
         register(thunder3Id, new BasicParticleType(false));
+        register(thunder_purpleId, new BasicParticleType(false));
 
     }
 

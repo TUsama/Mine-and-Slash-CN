@@ -25,6 +25,7 @@ public class ParticleFactoryRegister {
         man.registerFactory(ParticleRegister.THUNDER, MyBubbleParticle.Factory::new);
         man.registerFactory(ParticleRegister.BUBBLE, MyBubbleParticle.Factory::new);
         man.registerFactory(ParticleRegister.THUNDER3, MyBubbleParticle.Factory::new);
+        man.registerFactory(ParticleRegister.THUNDER_PURPLE, MyBubbleParticle.Factory::new);
 
         MMORPG.devToolsLog("Registered Particles");
     }

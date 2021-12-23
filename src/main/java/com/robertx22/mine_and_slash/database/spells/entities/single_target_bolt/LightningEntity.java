@@ -67,8 +67,12 @@ public class LightningEntity extends BaseElementalBoltEntity {
         if (world.isRemote) {
             if (this.ticksExisted > 1) {
                 for (int i = 0; i < 20; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.1F);
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.05F);
                     ParticleUtils.spawn(ParticleRegister.THUNDER3, world, p);
+                }
+                for (int i = 0; i < 5; i++) {
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.05F);
+                    ParticleUtils.spawn(ParticleRegister.THUNDER_PURPLE, world, p);
                 }
             }
 

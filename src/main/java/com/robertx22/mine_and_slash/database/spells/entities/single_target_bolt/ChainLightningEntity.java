@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.*;
+import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.monster.MonsterEntity;
@@ -92,14 +93,17 @@ public class ChainLightningEntity extends BaseElementalBoltEntity {
                 }
 
                 if (closest.isAlive()) {
-                    Vec3d p = new Vec3d(posX, posY + 0.5F, posZ);
-                    Vec3d t = new Vec3d(closest.posX, closest.posY + closest.getEyeHeight(), closest.posZ);
+                    Vec3d p = new Vec3d(posX, posY, posZ);
+                    Vec3d t = new Vec3d(closest.posX, closest.posY + (closest.getEyeHeight() / 2), closest.posZ);
+
+                    this.lookAt(EntityAnchorArgument.Type.EYES, t);
 
                     ChainLightningEntity en = SpellUtils.getSpellEntity(getSpellData().configs, new ChainLightningEntity(world), getSpellData().getSpell(), caster);
-                    SpellUtils.setupProjectileForCasting(en, caster, shootSpeed);
+                    SpellUtils.setupProjectileForCasting(en, caster, shootSpeed, this.rotationPitch, this.rotationYaw);
 
-                    en.setLocationAndAngles(p.x, p.y, p.z, 0, 0);
-                    en.setMotion(new Vec3d(t.x - p.x, t.y - p.y, t.z - p.z));
+                    en.setLocationAndAngles(p.x, p.y, p.z, this.rotationPitch, this.rotationYaw);
+
+                    //en.setMotion(new Vec3d(t.x - p.x, t.y - p.y, t.z - p.z));
                     ParticleUtils.spawn(ParticleTypes.INSTANT_EFFECT, world, p);
                     caster.world.addEntity(en);
 
@@ -117,8 +121,12 @@ public class ChainLightningEntity extends BaseElementalBoltEntity {
         if (world.isRemote) {
             if (this.ticksExisted > 1) {
                 for (int i = 0; i < 20; i++) {
-                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.1F);
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.05F);
                     ParticleUtils.spawn(ParticleRegister.THUNDER3, world, p);
+                }
+                for (int i = 0; i < 5; i++) {
+                    Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.05F);
+                    ParticleUtils.spawn(ParticleRegister.THUNDER_PURPLE, world, p);
                 }
             }
         }
