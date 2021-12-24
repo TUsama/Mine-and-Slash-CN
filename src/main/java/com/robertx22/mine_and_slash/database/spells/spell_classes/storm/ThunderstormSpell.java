@@ -61,7 +61,7 @@ public class ThunderstormSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 12, 25);
         c.set(SC.RADIUS, 5F, 7);
-        c.set(SC.CAST_TIME_TICKS, 140, 100);
+        c.set(SC.CAST_TIME_TICKS, 80, 40);
         c.set(SC.COOLDOWN_SECONDS, 28, 24);
         c.set(SC.TICK_RATE, 35, 25);
         c.set(SC.DURATION_TICKS, 240, 240);

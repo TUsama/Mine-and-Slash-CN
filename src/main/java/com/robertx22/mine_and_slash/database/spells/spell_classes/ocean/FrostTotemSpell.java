@@ -65,7 +65,7 @@ public class FrostTotemSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 2F, 2.4F);
         c.set(SC.RADIUS, 8F, 8F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
-        c.set(SC.CAST_TIME_TICKS, 20, 20);
+        c.set(SC.CAST_TIME_TICKS, 10, 10);
         c.set(SC.COOLDOWN_SECONDS, 16, 12);
         c.set(SC.TICK_RATE, 50, 30);
         c.set(SC.DURATION_TICKS, 300, 300);
