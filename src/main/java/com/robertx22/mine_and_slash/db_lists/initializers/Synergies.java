@@ -20,6 +20,7 @@ public class Synergies implements ISlashRegistryInit {
     private static ThunderSpearLightningStrikeSynergy THUNDER_SPEAR_LIGHTNING = new ThunderSpearLightningStrikeSynergy();
     private static LightningTotemStaticSynergy LIGHTNING_TOTEM_STATIC = new LightningTotemStaticSynergy();
     private static ThunderSpearThunderEssenceSynergy THUNDER_SPEAR_ESSENCE = new ThunderSpearThunderEssenceSynergy();
+    private static ChainLightningThunderEssenceSynergy CHAIN_LIGHTNING_ESSENCE = new ChainLightningThunderEssenceSynergy();
     private static ElectricalDischargeLightningEssenceSynergy ELECTRICAL_DISCHARGE_ESSENCE = new ElectricalDischargeLightningEssenceSynergy();
     //private static ThunderDashEnergySynergy THUNDER_DASH_ENERGY = new ThunderDashEnergySynergy();
 
@@ -52,6 +53,7 @@ public class Synergies implements ISlashRegistryInit {
         ELECTRICAL_DISCHARGE_ESSENCE.registerToSlashRegistry();
         LIGHTNING_TOTEM_STATIC.registerToSlashRegistry();
         THUNDER_SPEAR_ESSENCE.registerToSlashRegistry();
+        CHAIN_LIGHTNING_ESSENCE.registerToSlashRegistry();
         //THUNDER_DASH_ENERGY.registerToSlashRegistry();
 
         THORN_ARMOR_THORNS.registerToSlashRegistry();

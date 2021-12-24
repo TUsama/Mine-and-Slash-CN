@@ -7,8 +7,10 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
+import com.robertx22.mine_and_slash.potion_effects.all.BleedPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
+import com.robertx22.mine_and_slash.potion_effects.shaman.ChainLightningEffect;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.*;
 import net.minecraft.command.arguments.EntityAnchorArgument;
@@ -67,32 +69,33 @@ public class ChainLightningEntity extends BaseElementalBoltEntity {
 
         int shootSpeed = getSpellData().configs.get(SC.SHOOT_SPEED)
                 .intValue();
-        int chance = Math.min(getSpellData().configs.get(SC.CHANCE)
-                .intValue(), 90); // cap out bounce chance at 90
+        int chance = getSpellData().configs.get(SC.CHANCE)
+                .intValue();
 
         entity.playSound(SoundEvents.ENTITY_BAT_TAKEOFF, 1.4f, 2.5f);
+        PotionEffectUtils.apply(ChainLightningEffect.INSTANCE, getCaster(), entity);
         dealSpellDamageTo(entity);
 
         LivingEntity caster = getCaster();
 
         if (RandomUtils.roll(chance)) {
-            List<MonsterEntity> entities = EntityFinder.start(getCaster(), MonsterEntity.class, entity.getPositionVector())
-                    .radius(4).searchFor(EntityFinder.SearchFor.ENEMIES)
+            List<LivingEntity> entities = EntityFinder.start(getCaster(), LivingEntity.class, entity.getPositionVector())
+                    .radius(6).searchFor(EntityFinder.SearchFor.ENEMIES)
                     .build();
 
             if (entities.size() > 0) {
 
-                MonsterEntity closest = entities.get(0);
+                LivingEntity closest = entities.get(0);
 
-                for (MonsterEntity en : entities) {
+                for (LivingEntity en : entities) {
                     if (en != closest) {
-                        if (this.getDistance(en) < this.getDistance(closest)) {
+                        if (this.getDistance(en) < this.getDistance(closest) && !PotionEffectUtils.has(en, ChainLightningEffect.INSTANCE)) {
                             closest = en;
                         }
                     }
                 }
 
-                if (closest.isAlive()) {
+                if (closest.isAlive() && !PotionEffectUtils.has(closest, ChainLightningEffect.INSTANCE)) {
                     Vec3d p = new Vec3d(posX, posY, posZ);
                     Vec3d t = new Vec3d(closest.posX, closest.posY + (closest.getEyeHeight() / 2), closest.posZ);
 

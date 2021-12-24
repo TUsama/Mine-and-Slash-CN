@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.stats.effects.defense;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.base.BaseStatEffect;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
@@ -19,7 +20,11 @@ import java.util.UUID;
 
 import static net.minecraft.entity.SharedMonsterAttributes.KNOCKBACK_RESISTANCE;
 
-public class DodgeEffect extends BaseDamageEffect {
+public class DodgeEffect extends BaseStatEffect<DamageEffect> {
+
+    public DodgeEffect() {
+        super(DamageEffect.class);
+    }
 
     @Override
     public int GetPriority() {

@@ -103,7 +103,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Lightning."));
         TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent("Throw out a spear that deals damage and"));
+        list.add(new StringTextComponent("Throw out a trident that deals damage and"));
         list.add(new StringTextComponent("applies Judgment: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

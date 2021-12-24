@@ -49,7 +49,7 @@ public class FrostBlastEntity extends BaseElementalBoltEntity {
     }
     @Override
     public double radius() {
-        return getSpellData().configs.get(SC.RADIUS) / 4;
+        return getSpellData().configs.get(SC.RADIUS) / 2;
     }
 
     @Override
@@ -67,12 +67,11 @@ public class FrostBlastEntity extends BaseElementalBoltEntity {
     public void onHit(LivingEntity entity) {
         entity.playSound(SoundEvents.BLOCK_GLASS_BREAK, 0.8f, 1.4f);
 
-        ParticlePacketData pdata = new ParticlePacketData(getPosition()
-                .up(1), ParticleEnum.FROST_NOVA);
+        ParticlePacketData pdata = new ParticlePacketData(entity.getPosition(), ParticleEnum.FROST_NOVA);
         pdata.radius = (float) radius();
         ParticleEnum.FROST_NOVA.sendToClients(this, pdata);
 
-        List<LivingEntity> entities = EntityFinder.start(getCaster(), LivingEntity.class, getPositionVector())
+        List<LivingEntity> entities = EntityFinder.start(getCaster(), LivingEntity.class, entity.getPositionVector())
                 .radius(radius()).searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 

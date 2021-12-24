@@ -69,7 +69,7 @@ public class ChainLightningSpell extends BaseSpell {
         c.set(SC.COOLDOWN_TICKS, 50, 50);
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.DURATION_TICKS, 20, 20);
-        c.set(SC.CHANCE, 50, 80);
+        c.set(SC.CHANCE, 50, 90);
 
         c.setMaxLevel(8);
 
@@ -99,14 +99,12 @@ public class ChainLightningSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Bounce, Chance, Duration, Projectile"));
 
         TooltipUtils.addEmpty(list);
-        list.add(new SText(TextFormatting.GRAY + "Chance to bounce is capped at 90 percent,"));
-        list.add(new SText(TextFormatting.GRAY + "regardless of what the tooltip says."));
+        list.add(new SText(TextFormatting.GRAY + "Spell cannot bounce to the same target twice."));
         TooltipUtils.addEmpty(list);
 
         list.add(new SText("Shoot out a crackling spear of lightning, damaging"));
         list.add(new SText("the first enemy in its path. The spear then has a"));
-        list.add(new SText("chance to bounce and target the next closest enemy"));
-        list.add(new SText("within a 4 block radius: "));
+        list.add(new SText("chance to bounce and target the next closest enemy:"));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

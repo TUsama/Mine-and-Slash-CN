@@ -38,7 +38,7 @@ public class SpearEnlightenmentSynergy extends OnDamageDoneSynergy {
         addSpellName(list);
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Spear of Judgment"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Trident of Judgment"));
 
         TooltipUtils.addEmpty(list);
 

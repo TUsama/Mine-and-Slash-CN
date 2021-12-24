@@ -69,15 +69,15 @@ public class ArrowTotemEntity extends EntityBaseProjectile {
         if (this.ticksExisted % tickRate == 0) {
             if (!world.isRemote) {
 
-                List<MonsterEntity> entities = EntityFinder.start(getCaster(), MonsterEntity.class, getPositionVector())
+                List<LivingEntity> entities = EntityFinder.start(getCaster(), LivingEntity.class, getPositionVector())
                     .radius(radius()).searchFor(EntityFinder.SearchFor.ENEMIES)
                     .build();
 
                 if (entities.size() > 0) {
 
-                    MonsterEntity closest = entities.get(0);
+                    LivingEntity closest = entities.get(0);
 
-                    for (MonsterEntity en : entities) {
+                    for (LivingEntity en : entities) {
                         if (en != closest) {
                             if (this.getDistance(en) < this.getDistance(closest)) {
                                 closest = en;

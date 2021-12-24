@@ -24,8 +24,8 @@ public class DodgeIgnoreEffect extends BaseAnyEffect {
     @Override
     public EffectData activate(EffectData effect, StatData data, Stat stat) {
 
-        IIgnorable ipene = (IIgnorable) effect;
-        ipene.SetDodgeIgnore(ipene.GetDodgeIgnore() + (int) data.getAverageValue());
+        IIgnorable iigno = (IIgnorable) effect;
+        iigno.SetDodgeIgnore(iigno.GetDodgeIgnore() + (int) data.getAverageValue());
 
         return effect;
     }
