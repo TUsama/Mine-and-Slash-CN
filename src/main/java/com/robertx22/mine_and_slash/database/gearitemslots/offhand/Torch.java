@@ -9,10 +9,12 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHit
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaRegenFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.offhands.MyTorch;
 import com.robertx22.mine_and_slash.saveclasses.player_stat_points.LvlPointStat;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import net.minecraft.item.Item;
 
 import java.util.Arrays;
@@ -60,7 +62,9 @@ public class Torch extends BaseOffHand implements ISpecificStatReq {
 
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
-        return Arrays.asList(new PosStats(new CriticalHitFlat().size(StatMod.Size.LOW)), new PosStats(new EnergyRegenFlat().size(StatMod.Size.HALF_MORE))
+        return Arrays.asList(new PosStats(new CriticalHitFlat().size(StatMod.Size.LOW)),
+                new PosStats(new EnergyRegenFlat().size(StatMod.Size.HALF_MORE),
+                        new ElementalResistFlat(Elements.Elemental).size(StatMod.Size.QUARTER))
         );
     }
 

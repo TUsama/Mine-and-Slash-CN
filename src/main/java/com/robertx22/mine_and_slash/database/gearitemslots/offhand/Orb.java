@@ -8,11 +8,13 @@ import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.ManaRegenFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.offhands.MyOrb;
 import com.robertx22.mine_and_slash.items.gearitems.offhands.MyTorch;
 import com.robertx22.mine_and_slash.saveclasses.player_stat_points.LvlPointStat;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import net.minecraft.item.Item;
 
 import java.util.Arrays;
@@ -61,7 +63,7 @@ public class Orb extends BaseOffHand implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(new PosStats(new ManaRegenFlat().size(StatMod.Size.HALF_MORE)),
-            new PosStats(new MagicShieldRegenFlat().size(StatMod.Size.HALF_MORE))
+            new PosStats(new MagicShieldRegenFlat().size(StatMod.Size.HALF_MORE), new ElementalResistFlat(Elements.Elemental).size(StatMod.Size.QUARTER))
         );
     }
 

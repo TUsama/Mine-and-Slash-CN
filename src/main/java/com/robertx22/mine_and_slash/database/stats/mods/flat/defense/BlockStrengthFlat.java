@@ -12,12 +12,12 @@ public class BlockStrengthFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 1;
     }
 
     @Override
     public float Max() {
-        return 8;
+        return 3;
     }
 
     @Override

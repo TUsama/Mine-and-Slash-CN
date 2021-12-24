@@ -117,6 +117,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
     public float healthHealed;
     public float magicShieldRestored;
     public float manaRestored;
+    public boolean isActivelyBlocking = false;
     public boolean isFullyBlocked = false;
     public boolean isPartiallyBlocked = false;
     public boolean isDodged = false;

@@ -52,6 +52,14 @@ public class BlockReflectEffect extends BaseDamageEffect {
 
         float dmg = data.getAverageValue();
 
+        if (effect.isActivelyBlocking) { // check if the blocker is actively blocking, if so, apply bonus damage based on success/failure
+            if (effect.isFullyBlocked) {
+                dmg *= 1.5F;
+            } else if (effect.isPartiallyBlocked) {
+                dmg *= 1.1F;
+            }
+        }
+
         DamageEffect dmgeffect = new DamageEffect(null, effect.target, effect.source, (int) dmg, effect.targetData,
             effect.sourceData, EffectTypes.REFLECT, WeaponTypes.None
         );

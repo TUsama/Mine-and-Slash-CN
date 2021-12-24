@@ -16,7 +16,7 @@ public class IncreaseHealingEffect extends BaseHealEffect {
 
     @Override
     public EffectSides Side() {
-        return EffectSides.Source;
+        return EffectSides.Target;
     }
 
     @Override

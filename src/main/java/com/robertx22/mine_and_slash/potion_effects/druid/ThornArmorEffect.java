@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.ThornArmorSpell;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.database.stats.types.generated.BlockReflect;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -53,6 +54,7 @@ public class ThornArmorEffect extends BasePotionEffect implements IApplyStatPoti
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(20, new ElementalResist(Elements.Nature)));
         list.add(new PotionStat(60, Armor.getInstance()));
+        list.add(new PotionStat(40, new BlockReflect(Elements.Nature)));
         return list;
     }
 

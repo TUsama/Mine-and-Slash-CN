@@ -26,12 +26,12 @@ public class BlockReflectFlat extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 5;
     }
 
     @Override
     public float Max() {
-        return 12;
+        return 15;
     }
 
     @Override

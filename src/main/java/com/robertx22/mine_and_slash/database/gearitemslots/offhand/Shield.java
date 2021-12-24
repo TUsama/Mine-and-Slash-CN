@@ -5,11 +5,13 @@ import com.robertx22.mine_and_slash.database.gearitemslots.bases.BaseOffHand;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.BlockStrengthPercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.offhands.NormalShield;
 import com.robertx22.mine_and_slash.saveclasses.player_stat_points.LvlPointStat;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import net.minecraft.item.Item;
 
 import java.util.HashMap;
@@ -28,7 +30,7 @@ public class Shield extends BaseOffHand implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new ArmorFlat(), new BlockStrengthPercent());
+        return new StatModsHolder(new ArmorFlat(), new BlockStrengthPercent(), new ElementalResistFlat(Elements.Elemental).size(StatMod.Size.HALF));
     }
 
     static StatReq req = new StatReq(
