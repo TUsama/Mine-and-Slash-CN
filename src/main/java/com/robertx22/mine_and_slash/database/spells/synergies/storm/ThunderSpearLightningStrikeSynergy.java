@@ -52,7 +52,7 @@ public class ThunderSpearLightningStrikeSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 8, 26);
+        c.set(SC.BASE_VALUE, 4, 14);
         c.setMaxLevel(4);
         return c;
     }

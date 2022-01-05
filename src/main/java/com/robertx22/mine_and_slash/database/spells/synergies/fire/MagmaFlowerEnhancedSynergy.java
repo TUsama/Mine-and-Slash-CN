@@ -38,12 +38,12 @@ public class MagmaFlowerEnhancedSynergy extends Synergy {
         c.set(SC.MANA_COST, 5, 5);
         c.set(SC.TICK_RATE, 5, 5);
         c.set(SC.DURATION_TICKS, 120, 120);
-        c.setMaxLevel(1);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.setMaxLevel(1);
         return c;
     }
 

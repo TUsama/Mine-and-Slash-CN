@@ -40,12 +40,12 @@ public class WhirlwindEnhancedSynergy extends Synergy {
         c.set(SC.ENERGY_COST, 6, 6);
         c.set(SC.ATTACK_SCALE_VALUE, -0.25F, -0.25F);
         c.set(SC.COOLDOWN_SECONDS, -12F, -12F);
-        c.setMaxLevel(1);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.setMaxLevel(1);
         return c;
     }
 

@@ -39,12 +39,12 @@ public class BlastTrapEnhancedSynergy extends Synergy {
         c.set(SC.MANA_COST, 16, 16);
         c.set(SC.PROJECTILE_COUNT, 2, 2);
         c.set(SC.ATTACK_SCALE_VALUE, -1.0F, -1.0F);
-        c.setMaxLevel(1);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
+        c.setMaxLevel(1);
         return c;
     }
 
