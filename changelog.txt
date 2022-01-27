@@ -1,3 +1,11 @@
+3.13.5:
+- Mobs now have built in health regen (a low amount).
+- Reduced block chance nodes on the tree and from Stout Defender.
+- You can no longer use Chorus Fruit or Ender Pearls in maps.
+- Lowered chance to apply Static from Charged Nova from 90% -> 80%.
+- Hopefully fixed Fireball not doing damage sometimes.
+- Hopefully fixed the Storm Attack Spell synery not applying Static.
+
 3.13.4:
 - Lightning Spear Lightning Strike synergy damage has been reduced by about 40-50%. The previous damage values were unintended and were designed around the synergy requiring 8 points instead of the current 4. For the amount of points required, the synergy was far too strong.
 - Lightning Spear damage has been reduced by about 9%.

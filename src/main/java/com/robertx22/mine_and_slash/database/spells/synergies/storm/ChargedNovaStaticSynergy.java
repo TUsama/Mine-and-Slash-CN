@@ -8,6 +8,7 @@ import com.robertx22.mine_and_slash.database.spells.synergies.base.OnAttackSpell
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.necromancer.CrippleEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.WoundsEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.StaticEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
@@ -53,7 +54,7 @@ public class ChargedNovaStaticSynergy extends OnAttackSpellDmgDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 50, 90);
+        c.set(SC.CHANCE, 50, 80);
         c.setMaxLevel(8);
         return c;
     }
@@ -70,11 +71,14 @@ public class ChargedNovaStaticSynergy extends OnAttackSpellDmgDoneSynergy {
     }
 
     @Override
-    public void tryActivate(AttackSpellDamageEffect ctx) {
-        if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
+    public void tryActivate(AttackSpellDamageEffect effect) {
+        float chance = getContext(effect.source).getConfigFor(this)
                 .get(SC.CHANCE)
-                .get(Load.spells(ctx.source), this))) {
-            PotionEffectUtils.apply(StaticEffect.INSTANCE, ctx.source, ctx.target);
+                .get(Load.spells(effect.source), this);
+
+        if (RandomUtils.roll(chance)) {
+            PotionEffectUtils.apply(StaticEffect.INSTANCE, effect.source, effect.target);
+
         }
     }
 

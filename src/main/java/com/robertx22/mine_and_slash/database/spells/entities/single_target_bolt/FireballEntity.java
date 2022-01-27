@@ -54,13 +54,13 @@ public class FireballEntity extends BaseElementalBoltEntity {
         float RADIUS = sdata.configs.get(SC.RADIUS);
 
         List<LivingEntity> entities = EntityFinder.start(
-                getCaster(), LivingEntity.class, getPositionVector())
+                getCaster(), LivingEntity.class, entity.getPositionVector())
                 .radius(RADIUS)
                 .build();
 
         entities.forEach(x -> dealSpellDamageTo(x));
 
-        ParticleUtils.spawn(ParticleTypes.EXPLOSION, world, getPositionVector());
+        ParticleUtils.spawn(ParticleTypes.EXPLOSION, world, entity.getPositionVector());
         entity.playSound(SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, 0.9F, 1F);
     }
 

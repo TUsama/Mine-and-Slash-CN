@@ -12,6 +12,7 @@ import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
@@ -137,9 +138,9 @@ public class ChargedNovaSpell extends BaseSpell {
                 .build();
 
             for (LivingEntity en : entities) {
-                DamageEffect dmg = new DamageEffect(
-                    null, caster, en, num, EffectData.EffectTypes.ATTACK_SPELL, WeaponTypes.None);
-                dmg.element = Elements.Thunder;
+                AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
+                        this
+                );
                 dmg.Activate();
 
             }

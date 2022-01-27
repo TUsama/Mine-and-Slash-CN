@@ -5,7 +5,12 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.WorldUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -77,6 +82,38 @@ public class OnDungeonBlockEvents {
             }
 
             event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public void teleportStart(EnderTeleportEvent event)
+    {
+        // restrict player teleports
+        if (event.getEntity() instanceof ServerPlayerEntity)
+        {
+        }
+    }
+
+    @SubscribeEvent
+    public void useItem(LivingEntityUseItemEvent.Start event)
+    {
+        ItemStack stack = event.getItem();
+
+        // do not run this function on non-players
+        if (!(event.getEntityLiving() instanceof ServerPlayerEntity))
+        {
+            return;
+        }
+
+        // cancel chorus fruits in any of my dimensions
+        if (isDungeon(event.getEntity()))
+        {
+            if (stack.getItem() == Items.CHORUS_FRUIT)
+            {
+                event.setDuration(-1); // stop the chorus fruit from being used
+                event.setCanceled(true);
+                //DimDungeons.LOGGER.info("CANCELLING CHORUS FRUIT at START!");
+            }
         }
     }
 

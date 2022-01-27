@@ -13,6 +13,7 @@ import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
+import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.registry.SlashRegistry;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
@@ -113,6 +114,8 @@ public class MobStatUtils {
         MobRarity rar = Rarities.Mobs.get(unitdata.getRarity());
         Unit unit = unitdata.getUnit();
 
+        unit.getCreateStat(HealthRegen.GUID)
+                .addFlat(1 * rar.StatMultiplier(), level);
         unit.getCreateStat(Armor.GUID)
             .addFlat(Armor.getInstance()
                 .AverageStat() * rar.StatMultiplier(), level);
