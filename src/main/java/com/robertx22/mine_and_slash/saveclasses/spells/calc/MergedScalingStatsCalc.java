@@ -47,10 +47,12 @@ public class MergedScalingStatsCalc extends BaseStatCalc {
 
         float val = 0;
 
-        for (String x : statIDs) {
-            val += data.getUnit()
-                .peekAtStat(x)
-                .getAverageValue() * multi;
+        if (data != null || data.getUnit() != null) {
+            for (String x : statIDs) {
+                val += data.getUnit()
+                        .peekAtStat(x)
+                        .getAverageValue() * multi;
+            }
         }
 
         return (int) val;

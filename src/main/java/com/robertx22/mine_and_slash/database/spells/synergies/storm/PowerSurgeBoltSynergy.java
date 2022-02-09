@@ -63,8 +63,8 @@ public class PowerSurgeBoltSynergy extends OnHitSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 3, 14);
-        c.set(SC.CHANCE, 10F, 30F);
+        c.set(SC.BASE_VALUE, 2, 7);
+        c.set(SC.CHANCE, 5F, 20F);
         c.setMaxLevel(8);
         return c;
     }

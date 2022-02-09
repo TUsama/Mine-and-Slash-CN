@@ -43,6 +43,14 @@ public class SnareTrapEntity extends EntityBaseProjectile {
     }
 
     @Override
+    public void initSpellEntity() {
+        this.setDeathTime(getSpellData().configs.get(SC.DURATION_TICKS)
+                .intValue());
+        //this.setEntityFound(false);
+        //this.setTicksAfterFound(0);
+    }
+
+    @Override
     public double radius() {
         return getSpellData().configs.get(SC.RADIUS);
     }
@@ -57,13 +65,32 @@ public class SnareTrapEntity extends EntityBaseProjectile {
         return new ItemStack(Items.TRIPWIRE_HOOK);
     }
 
+    private boolean entityFound = false;
+    private int ticksAfterFound;
+
+    public void setEntityFound(boolean entityFound) {
+        this.entityFound = entityFound;
+    }
+
+    public void setTicksAfterFound(int ticksAfterFound) {
+        this.ticksAfterFound = ticksAfterFound;
+    }
+
+    public boolean getEntityFound() {
+        return this.entityFound;
+    }
+
+    public int getTicksAfterFound() {
+        return this.ticksAfterFound;
+    }
+
     @Override
     public void onTick() {
 
         EntitySpellData sdata = getSpellData();
         float RADIUS = sdata.configs.get(SC.RADIUS);
 
-        if (this.inGround || this.ticksExisted % 5 == 0) {
+        if (this.getTicksInGround() > 20) {
             if (!world.isRemote) {
                 LivingEntity caster = getCaster();
 
@@ -74,21 +101,53 @@ public class SnareTrapEntity extends EntityBaseProjectile {
                 List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, getPositionVector())
                     .radius(RADIUS)
                     .build();
-
-                if (entities.size() > 0) {
-
-                    this.remove();
-
+                /*
+                if (entities.size() > 0 & !this.getEntityFound()) { // checks to see if the trap has detected any entities.
+                    this.setEntityFound(true);
                     SoundUtils.playSound(this, SoundEvents.BLOCK_TRIPWIRE_CLICK_OFF, 1, 1);
+                }
+
+                if (this.getEntityFound()) { // once it has detected an entity, will start ticking
+                    this.ticksAfterFound++;
+                }
+
+                if (this.getTicksAfterFound() >= 20) {
+
+                    SoundUtils.playSound(this, SoundEvents.BLOCK_CROP_BREAK, 1, 1);
                     Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(
                             getPositionVector().add(0, 0.2F, 0), RADIUS);
 
+                    if (entities.size() > 0) {
+                        entities.forEach(x -> {
+
+                            DamageEffect dmg = dealSpellDamageTo(x, new Options().knockbacks(false)
+                                    .activatesEffect(false));
+
+                            dmg.Activate();
+
+                            PotionEffectUtils.apply(SnareEffect.INSTANCE, getCaster(), x);
+                        });
+                    }
+
+                    this.remove();
+
+                }*/
+
+                if (entities.size() > 0) {
+
+                    SoundUtils.playSound(this, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1, 1.5F);
+
                     entities.forEach(x -> {
 
-                        PotionEffectUtils.apply(SnareEffect.INSTANCE, getCaster(), x);
+                        DamageEffect dmg = dealSpellDamageTo(x, new Options().knockbacks(false)
+                                .activatesEffect(false));
 
+                        dmg.Activate();
+
+                        PotionEffectUtils.apply(SnareEffect.INSTANCE, getCaster(), x);
                     });
 
+                    this.remove();
                 }
             }
         }
@@ -106,5 +165,4 @@ public class SnareTrapEntity extends EntityBaseProjectile {
             }
         }
     }
-
 }

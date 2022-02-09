@@ -65,13 +65,13 @@ public class BlastTrapSpell extends BaseSpell {
         c.set(SC.MANA_COST, 9, 14);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 0, 0);
+        c.set(SC.BASE_VALUE, 4, 9);
         c.set(SC.ATTACK_SCALE_VALUE, 2.25F, 3.5F);
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 11, 8);
-        c.set(SC.DURATION_TICKS, 200, 300);
+        c.set(SC.DURATION_TICKS, 200, 200);
         c.set(SC.RADIUS, 1.5F, 3.0F);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
@@ -101,8 +101,10 @@ public class BlastTrapSpell extends BaseSpell {
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
-        list.add(new StringTextComponent("Throw out a trap that explodes,"));
-        list.add(new StringTextComponent("dealing AOE fire damage: "));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Traps must be set on the ground for at least 1s"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "before activating."));
+        list.add(new StringTextComponent("Throw out a trap that explodes, dealing"));
+        list.add(new StringTextComponent("AOE fire damage: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

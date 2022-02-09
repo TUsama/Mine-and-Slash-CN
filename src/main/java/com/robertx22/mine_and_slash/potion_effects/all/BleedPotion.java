@@ -53,7 +53,7 @@ public class BleedPotion extends BasePotionEffect {
         }, null));
     }
 
-    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.1F);
+    public static ScalingStatCalc CALC = new ScalingStatCalc(PhysicalDamage.getInstance(), 0.08F);
 
     @Override
     public String GUID() {
@@ -79,7 +79,7 @@ public class BleedPotion extends BasePotionEffect {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.TICK_RATE, 20, 20);
-        p.set(SC.DURATION_TICKS, 120, 120);
+        p.set(SC.DURATION_TICKS, 100, 100);
         return p;
     }
 

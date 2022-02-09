@@ -43,6 +43,14 @@ public class WeakenTrapEntity extends EntityBaseProjectile {
     }
 
     @Override
+    public void initSpellEntity() {
+        this.setDeathTime(getSpellData().configs.get(SC.DURATION_TICKS)
+                .intValue());
+        //this.setEntityFound(false);
+        //this.setTicksAfterFound(0);
+    }
+
+    @Override
     public double radius() {
         return getSpellData().configs.get(SC.RADIUS);
     }
@@ -54,7 +62,26 @@ public class WeakenTrapEntity extends EntityBaseProjectile {
 
     @Override
     public ItemStack getItem() {
-        return new ItemStack(Items.TRIPWIRE_HOOK);
+        return new ItemStack(Items.SKELETON_SKULL);
+    }
+
+    private boolean entityFound = false;
+    private int ticksAfterFound;
+
+    public void setEntityFound(boolean entityFound) {
+        this.entityFound = entityFound;
+    }
+
+    public void setTicksAfterFound(int ticksAfterFound) {
+        this.ticksAfterFound = ticksAfterFound;
+    }
+
+    public boolean getEntityFound() {
+        return this.entityFound;
+    }
+
+    public int getTicksAfterFound() {
+        return this.ticksAfterFound;
     }
 
     @Override
@@ -63,7 +90,7 @@ public class WeakenTrapEntity extends EntityBaseProjectile {
         EntitySpellData sdata = getSpellData();
         float RADIUS = sdata.configs.get(SC.RADIUS);
 
-        if (this.inGround || this.ticksExisted % 5 == 0) {
+        if (this.getTicksInGround() > 20) {
             if (!world.isRemote) {
                 LivingEntity caster = getCaster();
 
@@ -74,21 +101,44 @@ public class WeakenTrapEntity extends EntityBaseProjectile {
                 List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, getPositionVector())
                     .radius(RADIUS)
                     .build();
+                /*
+                if (entities.size() > 0 & !this.getEntityFound()) { // checks to see if the trap has detected any entities.
+                    this.setEntityFound(true);
+                    SoundUtils.playSound(this, SoundEvents.BLOCK_TRIPWIRE_CLICK_OFF, 1, 1);
+                }
 
-                if (entities.size() > 0) {
+                if (this.getEntityFound()) { // once it has detected an entity, will start ticking
+                    this.ticksAfterFound++;
+                }
 
-                    this.remove();
+                if (this.getTicksAfterFound() >= 20) {
 
                     SoundUtils.playSound(this, SoundEvents.ENTITY_SPLASH_POTION_BREAK, 1, 1);
                     Vec3d p = GeometryUtils.getRandomHorizontalPosInRadiusCircle(
                             getPositionVector().add(0, 0.2F, 0), RADIUS);
-                    ParticleUtils.spawn(ParticleTypes.CLOUD, world, p);
+                    ParticleUtils.spawn(ParticleTypes.SMOKE, world, p);
+
+                    if (entities.size() > 0) {
+                        entities.forEach(x -> {
+
+                            PotionEffectUtils.apply(WeakenEffect.INSTANCE, getCaster(), x);
+                        });
+                    }
+
+                    this.remove();
+
+                }*/
+
+                if (entities.size() > 0) {
+
+                    SoundUtils.playSound(this, SoundEvents.ENTITY_SPLASH_POTION_BREAK, 1, 1);
 
                     entities.forEach(x -> {
 
                         PotionEffectUtils.apply(WeakenEffect.INSTANCE, getCaster(), x);
                     });
 
+                    this.remove();
                 }
             }
         }
@@ -106,5 +156,4 @@ public class WeakenTrapEntity extends EntityBaseProjectile {
             }
         }
     }
-
 }

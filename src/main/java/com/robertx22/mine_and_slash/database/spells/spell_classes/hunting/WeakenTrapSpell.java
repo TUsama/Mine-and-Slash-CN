@@ -67,14 +67,14 @@ public class WeakenTrapSpell extends BaseSpell {
         c.set(SC.MANA_COST, 5, 8);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 0, 0);
+        c.set(SC.BASE_VALUE, 6, 13);
         c.set(SC.SHOOT_SPEED, 1.4F, 2F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 13, 10);
-        c.set(SC.DURATION_TICKS, 200, 300);
+        c.set(SC.DURATION_TICKS, 200, 200);
         c.set(SC.TICK_RATE, 20, 20);
-        c.set(SC.RADIUS, 1.5F, 3.0F);
+        c.set(SC.RADIUS, 2.5F, 4.0F);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
         c.setMaxLevel(4);
@@ -102,9 +102,13 @@ public class WeakenTrapSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Throw out a trap that weakens enemies in AOE."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Traps must be set on the ground for at least 1s"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "before activating."));
+        list.add(new StringTextComponent("Throw out a trap that explodes, dealing"));
+        list.add(new StringTextComponent("nature DoT and weakening enemies caught"));
+        list.add(new StringTextComponent("in the blast: "));
 
-        list.addAll(WeakenEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
         return list;
 
