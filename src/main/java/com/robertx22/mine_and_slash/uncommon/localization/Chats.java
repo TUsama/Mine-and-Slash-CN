@@ -92,7 +92,9 @@ public enum Chats implements IAutoLocName {
 
     Can_not_go_over_maximum_level("Can not go over maximum level"),
 
-    This_is_not_an_Attunement_Altar("This is not an Attunement Altar");
+    This_is_not_an_Attunement_Altar("This is not an Attunement Altar"),
+
+    Not_enough_resource("Not enough mana/energy");
 
     private String localization = "";
 

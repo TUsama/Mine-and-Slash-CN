@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.packets;
 
 import com.robertx22.mine_and_slash.config.forge.ClientContainer;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
+import com.robertx22.mine_and_slash.uncommon.localization.Chats;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.SoundEvents;
@@ -39,6 +40,7 @@ public class NoEnergyPacket {
                 if (ClientContainer.INSTANCE.SHOW_LOW_ENERGY_MANA_WARNING.get()) {
 
                     PlayerEntity player = MMORPG.proxy.getPlayerEntityFromContext(ctx);
+                    player.sendMessage(Chats.Not_enough_resource.locName());
                     player.playSound(SoundEvents.ENTITY_VILLAGER_AMBIENT, 0.8F, 1.1F);
 
                 }

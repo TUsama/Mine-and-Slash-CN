@@ -1,3 +1,7 @@
+3.13.7:
+- Reduced mob dodge rating by about 33%.
+- You now get an "out of resources" warning when you are out of mana/energy.
+
 3.13.6:
 - Increased Chilling Field mana damage scaling by about 50%.
 - Increased Whirlpool damage by about 7% and reduced its mana cost slightly.

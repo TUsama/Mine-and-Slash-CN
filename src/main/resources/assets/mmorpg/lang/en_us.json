@@ -1705,6 +1705,7 @@
 	"mmorpg.chat.you_have_leveled_up": "You have leveled up!",
 	"mmorpg.chat.you_have_ran_out_of_time": "You have ran out of time.",
 	"mmorpg.chat.youneedheartstone": "You need a hearthstone item to attune to this block.",
+	"mmorpg.chat.not_enough_resource": "You are out of resources.",
 
 "_comment": " [CATEGORY]: CHAT MESSAGES - NAMES",
 

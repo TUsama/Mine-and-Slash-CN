@@ -121,7 +121,7 @@ public class MobStatUtils {
                 .AverageStat() * rar.StatMultiplier(), level);
         unit.getCreateStat(DodgeRating.GUID)
                 .addFlat(DodgeRating.getInstance()
-                        .AverageStat() * rar.StatMultiplier() * 0.5F, level);
+                        .AverageStat() * rar.StatMultiplier() * 0.33F, level);
         unit.getCreateStat(CriticalHit.GUID)
             .addFlat(5 * rar.DamageMultiplier());
         unit.getCreateStat(CriticalDamage.GUID)
