@@ -1,3 +1,8 @@
+3.13.8:
+- Charged Sweep AOE has been reduced.
+- Charged Sweep now always applies Static.
+- Charged Sweep's synergy, Static Discharge has been removed.
+
 3.13.7:
 - Reduced mob dodge rating by about 33%.
 - You now get an "out of resources" warning when you are out of mana/energy.

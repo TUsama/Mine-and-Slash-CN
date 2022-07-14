@@ -82,7 +82,7 @@ public class Synergies implements ISlashRegistryInit {
         new HolySpearSynergy().registerToSlashRegistry();
         new SpellBladeBurstSynergy().registerToSlashRegistry();
         new ThunderstormEnhancedSynergy().registerToSlashRegistry();
-        new ChargedNovaStaticSynergy().registerToSlashRegistry();
+        //new ChargedNovaStaticSynergy().registerToSlashRegistry();
         new LightningTotemEnhancedSynergy().registerToSlashRegistry();
         new BlizzardFrostEssenceGenSynergy().registerToSlashRegistry();
         new HeavyStrikeEnrageSynergy().registerToSlashRegistry();

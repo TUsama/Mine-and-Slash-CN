@@ -34,7 +34,7 @@ public class ChargedNovaStaticSynergy extends OnAttackSpellDmgDoneSynergy {
         addSpellName(list);
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Charged Nova"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Charged Sweep"));
 
         TooltipUtils.addEmpty(list);
 
