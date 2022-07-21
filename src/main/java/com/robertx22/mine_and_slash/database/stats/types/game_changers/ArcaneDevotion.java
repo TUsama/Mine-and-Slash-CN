@@ -49,6 +49,7 @@ public class ArcaneDevotion extends BaseGameChangerTrait {
             new ExactStatData(-95, StatModTypes.Multi, HealthRegen.getInstance()),
             new ExactStatData(-33, StatModTypes.Multi, DodgeRating.getInstance()),
                 new ExactStatData(-33, StatModTypes.Multi, Armor.getInstance()),
+                new ExactStatData(100, StatModTypes.Flat, MagicShield.getInstance()),
             new ExactStatData(MS, StatModTypes.Multi, MagicShield.getInstance())
         );
     }

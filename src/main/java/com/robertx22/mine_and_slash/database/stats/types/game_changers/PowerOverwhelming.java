@@ -45,7 +45,7 @@ public class PowerOverwhelming extends BaseGameChangerTrait {
     public List<ExactStatData> getExactStats() {
 
         return Arrays.asList(
-                new ExactStatData(25, StatModTypes.Flat, SpellDamage.getInstance()),
+                new ExactStatData(20, StatModTypes.Flat, SpellDamage.getInstance()),
                 new ExactStatData(-1000, StatModTypes.Multi, CriticalHit.getInstance()),
                 new ExactStatData(-1000, StatModTypes.Multi, CriticalDamage.getInstance())
         );

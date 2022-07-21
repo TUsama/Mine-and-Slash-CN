@@ -45,6 +45,7 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.registries.ForgeRegistries;
+import top.theillusivec4.curios.common.CuriosConfig;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -490,12 +491,13 @@ public class Unit {
             CommonStatUtils.AddMapAffixStats(mapData, this, level, entity);
         }
 
+        CommonStatUtils.CalcCoreStats(data); // needs to be done before stat conversions or it wont work properly
+
         Unit copy = this.Clone();
 
         CommonStatUtils.CalcStatConversionsAndTransfers(copy, this);
 
-        CommonStatUtils.CalcTraitsAndCoreStats(
-            data); // has to be at end for the conditionals like if crit higher than x
+        CommonStatUtils.CalcTraits(data); // has to be at end for the conditionals like if crit higher than x
 
         MinecraftForge.EVENT_BUS.post(new MineAndSlashEvents.OnStatCalculation(entity, data));
 

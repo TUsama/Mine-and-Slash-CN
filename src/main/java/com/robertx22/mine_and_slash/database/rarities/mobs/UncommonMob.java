@@ -40,12 +40,12 @@ public class UncommonMob extends BaseUncommon implements MobRarity {
 
     @Override
     public float oneAffixChance() {
-        return 10;
+        return 25;
     }
 
     @Override
     public float bothAffixesChance() {
-        return 0;
+        return 2.5F;
     }
 
     @Override

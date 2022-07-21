@@ -22,11 +22,11 @@ public class RefreshingBreeze extends BaseGameChangerTrait implements IStatEffec
 
     public static final RefreshingBreeze INSTANCE = new RefreshingBreeze();
 
-    public static int PERCENT = 10;
+    public static int PERCENT = 2;
 
     @Override
     public String locDescForLangFile() {
-        return "Dodging restores " + PERCENT + " percent of your energy regen. But if you don't dodge, you a quarter of that from energy.";
+        return "Dodging restores " + PERCENT + " percent of your max health. But if you don't dodge, lose " + PERCENT + " percent of your max energy.";
     }
 
     @Override
@@ -57,7 +57,7 @@ public class RefreshingBreeze extends BaseGameChangerTrait implements IStatEffec
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-                new ExactStatData(-30, StatModTypes.Multi, EnergyRegen.getInstance())
+                new ExactStatData(-25, StatModTypes.Multi, EnergyRegen.getInstance())
         );
     }
 }

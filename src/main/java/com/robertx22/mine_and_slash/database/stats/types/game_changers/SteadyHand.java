@@ -18,7 +18,7 @@ public class SteadyHand extends BaseGameChangerTrait implements IStatEffects {
 
     public static final SteadyHand INSTANCE = new SteadyHand();
 
-    public static int DMG_INCREASE_PERCENT = 20;
+    public static int DMG_INCREASE_PERCENT = 15;
 
     @Override
     public String locDescForLangFile() {

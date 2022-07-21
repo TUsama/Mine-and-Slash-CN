@@ -17,6 +17,7 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.*;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.conversions.EnergyToManaConvFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.conversions.ManaToEnergyConvFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.*;
+import com.robertx22.mine_and_slash.database.stats.mods.mob_spells.*;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.ArmorMulti;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.CriticalHitMulti;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.DodgeRatingMulti;
@@ -80,6 +81,13 @@ public class StatMods implements ISlashRegistryInit {
                     add(new ReducedManaCostFlat());
                     add(new FasterCastRateFlat());
 
+                    // mob spells
+                    add(new FireStrikeFlat());
+                    add(new FrostNovaFlat());
+                    add(new LightningDischargeFlat());
+                    add(new WeakenCurseFlat());
+                    add(new BloodyStrikeFlat());
+
                     add(new CompletePhysDispersionFlat());
                     add(new HealPowerFlat());
                     add(new AllEleDmgFlat());
@@ -95,7 +103,7 @@ public class StatMods implements ISlashRegistryInit {
                     add(new SummonDamageFlat());
                     add(new SpellDamagePercent());
                     add(new ArmorPenetrationFlat());
-                    add(new DodgeIgnoreFlat());
+                    //add(new DodgeIgnoreFlat());
 
                     add(new BonusExpFlat());
 

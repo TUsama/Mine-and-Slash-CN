@@ -9,7 +9,7 @@
   "mods": {
     "mods": [
       "armor_penetration_flat",
-      "dodge_ignore_flat"
+      "critical_hit_flat"
     ]
   }
 }

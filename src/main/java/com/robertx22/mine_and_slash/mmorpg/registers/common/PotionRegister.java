@@ -2,7 +2,9 @@ package com.robertx22.mine_and_slash.mmorpg.registers.common;
 
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.all.BleedPotion;
+import com.robertx22.mine_and_slash.potion_effects.all.MobChillEffect;
 import com.robertx22.mine_and_slash.potion_effects.all.TeleportProtection;
+import com.robertx22.mine_and_slash.potion_effects.all.WeakenCurseEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.*;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.AttackSiphonEffect;
@@ -31,6 +33,8 @@ public class PotionRegister {
         reg.register(RechargeEffect.INSTANCE);
         reg.register(TeleportProtection.INSTANCE);
         reg.register(BleedPotion.INSTANCE);
+        reg.register(WeakenCurseEffect.INSTANCE);
+        reg.register(MobChillEffect.INSTANCE);
         reg.register(ChainLightningEffect.INSTANCE);
 
         reg.register(DefendEffect.INSTANCE);

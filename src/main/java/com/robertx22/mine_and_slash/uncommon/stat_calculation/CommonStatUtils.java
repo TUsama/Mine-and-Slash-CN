@@ -10,6 +10,7 @@ import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.saveclasses.Unit;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.StatModData;
 import com.robertx22.mine_and_slash.saveclasses.mapitem.MapAffixData;
+import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap.UnitData;
 import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
 import com.robertx22.mine_and_slash.uncommon.capability.world.WorldMapCap;
@@ -53,7 +54,7 @@ public class CommonStatUtils {
         }
     }
 
-    public static void CalcTraitsAndCoreStats(UnitData unit) {
+    public static void CalcCoreStats(UnitData unit) {
 
         Unit theunit = unit.getUnit();
 
@@ -73,6 +74,12 @@ public class CommonStatUtils {
             }
 
         }
+    }
+
+    public static void CalcTraits(UnitData unit) {
+
+        Unit theunit = unit.getUnit();
+
         for (Trait trait : Stats.allPreGenMapStatLists.get(Trait.class)) {
 
             StatData statdata = theunit.peekAtStat(trait.GUID());

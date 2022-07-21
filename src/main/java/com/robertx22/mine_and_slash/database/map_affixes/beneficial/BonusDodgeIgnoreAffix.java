@@ -18,7 +18,8 @@ public class BonusDodgeIgnoreAffix extends BeneficialMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new DodgeIgnoreFlat().size(StatMod.Size.DOUBLE), percent));
+        return Arrays.asList(StatModData.Load(new ArmorPenetrationFlat().size(StatMod.Size.DOUBLE), percent));
+        //return Arrays.asList(StatModData.Load(new DodgeIgnoreFlat().size(StatMod.Size.DOUBLE), percent));
     }
 
     @Override

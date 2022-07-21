@@ -44,8 +44,8 @@ public class ManaBattery extends BaseGameChangerTrait implements IStatEffects {
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-            new ExactStatData(-60, StatModTypes.Multi, Armor.getInstance()),
-            new ExactStatData(-60, StatModTypes.Multi, DodgeRating.getInstance())
+            new ExactStatData(-50, StatModTypes.Multi, Armor.getInstance()),
+            new ExactStatData(-50, StatModTypes.Multi, DodgeRating.getInstance())
         );
     }
 

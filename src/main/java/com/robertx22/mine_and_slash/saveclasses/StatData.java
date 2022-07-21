@@ -86,7 +86,7 @@ public class StatData {
         float finalValue = stat.BaseFlat;
 
         finalValue += (Flat + Flat2) / 2;
-
+;
         finalValue *= 1 + Percent / 100;
 
         finalValue *= 1 + Multi / 100;

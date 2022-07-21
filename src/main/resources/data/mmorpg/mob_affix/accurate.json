@@ -8,7 +8,7 @@
   "type": "prefix",
   "mods": {
     "mods": [
-      "high_dodge_ignore_flat"
+      "very_high_critical_hit_flat"
     ]
   }
 }

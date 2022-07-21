@@ -43,7 +43,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class DamageEffect extends EffectData implements IArmorReducable, IPenetrable, IDamageEffect,
-    IElementalResistable, IElementalPenetrable, ICrittable, IIgnorable {
+    IElementalResistable, IElementalPenetrable, ICrittable {
 
     public DamageEffect(LivingHurtEvent event, LivingEntity source, LivingEntity target, int dmg, UnitData sourceData,
                         UnitData targetData, EffectTypes effectType, WeaponTypes weptype) {
@@ -109,7 +109,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
     public static String dmgSourceName = Ref.MODID + ".custom_damage";
     public Elements element = Elements.Physical;
     public int armorPene;
-    public int dodgeIgnore;
+    //public int dodgeIgnore;
     public int elementalPene;
 
     public float damageMultiplier = 1;
@@ -569,10 +569,10 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
         this.armorPene = val;
     }
 
-    @Override
-    public void SetDodgeIgnore(int val) {
-        this.dodgeIgnore = val;
-    }
+    //@Override
+    //public void SetDodgeIgnore(int val) {
+    //    this.dodgeIgnore = val;
+    //}
 
     @Override
     public void addElementalPenetration(int val) {
@@ -584,10 +584,10 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
         return this.armorPene;
     }
 
-    @Override
-    public int GetDodgeIgnore() {
-        return this.dodgeIgnore;
-    }
+    //@Override
+    //public int GetDodgeIgnore() {
+    //    return this.dodgeIgnore;
+    //}
 
     public boolean crit = false;
 

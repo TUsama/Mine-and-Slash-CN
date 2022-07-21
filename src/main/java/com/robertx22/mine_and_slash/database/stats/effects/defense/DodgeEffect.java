@@ -38,17 +38,18 @@ public class DodgeEffect extends BaseStatEffect<DamageEffect> {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-        int pene = 0;
+        //int pene = 0;
 
-        if (effect instanceof IIgnorable) {
-            IIgnorable ipen = (IIgnorable) effect;
-            pene = ipen.GetDodgeIgnore();
-            pene = 1 - pene / 100;
-        }
+        //if (effect instanceof IIgnorable) {
+        //    IIgnorable ipen = (IIgnorable) effect;
+        //    pene = ipen.GetDodgeIgnore();
+        //    pene = 1 - pene / 100;
+        //}
 
         DodgeRating dodge = (DodgeRating) stat;
 
-        float chance = dodge.GetUsableValue(effect.targetData.getLevel(), (int) data.getAverageValue() * pene) * 100;
+        float chance = dodge.GetUsableValue(effect.targetData.getLevel(), (int) data.getAverageValue()) * 100;
+        //float chance = dodge.GetUsableValue(effect.targetData.getLevel(), (int) data.getAverageValue() * pene) * 100;
 
         if (RandomUtils.roll(chance)) {
             DamageEffect dmgeffect = effect;

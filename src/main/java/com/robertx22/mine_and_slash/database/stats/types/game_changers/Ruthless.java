@@ -42,7 +42,7 @@ public class Ruthless extends BaseGameChangerTrait {
     public List<ExactStatData> getExactStats() {
 
         return Arrays.asList(
-            new ExactStatData(35, StatModTypes.Flat, new AllDotDmg()),
+            new ExactStatData(30, StatModTypes.Flat, new AllDotDmg()),
             //new ExactStatData(30, StatModTypes.Flat, IncreasedDurationStat.getInstance()),
             new ExactStatData(-25, StatModTypes.Flat, SpellDamage.getInstance())
         );

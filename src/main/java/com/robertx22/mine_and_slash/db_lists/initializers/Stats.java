@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.database.stats.types.game_changers.*;
 import com.robertx22.mine_and_slash.database.stats.types.generated.*;
 import com.robertx22.mine_and_slash.database.stats.types.misc.BonusExp;
 import com.robertx22.mine_and_slash.database.stats.types.misc.LuckStat;
+import com.robertx22.mine_and_slash.database.stats.types.mob_spells.*;
 import com.robertx22.mine_and_slash.database.stats.types.offense.*;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToFireConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToNatureConversion;
@@ -64,7 +65,7 @@ public class Stats implements ISlashRegistryInit {
                 {
 
                     add(ArmorPenetration.getInstance());
-                    add(DodgeIgnore.getInstance());
+                    //add(DodgeIgnore.getInstance());
 
                     // GAME CHANGERS
                     add(ManaBattery.INSTANCE);
@@ -105,6 +106,13 @@ public class Stats implements ISlashRegistryInit {
                     add(new ElementalPene(Elements.Physical));
                     add(new ElementalFocus(Elements.Physical));
                     add(new BlockReflect(Elements.Physical));
+
+                    // mob spells
+                    add(new FireStrike());
+                    add(new FrostNova());
+                    add(new LightningDischarge());
+                    add(new WeakenCurse());
+                    add(new BloodyStrike());
 
                     // generated
 

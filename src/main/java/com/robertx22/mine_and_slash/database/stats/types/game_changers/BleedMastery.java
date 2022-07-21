@@ -57,7 +57,7 @@ public class BleedMastery extends BaseGameChangerTrait implements IStatEffects {
                 .collect(Collectors.toList());
         ;
 
-        list.add(new ExactStatData(-15, StatModTypes.Multi, PhysicalDamage.getInstance()));
+        list.add(new ExactStatData(-10, StatModTypes.Multi, PhysicalDamage.getInstance()));
 
         return list;
     }

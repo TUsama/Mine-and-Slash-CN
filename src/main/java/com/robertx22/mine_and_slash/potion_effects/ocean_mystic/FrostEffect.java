@@ -44,7 +44,6 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
             ParticleUtils.spawnParticles(ParticleTypes.ITEM_SNOWBALL, ctx.entity, 25);
             return ctx;
         }, null));
-
     }
 
     @Override
