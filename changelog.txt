@@ -1,4 +1,4 @@
-3.13.12b:
+3.13.12d:
 - Mobs can now cast some basic spells. Most of them are "on hit", whether they're hit or they cause the hit.
 - Cold, Flaming, Lightning, and Venomous mob affixes have been changed to be spell oriented.
 - Frost Nova Spell - When mob deals damage, send out a nova of ice from the target that deals damage around them in AOE. The spell also applies a 33% slow for 3s.
