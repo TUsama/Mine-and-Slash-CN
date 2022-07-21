@@ -41,7 +41,7 @@ public class BleedPotion extends BasePotionEffect {
             num *= ctx.data.getStacks();
 
             if (ctx.entity.world.isRemote) {
-                ParticleUtils.spawnParticles(ParticleTypes.LAVA, ctx.entity, 25);
+                ParticleUtils.spawnParticles(ParticleTypes.LAVA, ctx.entity, 15);
                 SoundUtils.playSound(ctx.entity, SoundEvents.ENTITY_SLIME_SQUISH, 1F, 1.25F);
             } else {
                 DamageEffect dmg = new DamageEffect(null, ctx.caster, ctx.entity, num, ctx.casterData, ctx.entityData,

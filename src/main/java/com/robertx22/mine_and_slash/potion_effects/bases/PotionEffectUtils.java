@@ -1,6 +1,9 @@
 package com.robertx22.mine_and_slash.potion_effects.bases;
 
+import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.FrostNovaEffect;
 import com.robertx22.mine_and_slash.potion_effects.all.BleedPotion;
+import com.robertx22.mine_and_slash.potion_effects.all.MobChillEffect;
+import com.robertx22.mine_and_slash.potion_effects.all.WeakenCurseEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.ExtraPotionData;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
@@ -64,7 +67,7 @@ public class PotionEffectUtils {
             extraData.casterLvl = casterData.getLevel();
             extraData.casterID = caster.getUniqueID()
                 .toString();
-            if (effect != BleedPotion.INSTANCE) {
+            if (effect != BleedPotion.INSTANCE && effect != WeakenCurseEffect.INSTANCE && effect != MobChillEffect.INSTANCE) {
                 extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
                 extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
             }
@@ -83,7 +86,7 @@ public class PotionEffectUtils {
             extraData.casterLvl = casterData.getLevel();
             extraData.casterID = caster.getUniqueID()
                 .toString();
-            if (effect != BleedPotion.INSTANCE) {
+            if (effect != BleedPotion.INSTANCE && effect != WeakenCurseEffect.INSTANCE && effect != MobChillEffect.INSTANCE) {
                 extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
                 extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
             }

@@ -52,6 +52,7 @@ public class FireStrikeEffect extends BaseDamageEffect {
                 .add(look)
                 .add(0, effect.source.getHeight() / 2, 0))
                 .finder(EntityFinder.Finder.RADIUS)
+                .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .radius(2)
                 .height(2)
                 .build();
@@ -76,7 +77,7 @@ public class FireStrikeEffect extends BaseDamageEffect {
                             .type(ParticleTypes.FLAME)
                             .amount((int) (30)));
 
-            if (en != effect.target && en != effect.source) {
+            if (en != effect.source) {
                 DamageEffect dmg = new DamageEffect(
                         null, effect.source, en, (int) num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
                 dmg.element = Elements.Fire;

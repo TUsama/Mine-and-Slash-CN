@@ -54,17 +54,18 @@ public class BloodyStrikeEffect extends BaseDamageEffect {
 
         for (LivingEntity en : list) {
 
-            ParticleEnum.sendToClients(
-                    en.getPosition(), en.world,
-                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
-                            .motion(new Vec3d(0, 0, 0))
-                            .type(ParticleTypes.LAVA)
-                            .amount((int) (40)));
+            if (en != effect.source) {
+                ParticleEnum.sendToClients(
+                        en.getPosition(), en.world,
+                        new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                                .motion(new Vec3d(0, 0, 0))
+                                .type(ParticleTypes.LAVA)
+                                .amount((int) (15)));
 
-            // apply two bleed stacks since mobs attack slowly.
-            PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, effect.target);
-            PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, effect.target);
-
+                // apply two bleed stacks since mobs attack slowly.
+                PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, effect.target);
+                PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, effect.target);
+            }
         }
 
         return effect;
@@ -73,7 +74,7 @@ public class BloodyStrikeEffect extends BaseDamageEffect {
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
         return !effect.getEffectType()
-                .equals(EffectTypes.SPELL) || !effect.getEffectType().equals(EffectTypes.DOT_DMG);
+                .equals(EffectTypes.SPELL) && !effect.getEffectType().equals(EffectTypes.DOT_DMG);
     }
 
 }

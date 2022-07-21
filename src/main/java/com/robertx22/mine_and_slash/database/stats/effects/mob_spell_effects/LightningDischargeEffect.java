@@ -34,7 +34,7 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
     @Override
     public EffectSides Side() {
-        return EffectSides.Target;
+        return EffectSides.Source;
     }
 
     @Override
@@ -49,8 +49,8 @@ public class LightningDischargeEffect extends BaseDamageEffect {
                 .peekAtStat("spell_thunder_damage")
                 .getAverageValue();
 
-        float num = wepdmg * 0.5F * (1 + elespelldmg / 100);
-        float radius = 3F;
+        float num = wepdmg * 0.75F * (1 + elespelldmg / 100);
+        float radius = 6F;
 
         ParticlePacketData pdata = new ParticlePacketData(effect.source.getPosition()
                 .up(1), ParticleEnum.CHARGED_NOVA);
@@ -59,14 +59,17 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
         List<LivingEntity> entities = EntityFinder.start(effect.source, LivingEntity.class, effect.source.getPositionVector())
                 .radius(radius)
+                .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
         for (LivingEntity en : entities) {
 
-            DamageEffect dmg = new DamageEffect(
-                    null, effect.source, en, (int) num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-            dmg.element = Elements.Thunder;
-            dmg.Activate();
+            if (en != effect.source) {
+                DamageEffect dmg = new DamageEffect(
+                        null, effect.source, en, (int) num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                dmg.element = Elements.Thunder;
+                dmg.Activate();
+            }
 
         }
 
@@ -75,7 +78,8 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        return true;
+        return !(effect.getEffectType()
+                .equals(EffectTypes.SPELL));
     }
 
 }

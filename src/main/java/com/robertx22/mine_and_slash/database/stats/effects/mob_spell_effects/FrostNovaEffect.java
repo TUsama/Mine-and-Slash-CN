@@ -40,7 +40,7 @@ public class FrostNovaEffect extends BaseDamageEffect {
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
-        SoundUtils.playSound(effect.source, ModSounds.FREEZE.get(), 1.25F, 1);
+        SoundUtils.playSound(effect.source, SoundEvents.BLOCK_GLASS_BREAK, 1.25F, 1);
 
         float wepdmg = effect.sourceData.getUnit()
                 .peekAtStat(PhysicalDamage.GUID)
@@ -49,8 +49,8 @@ public class FrostNovaEffect extends BaseDamageEffect {
                 .peekAtStat("spell_water_damage")
                 .getAverageValue();
 
-        float num = wepdmg * 0.75F * (1 + elespelldmg / 100);
-        float radius = 2F;
+        float num = wepdmg * 0.5F * (1 + elespelldmg / 100);
+        float radius = 3F;
 
         ParticleEnum.sendToClients(effect.target,
                 new ParticlePacketData(effect.target.getPosition(), ParticleEnum.NOVA).radius(
@@ -60,12 +60,12 @@ public class FrostNovaEffect extends BaseDamageEffect {
         );
 
         List<LivingEntity> entities = EntityFinder.start(effect.source, LivingEntity.class, effect.target.getPositionVector())
-                .radius(radius)
+                .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
         for (LivingEntity en : entities) {
-            if (en != effect.target) {
 
+            if (en != effect.source) {
                 PotionEffectUtils.apply(MobChillEffect.INSTANCE, effect.source, effect.target);
 
                 DamageEffect dmg = new DamageEffect(

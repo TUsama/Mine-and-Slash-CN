@@ -1,6 +1,5 @@
 package com.robertx22.mine_and_slash.db_lists.initializers;
 
-import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_types.Summon;
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.Trait;
