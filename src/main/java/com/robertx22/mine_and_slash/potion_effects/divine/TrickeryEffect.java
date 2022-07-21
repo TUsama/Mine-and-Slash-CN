@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.TrickerySpell;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.CriticalHitPercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Dexterity;
+import com.robertx22.mine_and_slash.database.stats.types.core_stats.Stamina;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.database.stats.types.resources.EnergyRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -57,9 +58,10 @@ public class TrickeryEffect extends BasePotionEffect implements IApplyStatPotion
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
+        list.add(new PotionStat(20, Dexterity.INSTANCE));
+        list.add(new PotionStat(20, Stamina.INSTANCE));
+        list.add(new PotionStat(6, EnergyRegen.getInstance()));
         list.add(new PotionStat(6, CriticalHit.getInstance()));
-        list.add(new PotionStat(2, EnergyRegen.getInstance()));
-        list.add(new PotionStat(10, Dexterity.INSTANCE));
         return list;
     }
 

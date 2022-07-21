@@ -5,8 +5,11 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.WizardrySpell;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Intelligence;
+import com.robertx22.mine_and_slash.database.stats.types.core_stats.Wisdom;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.ManaRegen;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.FasterCastRate;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
@@ -58,9 +61,10 @@ public class WizardryEffect extends BasePotionEffect implements IApplyStatPotion
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(15, new ElementalSpellDamage(Elements.Elemental)));
-        list.add(new PotionStat(2, ManaRegen.getInstance()));
-        list.add(new PotionStat(10, Intelligence.INSTANCE));
+        list.add(new PotionStat(20, Intelligence.INSTANCE));
+        list.add(new PotionStat(20, Wisdom.INSTANCE));
+        list.add(new PotionStat(6, ManaRegen.getInstance()));
+        list.add(new PotionStat(10, ReducedCooldownStat.getInstance()));
         return list;
     }
 

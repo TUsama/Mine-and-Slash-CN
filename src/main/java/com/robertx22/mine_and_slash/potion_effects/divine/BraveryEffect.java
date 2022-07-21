@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.B
 import com.robertx22.mine_and_slash.database.stats.mods.percent.HealthPercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Strength;
+import com.robertx22.mine_and_slash.database.stats.types.core_stats.Vitality;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.BlockStrength;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
@@ -63,9 +64,10 @@ public class BraveryEffect extends BasePotionEffect implements IApplyStatPotion,
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(12, Health.getInstance()));
-        list.add(new PotionStat(4, BlockStrength.INSTANCE));
-        list.add(new PotionStat(10, Strength.INSTANCE));
+        list.add(new PotionStat(20, Vitality.INSTANCE));
+        list.add(new PotionStat(20, Strength.INSTANCE));
+        list.add(new PotionStat(6, HealthRegen.getInstance()));
+        list.add(new PotionStat(6, BlockStrength.INSTANCE));
         return list;
     }
 
