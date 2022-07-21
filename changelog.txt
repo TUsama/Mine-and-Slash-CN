@@ -1,3 +1,9 @@
+3.13.10:
+- Fixed Summoned Zombies and Skeletons having hurtboxes of Spiders. Unholy map delvers, rejoice!
+- Lightning Spear Galvanic Arc synergy no longer infinitely loops and deals crazy burst damage.
+- Slightly buffed Spell Blade synergy. Radius increase by 1, and scaling at max level has been increased.
+- FINALLY fixed Power Surge, Critical Surge, and Spell Blade synergies being active even when the buff wasn't active. No more free triggers!
+
 3.13.9:
 - Buffed Divine aura buffs substantially. My goal was to make the buffs more relevant and sought out in parties. Eg. change from ele spell dmg to cdr should make it more useful in groups:
 - Bravery now gives substantial amounts of Vitality, Strength, Health Regen, and Block Chance instead of small amounts of Health, Block Chance, and Strength.

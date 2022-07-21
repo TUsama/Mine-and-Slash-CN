@@ -14,6 +14,8 @@ import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.druid.ThornsEffect;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
+import com.robertx22.mine_and_slash.potion_effects.shaman.PowerSurgeEffect;
+import com.robertx22.mine_and_slash.potion_effects.shaman.StaticEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -78,20 +80,23 @@ public class PowerSurgeBoltSynergy extends OnHitSynergy {
                 .get(SC.CHANCE)
                 .get(Load.spells(ctx.source), this);
 
-        if (RandomUtils.roll(chance)) {
+        if (PotionEffectUtils.has(ctx.source, PowerSurgeEffect.INSTANCE)) {
 
-            int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
-                    .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
+            if (RandomUtils.roll(chance)) {
 
-            SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.8F, 2);
+                int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
+                        .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
 
-            SpellUtils.summonLightningStrike(ctx.target);
+                SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.8F, 2);
 
-            DamageEffect dmg = new DamageEffect(
-                    null, ctx.source, ctx.target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-            dmg.element = Elements.Thunder;
-            dmg.Activate();
+                SpellUtils.summonLightningStrike(ctx.target);
 
+                DamageEffect dmg = new DamageEffect(
+                        null, ctx.source, ctx.target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                dmg.element = Elements.Thunder;
+                dmg.Activate();
+
+            }
         }
     }
 

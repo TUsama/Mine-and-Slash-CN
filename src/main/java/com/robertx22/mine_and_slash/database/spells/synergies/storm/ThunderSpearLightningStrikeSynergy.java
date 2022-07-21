@@ -84,7 +84,7 @@ public class ThunderSpearLightningStrikeSynergy extends OnDamageDoneSynergy {
                     .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
 
             DamageEffect dmg = new DamageEffect(
-                    null, ctx.source, ctx.target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                    null, ctx.source, ctx.target, num, EffectData.EffectTypes.BOLT, WeaponTypes.None);
             dmg.element = getSpell()
                     .getElement();
             dmg.Activate();

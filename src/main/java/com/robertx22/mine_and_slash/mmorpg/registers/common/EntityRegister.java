@@ -160,14 +160,14 @@ public class EntityRegister {
 
         ZOMBIE_PET = EntityType.Builder.<ZombiePetEntity>create(ZombiePetEntity::new, EntityClassification.MONSTER).setCustomClientFactory(
                 ZombiePetEntity::new)
-                .size(1.4F, 0.9F)
+                .size(0.6F, 1.8F)
                 .build(Ref.MODID + ":zombie_pet");
         ZOMBIE_PET.setRegistryName(new ResourceLocation(Ref.MODID, "zombie_pet"));
         ENTITY_TYPES.add(ZOMBIE_PET);
 
         SKELETON_PET = EntityType.Builder.<SkeletonPetEntity>create(SkeletonPetEntity::new, EntityClassification.MONSTER).setCustomClientFactory(
                 SkeletonPetEntity::new)
-                .size(1.4F, 0.9F)
+                .size(0.6F, 1.8F)
                 .build(Ref.MODID + ":skeleton_pet");
         SKELETON_PET.setRegistryName(new ResourceLocation(Ref.MODID, "skeleton_pet"));
         ENTITY_TYPES.add(SKELETON_PET);

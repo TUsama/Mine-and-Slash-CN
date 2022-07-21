@@ -111,6 +111,7 @@ public abstract class EffectData {
         REFLECT,
         DOT_DMG,
         SUMMON_DMG,
+        BOLT
     }
 
     public Unit GetSource() {

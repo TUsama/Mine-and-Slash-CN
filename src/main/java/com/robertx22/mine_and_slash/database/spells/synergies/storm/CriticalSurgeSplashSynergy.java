@@ -8,6 +8,9 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.PowerSur
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnHitSynergy;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.shaman.CriticalSurgeEffect;
+import com.robertx22.mine_and_slash.potion_effects.shaman.PowerSurgeEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -74,31 +77,34 @@ public class CriticalSurgeSplashSynergy extends OnHitSynergy {
                 .get(SC.CHANCE)
                 .get(Load.spells(ctx.source), this);
 
-        if (ctx.isCriticalHit() && RandomUtils.roll(chance)) {
+        if (PotionEffectUtils.has(ctx.source, CriticalSurgeEffect.INSTANCE)) {
 
-            float radius = getContext(ctx.source).getConfigFor(this)
-                    .get(SC.RADIUS)
-                    .get(Load.spells(ctx.source), this);
+            if (ctx.isCriticalHit() && RandomUtils.roll(chance)) {
 
-            int num = getCalcVal(ctx.source);
+                float radius = getContext(ctx.source).getConfigFor(this)
+                        .get(SC.RADIUS)
+                        .get(Load.spells(ctx.source), this);
 
-            List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
-                    .radius(radius)
-                    .build();
+                int num = getCalcVal(ctx.source);
 
-            ParticlePacketData pdata = new ParticlePacketData(ctx.target.getPosition()
-                    .up(1), ParticleEnum.CHARGED_NOVA);
-            pdata.radius = radius;
-            ParticleEnum.CHARGED_NOVA.sendToClients(ctx.source, pdata);
+                List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
+                        .radius(radius)
+                        .build();
 
-            SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.8F, 1.3F);
+                ParticlePacketData pdata = new ParticlePacketData(ctx.target.getPosition()
+                        .up(1), ParticleEnum.CHARGED_NOVA);
+                pdata.radius = radius;
+                ParticleEnum.CHARGED_NOVA.sendToClients(ctx.source, pdata);
 
-            for (LivingEntity en : entities) {
-                if (en != ctx.target) {
-                    DamageEffect dmg = new DamageEffect(
-                            null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-                    dmg.element = Elements.Thunder;
-                    dmg.Activate();
+                SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.8F, 1.3F);
+
+                for (LivingEntity en : entities) {
+                    if (en != ctx.target) {
+                        DamageEffect dmg = new DamageEffect(
+                                null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                        dmg.element = Elements.Thunder;
+                        dmg.Activate();
+                    }
                 }
             }
         }

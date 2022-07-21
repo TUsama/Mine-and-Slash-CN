@@ -6,6 +6,9 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.SpellBlad
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnBasicAttackSynergy;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.ember_mage.SpellBladeEffect;
+import com.robertx22.mine_and_slash.potion_effects.shaman.PowerSurgeEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -54,8 +57,8 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 0.5F, 2.0F);
-        c.set(SC.RADIUS, 1.0F, 2.0F);
+        c.set(SC.FIRE_ATTACK_SCALE_VALUE, 0.5F, 3.0F);
+        c.set(SC.RADIUS, 2.0F, 3.0F);
         c.setMaxLevel(8);
         return c;
     }
@@ -67,31 +70,35 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
                 .get(SC.RADIUS)
                 .get(Load.spells(ctx.source), this);
 
-        if (ctx.getEffectType()
-            .equals(EffectData.EffectTypes.BASIC_ATTACK) || ctx.getEffectType()
-                .equals(EffectData.EffectTypes.ATTACK_SPELL) || ctx.getEffectType()
-                .equals(EffectData.EffectTypes.SUMMON_DMG)) {
 
-            int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
-                    .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
+        if (PotionEffectUtils.has(ctx.source, SpellBladeEffect.INSTANCE)) {
 
-            ParticleEnum.sendToClients(ctx.target,
-                new ParticlePacketData(ctx.target.getPosition(), ParticleEnum.NOVA).radius(
-                    radius)
-                    .type(ParticleTypes.FLAME)
-                    .amount(30)
-            );
+            if (ctx.getEffectType()
+                    .equals(EffectData.EffectTypes.BASIC_ATTACK) || ctx.getEffectType()
+                    .equals(EffectData.EffectTypes.ATTACK_SPELL) || ctx.getEffectType()
+                    .equals(EffectData.EffectTypes.SUMMON_DMG)) {
 
-            List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
-                    .radius(radius)
-                    .build();
+                int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
+                        .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
 
-            for (LivingEntity en : entities) {
-                if (en != ctx.target) {
-                    DamageEffect dmg = new DamageEffect(
-                            null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-                    dmg.element = Elements.Fire;
-                    dmg.Activate();
+                ParticleEnum.sendToClients(ctx.target,
+                        new ParticlePacketData(ctx.target.getPosition(), ParticleEnum.NOVA).radius(
+                                radius)
+                                .type(ParticleTypes.FLAME)
+                                .amount(30)
+                );
+
+                List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
+                        .radius(radius)
+                        .build();
+
+                for (LivingEntity en : entities) {
+                    if (en != ctx.target) {
+                        DamageEffect dmg = new DamageEffect(
+                                null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                        dmg.element = Elements.Fire;
+                        dmg.Activate();
+                    }
                 }
             }
         }
