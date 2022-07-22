@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.BlockStrength;
+import com.robertx22.mine_and_slash.database.stats.types.defense.DamageShield;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealPower;
@@ -45,9 +46,10 @@ public class StoutDefender extends BaseGameChangerTrait {
 
         return Arrays.asList(
             new ExactStatData(35, StatModTypes.Percent, BlockStrength.INSTANCE),
-            new ExactStatData(-25, StatModTypes.Multi, MagicShield.getInstance()),
-            new ExactStatData(-25, StatModTypes.Multi, Armor.getInstance()),
-            new ExactStatData(-25, StatModTypes.Multi, DodgeRating.getInstance())
+                new ExactStatData(10, StatModTypes.Flat, DamageShield.getInstance()),
+            new ExactStatData(-30, StatModTypes.Multi, MagicShield.getInstance()),
+            new ExactStatData(-30, StatModTypes.Multi, Armor.getInstance()),
+            new ExactStatData(-30, StatModTypes.Multi, DodgeRating.getInstance())
         );
     }
 

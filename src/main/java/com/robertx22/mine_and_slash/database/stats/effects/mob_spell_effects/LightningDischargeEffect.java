@@ -34,39 +34,41 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
     @Override
     public EffectSides Side() {
-        return EffectSides.Source;
+        return EffectSides.Target;
     }
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
-        SoundUtils.playSound(effect.source, ModSounds.THUNDER.get(), 1.25F, 1);
+        //source and target are reversed because the side is target
 
-        float wepdmg = effect.sourceData.getUnit()
+        SoundUtils.playSound(effect.target, ModSounds.THUNDER.get(), 1.25F, 1);
+
+        float wepdmg = effect.targetData.getUnit()
                 .peekAtStat(PhysicalDamage.GUID)
                 .getAverageValue();
-        float elespelldmg = effect.sourceData.getUnit()
+        float elespelldmg = effect.targetData.getUnit()
                 .peekAtStat("spell_thunder_damage")
                 .getAverageValue();
 
-        float num = wepdmg * 0.75F * (1 + elespelldmg / 100);
+        float num = wepdmg * 0.5F * (1 + elespelldmg / 100);
         float radius = 6F;
 
-        ParticlePacketData pdata = new ParticlePacketData(effect.source.getPosition()
+        ParticlePacketData pdata = new ParticlePacketData(effect.target.getPosition()
                 .up(1), ParticleEnum.CHARGED_NOVA);
         pdata.radius = radius;
-        ParticleEnum.CHARGED_NOVA.sendToClients(effect.source, pdata);
+        ParticleEnum.CHARGED_NOVA.sendToClients(effect.target, pdata);
 
-        List<LivingEntity> entities = EntityFinder.start(effect.source, LivingEntity.class, effect.source.getPositionVector())
+        List<LivingEntity> entities = EntityFinder.start(effect.target, LivingEntity.class, effect.target.getPositionVector())
                 .radius(radius)
                 .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
         for (LivingEntity en : entities) {
 
-            if (en != effect.source) {
+            if (en != effect.target) {
                 DamageEffect dmg = new DamageEffect(
-                        null, effect.source, en, (int) num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                        null, effect.target, en, (int) num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
                 dmg.element = Elements.Thunder;
                 dmg.Activate();
             }
@@ -78,8 +80,7 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        return !(effect.getEffectType()
-                .equals(EffectTypes.SPELL));
+        return true; // activates on any damage type
     }
 
 }

@@ -1,3 +1,6 @@
+3.13.13:
+- Fixed heal power/increased healing now affecting outgoing heals and only affecting incoming heals. It should now work as intended.
+
 3.13.12d:
 - Mobs can now cast some basic spells. Most of them are "on hit", whether they're hit or they cause the hit.
 - Cold, Flaming, Lightning, and Venomous mob affixes have been changed to be spell oriented.
