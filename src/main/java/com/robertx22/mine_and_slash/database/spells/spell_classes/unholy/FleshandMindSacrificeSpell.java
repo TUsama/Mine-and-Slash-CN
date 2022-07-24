@@ -57,7 +57,7 @@ public class FleshandMindSacrificeSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.HEALTH_COST, 0.26F, 0.13F);
+        c.set(SC.HEALTH_COST, 0.2F, 0.1F);
         c.set(SC.MANA_COST, 20, 10);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);

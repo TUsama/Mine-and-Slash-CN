@@ -4,6 +4,8 @@ import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.Trait;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.offence.PhysicalDamageMulti;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.resources.ManaMulti;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.HealthRegenPercent;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.ManaRegenPercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IAffectsOtherStats;
 
@@ -21,7 +23,7 @@ public class Barbarian extends Trait implements IAffectsOtherStats {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new PhysicalDamagePercent().size(StatMod.Size.DOUBLE), new ManaMulti().size(StatMod.Size.HALF_LESS));
+        return Arrays.asList(new PhysicalDamagePercent().size(StatMod.Size.DOUBLE), new ManaRegenPercent().size(StatMod.Size.HALF_LESS));
 
     }
 

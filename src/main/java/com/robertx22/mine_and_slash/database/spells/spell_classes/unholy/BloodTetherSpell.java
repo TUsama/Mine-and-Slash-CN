@@ -61,7 +61,7 @@ public class BloodTetherSpell extends BaseSpell {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.HEALTH_COST, 0.04F, 0.012F);
+        c.set(SC.HEALTH_COST, 0.04F, 0.12F);
         c.set(SC.MANA_COST, 10, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.AMOUNT, 1, 5);

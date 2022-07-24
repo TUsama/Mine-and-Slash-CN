@@ -72,7 +72,7 @@ public class MalevolentOfferingSpell extends BaseSpell {
         c.set(SC.RADIUS, 5, 8);
         c.set(SC.CAST_TIME_TICKS, 120, 120);
         c.set(SC.TIMES_TO_CAST, 6, 6);
-        c.set(SC.COOLDOWN_SECONDS, 14, 9);
+        c.set(SC.COOLDOWN_SECONDS, 11, 6);
 
         c.setMaxLevel(8);
 

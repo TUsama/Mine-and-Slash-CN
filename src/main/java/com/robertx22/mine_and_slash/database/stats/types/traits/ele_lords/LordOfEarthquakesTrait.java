@@ -3,6 +3,8 @@ package com.robertx22.mine_and_slash.database.stats.types.traits.ele_lords;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.Trait;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.AllElementalDamageMulti;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.BlockReflectFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.BlockStrengthPercent;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IAffectsOtherStats;
 
@@ -14,7 +16,7 @@ public class LordOfEarthquakesTrait extends Trait implements IAffectsOtherStats 
     @Override
     public List<StatMod> getStats() {
 
-        return Arrays.asList(new AllElementalDamageMulti(Elements.Nature).size(StatMod.Size.HALF));
+        return Arrays.asList(new BlockStrengthPercent().size(StatMod.Size.HALF_MORE), new BlockReflectFlat(Elements.Physical));
 
     }
 

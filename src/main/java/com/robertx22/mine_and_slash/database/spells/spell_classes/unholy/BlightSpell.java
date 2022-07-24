@@ -65,7 +65,7 @@ public class BlightSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.HEALTH_COST, 0.06F, 0.18F);
+        c.set(SC.HEALTH_COST, 0.05F, 0.15F);
         c.set(SC.MANA_COST, 7, 11);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);

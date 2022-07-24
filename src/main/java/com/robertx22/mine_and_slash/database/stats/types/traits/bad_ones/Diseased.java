@@ -20,7 +20,7 @@ public class Diseased extends Trait implements IAffectsOtherStats {
     @Override
     public List<StatMod> getStats() {
 
-        return Arrays.asList(new HealthRegenPercent().size(StatMod.Size.ONE_LESS));
+        return Arrays.asList(new HealthRegenPercent().size(StatMod.Size.HALF_LESS));
 
     }
 

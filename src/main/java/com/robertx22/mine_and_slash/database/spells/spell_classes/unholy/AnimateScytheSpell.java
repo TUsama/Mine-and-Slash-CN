@@ -123,12 +123,12 @@ public class AnimateScytheSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.HEALTH_COST, 0.04F, 0.08F);
+        c.set(SC.HEALTH_COST, 0.04F, 0.06F);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 3, 5);
+        c.set(SC.ENERGY_COST, 2, 3);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 1, 1);
-        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.04F, 0.24F);
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.08F, 0.24F);
         c.set(SC.COOLDOWN_SECONDS, 4, 2);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
 

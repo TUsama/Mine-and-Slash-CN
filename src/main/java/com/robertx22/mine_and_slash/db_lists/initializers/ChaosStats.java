@@ -37,35 +37,35 @@ public class ChaosStats implements ISlashRegistryInit {
 
         List<ChaosStat> all = new ArrayList<>();
 
-        all.add(new ChaosStat(anyExceptWeapon, new EarthAtronach()));
-        all.add(new ChaosStat(anyExceptWeapon, new FireAtronach()));
-        all.add(new ChaosStat(anyExceptWeapon, new FrostAtronach()));
-        all.add(new ChaosStat(anyExceptWeapon, new ThunderAtronach()));
+        all.add(new ChaosStat(anyExceptWeapon, new EarthAtronach())); // good
+        all.add(new ChaosStat(anyExceptWeapon, new FireAtronach())); // good
+        all.add(new ChaosStat(anyExceptWeapon, new FrostAtronach())); // good
+        all.add(new ChaosStat(anyExceptWeapon, new ThunderAtronach())); // good
         all.add(new ChaosStat(anyExceptWeapon, new Barbarian()));
         all.add(new ChaosStat(anyExceptWeapon, new ClumsyScholar()));
         all.add(new ChaosStat(anyExceptWeapon, new Crippled()));
         all.add(new ChaosStat(anyExceptWeapon, new Diseased()));
-        all.add(new ChaosStat(anyExceptWeapon, new OnCritBuffSpeed()));
-        all.add(new ChaosStat(anyExceptWeapon, new OnDodgeBuffSpeed()));
-        all.add(new ChaosStat(anyExceptWeapon, new LordOfBlizzardsTrait()));
-        all.add(new ChaosStat(anyExceptWeapon, new LordOfEarthquakesTrait()));
-        all.add(new ChaosStat(anyExceptWeapon, new LordOfThunderstormsTrait()));
-        all.add(new ChaosStat(anyExceptWeapon, new LordOfVolcanoesTrait()));
-        all.add(new ChaosStat(anyExceptWeapon, new Armored()));
-        all.add(new ChaosStat(anyExceptWeapon, new Elemental()));
-        all.add(new ChaosStat(anyExceptWeapon, new Golem()));
-        all.add(new ChaosStat(anyExceptWeapon, new Stealthy()));
+        all.add(new ChaosStat(anyExceptWeapon, new OnCritBuffSpeed())); // good
+        all.add(new ChaosStat(anyExceptWeapon, new OnDodgeBuffSpeed())); // good
+        all.add(new ChaosStat(anyExceptWeapon, new LordOfBlizzardsTrait())); // good // Holy
+        all.add(new ChaosStat(anyExceptWeapon, new LordOfEarthquakesTrait())); // good // Bulwark
+        all.add(new ChaosStat(anyExceptWeapon, new LordOfThunderstormsTrait())); // good // Summoner
+        all.add(new ChaosStat(anyExceptWeapon, new Armored())); // good
+        all.add(new ChaosStat(anyExceptWeapon, new Elemental())); // good
+        all.add(new ChaosStat(anyExceptWeapon, new Golem())); // good
+        all.add(new ChaosStat(anyExceptWeapon, new Stealthy())); // good
 
-        all.add(new ChaosStat(weaponOnly, new Lucky()));
+        all.add(new ChaosStat(weaponOnly, new Lucky())); // good
         all.add(new ChaosStat(weaponOnly, new Clumsy()));
         all.add(new ChaosStat(weaponOnly, new Cursed()));
-        all.add(new ChaosStat(weaponOnly, new WeaponMaster()));
+        all.add(new ChaosStat(weaponOnly, new WeaponMaster())); // good
+        all.add(new ChaosStat(weaponOnly, new LordOfVolcanoesTrait())); // good // Seething
 
         all.add(new ChaosStat(jewerlyOnly, new Clueless()));
 
         all.add(new ChaosStat(armorOnly, new Devoted()));
 
-        all.add(new ChaosStat(new Requirements(SlotRequirement.allExceptWeapon(), LevelRequirement.midLVLOnly()),
+        all.add(new ChaosStat(new Requirements(SlotRequirement.allExceptWeapon(), LevelRequirement.levelingProcess()),
             new QuickLearner()));
 
         all.add(new ChaosStat(majorArcanaReq, new TheMagician()));
@@ -85,7 +85,6 @@ public class ChaosStats implements ISlashRegistryInit {
         all.add(new ChaosStat(majorArcanaReq, new TheHierophant()));
         all.add(new ChaosStat(majorArcanaReq, new TheMoon()));
         all.add(new ChaosStat(majorArcanaReq, new TheLovers()));
-
         all.add(new ChaosStat(majorArcanaReq, new TheStar()));
         all.add(new ChaosStat(majorArcanaReq, new TheSun()));
         all.add(new ChaosStat(majorArcanaReq, new TheWorld()));

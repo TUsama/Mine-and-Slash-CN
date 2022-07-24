@@ -21,7 +21,7 @@ public class ClumsyScholar extends Trait implements IAffectsOtherStats {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new ManaMulti(), new ArmorMulti().size(StatMod.Size.HALF_LESS), new DodgeRatingMulti().size(StatMod.Size.HALF_LESS));
+        return Arrays.asList(new ManaMulti(), new DodgeRatingMulti().size(StatMod.Size.HALF_LESS));
     }
 
     @Override

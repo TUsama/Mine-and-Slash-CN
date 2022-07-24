@@ -89,6 +89,10 @@ public class LevelRequirement extends BaseRequirement<LevelRequirement> {
         return new LevelRequirement(25, 50);
     }
 
+    public static LevelRequirement levelingProcess() {
+        return new LevelRequirement(10, 50);
+    }
+
     public static LevelRequirement endgameLVLOnly() {
         return new LevelRequirement(50, Integer.MAX_VALUE);
     }
