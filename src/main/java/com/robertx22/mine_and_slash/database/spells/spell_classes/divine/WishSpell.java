@@ -103,10 +103,10 @@ public class WishSpell extends BaseSpell {
         c.set(SC.MANA_COST, 20, 30);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 16, 34);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.1F, 0.2F);
-        c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 20, 20);
+        c.set(SC.BASE_VALUE, 32, 68);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.2F, 0.4F);
+        c.set(SC.CAST_TIME_TICKS, 10, 10);
+        c.set(SC.COOLDOWN_SECONDS, 16, 16);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.RADIUS, 10, 14);
 

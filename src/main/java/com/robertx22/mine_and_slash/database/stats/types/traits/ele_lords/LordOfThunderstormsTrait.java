@@ -25,6 +25,11 @@ public class LordOfThunderstormsTrait extends Trait implements IAffectsOtherStat
     }
 
     @Override
+    public int Weight() {
+        return 1000;
+    }
+
+    @Override
     public String GUID() {
         return "lord_of_thunderstorms";
     }

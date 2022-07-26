@@ -9,7 +9,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import java.util.Arrays;
 import java.util.List;
 
-public class Judgement extends BaseMajorArcana {
+public class  Judgement extends BaseMajorArcana {
 
     public static final String GUID = "judgement";
 

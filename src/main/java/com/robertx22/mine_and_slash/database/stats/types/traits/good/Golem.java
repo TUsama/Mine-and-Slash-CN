@@ -20,8 +20,13 @@ public class Golem extends Trait implements IAffectsOtherStats {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new HealthPercent().size(StatMod.Size.HALF_MORE));
+        return Arrays.asList(new HealthPercent().size(StatMod.Size.TRIPLE));
 
+    }
+
+    @Override
+    public int Weight() {
+        return 1000;
     }
 
     @Override

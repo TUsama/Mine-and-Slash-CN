@@ -25,6 +25,11 @@ public class Armored extends Trait implements IAffectsOtherStats {
     }
 
     @Override
+    public int Weight() {
+        return 1000;
+    }
+
+    @Override
     public String locNameForLangFile() {
         return "Armored";
     }

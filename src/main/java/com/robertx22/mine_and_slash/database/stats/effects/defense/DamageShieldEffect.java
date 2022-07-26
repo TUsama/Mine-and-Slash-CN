@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import net.minecraft.util.math.MathHelper;
 
 public class DamageShieldEffect extends BaseDamageEffect {
 
@@ -26,7 +27,10 @@ public class DamageShieldEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-        effect.number *= data.getAverageValue() / 100;
+
+        float damageReduction = MathHelper.clamp(data.getAverageValue(), stat.minimumValue, stat.maximumValue);
+
+        effect.number *=  1 - damageReduction / 100;
 
         return effect;
     }

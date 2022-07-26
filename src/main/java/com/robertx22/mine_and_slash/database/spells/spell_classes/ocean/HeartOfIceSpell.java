@@ -65,13 +65,13 @@ public class HeartOfIceSpell extends BaseSpell {
         c.set(SC.MANA_COST, 9, 14);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 6, 14);
+        c.set(SC.BASE_VALUE, 12, 28);
         c.set(SC.RADIUS, 5, 10);
         c.set(SC.CAST_TIME_TICKS, 60, 60);
         c.set(SC.TIMES_TO_CAST, 3, 5);
         c.set(SC.COOLDOWN_SECONDS, 11, 8);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

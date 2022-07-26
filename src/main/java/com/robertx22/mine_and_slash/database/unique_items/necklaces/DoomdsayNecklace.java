@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.unique_items.necklaces;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.curios.Necklace;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.elemental.AllEleDmgFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicShieldFlat;
@@ -53,7 +54,7 @@ public class DoomdsayNecklace implements IUnique {
             new ManaRegenFlat().size(StatMod.Size.HALF_LESS),
             new EnergyRegenFlat().size(StatMod.Size.ONE_LESS),
 
-            new AllElementalDamageMulti(Elements.Elemental).size(StatMod.Size.HALF_MORE),
+            new AllEleDmgFlat().size(StatMod.Size.HALF_MORE),
             new PhysicalDamagePercent().size(StatMod.Size.HALF_MORE)
         );
     }

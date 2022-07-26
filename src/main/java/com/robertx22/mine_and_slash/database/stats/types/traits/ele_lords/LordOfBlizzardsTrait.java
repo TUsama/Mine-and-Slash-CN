@@ -21,6 +21,11 @@ public class LordOfBlizzardsTrait extends Trait implements IAffectsOtherStats {
     }
 
     @Override
+    public int Weight() {
+        return 1000;
+    }
+
+    @Override
     public String GUID() {
         return "lord_of_blizzards";
     }

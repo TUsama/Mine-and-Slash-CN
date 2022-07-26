@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.types.traits.major_arcana;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.corestats.CoreStatFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalPeneFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.resources.ManaMulti;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Wisdom;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -22,7 +23,9 @@ public class TheHierophant extends BaseMajorArcana {
     @Override
     public List<StatMod> getStats() {
         return Arrays.asList(
-                new CoreStatFlat(Wisdom.INSTANCE), new ManaMulti().size(StatMod.Size.HALF), new ElementalPeneFlat(Elements.Nature));
+                new CoreStatFlat(Wisdom.INSTANCE), new ManaMulti().size(StatMod.Size.HALF),
+                new ElementalSpellDamageFlat(Elements.Water),
+                new ElementalSpellDamageFlat(Elements.Thunder));
     }
 
     @Override

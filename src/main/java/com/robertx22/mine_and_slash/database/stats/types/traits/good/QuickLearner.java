@@ -24,6 +24,11 @@ public class QuickLearner extends Trait implements IAffectsOtherStats {
     }
 
     @Override
+    public int Weight() {
+        return 3000;
+    }
+
+    @Override
     public String locNameForLangFile() {
         return "Quick Learner";
     }

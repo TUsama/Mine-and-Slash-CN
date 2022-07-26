@@ -2,6 +2,10 @@ package com.robertx22.mine_and_slash.database.spells.entities.single_target_bolt
 
 import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.entities.bases.BaseElementalBoltEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.summons.ArchonPetEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.summons.SkeletonPetEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.summons.SpiritWolfPetEntity;
+import com.robertx22.mine_and_slash.database.spells.entities.summons.ZombiePetEntity;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
@@ -11,6 +15,9 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.horse.AbstractHorseEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
@@ -47,16 +54,38 @@ public class LifeSiphonEntity extends BaseElementalBoltEntity {
 
     @Override
     public void onHit(LivingEntity entity) {
-
         SpellDamageEffect dmg = dealSpellDamageTo(entity, new Options().activatesEffect(false));
-
         entity.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0f, 0.7f);
-
-        SpellUtils.heal(this.getSpellData().getSpell(), this.getSpellData().getCaster(world), dmg.number);
-
+        if (isEnemy(entity)) { // should no longer heal if it hit an ally or pet
+            SpellUtils.heal(this.getSpellData().getSpell(), this.getSpellData().getCaster(world), dmg.number);
+        }
         dmg.Activate();
 
+    }
 
+    public boolean isEnemy(LivingEntity target) {
+        LivingEntity caster = this.getSpellData().getCaster(world);
+        if (target instanceof SpiritWolfPetEntity) {
+            SpiritWolfPetEntity wolfentity = (SpiritWolfPetEntity) target;
+            return !wolfentity.isTamed() || wolfentity.getOwner() != caster;
+        } else if (target instanceof ZombiePetEntity){
+            ZombiePetEntity zombieentity = (ZombiePetEntity) target;
+            return !zombieentity.isTamed() || zombieentity.getOwner() != caster;
+        } else if (target instanceof SkeletonPetEntity) {
+            SkeletonPetEntity skeletonentity = (SkeletonPetEntity) target;
+            return !skeletonentity.isTamed() || skeletonentity.getOwner() != caster;
+        } else if (target instanceof ArchonPetEntity) {
+            ArchonPetEntity archonentity = (ArchonPetEntity) target;
+            return !archonentity.isTamed() || archonentity.getOwner() != caster;
+        } else if (target instanceof PlayerEntity && caster instanceof PlayerEntity && !((PlayerEntity)caster).canAttackPlayer((PlayerEntity)target)) {
+            return false;
+        } else if (caster.isOnSameTeam(target)) {
+            return false;
+        }  else if (target instanceof AbstractHorseEntity && ((AbstractHorseEntity)target).isTame()) {
+            return false;
+        } else {
+            return !(target instanceof TameableEntity) || !((TameableEntity)target).isTamed();
+        }
     }
 
     @Override

@@ -10,6 +10,8 @@ import com.robertx22.mine_and_slash.database.stats.types.traits.atronachs.FrostA
 import com.robertx22.mine_and_slash.database.stats.types.traits.atronachs.ThunderAtronach;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Barbarian;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.ClumsyScholar;
+import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Diseased;
+import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Explosive;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_ones.*;
 import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnCritBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnDodgeBuffSpeed;
@@ -43,7 +45,6 @@ public class ChaosStats implements ISlashRegistryInit {
         all.add(new ChaosStat(anyExceptWeapon, new ThunderAtronach())); // good
         all.add(new ChaosStat(anyExceptWeapon, new Barbarian()));
         all.add(new ChaosStat(anyExceptWeapon, new ClumsyScholar()));
-        all.add(new ChaosStat(anyExceptWeapon, new Crippled()));
         all.add(new ChaosStat(anyExceptWeapon, new Diseased()));
         all.add(new ChaosStat(anyExceptWeapon, new OnCritBuffSpeed())); // good
         all.add(new ChaosStat(anyExceptWeapon, new OnDodgeBuffSpeed())); // good
@@ -56,13 +57,17 @@ public class ChaosStats implements ISlashRegistryInit {
         all.add(new ChaosStat(anyExceptWeapon, new Stealthy())); // good
 
         all.add(new ChaosStat(weaponOnly, new Lucky())); // good
-        all.add(new ChaosStat(weaponOnly, new Clumsy()));
-        all.add(new ChaosStat(weaponOnly, new Cursed()));
+        all.add(new ChaosStat(weaponOnly, new Clumsy())); // BAD
+        all.add(new ChaosStat(weaponOnly, new Cursed())); // BAD
         all.add(new ChaosStat(weaponOnly, new WeaponMaster())); // good
         all.add(new ChaosStat(weaponOnly, new LordOfVolcanoesTrait())); // good // Seething
+        all.add(new ChaosStat(weaponOnly, new Spiky())); // good
+        all.add(new ChaosStat(weaponOnly, new Explosive())); // good
+        all.add(new ChaosStat(weaponOnly, new Radiant())); // good
 
-        all.add(new ChaosStat(jewerlyOnly, new Clueless()));
+        all.add(new ChaosStat(jewerlyOnly, new Clueless())); // BAD
 
+        all.add(new ChaosStat(armorOnly, new Crippled())); // BAD
         all.add(new ChaosStat(armorOnly, new Devoted()));
 
         all.add(new ChaosStat(new Requirements(SlotRequirement.allExceptWeapon(), LevelRequirement.levelingProcess()),
@@ -82,6 +87,7 @@ public class ChaosStats implements ISlashRegistryInit {
         all.add(new ChaosStat(majorArcanaReq, new TheEmperor()));
         all.add(new ChaosStat(majorArcanaReq, new TheEmpress()));
         all.add(new ChaosStat(majorArcanaReq, new TheFool()));
+        all.add(new ChaosStat(majorArcanaReq, new TheSniper()));
         all.add(new ChaosStat(majorArcanaReq, new TheHierophant()));
         all.add(new ChaosStat(majorArcanaReq, new TheMoon()));
         all.add(new ChaosStat(majorArcanaReq, new TheLovers()));

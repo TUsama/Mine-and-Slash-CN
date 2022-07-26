@@ -105,7 +105,7 @@ public class HealingAuraSpell extends BaseSpell {
         c.set(SC.MANA_COST, 4, 6);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 8, 22);
+        c.set(SC.BASE_VALUE, 16, 44);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 2, 1);
         c.set(SC.TIMES_TO_CAST, 1, 1);

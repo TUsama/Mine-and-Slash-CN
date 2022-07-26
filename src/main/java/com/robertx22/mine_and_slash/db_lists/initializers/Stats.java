@@ -29,6 +29,8 @@ import com.robertx22.mine_and_slash.database.stats.types.traits.atronachs.FrostA
 import com.robertx22.mine_and_slash.database.stats.types.traits.atronachs.ThunderAtronach;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Barbarian;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.ClumsyScholar;
+import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Diseased;
+import com.robertx22.mine_and_slash.database.stats.types.traits.bad_and_good.Explosive;
 import com.robertx22.mine_and_slash.database.stats.types.traits.bad_ones.*;
 import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnAttackBuffSpeed;
 import com.robertx22.mine_and_slash.database.stats.types.traits.cause_stats.OnCritBuffSpeed;
@@ -144,6 +146,7 @@ public class Stats implements ISlashRegistryInit {
                     add(new TheDevil());
                     add(new TheEmpress());
                     add(new TheFool());
+                    add(new TheSniper());
                     add(new TheHierophant());
                     add(new TheMagician());
                     add(new TheMoon());
@@ -233,6 +236,9 @@ public class Stats implements ISlashRegistryInit {
                     add(new Devoted());
                     add(new QuickLearner());
                     add(new WeaponMaster());
+                    add(new Spiky());
+                    add(new Radiant());
+                    add(new Explosive());
 
                     add(HealPower.getInstance());
                     // traits

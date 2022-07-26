@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.requirements.Requirements;
 import com.robertx22.mine_and_slash.database.requirements.SlotRequirement;
 import com.robertx22.mine_and_slash.database.sets.Set;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.SpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamageFlat;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -25,7 +26,7 @@ public class ElementalEssence extends Set {
             {
                 {
                     put(2, new ElementalResistFlat(Elements.Elemental));
-                    put(3, new ElementalSpellDamageFlat(Elements.Elemental));
+                    put(3, new SpellDamageFlat());
 
                 }
             }

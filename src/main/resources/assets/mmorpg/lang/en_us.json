@@ -1275,6 +1275,7 @@
 	"mmorpg.stat.water_thorns_reflect": "Frost Thorns",
 	"mmorpg.stat.weapon_master": "Weapon Master",
 	"mmorpg.stat.wheel_of_fortune": "Wheel of Fortune",
+	"mmorpg.stat.the_sniper": "The Sniper",
 	"mmorpg.stat.wisdom": "Wisdom",
 	"mmorpg.stat.plus_necrotic_tether_effect_lvl": "To Necrotic Tether Effect Level",
 	"mmorpg.stat.plus_blight_effect_lvl": "To Blight Effect Level",
@@ -1284,6 +1285,9 @@
 	"mmorpg.stat.plus_summoned_zombie_effect_lvl": "To Summoned Zombie Effect Level",
 	"mmorpg.stat.plus_summoned_skeleton_effect_lvl": "To Summoned Skeleton Effect Level",
 	"mmorpg.stat.plus_summoned_wolf_effect_lvl": "To Summoned Wolf Effect Level",
+	"mmorpg.stat.explosive": "Explosive",
+	"mmorpg.stat.radiant": "Radiant",
+	"mmorpg.stat.spiky": "Spiky",
 
 "_comment": " [CATEGORY]: STATS - NAMES",
 
@@ -1884,7 +1888,7 @@
 	"mmorpg.stat_desc.increased_duration": "Increases duration of spells and effects.",
 	"mmorpg.stat_desc.increased_area": "Increases radius of spells.",
 	"mmorpg.stat_desc.increased_proj_speed": "Increases speed of spell projectiles.",
-	"mmorpg.stat_desc.intelligence": "Increases Elemental Spell Damage, Magic Shield, and Mana",
+	"mmorpg.stat_desc.intelligence": "Increases Spell Damage, Magic Shield, and Mana",
 	"mmorpg.stat_desc.life_on_hit": "Restore a flat amount of health on attack.",
 	"mmorpg.stat_desc.lifesteal": "Percent of attack damage restores health.",
 	"mmorpg.stat_desc.loot_drop_bonus": "Increases loot drops of this type.",

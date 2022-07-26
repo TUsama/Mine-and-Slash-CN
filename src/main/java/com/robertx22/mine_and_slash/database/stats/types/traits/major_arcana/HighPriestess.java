@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.types.traits.major_arcana;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.corestats.CoreStatFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalInfusionFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.ElementalAttackDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Intelligence;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.Wisdom;
@@ -24,7 +25,8 @@ public class HighPriestess extends BaseMajorArcana {
     public List<StatMod> getStats() {
         return Arrays.asList(
             new CoreStatFlat(Intelligence.INSTANCE), new CoreStatFlat(Wisdom.INSTANCE),
-            new ElementalAttackDamagePercent(Elements.Water).size(StatMod.Size.HALF_MORE)
+            new ElementalAttackDamagePercent(Elements.Water).size(StatMod.Size.HALF_MORE),
+                new ElementalSpellDamageFlat(Elements.Water).size(StatMod.Size.HALF_MORE)
         );
     }
 

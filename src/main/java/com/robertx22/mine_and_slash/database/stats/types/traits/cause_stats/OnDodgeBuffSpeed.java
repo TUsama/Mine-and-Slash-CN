@@ -44,6 +44,11 @@ public class OnDodgeBuffSpeed extends Trait implements IStatEffects {
     }
 
     @Override
+    public int Weight() {
+        return 1000;
+    }
+
+    @Override
     public List<StatMod> getStats() {
         return Arrays.asList();
     }

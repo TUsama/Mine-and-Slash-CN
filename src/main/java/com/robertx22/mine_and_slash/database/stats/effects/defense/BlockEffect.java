@@ -15,6 +15,7 @@ import net.minecraft.item.ShieldItem;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.UUID;
@@ -36,29 +37,25 @@ public class BlockEffect extends BaseDamageEffect {
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
-        float blockval = data.getAverageValue();
+        float blockval = MathHelper.clamp(data.getAverageValue(), stat.minimumValue, stat.maximumValue);
 
-        if (isActivelyBlocking(effect.target, DamageSource.causeMobDamage(effect.source))) {
+        float postblock = effect.number; // this is the damage
+
+        if (isActivelyBlocking(effect.target, DamageSource.causeMobDamage(effect.source))) { // if actively blocking, block chance x2
             effect.isActivelyBlocking = true;
-            blockval = Math.min(blockval * 2, 75);
-        }
-
-        float postblock = effect.number;
-
-        if (RandomUtils.roll(blockval)) {
-            postblock = 0.5F;
+            blockval = Math.min(blockval * 2, stat.maximumValue);
+            if (RandomUtils.roll(blockval)) { // on success, nullify damage
+                postblock *= 0;
+                effect.isFullyBlocked = true;
+                SoundUtils.playSound(effect.source, SoundEvents.ITEM_SHIELD_BLOCK, 1.1F, 1);
+                SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1.1F, 1);
+            } else { // otherwise, reduce by half still
+                effect.isPartiallyBlocked = true;
+                postblock *= 0.5F;
+            }
+        } else if (RandomUtils.roll(blockval)) { // but on success still reduce by 25 percent
             effect.isFullyBlocked = true;
-            SoundUtils.playSound(effect.source, SoundEvents.ITEM_SHIELD_BLOCK, 1.1F, 1);
-            SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1.1F, 1);
-        } else {
             postblock *= 0.75F;
-            effect.isPartiallyBlocked = true;
-            applyKnockbackResist(effect.target);
-            SoundUtils.playSound(effect.source, SoundEvents.ITEM_SHIELD_BLOCK, 0.75F, 1.5F);
-            SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 0.75F, 1.5F);
-        }
-        if (isActivelyBlocking(effect.target, DamageSource.causeMobDamage(effect.source))) {
-            postblock = postblock * 2 - 1;
         }
 
         effect.number = postblock;

@@ -20,7 +20,7 @@ public class Temperance extends BaseMajorArcana {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new EnergyRegenFlat(), new ManaRegenFlat(), new ElementalPeneFlat(Elements.Fire));
+        return Arrays.asList(new EnergyRegenFlat(), new ManaRegenFlat(), new ElementalPeneFlat(Elements.Water));
     }
 
     @Override

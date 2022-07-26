@@ -59,10 +59,10 @@ public abstract class ElementalStat extends Stat implements IElementalGenerated<
         if (this.getElement()
             .equals(Elements.Elemental)) {
             return Arrays.asList(
-                new TransferMethod(new ElementalResist(Elements.Elemental), newGeneratedInstance(Elements.Nature)),
-                new TransferMethod(new ElementalResist(Elements.Elemental), newGeneratedInstance(Elements.Fire)),
-                new TransferMethod(new ElementalResist(Elements.Elemental), newGeneratedInstance(Elements.Thunder)),
-                new TransferMethod(new ElementalResist(Elements.Elemental), newGeneratedInstance(Elements.Water))
+                new TransferMethod(this, newGeneratedInstance(Elements.Nature)),
+                new TransferMethod(this, newGeneratedInstance(Elements.Fire)),
+                new TransferMethod(this, newGeneratedInstance(Elements.Thunder)),
+                new TransferMethod(this, newGeneratedInstance(Elements.Water))
             );
         }
 

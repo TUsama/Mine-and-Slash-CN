@@ -24,6 +24,11 @@ public class Devoted extends Trait implements IAffectsOtherStats {
     }
 
     @Override
+    public int Weight() {
+        return 1000;
+    }
+
+    @Override
     public String locNameForLangFile() {
         return "Devoted";
     }

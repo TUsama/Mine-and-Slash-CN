@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.Trait;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.SpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.CriticalDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.CriticalHitPercent;
 
@@ -21,7 +22,12 @@ public class Cursed extends Trait {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new CriticalDamagePercent().size(StatMod.Size.HALF_LESS));
+        return Arrays.asList(new SpellDamageFlat().size(StatMod.Size.HALF_LESS));
+    }
+
+    @Override
+    public int Weight() {
+        return 750;
     }
 
     @Override

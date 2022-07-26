@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAtta
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalInfusion;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
+import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
@@ -59,6 +60,7 @@ public class CriticalSurgeEffect extends BasePotionEffect implements IApplyStatP
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(5, CriticalHit.getInstance()));
+        list.add(new PotionStat(7, SpellDamage.getInstance()));
         return list;
     }
 

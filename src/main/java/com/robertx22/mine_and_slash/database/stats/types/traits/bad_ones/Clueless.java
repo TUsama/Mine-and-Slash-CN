@@ -25,6 +25,11 @@ public class Clueless extends Trait {
     }
 
     @Override
+    public int Weight() {
+        return 3000;
+    }
+
+    @Override
     public String locNameForLangFile() {
         return "Clueless";
     }

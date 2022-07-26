@@ -22,7 +22,7 @@ public class Justice extends BaseMajorArcana {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new WeaponDamageFlat(WeaponTypes.Sword), new ArmorPenetrationFlat(),
+        return Arrays.asList(new WeaponDamageFlat(WeaponTypes.Sword).size(StatMod.Size.DOUBLE), new ArmorPenetrationFlat(),
             new ElementalAttackDamagePercent(Elements.Thunder).size(StatMod.Size.HALF_MORE)
         );
     }

@@ -19,7 +19,7 @@ public abstract class BaseMajorArcana extends Trait implements INameSuffix {
 
     @Override
     public int Weight() {
-        return 300;
+        return 50;
     }
 
 }

@@ -63,7 +63,7 @@ public class GroundSlamSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 7, 10);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.6F, 0.8F);
+        c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.5F, 0.7F);
         c.set(SC.SHOOT_SPEED, 1.0F, 1.5F);
         c.set(SC.PROJECTILE_COUNT, 1, 9);
         c.set(SC.CAST_TIME_TICKS, 0, 0);

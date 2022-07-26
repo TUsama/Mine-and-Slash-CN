@@ -22,7 +22,7 @@ public class TheMoon extends BaseMajorArcana {
     @Override
     public List<StatMod> getStats() {
         return Arrays.asList(
-                new CoreStatFlat(Stamina.INSTANCE), new ElementalResistFlat(Elements.Water), new HealthPercent());
+                new CoreStatFlat(Stamina.INSTANCE), new HealthPercent(), new ElementalResistFlat(Elements.Water).size(StatMod.Size.HALF_MORE));
     }
 
     @Override

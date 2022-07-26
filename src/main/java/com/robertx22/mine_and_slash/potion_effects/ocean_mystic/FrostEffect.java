@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.potion_effects.ocean_mystic;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllEleDmg;
 import com.robertx22.mine_and_slash.database.stats.types.generated.AllElementalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
 import com.robertx22.mine_and_slash.database.stats.types.generated.WeaponDamage;
@@ -69,7 +70,7 @@ public class FrostEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-6, new AllElementalDamage(Elements.Elemental)));
+        list.add(new PotionStat(-6, new AllEleDmg()));
         return list;
     }
 
