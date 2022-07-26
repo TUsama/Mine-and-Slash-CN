@@ -43,6 +43,8 @@ public class SimpleGearLocReq extends BaseLocRequirement {
         x -> x.primaryStats != null, Words.hasSet.locName());
     public static final BaseLocRequirement HAS_UNIQUE_STATS = new SimpleGearLocReq(
         x -> x.uniqueStats != null, Words.hasUniqueStats.locName());
+    public static final BaseLocRequirement HAS_CHAOS = new SimpleGearLocReq(
+            x -> x.chaosStats != null, Words.hasChaosStats.locName());
 
     private SimpleGearLocReq(Predicate<GearItemData> pred, ITextComponent text) {
         this.text = text;

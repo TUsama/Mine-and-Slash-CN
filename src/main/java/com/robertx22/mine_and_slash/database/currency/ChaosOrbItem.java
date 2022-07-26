@@ -81,7 +81,7 @@ public class ChaosOrbItem extends CurrencyItem implements ICurrencyItemEffect, I
 
     @Override
     public int instabilityAddAmount() {
-        return -25;
+        return -50;
     }
 
     @Override

@@ -76,12 +76,12 @@ public class StoneOfCorruptionItem extends CurrencyItem implements ICurrencyItem
 
     @Override
     public int instabilityAddAmount() {
-        return 500;
+        return 250;
     }
 
     @Override
     public float additionalBreakChance() {
-        return 20;
+        return 10;
     }
 
     @Override

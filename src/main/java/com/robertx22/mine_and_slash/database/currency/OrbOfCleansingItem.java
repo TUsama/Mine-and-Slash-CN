@@ -8,14 +8,10 @@ import com.robertx22.mine_and_slash.database.currency.loc_reqs.BaseLocRequiremen
 import com.robertx22.mine_and_slash.database.currency.loc_reqs.GearEnumLocReq;
 import com.robertx22.mine_and_slash.database.currency.loc_reqs.SimpleGearLocReq;
 import com.robertx22.mine_and_slash.database.currency.loc_reqs.item_types.GearReq;
-import com.robertx22.mine_and_slash.database.stats.StatMod;
-import com.robertx22.mine_and_slash.database.stats.types.traits.major_arcana.BaseMajorArcana;
 import com.robertx22.mine_and_slash.items.SimpleMatItem;
 import com.robertx22.mine_and_slash.items.ores.ItemOre;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModItems;
-import com.robertx22.mine_and_slash.registry.SlashRegistry;
-import com.robertx22.mine_and_slash.saveclasses.gearitem.ChaosStatsData;
 import com.robertx22.mine_and_slash.saveclasses.item_classes.GearItemData;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Gear;
 import com.robertx22.mine_and_slash.uncommon.interfaces.data_items.IRarity;
@@ -26,26 +22,24 @@ import net.minecraft.item.Items;
 import java.util.Arrays;
 import java.util.List;
 
-public class ChaoticWispItem extends CurrencyItem implements ICurrencyItemEffect, IShapedRecipe {
+public class OrbOfCleansingItem extends CurrencyItem implements ICurrencyItemEffect, IShapedRecipe {
 
     @Override
     public String GUID() {
-        return "currency/whisp_of_chaos";
+        return "currency/clear_chaos";
     }
 
-    public ChaoticWispItem() {
-        super(Ref.MODID + ":" + "currency/whisp_of_chaos");
+    private static final String name = Ref.MODID + ":currency/clear_chaos";
+
+    public OrbOfCleansingItem() {
+        super(name);
     }
 
     @Override
     public ItemStack ModifyItem(ItemStack stack, ItemStack Currency) {
 
         GearItemData gear = Gear.Load(stack);
-        StatMod mod = SlashRegistry.StatMods()
-            .getFilterWrapped(x -> x.GetBaseStat() instanceof BaseMajorArcana)
-            .random();
-        gear.chaosStats = new ChaosStatsData();
-        gear.chaosStats.create(gear, mod);
+        //gear.runes.clearRunes();
         Gear.Save(stack, gear);
 
         return stack;
@@ -53,37 +47,12 @@ public class ChaoticWispItem extends CurrencyItem implements ICurrencyItemEffect
 
     @Override
     public List<BaseLocRequirement> requirements() {
-        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.CAN_CHAOS_STATS, SimpleGearLocReq.NO_CHAOS_STATS);
+        return Arrays.asList(GearReq.INSTANCE, SimpleGearLocReq.HAS_CHAOS);
     }
 
     @Override
     public int getTier() {
-        return 4;
-    }
-
-    @Override
-    public List<String> loreLines() {
-        return Arrays.asList("High Expectations, strong disappointment.");
-    }
-
-    @Override
-    public String locNameForLangFile() {
-        return nameColor + "Chaotic Wisp";
-    }
-
-    @Override
-    public String locDescForLangFile() {
-        return "Adds a Major Arcana Chaos Stat";
-    }
-
-    @Override
-    public int instabilityAddAmount() {
-        return 0;
-    }
-
-    @Override
-    public float additionalBreakChance() {
-        return 20;
+        return 5;
     }
 
     @Override
@@ -92,16 +61,37 @@ public class ChaoticWispItem extends CurrencyItem implements ICurrencyItemEffect
     }
 
     @Override
+    public List<String> loreLines() {
+        return Arrays.asList("Cleanse all evil.");
+    }
+
+    @Override
+    public String locNameForLangFile() {
+        return nameColor + "Orb of Cleansing";
+    }
+
+    @Override
+    public String locDescForLangFile() {
+        return "Clears Chaos and Major Arcana Chaos stats from an item.";
+    }
+
+    @Override
+    public int instabilityAddAmount() {
+        return 10;
+    }
+
+    @Override
     public ShapedRecipeBuilder getRecipe() {
-        return shaped(ModItems.CHAOTIC_WISP.get())
+        return shaped(ModItems.ORB_OF_FORGETFULNESS.get())
             .key('#', SimpleMatItem.MYTHIC_ESSENCE)
-            .key('t', ModItems.CHAOS_ORB.get())
-            .key('b', Items.ENDER_EYE)
-            .key('o', ItemOre.ItemOres.get(IRarity.Uncommon))
-            .patternLine("ooo")
-            .patternLine("#t#")
-            .patternLine("bbb")
+            .key('t', ModItems.CHAOTIC_WISP.get())
+                .key('v', ModItems.CHAOS_ORB.get())
+            .key('o', ItemOre.ItemOres.get(IRarity.Legendary))
+            .patternLine("o#o")
+            .patternLine("oto")
+            .patternLine("v#v")
             .addCriterion("player_level", new PlayerLevelTrigger.Instance(10));
     }
 
 }
+

@@ -1,4 +1,7 @@
 3.13.14:
+- Stone of Corruption now adds 250 instability instead of 500, and adds an addition 10% break chance instead of 20%.
+- Chaotic Wisp no longer adds instability, but has a flat 20% chance to break the item instead of 25%. It also no longer halves the total break chance (this is overall a nerf).
+- Chaos Orb now grants -50 instability instead of 25.
 - Increased critical hit and critical damage flat and percent stats. Critical should be a little bit easier to invest into now with more payoff.
 - Increased physical damage flat stat by about 10%.
 - Chaos and Major Arcana Chaos stats have had their weightings readjusted. In general, when using a Chaos orb, there is approximately a 15-20% chance of getting a bad stat, and a 5-10% chance of rolling a Major Arcana Chaos stat.

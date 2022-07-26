@@ -120,6 +120,7 @@ public enum Words implements IAutoLocName {
     ItemHasRuneSlots("Item has empty rune slot"),
     NoDuplicateRunes("No duplicate runes of same type"),
     hasUniqueStats("Has Unique stats"),
+    hasChaosStats("Has Chaos or Major Arcana Chaos stats"),
     hasSet("Has Set"),
     hasPrimaryStats("Has Primary Stats"),
     hasSuffix("Has Suffix"),
