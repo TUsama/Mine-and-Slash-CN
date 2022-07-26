@@ -1,3 +1,6 @@
+3.13.14b:
+- Reverted changes to Power Surge.
+
 3.13.14:
 - Stone of Corruption now adds 250 instability instead of 500, and adds an addition 10% break chance instead of 20%.
 - Chaotic Wisp no longer adds instability, but has a flat 20% chance to break the item instead of 25%. It also no longer halves the total break chance (this is overall a nerf).
