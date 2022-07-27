@@ -6,13 +6,13 @@
   "registry": "rune",
   "is_unique": true,
   "possible_weapon_stats": [
-    "very_high_armor_flat"
+    "plus_all_skill_lvls_flat"
   ],
   "possible_armor_stats": [
-    "very_high_armor_flat"
+    "plus_all_skill_lvls_flat"
   ],
   "possible_jewerly_stats": [
-    "very_high_armor_flat"
+    "plus_all_skill_lvls_flat"
   ],
   "item_id_per_rarity": {
     "-1": "mmorpg:runes/uniques/oni"

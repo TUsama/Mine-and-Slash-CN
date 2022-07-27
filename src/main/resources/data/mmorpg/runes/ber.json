@@ -9,7 +9,7 @@
     "critical_hit_percent"
   ],
   "possible_armor_stats": [
-    "dodge_flat"
+    "very_low_damage_shield_flat"
   ],
   "possible_jewerly_stats": [
     "health_regen_percent"

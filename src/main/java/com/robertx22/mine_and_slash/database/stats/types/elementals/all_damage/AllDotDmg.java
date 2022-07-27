@@ -23,7 +23,7 @@ public class AllDotDmg extends Stat implements IStatEffects {
 
     @Override
     public StatGroup statGroup() {
-        return StatGroup.Damage;
+        return StatGroup.SpellDamage;
     }
 
     @Override

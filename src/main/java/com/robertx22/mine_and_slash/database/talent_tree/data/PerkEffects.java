@@ -209,7 +209,7 @@ public class PerkEffects {
 
             SPELL_DMG_PERCENT_MAP.put(
                 ele, PerkEffectBuilder.build(ele.guidName + "_spell_dmg", new ElementalSpellDamage(ele),
-                    new ExactStatData(4, StatModTypes.Flat,
+                    new ExactStatData(3, StatModTypes.Flat,
                         new ElementalSpellDamage(ele)
                     )
                 ));

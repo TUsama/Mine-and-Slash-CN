@@ -14,7 +14,7 @@ public class ManaMulti extends StatMod {
 
     @Override
     public float Max() {
-        return 15;
+        return 9;
     }
 
     @Override

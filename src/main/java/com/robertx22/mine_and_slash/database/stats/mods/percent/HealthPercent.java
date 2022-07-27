@@ -17,7 +17,7 @@ public class HealthPercent extends StatMod {
 
     @Override
     public float Max() {
-        return 6;
+        return 5;
     }
 
     @Override

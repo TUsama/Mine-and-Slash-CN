@@ -56,6 +56,11 @@ public class IncreasedProjSpeedStat extends Stat implements IStatEffects {
     }
 
     @Override
+    public StatGroup statGroup() {
+        return StatGroup.SpellDamage;
+    }
+
+    @Override
     public IStatEffect getEffect() {
         return new IncreasedProjSpeedEffect();
     }

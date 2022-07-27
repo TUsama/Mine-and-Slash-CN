@@ -17,7 +17,7 @@ public class ManaFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 9;
+        return 7;
     }
 
     @Override

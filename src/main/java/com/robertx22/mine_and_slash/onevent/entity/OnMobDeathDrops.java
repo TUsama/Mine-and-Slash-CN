@@ -21,8 +21,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.lwjgl.system.CallbackI;
 
 import java.util.List;
 
@@ -94,9 +96,11 @@ public class OnMobDeathDrops {
         int exp = (int) (mobData.getLevel() * Rarities.Mobs.get(mobData.getRarity())
             .ExpOnKill() * multi * SlashRegistry.getDimensionConfig(victim.world).EXP_MULTIPLIER);
 
-        exp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, killerData, exp);
-
         exp = (int) (exp * (1 + victim.getMaxHealth() / 20));
+
+        if (victim instanceof SlimeEntity) {
+            exp /= 10;
+        }
 
         try {
             exp *= Load.antiMobFarm(victim.world)
@@ -105,9 +109,6 @@ public class OnMobDeathDrops {
             e.printStackTrace();
         }
 
-        if (victim instanceof SlimeEntity) {
-            exp /= 10;
-        }
 
         if (WorldUtils.isMapWorldClass(victim.world)) {
             exp *= Load.world(killer.world)
@@ -116,25 +117,32 @@ public class OnMobDeathDrops {
 
         if (exp > 0) {
 
-            List<PlayerEntity> list = TeamUtils.getOnlineTeamMembers(killer);
+            List<PlayerEntity> list = TeamUtils.getOnlineTeamMembers(killer); // list with ALL the members
+            List<PlayerEntity> closeList = null; // list with only nearby members
 
-            exp *=  0.8F + (0.2F * list.size());
+            for (PlayerEntity p : list) {
+                if (p.world == killer.world && p.getDistance(killer) <= 100) {
+                    closeList.add(p);
+                }
+            }
 
-            exp /= list.size();
+            exp *= MathHelper.clamp(0.8F + 0.2F * closeList.size(), 1F, 2F); // cap bonus at 6 nearby party members
 
-            if (exp > 0) {
-                DmgNumPacket packet = new DmgNumPacket(
-                    victim, Elements.Nature, "+" + NumberUtils.formatNumber(exp) + " Exp!");
-                packet.isExp = true;
-                MMORPG.sendToClient(packet, (ServerPlayerEntity) killer);
+            exp /= closeList.size();
 
-                for (PlayerEntity x : list) {
-                    Load.Unit(x)
-                        .PostGiveExpEvent(victim, x, exp);
+            for (PlayerEntity player : closeList) {
+                exp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, Load.Unit(player), exp); // exp penalty individual to player
+
+                if (exp > 0) {
+                    DmgNumPacket packet = new DmgNumPacket(
+                            victim, Elements.Nature, "+" + NumberUtils.formatNumber(exp) + " Exp!");
+                    packet.isExp = true;
+                    MMORPG.sendToClient(packet, (ServerPlayerEntity) player);
+
+                    Load.Unit(player).PostGiveExpEvent(victim, player, exp);
+                    }
                 }
             }
 
         }
     }
-
-}

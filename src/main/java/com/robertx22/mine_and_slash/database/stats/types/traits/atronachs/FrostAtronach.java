@@ -2,12 +2,8 @@ package com.robertx22.mine_and_slash.database.stats.types.traits.atronachs;
 
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.Trait;
-import com.robertx22.mine_and_slash.database.stats.effects.resource.IncreaseHealingEffect;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.CooldownReductionFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.IncreasedDurationFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealPowerFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamageMulti;
-import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamagePercent;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamageFlat;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IAffectsOtherStats;
 
@@ -25,7 +21,7 @@ public class FrostAtronach extends Trait implements IAffectsOtherStats {
 
     @Override
     public List<StatMod> getStats() {
-        return Arrays.asList(new ElementalSpellDamagePercent(Elements.Water).size(StatMod.Size.HALF_MORE)
+        return Arrays.asList(new ElementalSpellDamageFlat(Elements.Water).size(StatMod.Size.HALF_MORE)
                 , new CooldownReductionFlat().size(StatMod.Size.HALF_MORE));
 
     }

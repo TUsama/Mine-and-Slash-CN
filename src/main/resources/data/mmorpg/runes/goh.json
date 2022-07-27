@@ -13,10 +13,10 @@
     "dodge_flat"
   ],
   "possible_jewerly_stats": [
-    "spell_fire_damage_percent",
-    "spell_nature_damage_percent",
-    "spell_thunder_damage_percent",
-    "spell_water_damage_percent"
+    "fire_thorns_reflect_flat",
+    "water_thorns_reflect_flat",
+    "thunder_thorns_reflect_flat",
+    "nature_thorns_reflect_flat"
   ],
   "item_id_per_rarity": {
     "0": "mmorpg:runes/goh/0",

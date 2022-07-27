@@ -9,10 +9,10 @@
     "mana_on_hit_flat"
   ],
   "possible_armor_stats": [
-    "fire_penetration_percent",
-    "nature_penetration_percent",
-    "thunder_penetration_percent",
-    "water_penetration_percent"
+    "attack_fire_damage_percent",
+    "attack_water_damage_percent",
+    "attack_thunder_damage_percent",
+    "attack_nature_damage_percent"
   ],
   "possible_jewerly_stats": [
     "energy_regen_percent"

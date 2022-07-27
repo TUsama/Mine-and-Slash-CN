@@ -9,10 +9,7 @@
     "physical_damage_percent"
   ],
   "possible_armor_stats": [
-    "fire_penetration_percent",
-    "nature_penetration_percent",
-    "thunder_penetration_percent",
-    "water_penetration_percent"
+    "armor_penetration_flat"
   ],
   "possible_jewerly_stats": [
     "energy_regen_flat"

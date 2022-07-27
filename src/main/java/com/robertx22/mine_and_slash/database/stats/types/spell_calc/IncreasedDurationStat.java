@@ -55,6 +55,11 @@ public class IncreasedDurationStat extends Stat implements IStatEffects {
     }
 
     @Override
+    public StatGroup statGroup() {
+        return StatGroup.SpellDamage;
+    }
+
+    @Override
     public IStatEffect getEffect() {
         return new IncreasedDurationEffect();
     }

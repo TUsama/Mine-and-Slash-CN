@@ -18,6 +18,11 @@ public class EleWepDmg extends Stat implements IStatEffects, IGenerated<EleWepDm
     public static MapWrapper<WeaponTypes, EleWepDmg> MAP = new MapWrapper();
 
     @Override
+    public StatGroup statGroup() {
+        return StatGroup.EleAttackDamage;
+    }
+
+    @Override
     public List<EleWepDmg> generateAllPossibleStatVariations() {
         for (WeaponTypes x : WeaponTypes.getAll()) {
             EleWepDmg stat = new EleWepDmg(x);
