@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.config.whole_mod_entity_configs.ModEntityCon
 import com.robertx22.mine_and_slash.database.rarities.MobRarity;
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.database.stats.types.defense.ArmorPenetration;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalPene;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
@@ -119,15 +120,17 @@ public class MobStatUtils {
         unit.getCreateStat(Armor.GUID)
             .addFlat(Armor.getInstance()
                 .AverageStat() * rar.StatMultiplier(), level);
+        unit.getCreateStat(ArmorPenetration.GUID)
+                .addFlat(4 * rar.StatMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);
         unit.getCreateStat(CriticalHit.GUID)
             .addFlat(5 * rar.DamageMultiplier());
         unit.getCreateStat(CriticalDamage.GUID)
-            .addFlat(5 * rar.DamageMultiplier());
+            .addFlat(10 * rar.DamageMultiplier());
 
         ElementalResist.MAP.getList()
             .forEach(x -> unit.getCreateStat(x)
-                .addFlat(6 * rar.StatMultiplier(), level));
+                .addFlat(8 * rar.StatMultiplier(), level));
 
         ElementalSpellDamage.MAP.getList()
             .forEach(x -> unit.getCreateStat(x)
@@ -135,7 +138,7 @@ public class MobStatUtils {
 
         ElementalPene.MAP.getList()
             .forEach(x -> unit.getCreateStat(x)
-                .addFlat(4 * rar.DamageMultiplier(), level));
+                .addFlat(6 * rar.DamageMultiplier(), level));
 
     }
 

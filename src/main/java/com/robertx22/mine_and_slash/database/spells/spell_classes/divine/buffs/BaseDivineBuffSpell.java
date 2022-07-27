@@ -27,9 +27,9 @@ public abstract class BaseDivineBuffSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.CAST_TIME_TICKS, 160, 220);
+        c.set(SC.CAST_TIME_TICKS, 80, 110);
         c.set(SC.COOLDOWN_SECONDS, 10, 10);
-        c.set(SC.DURATION_TICKS, 600 * 20, 900 * 20);
+        c.set(SC.DURATION_TICKS, 300 * 20, 600 * 20);
         c.set(SC.RADIUS, 6, 10);
 
         c.setMaxLevel(10);

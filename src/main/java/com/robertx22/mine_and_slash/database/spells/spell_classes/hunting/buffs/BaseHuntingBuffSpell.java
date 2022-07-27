@@ -27,9 +27,9 @@ public abstract class BaseHuntingBuffSpell extends BaseSpell {
         c.set(SC.MANA_COST, 12, 18);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.CAST_TIME_TICKS, 100, 100);
+        c.set(SC.CAST_TIME_TICKS, 50, 50);
         c.set(SC.COOLDOWN_SECONDS, 10, 10);
-        c.set(SC.DURATION_TICKS, 180 * 20, 300 * 20);
+        c.set(SC.DURATION_TICKS, 180 * 20, 240 * 20);
         c.set(SC.RADIUS, 3, 6);
 
         c.setMaxLevel(10);

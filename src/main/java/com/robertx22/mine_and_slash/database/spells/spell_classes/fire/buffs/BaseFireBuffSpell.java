@@ -29,7 +29,7 @@ public abstract class BaseFireBuffSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 120, 80);
         c.set(SC.COOLDOWN_SECONDS, 10, 10);
-        c.set(SC.DURATION_TICKS, 180 * 20, 300 * 20);
+        c.set(SC.DURATION_TICKS, 180 * 20, 240 * 20);
         c.set(SC.RADIUS, 2, 4);
 
         c.setMaxLevel(6);

@@ -14,12 +14,12 @@ public class CooldownReductionFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 2;
+        return 1;
     }
 
     @Override
     public float Max() {
-        return 4;
+        return 2;
     }
 
     @Override

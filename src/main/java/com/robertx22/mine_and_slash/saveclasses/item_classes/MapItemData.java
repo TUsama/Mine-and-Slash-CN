@@ -68,6 +68,8 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
     @Store
     public boolean isExp = false;
     @Store
+    public boolean isTeam = false;
+    @Store
     public List<MapAffixData> affixes = new ArrayList<MapAffixData>();
     @Store
     private String dimID = MapManager.DUNGEON_ID;
@@ -128,11 +130,17 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
 
     @Override
     public float getBonusLootMulti() {
+        float multi = 1F;
+        float add = 0F;
+
         if (isExp) {
-            return 1 + (bonusFormula() * 0.5F);
-        } else {
-            return 1 + bonusFormula();
+            multi *= 0.5F;
         }
+
+        if (isTeam) {
+            add += 0.25F;
+        }
+        return 1 + (bonusFormula() * multi) + add;
     }
 
     public float bonusFormula() {
@@ -140,11 +148,17 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
     }
 
     public float getBonusExpMulti() {
+        float multi = 0.25F;
+        float add = 0F;
+
         if (isExp) {
-            return 1 + (bonusFormula() * 1F);
-        } else {
-            return 1 + (bonusFormula() * 0.25F);
+            multi *= 4;
         }
+
+        if (isTeam) {
+            add += 0.25F;
+        }
+        return 1 + (bonusFormula() * multi) + add;
     }
 
     public boolean increaseLevel(int i) {
@@ -286,6 +300,12 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
 
         tooltip.add(TooltipUtils.level(this.level));
         TooltipUtils.addEmpty(tooltip);
+
+        if (isTeam) {
+            tooltip.add(Styles.LIGHT_PURPLECOMP().appendText("Team Dungeon"));
+            tooltip.add(Styles.GRAYITALICCOMP().appendText("Mobs are substantially stronger. Be sure to party up!"));
+            TooltipUtils.addEmpty(tooltip);
+        }
 
         addAffixTypeToTooltip(this, tooltip, AffectedEntities.Mobs);
         addAffixTypeToTooltip(this, tooltip, AffectedEntities.Players);

@@ -93,7 +93,7 @@ public class PerkEffects {
         HEAL_PWR = PerkEffectBuilder.build(
                 "heal_pwr", HealPower.getInstance(), new ExactStatData(5, StatModTypes.Flat, HealPower.GUID));
         CDR = PerkEffectBuilder.build(
-                "cdr", ReducedCooldownStat.getInstance(), new ExactStatData(4, StatModTypes.Flat, ReducedCooldownStat.GUID));
+                "cdr", ReducedCooldownStat.getInstance(), new ExactStatData(2, StatModTypes.Flat, ReducedCooldownStat.GUID));
         CRIT_HIT = PerkEffectBuilder.build(
             "crit_hit", CriticalHit.getInstance(), new ExactStatData(1, StatModTypes.Flat, CriticalHit.GUID));
         CRIT_DMG = PerkEffectBuilder.build(
@@ -204,7 +204,7 @@ public class PerkEffects {
 
             ELE_RES_PERCENT_MAP.put(
                 ele, PerkEffectBuilder.build(ele.guidName + "_res", new ElementalResist(ele),
-                    new ExactStatData(elenum, StatModTypes.Flat, new ElementalResist(ele))
+                    new ExactStatData(4, StatModTypes.Flat, new ElementalResist(ele))
                 ));
 
             SPELL_DMG_PERCENT_MAP.put(

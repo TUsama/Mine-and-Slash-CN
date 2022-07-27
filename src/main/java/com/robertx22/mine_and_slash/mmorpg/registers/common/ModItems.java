@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.currency.*;
 import com.robertx22.mine_and_slash.database.currency.base.CurrencyItem;
 import com.robertx22.mine_and_slash.database.currency.map.EndlessRoadItem;
 import com.robertx22.mine_and_slash.database.currency.map.EndlessSkiesItem;
+import com.robertx22.mine_and_slash.database.currency.map.OrbOfCompanionshipItem;
 import com.robertx22.mine_and_slash.database.currency.map.PainfulLessonItem;
 import com.robertx22.mine_and_slash.items.misc.*;
 import com.robertx22.mine_and_slash.items.reset_potions.*;
@@ -52,6 +53,7 @@ public class ModItems {
     public static RegistryObject<CurrencyItem> ENDLESS_SKIES = of(() -> new EndlessSkiesItem());
     public static RegistryObject<CurrencyItem> ENDLESS_ROAD = of(() -> new EndlessRoadItem());
     public static RegistryObject<CurrencyItem> PAINFUL_LESSON = of(() -> new PainfulLessonItem());
+    public static RegistryObject<CurrencyItem> ORB_OF_COMPANIONSHP = of(() -> new OrbOfCompanionshipItem());
 
     public static RegistryObject<ResetStatsPotionItem> RESET_STATS = item(() -> new ResetStatsPotionItem());
     public static RegistryObject<ResetSpellsPotionItem> RESET_SPELLS = item(() -> new ResetSpellsPotionItem());

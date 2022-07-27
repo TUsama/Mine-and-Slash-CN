@@ -62,7 +62,7 @@ public class QuickChargeSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 60, 60);
         c.set(SC.COOLDOWN_SECONDS, 10, 10);
-        c.set(SC.DURATION_TICKS, 180 * 20, 360 * 20);
+        c.set(SC.DURATION_TICKS, 240 * 20, 300 * 20);
         c.set(SC.RADIUS, 3, 6);
 
         c.setMaxLevel(8);

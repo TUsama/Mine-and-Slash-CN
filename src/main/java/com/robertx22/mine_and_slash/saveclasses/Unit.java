@@ -418,7 +418,7 @@ public class Unit {
             hpadded *= ModConfig.INSTANCE.Server.PLAYER_HEART_TO_HEALTH_CONVERSION.get();
 
         } else {
-            hpadded *= 2F * rar.HealthMultiplier();
+            hpadded *= 2.5F * rar.HealthMultiplier();
         }
 
         return hpadded;

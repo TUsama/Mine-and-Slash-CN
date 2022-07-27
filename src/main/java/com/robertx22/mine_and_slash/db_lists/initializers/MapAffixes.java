@@ -32,6 +32,7 @@ public class MapAffixes implements ISlashRegistryInit {
                     add(new BonusAllResistAffix());
                     add(new BonusArmorPenAffix());
                     //add(new BonusDodgeIgnoreAffix());
+                    add(new TeamBonusAffix());
 
                     add(new BonusPhysDmgAffix());
 

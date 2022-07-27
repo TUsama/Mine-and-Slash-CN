@@ -27,7 +27,7 @@ public abstract class BaseUnholyBuffSpell extends BaseSpell {
         c.set(SC.MANA_COST, 6, 9);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0.15F, 0.15F);
-        c.set(SC.CAST_TIME_TICKS, 160, 220);
+        c.set(SC.CAST_TIME_TICKS, 80, 110);
         c.set(SC.COOLDOWN_SECONDS, 10, 10);
         c.set(SC.DURATION_TICKS, 180 * 20, 240 * 20);
         c.set(SC.RADIUS, 4, 8);

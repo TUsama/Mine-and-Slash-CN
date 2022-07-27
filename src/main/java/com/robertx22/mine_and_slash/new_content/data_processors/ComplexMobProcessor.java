@@ -146,6 +146,10 @@ public class ComplexMobProcessor extends DataProcessor {
                 amount++;
             }
 
+            if (RandomUtils.roll(50)) { // chance for mobs to be fast strong or regenerative
+                addPotion = true;
+            }
+
             for (int i = 0; i < amount; i++) {
                 MobSpawnUtils.summon(type, world, pos, rarity, addPotion, boss);
             }

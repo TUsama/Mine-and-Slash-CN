@@ -17,6 +17,18 @@ public class ReduceManaCostEffect extends BaseSpellCalcEffect {
             effect.configs.multiplyValueBy(SC.MANA_COST, multi);
         }
 
+        if (effect.configs.has(SC.ENERGY_COST)) {
+            effect.configs.multiplyValueBy(SC.ENERGY_COST, multi);
+        }
+
+        if (effect.configs.has(SC.HEALTH_COST)) {
+            effect.configs.multiplyValueBy(SC.HEALTH_COST, multi);
+        }
+
+        if (effect.configs.has(SC.MAGIC_SHIELD_COST)) {
+            effect.configs.multiplyValueBy(SC.MAGIC_SHIELD_COST, multi);
+        }
+
         return effect;
     }
 
