@@ -17,7 +17,7 @@ public class LessHealthAffix extends DetrimentalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new HealthPercent().size(StatMod.Size.ONE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new HealthPercent().size(StatMod.Size.DOUBLE_LESS), percent));
     }
 
     @Override

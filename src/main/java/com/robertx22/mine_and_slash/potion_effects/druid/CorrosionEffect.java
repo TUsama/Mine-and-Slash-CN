@@ -53,7 +53,7 @@ public class CorrosionEffect extends BasePotionEffect implements IApplyStatPotio
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160892",
-                (double) -0.15F, AttributeModifier.Operation.MULTIPLY_BASE
+                (double) -0.05F, AttributeModifier.Operation.MULTIPLY_BASE
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -116,7 +116,7 @@ public class CorrosionEffect extends BasePotionEffect implements IApplyStatPotio
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent(TextFormatting.AQUA + "Reduces movement speed by 15%."));
+        list.add(new StringTextComponent(TextFormatting.AQUA + "Reduces movement speed by 5%."));
         return list;
     }
 

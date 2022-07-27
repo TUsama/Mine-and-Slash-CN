@@ -77,7 +77,7 @@ public class FreezeSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 18, 14);
         c.set(SC.BASE_VALUE, 4, 19);
         c.set(SC.TICK_RATE, 20, 20);
-        c.set(SC.DURATION_TICKS, 120, 220);
+        c.set(SC.DURATION_TICKS, 120, 180);
 
         c.setMaxLevel(8);
 

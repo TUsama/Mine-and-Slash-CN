@@ -138,7 +138,7 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
         }
 
         if (isTeam) {
-            add += 0.25F;
+            add += 0.33F;
         }
         return 1 + (bonusFormula() * multi) + add;
     }
@@ -156,9 +156,17 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
         }
 
         if (isTeam) {
-            add += 0.25F;
+            add += 0.5F;
         }
         return 1 + (bonusFormula() * multi) + add;
+    }
+
+    public void addTeamAffix() {
+        if (!isTeam) {
+            int percent = RandomUtils.RandomRange(75, 100);
+            affixes.add(new MapAffixData(SlashRegistry.MapAffixes().get("team_bonus"), percent));
+            isTeam = true;
+        }
     }
 
     public boolean increaseLevel(int i) {

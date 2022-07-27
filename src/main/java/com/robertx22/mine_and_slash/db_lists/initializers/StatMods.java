@@ -166,6 +166,7 @@ public class StatMods implements ISlashRegistryInit {
                     add(new DodgeRatingFlat());
                     add(new SpellDodgeFlat());
                     add(new DamageShieldFlat());
+                    add(new IncreaseDamageFlat());
 
                     // bonus dmg
 

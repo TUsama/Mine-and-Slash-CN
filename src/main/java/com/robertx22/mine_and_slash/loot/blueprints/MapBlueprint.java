@@ -98,12 +98,6 @@ public class MapBlueprint extends ItemBlueprint {
         map.affixes.add(new MapAffixData(RandomUtils.weightedRandom(possible), percent));
         */
 
-        if (map.isTeam) { // manual addition of team affix bonus
-            int percent = RandomUtils.RandomRange(75, 100);
-            map.affixes.add(new MapAffixData(SlashRegistry.MapAffixes().get("team_bonus"), percent));
-            affixes.add("team_bonus");
-        }
-
         return map;
     }
 

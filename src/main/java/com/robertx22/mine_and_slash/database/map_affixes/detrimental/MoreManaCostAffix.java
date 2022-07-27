@@ -18,7 +18,7 @@ public class MoreManaCostAffix extends DetrimentalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new ReducedManaCostFlat().size(StatMod.Size.ONE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new ReducedManaCostFlat().size(StatMod.Size.TRIPLE_LESS), percent));
 
     }
 

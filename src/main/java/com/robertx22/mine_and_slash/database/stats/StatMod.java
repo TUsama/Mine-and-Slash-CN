@@ -47,7 +47,9 @@ public abstract class StatMod implements IWeighted, IRarity, IGUID, ISerializedR
         HALF_MORE("high_", 1.5F),
         THREE_QUART_MORE("even_high_", 1.75F),
         DOUBLE("very_high_", 2),
-        TRIPLE("major_", 3);
+        TRIPLE("major_", 3),
+        TEN("ridiculous_", 10),
+        TENTEN("extra_ridiculous_", 20);;
 
         public String prefix;
         public float multi;

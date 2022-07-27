@@ -18,7 +18,7 @@ public class BonusDodgeAffix extends BeneficialMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new DodgeRatingFlat().size(StatMod.Size.DOUBLE), percent));
+        return Arrays.asList(StatModData.Load(new DodgeRatingFlat().size(StatMod.Size.TRIPLE), percent));
     }
 
     @Override

@@ -6,6 +6,9 @@
 - All mobs in maps now have a chance to be speedy, stronger, or regenerative on spawn.
 - Mobs now have 33% more elemental resist, 50% more elemental penetration, and now get some armor penetration as well.
 - Mobs should have about 25% more health now.
+- Added a new mob affix in maps giving Spell Dodge.
+- Slows from spells and effects have been readjusted. They have all been toned down. Some effects such as wounds no longer slow enemies.
+- Blizzard synergy now correctly applies Frost instead of Freeze effect. Huge difference...
 
 3.13.16:
 - Lowered the health cost of Summon Skeletal Army and Hellfire Cloak.

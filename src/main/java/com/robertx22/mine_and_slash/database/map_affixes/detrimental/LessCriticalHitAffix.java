@@ -18,7 +18,7 @@ public class LessCriticalHitAffix extends DetrimentalMapAffix {
     @Override
     public List<StatModData> Stats(int percent) {
         return Arrays.asList(StatModData.Load(new CriticalHitPercent()
-            .size(StatMod.Size.ONE_LESS), percent));
+            .size(StatMod.Size.DOUBLE_LESS), percent));
     }
 
     @Override

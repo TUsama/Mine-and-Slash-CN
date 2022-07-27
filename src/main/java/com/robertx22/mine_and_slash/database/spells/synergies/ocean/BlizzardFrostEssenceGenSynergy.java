@@ -35,7 +35,7 @@ public class BlizzardFrostEssenceGenSynergy extends OnDamageDoneSynergy {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Hits have a chance to apply: " + FrozenEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Hits have a chance to apply: " + FrostEffect.INSTANCE.locNameForLangFile()));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -73,7 +73,7 @@ public class BlizzardFrostEssenceGenSynergy extends OnDamageDoneSynergy {
         if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
             .get(SC.CHANCE)
             .get(Load.spells(ctx.source), this))) {
-            PotionEffectUtils.apply(FrozenEffect.INSTANCE, ctx.source, ctx.target);
+            PotionEffectUtils.apply(FrostEffect.INSTANCE, ctx.source, ctx.target);
         }
     }
 

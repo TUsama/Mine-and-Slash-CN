@@ -39,7 +39,7 @@ public class OrbOfCompanionshipItem extends CurrencyItem implements ICurrencyIte
 
         MapItemData map = Map.Load(stack);
 
-        map.isTeam = true;
+        map.addTeamAffix();
 
         Map.Save(stack, map);
 

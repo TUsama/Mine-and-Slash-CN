@@ -62,7 +62,7 @@ public class SnareEffect extends BasePotionEffect {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.TICK_RATE, 20, 20);
-        p.set(SC.DURATION_TICKS, 240, 320);
+        p.set(SC.DURATION_TICKS, 160, 220);
         return p;
     }
 

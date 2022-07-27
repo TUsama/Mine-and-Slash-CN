@@ -18,7 +18,7 @@ public class BonusEleResistAffix extends BaseElementalMapAffix {
 
     @Override
     public StatMod.Size getSize() {
-        return StatMod.Size.DOUBLE;
+        return StatMod.Size.TRIPLE;
     }
 
     @Override
@@ -49,6 +49,6 @@ public class BonusEleResistAffix extends BaseElementalMapAffix {
 
     @Override
     public float lootMulti() {
-        return 1.35F;
+        return 1.3F;
     }
 }

@@ -212,6 +212,7 @@ public class Stats implements ISlashRegistryInit {
                     add(DodgeRating.getInstance());
                     add(new SpellDodge());
                     add(DamageShield.getInstance());
+                    add(IncreaseDamage.getInstance());
 
                     // traits
                     add(new Golem());

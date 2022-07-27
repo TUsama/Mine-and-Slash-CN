@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.database.stats.effects.defense;
+package com.robertx22.mine_and_slash.database.stats.effects.offense;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
@@ -6,12 +6,12 @@ import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import net.minecraft.util.math.MathHelper;
 
-public class DamageShieldEffect extends BaseDamageEffect {
+public class IncreaseDamageEffect extends BaseDamageEffect {
 
-    private DamageShieldEffect() {
+    private IncreaseDamageEffect() {
     }
 
-    public static DamageShieldEffect getInstance() {
+    public static IncreaseDamageEffect getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
@@ -22,15 +22,15 @@ public class DamageShieldEffect extends BaseDamageEffect {
 
     @Override
     public EffectSides Side() {
-        return EffectSides.Target;
+        return EffectSides.Source;
     }
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
-        float damageReduction = MathHelper.clamp(data.getAverageValue(), stat.minimumValue, stat.maximumValue);
+        float damageIncrease = MathHelper.clamp(data.getAverageValue(), stat.minimumValue, stat.maximumValue);
 
-        effect.number *=  (1 - damageReduction / 100);
+        effect.number *=  (1 + damageIncrease / 100);
 
         return effect;
     }
@@ -41,6 +41,6 @@ public class DamageShieldEffect extends BaseDamageEffect {
     }
 
     private static class SingletonHolder {
-        private static final DamageShieldEffect INSTANCE = new DamageShieldEffect();
+        private static final IncreaseDamageEffect INSTANCE = new IncreaseDamageEffect();
     }
 }
