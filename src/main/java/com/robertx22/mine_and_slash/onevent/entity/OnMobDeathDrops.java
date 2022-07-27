@@ -26,6 +26,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.lwjgl.system.CallbackI;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OnMobDeathDrops {
@@ -118,7 +119,7 @@ public class OnMobDeathDrops {
         if (exp > 0) {
 
             List<PlayerEntity> list = TeamUtils.getOnlineTeamMembers(killer); // list with ALL the members
-            List<PlayerEntity> closeList = null; // list with only nearby members
+            List<PlayerEntity> closeList = new ArrayList<>(); // list with only nearby members
 
             for (PlayerEntity p : list) {
                 if (p.world == killer.world && p.getDistance(killer) <= 100) {

@@ -54,7 +54,7 @@ public class DefendEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(15, DamageShield.getInstance()));
+        list.add(new PotionStat(25, DamageShield.getInstance()));
         list.add(new PotionStat(100, Armor.getInstance()));
         list.add(new PotionStat(20, new BlockReflect(Elements.Physical)));
         return list;

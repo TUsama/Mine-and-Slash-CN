@@ -119,9 +119,7 @@ public class MobStatUtils {
         unit.getCreateStat(Armor.GUID)
             .addFlat(Armor.getInstance()
                 .AverageStat() * rar.StatMultiplier(), level);
-        unit.getCreateStat(DodgeRating.GUID)
-                .addFlat(DodgeRating.getInstance()
-                        .AverageStat() * rar.StatMultiplier() * 0.33F, level);
+        //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);
         unit.getCreateStat(CriticalHit.GUID)
             .addFlat(5 * rar.DamageMultiplier());
         unit.getCreateStat(CriticalDamage.GUID)
@@ -129,7 +127,7 @@ public class MobStatUtils {
 
         ElementalResist.MAP.getList()
             .forEach(x -> unit.getCreateStat(x)
-                .addFlat(5 * rar.StatMultiplier(), level));
+                .addFlat(6 * rar.StatMultiplier(), level));
 
         ElementalSpellDamage.MAP.getList()
             .forEach(x -> unit.getCreateStat(x)

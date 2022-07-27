@@ -63,10 +63,10 @@ public class SummonSkeletalArmySpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.HEALTH_COST, 0.2F, 0.4F);
+        c.set(SC.HEALTH_COST, 0.2F, 0.3F);
         c.set(SC.MANA_COST, 12, 16);
         c.set(SC.ENERGY_COST, 0, 0);
-        c.set(SC.MAGIC_SHIELD_COST, 0, 0);
+        c.set(SC.MAGIC_SHIELD_COST, 0.2F, 0.3F);
         c.set(SC.BASE_VALUE, 8, 27);
         c.set(SC.ATTACK_SCALE_VALUE, 1.0F, 2.5F);
         c.set(SC.BONUS_HEALTH, 0F, 1.0F);
