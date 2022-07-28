@@ -1292,6 +1292,12 @@
 	"mmorpg.stat.explosive": "Explosive",
 	"mmorpg.stat.radiant": "Radiant",
 	"mmorpg.stat.spiky": "Spiky",
+	"mmorpg.stat.mob_weaken_curse": "Venom Casting",
+	"mmorpg.stat.mob_bloody_strike": "Sanguine Casting",
+	"mmorpg.stat.mob_fire_strike": "Flame Casting",
+	"mmorpg.stat.mob_frost_nova": "Cold Casting",
+	"mmorpg.stat.mob_lightning_discharge": "Lightning Casting",
+	"mmorpg.stat.mob_speedy": "Speedy Mobs",
 
 "_comment": " [CATEGORY]: STATS - NAMES",
 
@@ -1647,7 +1653,7 @@
 	"effect.mmorpg.thunder_essence": "Lightning Essence",
 	"effect.mmorpg.trickery": "Trickery",
 	"effect.mmorpg.weaken": "Nauseous",
-	"effect.mmorpg.weaken_curse_effect": "Nauseous",
+	"effect.mmorpg.weaken_curse_effect": "Weakened",
 	"effect.mmorpg.wind_walk_effect": "Wind Walk",
 	"effect.mmorpg.wizardry": "Wizardry",
 	"effect.mmorpg.wounds": "Wounds",
@@ -1942,6 +1948,12 @@
 	"mmorpg.stat_desc.vitality": "Increases Health and Armor",
 	"mmorpg.stat_desc.weapon_damage": "Increases damage done if it was caused by that weapon.",
 	"mmorpg.stat_desc.wisdom": "Increases Heal Power, Magic Shield Regen, and Mana Regen",
+	"mmorpg.stat_desc.mob_weaken_curse": "When hit, curse the attacker with a weakening curse.",
+	"mmorpg.stat_desc.mob_bloody_strike": "On hit, cause target to bleed.",
+	"mmorpg.stat_desc.mob_fire_strike": "On hit, strike enemies in front of you with fire.",
+	"mmorpg.stat_desc.mob_frost_nova": "On hit, sweep nearby enemies with frost damage.",
+	"mmorpg.stat_desc.mob_lightning_discharge": "When hit, discharge lightning damage in an AOE.",
+	"mmorpg.stat_desc.mob_speedy": "When hit, give mob a speed buff.",
 
 "_comment": " [CATEGORY]: STATS - DESCRIPTIONS",
 

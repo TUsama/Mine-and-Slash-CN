@@ -11,8 +11,6 @@ import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 public class IncreaseDamage extends Stat implements IStatEffects {
 
     public IncreaseDamage() {
-        this.maximumValue = 75;
-        this.minimumValue = 0;
     }
 
     public static IncreaseDamage getInstance() {
@@ -59,6 +57,11 @@ public class IncreaseDamage extends Stat implements IStatEffects {
 
     @Override
     public StatGroup statGroup() {
-        return null;
+        return StatGroup.Misc;
+    }
+
+    @Override
+    public boolean IsShownOnStatGui() {
+        return false;
     }
 }

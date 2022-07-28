@@ -34,7 +34,7 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
     @Override
     public EffectSides Side() {
-        return EffectSides.Target;
+        return EffectSides.Source;
     }
 
     @Override
@@ -42,33 +42,33 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
         //source and target are reversed because the side is target
 
-        SoundUtils.playSound(effect.target, ModSounds.THUNDER.get(), 1.25F, 1);
+        SoundUtils.playSound(effect.source, ModSounds.THUNDER.get(), 1.25F, 1);
 
-        float wepdmg = effect.targetData.getUnit()
+        float wepdmg = effect.sourceData.getUnit()
                 .peekAtStat(PhysicalDamage.GUID)
                 .getAverageValue();
-        float elespelldmg = effect.targetData.getUnit()
+        float elespelldmg = effect.sourceData.getUnit()
                 .peekAtStat("spell_thunder_damage")
                 .getAverageValue();
 
         float num = wepdmg * 0.5F * (1 + elespelldmg / 100);
         float radius = 6F;
 
-        ParticlePacketData pdata = new ParticlePacketData(effect.target.getPosition()
+        ParticlePacketData pdata = new ParticlePacketData(effect.source.getPosition()
                 .up(1), ParticleEnum.CHARGED_NOVA);
         pdata.radius = radius;
-        ParticleEnum.CHARGED_NOVA.sendToClients(effect.target, pdata);
+        ParticleEnum.CHARGED_NOVA.sendToClients(effect.source, pdata);
 
-        List<LivingEntity> entities = EntityFinder.start(effect.target, LivingEntity.class, effect.target.getPositionVector())
+        List<LivingEntity> entities = EntityFinder.start(effect.source, LivingEntity.class, effect.source.getPositionVector())
                 .radius(radius)
                 .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
         for (LivingEntity en : entities) {
 
-            if (en != effect.target) {
+            if (en != effect.source) {
                 DamageEffect dmg = new DamageEffect(
-                        null, effect.target, en, (int) num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                        null, effect.source, en, (int) num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
                 dmg.element = Elements.Thunder;
                 dmg.Activate();
             }

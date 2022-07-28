@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 
 public class MobStatUtils {
 
-    static int spelldmg = 12;
+    static int spelldmg = 16;
 
     public static void increaseMobStatsPerTier(UnitData mobdata, Unit unit) {
 
@@ -114,12 +114,13 @@ public class MobStatUtils {
 
         MobRarity rar = Rarities.Mobs.get(unitdata.getRarity());
         Unit unit = unitdata.getUnit();
-
         unit.getCreateStat(HealthRegen.GUID)
                 .addFlat(1 * rar.StatMultiplier(), level);
         unit.getCreateStat(Armor.GUID)
             .addFlat(Armor.getInstance()
                 .AverageStat() * rar.StatMultiplier(), level);
+        unit.getCreateStat(PhysicalDamage.GUID)
+                .addFlat(2 * rar.StatMultiplier(), level);
         unit.getCreateStat(ArmorPenetration.GUID)
                 .addFlat(4 * rar.StatMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);

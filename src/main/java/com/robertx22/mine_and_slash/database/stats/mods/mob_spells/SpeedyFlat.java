@@ -1,24 +1,22 @@
-package com.robertx22.mine_and_slash.database.stats.mods.flat.offense;
+package com.robertx22.mine_and_slash.database.stats.mods.mob_spells;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
-import com.robertx22.mine_and_slash.database.stats.types.defense.DamageShield;
-import com.robertx22.mine_and_slash.database.stats.types.offense.IncreaseDamage;
+import com.robertx22.mine_and_slash.database.stats.types.mob_spells.Speedy;
+import com.robertx22.mine_and_slash.database.stats.types.mob_spells.WeakenCurse;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.StatModTypes;
 
-public class IncreaseDamageFlat extends StatMod {
-
-    public IncreaseDamageFlat() {
-    }
+public class SpeedyFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 24;
+        return 100;
+
     }
 
     @Override
     public float Max() {
-        return 30;
+        return 100;
     }
 
     @Override
@@ -28,7 +26,8 @@ public class IncreaseDamageFlat extends StatMod {
 
     @Override
     public Stat GetBaseStat() {
-        return new IncreaseDamage();
+        return new Speedy();
     }
 
 }
+

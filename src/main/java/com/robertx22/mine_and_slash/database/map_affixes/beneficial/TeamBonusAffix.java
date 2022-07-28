@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthFla
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalPeneFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalResistFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalSpellDamagePercent;
+import com.robertx22.mine_and_slash.database.stats.mods.mob_spells.SpeedyFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.HealthMulti;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.ArmorPercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.HealthPercent;
@@ -31,7 +32,8 @@ public class TeamBonusAffix extends BeneficialMapAffix {
     public List<StatModData> Stats(int percent) {
         return Arrays.asList(StatModData.Load(new HealthMulti().size(StatMod.Size.TENTEN), percent),
                 StatModData.Load(new DamageShieldFlat().size(StatMod.Size.TEN), percent),
-                StatModData.Load(new IncreaseDamageFlat().size(StatMod.Size.TENTEN), percent));
+                StatModData.Load(new IncreaseDamageFlat().size(StatMod.Size.TENTEN), percent),
+                StatModData.Load(new SpeedyFlat(), 100));
     }
 
     @Override

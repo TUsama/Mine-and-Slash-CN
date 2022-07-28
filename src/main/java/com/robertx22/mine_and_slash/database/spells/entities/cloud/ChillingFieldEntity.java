@@ -88,7 +88,7 @@ public class ChillingFieldEntity extends BaseCloudEntity {
                             posX, posY, posZ, RADIUS);
 
                     if (spawnCloudParticles()) {
-                        for (int a = 1; a < 2; a++) {
+                        for (int a = 1; a < 4; a++) {
                             ParticleUtils.spawn(ParticleTypes.CLOUD, world, p.add(0, 0, 0));
                         }
                     }

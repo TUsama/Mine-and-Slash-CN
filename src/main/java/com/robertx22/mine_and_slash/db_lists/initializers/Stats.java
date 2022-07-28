@@ -114,6 +114,7 @@ public class Stats implements ISlashRegistryInit {
                     add(new FrostNova());
                     add(new LightningDischarge());
                     add(new WeakenCurse());
+                    add(new Speedy());
                     add(new BloodyStrike());
 
                     // generated

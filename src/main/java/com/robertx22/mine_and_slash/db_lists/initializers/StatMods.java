@@ -85,6 +85,7 @@ public class StatMods implements ISlashRegistryInit {
                     add(new FrostNovaFlat());
                     add(new LightningDischargeFlat());
                     add(new WeakenCurseFlat());
+                    add(new SpeedyFlat());
                     add(new BloodyStrikeFlat());
 
                     add(new CompletePhysDispersionFlat());

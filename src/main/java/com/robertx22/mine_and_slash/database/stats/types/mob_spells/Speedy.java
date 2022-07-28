@@ -1,23 +1,24 @@
 package com.robertx22.mine_and_slash.database.stats.types.mob_spells;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
-import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.WeakenCurseEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.BloodyStrikeEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.SpeedyEffect;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 
-public class WeakenCurse extends Stat implements IStatEffects {
+public class Speedy extends Stat implements IStatEffects {
 
-    public WeakenCurse() {
+    public Speedy() {
         this.maximumValue = 100;
     }
 
-    public static String GUID = "mob_weaken_curse";
+    public static String GUID = "mob_speedy";
 
     @Override
     public String locDescForLangFile() {
-        return "When hit, curse the attacker with a weakening curse.";
+        return "When hit, give mob a speed buff.";
     }
 
     @Override
@@ -47,12 +48,12 @@ public class WeakenCurse extends Stat implements IStatEffects {
 
     @Override
     public IStatEffect getEffect() {
-        return WeakenCurseEffect.INSTANCE;
+        return SpeedyEffect.INSTANCE;
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Mob Weaken Curse";
+        return "Mob Speedy";
     }
 
     @Override

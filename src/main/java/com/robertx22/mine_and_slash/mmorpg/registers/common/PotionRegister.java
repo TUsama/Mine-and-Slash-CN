@@ -1,5 +1,6 @@
 package com.robertx22.mine_and_slash.mmorpg.registers.common;
 
+import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.SpeedyEffect;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.all.BleedPotion;
 import com.robertx22.mine_and_slash.potion_effects.all.MobChillEffect;

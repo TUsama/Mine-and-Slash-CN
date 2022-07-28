@@ -2,7 +2,9 @@ package com.robertx22.mine_and_slash.database.map_affixes.beneficial;
 
 import com.robertx22.mine_and_slash.database.map_affixes.BaseMapAffix;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CompletePhysDispersionFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalAttackDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDispersion;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.StatModData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IElementalGenerated;
@@ -33,8 +35,8 @@ public class BonusEleDmgAffix extends BaseElementalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(getGenStat().newGeneratedInstance(element)
-            .size(getSize()), percent));
+        return Arrays.asList(StatModData.Load(getGenStat().newGeneratedInstance(element).size(getSize()), percent),
+                StatModData.Load(new CompletePhysDispersionFlat(), 100));
     }
 
     @Override
