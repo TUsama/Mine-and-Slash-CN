@@ -138,7 +138,7 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
         }
 
         if (isTeam) {
-            add += 0.35F;
+            add += 1F;
         }
         return 1 + (bonusFormula() * multi) + add;
     }
@@ -156,7 +156,7 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
         }
 
         if (isTeam) {
-            add += 1F;
+            add += 4F;
         }
         return 1 + (bonusFormula() * multi) + add;
     }

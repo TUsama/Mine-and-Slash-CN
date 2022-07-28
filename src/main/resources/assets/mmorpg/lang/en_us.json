@@ -1297,7 +1297,7 @@
 	"mmorpg.stat.mob_fire_strike": "Flame Casting",
 	"mmorpg.stat.mob_frost_nova": "Cold Casting",
 	"mmorpg.stat.mob_lightning_discharge": "Lightning Casting",
-	"mmorpg.stat.mob_speedy": "Speedy Mobs",
+	"mmorpg.stat.mob_speedy": "Speed When Hit",
 
 "_comment": " [CATEGORY]: STATS - NAMES",
 

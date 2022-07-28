@@ -39,7 +39,7 @@ public class SpeedyEffect extends BaseDamageEffect {
                         .amount(25)
         );
 
-        effect.target.addPotionEffect(new EffectInstance(Effects.SPEED, 100, 1));
+        effect.target.addPotionEffect(new EffectInstance(Effects.SPEED, 100, 4));
 
         return effect;
     }
