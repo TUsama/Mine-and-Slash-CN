@@ -20,7 +20,7 @@ public class LegendaryMob extends BaseLegendary implements MobRarity {
 
     @Override
     public float DamageMultiplier() {
-        return 3.5F;
+        return 5F;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class LegendaryMob extends BaseLegendary implements MobRarity {
 
     @Override
     public float bothAffixesChance() {
-        return 50;
+        return 100;
     }
 
     @Override

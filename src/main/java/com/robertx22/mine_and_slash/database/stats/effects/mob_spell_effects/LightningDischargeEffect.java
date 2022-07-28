@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects;
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
@@ -48,7 +49,7 @@ public class LightningDischargeEffect extends BaseDamageEffect {
                 .peekAtStat(PhysicalDamage.GUID)
                 .getAverageValue();
         float elespelldmg = effect.sourceData.getUnit()
-                .peekAtStat("spell_thunder_damage")
+                .peekAtStat(SpellDamage.GUID)
                 .getAverageValue();
 
         float num = wepdmg * 0.5F * (1 + elespelldmg / 100);
@@ -61,7 +62,6 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
         List<LivingEntity> entities = EntityFinder.start(effect.source, LivingEntity.class, effect.source.getPositionVector())
                 .radius(radius)
-                .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
         for (LivingEntity en : entities) {

@@ -45,7 +45,6 @@ public class BloodyStrikeEffect extends BaseDamageEffect {
                 .add(look)
                 .add(0, effect.source.getHeight() / 2, 0))
                 .finder(EntityFinder.Finder.RADIUS)
-                .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .radius(2)
                 .height(2)
                 .build();

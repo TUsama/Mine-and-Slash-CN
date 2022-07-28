@@ -20,7 +20,7 @@ public class EpicMob extends BaseEpic implements MobRarity {
 
     @Override
     public float DamageMultiplier() {
-        return 2.7F;
+        return 3F;
     }
 
     @Override
@@ -40,12 +40,12 @@ public class EpicMob extends BaseEpic implements MobRarity {
 
     @Override
     public float oneAffixChance() {
-        return 80;
+        return 100;
     }
 
     @Override
     public float bothAffixesChance() {
-        return 25;
+        return 50;
     }
 
     @Override

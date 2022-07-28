@@ -39,12 +39,12 @@ public class MinionMobRarity extends BaseBossRarity implements MobRarity {
 
     @Override
     public float oneAffixChance() {
-        return 80;
+        return 100;
     }
 
     @Override
     public float bothAffixesChance() {
-        return 25;
+        return 0;
     }
 
     @Override

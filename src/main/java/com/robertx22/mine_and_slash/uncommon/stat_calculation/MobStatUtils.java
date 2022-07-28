@@ -13,6 +13,7 @@ import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpel
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
@@ -27,7 +28,7 @@ import java.util.stream.Collectors;
 
 public class MobStatUtils {
 
-    static int spelldmg = 16;
+    static int spelldmg = 8;
 
     public static void increaseMobStatsPerTier(UnitData mobdata, Unit unit) {
 
@@ -121,6 +122,8 @@ public class MobStatUtils {
                 .AverageStat() * rar.StatMultiplier(), level);
         unit.getCreateStat(PhysicalDamage.GUID)
                 .addFlat(2 * rar.StatMultiplier(), level);
+        unit.getCreateStat(SpellDamage.GUID)
+                .addFlat(spelldmg * rar.StatMultiplier(), level);
         unit.getCreateStat(ArmorPenetration.GUID)
                 .addFlat(4 * rar.StatMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);
@@ -128,19 +131,22 @@ public class MobStatUtils {
             .addFlat(5 * rar.DamageMultiplier());
         unit.getCreateStat(CriticalDamage.GUID)
             .addFlat(10 * rar.DamageMultiplier());
-
-        ElementalResist.MAP.getList()
-            .forEach(x -> unit.getCreateStat(x)
-                .addFlat(8 * rar.StatMultiplier(), level));
-
-        ElementalSpellDamage.MAP.getList()
-            .forEach(x -> unit.getCreateStat(x)
-                .addFlat(spelldmg * rar.DamageMultiplier(), level));
-
-        ElementalPene.MAP.getList()
-            .forEach(x -> unit.getCreateStat(x)
-                .addFlat(6 * rar.DamageMultiplier(), level));
-
+        unit.getCreateStat("water_resist")
+                .addFlat(8 * rar.DamageMultiplier());
+        unit.getCreateStat("thunder_resist")
+                .addFlat(8 * rar.DamageMultiplier());
+        unit.getCreateStat("fire_resist")
+                .addFlat(8 * rar.DamageMultiplier());
+        unit.getCreateStat("nature_resist")
+                .addFlat(8 * rar.DamageMultiplier());
+        unit.getCreateStat("water_penetration")
+                .addFlat(6 * rar.DamageMultiplier());
+        unit.getCreateStat("thunder_penetration")
+                .addFlat(6 * rar.DamageMultiplier());
+        unit.getCreateStat("fire_penetration")
+                .addFlat(6 * rar.DamageMultiplier());
+        unit.getCreateStat("nature_penetration")
+                .addFlat(6 * rar.DamageMultiplier());
     }
 
 }

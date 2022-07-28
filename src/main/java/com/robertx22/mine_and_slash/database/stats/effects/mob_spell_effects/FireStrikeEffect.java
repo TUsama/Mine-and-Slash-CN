@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.database.stats.effects.offense.PhysicalToHig
 import com.robertx22.mine_and_slash.database.stats.types.game_changers.RefreshingBreeze;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
@@ -52,7 +53,6 @@ public class FireStrikeEffect extends BaseDamageEffect {
                 .add(look)
                 .add(0, effect.source.getHeight() / 2, 0))
                 .finder(EntityFinder.Finder.RADIUS)
-                .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .radius(2)
                 .height(2)
                 .build();
@@ -63,7 +63,7 @@ public class FireStrikeEffect extends BaseDamageEffect {
                 .peekAtStat(PhysicalDamage.GUID)
                 .getAverageValue();
         float elespelldmg = effect.sourceData.getUnit()
-                .peekAtStat("spell_fire_damage")
+                .peekAtStat(SpellDamage.GUID)
                 .getAverageValue();
 
         float num = wepdmg * 0.75F * (1 + elespelldmg / 100);

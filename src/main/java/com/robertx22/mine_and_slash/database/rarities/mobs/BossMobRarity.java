@@ -14,17 +14,17 @@ public class BossMobRarity extends BaseBossRarity implements MobRarity {
 
     @Override
     public float StatMultiplier() {
-        return 5.5F;
+        return 6F;
     }
 
     @Override
     public float DamageMultiplier() {
-        return 5F;
+        return 8F;
     }
 
     @Override
     public float HealthMultiplier() {
-        return 18F;
+        return 20F;
     }
 
     @Override

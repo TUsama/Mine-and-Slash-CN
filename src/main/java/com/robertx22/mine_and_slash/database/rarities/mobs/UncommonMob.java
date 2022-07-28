@@ -20,7 +20,7 @@ public class UncommonMob extends BaseUncommon implements MobRarity {
 
     @Override
     public float DamageMultiplier() {
-        return 1.3F;
+        return 1.5F;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class UncommonMob extends BaseUncommon implements MobRarity {
 
     @Override
     public float oneAffixChance() {
-        return 25;
+        return 50;
     }
 
     @Override

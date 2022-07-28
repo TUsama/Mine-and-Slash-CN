@@ -32,7 +32,7 @@ public class SpeedyEffect extends BaseDamageEffect {
 
         SoundUtils.playSound(effect.target, SoundEvents.ENTITY_SPLASH_POTION_BREAK, 1.5F, 1.25F);
 
-        ParticleEnum.sendToClients(effect.source,
+        ParticleEnum.sendToClients(effect.target,
                 new ParticlePacketData(effect.target.getPosition(), ParticleEnum.NOVA).radius(
                         1)
                         .type(ParticleTypes.POOF)
@@ -40,7 +40,6 @@ public class SpeedyEffect extends BaseDamageEffect {
         );
 
         effect.target.addPotionEffect(new EffectInstance(Effects.SPEED, 100, 1));
-        effect.target.addPotionEffect(new EffectInstance(Effects.HASTE, 100, 4));
 
         return effect;
     }
