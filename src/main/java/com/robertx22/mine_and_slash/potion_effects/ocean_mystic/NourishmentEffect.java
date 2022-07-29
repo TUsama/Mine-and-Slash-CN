@@ -3,7 +3,9 @@ package com.robertx22.mine_and_slash.potion_effects.ocean_mystic;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.NourishmentBuff;
+import com.robertx22.mine_and_slash.database.stats.types.resources.EnergyRegen;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
+import com.robertx22.mine_and_slash.database.stats.types.resources.ManaRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
@@ -47,7 +49,9 @@ public class NourishmentEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(20, HealthRegen.getInstance()));
+        list.add(new PotionStat(15, HealthRegen.getInstance()));
+        list.add(new PotionStat(5, ManaRegen.getInstance()));
+        list.add(new PotionStat(5, EnergyRegen.getInstance()));
         return list;
     }
 

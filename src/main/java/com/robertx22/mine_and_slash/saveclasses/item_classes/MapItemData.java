@@ -131,16 +131,16 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
     @Override
     public float getBonusLootMulti() {
         float multi = 1F;
-        float add = 0F;
+        float add = 1F;
 
         if (isExp) {
             multi *= 0.5F;
         }
 
         if (isTeam) {
-            add += 1F;
+            add += 0.5F;
         }
-        return 1 + (bonusFormula() * multi) + add;
+        return 1 + (bonusFormula() * multi * add);
     }
 
     public float bonusFormula() {
@@ -149,16 +149,16 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
 
     public float getBonusExpMulti() {
         float multi = 0.25F;
-        float add = 0F;
+        float add = 1F;
 
         if (isExp) {
             multi *= 4;
         }
 
         if (isTeam) {
-            add += 4F;
+            add += 2F;
         }
-        return 1 + (bonusFormula() * multi) + add;
+        return 1 + (bonusFormula() * multi * add);
     }
 
     public void addTeamAffix() {

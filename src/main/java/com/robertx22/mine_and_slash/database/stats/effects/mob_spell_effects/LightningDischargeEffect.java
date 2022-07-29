@@ -80,7 +80,8 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        return true; // activates on any damage type
+        return !(effect.getEffectType()
+                .equals(EffectTypes.SPELL)); // activates on any damage type
     }
 
 }

@@ -53,7 +53,7 @@ public class QuickChargeEffect extends BasePotionEffect implements IApplyStatPot
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(20, ReducedCooldownStat.getInstance()));
-        list.add(new PotionStat(-20, ReducedManaCost.getInstance()));
+        list.add(new PotionStat(-30, ReducedManaCost.getInstance()));
         return list;
     }
 

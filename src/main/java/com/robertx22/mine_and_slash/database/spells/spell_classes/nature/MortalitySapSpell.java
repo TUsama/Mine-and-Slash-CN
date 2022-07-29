@@ -23,6 +23,7 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import com.robertx22.mine_and_slash.uncommon.wrappers.SText;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -102,11 +103,12 @@ public class MortalitySapSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff, Duration"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff, Duration, Taunt"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new SText("Curses enemies around you with: "));
+        list.add(new StringTextComponent("Draw the attention of nearby enemies by provoking them."));
+        list.add(new SText("Also curses enemies around you with: "));
         list.addAll(QuietusEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
         list.add(new StringTextComponent(TextFormatting.RED + "Only one Curse debuff is allowed at a time!"));
 
@@ -135,6 +137,10 @@ public class MortalitySapSpell extends BaseSpell {
                 .build();
 
             for (LivingEntity en : entities) {
+                if (en instanceof MobEntity) {
+                    en.setRevengeTarget(ctx.caster);
+                    ((MobEntity) en).setAttackTarget(ctx.caster);
+                }
                 PotionEffectUtils.apply(QuietusEffect.INSTANCE, caster, en);
             }
         }

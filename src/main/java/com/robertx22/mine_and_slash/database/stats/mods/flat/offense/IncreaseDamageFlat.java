@@ -13,12 +13,12 @@ public class IncreaseDamageFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 24;
+        return 8;
     }
 
     @Override
     public float Max() {
-        return 30;
+        return 12;
     }
 
     @Override

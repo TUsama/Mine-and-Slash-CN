@@ -1,19 +1,18 @@
-package com.robertx22.mine_and_slash.potion_effects.ranger;
+package com.robertx22.mine_and_slash.potion_effects.ember_mage;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs.SilentWindBuff;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.buffs.WindWalkBuff;
-import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.FirePowerSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.QuickChargeSpell;
+import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedManaCost;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
-import com.robertx22.mine_and_slash.potion_effects.bases.IOneOfATypePotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
@@ -23,31 +22,23 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SilentWindEffect extends BasePotionEffect implements IApplyStatPotion, IOneOfATypePotion {
-    @Override
-    public IOneOfATypePotion.Type getOneOfATypeType() {
-        return IOneOfATypePotion.Type.HUNTING_BUFF;
-    }
+public class FirePowerEffect extends BasePotionEffect implements IApplyStatPotion {
 
-    public static final SilentWindEffect INSTANCE = new SilentWindEffect();
+    public static final FirePowerEffect INSTANCE = new FirePowerEffect();
 
-    private SilentWindEffect() {
+    private FirePowerEffect() {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
-
-        this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
-                (double) -0.03F, AttributeModifier.Operation.MULTIPLY_BASE
-        );
     }
 
     @Override
     public String GUID() {
-        return "silent_wind_effect";
+        return "fire_power";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Silent Wind";
+        return "Fire Power";
     }
 
     @Override
@@ -58,7 +49,7 @@ public class SilentWindEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(7, CriticalHit.getInstance()));
+        list.add(new PotionStat(15, SpellDamage.getInstance()));
         return list;
     }
 
@@ -71,7 +62,7 @@ public class SilentWindEffect extends BasePotionEffect implements IApplyStatPoti
     @Nullable
     @Override
     public BaseSpell getSpell() {
-        return SilentWindBuff.getInstance();
+        return FirePowerSpell.getInstance();
     }
 
     @Override
@@ -82,11 +73,8 @@ public class SilentWindEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-
-        list.add(new StringTextComponent("Reduces movement speed by 3%."));
-
+        list.add(new StringTextComponent("Increases spell damage."));
         return list;
-
     }
-}
 
+}

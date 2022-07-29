@@ -121,7 +121,7 @@ public class MobStatUtils {
             .addFlat(Armor.getInstance()
                 .AverageStat() * rar.StatMultiplier(), level);
         unit.getCreateStat(PhysicalDamage.GUID)
-                .addFlat(2 * rar.StatMultiplier(), level);
+                .addFlat(1 * rar.StatMultiplier(), level);
         unit.getCreateStat(SpellDamage.GUID)
                 .addFlat(spelldmg * rar.StatMultiplier(), level);
         unit.getCreateStat(ArmorPenetration.GUID)

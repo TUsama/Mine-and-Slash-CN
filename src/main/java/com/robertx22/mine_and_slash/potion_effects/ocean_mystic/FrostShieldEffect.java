@@ -52,7 +52,7 @@ public class FrostShieldEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(80, MagicShield.getInstance()));
+        list.add(new PotionStat(40, MagicShield.getInstance()));
         list.add(new PotionStat(80, MagicShieldRegen.getInstance()));
         return list;
     }

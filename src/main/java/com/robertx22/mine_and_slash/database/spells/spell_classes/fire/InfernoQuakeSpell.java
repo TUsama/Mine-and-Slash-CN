@@ -79,7 +79,7 @@ public class InfernoQuakeSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 4, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 1, 3);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.3F, 2F);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.0F, 3.0F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 7, 4);

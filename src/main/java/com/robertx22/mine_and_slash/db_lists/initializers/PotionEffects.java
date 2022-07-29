@@ -5,10 +5,7 @@ import com.robertx22.mine_and_slash.potion_effects.divine.EnrageEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.ShockwaveEffect;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
-import com.robertx22.mine_and_slash.potion_effects.ember_mage.AttackSiphonEffect;
-import com.robertx22.mine_and_slash.potion_effects.ember_mage.BurnEffect;
-import com.robertx22.mine_and_slash.potion_effects.ember_mage.SpellBladeEffect;
-import com.robertx22.mine_and_slash.potion_effects.ember_mage.SpellSiphonEffect;
+import com.robertx22.mine_and_slash.potion_effects.ember_mage.*;
 import com.robertx22.mine_and_slash.potion_effects.necromancer.*;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.*;
@@ -36,6 +33,7 @@ public class PotionEffects implements ISlashRegistryInit {
         SpellSiphonEffect.INSTANCE.registerToSlashRegistry();
         SpellBladeEffect.INSTANCE.registerToSlashRegistry();
         AttackSiphonEffect.INSTANCE.registerToSlashRegistry();
+        FirePowerEffect.INSTANCE.registerToSlashRegistry();
 
         ColdEssenceEffect.INSTANCE.registerToSlashRegistry();
         FrostEffect.INSTANCE.registerToSlashRegistry();

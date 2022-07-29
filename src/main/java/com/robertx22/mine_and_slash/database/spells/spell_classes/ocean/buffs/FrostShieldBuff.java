@@ -53,7 +53,7 @@ public class FrostShieldBuff extends BaseOceanBuffSpell{
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 30, 15);
         c.set(SC.COOLDOWN_SECONDS, 60, 45);
-        c.set(SC.DURATION_TICKS, 20 * 20, 30 * 20);
+        c.set(SC.DURATION_TICKS, 10 * 20, 15 * 20);
         c.set(SC.RADIUS, 4, 8);
 
         c.setMaxLevel(4);

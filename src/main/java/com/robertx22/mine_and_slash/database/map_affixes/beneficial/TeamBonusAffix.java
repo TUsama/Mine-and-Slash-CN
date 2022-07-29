@@ -38,7 +38,7 @@ public class TeamBonusAffix extends BeneficialMapAffix {
 
     @Override
     public float lootMulti() {
-        return 1.0F;
+        return 10.0F;
     }
 
     @Override
