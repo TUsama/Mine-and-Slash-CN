@@ -62,6 +62,7 @@ public class PotionRegister {
         reg.register(CriticalSurgeEffect.INSTANCE);
         reg.register(PowerSurgeEffect.INSTANCE);
         reg.register(QuickChargeEffect.INSTANCE);
+        reg.register(NaturesGiftEffect.INSTANCE);
         reg.register(BurnEffect.INSTANCE);
         reg.register(SpellSiphonEffect.INSTANCE);
         reg.register(AttackSiphonEffect.INSTANCE);

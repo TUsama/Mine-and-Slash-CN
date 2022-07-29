@@ -1,4 +1,4 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.fire;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.nature;
 
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
@@ -6,7 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.potion_effects.ember_mage.FirePowerEffect;
+import com.robertx22.mine_and_slash.potion_effects.druid.NaturesGiftEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.QuickChargeEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
@@ -23,15 +23,15 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirePowerSpell extends BaseSpell {
+public class NaturesGiftSpell extends BaseSpell {
 
-    private FirePowerSpell() {
+    private NaturesGiftSpell() {
         super(
             new ImmutableSpellConfigs() {
 
                 @Override
                 public Masteries school() {
-                    return Masteries.FIRE;
+                    return Masteries.NATURE;
                 }
 
                 @Override
@@ -46,21 +46,21 @@ public class FirePowerSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Fire;
+                    return Elements.Nature;
                 }
-            }.addsEffect(FirePowerEffect.INSTANCE).setSwingArmOnCast());
+            }.addsEffect(NaturesGiftEffect.INSTANCE).setSwingArmOnCast());
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 14, 18);
+        c.set(SC.MANA_COST, 8, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.CAST_TIME_TICKS, 40, 40);
+        c.set(SC.CAST_TIME_TICKS, 80, 80);
         c.set(SC.COOLDOWN_SECONDS, 10, 10);
-        c.set(SC.DURATION_TICKS, 60 * 20, 90 * 20);
+        c.set(SC.DURATION_TICKS, 180 * 20, 240 * 20);
         c.set(SC.RADIUS, 3, 6);
 
         c.setMaxLevel(8);
@@ -70,16 +70,16 @@ public class FirePowerSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(5, 4);
+        return new AbilityPlace(6, 3);
     }
 
-    public static FirePowerSpell getInstance() {
+    public static NaturesGiftSpell getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     @Override
     public String GUID() {
-        return "fire_power";
+        return "natures_gift";
     }
 
     @Override
@@ -93,7 +93,7 @@ public class FirePowerSpell extends BaseSpell {
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Applies buff to nearby allies: "));
-        list.addAll(FirePowerEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.addAll(NaturesGiftEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         return list;
 
@@ -101,11 +101,11 @@ public class FirePowerSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.FirePower;
+        return Words.NaturesGift;
     }
 
     private static class SingletonHolder {
-        private static final FirePowerSpell INSTANCE = new FirePowerSpell();
+        private static final NaturesGiftSpell INSTANCE = new NaturesGiftSpell();
     }
     /*
     @Override

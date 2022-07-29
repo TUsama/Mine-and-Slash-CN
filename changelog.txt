@@ -1,5 +1,6 @@
-3.14.2:
-- New Fire spell: Fire Power - buff that increases yours and nearby allies' spell damage temporarily.
+3.14.3:
+- New Fire spell: Fire Power - buff that increases yours and nearby allies' spell damage.
+- New Nature spell: Nature's Gift - buff that increases yours and nearby allies' health, mana, and energy.
 - Nature Curse spells now also taunt the enemy.
 - Wizardry now gives 8% CDR instead of 10% at max level.
 - Frost Shield and Spirit Shroud now provide less flat Magic Shield.
