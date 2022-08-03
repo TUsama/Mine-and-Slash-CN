@@ -62,8 +62,8 @@ public class RootSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 26, 22);
-        c.set(SC.DURATION_TICKS, 8 * 20, 14 * 20);
+        c.set(SC.COOLDOWN_SECONDS, 20, 20);
+        c.set(SC.DURATION_TICKS, 90 * 20, 150 * 20);
 
         c.setMaxLevel(4);
         return c;

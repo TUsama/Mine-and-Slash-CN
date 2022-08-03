@@ -50,8 +50,8 @@ public class NourishmentEffect extends BasePotionEffect implements IApplyStatPot
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(15, HealthRegen.getInstance()));
-        list.add(new PotionStat(5, ManaRegen.getInstance()));
-        list.add(new PotionStat(5, EnergyRegen.getInstance()));
+        list.add(new PotionStat(3, ManaRegen.getInstance()));
+        list.add(new PotionStat(3, EnergyRegen.getInstance()));
         return list;
     }
 

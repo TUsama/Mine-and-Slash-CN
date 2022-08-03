@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.onevent.player;
 import com.robertx22.mine_and_slash.new_content.chests.MapChestBlock;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.WorldUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.TorchBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -81,7 +82,9 @@ public class OnDungeonBlockEvents {
                 }
             }
 
-            event.setCanceled(true);
+            if (!(event.getState().getBlock() instanceof TorchBlock)) {
+                event.setCanceled(true);
+            }
         }
     }
 

@@ -435,9 +435,11 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         TooltipUtils.addEmpty(list);
 
+        System.out.println("health: " + getCalculatedHealthCost(ctx));
         if (getCalculatedHealthCost(ctx) > 0.00) {
             list.add(new StringTextComponent(TextFormatting.RED + "Health Cost: " + (Math.round((getCalculatedHealthCost(ctx) * 100) * 100) / 100) + "%"));
         }
+        System.out.println("magic shield: " + getCalculatedMagicShieldCost(ctx));
         if (getCalculatedMagicShieldCost(ctx) > 0.00) {
             list.add(new StringTextComponent(TextFormatting.AQUA + "Magic Shield Cost: " + (Math.round((getCalculatedMagicShieldCost(ctx) * 100) * 100) / 100) + "%"));
         }

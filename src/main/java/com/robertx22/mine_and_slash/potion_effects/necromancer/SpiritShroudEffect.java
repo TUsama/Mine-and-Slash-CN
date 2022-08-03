@@ -50,7 +50,7 @@ public class SpiritShroudEffect extends BasePotionEffect implements IApplyStatPo
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(25, MagicShield.getInstance()));
+        list.add(new PotionStat(40, MagicShield.getInstance()));
         return list;
     }
 

@@ -15,6 +15,7 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDam
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.PhysicalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalAttackDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.saveclasses.player_stat_points.LvlPointStat;
@@ -85,7 +86,7 @@ public class CrossBow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new CriticalDamageFlat(), new ArmorPenetrationFlat());
+        return new StatModsHolder(new PhysicalDamagePercent().size(StatMod.Size.HALF), new ArmorPenetrationFlat());
     }
 
     @Override

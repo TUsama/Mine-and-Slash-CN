@@ -43,7 +43,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160892",
-                (double) 0.25, AttributeModifier.Operation.MULTIPLY_BASE
+                (double) 0.15, AttributeModifier.Operation.MULTIPLY_BASE
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -75,7 +75,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(30, EnergyRegen.getInstance()));
+        list.add(new PotionStat(20, EnergyRegen.getInstance()));
         return list;
     }
 
@@ -100,7 +100,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent(TextFormatting.AQUA + "Increases base weapon attack speed by 25%."));
+        list.add(new StringTextComponent(TextFormatting.AQUA + "Increases base weapon attack speed by 15%."));
         return list;
 
     }

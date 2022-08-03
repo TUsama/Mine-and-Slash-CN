@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.database.stats.types.core_stats;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.ElementalAttackDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.base.BaseCoreStat;
@@ -33,7 +34,7 @@ public class Strength extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Physical Attack Damage and Critical Damage";
+        return "Increases Physical Attack Damage, Armor, and Energy.";
     }
 
     @Override
@@ -45,7 +46,8 @@ public class Strength extends BaseCoreStat {
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
                 new PhysicalDamagePercent(),
-                new CriticalDamageFlat().size(StatMod.Size.HALF));
+                new ArmorFlat().size(StatMod.Size.LOW),
+                new EnergyFlat().size(StatMod.Size.HALF));
     }
 
     @Override

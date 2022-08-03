@@ -65,12 +65,12 @@ public class GroundSlamSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ARMOR_ATTACK_SCALE_VALUE, 0.5F, 0.7F);
         c.set(SC.SHOOT_SPEED, 1.0F, 1.5F);
-        c.set(SC.PROJECTILE_COUNT, 1, 9);
+        c.set(SC.PROJECTILE_COUNT, 1, 7);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 6, 4);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.BONUS_HEALTH, 0, 0);
-        c.set(SC.DURATION_TICKS, 10, 10);
+        c.set(SC.DURATION_TICKS, 5, 5);
 
         c.setMaxLevel(16);
 

@@ -40,7 +40,7 @@ public class BlockReflectEffect extends BaseDamageEffect {
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
-        float cost = getEnergyCost(effect.targetData.getLevel());
+        float cost = getEnergyCost(effect.targetData.getLevel()) / 2;
 
         ResourcesData.Context ctx = new ResourcesData.Context(effect.targetData, effect.target,
             ResourcesData.Type.ENERGY, cost,

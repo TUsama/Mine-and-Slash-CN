@@ -51,9 +51,9 @@ public class NaturesGiftEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(20, Health.getInstance()));
-        list.add(new PotionStat(10, Mana.getInstance()));
-        list.add(new PotionStat(10, Energy.getInstance()));
+        list.add(new PotionStat(15, Health.getInstance()));
+        list.add(new PotionStat(8, Mana.getInstance()));
+        list.add(new PotionStat(8, Energy.getInstance()));
         return list;
     }
 

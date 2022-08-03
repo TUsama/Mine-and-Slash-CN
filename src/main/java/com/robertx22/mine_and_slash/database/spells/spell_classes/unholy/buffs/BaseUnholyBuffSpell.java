@@ -32,7 +32,7 @@ public abstract class BaseUnholyBuffSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 180 * 20, 240 * 20);
         c.set(SC.RADIUS, 4, 8);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(10);
         return c;
     }
 

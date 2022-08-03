@@ -61,7 +61,7 @@ public class ChargedNovaSpell extends BaseSpell {
                     return Elements.Thunder;
                 }
 
-            }.cooldownIfCanceled(true).setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
+            }.cooldownIfCanceled(true).setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE).rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON));
     }
 
     @Override
@@ -73,7 +73,7 @@ public class ChargedNovaSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 3, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 6);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.06F, 0.28F);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.06F, 0.25F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 4, 2);
         c.set(SC.RADIUS, 2, 4);

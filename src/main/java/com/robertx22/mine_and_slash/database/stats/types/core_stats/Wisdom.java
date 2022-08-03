@@ -35,7 +35,7 @@ public class Wisdom extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Heal Power, Magic Shield Regen, and Mana Regen";
+        return "Increases Heal Power, Magic Shield Regen, and Mana Regen.";
     }
 
     @Override
@@ -46,8 +46,8 @@ public class Wisdom extends BaseCoreStat {
     @Override
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
-                new HealPowerFlat().size(StatMod.Size.HALF),
-                new MagicShieldRegenFlat().size(StatMod.Size.LOW),
+                new HealPowerFlat().size(StatMod.Size.LOW),
+                new MagicShieldRegenFlat(),
                 new ManaRegenFlat().size(StatMod.Size.HALF));
     }
 

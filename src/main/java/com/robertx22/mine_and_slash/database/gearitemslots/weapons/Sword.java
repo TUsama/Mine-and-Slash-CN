@@ -11,10 +11,12 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.PhysicalDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifeOnHitFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifestealFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicStealFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalAttackDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.EnergyRegenPercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemSword;
@@ -48,7 +50,7 @@ public class Sword extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(5.5F);
+        return new WeaponSwingCost(5F);
     }
 
     @Override
@@ -94,11 +96,11 @@ public class Sword extends BaseWeapon implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-                new PosStats(new PhysicalDamageFlat()).weight(26000),
-                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF)),
-                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF)),
-                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF)),
-                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF))
+                new PosStats(new PhysicalDamageFlat(), new EnergyRegenFlat().size(StatMod.Size.HALF)).weight(26000),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF), new EnergyRegenFlat().size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF), new EnergyRegenFlat().size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF), new EnergyRegenFlat().size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF), new EnergyRegenFlat().size(StatMod.Size.HALF))
         );
     }
 

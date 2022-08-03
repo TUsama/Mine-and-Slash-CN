@@ -6,7 +6,11 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DodgeRating
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.ArmorPenetrationFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.WeaponDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.base.BaseCoreStat;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.Arrays;
@@ -34,7 +38,7 @@ public class Dexterity extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Dodge Rating, Critical Hit, and Armor Pen.";
+        return "Increases Ranged Weapon Damage, Dodge, and Energy.";
     }
 
     @Override
@@ -45,9 +49,10 @@ public class Dexterity extends BaseCoreStat {
     @Override
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
+                new WeaponDamageFlat(WeaponTypes.Bow),
+                new WeaponDamageFlat(WeaponTypes.CrossBow),
                 new DodgeRatingFlat(),
-                new CriticalHitFlat().size(StatMod.Size.QUARTER),
-                new ArmorPenetrationFlat().size(StatMod.Size.QUARTER));
+                new EnergyFlat().size(StatMod.Size.HALF));
     }
 
     @Override

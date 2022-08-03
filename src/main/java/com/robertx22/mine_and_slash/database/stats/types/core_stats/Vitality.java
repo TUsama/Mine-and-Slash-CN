@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.stats.types.core_stats;
 
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.HealthPercent;
@@ -32,7 +33,7 @@ public class Vitality extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Health and Armor";
+        return "Increases Health, Health Regen, and Energy Regen.";
     }
 
     @Override
@@ -44,7 +45,8 @@ public class Vitality extends BaseCoreStat {
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
                 new HealthFlat(),
-                new ArmorFlat().size(StatMod.Size.LOW));
+                new HealthRegenFlat().size(StatMod.Size.HALF),
+                new EnergyRegenFlat().size(StatMod.Size.LOW));
     }
 
     @Override

@@ -2,12 +2,18 @@ package com.robertx22.mine_and_slash.database.stats.types.core_stats;
 
 import com.robertx22.mine_and_slash.database.stats.StatMod;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.ArmorFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DodgeRatingFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.ArmorPenetrationFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHitFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealthRegenFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.LootTypeBonusFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.ArmorPercent;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.base.BaseCoreStat;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.LootType;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.Arrays;
@@ -34,7 +40,7 @@ public class Stamina extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Health Regen, Energy, and Energy Regen";
+        return "Increases Dodge, Critical Hit, and Critical Damage.";
     }
 
     @Override
@@ -45,13 +51,13 @@ public class Stamina extends BaseCoreStat {
     @Override
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
-                new HealthRegenFlat().size(StatMod.Size.LOW),
-                new EnergyFlat().size(StatMod.Size.LOW),
-                new EnergyRegenFlat().size(StatMod.Size.LOW));
+                new DodgeRatingFlat().size(StatMod.Size.HALF),
+                new CriticalHitFlat().size(StatMod.Size.QUARTER),
+                new CriticalDamageFlat().size(StatMod.Size.LOW));
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Stamina";
+        return "Luck";
     }
 }

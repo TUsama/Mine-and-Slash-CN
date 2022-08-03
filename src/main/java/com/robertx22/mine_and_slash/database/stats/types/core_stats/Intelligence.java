@@ -32,7 +32,7 @@ public class Intelligence extends BaseCoreStat {
 
     @Override
     public String locDescForLangFile() {
-        return "Increases Spell Damage, Magic Shield, and Mana";
+        return "Increases Spell Damage, Magic Shield, and Mana.";
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Intelligence extends BaseCoreStat {
         return Arrays.asList(
                 new ElementalSpellDamageFlat(Elements.Elemental).size(StatMod.Size.HALF),
                 new MagicShieldPercent(),
-                new ManaFlat().size(StatMod.Size.LOW));
+                new ManaFlat().size(StatMod.Size.HALF));
     }
 
     @Override

@@ -56,7 +56,7 @@ public class VolcanoSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 22, 34);
+        c.set(SC.MANA_COST, 22, 32);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 6, 17);
@@ -64,7 +64,7 @@ public class VolcanoSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 50, 20);
         c.set(SC.COOLDOWN_SECONDS, 28, 25);
         c.set(SC.RADIUS, 3.0F, 6.0F);
-        c.set(SC.DURATION_TICKS, 200, 200);
+        c.set(SC.DURATION_TICKS, 180, 180);
         c.set(SC.TICK_RATE, 20, 15);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
