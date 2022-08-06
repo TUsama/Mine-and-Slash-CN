@@ -633,6 +633,10 @@ public class EntityCap {
 
             int expLoss = (int) (exp * ModConfig.INSTANCE.Server.XP_LOSS_ON_DEATH.get());
 
+            if (this.level >= 100) {
+                expLoss *= 0.2; // if level 100+, exp loss is 5% instead of 25%.
+            }
+
             if (expLoss > 0) {
                 this.exp = MathHelper.clamp(exp - expLoss, 0, Integer.MAX_VALUE);
             }

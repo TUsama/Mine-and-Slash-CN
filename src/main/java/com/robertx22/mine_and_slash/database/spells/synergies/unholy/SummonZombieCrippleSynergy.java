@@ -33,11 +33,11 @@ public class SummonZombieCrippleSynergy extends OnBasicAttackSynergy {
         addSpellName(list);
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Summon Zombie"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies All Summons"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Zombie hits have a chance to apply: " + CrippleEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Summon hits have a chance to apply: " + CrippleEffect.INSTANCE.locNameForLangFile()));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 

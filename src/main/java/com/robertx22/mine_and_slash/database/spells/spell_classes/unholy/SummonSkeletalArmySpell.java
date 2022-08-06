@@ -83,7 +83,7 @@ public class SummonSkeletalArmySpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 6);
+        return new AbilityPlace(4, 5);
     }
 
     @Override

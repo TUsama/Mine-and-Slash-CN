@@ -343,6 +343,10 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
             dmg += getEventDmg() * ModConfig.INSTANCE.Server.NON_MOD_DAMAGE_MULTI.get()
                 .floatValue();
 
+            if (areBothPlayers()) {
+                dmg *= 0.25f;
+            }
+
             if (event != null) {
                 event.setAmount(dmg);
                 event.getSource()

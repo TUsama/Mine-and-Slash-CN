@@ -196,6 +196,12 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
         return getCooldownInTicks(ctx) / 20;
     }
 
+    public final int getChance(SpellCastContext ctx) {
+        return (int) ctx.getConfigFor(this)
+                .get(SC.CHANCE)
+                .get(ctx.spellsCap, this);
+    }
+
     @Override
     public SlashRegistryType getSlashRegistryType() {
         return SlashRegistryType.SPELL;
@@ -203,10 +209,22 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
     public abstract String GUID();
 
+    public final float getHealthCost(SpellCastContext ctx) {
+        return ctx.getConfigFor(this)
+                .get(SC.HEALTH_COST)
+                .get(ctx.spellsCap, this);
+    }
+
+    public final float getMagicShieldCost(SpellCastContext ctx) {
+        return ctx.getConfigFor(this)
+                .get(SC.MAGIC_SHIELD_COST)
+                .get(ctx.spellsCap, this);
+    }
+
     public final float getCalculatedHealthCost(SpellCastContext ctx) {
         return ctx.getConfigFor(this)
                 .get(SC.HEALTH_COST)
-                .get(ctx.spellsCap, this) * ctx.data.getUnit().healthData().getTotalVal();
+                .get(ctx.spellsCap, this) * ctx.data.getUnit().healthData().getAverageValue();
     }
 
     public final int getCalculatedManaCost(SpellCastContext ctx) {
@@ -219,7 +237,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
     public final float getCalculatedMagicShieldCost(SpellCastContext ctx) {
         return ctx.getConfigFor(this)
                 .get(SC.MAGIC_SHIELD_COST)
-                .get(ctx.spellsCap, this) * ctx.data.getUnit().magicShieldData().getTotalVal();
+                .get(ctx.spellsCap, this) * ctx.data.getUnit().magicShieldData().getAverageValue();
     }
 
     public final int getCalculatedEnergyCost(SpellCastContext ctx) {
@@ -324,7 +342,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
                     .has(SC.HEALTH_COST)) {
                 cost += ctx.getConfigFor(x)
                         .get(SC.HEALTH_COST)
-                        .get(ctx.spellsCap, x) * ctx.data.getUnit().healthData().getTotalVal();
+                        .get(ctx.spellsCap, x) * ctx.data.getUnit().healthData().getAverageValue();
             }
         }
 
@@ -343,7 +361,7 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
                     .has(SC.MAGIC_SHIELD_COST)) {
                 cost += ctx.getConfigFor(x)
                         .get(SC.MAGIC_SHIELD_COST)
-                        .get(ctx.spellsCap, x);
+                        .get(ctx.spellsCap, x) * ctx.data.getUnit().magicShieldData().getAverageValue();
             }
         }
 
@@ -435,13 +453,11 @@ public abstract class BaseSpell implements ISlashRegistryEntry<BaseSpell>, ITool
 
         TooltipUtils.addEmpty(list);
 
-        System.out.println("health: " + getCalculatedHealthCost(ctx));
-        if (getCalculatedHealthCost(ctx) > 0.00) {
-            list.add(new StringTextComponent(TextFormatting.RED + "Health Cost: " + (Math.round((getCalculatedHealthCost(ctx) * 100) * 100) / 100) + "%"));
+        if (getCalculatedHealthCost(ctx) * 2 > 0.00) {
+            list.add(new StringTextComponent(TextFormatting.RED + "Health Cost: " + Math.round(getHealthCost(ctx) * 100) + "%" + " (" + Math.round(getCalculatedHealthCost(ctx) * 2) + ")"));
         }
-        System.out.println("magic shield: " + getCalculatedMagicShieldCost(ctx));
-        if (getCalculatedMagicShieldCost(ctx) > 0.00) {
-            list.add(new StringTextComponent(TextFormatting.AQUA + "Magic Shield Cost: " + (Math.round((getCalculatedMagicShieldCost(ctx) * 100) * 100) / 100) + "%"));
+        if (getCalculatedMagicShieldCost(ctx) * 2 > 0.00) {
+            list.add(new StringTextComponent(TextFormatting.AQUA + "Magic Shield Cost: " + Math.round(getMagicShieldCost(ctx) * 100) + "%" + " (" + Math.round(getCalculatedMagicShieldCost(ctx) * 2) + ")"));
         }
         if (getCalculatedManaCost(ctx) > 0) {
             list.add(new StringTextComponent(TextFormatting.BLUE + "Mana Cost: " + getCalculatedManaCost(ctx)));

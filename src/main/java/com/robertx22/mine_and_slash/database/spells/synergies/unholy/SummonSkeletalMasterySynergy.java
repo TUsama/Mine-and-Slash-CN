@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.ChillingTouchSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.SummonSkeletalArmySpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.SummonZombieSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnBasicAttackSynergy;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
@@ -27,7 +28,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SummonZombieMasterySynergy extends OnBasicAttackSynergy {
+public class SummonSkeletalMasterySynergy extends OnBasicAttackSynergy {
 
     @Override
     public List<ITextComponent> getSynergyTooltipInternal(TooltipInfo info) {
@@ -36,11 +37,11 @@ public class SummonZombieMasterySynergy extends OnBasicAttackSynergy {
         addSpellName(list);
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Summon Zombie"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies All Summons"));
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Zombie hits have a chance to heal the caster: "));
+        list.add(new StringTextComponent("Summon hits have a chance to heal the caster: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -49,7 +50,7 @@ public class SummonZombieMasterySynergy extends OnBasicAttackSynergy {
 
     @Override
     public Place getSynergyPlace() {
-        return Place.SECOND;
+        return Place.FIRST;
     }
 
     @Override
@@ -69,7 +70,7 @@ public class SummonZombieMasterySynergy extends OnBasicAttackSynergy {
     @Nullable
     @Override
     public IAbility getRequiredAbility() {
-        return SummonZombieSpell.getInstance();
+        return SummonSkeletalArmySpell.getInstance();
     }
 
     @Override

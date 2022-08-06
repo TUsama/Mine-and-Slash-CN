@@ -199,7 +199,7 @@ public class PreCalcSpellConfigs {
                 sc.map.entrySet()
                     .forEach(e -> {
                         this.map.get(e.getKey())
-                            .modifyBy(e.getValue());
+                            .modifyBy(e.getValue());// * x.getEffectiveAbilityLevel();
                     });
 
             });
