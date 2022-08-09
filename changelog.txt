@@ -24,7 +24,8 @@ Core Stat Changes:
 - Stamina has been renamed "Luck" and now provides some armor pen (less than what it used to provide on Dex) and critical hit and damage. The crit damage it provides is 50% more than what it used to provide on Strength.
 
 Spell Changes:
-- Fixed an issue where certain spells could be cancelled and not trigger the cooldown.
+- New Nature Spell: Venom Load - applies an effect on caster that deals nature damage to self based on a percentage of their maximum health every half second. It also deals AOE nature damage equal to quadruple the damage dealt to self every half second to nearby enemies. The effect/buff? also provides the caster with 30% flat spell damage.
+- New Hunting (Summon Hunting Wolf) Synergy: Sharpened Fangs - causes summons to have a chance of applying Wounds.
 - Fixed magic shield cost not appearing on spells.
 - Health and magic shield costs now display the percent and the actual value next to it in brackets.
 - Improved spell tooltip hint about holding shift.
@@ -53,8 +54,14 @@ Spell Changes:
 - Increased energy regeneration from Trickery by 25%.
 
 Talent Changes:
+- New Talent: Nature's Avatar - half of non-nature damage is converted into nature damage. Deal no non-nature damage. Also increases all nature damage and nature resistances a bit.
+- New Talent: Shulker Shell - 60% of damage received is converted into physical damage. Also lowers armor and dodge by a multi.
+- New Talent: Conjurer - increases summon damage substantially but reduces spell damage substantially.
+- New Talent: Trickster - critical hits have a 25% chances of giving self a power charge (max of 3) for 6s. Each power charge gives 30% flat critical damage. Hopefully this talent makes critical builds a little more engaging and rewarding.
+- New Talent: Overseer - attacks have a 50% chance of giving self a fortitude charge (max of 3) for 8s. Each fortitude charge gives 4% damage reduction. Hopefully this talent makes attack/tanky builds more engaging to play.
 
 Other Changes:
+- Performing a vanilla critical hit now results in a slightly increased damage (basic attacks only).
 - PvP damage is now reduced to 25% of damage.
 - At level 100 and above, you now lose less EXP on death (a fifth of what it is normally from 1-99).
 - You can now place torches in maps.
