@@ -1,9 +1,7 @@
 package com.robertx22.mine_and_slash.potion_effects.bases;
 
 import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.FrostNovaEffect;
-import com.robertx22.mine_and_slash.potion_effects.all.BleedPotion;
-import com.robertx22.mine_and_slash.potion_effects.all.MobChillEffect;
-import com.robertx22.mine_and_slash.potion_effects.all.WeakenCurseEffect;
+import com.robertx22.mine_and_slash.potion_effects.all.*;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.ExtraPotionData;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
@@ -62,12 +60,13 @@ public class PotionEffectUtils {
         EffectInstance newInstance = new EffectInstance(effect, duration, extraData.getStacks(), false, false, true);
         //System.out.println("6. New Instance : " + newInstance);
 
+        boolean nonMasteryEffects = effect != BleedPotion.INSTANCE && effect != WeakenCurseEffect.INSTANCE && effect != MobChillEffect.INSTANCE && effect != PowerChargeEffect.INSTANCE && effect != FortitudeChargeEffect.INSTANCE;
         if (instance == null) {
 
             extraData.casterLvl = casterData.getLevel();
             extraData.casterID = caster.getUniqueID()
                 .toString();
-            if (effect != BleedPotion.INSTANCE && effect != WeakenCurseEffect.INSTANCE && effect != MobChillEffect.INSTANCE) {
+            if (nonMasteryEffects) {
                 extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
                 extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
             }
@@ -86,7 +85,7 @@ public class PotionEffectUtils {
             extraData.casterLvl = casterData.getLevel();
             extraData.casterID = caster.getUniqueID()
                 .toString();
-            if (effect != BleedPotion.INSTANCE && effect != WeakenCurseEffect.INSTANCE && effect != MobChillEffect.INSTANCE) {
+            if (nonMasteryEffects) {
                 extraData.setLevelPowerMulti(effect.getAbilityThatDeterminesLevel().getLevelPowerMulti(casterCap));
                 extraData.setEffectiveAbilityLevel(effect.getAbilityThatDeterminesLevel().getEffectiveAbilityLevel(casterCap, casterData));
             }

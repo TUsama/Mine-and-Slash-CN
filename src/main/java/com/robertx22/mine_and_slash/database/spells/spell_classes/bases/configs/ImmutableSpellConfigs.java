@@ -21,7 +21,7 @@ public abstract class ImmutableSpellConfigs {
 
     private RegistryObject<? extends BaseSpellBlock> block;
     private BasePotionEffect effect;
-    private boolean goesOnCooldownIfCanceled;
+    private boolean goesOnCooldownIfCanceled = true;
     private Function<World, Entity> newEntitySummoner;
     private List<SpellPredicate> castRequirements = new ArrayList<>();
     private AllowedAsRightClickOn allowedAsRightClickOn = AllowedAsRightClickOn.NONE;

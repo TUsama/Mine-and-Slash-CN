@@ -12,6 +12,8 @@ import net.minecraft.util.math.MathHelper;
 
 public class ArmorEffect extends BaseStatEffect<DamageEffect> {
 
+    public static final ArmorEffect INSTANCE = new ArmorEffect();
+
     public ArmorEffect() {
         super(DamageEffect.class);
     }

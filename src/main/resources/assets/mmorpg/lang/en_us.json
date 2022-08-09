@@ -1304,6 +1304,12 @@
 	"mmorpg.stat.mob_frost_nova": "Cold Casting",
 	"mmorpg.stat.mob_lightning_discharge": "Lightning Casting",
 	"mmorpg.stat.mob_speedy": "Chance of Speed",
+	"mmorpg.stat.conjurer_trait": "Conjurer",
+	"mmorpg.stat.natures_avatar_trait": "Nature's Avatar",
+	"mmorpg.stat.overseer_trait": "Overseer",
+	"mmorpg.stat.pain_control_trait": "Pain Control",
+	"mmorpg.stat.shulker_shell_trait": "Shulker Shell",
+	"mmorpg.stat.trickster_trait": "Trickster",
 
 "_comment": " [CATEGORY]: STATS - NAMES",
 
@@ -1676,6 +1682,8 @@
 	"effect.mmorpg.summoned_zombie": "Summoned Zombie",
 	"effect.mmorpg.summoned_skeleton": "Summoned Skeleton",
 	"effect.mmorpg.summoned_wolf": "Summoned Wolf",
+	"effect.mmorpg.power_charge": "Power Charge",
+	"effect.mmorpg.fortitude_charge": "Fortitude Charge",
 
 "_comment": " [CATEGORY]: POTIONS - NAMES",
 
@@ -1962,6 +1970,12 @@
 	"mmorpg.stat_desc.mob_frost_nova": "On hit, sweep nearby enemies with frost damage.",
 	"mmorpg.stat_desc.mob_lightning_discharge": "When hit, discharge lightning damage in an AOE.",
 	"mmorpg.stat_desc.mob_speedy": "When hit, give mob a 20 percent speed buff.",
+	"mmorpg.stat_desc.conjurer_trait": "Tame the dead, beasts, and all creation.",
+	"mmorpg.stat_desc.natures_avatar_trait": "50 percent of non-nature damage is converted to nature damage. Deal no non-nature damage.",
+	"mmorpg.stat_desc.overseer_trait": "On attack, 50 percent chance of gaining a Fortitude Charge for 8 seconds, which each provide 4 percent damage reduction. You may have a maximum of 3 Fortitude Charges.",
+	"mmorpg.stat_desc.pain_control_trait": "Deal 30 percent more damage when you have 50 percent or less life.",
+	"mmorpg.stat_desc.shulker_shell_trait": "60 percent of non-physical damage is taken as physical damage instead.",
+	"mmorpg.stat_desc.trickster_trait": "On critical hit, 25 percent chance of gaining a Power Charge for 6 seconds, which each provide flat 30 percent critical damage. You may have a maximum of 3 Power Charges.",
 
 "_comment": " [CATEGORY]: STATS - DESCRIPTIONS",
 

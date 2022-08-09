@@ -28,6 +28,7 @@ public class PotionEffects implements ISlashRegistryInit {
         QuietusEffect.INSTANCE.registerToSlashRegistry();
         MindRotEffect.INSTANCE.registerToSlashRegistry();
         CorrosionEffect.INSTANCE.registerToSlashRegistry();
+        VenomLoadEffect.INSTANCE.registerToSlashRegistry();
 
         BurnEffect.INSTANCE.registerToSlashRegistry();
         SpellSiphonEffect.INSTANCE.registerToSlashRegistry();
@@ -74,7 +75,6 @@ public class PotionEffects implements ISlashRegistryInit {
 
         CrippleEffect.INSTANCE.registerToSlashRegistry();
         NecroticTetherEffect.INSTANCE.registerToSlashRegistry();
-        BlightEffect.INSTANCE.registerToSlashRegistry();
         SpiritShroudEffect.INSTANCE.registerToSlashRegistry();
         FleshandMindSacrificeEffect.INSTANCE.registerToSlashRegistry();
         SoulShredEffect.INSTANCE.registerToSlashRegistry();

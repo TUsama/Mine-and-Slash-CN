@@ -24,6 +24,7 @@ Core Stat Changes:
 - Stamina has been renamed "Luck" and now provides some armor pen (less than what it used to provide on Dex) and critical hit and damage. The crit damage it provides is 50% more than what it used to provide on Strength.
 
 Spell Changes:
+- Fixed an issue where certain spells could be cancelled and not trigger the cooldown.
 - Fixed magic shield cost not appearing on spells.
 - Health and magic shield costs now display the percent and the actual value next to it in brackets.
 - Improved spell tooltip hint about holding shift.

@@ -77,7 +77,6 @@ public class NaturesGiftEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent("Increases base resources."));
         return list;
     }
 

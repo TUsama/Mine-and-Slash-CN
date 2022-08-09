@@ -39,8 +39,8 @@ public class OnCritBuffSpeed extends Trait implements IStatEffects {
     @Override
     public IStatEffect getEffect() {
         return new OnCauseDoEffect(
-            new OnAttackCritCause(), 25, IStatEffect.EffectSides.Target, new GivePotionEffect(Effects.SPEED, 3),
-            IStatEffect.EffectSides.Target
+            new OnAttackCritCause(), 25, IStatEffect.EffectSides.Source, new GivePotionEffect(Effects.SPEED, 3),
+            IStatEffect.EffectSides.Source
         );
     }
 

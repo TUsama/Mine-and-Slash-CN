@@ -2,10 +2,7 @@ package com.robertx22.mine_and_slash.mmorpg.registers.common;
 
 import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.SpeedyEffect;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
-import com.robertx22.mine_and_slash.potion_effects.all.BleedPotion;
-import com.robertx22.mine_and_slash.potion_effects.all.MobChillEffect;
-import com.robertx22.mine_and_slash.potion_effects.all.TeleportProtection;
-import com.robertx22.mine_and_slash.potion_effects.all.WeakenCurseEffect;
+import com.robertx22.mine_and_slash.potion_effects.all.*;
 import com.robertx22.mine_and_slash.potion_effects.divine.*;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.*;
@@ -34,6 +31,9 @@ public class PotionRegister {
         reg.register(WeakenCurseEffect.INSTANCE);
         reg.register(MobChillEffect.INSTANCE);
         reg.register(ChainLightningEffect.INSTANCE);
+
+        reg.register(PowerChargeEffect.INSTANCE);
+        reg.register(FortitudeChargeEffect.INSTANCE);
 
         reg.register(DefendEffect.INSTANCE);
         reg.register(BraveryEffect.INSTANCE);
@@ -82,6 +82,7 @@ public class PotionRegister {
         reg.register(CrippleEffect.INSTANCE);
         reg.register(NecroticTetherEffect.INSTANCE);
         reg.register(BlightEffect.INSTANCE);
+        reg.register(VenomLoadEffect.INSTANCE);
         reg.register(SpiritShroudEffect.INSTANCE);
         reg.register(FleshandMindSacrificeEffect.INSTANCE);
         reg.register(SoulShredEffect.INSTANCE);
