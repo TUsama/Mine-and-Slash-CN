@@ -1,19 +1,4 @@
 3.14.4:
-Weapon Changes:
-- Daggers now provide increased spell damage.
-- A dagger is now considered a mage weapon.
-- Reduced Sword energy cost by about 9%. They also now provide some energy regen.
-- Crossbows now can give physical damage percent instead of critical damage. This will further separate crossbow and bow identities.
-
-Stat Changes:
-- Reduced mana regen flat stat slightly.
-- Increased energy regen flat stat slightly.
-- Increased health regen flat stat slightly.
-- Increased magic shield regen flat stat slightly.
-- Thorns stats now correctly mention use of energy on reflect.
-- Thorns stat energy cost has been halved.
-- Reduced effectiveness of damage reduction stat slightly.
-
 Core Stat Changes:
 - Core stats have been reworked a bit. Some stats have been shifted around. The main issue was "magic casters" were able to easily funnel their point into Intelligence and get defense, damage, and sustain consistently, whereas melee and especially ranged were forced to spread over at least 2-3 different stats. Hopefully, the changes below will make it more necessary for spell casters to invest in Wisdom, while still retaining some of their high burst potential. The idea was that spell caster stats would be Int/Wis, melee would be Vit/Str, and ranged would be Dex/Vit. Additionally, a 3rd "flex" stat that any build could use has replaced Stamina.
 - The changes to energy on dexterity, strength and vitality should make it easier to upkeep energy.
@@ -23,6 +8,18 @@ Core Stat Changes:
 - Wisdom still provides the same increased healing, magic shield regen, and mana regen, but now provides 33% more magic shield regen, and 50% more increased healing.
 - Dexterity now provides phys damage percent, dodge, energy, and bow/crossbow damage, instead of dodge, crit hit, and armor pen. The energy it provides is equivablent to what Strength provides per point. The idea for this stat was to be beneficial mainly for ranged damage dealers, but stay as just an option for them. If they want to run dodge, they get rewarded with more damage specific to bows/xbows. However, they can still run strength instead if they want to opt for armor.
 - Stamina has been renamed "Luck" and now provides some armor pen (less than what it used to provide on Dex) and critical hit and damage. The crit damage it provides is 50% more than what it used to provide on Strength.
+
+Talent Changes:
+- New Talent: Nature's Avatar - half of non-nature damage is converted into nature damage. Deal no non-nature damage. Also increases all nature damage and nature resistances a bit.
+- New Talent: Shulker Shell - 60% of damage received is converted into physical damage. Also lowers armor and elemental resists.
+- New Talent: Conjurer - increases summon damage substantially but deal substantially less spell damage.
+- New Talent: Trickster - critical hits have a 25% chances of giving self a power charge (max of 3) for 6s. Each power charge gives 30% flat critical damage. Hopefully this talent makes critical builds a little more engaging and rewarding.
+- New Talent: Overseer - attacks have a 50% chance of giving self a fortitude charge (max of 3) for 8s. Each fortitude charge gives 4% damage reduction. Hopefully this talent makes attack/tanky builds more engaging to play.
+- New Talent: Pocket Capacitor - increases magic shield regen substantially, but makes it so you cannot life or spell steal.
+- New Talent: Resourceful - use energy instead of mana when casting spells with a mana cost. Spells with mana and energy costs will just combine the two.
+- The talent tree has been expanded! An additional "ring" that's generally easier to traverse across has been added. Most of the new talents listed above can be found in this ring.
+- Harmony now reduces effectiveness of heals by 33% instead of 50%.
+- Reduced the amount of flat life and spellsteal from Vampire by 33%.
 
 Spell Changes:
 - New Nature Spell: Venom Load - applies an effect on caster that deals nature damage to self based on a percentage of their maximum health every half second. It also deals AOE nature damage equal to double the damage dealt to self every half second to nearby enemies. The effect/buff? also provides the caster with substantial flat spell damage.
@@ -62,17 +59,20 @@ Spell Changes:
 - Reduced mana regeneration from Wizardry by 18%.
 - Increased energy regeneration from Trickery by 25%.
 
-Talent Changes:
-- New Talent: Nature's Avatar - half of non-nature damage is converted into nature damage. Deal no non-nature damage. Also increases all nature damage and nature resistances a bit.
-- New Talent: Shulker Shell - 60% of damage received is converted into physical damage. Also lowers armor and elemental resists.
-- New Talent: Conjurer - increases summon damage substantially but deal substantially less spell damage.
-- New Talent: Trickster - critical hits have a 25% chances of giving self a power charge (max of 3) for 6s. Each power charge gives 30% flat critical damage. Hopefully this talent makes critical builds a little more engaging and rewarding.
-- New Talent: Overseer - attacks have a 50% chance of giving self a fortitude charge (max of 3) for 8s. Each fortitude charge gives 4% damage reduction. Hopefully this talent makes attack/tanky builds more engaging to play.
-- New Talent: Pocket Capacitor - increases magic shield regen substantially, but makes it so you cannot life or spell steal.
-- New Talent: Resourceful - use energy instead of mana when casting spells with a mana cost. Spells with mana and energy costs will just combine the two.
-- The talent tree has been expanded! An additional "ring" that's generally easier to traverse across has been added. Most of the new talents listed above can be found in this ring.
-- Harmony now reduces effectiveness of heals by 33% instead of 50%.
-- Reduced the amount of flat life and spellsteal from Vampire by 33%.
+Stat Changes:
+- Reduced mana regen flat stat slightly.
+- Increased energy regen flat stat slightly.
+- Increased health regen flat stat slightly.
+- Increased magic shield regen flat stat slightly.
+- Thorns stats now correctly mention use of energy on reflect.
+- Thorns stat energy cost has been halved.
+- Reduced effectiveness of damage reduction stat slightly.
+
+Weapon Changes:
+- Daggers now provide increased spell damage.
+- A dagger is now considered a mage weapon.
+- Reduced Sword energy cost by about 9%. They also now provide some energy regen.
+- Crossbows now can give physical damage percent instead of critical damage. This will further separate crossbow and bow identities.
 
 Other Changes:
 - Performing a vanilla critical hit now results in 20% increased damage (basic attacks only).
