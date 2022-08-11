@@ -63,7 +63,7 @@ public class VenomLoadSpell extends BaseSpell {
         c.set(SC.RADIUS, 2, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.1F, 0.1F);
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.4F, 0.4F);
         c.set(SC.CAST_TIME_TICKS, 60, 20);
         c.set(SC.COOLDOWN_SECONDS, 60, 60);
         c.set(SC.DURATION_TICKS, 30 * 20, 30 * 20);

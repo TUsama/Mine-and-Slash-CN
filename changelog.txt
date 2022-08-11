@@ -1,3 +1,11 @@
+3.14.5b:
+- Fixed Venom Load description.
+- Made Axes and Daggers use Luck stat instead.
+
+3.14.5:
+- Venom Load now deals 40% max health to self as Nature DoT damage, instead of 10%. It now deals 10% to mobs instead of 20% of max health.
+- Reduced the base value and scaling of some of the summon spells.
+
 3.14.4:
 Core Stat Changes:
 - Core stats have been reworked a bit. Some stats have been shifted around. The main issue was "magic casters" were able to easily funnel their point into Intelligence and get defense, damage, and sustain consistently, whereas melee and especially ranged were forced to spread over at least 2-3 different stats. Hopefully, the changes below will make it more necessary for spell casters to invest in Wisdom, while still retaining some of their high burst potential. The idea was that spell caster stats would be Int/Wis, melee would be Vit/Str, and ranged would be Dex/Vit. Additionally, a 3rd "flex" stat that any build could use has replaced Stamina.

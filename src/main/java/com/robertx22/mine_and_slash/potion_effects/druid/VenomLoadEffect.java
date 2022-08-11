@@ -70,7 +70,7 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
 
             for (LivingEntity en : entities) {
 
-                DamageEffect dmg = new DamageEffect(null, ctx.caster, en, num * 2, ctx.casterData, Load.Unit(en), EffectData.EffectTypes.DOT_DMG, WeaponTypes.None);
+                DamageEffect dmg = new DamageEffect(null, ctx.caster, en, (int) (num * 0.25), ctx.casterData, Load.Unit(en), EffectData.EffectTypes.DOT_DMG, WeaponTypes.None);
                 dmgSelf.element = Elements.Nature;
                 dmg.removeKnockback();
                 dmg.Activate();
@@ -136,9 +136,9 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Nature Spell Damage"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Nature DoT Damage"));
         list.add(new StringTextComponent(TextFormatting.RED + "Warning! This effect can kill you."));
-        list.add(new StringTextComponent("Deal nature damage to self and deal double that amount"));
+        list.add(new StringTextComponent("Deal nature damage to self and deal quarter that amount"));
         list.add(new StringTextComponent("to nearby enemies."));
         return list;
     }

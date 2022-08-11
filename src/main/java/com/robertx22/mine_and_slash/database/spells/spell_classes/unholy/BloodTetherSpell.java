@@ -67,7 +67,7 @@ public class BloodTetherSpell extends BaseSpell {
         c.set(SC.AMOUNT, 1, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0.04F, 0.12F);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 20, 16);
+        c.set(SC.COOLDOWN_SECONDS, 16, 12);
 
         c.setMaxLevel(8);
         return c;

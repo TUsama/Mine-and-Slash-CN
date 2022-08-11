@@ -48,7 +48,7 @@ public class Dagger extends BaseWeapon implements ISpecificStatReq {
         return true;
     }
 
-    static StatReq req = new StatReq(LvlPointStat.DEXTERITY, StatReq.Size.MEDIUM, LvlPointStat.INTELLIGENCE, StatReq.Size.TINY);
+    static StatReq req = new StatReq(LvlPointStat.INTELLIGENCE, StatReq.Size.MEDIUM, LvlPointStat.STAMINA, StatReq.Size.TINY);
 
     @Override
     public PlayStyle getPlayStyle() {

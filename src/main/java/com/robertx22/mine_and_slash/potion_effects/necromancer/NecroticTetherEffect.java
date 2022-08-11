@@ -55,7 +55,7 @@ public class NecroticTetherEffect extends BasePotionEffect implements IApplyStat
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(5F, SummonDamage.getInstance()));
+        list.add(new PotionStat(4F, SummonDamage.getInstance()));
         list.add(new PotionStat(0.5F, HealthRegen.getInstance()));
         return list;
     }
