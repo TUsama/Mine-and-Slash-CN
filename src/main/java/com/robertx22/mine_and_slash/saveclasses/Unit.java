@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.database.stats.IAfterStatCalc;
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.types.UnknownStat;
 import com.robertx22.mine_and_slash.database.stats.types.game_changers.BloodMage;
+import com.robertx22.mine_and_slash.database.stats.types.game_changers.Resourceful;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Energy;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
@@ -273,6 +274,11 @@ public class Unit {
     public boolean isBloodMage() {
         return hasStat(BloodMage.INSTANCE) && this.getCreateStat(BloodMage.INSTANCE)
             .isMoreThanZero();
+    }
+
+    public boolean isResourceful() {
+        return hasStat(Resourceful.INSTANCE) && this.getCreateStat(Resourceful.INSTANCE)
+                .isMoreThanZero();
     }
 
     public float getMaximumBlood() {

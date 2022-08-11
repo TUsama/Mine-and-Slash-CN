@@ -1,3 +1,10 @@
+- Increased the size of the M&S GUI bars.
+- Improved health bar by showing magic shield values in brackets.
+- Improved Gorgon's Gaze description.
+- Fixed Retribution not actually being shorter lasting.
+- Fixed an issue where Venom Load was dealing Nature damage to self but Physical to nearby enemies.
+- Fixed Malevolent Offering synergy missing localization.
+
 3.14.5b:
 - Fixed Venom Load description.
 - Made Axes and Daggers use Luck stat instead.

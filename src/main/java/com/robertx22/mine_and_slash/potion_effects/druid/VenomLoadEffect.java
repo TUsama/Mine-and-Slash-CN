@@ -58,7 +58,7 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
                     ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.AOE).type(
                             ParticleTypes.SNEEZE).radius(radius)
                             .motion(new Vec3d(0, 0, 0))
-                            .amount((int) (30*radius)));
+                            .amount((int) (45*radius)));
             DamageEffect dmgSelf = new DamageEffect(null, ctx.caster, ctx.caster, num, ctx.casterData, ctx.casterData, EffectData.EffectTypes.DOT_DMG, WeaponTypes.None);
             dmgSelf.element = Elements.Nature;
             dmgSelf.removeKnockback();
@@ -71,7 +71,7 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
             for (LivingEntity en : entities) {
 
                 DamageEffect dmg = new DamageEffect(null, ctx.caster, en, (int) (num * 0.25), ctx.casterData, Load.Unit(en), EffectData.EffectTypes.DOT_DMG, WeaponTypes.None);
-                dmgSelf.element = Elements.Nature;
+                dmg.element = Elements.Nature;
                 dmg.removeKnockback();
                 dmg.Activate();
             }

@@ -77,14 +77,36 @@ public abstract class BaseBarsOverlay extends AbstractGui {
 
             @Override
             public float getCurrentForDisplay(LivingEntity en, UnitData data) {
-                return data.getUnit()
-                    .getCurrentEffectiveHealth(en, data);
+                return data.getResources().getMagicShield();
             }
 
             @Override
             public float getMaxForDisplay(LivingEntity en, UnitData data) {
                 return data.getUnit()
-                    .getMaxEffectiveHealth();
+                        .magicShieldData()
+                        .getAverageValue();
+            }
+
+            @Override
+            public String getText(LivingEntity en, UnitData data) {
+                float hasMS = data.getUnit()
+                        .magicShieldData()
+                        .getAverageValue();
+
+                String now = NumberUtils.formatNumber((int) getCurrent(en, data));
+                String maximum = NumberUtils.formatNumber((int) getMax(en, data));
+
+                String msNow = NumberUtils.formatNumber((int) getCurrentForDisplay(en, data));
+                String msMaximum = NumberUtils.formatNumber((int) getMaxForDisplay(en, data));
+
+                String returnString = now + "/" + maximum;
+
+                if (hasMS > 0) {
+                    returnString += " (" + msNow + "/" + msMaximum + ")";
+                }
+
+                return returnString;
+
             }
         },
         MANA {

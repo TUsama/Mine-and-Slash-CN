@@ -36,7 +36,8 @@ public class GroundSlamEntity extends BaseElementalBoltEntity {
     @Override
     public void initSpellEntity() {
         this.setNoGravity(true);
-        this.setDeathTime(10);
+        this.setDeathTime(getSpellData().configs.get(SC.DURATION_TICKS)
+                .intValue());
     }
 
     public GroundSlamEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
