@@ -33,6 +33,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.SwordItem;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -291,9 +292,14 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
 
                     dmg = dmg * (0.2F + cooldown * cooldown * 0.8F);
 
+                    boolean critFlag = player.fallDistance > 0.0F && !player.onGround && !player.isOnLadder() && !player.isInWater() && !player.isPotionActive(Effects.BLINDNESS) && !player.isPassenger();
+
                     if (cooldown > 0.9F) {
-                        if (player.getActiveItemStack()
-                            .getItem() instanceof SwordItem == false) {
+                        if (critFlag) {
+                            dmg *= 1.2F; // if player performs a critical hit, increase basic attack damage by 20%.
+                        }
+                        if (!(player.getActiveItemStack()
+                                .getItem() instanceof SwordItem)) {
                             player.spawnSweepParticles();
                         }
 

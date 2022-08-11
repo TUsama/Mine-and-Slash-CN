@@ -64,7 +64,7 @@ public enum Words implements IAutoLocName {
     Blizzard("Blizzard"), QuickCharge("Quick Charge"), LifeSiphon("Life Siphon"), BloodTether("Blood Tether"), NaturesGift("Nature's Gift"), FirePower("Fire Power"),
     Whirpool("Whirpool"), AnimateScythe("Animate Scythe"), Blight("Blight"),
     Geyser("Geyser"), FleshAndMindSacrifice("Flesh & Mind Sacrifice"), MalevolentOffering("Malevolent Offering"),
-    GorgonsGaze("Gorgon's Gaze"), SoulShred("Soul Shred"), BoneSquall("Bone Squall"),
+    GorgonsGaze("Gorgon's Gaze"), SoulShred("Soul Shred"), BoneSquall("Bone Squall"), VenomLoad("Venom Load"),
     Regenerate("Regenerate"), SummonSkeletalArmy("Summon Skeletal Army"),
     InstantHeal("Instant Heal"), HellfireCloak("Hellfire Cloak"), Provoke("Provoke"),
     RighteousFury("Righteous Fury"),

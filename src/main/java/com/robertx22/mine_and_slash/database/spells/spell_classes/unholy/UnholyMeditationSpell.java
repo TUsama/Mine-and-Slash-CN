@@ -69,7 +69,7 @@ public class UnholyMeditationSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 4, 16);
         c.set(SC.CAST_TIME_TICKS, 120, 120);
         c.set(SC.TIMES_TO_CAST, 6, 6);
-        c.set(SC.COOLDOWN_SECONDS, 22, 16);
+        c.set(SC.COOLDOWN_SECONDS, 28, 22);
 
         c.setMaxLevel(4);
 
@@ -100,7 +100,7 @@ public class UnholyMeditationSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Replenish your health and mana through meditation: "));
+        list.add(new StringTextComponent("Replenish your health, magic shield, and mana through meditation: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -124,9 +124,12 @@ public class UnholyMeditationSpell extends BaseSpell {
 
         LivingEntity en = ctx.caster;
 
-       SpellUtils.healCasterMana(ctx);
+        SpellUtils.healMagicShield(this, ctx.caster, ctx.getConfigFor(ctx.ability)
+                .getCalc(ctx.spellsCap, ctx.ability)
+                .getCalculatedValue(ctx.data, ctx.spellsCap, ctx.ability));
+        SpellUtils.healCasterMana(ctx);
 
-       ParticleEnum.sendToClients(
+        ParticleEnum.sendToClients(
             en.getPosition(), en.world,
             new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(2F)
                     .motion(new Vec3d(0, 0, 0))

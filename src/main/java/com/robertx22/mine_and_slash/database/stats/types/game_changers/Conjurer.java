@@ -1,5 +1,6 @@
 package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
+import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.CooldownReductionFlat;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SummonDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealPower;
@@ -42,7 +43,8 @@ public class Conjurer extends BaseGameChangerTrait {
 
         return Arrays.asList(
             new ExactStatData(30, StatModTypes.Multi, SummonDamage.getInstance()),
-            new ExactStatData(-100, StatModTypes.Multi, SpellDamage.getInstance())
+                new ExactStatData(10, StatModTypes.Flat, ReducedCooldownStat.getInstance()),
+            new ExactStatData(-80, StatModTypes.Multi, SpellDamage.getInstance())
         );
     }
 

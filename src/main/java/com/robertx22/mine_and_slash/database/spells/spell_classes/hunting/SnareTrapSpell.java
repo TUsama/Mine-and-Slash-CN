@@ -8,6 +8,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.potion_effects.druid.ThornArmorEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.SnareEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.WeakenEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -111,6 +112,11 @@ public class SnareTrapSpell extends BaseSpell {
         list.add(new StringTextComponent("in place: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new StringTextComponent("Applies: "));
+        list.addAll(SnareEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         return list;
 

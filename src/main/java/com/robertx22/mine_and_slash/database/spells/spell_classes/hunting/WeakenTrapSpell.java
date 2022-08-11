@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.SnareEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.WeakenEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
@@ -48,7 +49,7 @@ public class WeakenTrapSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Physical;
+                    return Elements.Nature;
                 }
             }.cooldownIfCanceled(true)
                 .summonsEntity(w -> new WeakenTrapEntity(w))
@@ -109,6 +110,11 @@ public class WeakenTrapSpell extends BaseSpell {
         list.add(new StringTextComponent("in the blast: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
+
+        TooltipUtils.addEmpty(list);
+
+        list.add(new StringTextComponent("Applies: "));
+        list.addAll(WeakenEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         return list;
 

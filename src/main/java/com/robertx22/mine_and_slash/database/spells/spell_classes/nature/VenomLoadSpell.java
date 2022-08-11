@@ -58,25 +58,29 @@ public class VenomLoadSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 6, 11);
+        c.set(SC.MANA_COST, 6, 10);
         c.set(SC.ENERGY_COST, 0, 0);
+        c.set(SC.RADIUS, 2, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.CAST_TIME_TICKS, 10, 10);
+        c.set(SC.BASE_VALUE, 0, 0);
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.1F, 0.1F);
+        c.set(SC.CAST_TIME_TICKS, 60, 20);
         c.set(SC.COOLDOWN_SECONDS, 60, 60);
-        c.set(SC.DURATION_TICKS, 200 * 20, 240 * 20);
+        c.set(SC.DURATION_TICKS, 30 * 20, 30 * 20);
+        c.set(SC.TICK_RATE, 10, 10);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(4);
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(3, 3);
+        return new AbilityPlace(1, 2);
     }
 
     @Override
     public String GUID() {
-        return "thorn_armor";
+        return "venom_load";
     }
 
     @Override
@@ -85,13 +89,13 @@ public class VenomLoadSpell extends BaseSpell {
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Duration, Self"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Duration, Self, Unique Buff"));
 
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Applies buff: "));
 
-        list.addAll(ThornArmorEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.addAll(VenomLoadEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         return list;
 
@@ -99,7 +103,7 @@ public class VenomLoadSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.ThornArmor;
+        return Words.VenomLoad;
     }
 
     private static class SingletonHolder {

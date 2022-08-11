@@ -33,7 +33,7 @@ public class ThunderDashEffect extends BasePotionEffect implements IApplyStatPot
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
-                (double) 0.3F, AttributeModifier.Operation.MULTIPLY_BASE
+                (double) 0.3F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
     }
 

@@ -54,7 +54,7 @@ public class BlockEffect extends BaseDamageEffect {
                 postblock *= 0.5F;
             }
         } else if (RandomUtils.roll(blockval)) { // but on success still reduce by 25 percent
-            effect.isFullyBlocked = true;
+            effect.removeKnockback();
             postblock *= 0.75F;
         }
 

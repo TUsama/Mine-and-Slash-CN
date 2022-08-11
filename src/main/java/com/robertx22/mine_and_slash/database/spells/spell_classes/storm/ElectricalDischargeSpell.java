@@ -15,6 +15,7 @@ import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
@@ -136,9 +137,7 @@ public class ElectricalDischargeSpell extends BaseSpell {
                 EntityCap.UnitData data = Load.Unit(en);
                 int num = (int) (data.getUnit().getCurrentEffectiveHealth(en, data) * 0.20F);
 
-                DamageEffect dmg = new DamageEffect(
-                    null, caster, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-                dmg.element = Elements.Thunder;
+                SpellDamageEffect dmg = new SpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en), this);
                 dmg.Activate();
 
             }

@@ -138,11 +138,11 @@ public class InfernoQuakeSpell extends BaseSpell {
                 .finder(EntityFinder.Finder.IN_FRONT)
                 .build();
 
-        for (LivingEntity en : entities) {
+        int num = ctx.getConfigFor(this)
+                .getCalc(ctx.spellsCap, this)
+                .getCalculatedValue(ctx.data, ctx.spellsCap, this);
 
-            int num = ctx.getConfigFor(this)
-                    .getCalc(ctx.spellsCap, this)
-                    .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+        for (LivingEntity en : entities) {
 
             AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                     this

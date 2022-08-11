@@ -44,7 +44,7 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160892",
-            (double) -0.95F, AttributeModifier.Operation.MULTIPLY_BASE
+            (double) -0.95F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -62,7 +62,7 @@ public class PetrifyEffect extends BasePotionEffect implements IOnBasicAttackedP
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 24, 32);
+        p.set(SC.BASE_VALUE, 12, 26);
         p.set(SC.TICK_RATE, 20, 20);
         return p;
     }

@@ -13,12 +13,12 @@ public class DamageShieldFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 2.5F;
     }
 
     @Override
     public float Max() {
-        return 6;
+        return 5;
     }
 
     @Override

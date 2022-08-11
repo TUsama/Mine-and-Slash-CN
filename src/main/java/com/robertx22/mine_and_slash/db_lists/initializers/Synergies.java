@@ -95,6 +95,7 @@ public class Synergies implements ISlashRegistryInit {
         new BatteryFusiladeChainSynergy().registerToSlashRegistry();
         new CriticalSurgeSplashSynergy().registerToSlashRegistry();
         new PowerSurgeBoltSynergy().registerToSlashRegistry();
+        new HuntingWolfSharpenedSynergy().registerToSlashRegistry();
 
         new ChillingTouchCrippleSynergy().registerToSlashRegistry();
         new ChillingTouchHexSynergy().registerToSlashRegistry();

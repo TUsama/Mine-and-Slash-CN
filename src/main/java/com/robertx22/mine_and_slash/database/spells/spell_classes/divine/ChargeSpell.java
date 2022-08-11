@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
@@ -162,7 +163,7 @@ public class ChargeSpell extends BaseSpell {
             .build();
 
         entities.forEach(x -> {
-            DamageEffect dmg = new DamageEffect(null, caster, x, num, EffectData.EffectTypes.ATTACK_SPELL, WeaponTypes.None);
+            AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(caster, x, num, ctx.data, Load.Unit(x), this);
             dmg.element = Elements.Physical;
             dmg.Activate();
         });

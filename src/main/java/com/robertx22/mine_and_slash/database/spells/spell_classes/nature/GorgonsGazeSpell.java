@@ -11,6 +11,9 @@ import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.druid.PetrifyEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
+import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
@@ -101,8 +104,8 @@ public class GorgonsGazeSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
         TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent("Turn all enemies in front of you into stone."));
-        list.add(new StringTextComponent("Applies: "));
+        list.add(new StringTextComponent("Damages all enemies in front of you and turn"));
+        list.add(new StringTextComponent("them into stone. Applies: "));
 
         list.addAll(PetrifyEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
@@ -124,11 +127,30 @@ public class GorgonsGazeSpell extends BaseSpell {
 
         SoundUtils.playSound(caster, ModSounds.STONE_CRACK.get(), 1, 1);
 
+        List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
+                .radius(3)
+                .distance(15)
+                .finder(EntityFinder.Finder.IN_FRONT)
+                .searchFor(EntityFinder.SearchFor.ENEMIES)
+                .build();
+
+        int num = ctx.getConfigFor(this)
+                .getCalc(ctx.spellsCap, this)
+                .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+
+        for (LivingEntity en : entities) {
+
+            SpellDamageEffect dmg = new SpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
+                    this
+            );
+            dmg.Activate();
+            PotionEffectUtils.apply(PetrifyEffect.INSTANCE, caster, en);
+        }
+
         EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
             .radius(3)
             .distance(15)
             .finder(EntityFinder.Finder.IN_FRONT)
-                .searchFor(EntityFinder.SearchFor.ENEMIES)
             .build()
             .forEach(x -> PotionEffectUtils.apply(PetrifyEffect.INSTANCE, caster, x));
 
