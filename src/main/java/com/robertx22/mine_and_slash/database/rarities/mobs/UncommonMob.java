@@ -15,7 +15,7 @@ public class UncommonMob extends BaseUncommon implements MobRarity {
 
     @Override
     public float StatMultiplier() {
-        return 1.4F;
+        return 1.2F;
     }
 
     @Override
@@ -45,12 +45,12 @@ public class UncommonMob extends BaseUncommon implements MobRarity {
 
     @Override
     public float bothAffixesChance() {
-        return 2.5F;
+        return 0F;
     }
 
     @Override
     public float ExpOnKill() {
-        return 5;
+        return 10;
     }
 
     @Override

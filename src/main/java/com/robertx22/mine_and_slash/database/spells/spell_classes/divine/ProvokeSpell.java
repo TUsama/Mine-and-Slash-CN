@@ -22,8 +22,10 @@ import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -65,14 +67,14 @@ public class ProvokeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 14, 3);
+        c.set(SC.MANA_COST, 8, 4);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 10, 6);
+        c.set(SC.CAST_TIME_TICKS, 0, 0);
+        c.set(SC.COOLDOWN_SECONDS, 16, 9);
         c.set(SC.AMOUNT,1, 5);
-        c.set(SC.RADIUS, 3, 7);
+        c.set(SC.RADIUS, 5, 9);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.TICK_RATE, 20, 20);
 
@@ -105,8 +107,8 @@ public class ProvokeSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Draw the attention of nearby enemies by provoking them."));
-        list.add(new StringTextComponent("Also applies: " + EnrageEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent("Draw the attention of nearby enemies by"));
+        list.add(new StringTextComponent("applying: " + EnrageEffect.INSTANCE.locNameForLangFile()));
 
         return list;
 
@@ -124,10 +126,11 @@ public class ProvokeSpell extends BaseSpell {
                 .get(SC.RADIUS)
                 .get(ctx.spellsCap, this);
 
-            ParticlePacketData pdata = new ParticlePacketData(caster.getPosition()
-                .up(1), ParticleEnum.PROVOKE);
-            pdata.radius = radius;
-            ParticleEnum.PROVOKE.sendToClients(caster, pdata);
+            ParticleEnum.sendToClients(
+                    caster, new ParticlePacketData(caster.getPosition(), ParticleEnum.AOE).type(
+                            ParticleTypes.ANGRY_VILLAGER).radius(radius)
+                            .motion(new Vec3d(0, 0, 0))
+                            .amount((int) (45*radius)));
 
             List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
                 .radius(radius)

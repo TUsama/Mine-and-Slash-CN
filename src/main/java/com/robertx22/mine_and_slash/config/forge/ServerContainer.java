@@ -77,7 +77,7 @@ public class ServerContainer {
             .translation("mmorpg.word.")
             .defineInRange("REGEN_HUNGER_COST", 3D, 0, 1000D);
 
-        MOB_STRENGTH_PER_LEVEL_MULTI = builder.comment("This makes mobs increasingly weaker, by default at lvl 100 mobs will be 3x stronger, formula: Math.pow(lvl, (lvl / VALUE)) - 0.5")
+        MOB_STRENGTH_PER_LEVEL_MULTI = builder.comment("This makes mobs increasingly weaker, by default at lvl 100 mobs will be 3x stronger, formula: Math.pow(lvl, (lvl / VALUE))")
             .translation("mmorpg.word.")
             .defineInRange("MOB_STRENGTH_PER_LEVEL_MULTI", 360F, 0, 1000D);
 

@@ -18,6 +18,7 @@ import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.particles.ParticleTypes;
@@ -44,6 +45,12 @@ public class EnrageEffect extends BasePotionEffect implements IApplyStatPotion {
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
+
+            if (ctx.entity instanceof MobEntity) {
+                ctx.entity.setRevengeTarget(ctx.caster);
+                ((MobEntity) ctx.entity).setAttackTarget(ctx.caster);
+            }
+
             ParticleUtils.spawnParticles(ParticleTypes.ANGRY_VILLAGER, ctx.entity, 25);
             return ctx;
         }, null));
@@ -95,6 +102,10 @@ public class EnrageEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
+
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Taunt"));
+        list.add(new StringTextComponent("Enemies with Enrage will continue to be taunted by"));
+        list.add(new StringTextComponent("the applicator while under its effects."));
         list.add(new StringTextComponent(TextFormatting.AQUA + "Increases movement speed by 20%."));
         return list;
 

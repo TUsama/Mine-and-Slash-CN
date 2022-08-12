@@ -62,7 +62,7 @@ public class MultiShotSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 6, 9);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.2F, 1.6F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.5F, 2.0F);
         c.set(SC.SHOOT_SPEED, 3.0F, 3.0F);
         c.set(SC.PROJECTILE_COUNT, 3, 7);
         c.set(SC.CAST_TIME_TICKS, 0, 0);

@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 
 public class MobStatUtils {
 
-    static int spelldmg = 8;
+    static int spelldmg = 12;
 
     public static void increaseMobStatsPerTier(UnitData mobdata, Unit unit) {
 
@@ -65,7 +65,7 @@ public class MobStatUtils {
     public static void increaseMobStatsPerLevel(UnitData mobdata) {
 
         float lvlMulti = (float) (Math.pow(mobdata.getLevel(), mobdata.getLevel() / ModConfig.INSTANCE.Server.MOB_STRENGTH_PER_LEVEL_MULTI.get()
-                        .floatValue()) - 0.5F);
+                        .floatValue()));
 
         for (StatData data : mobdata.getUnit()
             .getStats()
@@ -111,6 +111,19 @@ public class MobStatUtils {
 
     }
 
+    public static void modifyMobHealthByPlayercount(UnitData unitdata, int playercount) {
+        Unit unit = unitdata.getUnit();
+
+        for (StatData stat : unit.getStats()
+                .values()) {
+            if (stat.getId()
+                    .equals(Health.GUID)) {
+                stat.multiplyFlat(0.9 + 0.1 * playercount);
+            }
+        }
+
+    }
+
     public static void AddMobcStats(UnitData unitdata, int level) {
 
         MobRarity rar = Rarities.Mobs.get(unitdata.getRarity());
@@ -121,32 +134,32 @@ public class MobStatUtils {
             .addFlat(Armor.getInstance()
                 .AverageStat() * rar.StatMultiplier(), level);
         unit.getCreateStat(PhysicalDamage.GUID)
-                .addFlat(1 * rar.StatMultiplier(), level);
+                .addFlat(2 * rar.StatMultiplier(), level);
         unit.getCreateStat(SpellDamage.GUID)
                 .addFlat(spelldmg * rar.StatMultiplier(), level);
         unit.getCreateStat(ArmorPenetration.GUID)
-                .addFlat(4 * rar.StatMultiplier(), level);
+                .addFlat(6 * rar.StatMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);
         unit.getCreateStat(CriticalHit.GUID)
-            .addFlat(5 * rar.DamageMultiplier());
+            .addFlat(2 * rar.StatMultiplier(), level);
         unit.getCreateStat(CriticalDamage.GUID)
-            .addFlat(10 * rar.DamageMultiplier());
+            .addFlat(10 * rar.StatMultiplier(), level);
         unit.getCreateStat("water_resist")
-                .addFlat(8 * rar.DamageMultiplier());
+                .addFlat(8 * rar.StatMultiplier(), level);
         unit.getCreateStat("thunder_resist")
-                .addFlat(8 * rar.DamageMultiplier());
+                .addFlat(8 * rar.StatMultiplier(), level);
         unit.getCreateStat("fire_resist")
-                .addFlat(8 * rar.DamageMultiplier());
+                .addFlat(8 * rar.StatMultiplier(), level);
         unit.getCreateStat("nature_resist")
-                .addFlat(8 * rar.DamageMultiplier());
+                .addFlat(8 * rar.StatMultiplier(), level);
         unit.getCreateStat("water_penetration")
-                .addFlat(6 * rar.DamageMultiplier());
+                .addFlat(6 * rar.StatMultiplier(), level);
         unit.getCreateStat("thunder_penetration")
-                .addFlat(6 * rar.DamageMultiplier());
+                .addFlat(6 * rar.StatMultiplier(), level);
         unit.getCreateStat("fire_penetration")
-                .addFlat(6 * rar.DamageMultiplier());
+                .addFlat(6 * rar.StatMultiplier(), level);
         unit.getCreateStat("nature_penetration")
-                .addFlat(6 * rar.DamageMultiplier());
+                .addFlat(6 * rar.StatMultiplier(), level);
     }
 
 }

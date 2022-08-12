@@ -114,7 +114,7 @@ public class CrippleEffect extends BasePotionEffect implements IApplyStatPotion 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 2, 9);
+        p.set(SC.BASE_VALUE, 3, 9);
         p.set(SC.DURATION_TICKS, 100, 200);
         p.set(SC.TICK_RATE, 20, 20);
         return p;

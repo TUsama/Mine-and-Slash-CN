@@ -50,6 +50,7 @@ public class MapAffixes implements ISlashRegistryInit {
                     add(new LessCooldownAffix());
                     add(new MoreManaCostAffix());
                     add(new LessHealPowerAffix());
+                    add(new OtherTeamBonusAffix());
 
                     // resources
                     add(new LessEnergyRegenAffix());

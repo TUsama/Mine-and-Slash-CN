@@ -15,7 +15,7 @@ public class EpicMob extends BaseEpic implements MobRarity {
 
     @Override
     public float StatMultiplier() {
-        return 3F;
+        return 1.7F;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class EpicMob extends BaseEpic implements MobRarity {
 
     @Override
     public float ExpOnKill() {
-        return 25;
+        return 35;
     }
 
     @Override

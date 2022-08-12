@@ -68,7 +68,7 @@ public class WhirlwindSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 9, 13);
-        c.set(SC.ENERGY_COST, 12, 18);
+        c.set(SC.ENERGY_COST, 12, 17);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 1.0F, 1.2F);

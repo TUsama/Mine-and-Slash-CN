@@ -31,7 +31,9 @@ import com.robertx22.mine_and_slash.uncommon.interfaces.data_items.IRarity;
 import com.robertx22.mine_and_slash.uncommon.stat_calculation.CommonStatUtils;
 import com.robertx22.mine_and_slash.uncommon.stat_calculation.MobStatUtils;
 import com.robertx22.mine_and_slash.uncommon.stat_calculation.PlayerStatUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.PlayerUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TeamUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.WorldUtils;
 import info.loenwind.autosave.annotations.Storable;
 import info.loenwind.autosave.annotations.Store;
@@ -44,6 +46,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.registries.ForgeRegistries;
 import top.theillusivec4.curios.common.CuriosConfig;
@@ -453,7 +456,7 @@ public class Unit {
         float hpadded = getHpAdded(entity, rar, data);
 
         getCreateStat(Health.GUID)
-            .addFlat(hpadded);
+                .addFlat(hpadded);
 
         Boolean isMapWorld = WorldUtils.isMapWorld(entity.world);
 
@@ -469,21 +472,33 @@ public class Unit {
             PlayerStatUtils.addSpellTreeStats(data, (PlayerEntity) entity);
 
             Load.statPoints((PlayerEntity) entity)
-                .getData()
-                .getAllStatDatas()
-                .forEach(x -> x.applyStats(data));
+                    .getData()
+                    .getAllStatDatas()
+                    .forEach(x -> x.applyStats(data));
 
         } else {
+
             MobStatUtils.AddMobcStats(data, data.getLevel());
             MobStatUtils.addAffixStats(data);
             MobStatUtils.worldMultiplierStats(entity.world, this);
             MobStatUtils.increaseMobStatsPerLevel(data);
-
-            if (isMapWorld) {
-                MobStatUtils.increaseMobStatsPerTier(data, this);
-            }
-
+            MobStatUtils.increaseMobStatsPerTier(data, this);
             MobStatUtils.modifyMobStatsByConfig(entity, data);
+
+            //PlayerEntity nearestPlayer = null;
+
+            //nearestPlayer = PlayerUtils.nearestPlayer((ServerWorld) entity.world, entity);
+
+            //List<PlayerEntity> list = TeamUtils.getOnlineTeamMembers(nearestPlayer); // list with ALL the members
+            //List<PlayerEntity> closeList = new ArrayList<>(); // list with only nearby members
+
+            //for (PlayerEntity p : list) {
+            //    if (p.world == nearestPlayer.world && p.getDistance(nearestPlayer) <= 100) {
+            //        closeList.add(p);
+            //    }
+            //}
+            //int playerCount = closeList.size();
+            //MobStatUtils.modifyMobHealthByPlayercount(data, playerCount);
 
         }
 
@@ -517,22 +532,22 @@ public class Unit {
             PlayerSpellCap.ISpellsCap spells = Load.spells(entity);
 
             spells.getAbilitiesData()
-                .clearBonusLevels();
+                    .clearBonusLevels();
 
             try {
                 this.stats.stats.entrySet()
-                    .forEach(x -> {
-                        Stat stat = x.getValue()
-                            .GetStat();
+                        .forEach(x -> {
+                            Stat stat = x.getValue()
+                                    .GetStat();
 
-                        if (stat instanceof IAfterStatCalc) {
-                            IAfterStatCalc after = (IAfterStatCalc) stat;
+                            if (stat instanceof IAfterStatCalc) {
+                                IAfterStatCalc after = (IAfterStatCalc) stat;
 
-                            ((IAfterStatCalc) stat).doAfterStatCalc(x.getValue(), data, spells);
+                                ((IAfterStatCalc) stat).doAfterStatCalc(x.getValue(), data, spells);
 
-                        }
+                            }
 
-                    });
+                        });
             } catch (Exception e) {
                 e.printStackTrace();
             }

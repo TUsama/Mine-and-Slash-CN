@@ -116,12 +116,12 @@ public class HeavyStrikeSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
-        c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 3, 5);
-        c.set(SC.ENERGY_COST, 4, 6);
+        c.set(SC.HEALTH_COST, 0.8F, 0.8F);
+        c.set(SC.MANA_COST, 2, 3);
+        c.set(SC.ENERGY_COST, 3, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.25F, 0.45F);
+        c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.25F, 0.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 80, 50);
         c.set(SC.TIMES_TO_CAST, 1, 1);
@@ -153,7 +153,8 @@ public class HeavyStrikeSpell extends BaseSpell {
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Health to Phys DMG."));
         TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent("Damage enemies in front of you: "));
+        list.add(new StringTextComponent("Imbue your attack with your own life force and"));
+        list.add(new StringTextComponent("damage enemies in front of you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

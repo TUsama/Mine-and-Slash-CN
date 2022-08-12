@@ -14,7 +14,7 @@ public class BossMobRarity extends BaseBossRarity implements MobRarity {
 
     @Override
     public float StatMultiplier() {
-        return 6F;
+        return 3F;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class BossMobRarity extends BaseBossRarity implements MobRarity {
 
     @Override
     public float HealthMultiplier() {
-        return 20F;
+        return 15F;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class BossMobRarity extends BaseBossRarity implements MobRarity {
 
     @Override
     public float ExpOnKill() {
-        return 300;
+        return 200;
     }
 
     @Override

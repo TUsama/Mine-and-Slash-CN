@@ -165,6 +165,7 @@ public class MapItemData implements ICommonDataItem<MapRarity>, IBonusLootMulti,
         if (!isTeam) {
             int percent = RandomUtils.RandomRange(75, 100);
             affixes.add(new MapAffixData(SlashRegistry.MapAffixes().get("team_bonus"), percent));
+            affixes.add(new MapAffixData(SlashRegistry.MapAffixes().get("other_team_bonus"), percent));
             isTeam = true;
         }
     }

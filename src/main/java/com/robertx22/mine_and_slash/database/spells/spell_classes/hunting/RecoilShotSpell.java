@@ -67,7 +67,7 @@ public class RecoilShotSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 4, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.1F, 1.75F);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.0F, 2.6F);
         c.set(SC.SHOOT_SPEED, 3F, 3F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
