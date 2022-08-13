@@ -61,14 +61,14 @@ public class SteamCloudSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 12, 19);
+        c.set(SC.MANA_COST, 12, 18);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 5, 17);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 24, 20);
         c.set(SC.TICK_RATE, 40, 20);
-        c.set(SC.RADIUS, 2, 3);
+        c.set(SC.RADIUS, 4, 4);
         c.set(SC.DURATION_TICKS, 320, 320);
         c.set(SC.BONUS_HEALTH, 0, 0);
 

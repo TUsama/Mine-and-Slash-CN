@@ -74,7 +74,7 @@ public class SoulShredSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0.06F, 0.15F);
         c.set(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE, 0.06F, 0.12F);
-        c.set(SC.BASE_VALUE, 1, 5);
+        c.set(SC.BASE_VALUE, 1, 4);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 40, 20);
         c.set(SC.COOLDOWN_SECONDS, 15, 11);

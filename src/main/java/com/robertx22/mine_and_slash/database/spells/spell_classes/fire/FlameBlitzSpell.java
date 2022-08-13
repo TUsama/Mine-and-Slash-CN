@@ -119,7 +119,7 @@ public class FlameBlitzSpell extends BaseSpell {
         c.set(SC.MANA_COST, 6, 10);
         c.set(SC.ENERGY_COST, 3, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 1, 2);
+        c.set(SC.BASE_VALUE, 1, 1.5F);
         c.set(SC.ATTACK_SCALE_VALUE, 0.55F, 0.75F);
         c.set(SC.CAST_TIME_TICKS, 30, 40);
         c.set(SC.COOLDOWN_SECONDS, 9, 6);

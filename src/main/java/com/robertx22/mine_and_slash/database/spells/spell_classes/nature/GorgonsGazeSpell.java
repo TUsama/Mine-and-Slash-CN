@@ -74,7 +74,7 @@ public class GorgonsGazeSpell extends BaseSpell {
         c.set(SC.MANA_COST, 14, 22);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 12, 26);
+        c.set(SC.BASE_VALUE, 12, 24);
         c.set(SC.ATTACK_SCALE_VALUE, 1.4F, 2F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.2F);
         c.set(SC.CAST_TIME_TICKS, 10, 5);

@@ -67,7 +67,7 @@ public class SummonSkeletalArmySpell extends BaseSpell {
         c.set(SC.MANA_COST, 12, 16);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0.2F, 0.3F);
-        c.set(SC.BASE_VALUE, 8, 18);
+        c.set(SC.BASE_VALUE, 8, 17);
         c.set(SC.ATTACK_SCALE_VALUE, 1.0F, 2.0F);
         c.set(SC.BONUS_HEALTH, 0F, 1.0F);
         c.set(SC.TIMES_TO_CAST, 3, 6);
