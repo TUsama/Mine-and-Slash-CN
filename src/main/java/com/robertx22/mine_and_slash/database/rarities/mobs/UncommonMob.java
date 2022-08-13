@@ -15,7 +15,7 @@ public class UncommonMob extends BaseUncommon implements MobRarity {
 
     @Override
     public float StatMultiplier() {
-        return 1.2F;
+        return 1.25F;
     }
 
     @Override
@@ -25,7 +25,7 @@ public class UncommonMob extends BaseUncommon implements MobRarity {
 
     @Override
     public float HealthMultiplier() {
-        return 1.35F;
+        return 1.5F;
     }
 
     @Override

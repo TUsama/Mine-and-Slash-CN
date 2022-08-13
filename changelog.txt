@@ -1,3 +1,13 @@
+3.14.7:
+- Fixed a bug where Martyrdom was costing 80% health instead of 8%.
+- Increased mob armor and resist stats.
+- Reduced mob HP and damage ceiling in regards to mob rarity. In general, higher rarity mobs will deal less damage.
+- Increased base mob damage. Even lower rarity mobs should pack a punch.
+- Plague duration has been reduced significantly.
+- Plague attack scaling per level has been reduced slightly.
+- Plague base value per level has been increased slightly.
+- Burn duration and base value has increased.
+
 3.14.6:
 - Team Dungeons now also provide players with a large bonus to Unique Item drops.
 - Changed mob scaling so mobs are much stronger at lower levels, but slightly easier at higher levels.
