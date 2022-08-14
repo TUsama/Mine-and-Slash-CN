@@ -134,20 +134,20 @@ public class MobStatUtils {
         unit.getCreateStat(PhysicalDamage.GUID)
                 .addFlat(14 * rar.DamageMultiplier(), level);
         unit.getCreateStat(SpellDamage.GUID)
-                .addFlat(10 * rar.DamageMultiplier(), level);
+                .addFlat(8 * rar.StatMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);
         unit.getCreateStat(CriticalHit.GUID)
             .addFlat(1 * rar.StatMultiplier(), level);
         unit.getCreateStat(CriticalDamage.GUID)
             .addFlat(5 * rar.StatMultiplier(), level);
         unit.getCreateStat("water_resist")
-                .addFlat(10 * rar.StatMultiplier());
+                .addFlat(15 * rar.StatMultiplier());
         unit.getCreateStat("thunder_resist")
-                .addFlat(10 * rar.StatMultiplier());
+                .addFlat(15 * rar.StatMultiplier());
         unit.getCreateStat("fire_resist")
-                .addFlat(10 * rar.StatMultiplier());
+                .addFlat(15 * rar.StatMultiplier());
         unit.getCreateStat("nature_resist")
-                .addFlat(10 * rar.StatMultiplier());
+                .addFlat(15 * rar.StatMultiplier());
     }
 
 }
