@@ -17,7 +17,7 @@ public class LessManaOnHitAffix extends DetrimentalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new ManaOnHitFlat().size(StatMod.Size.DOUBLE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new ManaOnHitFlat().size(StatMod.Size.TRIPLE_LESS), percent));
 
     }
 

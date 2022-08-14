@@ -19,7 +19,7 @@ public class LessArmorAffix extends DetrimentalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new ArmorPercent().size(StatMod.Size.DOUBLE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new ArmorPercent().size(StatMod.Size.TRIPLE_LESS), percent));
     }
 
     @Override

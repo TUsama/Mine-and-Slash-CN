@@ -52,8 +52,8 @@ public class FleshandMindSacrificeEffect extends BasePotionEffect implements IAp
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(-40, Health.getInstance()));
         list.add(new PotionStat(-40, MagicShield.getInstance()));
-        list.add(new PotionStat(25, SpellDamage.getInstance()));
-        list.add(new PotionStat(10, CriticalHit.getInstance()));
+        list.add(new PotionStat(20, SpellDamage.getInstance()));
+        list.add(new PotionStat(8, CriticalHit.getInstance()));
         list.add(new PotionStat(50, CriticalDamage.getInstance()));
         return list;
     }

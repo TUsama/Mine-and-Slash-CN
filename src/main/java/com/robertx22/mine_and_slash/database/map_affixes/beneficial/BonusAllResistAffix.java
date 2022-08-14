@@ -19,7 +19,7 @@ public class BonusAllResistAffix extends BeneficialMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new ElementalResistFlat(Elements.Elemental).size(StatMod.Size.DOUBLE), percent));
+        return Arrays.asList(StatModData.Load(new ElementalResistFlat(Elements.Elemental).size(StatMod.Size.TRIPLE), percent));
     }
 
     @Override

@@ -84,7 +84,7 @@ public class ElectricalDischargeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(1, 1);
+        return new AbilityPlace(1, 2);
     }
 
     public static ElectricalDischargeSpell getInstance() {

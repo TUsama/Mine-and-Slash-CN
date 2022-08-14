@@ -1,3 +1,23 @@
+3.14.8:
+- Changed how weapon damage stat and elemental weapon damage stat work. Before, they would check if the damage effect had the same weapon type as the stat. However, most damage sources such as spells don't have an explicit weapon type. So these weapon damage stats would only apply to basic attacks. I've changed it so that it applies as long as the damage effect is of the attack type (basic attacks, attack spells, summon attacks), AND if the player is holding a weapon of the same type. Eg. if you're holding a bow, anytime you perform an attack, you will get your bow weapon damage bonus applied.
+- Lowered Talent weapon damage node values from 8% to 6%. Elemental weapon damage remains the same. I kept increasing it slowly over time thinking that it wasn't good enough, turns out it just never worked as intended. It would be way overtuned (probably) if I didn't reduce it again.
+- Reduced some mob stats slightly.
+- Increased base mob damage.
+- Reduced Rock Slide damage.
+- Hopefully fixed an issue where spell-casting mobs were doing ridiculous amounts of damage.
+- Increased intensity of map affixes.
+- Mobs no longer have built-in armor and elemental penetration.
+- Swords no longer require luck and instead require vitality.
+- Hammers no longer require vitality and instead require more strength.
+- Attack scaling of all attack spells has decreased due to the weapon damage stat.
+- Physical damage talent nodes have been reduced in effectiveness.
+- Fixed a bug where Bone Squall cost 60% health at level 1 instead of 6%.
+- Spell Blade no longer converts 100% phys to fire damage but 60% instead.
+- Bleed duration has increased from 5 to 7s.
+- Defend gives less 25% less armor than previously.
+- Resourceful trait now gives a -multi rather than a +multi.
+- Familiar Instincts now gives a -25 multi to HP regen rather than 40.
+
 3.14.7:
 - Fixed a bug where Martyrdom was costing 80% health instead of 8%.
 - Increased mob armor and resist stats.

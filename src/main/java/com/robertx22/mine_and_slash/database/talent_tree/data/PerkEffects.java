@@ -87,7 +87,7 @@ public class PerkEffects {
     public static void create() {
 
         PHYSICAL_DMG = PerkEffectBuilder.build(
-            "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(6, StatModTypes.Percent, PhysicalDamage.GUID));
+            "phys_dmg", PhysicalDamage.getInstance(), new ExactStatData(5, StatModTypes.Percent, PhysicalDamage.GUID));
         SPELL_DMG = PerkEffectBuilder.build(
             "spell_dmg", SpellDamage.getInstance(), new ExactStatData(3, StatModTypes.Flat, SpellDamage.GUID));
         HEAL_PWR = PerkEffectBuilder.build(
@@ -181,7 +181,7 @@ public class PerkEffects {
             )
         );
 
-        float wepDmg = 8;
+        float wepDmg = 6;
 
         for (WeaponTypes wep : WeaponTypes.getAll()) {
             WEP_DMG_MAP.put(
@@ -193,7 +193,7 @@ public class PerkEffects {
             WEP_ELE_DMG_MAP.put(
                 wep, PerkEffectBuilder.build(wep.name()
                         .toLowerCase(Locale.ROOT) + "_ele_dmg_percent", EleWepDmg.MAP.get(wep),
-                    new ExactStatData(wepDmg + 2, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
+                    new ExactStatData(wepDmg + 10, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
                 ));
 
         }

@@ -81,8 +81,8 @@ public class RockSlideEnhancedSynergy extends OnDamageDoneSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 4, 8);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.2F, 0.35F);
+        c.set(SC.BASE_VALUE, 2, 5);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.2F, 0.3F);
         c.setMaxLevel(8);
         return c;
     }

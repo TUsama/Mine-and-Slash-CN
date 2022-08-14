@@ -59,14 +59,7 @@ public class FireStrikeEffect extends BaseDamageEffect {
 
         SoundUtils.playSound(effect.source, ModSounds.FIREBALL.get(), 1.25F, 1);
 
-        float wepdmg = effect.sourceData.getUnit()
-                .peekAtStat(PhysicalDamage.GUID)
-                .getAverageValue();
-        float elespelldmg = effect.sourceData.getUnit()
-                .peekAtStat(SpellDamage.GUID)
-                .getAverageValue();
-
-        float num = wepdmg * 0.75F * (1 + elespelldmg / 100);
+        float num = effect.number * 0.75F;
 
         for (LivingEntity en : list) {
 

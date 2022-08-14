@@ -65,8 +65,8 @@ public class RockSlideSpell extends BaseSpell {
         c.set(SC.MANA_COST, 11, 16);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 12, 17);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.7F, 1.4F);
+        c.set(SC.BASE_VALUE, 5, 9);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.5F, 1.0F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 6, 3);
         c.set(SC.TICK_RATE, 8, 8);

@@ -4,7 +4,10 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
 import com.robertx22.mine_and_slash.database.stats.types.generated.WeaponDamage;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
+import com.robertx22.mine_and_slash.saveclasses.item_classes.GearItemData;
+import com.robertx22.mine_and_slash.uncommon.datasaving.Gear;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 
 public class WeaponDamageEffect extends BaseDamageEffect {
 
@@ -26,9 +29,19 @@ public class WeaponDamageEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        if (stat instanceof WeaponDamage) {
-            WeaponDamage weapon = (WeaponDamage) stat;
-            return weapon.weaponType().equals(effect.weaponType);
+
+        if ((effect.getEffectType() == EffectData.EffectTypes.BASIC_ATTACK || effect.getEffectType()
+                .equals(EffectData.EffectTypes.ATTACK_SPELL) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.SUMMON_DMG))) {
+            if (stat instanceof WeaponDamage) {
+                try {
+                    WeaponDamage weapon = (WeaponDamage) stat;
+                    GearItemData gear = Gear.Load(effect.source.getHeldItemMainhand());
+                    return gear != null && (gear.GetBaseGearType().weaponType().equals(weapon.weaponType()));
+                } catch (Exception e) {
+                    return false;
+                }
+            }
         }
         return false;
     }

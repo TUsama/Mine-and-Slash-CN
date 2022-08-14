@@ -3,8 +3,12 @@ package com.robertx22.mine_and_slash.database.stats.effects.offense;
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
 import com.robertx22.mine_and_slash.database.stats.types.generated.EleWepDmg;
+import com.robertx22.mine_and_slash.database.stats.types.generated.WeaponDamage;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
+import com.robertx22.mine_and_slash.saveclasses.item_classes.GearItemData;
+import com.robertx22.mine_and_slash.uncommon.datasaving.Gear;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 
 public class EleWepDmgEffect extends BaseDamageEffect {
 
@@ -22,20 +26,28 @@ public class EleWepDmgEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-        EleWepDmg wepStat = (EleWepDmg) stat;
-
-        if (wepStat.weaponType().equals(effect.weaponType)) {
-            if (effect.isElemental()) {
-                effect.number *= data.getMultiplier();
-            }
-        }
+        effect.number *= data.getMultiplier();
 
         return effect;
     }
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        return stat instanceof EleWepDmg;
+
+        if ((effect.getEffectType() == EffectData.EffectTypes.BASIC_ATTACK || effect.getEffectType()
+                .equals(EffectData.EffectTypes.ATTACK_SPELL) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.SUMMON_DMG))) {
+            if (stat instanceof EleWepDmg && effect.isElemental()) {
+                try {
+                    EleWepDmg weapon = (EleWepDmg) stat;
+                    GearItemData gear = Gear.Load(effect.source.getHeldItemMainhand());
+                    return gear != null && (gear.GetBaseGearType().weaponType().equals(weapon.weaponType()));
+                } catch (Exception e) {
+                    return false;
+                }
+            }
+        }
+        return false;
     }
 
 }

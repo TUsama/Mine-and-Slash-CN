@@ -17,7 +17,7 @@ public class BonusLifestealAffix extends BeneficialMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new LifestealFlat().size(StatMod.Size.TRIPLE), percent));
+        return Arrays.asList(StatModData.Load(new LifestealFlat().size(StatMod.Size.QUINT), percent));
     }
 
     @Override

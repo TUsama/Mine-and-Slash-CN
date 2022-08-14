@@ -47,8 +47,8 @@ public class Resourceful extends BaseGameChangerTrait implements IStatMultipleEf
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-            new ExactStatData(5, StatModTypes.Multi, Energy.getInstance()),
-            new ExactStatData(10, StatModTypes.Multi, EnergyRegen.getInstance()),
+            new ExactStatData(-5, StatModTypes.Multi, Energy.getInstance()),
+            new ExactStatData(-10, StatModTypes.Multi, EnergyRegen.getInstance()),
             new ExactStatData(-1000, StatModTypes.Multi, Mana.getInstance()),
             new ExactStatData(-1000, StatModTypes.Multi, ManaRegen.getInstance())
         );

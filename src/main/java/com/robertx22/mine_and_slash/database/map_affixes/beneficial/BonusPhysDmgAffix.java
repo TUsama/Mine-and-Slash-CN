@@ -19,7 +19,7 @@ public class BonusPhysDmgAffix extends BeneficialMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new PhysicalDamagePercent().size(StatMod.Size.DOUBLE), percent));
+        return Arrays.asList(StatModData.Load(new PhysicalDamagePercent().size(StatMod.Size.TRIPLE), percent));
     }
 
     @Override

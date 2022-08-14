@@ -18,7 +18,7 @@ public class LessSpellDmgAffix extends DetrimentalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new SpellDamagePercent().size(StatMod.Size.DOUBLE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new SpellDamagePercent().size(StatMod.Size.TRIPLE_LESS), percent));
 
     }
 

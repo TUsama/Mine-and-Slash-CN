@@ -45,14 +45,7 @@ public class LightningDischargeEffect extends BaseDamageEffect {
 
         SoundUtils.playSound(effect.source, ModSounds.THUNDER.get(), 1.25F, 1);
 
-        float wepdmg = effect.sourceData.getUnit()
-                .peekAtStat(PhysicalDamage.GUID)
-                .getAverageValue();
-        float elespelldmg = effect.sourceData.getUnit()
-                .peekAtStat(SpellDamage.GUID)
-                .getAverageValue();
-
-        float num = wepdmg * 0.5F * (1 + elespelldmg / 100);
+        float num = effect.number * 0.5F;
         float radius = 6F;
 
         ParticlePacketData pdata = new ParticlePacketData(effect.source.getPosition()

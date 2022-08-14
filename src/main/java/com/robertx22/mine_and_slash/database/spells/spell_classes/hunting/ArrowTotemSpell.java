@@ -63,7 +63,7 @@ public class ArrowTotemSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.SHOOT_SPEED, 2F, 2.4F);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.9F, 2.5F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.9F, 2.25F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.RADIUS, 8, 8);
         c.set(SC.CAST_TIME_TICKS, 20, 20);

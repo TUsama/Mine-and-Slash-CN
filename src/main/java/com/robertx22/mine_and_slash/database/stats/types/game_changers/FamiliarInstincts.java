@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class FamiliarInstincts extends BaseGameChangerTrait {
 
     static int INC = 20;
-    static int DEC = 40;
+    static int DEC = 25;
 
     private FamiliarInstincts() {
     }

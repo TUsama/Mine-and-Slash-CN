@@ -82,7 +82,7 @@ public class BleedPotion extends BasePotionEffect {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.TICK_RATE, 20, 20);
-        p.set(SC.DURATION_TICKS, 100, 100);
+        p.set(SC.DURATION_TICKS, 140, 140);
         return p;
     }
 

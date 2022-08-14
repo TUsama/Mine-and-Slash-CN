@@ -48,6 +48,7 @@ public abstract class StatMod implements IWeighted, IRarity, IGUID, ISerializedR
         THREE_QUART_MORE("even_high_", 1.75F),
         DOUBLE("very_high_", 2),
         TRIPLE("major_", 3),
+        QUINT("quint_", 5),
         TEN("ridiculous_", 10),
         TENTEN("extra_ridiculous_", 20),
         TENTENTEN("extra_extra_ridiculous_", 30);;

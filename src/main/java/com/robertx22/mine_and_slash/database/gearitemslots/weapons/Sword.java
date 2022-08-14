@@ -46,7 +46,7 @@ public class Sword extends BaseWeapon implements ISpecificStatReq {
         return true;
     }
 
-    static StatReq req = new StatReq(LvlPointStat.STRENGTH, StatReq.Size.MEDIUM, LvlPointStat.STAMINA, StatReq.Size.TINY);
+    static StatReq req = new StatReq(LvlPointStat.STRENGTH, StatReq.Size.MEDIUM, LvlPointStat.VITALITY, StatReq.Size.TINY);
 
     @Override
     public WeaponSwingCost getSwingCosts() {

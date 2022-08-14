@@ -18,7 +18,7 @@ public class LessMagicShieldRegenAffix extends DetrimentalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new MagicShieldRegenPercent().size(StatMod.Size.DOUBLE_LESS), percent));
+        return Arrays.asList(StatModData.Load(new MagicShieldRegenPercent().size(StatMod.Size.TRIPLE_LESS), percent));
     }
 
     @Override

@@ -13,11 +13,13 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.CriticalHit
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifeOnHitFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifestealFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicStealFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalPeneFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.saveclasses.player_stat_points.LvlPointStat;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 
@@ -30,7 +32,7 @@ public class Trident extends BaseWeapon implements ISpecificStatReq {
 
     }
 
-    static StatReq req = new StatReq(LvlPointStat.STAMINA, StatReq.Size.MEDIUM, LvlPointStat.VITALITY, StatReq.Size.TINY);
+    static StatReq req = new StatReq(LvlPointStat.INTELLIGENCE, StatReq.Size.TINY, LvlPointStat.VITALITY, StatReq.Size.TINY);
 
     @Override
     public boolean isMeleeWeapon() {
@@ -49,7 +51,7 @@ public class Trident extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(8);
+        return new WeaponSwingCost(7);
     }
 
     @Override
@@ -89,7 +91,8 @@ public class Trident extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new ArmorPenetrationFlat(), new CriticalHitFlat(), new LifestealFlat());
+        return new StatModsHolder(new ArmorPenetrationFlat(), new ElementalPeneFlat(Elements.Fire), new ElementalPeneFlat(Elements.Water)
+                , new ElementalPeneFlat(Elements.Thunder), new ElementalPeneFlat(Elements.Nature));
     }
 
     @Override

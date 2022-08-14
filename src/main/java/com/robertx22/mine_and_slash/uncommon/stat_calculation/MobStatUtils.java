@@ -130,34 +130,24 @@ public class MobStatUtils {
                 .addFlat(1 * rar.StatMultiplier(), level);
         unit.getCreateStat(Armor.GUID)
             .addFlat(Armor.getInstance()
-                .AverageStat() * 6 * rar.StatMultiplier(), level);
+                .AverageStat() * 5 * rar.StatMultiplier(), level);
         unit.getCreateStat(PhysicalDamage.GUID)
-                .addFlat(8 * rar.DamageMultiplier(), level);
+                .addFlat(14 * rar.DamageMultiplier(), level);
         unit.getCreateStat(SpellDamage.GUID)
-                .addFlat(12 * rar.DamageMultiplier(), level);
-        unit.getCreateStat(ArmorPenetration.GUID)
-                .addFlat(8 * rar.StatMultiplier(), level);
+                .addFlat(10 * rar.DamageMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);
         unit.getCreateStat(CriticalHit.GUID)
-            .addFlat(2 * rar.StatMultiplier(), level);
+            .addFlat(1 * rar.StatMultiplier(), level);
         unit.getCreateStat(CriticalDamage.GUID)
-            .addFlat(10 * rar.StatMultiplier(), level);
+            .addFlat(5 * rar.StatMultiplier(), level);
         unit.getCreateStat("water_resist")
-                .addFlat(10 * rar.StatMultiplier(), level);
+                .addFlat(10 * rar.StatMultiplier());
         unit.getCreateStat("thunder_resist")
-                .addFlat(10 * rar.StatMultiplier(), level);
+                .addFlat(10 * rar.StatMultiplier());
         unit.getCreateStat("fire_resist")
-                .addFlat(10 * rar.StatMultiplier(), level);
+                .addFlat(10 * rar.StatMultiplier());
         unit.getCreateStat("nature_resist")
-                .addFlat(10 * rar.StatMultiplier(), level);
-        unit.getCreateStat("water_penetration")
-                .addFlat(8 * rar.StatMultiplier(), level);
-        unit.getCreateStat("thunder_penetration")
-                .addFlat(8 * rar.StatMultiplier(), level);
-        unit.getCreateStat("fire_penetration")
-                .addFlat(8 * rar.StatMultiplier(), level);
-        unit.getCreateStat("nature_penetration")
-                .addFlat(8 * rar.StatMultiplier(), level);
+                .addFlat(10 * rar.StatMultiplier());
     }
 
 }
