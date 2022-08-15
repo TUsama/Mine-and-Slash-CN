@@ -63,12 +63,10 @@ public class PurifyingFiresJudgementSynergy extends OnAttackSpellDmgDoneSynergy 
     @Override
     public void tryActivate(AttackSpellDamageEffect ctx) {
 
-        if (PotionEffectUtils.has(ctx.target, JudgementEffect.INSTANCE)) {
-            if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
-                    .get(SC.CHANCE)
-                    .get(Load.spells(ctx.source), this))) {
-                PotionEffectUtils.apply(JudgementEffect.INSTANCE, ctx.source, ctx.target);
-            }
+        if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
+                .get(SC.CHANCE)
+                .get(Load.spells(ctx.source), this))) {
+            PotionEffectUtils.apply(JudgementEffect.INSTANCE, ctx.source, ctx.target);
         }
     }
 

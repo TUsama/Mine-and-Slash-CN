@@ -45,7 +45,7 @@ public class StoutDefender extends BaseGameChangerTrait {
     public List<ExactStatData> getExactStats() {
 
         return Arrays.asList(
-            new ExactStatData(35, StatModTypes.Percent, BlockStrength.INSTANCE),
+            new ExactStatData(25, StatModTypes.Percent, BlockStrength.INSTANCE),
                 new ExactStatData(10, StatModTypes.Flat, DamageShield.getInstance()),
             new ExactStatData(-30, StatModTypes.Multi, MagicShield.getInstance()),
             new ExactStatData(-30, StatModTypes.Multi, Armor.getInstance()),

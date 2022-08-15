@@ -80,8 +80,8 @@ public class MindRotEffect extends BasePotionEffect implements IApplyStatPotion,
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-100, MagicShieldRegen.getInstance()));
-        list.add(new PotionStat(-50, ManaRegen.getInstance()));
+        list.add(new PotionStat(-50, MagicShieldRegen.getInstance()));
+        list.add(new PotionStat(-20, ManaRegen.getInstance()));
         list.add(new PotionStat(-33, new ElementalResist(Elements.Elemental)));
 
         return list;

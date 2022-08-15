@@ -109,7 +109,7 @@ public class Hammer extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new ArmorPenetrationFlat(), new CriticalDamageFlat());
+        return new StatModsHolder(new ArmorPenetrationFlat(), new CriticalDamageFlat(), new PhysicalDamagePercent());
     }
 
     @Override

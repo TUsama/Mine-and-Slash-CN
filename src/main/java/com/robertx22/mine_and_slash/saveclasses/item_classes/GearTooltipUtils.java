@@ -170,6 +170,17 @@ public class GearTooltipUtils {
                 tip.addAll(slot
                     .getWeaponMechanic()
                     .tooltipDesc());
+            } else if (gear.gearTypeName == "shield") {
+                float shieldCosts = Energy.getInstance()
+                        .getScaling()
+                        .scale(8, data.getLvlForResourceCosts());
+                tip.add(new StringTextComponent(""));
+                if (shieldCosts > 0) {
+                    tip.add(Styles.YELLOWCOMP()
+                            .appendSibling(Energy.getInstance()
+                                    .locName()
+                                    .appendText(" (Active Block): " + (int) shieldCosts)));
+                }
             }
         }
 

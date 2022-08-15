@@ -113,7 +113,7 @@ public class Dagger extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat());
+        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat(), new SpellDamageFlat());
     }
 
     @Override

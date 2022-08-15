@@ -109,7 +109,7 @@ public class Axe extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat());
+        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat(), new PhysicalDamagePercent());
     }
 
     @Override

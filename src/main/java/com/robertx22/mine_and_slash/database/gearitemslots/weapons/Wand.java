@@ -15,6 +15,7 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.PhysicalDam
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.SpellDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealPowerFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalAttackDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.ManaRegenPercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemStaff;
@@ -111,7 +112,7 @@ public class Wand extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new HealPowerFlat(), new FasterCastRateFlat());
+        return new StatModsHolder(new HealPowerFlat(), new FasterCastRateFlat(), new ManaRegenPercent());
     }
 
     @Override

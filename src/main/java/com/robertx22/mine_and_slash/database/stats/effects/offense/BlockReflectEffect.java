@@ -31,26 +31,10 @@ public class BlockReflectEffect extends BaseDamageEffect {
         return EffectSides.Target;
     }
 
-    public float getEnergyCost(int lvl) {
-        return Energy.getInstance()
-            .getScaling()
-            .scale(1, lvl);
-    }
-
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
-        float cost = getEnergyCost(effect.targetData.getLevel()) / 2;
-
-        ResourcesData.Context ctx = new ResourcesData.Context(effect.targetData, effect.target,
-            ResourcesData.Type.ENERGY, cost,
-            ResourcesData.Use.SPEND
-        );
-
-        effect.targetData.getResources()
-            .modify(ctx);
-
-        float dmg = data.getAverageValue();
+        float dmg = data.getAverageValue(); 
 
         if (effect.isActivelyBlocking) { // check if the blocker is actively blocking, if so, apply bonus damage based on success/failure
             if (effect.isFullyBlocked) {
@@ -76,21 +60,10 @@ public class BlockReflectEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        if ((effect.getEffectType()
+        return ((effect.getEffectType()
             .equals(EffectTypes.BASIC_ATTACK) || effect.getEffectType()
                 .equals(EffectTypes.ATTACK_SPELL) || effect.getEffectType()
-                .equals(EffectTypes.SUMMON_DMG)) && !effect.isDodged) {
-
-            float cost = getEnergyCost(effect.targetData.getLevel());
-
-            ResourcesData.Context ctx = new ResourcesData.Context(effect.targetData, effect.target,
-                ResourcesData.Type.ENERGY, cost,
-                ResourcesData.Use.SPEND
-            );
-            return effect.targetData.getResources()
-                .hasEnough(ctx);
-        }
-        return false;
+                .equals(EffectTypes.SUMMON_DMG)) && !effect.isDodged);
     }
 
 }

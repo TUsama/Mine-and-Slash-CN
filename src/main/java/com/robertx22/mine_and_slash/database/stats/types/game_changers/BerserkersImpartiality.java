@@ -8,6 +8,7 @@ import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDispers
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.EleToPhysicalTransfer;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealPower;
+import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
@@ -47,15 +48,11 @@ public class BerserkersImpartiality extends BaseGameChangerTrait {
     @Override
     public List<ExactStatData> getExactStats() {
 
-        List<ExactStatData> list = new ElementalAttackDamage(Elements.Nature).generateAllSingleVariations()
-                .stream()
-                .map(x -> new ExactStatData(-20, StatModTypes.Multi, x))
-                .collect(Collectors.toList());
-
-        list.add(new ExactStatData(100, StatModTypes.Flat, new EleToPhysicalTransfer()));
-        list.add(new ExactStatData(-25, StatModTypes.Multi, DodgeRating.getInstance()));
-
-        return list;
+        return Arrays.asList(
+                new ExactStatData(-20, StatModTypes.Multi, new ElementalAttackDamage(Elements.Elemental)),
+                new ExactStatData(100, StatModTypes.Flat, new EleToPhysicalTransfer()),
+                new ExactStatData(-25, StatModTypes.Multi, DodgeRating.getInstance())
+        );
     }
 
 }

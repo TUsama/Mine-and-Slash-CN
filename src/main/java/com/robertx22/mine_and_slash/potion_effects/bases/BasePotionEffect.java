@@ -86,7 +86,7 @@ public abstract class BasePotionEffect extends Effect implements ISlashRegistryE
 
     @Override
     public int getMaxSpellLevelBuffed() {
-        return getMaxSpellLevelNormal() + 5;
+        return getMaxSpellLevelNormal() * 2;
     }
 
     @Override

@@ -4,11 +4,15 @@ import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.ArmorPenetration;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalPene;
+import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
+import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.StatModTypes;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,18 +46,13 @@ public class RecklessBlows extends BaseGameChangerTrait {
     @Override
     public List<ExactStatData> getExactStats() {
 
-        List<ExactStatData> list = new ElementalPene(Elements.Nature).generateAllSingleVariations()
-            .stream()
-            .map(x -> new ExactStatData(25, StatModTypes.Flat, x))
-            .collect(Collectors.toList());
-
-        list.add(new ExactStatData(25, StatModTypes.Flat, ArmorPenetration.getInstance()));
-
-        list.add(new ExactStatData(-30, StatModTypes.Multi, MagicShield.getInstance()));
-        list.add(new ExactStatData(-30, StatModTypes.Multi, Armor.getInstance()));
-        list.add(new ExactStatData(-30, StatModTypes.Multi, DodgeRating.getInstance()));
-
-        return list;
+        return Arrays.asList(
+                new ExactStatData(25, StatModTypes.Flat, new ElementalPene(Elements.Elemental)),
+                new ExactStatData(25, StatModTypes.Flat, ArmorPenetration.getInstance()),
+                new ExactStatData(-20, StatModTypes.Multi, MagicShield.getInstance()),
+                new ExactStatData(-20, StatModTypes.Multi, Armor.getInstance()),
+                new ExactStatData(-20, StatModTypes.Multi, DodgeRating.getInstance())
+        );
     }
 
 }

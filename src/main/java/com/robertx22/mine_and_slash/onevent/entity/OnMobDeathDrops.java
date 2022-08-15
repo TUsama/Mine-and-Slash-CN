@@ -132,15 +132,15 @@ public class OnMobDeathDrops {
             exp /= closeList.size();
 
             for (PlayerEntity player : closeList) {
-                exp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, Load.Unit(player), exp); // exp penalty individual to player
+                int splitExp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, Load.Unit(player), exp); // exp penalty individual to player
 
-                if (exp > 0) {
+                if (splitExp > 0) {
                     DmgNumPacket packet = new DmgNumPacket(
-                            victim, Elements.Nature, "+" + NumberUtils.formatNumber(exp) + " Exp!");
+                            victim, Elements.Nature, "+" + NumberUtils.formatNumber(splitExp) + " Exp!");
                     packet.isExp = true;
                     MMORPG.sendToClient(packet, (ServerPlayerEntity) player);
 
-                    Load.Unit(player).PostGiveExpEvent(victim, player, exp);
+                    Load.Unit(player).PostGiveExpEvent(victim, player, splitExp);
                     }
                 }
             }

@@ -1,7 +1,6 @@
 package com.robertx22.mine_and_slash.loot.blueprints;
 
 import com.robertx22.mine_and_slash.database.map_affixes.BaseMapAffix;
-import com.robertx22.mine_and_slash.database.map_affixes.beneficial.BonusEleDmgAffix;
 import com.robertx22.mine_and_slash.database.rarities.BaseRaritiesContainer;
 import com.robertx22.mine_and_slash.database.rarities.MapRarity;
 import com.robertx22.mine_and_slash.db_lists.Rarities;

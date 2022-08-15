@@ -20,7 +20,7 @@ public class BonusEleDmgAffix extends BaseElementalMapAffix {
 
     @Override
     public StatMod.Size getSize() {
-        return StatMod.Size.DOUBLE;
+        return StatMod.Size.HALF;
     }
 
     @Override
@@ -35,8 +35,7 @@ public class BonusEleDmgAffix extends BaseElementalMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(getGenStat().newGeneratedInstance(element).size(getSize()), percent),
-                StatModData.Load(new CompletePhysDispersionFlat(), 100));
+        return Arrays.asList(StatModData.Load(getGenStat().newGeneratedInstance(element).size(getSize()), percent));
     }
 
     @Override
@@ -51,6 +50,6 @@ public class BonusEleDmgAffix extends BaseElementalMapAffix {
 
     @Override
     public float lootMulti() {
-        return 1.4F;
+        return 1.2F;
     }
 }

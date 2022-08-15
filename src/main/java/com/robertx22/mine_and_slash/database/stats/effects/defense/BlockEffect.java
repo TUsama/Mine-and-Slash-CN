@@ -4,7 +4,9 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
 import com.robertx22.mine_and_slash.database.stats.types.defense.BlockStrength;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
+import com.robertx22.mine_and_slash.database.stats.types.resources.Energy;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
+import com.robertx22.mine_and_slash.saveclasses.ResourcesData;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
@@ -34,6 +36,12 @@ public class BlockEffect extends BaseDamageEffect {
         return EffectSides.Target;
     }
 
+    public float getEnergyCost(int lvl) {
+        return Energy.getInstance()
+                .getScaling()
+                .scale(8, lvl);
+    }
+
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
@@ -41,17 +49,29 @@ public class BlockEffect extends BaseDamageEffect {
 
         float postblock = effect.number; // this is the damage
 
+        float cost = getEnergyCost(effect.targetData.getLevel());
+
+        ResourcesData.Context ctx = new ResourcesData.Context(effect.targetData, effect.target,
+                ResourcesData.Type.ENERGY, cost,
+                ResourcesData.Use.SPEND
+        );
+
         if (isActivelyBlocking(effect.target, DamageSource.causeMobDamage(effect.source))) { // if actively blocking, block chance x2
-            effect.isActivelyBlocking = true;
-            blockval = Math.min(blockval * 2, stat.maximumValue);
-            if (RandomUtils.roll(blockval)) { // on success, nullify damage
-                postblock *= 0;
-                effect.isFullyBlocked = true;
-                SoundUtils.playSound(effect.source, SoundEvents.ITEM_SHIELD_BLOCK, 1.1F, 1);
-                SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1.1F, 1);
-            } else { // otherwise, reduce by half still
-                effect.isPartiallyBlocked = true;
-                postblock *= 0.5F;
+            if (effect.targetData.getResources()
+                    .hasEnough(ctx)) {
+                effect.targetData.getResources()
+                        .modify(ctx);
+                effect.isActivelyBlocking = true;
+                blockval = Math.min(blockval * 2, stat.maximumValue);
+                if (RandomUtils.roll(blockval)) { // on success, nullify damage
+                    postblock *= 0;
+                    effect.isFullyBlocked = true;
+                    SoundUtils.playSound(effect.source, SoundEvents.ITEM_SHIELD_BLOCK, 1.1F, 1);
+                    SoundUtils.playSound(effect.target, SoundEvents.ITEM_SHIELD_BLOCK, 1.1F, 1);
+                } else { // otherwise, reduce by half still
+                    effect.isPartiallyBlocked = true;
+                    postblock *= 0.5F;
+                }
             }
         } else if (RandomUtils.roll(blockval)) { // but on success still reduce by 25 percent
             effect.removeKnockback();

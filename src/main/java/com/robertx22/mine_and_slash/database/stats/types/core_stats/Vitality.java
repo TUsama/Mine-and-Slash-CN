@@ -46,7 +46,7 @@ public class Vitality extends BaseCoreStat {
         return Arrays.asList(
                 new HealthFlat(),
                 new HealthRegenFlat().size(StatMod.Size.HALF),
-                new EnergyRegenFlat().size(StatMod.Size.LOW));
+                new EnergyRegenFlat().size(StatMod.Size.HALF));
     }
 
     @Override

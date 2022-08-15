@@ -70,7 +70,7 @@ public class JudgementEffect extends BasePotionEffect implements IApplyStatPotio
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(-3, new ElementalResist(Elements.Elemental)));
-        list.add(new PotionStat(-10, Armor.getInstance()));
+        list.add(new PotionStat(-8, Armor.getInstance()));
         return list;
     }
 

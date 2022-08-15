@@ -19,7 +19,7 @@ public class BonusElePenAffix extends BaseElementalMapAffix {
 
     @Override
     public StatMod.Size getSize() {
-        return StatMod.Size.TEN;
+        return StatMod.Size.QUINT;
     }
 
     @Override

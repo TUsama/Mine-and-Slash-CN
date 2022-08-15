@@ -123,7 +123,7 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new SpellDamageFlat(), new FasterCastRateFlat());
+        return new StatModsHolder(new SpellDamageFlat(), new FasterCastRateFlat(), new ManaOnHitFlat());
     }
 
     @Override

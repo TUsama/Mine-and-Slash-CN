@@ -94,7 +94,7 @@ public class Stats implements ISlashRegistryInit {
                     add(FamiliarInstincts.getInstance());
                     add(Ruthless.INSTANCE);
                     add(EnergySiphoner.INSTANCE);
-                    add(NaturesAvatar.INSTANCE);
+                    add(Avatar.INSTANCE);
                     add(PainControl.INSTANCE);
                     add(ShulkerShell.INSTANCE);
                     add(Conjurer.INSTANCE);

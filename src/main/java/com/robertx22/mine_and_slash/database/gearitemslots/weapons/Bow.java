@@ -16,6 +16,7 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifeOnHit
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.LifestealFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.MagicStealFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalAttackDamageFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemBow;
@@ -101,7 +102,7 @@ public class Bow extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat());
+        return new StatModsHolder(new CriticalDamageFlat(), new CriticalHitFlat(), new PhysicalDamagePercent());
     }
 
     @Override

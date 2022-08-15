@@ -48,7 +48,7 @@ public class Pacifist extends BaseGameChangerTrait {
         return Arrays.asList(
             new ExactStatData(30, StatModTypes.Flat, HealPower.getInstance()),
             new ExactStatData(25, StatModTypes.Flat, ReducedCooldownStat.getInstance()),
-            new ExactStatData(-30, StatModTypes.Flat, SpellDamage.getInstance())
+            new ExactStatData(-50, StatModTypes.Flat, SpellDamage.getInstance())
         );
     }
 

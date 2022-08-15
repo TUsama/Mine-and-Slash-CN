@@ -89,8 +89,8 @@ public class CorrosionEffect extends BasePotionEffect implements IApplyStatPotio
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-250, Armor.getInstance()));
-        list.add(new PotionStat(-250, DodgeRating.getInstance()));
+        list.add(new PotionStat(-60, Armor.getInstance()));
+        list.add(new PotionStat(-60, DodgeRating.getInstance()));
 
         return list;
     }

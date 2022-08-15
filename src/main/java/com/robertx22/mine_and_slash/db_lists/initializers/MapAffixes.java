@@ -34,13 +34,20 @@ public class MapAffixes implements ISlashRegistryInit {
                     add(new BonusArmorPenAffix());
                     //add(new BonusDodgeIgnoreAffix());
                     add(new TeamBonusAffix());
+                    add(new BonusRegenerationAffix());
 
                     add(new BonusPhysDmgAffix());
+                    add(new BonusPhysDispersionAffixx());
 
-                    add(new BonusEleDmgAffix(Elements.Nature));
+                    //add(new BonusEleDmgAffix(Elements.Nature));
                     add(new BonusEleResistAffix(Elements.Nature));
                     add(new BonusElePenAffix(Elements.Nature));
+                    add(new BonusAllElePenAffx());
                     add(new LessEleDmgAffix(Elements.Nature));
+                    add(new BonusPhysToFireAffix());
+                    add(new BonusPhysToWaterAffix());
+                    add(new BonusPhysToThunderAffix());
+                    add(new BonusPhysToNatureAffix());
 
                     add(new LessDodgeAffix());
                     add(new LessArmorAffix());

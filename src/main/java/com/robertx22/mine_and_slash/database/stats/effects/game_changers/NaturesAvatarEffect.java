@@ -12,7 +12,7 @@ public class NaturesAvatarEffect extends BaseDamageEffect {
 
     @Override
     public int GetPriority() {
-        return Priority.Second.priority;
+        return Priority.Last.priority;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class NaturesAvatarEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        return effect.element.equals(Elements.Nature) == false;
+        return !effect.element.equals(Elements.Nature);
     }
 
 }
