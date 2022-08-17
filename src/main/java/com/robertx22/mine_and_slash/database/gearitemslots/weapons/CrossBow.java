@@ -77,7 +77,7 @@ public class CrossBow extends BaseWeapon implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-                new PosStats(new PhysicalDamageFlat()).weight(26000),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER_MORE)).weight(26000),
                 new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF)),
                 new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF)),
                 new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF)),

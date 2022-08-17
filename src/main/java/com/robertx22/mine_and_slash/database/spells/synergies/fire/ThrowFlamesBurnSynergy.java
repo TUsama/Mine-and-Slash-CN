@@ -109,7 +109,7 @@ public class ThrowFlamesBurnSynergy extends OnAttackSpellDmgDoneSynergy {
 
             List<LivingEntity> entities = EntityFinder.start(
                     ctx.source, LivingEntity.class, ctx.target.getPositionVector())
-                    .radius(radius)
+                    .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
                     .build();
 
             entities.forEach(e -> {

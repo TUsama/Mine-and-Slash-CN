@@ -107,11 +107,11 @@ public class Staff extends BaseWeapon implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-                new PosStats(new PhysicalDamageFlat(), new SpellDamageFlat()).weight(16000),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.NORMAL), new SpellDamageFlat()).weight(3000),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.NORMAL), new SpellDamageFlat()).weight(3000),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.NORMAL), new SpellDamageFlat()).weight(3000),
-                new PosStats(new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.NORMAL), new SpellDamageFlat()).weight(3000),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER_MORE), new SpellDamageFlat()).weight(16000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.QUARTER_MORE), new SpellDamageFlat()).weight(3000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.QUARTER_MORE), new SpellDamageFlat()).weight(3000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.QUARTER_MORE), new SpellDamageFlat()).weight(3000),
+                new PosStats(new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.QUARTER_MORE), new SpellDamageFlat()).weight(3000),
                 new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW), new SpellDamageFlat()),
                 new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW), new SpellDamageFlat()),
                 new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW), new SpellDamageFlat()),

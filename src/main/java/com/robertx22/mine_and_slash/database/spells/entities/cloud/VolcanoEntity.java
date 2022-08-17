@@ -56,7 +56,7 @@ public class VolcanoEntity extends BaseInvisibleEntity {
 
                     List<LivingEntity> entities = EntityFinder.start(
                         getCaster(), LivingEntity.class, getPositionVector())
-                        .radius(radius)
+                        .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
                         .build();
 
                     SoundUtils.playSound(this, SoundEvents.BLOCK_FIRE_AMBIENT, 1.1F, 0.8F);

@@ -58,6 +58,7 @@ public class ModItems {
     public static RegistryObject<ResetStatsPotionItem> RESET_STATS = item(() -> new ResetStatsPotionItem());
     public static RegistryObject<ResetSpellsPotionItem> RESET_SPELLS = item(() -> new ResetSpellsPotionItem());
     public static RegistryObject<ResetTalentsPotionItem> RESET_TALENTS = item(() -> new ResetTalentsPotionItem());
+    public static RegistryObject<ResetAllPotionItem> RESET_ALL = item(() -> new ResetAllPotionItem());
 
     public static RegistryObject<AddRemoveSpellPotionItem> ADD_RESET_SPELLS = item(() -> new AddRemoveSpellPotionItem());
     public static RegistryObject<AddRemoveTalentPotionItem> ADD_RESET_TALENTS = item(() -> new AddRemoveTalentPotionItem());

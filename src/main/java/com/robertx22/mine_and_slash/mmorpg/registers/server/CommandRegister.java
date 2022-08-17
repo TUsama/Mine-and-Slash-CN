@@ -12,10 +12,7 @@ import com.robertx22.mine_and_slash.commands.giveitems.*;
 import com.robertx22.mine_and_slash.commands.misc.*;
 import com.robertx22.mine_and_slash.commands.open_gui.OpenHub;
 import com.robertx22.mine_and_slash.commands.party.PartyCommand;
-import com.robertx22.mine_and_slash.commands.reset.ResetSpellCooldowns;
-import com.robertx22.mine_and_slash.commands.reset.ResetSpells;
-import com.robertx22.mine_and_slash.commands.reset.ResetStats;
-import com.robertx22.mine_and_slash.commands.reset.ResetTalents;
+import com.robertx22.mine_and_slash.commands.reset.*;
 import com.robertx22.mine_and_slash.commands.stats.*;
 import net.minecraft.command.CommandSource;
 import net.minecraft.server.MinecraftServer;
@@ -50,6 +47,7 @@ public class CommandRegister {
         RemoveStatMod.register(dispatcher);
         ClearStatMods.register(dispatcher);
         ResetSpells.register(dispatcher);
+        ResetAll.register(dispatcher);
         ResetSpellCooldowns.register(dispatcher);
 
         GiveStat.register(dispatcher);

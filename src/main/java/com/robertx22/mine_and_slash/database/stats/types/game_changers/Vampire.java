@@ -45,7 +45,7 @@ public class Vampire extends BaseGameChangerTrait {
         return Arrays.asList(
             new ExactStatData(4, StatModTypes.Flat, Lifesteal.getInstance()),
             new ExactStatData(2, StatModTypes.Flat, SpellSteal.getInstance()),
-                new ExactStatData(50, StatModTypes.Multi, Lifesteal.getInstance()),
+                new ExactStatData(25, StatModTypes.Multi, Lifesteal.getInstance()),
                 new ExactStatData(25, StatModTypes.Multi, SpellSteal.getInstance()),
             new ExactStatData(-1000, StatModTypes.Multi, HealthRegen.getInstance())
         );

@@ -48,7 +48,7 @@ public class MagmaFlowerTileEntity extends BaseSpellTileEntity {
 
                 List<LivingEntity> entities = EntityFinder.start(
                     caster, LivingEntity.class, new Vec3d(getPos()).add(0.5F, 0, 0.5F))
-                    .radius(RADIUS)
+                    .radius(RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
                     .build();
 
                 SoundUtils.playSound(sdata.getCaster(world), SoundEvents.BLOCK_FIRE_EXTINGUISH, 1, 1);

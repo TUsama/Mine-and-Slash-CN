@@ -75,7 +75,7 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
         }
 
         List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, getPositionVector())
-                .radius((float) radius() * 2)
+                .radius((float) radius() * 2).searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
         entities.forEach(x -> {
@@ -119,7 +119,7 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
             if (!world.isRemote) {
 
                 List<LivingEntity> entities = EntityFinder.start(getCaster(), LivingEntity.class, getPositionVector())
-                        .radius(radius())
+                        .radius(radius()).searchFor(EntityFinder.SearchFor.ENEMIES)
                         .build();
 
                 entities.forEach(x -> {

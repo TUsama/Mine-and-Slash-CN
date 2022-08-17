@@ -67,7 +67,7 @@ public class BlizzardEntity extends BaseCloudEntity {
 
                     List<LivingEntity> entities = EntityFinder.start(
                             getCaster(), LivingEntity.class, getPositionVector())
-                            .radius(RADIUS)
+                            .radius(RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
                             .build();
 
                     entities.forEach(x -> onHit(x));

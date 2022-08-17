@@ -86,7 +86,7 @@ public class PoisonBallEntity extends BaseElementalBoltEntity {
             if (!world.isRemote) {
 
                 List<LivingEntity> entities = EntityFinder.start(getCaster(), LivingEntity.class, getPositionVector())
-                        .radius(radius())
+                        .radius(radius()).searchFor(EntityFinder.SearchFor.ENEMIES)
                         .build();
 
                 entities.forEach(x -> {

@@ -9,7 +9,9 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect.EffectSides;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TeamUtils;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.ArrayList;
@@ -124,6 +126,12 @@ public abstract class EffectData {
     }
 
     public void Activate() {
+
+        if (this.source instanceof ServerPlayerEntity && this.target instanceof ServerPlayerEntity && this.source != this.target) { // do less damage in pvp and make sure its not on self
+            if (!TeamUtils.areOnSameTeam((ServerPlayerEntity) source, (ServerPlayerEntity) target)) {
+                this.number *= 0.25f;
+            }
+        }
 
         calculateEffects();
 

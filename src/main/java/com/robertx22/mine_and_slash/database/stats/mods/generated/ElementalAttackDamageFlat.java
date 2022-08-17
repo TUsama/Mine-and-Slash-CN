@@ -27,22 +27,22 @@ public class ElementalAttackDamageFlat extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 2;
     }
 
     @Override
     public float Max() {
-        return 7;
+        return 4;
     }
 
     @Override
     public float minSecond() {
-        return 6;
+        return 7;
     }
 
     @Override
     public float maxSecond() {
-        return 12;
+        return 11;
     }
 
     @Override

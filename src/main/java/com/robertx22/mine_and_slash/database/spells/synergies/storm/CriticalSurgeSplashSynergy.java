@@ -63,9 +63,9 @@ public class CriticalSurgeSplashSynergy extends OnHitSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 5, 12);
-        c.set(SC.CHANCE, 10, 30);
-        c.set(SC.RADIUS, 1.5F, 3F);
+        c.set(SC.BASE_VALUE, 5, 10);
+        c.set(SC.CHANCE, 10, 25);
+        c.set(SC.RADIUS, 1.5F, 2.5F);
         c.setMaxLevel(8);
         return c;
     }
@@ -88,7 +88,7 @@ public class CriticalSurgeSplashSynergy extends OnHitSynergy {
                 int num = getCalcVal(ctx.source);
 
                 List<LivingEntity> entities = EntityFinder.start(ctx.source, LivingEntity.class, ctx.target.getPositionVector())
-                        .radius(radius)
+                        .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
                         .build();
 
                 ParticlePacketData pdata = new ParticlePacketData(ctx.target.getPosition()

@@ -65,8 +65,8 @@ public class SpearOfJudgementSpell extends BaseSpell {
         c.set(SC.MANA_COST, 12, 18);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 13, 22);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.65F, 0.85F);
+        c.set(SC.BASE_VALUE, 12, 19);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.55F, 0.75F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 4, 4);
         c.set(SC.TIMES_TO_CAST, 1, 1);

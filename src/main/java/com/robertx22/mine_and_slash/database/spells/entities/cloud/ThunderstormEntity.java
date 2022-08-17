@@ -65,7 +65,7 @@ public class ThunderstormEntity extends BaseCloudEntity {
 
                     List<LivingEntity> entities = EntityFinder.start(
                             getCaster(), LivingEntity.class, getPositionVector())
-                            .radius(RADIUS)
+                            .radius(RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
                             .build();
 
                     SoundUtils.playSound(this, SoundEvents.WEATHER_RAIN, 1.1F, 0.8F);

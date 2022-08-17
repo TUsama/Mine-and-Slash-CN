@@ -54,8 +54,6 @@ public class ImbueEffect extends BasePotionEffect {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.BASE_VALUE, 2, 5);
-        p.set(SC.ATTACK_SCALE_VALUE, 0.18F, 0.36F);
         return p;
     }
 
@@ -82,7 +80,7 @@ public class ImbueEffect extends BasePotionEffect {
         list.add(new SText(TextFormatting.GREEN + "damage: "));
 
         list.addAll(getCalc(info.player)
-            .GetTooltipString(info, Load.spells(info.player), this));
+            .GetTooltipString(info, Load.spells(info.player), getSpell()));
 
         return list;
 

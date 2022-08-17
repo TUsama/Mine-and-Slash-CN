@@ -45,7 +45,7 @@ public class Avatar extends BaseGameChangerTrait {
             new ExactStatData(100, StatModTypes.Flat, new PhysicalDispersion()),
                 new ExactStatData(20, StatModTypes.Percent, DodgeRating.getInstance()),
                 new ExactStatData(-10, StatModTypes.Multi, Health.getInstance()),
-            new ExactStatData(-50, StatModTypes.Multi, Armor.getInstance())
+            new ExactStatData(-35, StatModTypes.Multi, Armor.getInstance())
         );
     }
 

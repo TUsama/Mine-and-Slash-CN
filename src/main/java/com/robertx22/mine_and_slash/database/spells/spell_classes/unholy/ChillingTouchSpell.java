@@ -79,7 +79,7 @@ public class ChillingTouchSpell extends BaseSpell {
         List<LivingEntity> list = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector()
             .add(look)
             .add(0, ctx.caster.getHeight() / 2, 0))
-            .finder(EntityFinder.Finder.RADIUS)
+            .finder(EntityFinder.Finder.RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
             .radius(2)
             .height(2)
             .build();
@@ -127,7 +127,7 @@ public class ChillingTouchSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 1.5F, 2.5F);
         c.set(SC.MAGIC_SHIELD_COST, 0.02F, 0.06F);
         c.set(SC.BASE_VALUE, 3, 7);
-        c.set(SC.ATTACK_SCALE_VALUE, 1F, 1.4F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1F, 1.3F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 3, 2);
         c.set(SC.TIMES_TO_CAST, 1, 1);

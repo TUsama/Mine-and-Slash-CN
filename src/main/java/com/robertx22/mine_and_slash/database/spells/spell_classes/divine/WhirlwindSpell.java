@@ -71,9 +71,9 @@ public class WhirlwindSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 12, 17);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.0F, 1.2F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.5F, 0.8F);
         c.set(SC.CAST_TIME_TICKS, 140, 260);
-        c.set(SC.COOLDOWN_SECONDS, 12, 8);
+        c.set(SC.COOLDOWN_SECONDS, 13, 9);
         c.set(SC.RADIUS, 2F, 4F);
         c.set(SC.TIMES_TO_CAST, 20, 80);
 
@@ -133,7 +133,7 @@ public class WhirlwindSpell extends BaseSpell {
             int num = getCalculation(ctx).getCalculatedValue(Load.Unit(caster), ctx.spellsCap, ctx.ability);
 
             List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
-                .radius(radius)
+                .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
             for (LivingEntity en : entities) {

@@ -63,7 +63,7 @@ public class HellFireEntity extends BaseCloudEntity {
 
                     List<LivingEntity> entities = EntityFinder.start(
                             getCaster(), LivingEntity.class, getPositionVector())
-                            .radius(RADIUS)
+                            .radius(RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
                             .build();
 
                     SoundUtils.playSound(this, SoundEvents.BLOCK_FIRE_AMBIENT, 1.1F, 0.9F);

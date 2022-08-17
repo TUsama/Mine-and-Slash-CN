@@ -79,7 +79,7 @@ public class InfernoQuakeSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 4, 6);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 1, 2.5F);
-        c.set(SC.ATTACK_SCALE_VALUE, 2.0F, 2.75F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.8F, 2.25F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 7, 4);
@@ -135,7 +135,7 @@ public class InfernoQuakeSpell extends BaseSpell {
         List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
                 .radius(3)
                 .distance(5)
-                .finder(EntityFinder.Finder.IN_FRONT)
+                .finder(EntityFinder.Finder.IN_FRONT).searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
         int num = ctx.getConfigFor(this)

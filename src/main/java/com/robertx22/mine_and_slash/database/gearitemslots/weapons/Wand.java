@@ -106,7 +106,7 @@ public class Wand extends BaseWeapon implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-                new PosStats(new PhysicalDamageFlat(), new HealPowerFlat())
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER_MORE), new HealPowerFlat())
         );
     }
 

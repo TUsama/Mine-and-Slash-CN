@@ -65,7 +65,7 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
             dmgSelf.Activate();
 
             List<LivingEntity> entities = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
-                    .radius(radius)
+                    .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
                     .build();
 
             for (LivingEntity en : entities) {

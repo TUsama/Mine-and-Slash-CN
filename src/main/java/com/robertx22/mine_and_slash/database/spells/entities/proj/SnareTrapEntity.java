@@ -99,7 +99,7 @@ public class SnareTrapEntity extends EntityBaseProjectile {
                 }
 
                 List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, getPositionVector())
-                    .radius(RADIUS)
+                    .radius(RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
                     .build();
                 /*
                 if (entities.size() > 0 & !this.getEntityFound()) { // checks to see if the trap has detected any entities.

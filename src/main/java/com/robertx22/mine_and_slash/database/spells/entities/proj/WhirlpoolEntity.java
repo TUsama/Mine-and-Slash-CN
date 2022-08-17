@@ -77,7 +77,7 @@ public class WhirlpoolEntity extends EntityBaseProjectile {
                     }
 
                     List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, getPositionVector())
-                            .radius(RADIUS)
+                            .radius(RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
                             .build();
 
                     entities.forEach(x -> {

@@ -1,3 +1,19 @@
+3.14.11:
+- Added a Reset All command which resets stats, spells, and talents at once. Useful for testing builds.
+- Add Remove Talent Potion now gives you 3 removal points rather than 1.
+- Added a new craftable Reset All potion that uses 2 Lapis Lazuli and 1 of each reset potion.
+- Reduced sources of lifesteal and spellsteal stats.
+- Vampire gives a smaller multi on lifesteal now. The rest of it remains unchanged.
+- Reduced the armor penalty of Avatar.
+- Mob base damage has increased slightly.
+- Increased physical damage of weapons when they only roll physical damage.
+- Reduced the attack scaling of attack spells to compensate for the increase in physical damage of weapons.
+- Defend now gives 35% instead of 50% damage reduction at max level, and puts a 15% move speed debuff on the caster.
+- Increased Unholy Meditation heal values.
+- AOE spells now specifically look for enemies only.
+- Fixed a bug where if you were on a team or in a party, you couldn't hit yourself.
+- Chain Lightning no longer targets armor stands.
+
 3.14.10:
 - Nature's Avatar has been reworked and renamed to just Avatar. Instead of converting everything into nature damage, it now gives Physical Dispersion, dodge, and some penalties to health and armor.
 - Increased the spell damage penalty on Pacifist.
