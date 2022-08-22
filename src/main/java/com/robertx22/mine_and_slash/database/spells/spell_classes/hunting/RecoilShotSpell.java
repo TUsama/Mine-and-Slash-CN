@@ -125,7 +125,7 @@ public class RecoilShotSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Shoot an arrow and quickly step back: "));
 

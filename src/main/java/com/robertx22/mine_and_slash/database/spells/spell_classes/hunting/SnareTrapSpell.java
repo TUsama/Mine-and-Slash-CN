@@ -104,9 +104,13 @@ public class SnareTrapSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
+
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Traps must be set on the ground for at least 1s"));
         list.add(new StringTextComponent(TextFormatting.GRAY + "before activating."));
+        TooltipUtils.addEmpty(list);
+
         list.add(new StringTextComponent("Throw out a trap that explodes, dealing"));
         list.add(new StringTextComponent("AOE physical damage and snaring enemies"));
         list.add(new StringTextComponent("in place: "));

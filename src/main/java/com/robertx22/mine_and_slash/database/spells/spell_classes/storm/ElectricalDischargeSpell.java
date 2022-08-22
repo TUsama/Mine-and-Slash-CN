@@ -73,7 +73,7 @@ public class ElectricalDischargeSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 9, 6);
+        c.set(SC.COOLDOWN_SECONDS, 10, 7);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
@@ -106,7 +106,7 @@ public class ElectricalDischargeSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new SText("Discharge your mana, dealing 20% of nearby enemies'"));
+        list.add(new SText("Discharge your mana, dealing 18% of nearby enemies'"));
         list.add(new SText("remaining health and magic shield as lightning damage: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
@@ -135,7 +135,7 @@ public class ElectricalDischargeSpell extends BaseSpell {
             for (LivingEntity en : entities) {
 
                 EntityCap.UnitData data = Load.Unit(en);
-                int num = (int) (data.getUnit().getCurrentEffectiveHealth(en, data) * 0.20F);
+                int num = (int) (data.getUnit().getCurrentEffectiveHealth(en, data) * 0.18F);
 
                 SpellDamageEffect dmg = new SpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en), this);
                 dmg.Activate();

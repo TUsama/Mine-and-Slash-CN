@@ -59,8 +59,8 @@ public class CriticalSurgeEffect extends BasePotionEffect implements IApplyStatP
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(5, CriticalHit.getInstance()));
-        list.add(new PotionStat(7, SpellDamage.getInstance()));
+        list.add(new PotionStat(4, CriticalHit.getInstance()));
+        list.add(new PotionStat(8, SpellDamage.getInstance()));
         return list;
     }
 

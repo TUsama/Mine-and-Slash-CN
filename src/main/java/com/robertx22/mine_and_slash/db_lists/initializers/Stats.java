@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.stats.types.UnknownStat;
 import com.robertx22.mine_and_slash.database.stats.types.class_based.RogueStealth;
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.*;
 import com.robertx22.mine_and_slash.database.stats.types.defense.*;
+import com.robertx22.mine_and_slash.database.stats.types.defense.conversions.ArmorToMagicShieldConversion;
 import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllDotDmg;
 import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllEleDmg;
 import com.robertx22.mine_and_slash.database.stats.types.game_changers.*;
@@ -18,6 +19,7 @@ import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.Phy
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToThunderConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToWaterConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.EleToPhysicalTransfer;
+import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.PhysicalToFireTransfer;
 import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.PhysicalToNatureTransfer;
 import com.robertx22.mine_and_slash.database.stats.types.resources.*;
 import com.robertx22.mine_and_slash.database.stats.types.resources.conversions.EnergyToManaConversion;
@@ -182,10 +184,12 @@ public class Stats implements ISlashRegistryInit {
                     add(new PhysicalToWaterConversion());
                     add(new PhysicalToThunderConversion());
                     add(new PhysicalToNatureConversion());
+                    add(new ArmorToMagicShieldConversion());
 
                     // transfers
                     add(new EleToPhysicalTransfer());
                     add(new PhysicalToNatureTransfer());
+                    add(new PhysicalToFireTransfer());
 
                     // lord traits
                     add(new LordOfVolcanoesTrait());

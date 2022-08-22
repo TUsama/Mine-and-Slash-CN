@@ -16,7 +16,7 @@ public class EleWepDmgEffect extends BaseDamageEffect {
 
     @Override
     public int GetPriority() {
-        return Priority.Second.priority;
+        return Priority.afterThis(WeaponDamageEffect.INSTANCE.GetPriority());
     }
 
     @Override
@@ -26,7 +26,12 @@ public class EleWepDmgEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-        effect.number *= data.getMultiplier();
+
+        effect.wepMultiBonusEleDmg(data.getMultiplier());
+
+        if (effect.isElemental()) {
+            effect.number *= data.getMultiplier();
+        }
 
         return effect;
     }
@@ -37,7 +42,7 @@ public class EleWepDmgEffect extends BaseDamageEffect {
         if ((effect.getEffectType() == EffectData.EffectTypes.BASIC_ATTACK || effect.getEffectType()
                 .equals(EffectData.EffectTypes.ATTACK_SPELL) || effect.getEffectType()
                 .equals(EffectData.EffectTypes.SUMMON_DMG))) {
-            if (stat instanceof EleWepDmg && effect.isElemental()) {
+            if (stat instanceof EleWepDmg) {
                 try {
                     EleWepDmg weapon = (EleWepDmg) stat;
                     GearItemData gear = Gear.Load(effect.source.getHeldItemMainhand());

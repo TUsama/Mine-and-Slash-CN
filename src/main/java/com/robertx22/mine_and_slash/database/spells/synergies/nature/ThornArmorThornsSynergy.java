@@ -35,7 +35,7 @@ public class ThornArmorThornsSynergy extends OnBasicAttackSynergy {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("While Nature's Armor is active, hits"));
+        list.add(new StringTextComponent("While Nature's Armor is active, attacks"));
         list.add(new StringTextComponent("have a chance to apply: " + ThornsEffect.INSTANCE.locNameForLangFile()));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
@@ -50,12 +50,9 @@ public class ThornArmorThornsSynergy extends OnBasicAttackSynergy {
             .get(SC.CHANCE)
             .get(Load.spells(ctx.source), this);
 
-        if (PotionEffectUtils.has(ctx.source, ThornArmorEffect.INSTANCE)) {
-
-            if (RandomUtils.roll(chance)) {
-                if (PotionEffectUtils.has(ctx.source, ThornArmorEffect.INSTANCE)) {
-                    PotionEffectUtils.apply(ThornsEffect.INSTANCE, ctx.source, ctx.target);
-                }
+        if (RandomUtils.roll(chance)) {
+            if (PotionEffectUtils.has(ctx.source, ThornArmorEffect.INSTANCE)) {
+                PotionEffectUtils.apply(ThornsEffect.INSTANCE, ctx.source, ctx.target);
             }
         }
     }
@@ -69,7 +66,7 @@ public class ThornArmorThornsSynergy extends OnBasicAttackSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 25, 75);
+        c.set(SC.CHANCE, 30, 50);
         c.setMaxLevel(4);
         return c;
     }

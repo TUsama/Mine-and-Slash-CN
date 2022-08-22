@@ -159,7 +159,7 @@ public class PurifyingFiresSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summon a blade of holy flame to sweep"));
         list.add(new StringTextComponent("enemies in front of you: "));

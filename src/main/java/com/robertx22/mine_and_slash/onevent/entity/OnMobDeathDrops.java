@@ -92,6 +92,30 @@ public class OnMobDeathDrops {
 
     }
 
+    public static List<PlayerEntity> getOnlineVanillaTeamMembers(PlayerEntity player) {
+        List<PlayerEntity> players = new ArrayList<>();
+
+        try {
+            player.getServer()
+                    .getPlayerList()
+                    .getPlayers()
+                    .forEach(x -> {
+                        if (player.isOnSameTeam(x)) {
+                            players.add(x);
+                        }
+
+                    });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (players.isEmpty()) {
+            players.add(player);
+        }
+
+        return players;
+    }
+
     private static void GiveExp(LivingEntity victim, PlayerEntity killer, UnitData killerData, UnitData mobData, float multi) {
 
         int exp = (int) (mobData.getLevel() * Rarities.Mobs.get(mobData.getRarity())
@@ -118,6 +142,7 @@ public class OnMobDeathDrops {
 
         if (exp > 0) {
 
+            //List<PlayerEntity> listVanilla = getOnlineVanillaTeamMembers(killer); // list with ALL the members
             List<PlayerEntity> list = TeamUtils.getOnlineTeamMembers(killer); // list with ALL the members
             List<PlayerEntity> closeList = new ArrayList<>(); // list with only nearby members
 

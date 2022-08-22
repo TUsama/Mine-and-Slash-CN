@@ -53,6 +53,7 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> CHAIN_LIGHTNING;
 
     public static final EntityType<? extends Entity> FIREBOLT;
+    public static final EntityType<? extends Entity> ARCHONBALL;
     public static final EntityType<? extends Entity> FIRE_BOMB;
     public static final EntityType<? extends Entity> THROW_FLAMES;
     public static final EntityType<? extends Entity> VOLCANO;
@@ -64,6 +65,7 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> STEAM_CLOUD;
     public static final EntityType<? extends Entity> CHILLING_FIELD;
     public static final EntityType<? extends Entity> FROSTBOLT;
+    public static final EntityType<? extends Entity> RIMEBALL;
     public static final EntityType<? extends Entity> WHIRPOOL;
     public static final EntityType<? extends Entity> BLIZZARD;
     public static final EntityType<? extends Entity> TIDAL_WAVE;
@@ -103,6 +105,7 @@ public class EntityRegister {
         STEAM_CLOUD = projectile(SteamCloudEntity::new, SteamCloudEntity::new, "steam_cloud");
         BLIZZARD = projectile(BlizzardEntity::new, BlizzardEntity::new, "blizzard");
         FROSTBOLT = projectile(FrostballEntity::new, FrostballEntity::new, "frostball");
+        RIMEBALL = projectile(RimeballEntity::new, RimeballEntity::new, "rimeball");
         FROZEN_ORB = projectile(FrozenOrbEntity::new, FrozenOrbEntity::new, "frozen_orb");
         WHIRPOOL = projectile(WhirlpoolEntity::new, WhirlpoolEntity::new, "whirlpool");
         TIDAL_WAVE = projectile(TidalWaveEntity::new, TidalWaveEntity::new, "tidal_wave");
@@ -121,6 +124,7 @@ public class EntityRegister {
         CHAIN_LIGHTNING = projectile(ChainLightningEntity::new, ChainLightningEntity::new, "chain_lightning");
 
         FIREBOLT = projectile(FireballEntity::new, FireballEntity::new, "fireball");
+        ARCHONBALL = projectile(ArchonballEntity::new, ArchonballEntity::new, "archon_ball");
         FIRE_BOMB = projectile(FireBombEntity::new, FireBombEntity::new, "fire_bomb");
         THROW_FLAMES = projectile(ThrowFlameEntity::new, ThrowFlameEntity::new, "seeker_flame");
         VOLCANO = projectile(VolcanoEntity::new, VolcanoEntity::new, "volcano");
@@ -174,7 +178,7 @@ public class EntityRegister {
 
         ARCHON_PET = EntityType.Builder.<ArchonPetEntity>create(ArchonPetEntity::new, EntityClassification.MONSTER).setCustomClientFactory(
                 ArchonPetEntity::new)
-                .size(1.4F, 0.9F)
+                .size(0.6F, 1.2F)
                 .build(Ref.MODID + ":archon_pet");
         ARCHON_PET.setRegistryName(new ResourceLocation(Ref.MODID, "archon_pet"));
         ENTITY_TYPES.add(ARCHON_PET);

@@ -2,6 +2,8 @@ package com.robertx22.mine_and_slash.database.stats.types.offense.conversions;
 
 import com.robertx22.mine_and_slash.database.stats.ConversionMethod;
 import com.robertx22.mine_and_slash.database.stats.Stat;
+import com.robertx22.mine_and_slash.database.stats.effects.offense.PhysicalToFireEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.offense.PhysicalToHighestEle;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.EnergyRegen;
@@ -9,18 +11,23 @@ import com.robertx22.mine_and_slash.database.stats.types.resources.ManaRegen;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatConversion;
+import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
+import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PhysicalToFireConversion extends Stat implements IStatConversion {
+public class PhysicalToFireConversion extends Stat implements IStatEffects {
 
     public static String GUID = "phys_to_fire_conversion";
 
-    @Override
-    public List<ConversionMethod> conversion() {
-        return Arrays.asList(new ConversionMethod(PhysicalDamage.getInstance(), new ElementalAttackDamage(Elements.Fire)));
+    public PhysicalToFireConversion() {
+        this.maximumValue = 100;
+    }
 
+    @Override
+    public IStatEffect getEffect() {
+        return PhysicalToFireEffect.INSTANCE;
     }
 
     @Override

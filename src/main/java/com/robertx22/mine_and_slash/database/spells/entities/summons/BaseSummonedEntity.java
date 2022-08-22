@@ -1,11 +1,20 @@
 package com.robertx22.mine_and_slash.database.spells.entities.summons;
 
 import com.robertx22.mine_and_slash.database.spells.entities.bases.ISpellEntity;
+import com.robertx22.mine_and_slash.potion_effects.all.BleedPotion;
+import com.robertx22.mine_and_slash.potion_effects.all.SummonTauntEffect;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
+import com.robertx22.mine_and_slash.potion_effects.shaman.CriticalSurgeEffect;
 import com.robertx22.mine_and_slash.saveclasses.EntitySpellData;
 import com.robertx22.mine_and_slash.uncommon.datasaving.EntitySpellDataSaving;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TeamUtils;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.passive.IronGolemEntity;
+import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,6 +28,7 @@ import net.minecraft.world.*;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
+import java.util.Collection;
 
 public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
     EntitySpellData spellData;
@@ -69,8 +79,9 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
     protected void registerAttributes() {
         super.registerAttributes();
 
+        System.out.println("beginning attributes");
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
-            .setBaseValue((double) 0.3F);
+            .setBaseValue((double) 0.4F);
 
         this.getAttribute(SharedMonsterAttributes.MAX_HEALTH)
             .setBaseValue(15.0D);
@@ -120,8 +131,23 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
     }
 
     @Override
+    protected void registerGoals() {
+        this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1.0D, true));
+        this.goalSelector.addGoal(6, new SwimGoal(this));
+        this.goalSelector.addGoal(7, new FollowOwnerGoal(this, 1.0D, 6.0F, 1.0F, false));
+        this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
+        this.goalSelector.addGoal(10, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
+        this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
+        this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setCallsForHelp());
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, MobEntity.class, false));
+    }
+
+    @Override
     public boolean canAttack(LivingEntity target) {
-        return !this.isOwner(target) && !this.isOnSameTeam(target) && super.canAttack(target);
+        System.out.println("can attack");
+        return !this.isOwner(target) && !this.isOnSameTeam(target) && !(target instanceof AgeableEntity) && !(target instanceof IronGolemEntity || target instanceof SnowGolemEntity) && super.canAttack(target);
     }
 
     @Override
@@ -155,8 +181,20 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
                     return true;
                 }
 
-                if (livingentity != null && entityIn instanceof PlayerEntity) {
-                    return livingentity.isOnSameTeam(entityIn) || TeamUtils.areOnSameTeam((ServerPlayerEntity) livingentity, (ServerPlayerEntity) entityIn);
+                if (livingentity != null) {
+
+                    if (entityIn instanceof PlayerEntity) {
+                        return livingentity.isOnSameTeam(entityIn) || TeamUtils.areOnSameTeam((ServerPlayerEntity) livingentity, (ServerPlayerEntity) entityIn);
+                    }
+
+                    if (entityIn instanceof TameableEntity) {
+                        if (((TameableEntity) entityIn).isTamed()) {
+                            if (((TameableEntity) entityIn).getOwner() != null) {
+                                LivingEntity targetOwner = ((TameableEntity) entityIn).getOwner();
+                                return livingentity.isOnSameTeam(targetOwner) || TeamUtils.areOnSameTeam((ServerPlayerEntity) livingentity, (ServerPlayerEntity) targetOwner);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -169,6 +207,7 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
 
         if (super.attackEntityAsMob(en)) {
             if (en instanceof LivingEntity) {
+                LivingEntity lEn = (LivingEntity) en;
                 if (this.world.getDifficulty() != Difficulty.PEACEFUL) {
 
                     if (this.spellData != null) {
@@ -176,13 +215,15 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
                         {
                             if (this.getOwner() != null && this.world != null) {
                                 if (this.getOwner().getEntityWorld() == this.world) {
-                                    dealSummonDamageTo((LivingEntity) en);
-                                    if (this != null && en != null) {
-                                        ((LivingEntity) en).setRevengeTarget(this);
-                                        if (en instanceof MobEntity) {
-                                            ((MobEntity) en).setAttackTarget(this);
+                                    System.out.println("taunt check");
+                                    if (!PotionEffectUtils.has(lEn, SummonTauntEffect.INSTANCE)) {
+                                        PotionEffectUtils.apply(SummonTauntEffect.INSTANCE, this.getOwner(), lEn);
+                                        if (lEn instanceof MobEntity) {
+                                            lEn.setRevengeTarget(this);
+                                            ((MobEntity) lEn).setAttackTarget(this);
                                         }
                                     }
+                                    dealSummonDamageTo(lEn);
                                 }
                             }
                         }

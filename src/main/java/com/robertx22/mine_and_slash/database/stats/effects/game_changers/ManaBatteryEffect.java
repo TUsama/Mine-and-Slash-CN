@@ -2,10 +2,13 @@ package com.robertx22.mine_and_slash.database.stats.effects.game_changers;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.defense.BlockEffect;
 import com.robertx22.mine_and_slash.database.stats.effects.defense.MagicShieldEffect;
 import com.robertx22.mine_and_slash.saveclasses.ResourcesData;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TeamUtils;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.math.MathHelper;
 
 public class ManaBatteryEffect extends BaseDamageEffect {
@@ -32,6 +35,12 @@ public class ManaBatteryEffect extends BaseDamageEffect {
             .getAverageValue();
 
         float dmgReduced = MathHelper.clamp(effect.number * 0.3F, 0, currentMana);
+
+        if (effect.source instanceof ServerPlayerEntity && effect.target instanceof ServerPlayerEntity && !effect.isSamePlayer()) {
+            if (TeamUtils.areOnSameTeam((ServerPlayerEntity) effect.source, (ServerPlayerEntity) effect.target)) {
+                dmgReduced = 0;
+            }
+        }
 
         if (dmgReduced > 0) {
 

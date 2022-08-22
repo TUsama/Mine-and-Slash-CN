@@ -81,6 +81,7 @@ public class GorgonsGazeSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 18, 12);
         c.set(SC.DURATION_TICKS, 80, 140);
         c.set(SC.TICK_RATE, 20, 20);
+        c.set(SC.RADIUS, 15, 15);
 
         c.setMaxLevel(8);
 
@@ -102,7 +103,7 @@ public class GorgonsGazeSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Damages all enemies in front of you and turn"));
         list.add(new StringTextComponent("them into stone:"));
@@ -125,6 +126,10 @@ public class GorgonsGazeSpell extends BaseSpell {
     @Override
     public void castExtra(SpellCastContext ctx) {
 
+        float RADIUS = ctx.getConfigFor(this)
+                .get(SC.RADIUS)
+                .get(ctx.spellsCap, this);
+
         LivingEntity caster = ctx.caster;
 
         World world = caster.world;
@@ -132,8 +137,8 @@ public class GorgonsGazeSpell extends BaseSpell {
         SoundUtils.playSound(caster, ModSounds.STONE_CRACK.get(), 1, 1);
 
         List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
-                .radius(3)
-                .distance(15)
+                .radius(RADIUS * 0.2F)
+                .distance(RADIUS)
                 .finder(EntityFinder.Finder.IN_FRONT)
                 .searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
@@ -152,8 +157,8 @@ public class GorgonsGazeSpell extends BaseSpell {
         }
 
         EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
-            .radius(3)
-            .distance(15)
+            .radius(RADIUS * 0.2F)
+            .distance(RADIUS)
             .finder(EntityFinder.Finder.IN_FRONT)
             .build()
             .forEach(x -> PotionEffectUtils.apply(PetrifyEffect.INSTANCE, caster, x));

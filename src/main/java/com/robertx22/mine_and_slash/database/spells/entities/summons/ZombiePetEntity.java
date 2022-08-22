@@ -71,21 +71,6 @@ public class ZombiePetEntity extends BaseSummonedEntity implements IRangedAttack
     }
 
     @Override
-    protected void registerGoals() {
-        this.sitGoal = new SitGoal(this);
-        this.goalSelector.addGoal(1, new SwimGoal(this));
-        this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.0D, 8.0F, 1.0F, false));
-        this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-        this.goalSelector.addGoal(10, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
-        this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
-        this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setCallsForHelp());
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, false));
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.ENTITY_ZOMBIE_AMBIENT;
     }

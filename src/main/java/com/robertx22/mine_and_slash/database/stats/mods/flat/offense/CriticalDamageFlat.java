@@ -9,12 +9,12 @@ public class CriticalDamageFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 8;
+        return 4;
     }
 
     @Override
     public float Max() {
-        return 20;
+        return 12;
     }
 
     @Override

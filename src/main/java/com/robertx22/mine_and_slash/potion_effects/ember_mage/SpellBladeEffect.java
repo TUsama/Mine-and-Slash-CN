@@ -9,6 +9,7 @@ import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAtta
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalInfusion;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToFireConversion;
+import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.PhysicalToFireTransfer;
 import com.robertx22.mine_and_slash.database.stats.types.resources.ManaRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -53,7 +54,7 @@ public class SpellBladeEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(60, new PhysicalToFireConversion()));
+        list.add(new PotionStat(60, new PhysicalToFireTransfer()));
         list.add(new PotionStat(100, new ElementalInfusion(Elements.Fire)));
         return list;
     }

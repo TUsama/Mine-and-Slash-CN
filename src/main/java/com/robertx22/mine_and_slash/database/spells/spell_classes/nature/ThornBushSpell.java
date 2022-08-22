@@ -98,7 +98,7 @@ public class ThornBushSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new SText("Summons a bush that attacks enemies nearby: "));
 

@@ -58,7 +58,7 @@ public class PowerSurgeEffect extends BasePotionEffect implements IApplyStatPoti
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(15, new ElementalSpellDamage(Elements.Elemental)));
-        list.add(new PotionStat(7, new ElementalAttackDamage(Elements.Thunder)));
+        list.add(new PotionStat(9, new ElementalAttackDamage(Elements.Thunder)));
         return list;
     }
 

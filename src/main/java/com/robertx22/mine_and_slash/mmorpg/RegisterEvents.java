@@ -11,6 +11,7 @@ import com.robertx22.mine_and_slash.onevent.ontick.OnBossTick;
 import com.robertx22.mine_and_slash.onevent.ontick.OnClientTick;
 import com.robertx22.mine_and_slash.onevent.ontick.OnServerTick;
 import com.robertx22.mine_and_slash.onevent.player.*;
+import com.robertx22.mine_and_slash.onevent.world.WorldEvents;
 import com.robertx22.mine_and_slash.onevent.world.WorldTickMinute;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -24,6 +25,7 @@ public class RegisterEvents {
         registerItemEvents();
         registerEntityEvents();
         registerPlayerEvents();
+        //registerWorldEvents();
     }
 
     private static void register(Class theclass) {
@@ -87,6 +89,16 @@ public class RegisterEvents {
             FMLJavaModLoadingContext.get()
                 .getModEventBus()
                 .register(ItemDyeRegister.class);
+
+        });
+
+    }
+
+    private static void registerWorldEvents() {
+
+        register(WorldEvents.class);
+
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
 
         });
 

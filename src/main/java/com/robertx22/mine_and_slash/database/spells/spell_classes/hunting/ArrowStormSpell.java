@@ -99,7 +99,7 @@ public class ArrowStormSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summons an arrow storm, dealing damage with each arrow: "));
 

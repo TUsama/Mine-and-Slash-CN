@@ -80,6 +80,14 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
         return this.element != null && this.element != Elements.Physical;
     }
 
+    public void wepMultiBonusEleDmg(float multi) {
+        for (Entry<Elements, Integer> entry : bonusElementDamageMap.entrySet()) {
+            if (entry.getValue() > 0) {
+                entry.setValue((int) (entry.getValue() * multi));
+            }
+        }
+    }
+
     public Elements getHighestBonusElementalDamageElement() {
 
         int highest = 0;

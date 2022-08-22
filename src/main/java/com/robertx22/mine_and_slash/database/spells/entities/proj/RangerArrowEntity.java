@@ -124,7 +124,7 @@ public class RangerArrowEntity extends EntityBaseProjectile {
                 for (LivingEntity en : entities) {
                     if (en != entity) {
                         SpellDamageEffect dmgAoe = this.getSetupSpellDamage(en);
-                        dmgAoe.number = (dmgAoe.number + add) / 2; //halves damage after adding imbue, if available
+                        dmgAoe.number = (dmgAoe.number + add) * 0.5F; //halves damage after adding imbue, if available
                         dmgAoe.Activate();
                     }
                 }

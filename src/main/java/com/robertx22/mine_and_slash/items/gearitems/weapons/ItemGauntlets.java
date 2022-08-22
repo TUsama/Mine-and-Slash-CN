@@ -1,4 +1,4 @@
-/*package com.robertx22.mine_and_slash.items.gearitems.weapons;
+package com.robertx22.mine_and_slash.items.gearitems.weapons;
 
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.items.gearitems.bases.BaseWeaponItem;
@@ -45,5 +45,3 @@ public class ItemGauntlets extends BaseWeaponItem {
     }
 
 }
-
- */

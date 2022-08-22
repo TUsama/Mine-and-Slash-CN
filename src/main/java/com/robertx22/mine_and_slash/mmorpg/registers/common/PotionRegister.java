@@ -1,6 +1,5 @@
 package com.robertx22.mine_and_slash.mmorpg.registers.common;
 
-import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.SpeedyEffect;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.all.*;
 import com.robertx22.mine_and_slash.potion_effects.divine.*;
@@ -8,6 +7,7 @@ import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.*;
 import com.robertx22.mine_and_slash.potion_effects.necromancer.*;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
+import com.robertx22.mine_and_slash.potion_effects.physical.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.*;
 import com.robertx22.mine_and_slash.potion_effects.shaman.*;
 import net.minecraft.potion.Effect;
@@ -28,6 +28,7 @@ public class PotionRegister {
         reg.register(RechargeEffect.INSTANCE);
         reg.register(TeleportProtection.INSTANCE);
         reg.register(BleedPotion.INSTANCE);
+        reg.register(SummonTauntEffect.INSTANCE);
         reg.register(WeakenCurseEffect.INSTANCE);
         reg.register(MobChillEffect.INSTANCE);
         reg.register(ChainLightningEffect.INSTANCE);
@@ -41,6 +42,7 @@ public class PotionRegister {
         reg.register(TrickeryEffect.INSTANCE);
         reg.register(FrostShieldEffect.INSTANCE);
         reg.register(NourishmentEffect.INSTANCE);
+        reg.register(PurityEffect.INSTANCE);
         reg.register(IceBladeEffect.INSTANCE);
         reg.register(FrozenEffect.INSTANCE);
         reg.register(FirePowerEffect.INSTANCE);
@@ -58,6 +60,8 @@ public class PotionRegister {
         //reg.register(ShockwaveEffect.INSTANCE);
         //reg.register(ShatterCastEffect.INSTANCE);
         reg.register(ThornArmorEffect.INSTANCE);
+        reg.register(BlazingShellEffect.INSTANCE);
+        reg.register(ArcticArmorEffect.INSTANCE);
         reg.register(StaticEffect.INSTANCE);
         reg.register(CriticalSurgeEffect.INSTANCE);
         reg.register(PowerSurgeEffect.INSTANCE);
@@ -87,8 +91,15 @@ public class PotionRegister {
         reg.register(FleshandMindSacrificeEffect.INSTANCE);
         reg.register(SoulShredEffect.INSTANCE);
         reg.register(SummonedZombieEffect.INSTANCE);
+        reg.register(SummonedArchonEffect.INSTANCE);
         reg.register(SummonedSkeletonEffect.INSTANCE);
         reg.register(SummonedWolfEffect.INSTANCE);
+
+        reg.register(ComboStarterEffect.INSTANCE);
+        reg.register(ComboLinkerEffect.INSTANCE);
+        reg.register(ArmorBreakEffect.INSTANCE);
+        reg.register(EarthenShellEffect.INSTANCE);;
+        reg.register(DebilitatedEffect.INSTANCE);
 
     }
 

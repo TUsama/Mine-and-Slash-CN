@@ -2,23 +2,30 @@ package com.robertx22.mine_and_slash.database.stats.types.offense.conversions;
 
 import com.robertx22.mine_and_slash.database.stats.ConversionMethod;
 import com.robertx22.mine_and_slash.database.stats.Stat;
+import com.robertx22.mine_and_slash.database.stats.effects.offense.PhysicalToFireEffect;
+import com.robertx22.mine_and_slash.database.stats.effects.offense.PhysicalToNatureEffect;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.saveclasses.spells.StatScaling;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatConversion;
+import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
+import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PhysicalToNatureConversion extends Stat implements IStatConversion {
+public class PhysicalToNatureConversion extends Stat implements IStatEffects {
 
     public static String GUID = "phys_to_nature_conversion";
 
-    @Override
-    public List<ConversionMethod> conversion() {
-        return Arrays.asList(new ConversionMethod(PhysicalDamage.getInstance(), new ElementalAttackDamage(Elements.Nature)));
+    public PhysicalToNatureConversion() {
+        this.maximumValue = 100;
+    }
 
+    @Override
+    public IStatEffect getEffect() {
+        return PhysicalToNatureEffect.INSTANCE;
     }
 
     @Override

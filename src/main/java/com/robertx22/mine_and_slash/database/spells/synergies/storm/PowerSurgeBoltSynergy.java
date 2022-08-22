@@ -43,14 +43,18 @@ public class PowerSurgeBoltSynergy extends OnHitSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy (Bolt)"));
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Power Surge"));
 
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Bolt damage is a special damage type and is"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "unaffected by spell damage modifiers."));
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("While Power Surge is active, hits"));
         list.add(new StringTextComponent("have a chance of summoning a bolt"));
-        list.add(new StringTextComponent("of lightning on the enemy: "));
+        list.add(new StringTextComponent("of lightning on the enemy, dealing"));
+        list.add(new StringTextComponent("bolt damage: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -65,7 +69,7 @@ public class PowerSurgeBoltSynergy extends OnHitSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 6);
+        c.set(SC.BASE_VALUE, 3, 6);
         c.set(SC.CHANCE, 5F, 20F);
         c.setMaxLevel(8);
         return c;
@@ -82,17 +86,19 @@ public class PowerSurgeBoltSynergy extends OnHitSynergy {
 
         if (PotionEffectUtils.has(ctx.source, PowerSurgeEffect.INSTANCE)) {
 
-            if (RandomUtils.roll(chance)) {
+            if (RandomUtils.roll(chance) && ctx.getEffectType() == EffectData.EffectTypes.SPELL) {
 
                 int num = getPreCalcConfig().getCalc(Load.spells(ctx.source), this)
                         .getCalculatedValue(ctx.sourceData, Load.spells(ctx.source), this);
 
-                SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.8F, 2);
+                //SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.8F, 2);
 
                 SpellUtils.summonLightningStrike(ctx.target);
 
+                SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.75F, 1);
+
                 DamageEffect dmg = new DamageEffect(
-                        null, ctx.source, ctx.target, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
+                        null, ctx.source, ctx.target, num, EffectData.EffectTypes.BOLT, WeaponTypes.None);
                 dmg.element = Elements.Thunder;
                 dmg.Activate();
 

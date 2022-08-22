@@ -36,8 +36,8 @@ public class LightningTotemEnhancedSynergy extends Synergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 5, 5);
-        c.set(SC.BASE_VALUE, -2, -2);
+        c.set(SC.MANA_COST, 4, 4);
+        c.set(SC.BASE_VALUE, -4, -4);
         c.set(SC.COOLDOWN_SECONDS, -4, -4);
     }
 

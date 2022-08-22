@@ -45,11 +45,11 @@ public class FrostShieldBuff extends BaseOceanBuffSpell{
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 9, 15);
+        c.set(SC.MANA_COST, 10, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.CAST_TIME_TICKS, 30, 15);
-        c.set(SC.COOLDOWN_SECONDS, 60, 45);
+        c.set(SC.CAST_TIME_TICKS, 20, 10);
+        c.set(SC.COOLDOWN_SECONDS, 75, 60);
         c.set(SC.DURATION_TICKS, 20 * 20, 30 * 20);
         c.set(SC.RADIUS, 4, 8);
 

@@ -67,9 +67,8 @@ public class SummonSkeletalArmySpell extends BaseSpell {
         c.set(SC.MANA_COST, 12, 16);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0.2F, 0.3F);
-        c.set(SC.BASE_VALUE, 8, 17);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.0F, 2.0F);
-        c.set(SC.BONUS_HEALTH, 0F, 1.0F);
+        c.set(SC.BASE_VALUE, 25, 42);
+        c.set(SC.BONUS_HEALTH, 0F, 0.5F);
         c.set(SC.TIMES_TO_CAST, 3, 6);
         c.set(SC.CAST_TIME_TICKS, 30, 30);
         c.set(SC.COOLDOWN_SECONDS, 30, 24);
@@ -104,10 +103,6 @@ public class SummonSkeletalArmySpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Summon Attack"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Summons also triggers on-attack effects."));
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Channel, Duration, Entity, Summon"));
-
-        TooltipUtils.addEmpty(list);
-
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summon a skeletal army to aid in combat."));
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

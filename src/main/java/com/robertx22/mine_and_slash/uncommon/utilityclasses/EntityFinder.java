@@ -47,7 +47,7 @@ public class EntityFinder {
                                         return true;
                                     }
 
-                                    return TeamUtils.areOnSameTeam((ServerPlayerEntity) setup.caster, (ServerPlayerEntity) x);
+                                    return TeamUtils.areOnSameTeam((ServerPlayerEntity) setup.caster, (ServerPlayerEntity) x);// || setup.caster.isOnSameTeam(x);
                                 }
                             } else {
                                 return isTamed(x);
@@ -75,7 +75,7 @@ public class EntityFinder {
                                     if (x.world.isRemote) {
                                         return false;
                                     } else {
-                                        return !TeamUtils.areOnSameTeam((ServerPlayerEntity) setup.caster, (ServerPlayerEntity) x);
+                                        return !TeamUtils.areOnSameTeam((ServerPlayerEntity) setup.caster, (ServerPlayerEntity) x) || !setup.caster.isOnSameTeam(x);
                                     }
                                 } else {
                                     return !isTamed(x);

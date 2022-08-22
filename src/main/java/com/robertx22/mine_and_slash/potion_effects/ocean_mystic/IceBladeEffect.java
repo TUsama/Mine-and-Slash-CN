@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.divine.buffs.B
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.IceBladeBuff;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalAttackDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToWaterConversion;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShield;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -49,7 +50,7 @@ public class IceBladeEffect extends BasePotionEffect implements IApplyStatPotion
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(15, new ElementalAttackDamage(Elements.Water)));
+        list.add(new PotionStat(25, new PhysicalToWaterConversion()));
         return list;
     }
 

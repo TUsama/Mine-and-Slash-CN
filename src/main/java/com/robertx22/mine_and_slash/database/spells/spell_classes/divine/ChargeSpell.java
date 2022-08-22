@@ -77,6 +77,7 @@ public class ChargeSpell extends BaseSpell {
         c.set(SC.PHYSICAL_ATTACK_SCALE_VALUE, 1.4F, 2.0F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 13, 6);
+        c.set(SC.RADIUS, 12, 12);
 
         c.setMaxLevel(12);
 
@@ -104,7 +105,7 @@ public class ChargeSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Movement"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Movement"));
 
         TooltipUtils.addEmpty(list);
 
@@ -140,6 +141,11 @@ public class ChargeSpell extends BaseSpell {
 
     @Override
     public void castExtra(SpellCastContext ctx) {
+
+        float RADIUS = ctx.getConfigFor(this)
+                .get(SC.RADIUS)
+                .get(ctx.spellsCap, this);
+
         LivingEntity caster = ctx.caster;
         World world = ctx.caster.world;
 
@@ -157,8 +163,8 @@ public class ChargeSpell extends BaseSpell {
         int num = getCalculation(ctx).getCalculatedValue(Load.Unit(caster), ctx.spellsCap, ctx.ability);
 
         List<LivingEntity> entities = EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
-            .radius(3)
-            .distance(12)
+            .radius(RADIUS * 0.25F)
+            .distance(RADIUS)
             .finder(EntityFinder.Finder.IN_FRONT)
                 .searchFor(EntityFinder.SearchFor.ENEMIES)
             .build();

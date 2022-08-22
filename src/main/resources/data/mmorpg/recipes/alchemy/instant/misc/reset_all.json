@@ -1,25 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " v ",
-    "ltl",
-    " b "
-  ],
-  "key": {
-    "t": {
-      "item": "mmorpg:alchemy/instant/misc/reset_spells"
-    },
-    "v": {
-      "item": "mmorpg:alchemy/instant/misc/reset_stats"
-    },
-    "b": {
-      "item": "mmorpg:alchemy/instant/misc/reset_talents"
-    },
-    "l": {
-      "item": "minecraft:lapis_lazuli"
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mmorpg:alchemy/instant/misc/reset_spells"
+        },
+        {
+            "item": "mmorpg:alchemy/instant/misc/reset_stats"
+        },
+        {
+            "item": "mmorpg:alchemy/instant/misc/reset_talents"
+        }
+    ],
+    "result": {
+        "item": "mmorpg:alchemy/instant/misc/reset_all",
+        "count": 1
     }
-  },
-  "result": {
-    "item": "mmorpg:alchemy/instant/misc/reset_talents"
-  }
 }

@@ -70,9 +70,9 @@ public class HuntingWolfSpell extends BaseSpell {
         c.set(SC.MANA_COST, 16, 24);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 2, 4);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.5F, 3.0F);
-        c.set(SC.BONUS_HEALTH, 0F, 3.0F);
+        c.set(SC.BASE_VALUE, 0, 0);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.0F, 4.0F);
+        c.set(SC.BONUS_HEALTH, 0F, 2.5F);
         c.set(SC.CAST_TIME_TICKS, 60, 60);
         c.set(SC.COOLDOWN_SECONDS, 45, 45);
         c.set(SC.DURATION_TICKS, 20 * 60, 20 * 90);
@@ -109,7 +109,7 @@ public class HuntingWolfSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summon a hunting wolf that aids in combat."));
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));

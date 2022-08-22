@@ -51,7 +51,7 @@ public abstract class StatMod implements IWeighted, IRarity, IGUID, ISerializedR
         QUINT("quint_", 5),
         TEN("ridiculous_", 10),
         TENTEN("extra_ridiculous_", 20),
-        TENTENTEN("extra_extra_ridiculous_", 30);;
+        FIFTY("extra_extra_ridiculous_", 50);;
 
         public String prefix;
         public float multi;

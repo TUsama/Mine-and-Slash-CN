@@ -6,8 +6,6 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.Whirlpoo
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ColdEssenceEffect;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.FrostEffect;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ShiverEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -56,7 +54,7 @@ public class WhirlpoolShiverSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 25, 50);
+        c.set(SC.CHANCE, 25, 40);
         c.setMaxLevel(4);
         return c;
     }

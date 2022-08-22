@@ -47,14 +47,14 @@ public class ChargedNovaStaticSynergy extends OnAttackSpellDmgDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 1, 2);
+        c.set(SC.MANA_COST, 1, 3);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.CHANCE, 50, 80);
+        c.set(SC.CHANCE, 40, 70);
         c.setMaxLevel(8);
         return c;
     }

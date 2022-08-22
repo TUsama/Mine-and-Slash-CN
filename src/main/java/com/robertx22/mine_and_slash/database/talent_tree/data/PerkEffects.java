@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.talent_tree.data;
 
 import com.robertx22.mine_and_slash.database.stats.types.core_stats.*;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.database.stats.types.defense.ArmorPenetration;
 import com.robertx22.mine_and_slash.database.stats.types.defense.BlockStrength;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllDotDmg;
@@ -62,6 +63,7 @@ public class PerkEffects {
     public static PerkEffectsWrapper PHYS_TO_NATURE;
     public static PerkEffectsWrapper DOT_DMG;
     public static PerkEffectsWrapper SUMMON_DMG;
+    public static PerkEffectsWrapper ARMOR_PEN;
     public static PerkEffectsWrapper FCR;
     public static PerkEffectsWrapper MANA_COST;
     public static PerkEffectsWrapper PROJ_SPEED;
@@ -126,6 +128,8 @@ public class PerkEffects {
                 "dot_dmg", new AllDotDmg(), new ExactStatData(6, StatModTypes.Flat, AllDotDmg.GUID));
         SUMMON_DMG = PerkEffectBuilder.build(
                 "summon_dmg", SummonDamage.getInstance(), new ExactStatData(4, StatModTypes.Flat, SummonDamage.GUID));
+        ARMOR_PEN = PerkEffectBuilder.build(
+                "armor_pen", ArmorPenetration.getInstance(), new ExactStatData(3, StatModTypes.Flat, ArmorPenetration.GUID));
         FCR = PerkEffectBuilder.build(
                 "fcr", FasterCastRate.getInstance(), new ExactStatData(2, StatModTypes.Flat, FasterCastRate.GUID));
         MANA_COST = PerkEffectBuilder.build(
@@ -193,7 +197,7 @@ public class PerkEffects {
             WEP_ELE_DMG_MAP.put(
                 wep, PerkEffectBuilder.build(wep.name()
                         .toLowerCase(Locale.ROOT) + "_ele_dmg_percent", EleWepDmg.MAP.get(wep),
-                    new ExactStatData(wepDmg + 10, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
+                    new ExactStatData(wepDmg + 6, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
                 ));
 
         }

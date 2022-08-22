@@ -82,9 +82,10 @@ public class Synergies implements ISlashRegistryInit {
         new HolySpearSynergy().registerToSlashRegistry();
         new SpellBladeBurstSynergy().registerToSlashRegistry();
         new ThunderstormEnhancedSynergy().registerToSlashRegistry();
-        //new ChargedNovaStaticSynergy().registerToSlashRegistry();
+        new ChargedNovaStaticSynergy().registerToSlashRegistry();
         new LightningTotemEnhancedSynergy().registerToSlashRegistry();
         new BlizzardFrostEssenceGenSynergy().registerToSlashRegistry();
+        new ArcticArmorSynergy().registerToSlashRegistry();
         new HeavyStrikeEnrageSynergy().registerToSlashRegistry();
         new WhirlwindEnhancedSynergy().registerToSlashRegistry();
         new WhirlwindEnrageSynergy().registerToSlashRegistry();
@@ -100,6 +101,7 @@ public class Synergies implements ISlashRegistryInit {
         new ChillingTouchCrippleSynergy().registerToSlashRegistry();
         new ChillingTouchHexSynergy().registerToSlashRegistry();
         new SummonZombieCrippleSynergy().registerToSlashRegistry();
+        new SummonArchonAOESynergy().registerToSlashRegistry();
         new SummonSkeletalMasterySynergy().registerToSlashRegistry();
         new AnimateScytheNecroticSynergy().registerToSlashRegistry();
         new LifeSiphonEssenceSynergy().registerToSlashRegistry();

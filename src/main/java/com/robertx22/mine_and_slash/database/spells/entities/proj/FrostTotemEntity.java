@@ -15,6 +15,7 @@ import net.minecraft.command.arguments.EntityAnchorArgument;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.ArmorStandEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -79,7 +80,7 @@ public class FrostTotemEntity extends EntityBaseProjectile {
 
                     for (LivingEntity en : entities) {
                         if (en != closest) {
-                            if (this.getDistance(en) < this.getDistance(closest)) {
+                            if (this.getDistance(en) < this.getDistance(closest) && !(en instanceof ArmorStandEntity)) {
                                 closest = en;
                             }
                         }

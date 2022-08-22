@@ -97,7 +97,7 @@ public class VolcanoSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Fire DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summons an erupting volcano: "));
 

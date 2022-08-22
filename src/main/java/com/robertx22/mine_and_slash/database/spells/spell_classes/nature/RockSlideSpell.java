@@ -99,7 +99,7 @@ public class RockSlideSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Summon a stone avalanche that damages enemies inside: "));
 

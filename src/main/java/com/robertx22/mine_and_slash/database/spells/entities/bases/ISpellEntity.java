@@ -105,6 +105,35 @@ public interface ISpellEntity extends IEntityAdditionalSpawnData {
 
     }
 
+    default SpellHealEffect healManaTarget(LivingEntity target) {
+        return healManaTarget(target, new Options().activatesEffect(false));
+    }
+
+    default SpellHealEffect healManaTarget(LivingEntity target, Options opt) {
+
+        EntitySpellData data = getSpellData();
+
+        LivingEntity caster = data.getCaster(target.world);
+
+        BaseSpell spell = data.getSpell();
+
+        EntityCap.UnitData casterData = Load.Unit(caster);
+
+        int num = getSpellData().configs.calc.getCalculatedValue(casterData, Load.spells(caster), spell);
+
+        SpellHealEffect heal = new SpellHealEffect(
+                new ResourcesData.Context(caster, target, ResourcesData.Type.MANA, num, ResourcesData.Use.RESTORE,
+                        spell
+                ));
+
+        if (opt.activateEffect) {
+            heal.Activate();
+        }
+
+        return heal;
+
+    }
+
     default SpellDamageEffect dealSpellDamageTo(LivingEntity target, Options opt) {
 
         EntitySpellData data = getSpellData();

@@ -4,13 +4,10 @@ import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.BatteryFusiladeSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ThunderspearSpell;
 import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
-import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.ColdEssenceEffect;
-import com.robertx22.mine_and_slash.potion_effects.shaman.StaticEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.ThunderEssenceEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
@@ -22,8 +19,10 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.WeaponTypes;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -40,8 +39,12 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
 
         addSpellName(list);
 
-        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Synergy (Bolt)"));
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Modifies Battery Fusillade"));
+
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Bolt damage is a special damage type and is"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "unaffected by spell damage modifiers."));
 
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Mana to Lightning DMG."));
@@ -49,7 +52,9 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
 
         list.add(new StringTextComponent("If user has Lightning Essence, projectiles"));
         list.add(new StringTextComponent("have a chance to release a small nova upon"));
-        list.add(new StringTextComponent("hitting an enemy: "));
+        list.add(new StringTextComponent("hitting an enemy, dealing bolt damage. The"));
+        list.add(new StringTextComponent("chance is multiplied by the caster's number"));
+        list.add(new StringTextComponent("of stacks of Lightning Essence: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -58,18 +63,17 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 2, 6);
+        c.set(SC.MANA_COST, 2, 5);
     }
 
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.MANA_COST, 2, 6);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.03F, 0.12F);
-        c.set(SC.CHANCE, 25, 60);
-        c.set(SC.RADIUS, 1F, 3F);
-        c.setMaxLevel(12);
+        c.set(SC.CHANCE, 10, 25);
+        c.set(SC.RADIUS, 2F, 3F);
+        c.setMaxLevel(8);
         return c;
     }
 
@@ -90,9 +94,9 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
         int stacks = PotionEffectUtils.getStacks(ctx.source, ThunderEssenceEffect.INSTANCE);
         float chance = getContext(ctx.source).getConfigFor(this)
                 .get(SC.CHANCE)
-                .get(Load.spells(ctx.source), this);
+                .get(Load.spells(ctx.source), this) * stacks;
 
-        if (stacks > 0 && RandomUtils.roll(chance)) {
+        if (stacks > 0 && RandomUtils.roll(chance) && ctx.getEffectType() == EffectData.EffectTypes.SPELL) {
             float radius = getContext(ctx.source).getConfigFor(this)
                     .get(SC.RADIUS)
                     .get(Load.spells(ctx.source), this);
@@ -108,13 +112,15 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
             pdata.radius = radius;
             ParticleEnum.CHARGED_NOVA.sendToClients(ctx.source, pdata);
 
+            SpellUtils.summonLightningStrike(ctx.target);
+
+            SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.75F, 1);
+
             for (LivingEntity en : entities) {
-                if (en != ctx.target) {
-                    DamageEffect dmg = new DamageEffect(
-                            null, ctx.source, en, num, EffectData.EffectTypes.SPELL, WeaponTypes.None);
-                    dmg.element = Elements.Thunder;
-                    dmg.Activate();
-                }
+                DamageEffect dmg = new DamageEffect(
+                        null, ctx.source, en, num, EffectData.EffectTypes.BOLT, WeaponTypes.None);
+                dmg.element = Elements.Thunder;
+                dmg.Activate();
             }
         }
     }

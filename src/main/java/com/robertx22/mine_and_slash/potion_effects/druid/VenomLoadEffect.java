@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.VenomLoadSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.BlightSpell;
+import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllDotDmg;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -58,7 +59,7 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
                     ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.AOE).type(
                             ParticleTypes.SNEEZE).radius(radius)
                             .motion(new Vec3d(0, 0, 0))
-                            .amount((int) (45*radius)));
+                            .amount((int) (30*radius)));
             DamageEffect dmgSelf = new DamageEffect(null, ctx.caster, ctx.caster, num, ctx.casterData, ctx.casterData, EffectData.EffectTypes.DOT_DMG, WeaponTypes.None);
             dmgSelf.element = Elements.Nature;
             dmgSelf.removeKnockback();
@@ -109,7 +110,8 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(25, SpellDamage.getInstance()));
+        list.add(new PotionStat(20, new AllDotDmg()));
+        list.add(new PotionStat(20, SpellDamage.getInstance()));
 
         return list;
     }

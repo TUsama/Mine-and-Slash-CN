@@ -28,6 +28,9 @@ public enum Chats implements IAutoLocName {
     UnholyMastery(" [Damage & Utility]: " +
             "At the cost of your own life force, call upon the aid of the dead to devastate your enemies. Summon undead creatures, cast powerful spells, and draw life from the enemy."),
 
+    PhysicalMastery(" [Damage & Utility]: " +
+            "String together combos to devastate your opponents. Mix and match different combo spells to generate your own unique playstyle. Looking to do maximum damage? Choose the Physical Mastery and ascend yourself past God-hood."),
+
     TotalMastery("You shouldn't see this"),
 
     MapStarted("Adventure Map Successfully Sacrificed"),

@@ -13,11 +13,13 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.GeometryUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.TeamUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
@@ -87,6 +89,7 @@ public class LifeSiphonEntity extends BaseElementalBoltEntity {
             return !(target instanceof TameableEntity) || !((TameableEntity)target).isTamed();
         }
     }
+
 
     @Override
     public void onTick() {

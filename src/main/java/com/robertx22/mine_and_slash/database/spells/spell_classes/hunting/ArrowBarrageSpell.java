@@ -101,7 +101,7 @@ public class ArrowBarrageSpell extends BaseSpell {
 
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Shoots out many arrows while casting."));
         list.add(new StringTextComponent("Requires Bow/Crossbow to use: "));

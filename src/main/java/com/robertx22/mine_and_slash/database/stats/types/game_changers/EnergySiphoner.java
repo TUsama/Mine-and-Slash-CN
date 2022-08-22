@@ -41,8 +41,8 @@ public class EnergySiphoner extends BaseGameChangerTrait {
     public List<ExactStatData> getExactStats() {
 
         return Arrays.asList(
-            new ExactStatData(15, StatModTypes.Flat, DoTSteal.getInstance()),
-            new ExactStatData(10, StatModTypes.Flat, new AllDotDmg()),
+            new ExactStatData(8, StatModTypes.Flat, DoTSteal.getInstance()),
+            new ExactStatData(6, StatModTypes.Flat, new AllDotDmg()),
             new ExactStatData(-25, StatModTypes.Multi, Health.getInstance()),
             new ExactStatData(-25, StatModTypes.Multi, MagicShield.getInstance())
         );

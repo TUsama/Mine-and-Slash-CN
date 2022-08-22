@@ -25,7 +25,7 @@ public class ArmorPenetration extends Stat implements IStatEffects {
 
     @Override
     public String getIconPath() {
-        return "armor";
+        return "pene/physical";
     }
 
     @Override

@@ -11,7 +11,7 @@ import java.util.List;
 public enum Elements implements IColor {
     Physical(0, new RGB(240, 157, 55), false, "Physical", TextFormatting.GOLD, Items.COAL, "Annihilation",
         "Annihilation", "physical", "\u2726"),
-    Fire(1, new RGB(255, 0, 0), true, "Flame", TextFormatting.RED, Items.FIRE_CHARGE, "Firestorms", "Firestorm", "fire",
+    Fire(1, new RGB(255, 0, 0), true, "Fire", TextFormatting.RED, Items.FIRE_CHARGE, "Firestorms", "Firestorm", "fire",
         "\u2600"
     ),
     Water(2, new RGB(0, 128, 255), true, "Frost", TextFormatting.AQUA, Items.SNOWBALL, "Blizzards", "Blizzard", "water",
@@ -19,7 +19,7 @@ public enum Elements implements IColor {
     ),
     Thunder(3, new RGB(204, 0, 255), true, "Lightning", TextFormatting.YELLOW, Items.SUNFLOWER, "Thunderstorms",
         "Thunderstorm", "thunder", "\u272A"),
-    Nature(4, new RGB(0, 204, 0), true, "Venom", TextFormatting.DARK_GREEN, Items.SLIME_BALL, "Earthquakes",
+    Nature(4, new RGB(0, 204, 0), true, "Nature", TextFormatting.DARK_GREEN, Items.SLIME_BALL, "Earthquakes",
         "Earthquake", "nature", "\u273F"),
     Elemental(5, new RGB(0, 0, 0), false, "Elemental", TextFormatting.GOLD, Items.EMERALD, "Eruption", "Eruption",
         "elemental", "\u269C"

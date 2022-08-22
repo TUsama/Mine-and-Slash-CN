@@ -75,17 +75,17 @@ public class SpiritWolfPetEntity extends BaseSummonedEntity {
     @Override
     protected void registerGoals() {
         this.sitGoal = new SitGoal(this);
-        this.goalSelector.addGoal(1, new SwimGoal(this));
-        this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
-        this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
+        this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.4F));
+        this.goalSelector.addGoal(6, new MeleeAttackGoal(this, 1.0D, true));
+        this.goalSelector.addGoal(7, new SwimGoal(this));
+        this.goalSelector.addGoal(8, new FollowOwnerGoal(this, 1.0D, 6.0F, 1.0F, false));
+        this.goalSelector.addGoal(9, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.goalSelector.addGoal(10, new LookAtGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setCallsForHelp());
-        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, false));
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, MobEntity.class, false));
     }
 
     @Override

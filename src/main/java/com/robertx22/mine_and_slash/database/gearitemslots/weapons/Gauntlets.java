@@ -1,4 +1,4 @@
-/*package com.robertx22.mine_and_slash.database.gearitemslots.weapons;
+package com.robertx22.mine_and_slash.database.gearitemslots.weapons;
 
 import com.robertx22.mine_and_slash.data_generation.wrappers.StatModsHolder;
 import com.robertx22.mine_and_slash.database.gearitemslots.WeaponDamageMulti;
@@ -8,18 +8,13 @@ import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.PosStats;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.NormalWeaponMechanic;
 import com.robertx22.mine_and_slash.database.gearitemslots.weapons.mechanics.WeaponMechanic;
-import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.CooldownReductionFlat;
+import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.ArmorPenetrationFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.PhysicalDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.SpellDamageFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.EnergyRegenFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.resources.HealPowerFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalAttackDamageFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.generated.ElementalPeneFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.percent.ElementalAttackDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.EnergyRegenPercent;
-import com.robertx22.mine_and_slash.database.stats.mods.percent.ManaRegenPercent;
+import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.unique_items.ISpecificStatReq;
 import com.robertx22.mine_and_slash.database.unique_items.StatReq;
 import com.robertx22.mine_and_slash.items.gearitems.weapons.ItemGauntlets;
@@ -54,11 +49,11 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
         return true;
     }
 
-    static StatReq req = new StatReq(LvlPointStat.STAMINA, StatReq.Size.MEDIUM, LvlPointStat.INTELLIGENCE, StatReq.Size.TINY);
+    static StatReq req = new StatReq(LvlPointStat.VITALITY, StatReq.Size.MEDIUM, LvlPointStat.STRENGTH, StatReq.Size.TINY);
 
     @Override
     public PlayStyle getPlayStyle() {
-        return PlayStyle.MAGE;
+        return PlayStyle.WARRIOR;
     }
 
     @Override
@@ -88,7 +83,7 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
 
     @Override
     public WeaponSwingCost getSwingCosts() {
-        return new WeaponSwingCost(4);
+        return new WeaponSwingCost(6);
     }
 
     @Override
@@ -109,23 +104,17 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
     @Override
     public List<PosStats> getPossiblePrimaryStats() {
         return Arrays.asList(
-            new PosStats(new PhysicalDamageFlat().size(StatMod.Size.LOW)).weight(16000),
-                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.LOW)).weight(3000),
-                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.LOW)).weight(3000),
-                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.LOW)).weight(3000),
-                    new PosStats(new PhysicalDamageFlat().size(StatMod.Size.QUARTER), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.LOW)).weight(3000),
-                    new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF)),
-                    new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF)),
-                    new PosStats(new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF)),
-                    new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF)),
-                    new PosStats(new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF)),
-                    new PosStats(new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF))
+                new PosStats(new PhysicalDamageFlat(), new SpellDamageFlat()).weight(16000),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Nature).size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Fire).size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Water).size(StatMod.Size.HALF)),
+                new PosStats(new PhysicalDamageFlat().size(StatMod.Size.HALF), new ElementalAttackDamageFlat(Elements.Thunder).size(StatMod.Size.HALF))
         );
     }
 
     @Override
     public StatModsHolder getPossibleSecondaryStats() {
-        return new StatModsHolder(new EnergyRegenPercent(), new ManaRegenPercent());
+        return new StatModsHolder(new EnergyRegenPercent(), new ArmorPenetrationFlat(), new PhysicalDamagePercent());
     }
 
     @Override
@@ -133,4 +122,3 @@ public class Gauntlets extends BaseWeapon implements ISpecificStatReq {
         return "Gauntlets";
     }
 }
- */

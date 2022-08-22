@@ -80,6 +80,7 @@ public class SoulShredSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 15, 11);
         c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.DURATION_TICKS, 200, 200);
+        c.set(SC.RADIUS, 4, 4);
 
         c.setMaxLevel(8);
 
@@ -122,6 +123,10 @@ public class SoulShredSpell extends BaseSpell {
     @Override
     public void castExtra(SpellCastContext ctx) {
 
+        float RADIUS = ctx.getConfigFor(this)
+                .get(SC.RADIUS)
+                .get(ctx.spellsCap, this);
+
         LivingEntity caster = ctx.caster;
 
         World world = caster.world;
@@ -129,8 +134,8 @@ public class SoulShredSpell extends BaseSpell {
         SoundUtils.playSound(caster, SoundEvents.ENTITY_WITCH_THROW, 0.7F, 0.5F);
 
         EntityFinder.start(caster, LivingEntity.class, caster.getPositionVector())
-            .radius(2)
-            .distance(6)
+            .radius(RADIUS * 0.5F)
+            .distance(RADIUS)
             .finder(EntityFinder.Finder.IN_FRONT)
                 .searchFor(EntityFinder.SearchFor.ENEMIES)
             .build()

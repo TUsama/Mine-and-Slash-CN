@@ -1,13 +1,12 @@
 package com.robertx22.mine_and_slash.db_lists.initializers;
 
-import com.robertx22.mine_and_slash.mmorpg.registers.common.CapabilityRegister;
 import com.robertx22.mine_and_slash.potion_effects.divine.EnrageEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
-import com.robertx22.mine_and_slash.potion_effects.divine.ShockwaveEffect;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.*;
 import com.robertx22.mine_and_slash.potion_effects.necromancer.*;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
+import com.robertx22.mine_and_slash.potion_effects.physical.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.*;
 import com.robertx22.mine_and_slash.potion_effects.shaman.*;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
@@ -35,6 +34,7 @@ public class PotionEffects implements ISlashRegistryInit {
         SpellBladeEffect.INSTANCE.registerToSlashRegistry();
         AttackSiphonEffect.INSTANCE.registerToSlashRegistry();
         FirePowerEffect.INSTANCE.registerToSlashRegistry();
+        BlazingShellEffect.INSTANCE.registerToSlashRegistry();
 
         ColdEssenceEffect.INSTANCE.registerToSlashRegistry();
         FrostEffect.INSTANCE.registerToSlashRegistry();
@@ -45,7 +45,9 @@ public class PotionEffects implements ISlashRegistryInit {
         FrozenEffect.INSTANCE.registerToSlashRegistry();
         IceBladeEffect.INSTANCE.registerToSlashRegistry();
         NourishmentEffect.INSTANCE.registerToSlashRegistry();
+        PurityEffect.INSTANCE.registerToSlashRegistry();
         FrostShieldEffect.INSTANCE.registerToSlashRegistry();
+        ArcticArmorEffect.INSTANCE.registerToSlashRegistry();
 
         HunterInstinctEffect.getInstance()
             .registerToSlashRegistry();
@@ -59,6 +61,7 @@ public class PotionEffects implements ISlashRegistryInit {
         ThunderDashEffect.INSTANCE.registerToSlashRegistry();
         SilentWindEffect.INSTANCE.registerToSlashRegistry();
         SummonedZombieEffect.INSTANCE.registerToSlashRegistry();
+        SummonedArchonEffect.INSTANCE.registerToSlashRegistry();
         SummonedSkeletonEffect.INSTANCE.registerToSlashRegistry();
         SummonedWolfEffect.INSTANCE.registerToSlashRegistry();
         SnareEffect.INSTANCE.registerToSlashRegistry();
@@ -78,6 +81,12 @@ public class PotionEffects implements ISlashRegistryInit {
         SpiritShroudEffect.INSTANCE.registerToSlashRegistry();
         FleshandMindSacrificeEffect.INSTANCE.registerToSlashRegistry();
         SoulShredEffect.INSTANCE.registerToSlashRegistry();
+
+        ComboStarterEffect.INSTANCE.registerToSlashRegistry();
+        ComboLinkerEffect.INSTANCE.registerToSlashRegistry();
+        ArmorBreakEffect.INSTANCE.registerToSlashRegistry();
+        EarthenShellEffect.INSTANCE.registerToSlashRegistry();
+        DebilitatedEffect.INSTANCE.registerToSlashRegistry();
 
     }
 }

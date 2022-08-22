@@ -53,7 +53,7 @@ public class PoisonedWeaponsThornsSynergy extends OnBasicAttackSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 11);
+        c.set(SC.BASE_VALUE, 4, 11);
         c.setMaxLevel(8);
         return c;
     }

@@ -73,7 +73,7 @@ public class ChargedNovaSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 3, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 5);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.06F, 0.16F);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.07F, 0.14F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 4, 2);
         c.set(SC.RADIUS, 2, 4);
@@ -112,7 +112,7 @@ public class ChargedNovaSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Mana to Lightning DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new SText("Channel your mana into your blade to damage enemies"));
-        list.add(new SText("around you in a sweeping motion, and also apply Static: "));
+        list.add(new SText("around you in a sweeping motion: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -144,8 +144,6 @@ public class ChargedNovaSpell extends BaseSpell {
                         this
                 );
                 dmg.Activate();
-                PotionEffectUtils.apply(StaticEffect.INSTANCE, caster, en);
-
             }
         }
     }

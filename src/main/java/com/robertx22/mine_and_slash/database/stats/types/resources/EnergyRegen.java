@@ -30,7 +30,7 @@ public class EnergyRegen extends BaseRegenClass {
     }
 
     private EnergyRegen() {
-
+        this.minimumValue = 0;
     }
 
     @Override
