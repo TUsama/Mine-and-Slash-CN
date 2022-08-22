@@ -7,7 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
@@ -37,9 +37,9 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PiercingStrikeSpell extends BaseSpell {
+public class ElementalStrikeSpell extends BaseSpell {
 
-    private PiercingStrikeSpell() {
+    private ElementalStrikeSpell() {
         super(
             new ImmutableSpellConfigs() {
 
@@ -60,7 +60,7 @@ public class PiercingStrikeSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Physical;
+                    return Elements.Elemental;
                 }
             }.cooldownIfCanceled(true)
                 .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
@@ -94,27 +94,56 @@ public class PiercingStrikeSpell extends BaseSpell {
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
 
-        for (LivingEntity en : list) {
+        num *= 0.25F;
 
+
+        for (LivingEntity en : list) {
             AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                 this
             );
-            PotionEffectUtils.apply(ArmorBreakEffect.INSTANCE, ctx.caster, en);
+            dmg.element = Elements.Water;
+            dmg.Activate();
+            dmg.element = Elements.Fire;
+            dmg.Activate();
+            dmg.element = Elements.Thunder;
+            dmg.Activate();
+            dmg.element = Elements.Nature;
             dmg.Activate();
 
             ParticleEnum.sendToClients(
                 en.getPosition(), en.world,
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                     .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleTypes.INSTANT_EFFECT)
-                    .amount((int) (60)));
+                    .type(ParticleRegister.THUNDER)
+                    .amount((int) (5)));
+
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleRegister.BUBBLE)
+                            .amount((int) (5)));
+
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.FLAME)
+                            .amount((int) (5)));
+
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.COMPOSTER)
+                            .amount((int) (5)));
 
         }
         PotionEffectUtils.reApplyToSelf(ComboStarterEffect.INSTANCE, ctx.caster);
     }
 
-    public static PiercingStrikeSpell getInstance() {
-        return PiercingStrikeSpell.SingletonHolder.INSTANCE;
+    public static ElementalStrikeSpell getInstance() {
+        return ElementalStrikeSpell.SingletonHolder.INSTANCE;
     }
 
     @Override
@@ -123,16 +152,14 @@ public class PiercingStrikeSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 7, 11);
+        c.set(SC.ENERGY_COST, 8, 12);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.8F, 2.5F);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.0F, 3.0F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 60,60);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
-        c.set(SC.DURATION_TICKS, 120, 120);
-        c.set(SC.TICK_RATE, 20, 20);
 
         c.setMaxLevel(16);
 
@@ -141,12 +168,12 @@ public class PiercingStrikeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(0, 6);
     }
 
     @Override
     public String GUID() {
-        return "piercing_strike";
+        return "elemental_strike";
     }
 
     @Override
@@ -156,21 +183,20 @@ public class PiercingStrikeSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Debuff, Duration, Melee"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Melee"));
 
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "This spell's cooldown is unaffected by"));
         list.add(new StringTextComponent(TextFormatting.GRAY + "cooldown reduction."));
         TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to 1/4 each Element DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell generates: " + ComboStarterEffect.INSTANCE.locNameForLangFile()));
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Strike the enemies in front of you and lower"));
-        list.add(new StringTextComponent("their defenses, applying: "));
-
-        list.addAll(ArmorBreakEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.add(new StringTextComponent("Strike the enemies in front of you deal a quarter of"));
+        list.add(new StringTextComponent("your weapon damage as frost, fire, lightning, and"));
+        list.add(new StringTextComponent("nature damage: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -180,10 +206,10 @@ public class PiercingStrikeSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.PiercingStrike;
+        return Words.ElementalStrike;
     }
 
     private static class SingletonHolder {
-        private static final PiercingStrikeSpell INSTANCE = new PiercingStrikeSpell();
+        private static final ElementalStrikeSpell INSTANCE = new ElementalStrikeSpell();
     }
 }

@@ -67,16 +67,16 @@ public class HealingAuraSpell extends BaseSpell {
 
         List<LivingEntity> list = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
             .finder(EntityFinder.Finder.IN_FRONT)
-            .radius(RADIUS/2F)
+            .radius(RADIUS * 0.5F)
                 .distance(RADIUS)
             .searchFor(EntityFinder.SearchFor.ALLIES)
             .build();
 
-        for (LivingEntity en : list) {
-
-            int num = ctx.getConfigFor(this)
+        int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+
+        for (LivingEntity en : list) {
 
             SoundUtils.playSound(en, SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
 

@@ -1,5 +1,6 @@
-package com.robertx22.mine_and_slash.database.spells.spell_classes.physical.strikes;
+package com.robertx22.mine_and_slash.database.spells.spell_classes.physical.linkers;
 
+import com.robertx22.mine_and_slash.database.spells.SpellUtils;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellPredicates;
@@ -7,11 +8,10 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
-import com.robertx22.mine_and_slash.potion_effects.physical.ArmorBreakEffect;
+import com.robertx22.mine_and_slash.potion_effects.physical.ComboLinkerEffect;
 import com.robertx22.mine_and_slash.potion_effects.physical.ComboStarterEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
@@ -37,9 +37,9 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PiercingStrikeSpell extends BaseSpell {
+public class FlowingRiverLinkerSpell extends BaseSpell {
 
-    private PiercingStrikeSpell() {
+    private FlowingRiverLinkerSpell() {
         super(
             new ImmutableSpellConfigs() {
 
@@ -60,15 +60,18 @@ public class PiercingStrikeSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Physical;
+                    return Elements.Water;
                 }
             }.cooldownIfCanceled(true)
-                .rightClickFor(AllowedAsRightClickOn.MELEE_WEAPON)
-                .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
+                .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE).addCastRequirement(SpellPredicates.REQUIRE_STARTER));
     }
 
     @Override
     public void castExtra(SpellCastContext ctx) {
+
+        float RADIUS = ctx.getConfigFor(this)
+                .get(SC.RADIUS)
+                .get(ctx.spellsCap, this);
 
         if (ctx.caster instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) ctx.caster;
@@ -77,44 +80,69 @@ public class PiercingStrikeSpell extends BaseSpell {
 
         ctx.caster.world.playSound((PlayerEntity) null, ctx.caster.getPosX(), ctx.caster.getPosY(), ctx.caster.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
-        Vec3d look = ctx.caster.getLookVec()
-            .scale(3);
+        List<LivingEntity> entities = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
+                .radius(RADIUS * 0.5F)
+                .distance(RADIUS)
+                .finder(EntityFinder.Finder.IN_FRONT).searchFor(EntityFinder.SearchFor.ENEMIES)
+                .build();
 
-        List<LivingEntity> list = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector()
-            .add(look)
-            .add(0, ctx.caster.getHeight() / 2, 0))
-            .finder(EntityFinder.Finder.RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
-            .radius(3)
-            .height(2)
-            .build();
 
-        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_ARMOR_STAND_HIT, 0.8F, 1.0F);
+        List<LivingEntity> list = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
+                .finder(EntityFinder.Finder.IN_FRONT)
+                .radius(RADIUS * 0.5F)
+                .distance(RADIUS)
+                .searchFor(EntityFinder.SearchFor.ALLIES)
+                .build();
+
+        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.9F, 1.3F);
 
         int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
 
-        for (LivingEntity en : list) {
+        ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition()
+                .up(1), ParticleEnum.FROST_NOVA);
+        pdata.radius = RADIUS;
+        ParticleEnum.FROST_NOVA.sendToClients(ctx.caster, pdata);
+
+        for (LivingEntity en : entities) {
 
             AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                 this
             );
-            PotionEffectUtils.apply(ArmorBreakEffect.INSTANCE, ctx.caster, en);
             dmg.Activate();
 
             ParticleEnum.sendToClients(
                 en.getPosition(), en.world,
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                     .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleTypes.INSTANT_EFFECT)
-                    .amount((int) (60)));
+                    .type(ParticleTypes.ITEM_SNOWBALL)
+                    .amount((int) (30)));
 
         }
-        PotionEffectUtils.reApplyToSelf(ComboStarterEffect.INSTANCE, ctx.caster);
+
+        for (LivingEntity en : list) {
+
+            SoundUtils.playSound(en, SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
+
+            SpellUtils.heal(this, en, num);
+
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.HEART)
+                            .amount((int) (25)));
+        }
+
+        if (PotionEffectUtils.has(ctx.caster, ComboStarterEffect.INSTANCE)) {
+            PotionEffectUtils.reduceStacks(ctx.caster, ComboStarterEffect.INSTANCE);
+        }
+        PotionEffectUtils.reApplyToSelf(ComboLinkerEffect.INSTANCE, ctx.caster);
     }
 
-    public static PiercingStrikeSpell getInstance() {
-        return PiercingStrikeSpell.SingletonHolder.INSTANCE;
+    public static FlowingRiverLinkerSpell getInstance() {
+        return FlowingRiverLinkerSpell.SingletonHolder.INSTANCE;
     }
 
     @Override
@@ -123,30 +151,29 @@ public class PiercingStrikeSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 7, 11);
+        c.set(SC.ENERGY_COST, 6, 10);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.8F, 2.5F);
-        c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 60,60);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.5F, 3.5F);
+        c.set(SC.CAST_TIME_TICKS, 10, 10);
+        c.set(SC.COOLDOWN_TICKS, 60, 60);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
-        c.set(SC.TIMES_TO_CAST, 1, 1);
-        c.set(SC.DURATION_TICKS, 120, 120);
-        c.set(SC.TICK_RATE, 20, 20);
+        c.set(SC.TIMES_TO_CAST, 2, 2);
+        c.set(SC.RADIUS, 6, 6);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(12);
 
         return c;
     }
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 0);
+        return new AbilityPlace(2, 2);
     }
 
     @Override
     public String GUID() {
-        return "piercing_strike";
+        return "flowing_river_linker";
     }
 
     @Override
@@ -156,21 +183,21 @@ public class PiercingStrikeSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Debuff, Duration, Melee"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Heal, Melee"));
 
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "This spell's cooldown is unaffected by"));
         list.add(new StringTextComponent(TextFormatting.GRAY + "cooldown reduction."));
         TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Frost DMG."));
         TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell generates: " + ComboStarterEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell generates: " + ComboLinkerEffect.INSTANCE.locNameForLangFile()));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell expends: " + ComboStarterEffect.INSTANCE.locNameForLangFile()));
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Strike the enemies in front of you and lower"));
-        list.add(new StringTextComponent("their defenses, applying: "));
-
-        list.addAll(ArmorBreakEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.add(new StringTextComponent("Extend your combo by hitting enemeis in front of you"));
+        list.add(new StringTextComponent("twice with frost damage, while healing yourself and"));
+        list.add(new StringTextComponent("your allies for the same amount: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -180,10 +207,10 @@ public class PiercingStrikeSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.PiercingStrike;
+        return Words.FlowingRiverLinker;
     }
 
     private static class SingletonHolder {
-        private static final PiercingStrikeSpell INSTANCE = new PiercingStrikeSpell();
+        private static final FlowingRiverLinkerSpell INSTANCE = new FlowingRiverLinkerSpell();
     }
 }

@@ -89,11 +89,11 @@ public class TripleAttackLinkerSpell extends BaseSpell {
 
         SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.9F, 1.3F);
 
-        for (LivingEntity en : list) {
-
-            int num = ctx.getConfigFor(this)
+        int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+
+        for (LivingEntity en : list) {
 
             AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                 this

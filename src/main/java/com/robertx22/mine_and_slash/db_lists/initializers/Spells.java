@@ -18,9 +18,9 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.Ic
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.NourishmentBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.PurityBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.finishers.EarthenSmashFinisherSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.linkers.FlowingRiverLinkerSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.linkers.TripleAttackLinkerSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.strikes.DebilitatingStrikeSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.strikes.PiercingStrikeSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.strikes.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.buffs.SpiritShroudSpell;
@@ -156,6 +156,10 @@ public class Spells implements ISlashRegistryInit {
                     add(TripleAttackLinkerSpell.getInstance());
                     add(EarthenSmashFinisherSpell.getInstance());
                     add(DebilitatingStrikeSpell.getInstance());
+                    add(GoadingStrikeSpell.getInstance());
+                    add(SweepingStrikeSpell.getInstance());
+                    add(ElementalStrikeSpell.getInstance());
+                    add(FlowingRiverLinkerSpell.getInstance());
 
                 }
             }

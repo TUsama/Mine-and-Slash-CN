@@ -90,11 +90,11 @@ public class DebilitatingStrikeSpell extends BaseSpell {
 
         SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_ARMOR_STAND_HIT, 0.8F, 1.0F);
 
-        for (LivingEntity en : list) {
-
-            int num = ctx.getConfigFor(this)
+        int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+
+        for (LivingEntity en : list) {
 
             AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                 this
