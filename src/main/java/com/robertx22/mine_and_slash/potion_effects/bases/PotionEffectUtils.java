@@ -149,4 +149,18 @@ public class PotionEffectUtils {
         return 0;
 
     }
+
+    public static LivingEntity getCaster(LivingEntity en, BasePotionEffect effect) {
+
+        EffectInstance instance = en.getActivePotionEffect(effect);
+        ExtraPotionData extraData;
+
+        if (instance != null) {
+            extraData = PotionDataSaving.getData(instance);
+            return extraData.getCaster(en.world);
+        } else {
+            return null;
+        }
+
+    }
 }

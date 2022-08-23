@@ -126,7 +126,6 @@ public class ArchonPetEntity extends BaseSummonedEntity {
                         {
                             if (this.getOwner() != null && this.world != null) {
                                 if (this.getOwner().getEntityWorld() == this.world) {
-                                    System.out.println("taunt check");
                                     if (!PotionEffectUtils.has(lEn, SummonTauntEffect.INSTANCE)) {
                                         PotionEffectUtils.apply(SummonTauntEffect.INSTANCE, this.getOwner(), lEn);
                                         if (lEn instanceof MobEntity) {

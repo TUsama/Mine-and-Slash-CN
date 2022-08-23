@@ -138,15 +138,14 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
         this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.goalSelector.addGoal(10, new LookAtGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
-        this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
-        this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setCallsForHelp());
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, MobEntity.class, false));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, MobEntity.class, false));
+        this.targetSelector.addGoal(3, new OwnerHurtByTargetGoal(this));
+        this.targetSelector.addGoal(4, new OwnerHurtTargetGoal(this));
     }
 
     @Override
     public boolean canAttack(LivingEntity target) {
-        System.out.println("can attack");
         return !this.isOwner(target) && !this.isOnSameTeam(target) && !(target instanceof AgeableEntity) && !(target instanceof IronGolemEntity || target instanceof SnowGolemEntity) && super.canAttack(target);
     }
 
@@ -215,9 +214,8 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
                         {
                             if (this.getOwner() != null && this.world != null) {
                                 if (this.getOwner().getEntityWorld() == this.world) {
-                                    System.out.println("taunt check");
                                     if (!PotionEffectUtils.has(lEn, SummonTauntEffect.INSTANCE)) {
-                                        PotionEffectUtils.apply(SummonTauntEffect.INSTANCE, this.getOwner(), lEn);
+                                        PotionEffectUtils.apply(SummonTauntEffect.INSTANCE, this, lEn);
                                         if (lEn instanceof MobEntity) {
                                             lEn.setRevengeTarget(this);
                                             ((MobEntity) lEn).setAttackTarget(this);

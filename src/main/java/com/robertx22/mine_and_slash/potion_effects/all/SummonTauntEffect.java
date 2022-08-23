@@ -16,6 +16,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.ParticleUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
@@ -33,6 +34,16 @@ public class SummonTauntEffect extends BasePotionEffect {
     private SummonTauntEffect() {
         super(EffectType.HARMFUL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
+
+        this.tickActions.add(new OnTickAction(ctx -> {
+
+            if (ctx.entity instanceof MobEntity) {
+                ctx.entity.setRevengeTarget(ctx.caster);
+                ((MobEntity) ctx.entity).setAttackTarget(ctx.caster);
+            }
+
+            return ctx;
+        }, null));
     }
 
     @Override
@@ -59,6 +70,7 @@ public class SummonTauntEffect extends BasePotionEffect {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.DURATION_TICKS, 60, 60);
+        p.set(SC.TICK_RATE, 20, 20);
         return p;
     }
 

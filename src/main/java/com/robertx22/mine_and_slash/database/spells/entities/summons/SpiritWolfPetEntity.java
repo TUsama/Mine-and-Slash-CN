@@ -82,10 +82,10 @@ public class SpiritWolfPetEntity extends BaseSummonedEntity {
         this.goalSelector.addGoal(9, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.goalSelector.addGoal(10, new LookAtGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.addGoal(10, new LookRandomlyGoal(this));
-        this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
-        this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setCallsForHelp());
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, MobEntity.class, false));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, MobEntity.class, false));
+        this.targetSelector.addGoal(3, new OwnerHurtByTargetGoal(this));
+        this.targetSelector.addGoal(4, new OwnerHurtTargetGoal(this));
     }
 
     @Override
