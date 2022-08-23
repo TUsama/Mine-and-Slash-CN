@@ -1,3 +1,11 @@
+3.15.0:
+- NEW MASTERY TREE: Physical - utilize the unique brawler-type spells in this tree to deal tremendous damage or support your allies. The physical tree has 4 main types of spells: Strikes, Linkers, Finishers, and Buffs. Strikes, Linkers, and Finishers are all attack spells. Use a Strike to gain a Combo Starter effect, which is required and expended upon use by Linker attack spells. Similarly, Linker attack spells will gain you a Combo Linker effect, which is required and expended by Finishers. Use the different types of Strikeks, Linkers, and Finishers to "build your own combo" and create your own truly unique playstyle! For example, for an elemental combo, you might start with Elemental Strike (all elements) -> Raging Dragon Linker (fire/lightning) -> Elemental Vengeance Finisher (all elements, big AOE)! Look below for more combo examples... The possibilities are endless! Buffs are straight forward, there are two types of buffs: Empower and Wisdom. Empower grants an increase in damage, whereas Wisdom grants increased regeneration and cast speed. There are ways to provide these to yourself and your allies! Two unique things about the Physical tree is that all spells only cost energy, and are not affected by cooldown reduction. However, these short cooldown attack spells can still be used in rapid succession. Be sure to mix them up!
+- Support your allies with Goading Strike (AOE taunt) -> Flowing River Linker (frost, heal allies) -> Earthen Smash Finisher (AOE nature, increase ally defenses).
+- Go for big physical damage with Piercing Strike (lowers def) -> Rallying Sweep Linker (AOE, increase ally speed and damage) -> Sweeping Strike (AOE) -> Triple Attack Linker (3x hits) -> Omnislash Finisher (high physical burst).
+- Apply Spell Blade + Flame Blade and take advantage of the on-attack effects, and use Piercing Strike -> Triple Attack Linker -> Omnislash Finisher.
+- NEW WEAPON TYPE: Gauntlets - once implemented in a beta version, this item type was quickly scrapped as it was logistically difficult to show how a player might "wield" a gauntlet in Minecraft... However, with the new Physical tree, it just made sense to implement it to the best of my ability. These quick-acting weapons can really leave a mark on your opponents. They attack as fast as daggers and do more damage at the expense of more energy!
+- Summon targeting AI now prioritizes mobs that hurt them > nearest mob > mobs that hurt the caster > mobs hurt by the caster, INSTEAD of mobs that hurt the caster > mobs hurt by the caster > mobs that hurt them > nearest mob. This should alleviate summons ganging up on a sole enemy (not prevent outright though). This will also give more functionality to Chilling Touch synergy.
+
 3.14.11:
 - Added a Reset All command which resets stats, spells, and talents at once. Useful for testing builds.
 - Add Remove Talent Potion now gives you 3 removal points rather than 1.
@@ -69,6 +77,7 @@
 - Reduced the armor penalty of Avatar.
 - Vampire gives a smaller multi on lifesteal now. The rest of it remains unchanged.
 - Reduced Warlock DoT steal and DoT damage.
+- Warlock penalty has been reduced from -25% to -20% health and magic shield.
 - Added some sources of armor pen to the tree.
 - Mana should no longer take damage when player has Mana Battery and a teammate hits them.
 - Fixed a bug where if you were on a team or in a party, you couldn't hit yourself. Which also should fix Venom Load not being able to kill the user.
