@@ -17,9 +17,11 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.Fr
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.IceBladeBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.NourishmentBuff;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.ocean.buffs.PurityBuff;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.finishers.EarthenSmashFinisherSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.linkers.FlowingRiverLinkerSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.linkers.TripleAttackLinkerSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.AsuraSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.buffs.PowerFormSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.buffs.WisdomFormSpell;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.finishers.*;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.linkers.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.strikes.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.*;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.*;
@@ -160,6 +162,16 @@ public class Spells implements ISlashRegistryInit {
                     add(SweepingStrikeSpell.getInstance());
                     add(ElementalStrikeSpell.getInstance());
                     add(FlowingRiverLinkerSpell.getInstance());
+                    add(RagingDragonLinkerSpell.getInstance());
+                    add(RallyingSweepLinkerSpell.getInstance());
+                    add(SpiritDrainLinkerSpell.getInstance());
+                    add(AntiGravityFinisherSpell.getInstance());
+                    add(ElementalVengeanceFinisherSpell.getInstance());
+                    add(EmpoweringFinisher.getInstance());
+                    add(OmnislashFinisherSpell.getInstance());
+                    add(PowerFormSpell.getInstance());
+                    add(WisdomFormSpell.getInstance());
+                    add(AsuraSpell.getInstance());
 
                 }
             }

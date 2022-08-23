@@ -87,6 +87,9 @@ public class PotionEffects implements ISlashRegistryInit {
         ArmorBreakEffect.INSTANCE.registerToSlashRegistry();
         EarthenShellEffect.INSTANCE.registerToSlashRegistry();
         DebilitatedEffect.INSTANCE.registerToSlashRegistry();
+        EmpowerEffect.INSTANCE.registerToSlashRegistry();
+        EnlightenEffect.INSTANCE.registerToSlashRegistry();
+        RallyEffect.INSTANCE.registerToSlashRegistry();
 
     }
 }

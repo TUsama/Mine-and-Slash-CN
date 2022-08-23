@@ -7,11 +7,13 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
-import com.robertx22.mine_and_slash.potion_effects.physical.*;
+import com.robertx22.mine_and_slash.potion_effects.physical.ArmorBreakEffect;
+import com.robertx22.mine_and_slash.potion_effects.physical.ComboLinkerEffect;
+import com.robertx22.mine_and_slash.potion_effects.physical.EmpowerEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.WoundsEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -36,9 +38,9 @@ import net.minecraft.util.text.TextFormatting;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EarthenSmashFinisherSpell extends BaseSpell {
+public class EmpoweringFinisher extends BaseSpell {
 
-    private EarthenSmashFinisherSpell() {
+    private EmpoweringFinisher() {
         super(
             new ImmutableSpellConfigs() {
 
@@ -59,7 +61,7 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
 
                 @Override
                 public Elements element() {
-                    return Elements.Nature;
+                    return Elements.Physical;
                 }
             }.cooldownIfCanceled(true)
                 .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE).addCastRequirement(SpellPredicates.REQUIRE_LINKER));
@@ -81,9 +83,9 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
 
 
         ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition()
-                .up(1), ParticleEnum.PETRIFY);
+                .up(1), ParticleEnum.MAGIC_BURST);
         pdata.radius = radius;
-        ParticleEnum.PETRIFY.sendToClients(ctx.caster, pdata);
+        ParticleEnum.MAGIC_BURST.sendToClients(ctx.caster, pdata);
 
         List<LivingEntity> entities = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
                 .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
@@ -110,16 +112,25 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
                 en.getPosition(), en.world,
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                     .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleTypes.COMPOSTER)
+                    .type(ParticleTypes.INSTANT_EFFECT)
                     .amount((int) (30)));
 
         }
 
         for (LivingEntity en : list) {
+            int stack = (int) ctx.getConfigFor(this).get(SC.AMOUNT).get(ctx.spellsCap, this);
 
-            SoundUtils.playSound(en, ModSounds.STONE_CRACK.get(), 1.0F, 1.0F);
+            for (int i = 0; i < stack; i++) {
+                PotionEffectUtils.apply(EmpowerEffect.INSTANCE,ctx.caster, en);
+            }
 
-            PotionEffectUtils.apply(EarthenShellEffect.INSTANCE, ctx.caster, en);
+            ParticleEnum.sendToClients(
+                    en.getPosition(), en.world,
+                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                            .motion(new Vec3d(0, 0, 0))
+                            .type(ParticleTypes.INSTANT_EFFECT)
+                            .amount((int) (30)));
+
         }
 
         if (PotionEffectUtils.has(ctx.caster, ComboLinkerEffect.INSTANCE)) {
@@ -127,8 +138,8 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
         }
     }
 
-    public static EarthenSmashFinisherSpell getInstance() {
-        return EarthenSmashFinisherSpell.SingletonHolder.INSTANCE;
+    public static EmpoweringFinisher getInstance() {
+        return EmpoweringFinisher.SingletonHolder.INSTANCE;
     }
 
     @Override
@@ -137,17 +148,16 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 3, 7);
+        c.set(SC.ENERGY_COST, 4, 6.5F);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 4.0F, 6.0F);
-        c.set(SC.RADIUS, 4, 6);
+        c.set(SC.ATTACK_SCALE_VALUE, 3.75F, 5.75F);
+        c.set(SC.RADIUS, 3, 5);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_TICKS, 60, 60);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
-        c.set(SC.DURATION_TICKS, 20 * 20, 30 * 20);
-        c.set(SC.TICK_RATE, 20, 20);
+        c.set(SC.AMOUNT, 1, 3);
 
         c.setMaxLevel(8);
 
@@ -156,12 +166,12 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 0);
+        return new AbilityPlace(4, 3);
     }
 
     @Override
     public String GUID() {
-        return "earthen_smash_finisher";
+        return "empowering_finisher";
     }
 
     @Override
@@ -171,21 +181,20 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Buff, Duration, Melee"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Buff, Melee"));
 
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "This spell's cooldown is unaffected by"));
         list.add(new StringTextComponent(TextFormatting.GRAY + "cooldown reduction."));
         TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Nature DMG."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell expends: " + ComboLinkerEffect.INSTANCE.locNameForLangFile()));
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Smash the ground to deal Nature damage to nearby"));
-        list.add(new StringTextComponent("enemies. Also increase nearby allies' defenses: "));
-
-        list.addAll(EarthenShellEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.add(new StringTextComponent("Damage nearby enemies with a sweeping hit, and"));
+        list.add(new StringTextComponent("apply many stacks of Empower to yourself and"));
+        list.add(new StringTextComponent("nearby allies: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -195,10 +204,10 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
 
     @Override
     public Words getName() {
-        return Words.EarthenSmashFinisher;
+        return Words.EmpoweringFinisher;
     }
 
     private static class SingletonHolder {
-        private static final EarthenSmashFinisherSpell INSTANCE = new EarthenSmashFinisherSpell();
+        private static final EmpoweringFinisher INSTANCE = new EmpoweringFinisher();
     }
 }

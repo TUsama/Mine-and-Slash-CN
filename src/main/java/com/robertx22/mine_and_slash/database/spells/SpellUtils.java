@@ -154,4 +154,15 @@ public class SpellUtils {
         heal.Activate();
     }
 
+    public static void healCasterEnergy(SpellCastContext ctx) {
+        SpellHealEffect heal = new SpellHealEffect(
+                new ResourcesData.Context(ctx.data, ctx.caster, ResourcesData.Type.ENERGY,
+                        ctx.getConfigFor(ctx.ability)
+                                .getCalc(ctx.spellsCap, ctx.ability)
+                                .getCalculatedValue(ctx.data, ctx.spellsCap, ctx.ability), ResourcesData.Use.RESTORE,
+                        ctx.spell
+                ));
+        heal.Activate();
+    }
+
 }

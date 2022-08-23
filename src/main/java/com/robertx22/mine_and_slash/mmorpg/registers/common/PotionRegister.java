@@ -98,8 +98,11 @@ public class PotionRegister {
         reg.register(ComboStarterEffect.INSTANCE);
         reg.register(ComboLinkerEffect.INSTANCE);
         reg.register(ArmorBreakEffect.INSTANCE);
-        reg.register(EarthenShellEffect.INSTANCE);;
+        reg.register(EarthenShellEffect.INSTANCE);
         reg.register(DebilitatedEffect.INSTANCE);
+        reg.register(EmpowerEffect.INSTANCE);
+        reg.register(EnlightenEffect.INSTANCE);
+        reg.register(RallyEffect.INSTANCE);
 
     }
 

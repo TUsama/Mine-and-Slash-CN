@@ -5,6 +5,8 @@ import com.robertx22.mine_and_slash.database.spells.synergies.fire.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.hunting.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.nature.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.ocean.*;
+import com.robertx22.mine_and_slash.database.spells.synergies.physical.PowerFormRushSynergy;
+import com.robertx22.mine_and_slash.database.spells.synergies.physical.WisdomFormRushSynergy;
 import com.robertx22.mine_and_slash.database.spells.synergies.storm.*;
 import com.robertx22.mine_and_slash.database.spells.synergies.unholy.*;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
@@ -106,6 +108,8 @@ public class Synergies implements ISlashRegistryInit {
         new AnimateScytheNecroticSynergy().registerToSlashRegistry();
         new LifeSiphonEssenceSynergy().registerToSlashRegistry();
         new MalevolentOfferingShrewdSynergy().registerToSlashRegistry();
+        new PowerFormRushSynergy().registerToSlashRegistry();
+        new WisdomFormRushSynergy().registerToSlashRegistry();
 
     }
 }

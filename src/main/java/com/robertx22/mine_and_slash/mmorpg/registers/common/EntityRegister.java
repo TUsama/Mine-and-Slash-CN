@@ -57,6 +57,7 @@ public class EntityRegister {
     public static final EntityType<? extends Entity> FIRE_BOMB;
     public static final EntityType<? extends Entity> THROW_FLAMES;
     public static final EntityType<? extends Entity> VOLCANO;
+    public static final EntityType<? extends Entity> RAGING_DRAGON_BALL;
 
     public static final EntityType<? extends Entity> ROCK_SLIDE;
     public static final EntityType<? extends Entity> POISON_BALL;
@@ -106,6 +107,7 @@ public class EntityRegister {
         BLIZZARD = projectile(BlizzardEntity::new, BlizzardEntity::new, "blizzard");
         FROSTBOLT = projectile(FrostballEntity::new, FrostballEntity::new, "frostball");
         RIMEBALL = projectile(RimeballEntity::new, RimeballEntity::new, "rimeball");
+        RAGING_DRAGON_BALL = projectile(RagingDragonBallEntity::new, RagingDragonBallEntity::new, "raging_dragon_ball");
         FROZEN_ORB = projectile(FrozenOrbEntity::new, FrozenOrbEntity::new, "frozen_orb");
         WHIRPOOL = projectile(WhirlpoolEntity::new, WhirlpoolEntity::new, "whirlpool");
         TIDAL_WAVE = projectile(TidalWaveEntity::new, TidalWaveEntity::new, "tidal_wave");
