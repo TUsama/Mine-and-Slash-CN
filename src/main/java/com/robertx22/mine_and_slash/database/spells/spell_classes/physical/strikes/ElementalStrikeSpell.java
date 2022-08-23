@@ -20,15 +20,14 @@ import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.localization.Words;
-import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
-import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
-import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -94,50 +93,54 @@ public class ElementalStrikeSpell extends BaseSpell {
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
 
-        num *= 0.25F;
-
+        int elementNum = RandomUtils.RandomRange(0, 3);
+        Elements element = null;
+        if (elementNum == 0) {
+            element = Elements.Water;
+        } else if (elementNum == 1) {
+            element = Elements.Fire;
+        } else if (elementNum == 2) {
+            element = Elements.Thunder;
+        } else if (elementNum == 3) {
+            element = Elements.Nature;
+        }
 
         for (LivingEntity en : list) {
             AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
                 this
             );
-            dmg.element = Elements.Water;
-            dmg.Activate();
-            dmg.element = Elements.Fire;
-            dmg.Activate();
-            dmg.element = Elements.Thunder;
-            dmg.Activate();
-            dmg.element = Elements.Nature;
+            dmg.element = element;
             dmg.Activate();
 
-            ParticleEnum.sendToClients(
-                en.getPosition(), en.world,
-                new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
-                    .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleRegister.THUNDER)
-                    .amount((int) (5)));
-
-            ParticleEnum.sendToClients(
-                    en.getPosition(), en.world,
-                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
-                            .motion(new Vec3d(0, 0, 0))
-                            .type(ParticleRegister.BUBBLE)
-                            .amount((int) (5)));
-
-            ParticleEnum.sendToClients(
-                    en.getPosition(), en.world,
-                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
-                            .motion(new Vec3d(0, 0, 0))
-                            .type(ParticleTypes.FLAME)
-                            .amount((int) (5)));
-
-            ParticleEnum.sendToClients(
-                    en.getPosition(), en.world,
-                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
-                            .motion(new Vec3d(0, 0, 0))
-                            .type(ParticleTypes.COMPOSTER)
-                            .amount((int) (5)));
-
+            if (elementNum == 0) {
+                ParticleEnum.sendToClients(
+                        en.getPosition(), en.world,
+                        new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                                .motion(new Vec3d(0, 0, 0))
+                                .type(ParticleRegister.BUBBLE)
+                                .amount((int) (5)));
+            } else if (elementNum == 1) {
+                ParticleEnum.sendToClients(
+                        en.getPosition(), en.world,
+                        new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                                .motion(new Vec3d(0, 0, 0))
+                                .type(ParticleTypes.FLAME)
+                                .amount((int) (5)));
+            } else if (elementNum == 2) {
+                ParticleEnum.sendToClients(
+                        en.getPosition(), en.world,
+                        new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                                .motion(new Vec3d(0, 0, 0))
+                                .type(ParticleRegister.THUNDER)
+                                .amount((int) (5)));
+            } else if (elementNum == 3) {
+                ParticleEnum.sendToClients(
+                        en.getPosition(), en.world,
+                        new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                                .motion(new Vec3d(0, 0, 0))
+                                .type(ParticleTypes.COMPOSTER)
+                                .amount((int) (5)));
+            }
         }
         PotionEffectUtils.reApplyToSelf(ComboStarterEffect.INSTANCE, ctx.caster);
     }
@@ -189,14 +192,13 @@ public class ElementalStrikeSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "This spell's cooldown is unaffected by"));
         list.add(new StringTextComponent(TextFormatting.GRAY + "cooldown reduction."));
         TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to 1/4 each Element DMG."));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to a Random Element DMG."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell generates: " + ComboStarterEffect.INSTANCE.locNameForLangFile()));
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Strike the enemies in front of you deal a quarter of"));
-        list.add(new StringTextComponent("your weapon damage as frost, fire, lightning, and"));
-        list.add(new StringTextComponent("nature damage: "));
+        list.add(new StringTextComponent("Strike the enemies in front of you to deal damage"));
+        list.add(new StringTextComponent("as one elements, chosen at random: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

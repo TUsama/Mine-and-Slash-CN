@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData.EffectTypes;
 
 public class LifestealEffect extends BaseDamageEffect {
@@ -33,7 +34,8 @@ public class LifestealEffect extends BaseDamageEffect {
         return effect.getEffectType()
             .equals(EffectTypes.BASIC_ATTACK) || effect.getEffectType()
                 .equals(EffectTypes.ATTACK_SPELL) || effect.getEffectType()
-                .equals(EffectTypes.SUMMON_DMG);
+                .equals(EffectTypes.SUMMON_DMG) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.BONUS_ATTACK);
     }
 
 }

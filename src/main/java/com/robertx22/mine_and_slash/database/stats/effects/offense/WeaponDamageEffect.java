@@ -29,7 +29,7 @@ public class WeaponDamageEffect extends BaseDamageEffect {
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
-        effect.wepMultiBonusEleDmg(data.getMultiplier());
+        //effect.wepMultiBonusEleDmg(data.getMultiplier());
 
         effect.number *= data.getMultiplier();
 
@@ -41,7 +41,8 @@ public class WeaponDamageEffect extends BaseDamageEffect {
 
         if ((effect.getEffectType() == EffectData.EffectTypes.BASIC_ATTACK || effect.getEffectType()
                 .equals(EffectData.EffectTypes.ATTACK_SPELL) || effect.getEffectType()
-                .equals(EffectData.EffectTypes.SUMMON_DMG))) {
+                .equals(EffectData.EffectTypes.SUMMON_DMG) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.BONUS_ATTACK))) {
             if (stat instanceof WeaponDamage) {
                 try {
                     WeaponDamage weapon = (WeaponDamage) stat;

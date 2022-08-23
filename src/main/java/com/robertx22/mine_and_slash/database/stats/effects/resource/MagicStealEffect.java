@@ -40,7 +40,8 @@ public class MagicStealEffect extends BaseDamageEffect {
         return effect.getEffectType()
             .equals(EffectData.EffectTypes.BASIC_ATTACK) || effect.getEffectType()
                 .equals(EffectData.EffectTypes.ATTACK_SPELL) || effect.getEffectType()
-                .equals(EffectData.EffectTypes.SUMMON_DMG);
+                .equals(EffectData.EffectTypes.SUMMON_DMG) || effect.getEffectType()
+                .equals(EffectData.EffectTypes.BONUS_ATTACK);
     }
 
     private static class SingletonHolder {
