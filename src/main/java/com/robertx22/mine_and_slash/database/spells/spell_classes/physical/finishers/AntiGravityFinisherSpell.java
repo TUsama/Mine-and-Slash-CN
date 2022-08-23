@@ -152,7 +152,7 @@ public class AntiGravityFinisherSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 5);
+        return new AbilityPlace(4, 4);
     }
 
     @Override

@@ -138,7 +138,7 @@ public class OmnislashFinisherSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(4, 7);
+        return new AbilityPlace(4, 6);
     }
 
     @Override

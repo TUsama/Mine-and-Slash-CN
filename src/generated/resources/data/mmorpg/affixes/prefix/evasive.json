@@ -1,6 +1,6 @@
 {
   "id": "evasive",
-  "weight": 6666,
+  "weight": 10000,
   "rarity": 1,
   "tier": 0,
   "registry": "affix",
@@ -11,15 +11,14 @@
       {
         "slots": [
           "leather_boots",
-          "shield",
           "cloth_boots",
           "plate_chest",
           "plate_boots",
           "leather_chest",
           "cloth_helmet",
-          "orb",
           "cloth_pants",
           "torch",
+		  "orb",
           "leather_pants",
           "cloth_chest",
           "plate_pants",

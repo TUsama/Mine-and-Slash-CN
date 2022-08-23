@@ -1,6 +1,6 @@
 {
   "id": "water_shield",
-  "weight": 375,
+  "weight": 250,
   "rarity": 3,
   "tier": 0,
   "registry": "affix",
@@ -17,9 +17,9 @@
           "plate_boots",
           "leather_chest",
           "cloth_helmet",
-          "orb",
           "cloth_pants",
           "torch",
+		  "orb",
           "leather_pants",
           "cloth_chest",
           "plate_pants",

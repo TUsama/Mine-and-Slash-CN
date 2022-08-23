@@ -171,7 +171,7 @@ public class ElementalStrikeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 6);
+        return new AbilityPlace(0, 5);
     }
 
     @Override

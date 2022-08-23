@@ -1,6 +1,6 @@
 {
   "id": "of_critical_unity",
-  "weight": 375,
+  "weight": 250,
   "rarity": 3,
   "tier": 0,
   "registry": "affix",
@@ -14,11 +14,12 @@
           "crossbow",
           "bow",
           "axe",
-          "dagger",
           "trident",
           "staff",
+          "wand",
           "sword",
-          "wand"
+          "dagger",
+		  "gauntlets"
         ]
       },
       {

@@ -166,7 +166,7 @@ public class RallyingSweepLinkerSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(2, 6);
+        return new AbilityPlace(2, 5);
     }
 
     @Override

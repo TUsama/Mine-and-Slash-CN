@@ -1,6 +1,6 @@
 {
   "id": "hard_hitting",
-  "weight": 6666,
+  "weight": 10000,
   "rarity": 1,
   "tier": 0,
   "registry": "affix",
@@ -14,11 +14,12 @@
           "crossbow",
           "bow",
           "axe",
-          "dagger",
           "trident",
           "staff",
+          "wand",
           "sword",
-          "wand"
+          "dagger",
+		  "gauntlets"
         ]
       }
     ]

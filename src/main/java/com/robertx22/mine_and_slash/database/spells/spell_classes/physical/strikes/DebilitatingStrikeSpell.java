@@ -141,7 +141,7 @@ public class DebilitatingStrikeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 2);
+        return new AbilityPlace(0, 1);
     }
 
     @Override

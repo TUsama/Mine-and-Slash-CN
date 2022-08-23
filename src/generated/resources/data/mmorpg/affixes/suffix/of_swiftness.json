@@ -1,6 +1,6 @@
 {
   "id": "of_swiftness",
-  "weight": 6666,
+  "weight": 10000,
   "rarity": 1,
   "tier": 0,
   "registry": "affix",
@@ -17,9 +17,9 @@
           "plate_boots",
           "leather_chest",
           "cloth_helmet",
-          "orb",
           "cloth_pants",
           "torch",
+		  "orb",
           "leather_pants",
           "cloth_chest",
           "plate_pants",

@@ -147,7 +147,7 @@ public class GoadingStrikeSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(0, 3);
+        return new AbilityPlace(0, 2);
     }
 
     @Override
