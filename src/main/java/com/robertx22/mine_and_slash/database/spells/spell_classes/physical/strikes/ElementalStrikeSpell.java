@@ -75,7 +75,7 @@ public class ElementalStrikeSpell extends BaseSpell {
             player.spawnSweepParticles();
         }
 
-        ctx.caster.world.playSound((PlayerEntity) null, ctx.caster.getPosX(), ctx.caster.getPosY(), ctx.caster.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0F, 1.0F);
+        SoundUtils.playSound(ctx.caster, ModSounds.PUNCH.get(), 1.0F, 1.3F);
 
         Vec3d look = ctx.caster.getLookVec()
             .scale(3);
