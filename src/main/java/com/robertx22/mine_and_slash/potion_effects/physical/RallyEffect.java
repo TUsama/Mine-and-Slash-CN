@@ -5,6 +5,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.finishers.EarthenSmashFinisherSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.physical.linkers.RallyingSweepLinkerSpell;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.database.stats.types.offense.IncreaseDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -37,7 +38,7 @@ public class RallyEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
-                (double) 0.05F, AttributeModifier.Operation.MULTIPLY_TOTAL
+                (double) 0.08F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -69,7 +70,7 @@ public class RallyEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(8, SpellDamage.getInstance()));
+        list.add(new PotionStat(5, IncreaseDamage.getInstance()));
         return list;
     }
 
@@ -93,7 +94,7 @@ public class RallyEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-        list.add(new StringTextComponent(TextFormatting.AQUA + "Increases movement speed by 5%."));
+        list.add(new StringTextComponent(TextFormatting.AQUA + "Increases movement speed by 8%."));
         return list;
 
     }
