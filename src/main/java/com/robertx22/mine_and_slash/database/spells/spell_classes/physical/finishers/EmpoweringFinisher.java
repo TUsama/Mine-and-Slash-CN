@@ -149,7 +149,7 @@ public class EmpoweringFinisher extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 4, 6.5F);
+        c.set(SC.ENERGY_COST, 8, 12);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 3.75F, 5.75F);
@@ -192,7 +192,8 @@ public class EmpoweringFinisher extends BaseSpell {
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell expends: " + ComboLinkerEffect.INSTANCE.locNameForLangFile()));
         TooltipUtils.addEmpty(list);
-
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Higher levels apply more stacks."));
+        TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent("Damage nearby enemies with a sweeping hit, and"));
         list.add(new StringTextComponent("apply many stacks of Empower to yourself and"));
         list.add(new StringTextComponent("nearby allies: "));

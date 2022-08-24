@@ -156,7 +156,7 @@ public class ElementalStrikeSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 8, 12);
+        c.set(SC.ENERGY_COST, 6, 9);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 2.0F, 3.0F);

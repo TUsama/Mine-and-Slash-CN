@@ -79,7 +79,6 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
     protected void registerAttributes() {
         super.registerAttributes();
 
-        System.out.println("beginning attributes");
         this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED)
             .setBaseValue((double) 0.4F);
 

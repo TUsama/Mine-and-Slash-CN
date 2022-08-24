@@ -1,3 +1,6 @@
+3.15.2:
+- Increased bow and crossbow base damage.
+
 3.15.1:
 - Lowered mob difficulty at lower levels slightly.
 

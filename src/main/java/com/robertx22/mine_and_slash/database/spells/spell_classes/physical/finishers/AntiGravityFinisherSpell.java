@@ -135,7 +135,7 @@ public class AntiGravityFinisherSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 5, 8);
+        c.set(SC.ENERGY_COST, 7.5F, 11);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 4.25F, 6.25F);
