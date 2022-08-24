@@ -7,7 +7,6 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
-import com.robertx22.mine_and_slash.database.stats.mods.Mod;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
@@ -81,7 +80,8 @@ public class EmpoweringFinisher extends BaseSpell {
             player.spawnSweepParticles();
         }
 
-        SoundUtils.playSound(ctx.caster, ModSounds.PUNCH.get(), 1.0F, 1.25F);
+        ctx.caster.world.playSound((PlayerEntity) null, ctx.caster.getPosX(), ctx.caster.getPosY(), ctx.caster.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0F, 1.0F);
+
 
         ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition()
                 .up(1), ParticleEnum.MAGIC_BURST);
@@ -96,7 +96,7 @@ public class EmpoweringFinisher extends BaseSpell {
                 .radius(radius).searchFor(EntityFinder.SearchFor.ALLIES)
                 .build();
 
-        SoundUtils.playSound(ctx.caster, ModSounds.EXPLOSION.get(), 1.0F, 1.0F);
+        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F);
 
         int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)

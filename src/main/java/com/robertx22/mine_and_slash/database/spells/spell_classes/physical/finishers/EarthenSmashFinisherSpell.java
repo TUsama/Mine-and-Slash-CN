@@ -77,7 +77,7 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
             player.spawnSweepParticles();
         }
 
-        SoundUtils.playSound(ctx.caster, ModSounds.PUNCH.get(), 1.0F, 0.75F);
+        ctx.caster.world.playSound((PlayerEntity) null, ctx.caster.getPosX(), ctx.caster.getPosY(), ctx.caster.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 
         ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition()
@@ -93,7 +93,7 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
                 .radius(radius).searchFor(EntityFinder.SearchFor.ALLIES)
                 .build();
 
-        SoundUtils.playSound(ctx.caster, ModSounds.EXPLOSION.get(), 1.0F, 0.8F);
+        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F);
 
         int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)

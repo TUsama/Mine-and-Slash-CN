@@ -79,7 +79,7 @@ public class ElementalVengeanceFinisherSpell extends BaseSpell {
             player.spawnSweepParticles();
         }
 
-        SoundUtils.playSound(ctx.caster, ModSounds.PUNCH.get(), 1.0F, 1.5F);
+        ctx.caster.world.playSound((PlayerEntity) null, ctx.caster.getPosX(), ctx.caster.getPosY(), ctx.caster.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 
         ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition()

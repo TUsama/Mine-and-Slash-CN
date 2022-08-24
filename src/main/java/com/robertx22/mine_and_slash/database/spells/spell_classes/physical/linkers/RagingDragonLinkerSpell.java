@@ -92,7 +92,6 @@ public class RagingDragonLinkerSpell extends BaseSpell {
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.DURATION_TICKS, 50, 50);
         c.set(SC.RADIUS, 4, 6);
-        c.set(SC.TIMES_TO_CAST, 1, 1);
 
         c.setMaxLevel(12);
 
@@ -150,8 +149,6 @@ public class RagingDragonLinkerSpell extends BaseSpell {
             PlayerEntity player = (PlayerEntity) ctx.caster;
             player.spawnSweepParticles();
         }
-
-        SoundUtils.playSound(ctx.caster, ModSounds.PUNCH.get(), 1.0F, 1.0F);
 
         LivingEntity caster = ctx.caster;
 
