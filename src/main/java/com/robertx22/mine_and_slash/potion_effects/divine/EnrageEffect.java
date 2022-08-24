@@ -7,7 +7,9 @@ import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.ArmorMulti
 import com.robertx22.mine_and_slash.database.stats.mods.percent.ArmorPercent;
 import com.robertx22.mine_and_slash.database.stats.mods.percent.offense.PhysicalDamagePercent;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.database.stats.types.defense.DamageTaken;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
+import com.robertx22.mine_and_slash.database.stats.types.offense.IncreaseDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -41,7 +43,7 @@ public class EnrageEffect extends BasePotionEffect implements IApplyStatPotion {
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.addAttributesModifier(SharedMonsterAttributes.MOVEMENT_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160890",
-            (double) 0.1F, AttributeModifier.Operation.MULTIPLY_TOTAL
+            (double) 0.08F, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
         this.tickActions.add(new OnTickAction(ctx -> {
@@ -75,8 +77,8 @@ public class EnrageEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-8, Armor.getInstance()));
-        list.add(new PotionStat(2, PhysicalDamage.getInstance()));
+        list.add(new PotionStat(8, DamageTaken.getInstance()));
+        list.add(new PotionStat(4, IncreaseDamage.getInstance()));
         return list;
     }
 
@@ -106,7 +108,7 @@ public class EnrageEffect extends BasePotionEffect implements IApplyStatPotion {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Taunt"));
         list.add(new StringTextComponent("Enemies with Enrage will continue to be taunted by"));
         list.add(new StringTextComponent("the applicator while under its effects."));
-        list.add(new StringTextComponent(TextFormatting.AQUA + "Increases movement speed by 10%."));
+        list.add(new StringTextComponent(TextFormatting.AQUA + "Increases movement speed by 8%."));
         return list;
 
     }

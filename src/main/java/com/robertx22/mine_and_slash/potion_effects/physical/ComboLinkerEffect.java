@@ -21,6 +21,8 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -47,7 +49,7 @@ public class ComboLinkerEffect extends BasePotionEffect implements IApplyStatPot
 
     @Override
     public String locNameForLangFile() {
-        return "Combo Linker";
+        return "Combo Extension";
     }
 
     @Override
@@ -89,7 +91,7 @@ public class ComboLinkerEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-
+        list.add(new StringTextComponent(TextFormatting.RED + "Required for Combo Finishers!"));
         return list;
 
     }

@@ -50,6 +50,6 @@ public class SpellPredicates {
     public static SpellPredicate REQUIRE_SHOOTABLE = new SpellPredicate(SHOOTABLE_PRED, new SText(TextFormatting.RED + "" + TextFormatting.ITALIC + "Requires Ranged Weapon"));
     public static SpellPredicate REQUIRE_MELEE = new SpellPredicate(MELEE_PRED, new SText(TextFormatting.RED + "" + TextFormatting.ITALIC + "Requires Melee Weapon"));
     public static SpellPredicate REQUIRE_STARTER = new SpellPredicate(STARTER_PRED, new SText(TextFormatting.RED + "" + TextFormatting.ITALIC + "Requires Combo Starter Effect"));
-    public static SpellPredicate REQUIRE_LINKER = new SpellPredicate(LINKER_PRED, new SText(TextFormatting.RED + "" + TextFormatting.ITALIC + "Requires Combo Linker Effect"));
+    public static SpellPredicate REQUIRE_LINKER = new SpellPredicate(LINKER_PRED, new SText(TextFormatting.RED + "" + TextFormatting.ITALIC + "Requires Combo Extension Effect"));
 }
 

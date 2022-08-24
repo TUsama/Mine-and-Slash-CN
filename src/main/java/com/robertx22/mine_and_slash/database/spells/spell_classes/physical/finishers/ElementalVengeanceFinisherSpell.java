@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
@@ -55,7 +56,7 @@ public class ElementalVengeanceFinisherSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ENTITY_EVOKER_FANGS_ATTACK;
+                    return ModSounds.EXPLOSION.get();
                 }
 
                 @Override
@@ -86,9 +87,9 @@ public class ElementalVengeanceFinisherSpell extends BaseSpell {
         pdata.radius = radius;
         ParticleEnum.CHARGED_NOVA.sendToClients(ctx.caster, pdata);
         ParticlePacketData pdata2 = new ParticlePacketData(ctx.caster.getPosition()
-                .up(1), ParticleEnum.FROST_NOVA);
+                .up(1), ParticleEnum.SIMPLE_FROST_NOVA);
         pdata2.radius = radius;
-        ParticleEnum.FROST_NOVA.sendToClients(ctx.caster, pdata2);
+        ParticleEnum.SIMPLE_FROST_NOVA.sendToClients(ctx.caster, pdata2);
         ParticlePacketData pdata3 = new ParticlePacketData(ctx.caster.getPosition()
                 .up(1), ParticleEnum.BLAZING_INFERNO);
         pdata3.radius = radius;
@@ -102,7 +103,7 @@ public class ElementalVengeanceFinisherSpell extends BaseSpell {
                 .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
-        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, 1.1F, 1.25F);
+        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_DRAGON_FIREBALL_EXPLODE, 1.0F, 1.25F);
 
         int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
@@ -152,7 +153,7 @@ public class ElementalVengeanceFinisherSpell extends BaseSpell {
         c.set(SC.ATTACK_SCALE_VALUE, 1.1F, 1.5F);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
+        c.set(SC.COOLDOWN_TICKS, 100, 100);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 

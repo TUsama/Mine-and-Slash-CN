@@ -50,7 +50,7 @@ public class SpellCalcData {
 
         List<Stat> list = new ElementalAttackDamage(Elements.Nature).generateAllSingleVariations();
         list.add(PhysicalDamage.getInstance());
-        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Weapon Attack Damage")));
+        data.mergedScalingValues.add(new MergedScalingStatsCalc(list, attack, new SText(TextFormatting.GOLD + "Attack Damage")));
 
         data.baseValue = base;
 

@@ -57,6 +57,8 @@ public class PotionRegister {
         //reg.register(ShiverEffect.INSTANCE);
         reg.register(ColdEssenceEffect.INSTANCE);
         reg.register(JudgementEffect.INSTANCE);
+        reg.register(BlessingEffect.INSTANCE);
+        reg.register(AngelicRaimentEffect.INSTANCE);
         //reg.register(ShockwaveEffect.INSTANCE);
         //reg.register(ShatterCastEffect.INSTANCE);
         reg.register(ThornArmorEffect.INSTANCE);

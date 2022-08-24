@@ -19,6 +19,8 @@ public class ModSounds {
     public static RegistryObject<SoundEvent> STONE_CRACK = REG.register("stone_crack", reg("stone_crack"));
     public static RegistryObject<SoundEvent> FIREBALL = REG.register("fireball", reg("fireball"));
     public static RegistryObject<SoundEvent> THUNDER = REG.register("thunder", reg("thunder"));
+    public static RegistryObject<SoundEvent> PUNCH = REG.register("punch", reg("punch"));
+    public static RegistryObject<SoundEvent> EXPLOSION = REG.register("explosion", reg("explosion"));
 
     private static Supplier<SoundEvent> reg(String id) {
         ResourceLocation loc = new ResourceLocation(Ref.MODID, id);

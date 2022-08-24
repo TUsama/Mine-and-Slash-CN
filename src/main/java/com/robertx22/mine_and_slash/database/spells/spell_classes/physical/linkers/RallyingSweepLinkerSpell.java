@@ -83,8 +83,7 @@ public class RallyingSweepLinkerSpell extends BaseSpell {
         ctx.caster.world.playSound((PlayerEntity) null, ctx.caster.getPosX(), ctx.caster.getPosY(), ctx.caster.getPosZ(), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
 
-        ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition()
-                .up(1), ParticleEnum.WHIRLWIND);
+        ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition(), ParticleEnum.WHIRLWIND);
         pdata.radius = radius;
         ParticleEnum.WHIRLWIND.sendToClients(ctx.caster, pdata);
 
@@ -129,7 +128,7 @@ public class RallyingSweepLinkerSpell extends BaseSpell {
                     new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
                             .motion(new Vec3d(0, 0, 0))
                             .type(ParticleTypes.ANGRY_VILLAGER)
-                            .amount((int) (15)));
+                            .amount((int) (3)));
         }
 
         if (PotionEffectUtils.has(ctx.caster, ComboStarterEffect.INSTANCE)) {
@@ -153,7 +152,7 @@ public class RallyingSweepLinkerSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 4.0F, 5.0F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
+        c.set(SC.COOLDOWN_TICKS, 80, 80);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.DURATION_TICKS, 260, 360);

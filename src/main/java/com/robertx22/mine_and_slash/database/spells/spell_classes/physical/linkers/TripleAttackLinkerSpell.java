@@ -83,7 +83,7 @@ public class TripleAttackLinkerSpell extends BaseSpell {
             .add(look)
             .add(0, ctx.caster.getHeight() / 2, 0))
             .finder(EntityFinder.Finder.RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
-            .radius(3)
+            .radius(2)
             .height(2)
             .build();
 
@@ -130,7 +130,7 @@ public class TripleAttackLinkerSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 1.5F, 2.0F);
         c.set(SC.CAST_TIME_TICKS, 10, 10);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
+        c.set(SC.COOLDOWN_TICKS, 80, 80);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 3, 3);
 

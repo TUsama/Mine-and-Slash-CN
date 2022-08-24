@@ -75,7 +75,7 @@ public class GearItemRegisters {
             regRarities(new ItemAxe(rarity.Rank()), ItemAxe.Items, "axe/axe", rarity.Rank());
             regRarities(new ItemBow(rarity.Rank()), ItemBow.Items, "bow/bow", rarity.Rank());
             regRarities(new ItemStaff(rarity.Rank()), ItemStaff.Items, "staff/staff", rarity.Rank());
-            //regRarities(new ItemGauntlets(rarity.Rank()), ItemGauntlets.Items, "gauntlets/gauntlets", rarity.Rank());
+            regRarities(new ItemGauntlets(rarity.Rank()), ItemGauntlets.Items, "gauntlets/gauntlets", rarity.Rank());
             regRarities(new ItemDagger(rarity.Rank()), ItemDagger.Items, "dagger/dagger", rarity.Rank());
             regRarities(new ItemWand(rarity.Rank()), ItemWand.Items, "wand/wand", rarity.Rank());
 

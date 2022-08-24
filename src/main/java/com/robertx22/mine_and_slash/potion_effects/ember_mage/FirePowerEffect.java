@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.fire.FirePowerSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.QuickChargeSpell;
+import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalSpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
 import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedManaCost;
@@ -12,6 +13,7 @@ import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
+import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
@@ -49,7 +51,7 @@ public class FirePowerEffect extends BasePotionEffect implements IApplyStatPotio
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(15, SpellDamage.getInstance()));
+        list.add(new PotionStat(15, new ElementalSpellDamage(Elements.Elemental)));
         return list;
     }
 

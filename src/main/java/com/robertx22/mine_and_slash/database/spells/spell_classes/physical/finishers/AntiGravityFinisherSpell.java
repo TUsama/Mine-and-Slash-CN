@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
@@ -56,7 +57,7 @@ public class AntiGravityFinisherSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ENTITY_EVOKER_FANGS_ATTACK;
+                    return ModSounds.EXPLOSION.get();
                 }
 
                 @Override
@@ -91,7 +92,7 @@ public class AntiGravityFinisherSpell extends BaseSpell {
                 .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
-        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_ENDERMAN_DEATH, 1.1F, 0.75F);
+        SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_ENDERMAN_DEATH, 1.0F, 0.5F);
 
         int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
@@ -140,7 +141,7 @@ public class AntiGravityFinisherSpell extends BaseSpell {
         c.set(SC.ATTACK_SCALE_VALUE, 4.25F, 6.25F);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
+        c.set(SC.COOLDOWN_TICKS, 100, 100);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.DURATION_TICKS, 60, 100);

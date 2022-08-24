@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
@@ -53,7 +54,7 @@ public class OmnislashFinisherSpell extends BaseSpell {
 
                 @Override
                 public SoundEvent sound() {
-                    return SoundEvents.ENTITY_EVOKER_FANGS_ATTACK;
+                    return ModSounds.EXPLOSION.get();
                 }
 
                 @Override
@@ -81,7 +82,7 @@ public class OmnislashFinisherSpell extends BaseSpell {
                 .add(look)
                 .add(0, ctx.caster.getHeight() / 2, 0))
                 .finder(EntityFinder.Finder.RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
-                .radius(3)
+                .radius(2)
                 .height(2)
                 .build();
 
@@ -126,8 +127,8 @@ public class OmnislashFinisherSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 0.9F);
-        c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
+        c.set(SC.CAST_TIME_TICKS, 40, 40);
+        c.set(SC.COOLDOWN_TICKS, 100, 100);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 8, 8);
 
@@ -165,7 +166,7 @@ public class OmnislashFinisherSpell extends BaseSpell {
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Finish your enemy by hitting them in rapid"));
-        list.add(new StringTextComponent("succession, dealing 8 vital blows: "));
+        list.add(new StringTextComponent("succession, dealing many vital blows: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

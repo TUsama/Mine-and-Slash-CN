@@ -1,0 +1,24 @@
+{
+  "id": "gauntlets_unique",
+  "weight": 250,
+  "rarity": 3,
+  "tier": 4,
+  "registry": "unique_gear",
+  "lang_file_string": "item.mmorpg.uniques.gauntlets.gauntlets_unique",
+  "lang_file_desc_string": "item.mmorpg.uniques.gauntlets.gauntlets_unique.desc",
+  "primary_stats": [
+    "high_physical_damage_flat"
+  ],
+  "unique_stats": [
+    "armor_penetration_flat",
+    "critical_hit_flat",
+    "critical_damage_flat"
+  ],
+  "can_get_set": false,
+  "requirements": {
+    "vitality": 0.75,
+    "strength": 0.25
+  },
+  "gear_type": "gauntlets",
+  "item_id": "mmorpg:uniques/gauntlets/gauntlets_unique"
+}

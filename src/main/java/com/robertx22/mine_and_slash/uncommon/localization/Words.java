@@ -74,7 +74,7 @@ public enum Words implements IAutoLocName {
     Crate("Crate"), SweepingStrike("Sweeping Strike"), ElementalStrike("Elemental Strike"), FlowingRiverLinker("Flowing River Linker"), RagingDragonLinker("Raging Dragon Linker"),
     RallyingSweepLinker("Rallying Sweep Linker"), SpiritDrainLinker("Spirit Drain Linker"), EmpoweringFinisher("Empowering Finisher"), ElementalVengeanceFinisher("Elemental Vengeance Finisher"),
     AntiGravityFinisher("Anti-Gravity Finisher"), OmnislashFinisher("Omnislash Finisher"), PowerForm("Power Form"), WisdomForm("Wisdom Form"), Asura("Asura"),
-    MythicCrate("Mythic Crate"),
+    MythicCrate("Mythic Crate"), Seethe("Seethe"), Blessing("Blessing"), AngelicRaiment("Angelic Raiment"),
     JewerlyCrafterCrate("Jewerly Crafter's Crate"),
     ArmorCrafterCrate("Armor Crafter's Crate"),
     WeaponcraftersCrate("Weapon Crafter's Crate"),

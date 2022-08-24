@@ -21,6 +21,8 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -89,7 +91,7 @@ public class ComboStarterEffect extends BasePotionEffect implements IApplyStatPo
     @Override
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
-
+        list.add(new StringTextComponent(TextFormatting.RED + "Required for Combo Extensions!"));
         return list;
 
     }

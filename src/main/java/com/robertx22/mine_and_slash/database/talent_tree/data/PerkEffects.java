@@ -93,7 +93,7 @@ public class PerkEffects {
         SPELL_DMG = PerkEffectBuilder.build(
             "spell_dmg", SpellDamage.getInstance(), new ExactStatData(3, StatModTypes.Flat, SpellDamage.GUID));
         HEAL_PWR = PerkEffectBuilder.build(
-                "heal_pwr", HealPower.getInstance(), new ExactStatData(5, StatModTypes.Flat, HealPower.GUID));
+                "heal_pwr", HealPower.getInstance(), new ExactStatData(4, StatModTypes.Flat, HealPower.GUID));
         CDR = PerkEffectBuilder.build(
                 "cdr", ReducedCooldownStat.getInstance(), new ExactStatData(2, StatModTypes.Flat, ReducedCooldownStat.GUID));
         CRIT_HIT = PerkEffectBuilder.build(
@@ -129,7 +129,7 @@ public class PerkEffects {
         SUMMON_DMG = PerkEffectBuilder.build(
                 "summon_dmg", SummonDamage.getInstance(), new ExactStatData(4, StatModTypes.Flat, SummonDamage.GUID));
         ARMOR_PEN = PerkEffectBuilder.build(
-                "armor_pen", ArmorPenetration.getInstance(), new ExactStatData(3, StatModTypes.Flat, ArmorPenetration.GUID));
+                "armor_pen", ArmorPenetration.getInstance(), new ExactStatData(2, StatModTypes.Flat, ArmorPenetration.GUID));
         FCR = PerkEffectBuilder.build(
                 "fcr", FasterCastRate.getInstance(), new ExactStatData(2, StatModTypes.Flat, FasterCastRate.GUID));
         MANA_COST = PerkEffectBuilder.build(
@@ -197,7 +197,7 @@ public class PerkEffects {
             WEP_ELE_DMG_MAP.put(
                 wep, PerkEffectBuilder.build(wep.name()
                         .toLowerCase(Locale.ROOT) + "_ele_dmg_percent", EleWepDmg.MAP.get(wep),
-                    new ExactStatData(wepDmg + 6, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
+                    new ExactStatData(wepDmg + 4, StatModTypes.Flat, EleWepDmg.MAP.get(wep))
                 ));
 
         }

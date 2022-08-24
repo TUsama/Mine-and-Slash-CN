@@ -22,6 +22,14 @@
     "thunder": {
         "category": "hostile",
         "sounds": [{"name": "mmorpg:thunder", "stream": true}]
+    },
+    "punch": {
+        "category": "hostile",
+        "sounds": [{"name": "mmorpg:punch", "stream": true}]
+    },
+    "explosion": {
+        "category": "hostile",
+        "sounds": [{"name": "mmorpg:explosion", "stream": true}]
     }
 
 }

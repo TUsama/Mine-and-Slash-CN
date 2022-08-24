@@ -6,6 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.potion_effects.druid.ThornsEffect;
 import com.robertx22.mine_and_slash.potion_effects.physical.EmpowerEffect;
 import com.robertx22.mine_and_slash.potion_effects.physical.EnlightenEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -88,10 +89,9 @@ public class WisdomFormSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Buff, Duration, Self"));
 
         TooltipUtils.addEmpty(list);
-
-        list.add(new StringTextComponent("Applies buff: "));
-
-        list.addAll(EnlightenEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Higher levels apply more stacks."));
+        TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent("Applies buff: " + EnlightenEffect.INSTANCE.locNameForLangFile()));
 
         return list;
 

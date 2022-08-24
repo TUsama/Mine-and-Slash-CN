@@ -55,7 +55,7 @@ public class RagingDragonLinkerSpell extends BaseSpell {
 
             @Override
             public SoundEvent sound() {
-                return SoundEvents.ENTITY_ENDER_DRAGON_GROWL;
+                return SoundEvents.ENTITY_EVOKER_FANGS_ATTACK;
             }
 
             @Override
@@ -88,7 +88,7 @@ public class RagingDragonLinkerSpell extends BaseSpell {
         c.set(SC.ATTACK_SCALE_VALUE, 2.25F, 3.0F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
+        c.set(SC.COOLDOWN_TICKS, 80, 80);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.DURATION_TICKS, 50, 50);
         c.set(SC.RADIUS, 4, 6);
@@ -160,14 +160,15 @@ public class RagingDragonLinkerSpell extends BaseSpell {
                 .finder(EntityFinder.Finder.IN_FRONT).searchFor(EntityFinder.SearchFor.ENEMIES)
                 .build();
 
-        ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition()
-                .up(1), ParticleEnum.CHARGED_NOVA);
+        ParticlePacketData pdata = new ParticlePacketData(ctx.caster.getPosition(), ParticleEnum.CHARGED_NOVA);
         pdata.radius = RADIUS;
         ParticleEnum.CHARGED_NOVA.sendToClients(ctx.caster, pdata);
 
         int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
+
+        SoundUtils.playSound(caster, SoundEvents.ENTITY_ENDER_DRAGON_GROWL, 0.75F, 1.00F);
 
         for (LivingEntity en : entities) {
 
@@ -180,7 +181,7 @@ public class RagingDragonLinkerSpell extends BaseSpell {
             SpellUtils.summonLightningStrike(en);
         }
 
-        SoundUtils.playSound(caster, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 1.2F, 1.3F);
+        SoundUtils.playSound(caster, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.75F, 1.3F);
     }
 
     private static class SingletonHolder {

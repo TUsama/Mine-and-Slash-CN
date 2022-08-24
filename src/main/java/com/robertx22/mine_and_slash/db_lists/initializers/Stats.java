@@ -225,6 +225,7 @@ public class Stats implements ISlashRegistryInit {
                     add(DodgeRating.getInstance());
                     add(new SpellDodge());
                     add(DamageShield.getInstance());
+                    add(DamageTaken.getInstance());
                     add(IncreaseDamage.getInstance());
 
                     // traits
@@ -255,6 +256,7 @@ public class Stats implements ISlashRegistryInit {
                     add(new Explosive());
 
                     add(HealPower.getInstance());
+                    add(HealingReceived.getInstance());
                     // traits
 
                 }

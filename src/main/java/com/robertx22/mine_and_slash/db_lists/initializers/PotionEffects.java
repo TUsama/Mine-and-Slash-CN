@@ -1,5 +1,7 @@
 package com.robertx22.mine_and_slash.db_lists.initializers;
 
+import com.robertx22.mine_and_slash.potion_effects.divine.AngelicRaimentEffect;
+import com.robertx22.mine_and_slash.potion_effects.divine.BlessingEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.EnrageEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.JudgementEffect;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
@@ -75,6 +77,8 @@ public class PotionEffects implements ISlashRegistryInit {
         QuickChargeEffect.INSTANCE.registerToSlashRegistry();
 
         EnrageEffect.INSTANCE.registerToSlashRegistry();
+        BlessingEffect.INSTANCE.registerToSlashRegistry();
+        AngelicRaimentEffect.INSTANCE.registerToSlashRegistry();
 
         CrippleEffect.INSTANCE.registerToSlashRegistry();
         NecroticTetherEffect.INSTANCE.registerToSlashRegistry();

@@ -102,6 +102,8 @@ public class AsuraSpell extends BaseSpell {
 
         num *= stacks;
 
+        PotionEffectUtils.apply(FatigueEffect.INSTANCE, ctx.caster, ctx.caster);
+
         for (LivingEntity en : entities) {
 
             AttackSpellDamageEffect dmg = new AttackSpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en),
@@ -137,15 +139,17 @@ public class AsuraSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 22, 31);
+        c.set(SC.ENERGY_COST, 16, 23);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.8F, 1.5F);
-        c.set(SC.RADIUS, 6, 8);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.0F, 2.0F);
+        c.set(SC.RADIUS, 4, 6);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_TICKS, 60, 60);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
+        c.set(SC.DURATION_TICKS, 100, 60);
+        c.set(SC.TICK_RATE, 20, 20);
 
         c.setMaxLevel(16);
 
@@ -154,7 +158,7 @@ public class AsuraSpell extends BaseSpell {
 
     @Override
     public AbilityPlace getAbilityPlace() {
-        return new AbilityPlace(6, 6);
+        return new AbilityPlace(7, 6);
     }
 
     @Override
@@ -169,7 +173,7 @@ public class AsuraSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Melee, Scaling"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Debuff (Self), Melee, Scaling"));
 
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "This spell's cooldown is unaffected by"));
@@ -184,7 +188,10 @@ public class AsuraSpell extends BaseSpell {
         list.add(new StringTextComponent("Channel your strength by expending all of your"));
         list.add(new StringTextComponent("Empower and Enlighten stacks to deal massive"));
         list.add(new StringTextComponent("damage to nearby enemies. Damage is multiplied"));
-        list.add(new StringTextComponent("by each stack you expend (no stacks = 0 DMG): "));
+        list.add(new StringTextComponent("by each stack you expend (no stacks = 0 DMG)."));
+        list.add(new StringTextComponent("Upon using Asura, apply on self: "));
+
+        list.addAll(FatigueEffect.INSTANCE.GetTooltipStringWithNoExtraSpellInfo(info));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

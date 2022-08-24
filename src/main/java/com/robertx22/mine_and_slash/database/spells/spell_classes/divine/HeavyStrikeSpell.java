@@ -81,7 +81,7 @@ public class HeavyStrikeSpell extends BaseSpell {
             .add(look)
             .add(0, ctx.caster.getHeight() / 2, 0))
             .finder(EntityFinder.Finder.RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
-            .radius(3)
+            .radius(2)
             .height(2)
             .build();
 

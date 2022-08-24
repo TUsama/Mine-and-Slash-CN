@@ -22,6 +22,8 @@ import com.robertx22.mine_and_slash.database.unique_items.chest.plate.ChestFire;
 import com.robertx22.mine_and_slash.database.unique_items.chest.plate.ChestNature;
 import com.robertx22.mine_and_slash.database.unique_items.chest.plate.ChestThunder;
 import com.robertx22.mine_and_slash.database.unique_items.chest.plate.ChestWater;
+import com.robertx22.mine_and_slash.database.unique_items.gauntlets.GauntletsLife;
+import com.robertx22.mine_and_slash.database.unique_items.gauntlets.GauntletsPhysical;
 import com.robertx22.mine_and_slash.database.unique_items.hammers.HammerElemental;
 import com.robertx22.mine_and_slash.database.unique_items.hammers.HammerPhysical;
 import com.robertx22.mine_and_slash.database.unique_items.hammers.HammerThunder;
@@ -117,6 +119,10 @@ public class UniqueGears implements ISlashRegistryInit {
         add(new SwordNature());
         add(new SwordWater());
         add(new SwordPhysical());
+
+        //gauntlets
+        add(new GauntletsPhysical());
+        add(new GauntletsLife());
 
         // axes
         add(new AxeWaterFire());

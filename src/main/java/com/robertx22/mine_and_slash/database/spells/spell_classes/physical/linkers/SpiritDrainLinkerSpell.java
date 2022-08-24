@@ -83,7 +83,7 @@ public class SpiritDrainLinkerSpell extends BaseSpell {
             .add(look)
             .add(0, ctx.caster.getHeight() / 2, 0))
             .finder(EntityFinder.Finder.RADIUS).searchFor(EntityFinder.SearchFor.ENEMIES)
-            .radius(3)
+            .radius(2)
             .height(2)
             .build();
 
@@ -138,9 +138,9 @@ public class SpiritDrainLinkerSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 6, 9);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 2.5F, 3.5F);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.75F, 3.75F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 60, 60);
+        c.set(SC.COOLDOWN_TICKS, 80, 80);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 

@@ -161,6 +161,7 @@ public interface IUnique extends ISpecificStatReq, IRarity, IGearSlotType, ITier
             {
 
                 put(Sword.INSTANCE.GUID(), () -> new BaseUniqueSword());
+                put(Gauntlets.INSTANCE.GUID(), () -> new BaseUniqueGauntlets());
                 put(Staff.INSTANCE.GUID(), () -> new BaseUniqueStaff());
                 put(Axe.INSTANCE.GUID(), () -> new BaseUniqueAxe());
                 put(Bow.INSTANCE.GUID(), () -> new BaseUniqueBow());

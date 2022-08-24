@@ -36,7 +36,8 @@ public class ElementalInfusionEffect extends BaseDamageEffect {
         return (effect.getEffectType()
             .equals(EffectTypes.BASIC_ATTACK) || effect.getEffectType()
                 .equals(EffectTypes.ATTACK_SPELL) || effect.getEffectType()
-                .equals(EffectTypes.SUMMON_DMG)) && stat.getElement()
+                .equals(EffectTypes.SUMMON_DMG) || effect.getEffectType()
+                .equals(EffectTypes.BONUS_ATTACK)) && stat.getElement()
             .equals(effect.GetElement());
     }
 

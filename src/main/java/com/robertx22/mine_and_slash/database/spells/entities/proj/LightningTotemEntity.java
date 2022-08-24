@@ -92,7 +92,7 @@ public class LightningTotemEntity extends EntityBaseProjectile {
 
         if (this.inGround && world.isRemote) {
 
-            for (int i = 0; i < 80; i++) {
+            for (int i = 0; i < 60; i++) {
                 Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), (float) radius());
                 ParticleUtils.spawn(ParticleRegister.THUNDER, world, p);
 

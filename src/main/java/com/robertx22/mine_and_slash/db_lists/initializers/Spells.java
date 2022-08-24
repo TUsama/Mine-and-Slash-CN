@@ -51,6 +51,8 @@ public class Spells implements ISlashRegistryInit {
                     add(DefendSpell.getInstance());
                     add(WishSpell.getInstance());
                     add(ProvokeSpell.getInstance());
+                    add(BlessingSpell.getInstance());
+                    add(AngelicRaimentSpell.getInstance());
                     //add(ShockwaveSpell.getInstance());
 
                     add(FrostballSpell.getInstance());
@@ -136,6 +138,8 @@ public class Spells implements ISlashRegistryInit {
                     add(MagicBurstSpell.getInstance());
                     add(ChargeSpell.getInstance());
                     add(ArrowTotemSpell.getInstance());
+                    add(SeetheSpell.getInstance());
+                    add(BlessingSpell.getInstance());
 
                     // unholy spells
                     add(ChillingTouchSpell.getInstance());

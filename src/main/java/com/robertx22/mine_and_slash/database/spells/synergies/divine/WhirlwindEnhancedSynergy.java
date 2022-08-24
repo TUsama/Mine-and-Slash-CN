@@ -36,10 +36,10 @@ public class WhirlwindEnhancedSynergy extends Synergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 3, 3);
-        c.set(SC.ENERGY_COST, 6, 6);
-        c.set(SC.ATTACK_SCALE_VALUE, -0.25F, -0.25F);
-        c.set(SC.COOLDOWN_SECONDS, -12F, -12F);
+        c.set(SC.MANA_COST, 2, 2);
+        c.set(SC.ENERGY_COST, 4, 4);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.2F, 0.2F);
+        c.set(SC.COOLDOWN_SECONDS, 4F, 4F);
     }
 
     @Override
