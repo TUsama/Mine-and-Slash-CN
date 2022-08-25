@@ -1,3 +1,7 @@
+3.15.X:
+- Added more particle and sounds effects to Flowing River Extension.
+- Fixed missing Gauntlets assets.
+
 3.15.4:
 - You now lose a static % exp on death rather than dynamic based on your current exp.
 

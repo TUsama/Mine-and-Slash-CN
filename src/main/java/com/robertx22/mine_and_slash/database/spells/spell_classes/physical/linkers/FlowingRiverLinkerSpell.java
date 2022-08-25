@@ -8,6 +8,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.cast_typ
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.ImmutableSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
@@ -95,6 +96,7 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
                 .build();
 
         SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.9F, 1.3F);
+        SoundUtils.playSound(ctx.caster, SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_INSIDE, 1, 1);
 
         int num = ctx.getConfigFor(this)
                 .getCalc(ctx.spellsCap, this)
@@ -113,10 +115,10 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
 
             ParticleEnum.sendToClients(
                 en.getPosition(), en.world,
-                new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(2)
                     .motion(new Vec3d(0, 0, 0))
-                    .type(ParticleTypes.ITEM_SNOWBALL)
-                    .amount((int) (10)));
+                    .type(ParticleRegister.BUBBLE)
+                    .amount((int) (30)));
 
         }
 
