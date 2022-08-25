@@ -631,10 +631,12 @@ public class EntityCap {
         @Override
         public void onDeath(LivingEntity en) {
 
-            int expLoss = (int) (exp * ModConfig.INSTANCE.Server.XP_LOSS_ON_DEATH.get());
+            int expRequired = levelToExp(this.getLevel() + 1);
+
+            int expLoss = (int) (expRequired * ModConfig.INSTANCE.Server.XP_LOSS_ON_DEATH.get());
 
             if (this.level >= 100) {
-                expLoss *= 0.2; // if level 100+, exp loss is 5% instead of 25%.
+                expLoss *= 0.5; // if level 100+, exp loss is 5% instead of 10%.
             }
 
             if (expLoss > 0) {

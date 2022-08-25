@@ -1,3 +1,6 @@
+3.15.4:
+- You now lose a static % exp on death rather than dynamic based on your current exp.
+
 3.15.2:
 - Increased bow and crossbow base damage.
 
