@@ -33,7 +33,7 @@ public class ModItems {
     public static RegistryObject<CurrencyItem> UNEARTH_SUFFIX = of(() -> new UnearthSuffixItem());
     public static RegistryObject<CurrencyItem> KEY_OF_UNITY = of(() -> new KeyOfUnityItem());
     public static RegistryObject<CurrencyItem> CRYSTAL_OF_LEGEND = of(() -> new CrystalOfLegendItem());
-    public static RegistryObject<CurrencyItem> KEY_OF_ENTROPY = of(() -> new KeyOfEntropy());
+    //public static RegistryObject<CurrencyItem> KEY_OF_ENTROPY = of(() -> new KeyOfEntropy());
 
     public static RegistryObject<CurrencyItem> CHAOS_ORB = of(() -> new ChaosOrbItem());
     public static RegistryObject<CurrencyItem> STONE_OF_CORRUPTION = of(() -> new StoneOfCorruptionItem());

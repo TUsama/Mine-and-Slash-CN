@@ -88,7 +88,7 @@ public class KeyOfEntropy extends CurrencyItem implements ICurrencyItemEffect, I
 
     @Override
     public ShapedRecipeBuilder getRecipe() {
-        return shaped(ModItems.KEY_OF_ENTROPY.get())
+        return shaped(ModItems.ORB_OF_UNIQUE_BLESSING.get())
             .key('#', SimpleMatItem.GOLDEN_ORB)
             .key('t', ModItems.ORB_OF_UNIQUE_BLESSING.get())
             .key('v', Items.GOLD_INGOT)

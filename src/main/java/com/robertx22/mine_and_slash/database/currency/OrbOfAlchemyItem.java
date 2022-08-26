@@ -114,7 +114,7 @@ public class OrbOfAlchemyItem extends CurrencyItem implements ICurrencyItemEffec
 
     @Override
     public ShapedRecipeBuilder getRecipe() {
-        return shaped(ModItems.ORB_OF_TRANSMUTATION.get())
+        return shaped(ModItems.ORB_OF_ALCHEMY.get())
             .key('t', ModItems.ORB_OF_TRANSMUTATION.get())
             .key('v', Items.EMERALD)
             .key('o', ItemOre.ItemOres.get(IRarity.Rare))
