@@ -23,12 +23,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AngelicRaimentEffect extends BasePotionEffect implements IApplyStatPotion, IOneOfATypePotion {
-
-    @Override
-    public IOneOfATypePotion.Type getOneOfATypeType() {
-        return IOneOfATypePotion.Type.DIVINE_BUFF;
-    }
+public class AngelicRaimentEffect extends BasePotionEffect implements IApplyStatPotion {
 
     public static final AngelicRaimentEffect INSTANCE = new AngelicRaimentEffect();
 

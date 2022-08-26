@@ -149,10 +149,10 @@ public class EmpoweringFinisher extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 8, 12);
+        c.set(SC.ENERGY_COST, 10.5F, 15);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 3.75F, 5.75F);
+        c.set(SC.ATTACK_SCALE_VALUE, 3.75F, 5.25F);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_TICKS, 100, 100);

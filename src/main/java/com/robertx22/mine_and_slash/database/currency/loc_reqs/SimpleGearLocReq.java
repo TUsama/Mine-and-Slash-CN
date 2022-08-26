@@ -23,6 +23,8 @@ public class SimpleGearLocReq extends BaseLocRequirement {
         x -> x.timesLeveledUp < CrystalOfAscensionItem.MAXIMUM_LEVEL_UPS, Words.CanOnlyUse10times.locName());
     public static final SimpleGearLocReq NO_CHAOS_STATS = new SimpleGearLocReq(
         x -> x.chaosStats == null, Words.NoChaosStats.locName());
+    public static final SimpleGearLocReq HAS_CHAOS_STATS = new SimpleGearLocReq(
+            x -> x.chaosStats != null, Words.HasChaosStats.locName());
     public static final SimpleGearLocReq LEVEL_ISNT_HIGHER_THAN_MAX = new SimpleGearLocReq(
         x -> x.level < ModConfig.INSTANCE.Server.MAXIMUM_PLAYER_LEVEL.get(), Words.LvlLessThanMax.locName());
     public static final SimpleGearLocReq IS_COMMON = new SimpleGearLocReq(
@@ -40,7 +42,9 @@ public class SimpleGearLocReq extends BaseLocRequirement {
         x -> x.suffix != null, Words.hasSuffix.locName());
     public static final BaseLocRequirement HAS_SET = new SimpleGearLocReq(x -> x.set != null, Words.hasSet.locName());
     public static final BaseLocRequirement HAS_PRIMARY_STATS = new SimpleGearLocReq(
-        x -> x.primaryStats != null, Words.hasSet.locName());
+        x -> x.primaryStats != null, Words.hasPrimaryStats.locName());
+    public static final BaseLocRequirement HAS_SECONDARY_STATS = new SimpleGearLocReq(
+            x -> x.secondaryStats != null, Words.hasSecondaryStats.locName());
     public static final BaseLocRequirement HAS_UNIQUE_STATS = new SimpleGearLocReq(
         x -> x.uniqueStats != null, Words.hasUniqueStats.locName());
     public static final BaseLocRequirement HAS_CHAOS = new SimpleGearLocReq(

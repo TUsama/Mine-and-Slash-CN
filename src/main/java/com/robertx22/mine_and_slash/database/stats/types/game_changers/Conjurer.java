@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.stats.mods.flat.misc.CooldownReduct
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SummonDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealPower;
+import com.robertx22.mine_and_slash.database.stats.types.spell_calc.IncreasedDurationStat;
 import com.robertx22.mine_and_slash.database.stats.types.spell_calc.ReducedCooldownStat;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.StatModTypes;
@@ -43,8 +44,8 @@ public class Conjurer extends BaseGameChangerTrait {
 
         return Arrays.asList(
             new ExactStatData(30, StatModTypes.Multi, SummonDamage.getInstance()),
-                new ExactStatData(10, StatModTypes.Flat, ReducedCooldownStat.getInstance()),
-            new ExactStatData(-80, StatModTypes.Multi, SpellDamage.getInstance())
+            new ExactStatData(15, StatModTypes.Flat, IncreasedDurationStat.getInstance()),
+            new ExactStatData(-50, StatModTypes.Flat, SpellDamage.getInstance())
         );
     }
 

@@ -42,7 +42,8 @@ public class SpellBladeBurstSynergy extends OnBasicAttackSynergy {
 
         list.add(new StringTextComponent("While Spell Blade is active, attacks"));
         list.add(new StringTextComponent("cause enemies to send out fiery novas,"));
-        list.add(new StringTextComponent("damaging other nearby enemies: "));
+        list.add(new StringTextComponent("dealing spell damage to other nearby "));
+        list.add(new StringTextComponent("enemies: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 

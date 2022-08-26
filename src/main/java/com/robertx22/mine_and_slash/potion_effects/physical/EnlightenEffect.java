@@ -60,8 +60,8 @@ public class EnlightenEffect extends BasePotionEffect implements IApplyStatPotio
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(1, EnergyRegen.getInstance()));
-        list.add(new PotionStat(2, FasterCastRate.getInstance()));
+        list.add(new PotionStat(3, EnergyRegen.getInstance()));
+        list.add(new PotionStat(3, FasterCastRate.getInstance()));
         return list;
     }
 

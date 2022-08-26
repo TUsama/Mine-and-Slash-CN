@@ -17,7 +17,7 @@ public class PhysicalDamageFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 5.5F;
+        return 5;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class PhysicalDamageFlat extends StatMod {
 
     @Override
     public float maxSecond() {
-        return 10;
+        return 9;
     }
 
     @Override

@@ -79,7 +79,7 @@ public class SoulShredEffect extends BasePotionEffect implements IOnBasicAttacke
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-20, Armor.getInstance()));
+        list.add(new PotionStat(-15, Armor.getInstance()));
         return list;
     }
 
@@ -119,7 +119,7 @@ public class SoulShredEffect extends BasePotionEffect implements IOnBasicAttacke
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical Spell Damage"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical DoT Damage"));
         list.add(new StringTextComponent("Enemies with Soul Shred will take"));
         list.add(new StringTextComponent("extra physical damage on attack and"));
         list.add(new StringTextComponent("damage over time. Both of these"));

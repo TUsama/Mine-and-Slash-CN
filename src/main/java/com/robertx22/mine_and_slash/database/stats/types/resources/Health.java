@@ -10,7 +10,7 @@ public class Health extends Stat {
     public static String GUID = "health";
 
     private Health() {
-        this.minimumValue = 1;
+        this.minimumValue = 10;
     }
 
     public static Health getInstance() {

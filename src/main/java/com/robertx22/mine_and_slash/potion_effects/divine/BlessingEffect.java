@@ -27,12 +27,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlessingEffect extends BasePotionEffect implements IApplyStatPotion, IOneOfATypePotion {
-
-    @Override
-    public IOneOfATypePotion.Type getOneOfATypeType() {
-        return IOneOfATypePotion.Type.DIVINE_BUFF;
-    }
+public class BlessingEffect extends BasePotionEffect implements IApplyStatPotion {
 
     public static final BlessingEffect INSTANCE = new BlessingEffect();
 

@@ -26,12 +26,14 @@ public class ModItems {
     public static List<RegistryObject<CurrencyItem>> currencies = new ArrayList<>();
 
     public static RegistryObject<CurrencyItem> ORB_OF_TRANSMUTATION = of(() -> new OrbOfTransmutationItem());
+    public static RegistryObject<CurrencyItem> ORB_OF_ALCHEMY = of(() -> new OrbOfAlchemyItem());
     public static RegistryObject<CurrencyItem> GEM_OF_UNIQUE_HEAVEN = of(() -> new GemOfUniqueHeaven());
     public static RegistryObject<CurrencyItem> CHAOTIC_WISP = of(() -> new ChaoticWispItem());
     public static RegistryObject<CurrencyItem> UNEARTH_PREFIX = of(() -> new UnearthPrefixItem());
     public static RegistryObject<CurrencyItem> UNEARTH_SUFFIX = of(() -> new UnearthSuffixItem());
     public static RegistryObject<CurrencyItem> KEY_OF_UNITY = of(() -> new KeyOfUnityItem());
     public static RegistryObject<CurrencyItem> CRYSTAL_OF_LEGEND = of(() -> new CrystalOfLegendItem());
+    public static RegistryObject<CurrencyItem> KEY_OF_ENTROPY = of(() -> new KeyOfEntropy());
 
     public static RegistryObject<CurrencyItem> CHAOS_ORB = of(() -> new ChaosOrbItem());
     public static RegistryObject<CurrencyItem> STONE_OF_CORRUPTION = of(() -> new StoneOfCorruptionItem());
@@ -46,6 +48,7 @@ public class ModItems {
 
     public static RegistryObject<CurrencyItem> STONE_OF_HOPE = of(() -> new StoneOfHopeItem());
     public static RegistryObject<CurrencyItem> LEAF_OF_CHANGE = of(() -> new LeafOfChangeItem());
+    public static RegistryObject<CurrencyItem> ORB_OF_CHANCES = of(() -> new OrbOfChancesItem());
     public static RegistryObject<CurrencyItem> KEY_OF_NEW_DAWN = of(() -> new KeyOfNewDawnItem());
     public static RegistryObject<CurrencyItem> ORB_OF_BLESSING = of(() -> new OrbOfBlessingItem());
     public static RegistryObject<CurrencyItem> ORB_OF_UNIQUE_BLESSING = of(() -> new OrbOfUniqueBlessingItem());

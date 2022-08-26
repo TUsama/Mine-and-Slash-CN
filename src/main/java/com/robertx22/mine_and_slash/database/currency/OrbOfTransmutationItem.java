@@ -12,6 +12,7 @@ import com.robertx22.mine_and_slash.loot.blueprints.GearBlueprint;
 import com.robertx22.mine_and_slash.loot.gens.util.GearCreationUtils;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModItems;
+import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.IRerollable;
 import com.robertx22.mine_and_slash.saveclasses.item_classes.GearItemData;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Gear;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IRenamed;
@@ -50,10 +51,19 @@ public class OrbOfTransmutationItem extends CurrencyItem implements ICurrencyIte
         GearBlueprint gearPrint = new GearBlueprint(gear.level);
         gearPrint.gearItemSlot.set(gear.gearTypeName);
         gearPrint.rarity.minRarity = 1;
+        gearPrint.rarity.maxRarity = 1;
         gearPrint.level.LevelRange = false;
 
         GearItemData newgear = gearPrint.createData();
-        gear.WriteOverDataThatShouldStay(newgear);
+        gear.WriteOverDataThatShouldStayAll(newgear);
+
+        if (newgear.isRuned()) {
+            newgear.runes.capacity++;
+        }
+
+        for (IRerollable rel : newgear.GetAllRerollable()) {
+            rel.RerollNumbers(newgear);
+        }
 
         ItemStack result = ItemStack.EMPTY;
 

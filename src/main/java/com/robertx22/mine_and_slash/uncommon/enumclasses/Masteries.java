@@ -30,7 +30,7 @@ public enum Masteries {
     HUNTING("hunting", TextFormatting.GREEN, Words.Hunting, 5, Chats.HuntingMastery),
     DIVINE("divine", TextFormatting.WHITE, Words.Divine, 6, Chats.DivineMastery),
     UNHOLY("unholy", TextFormatting.DARK_PURPLE, Words.Unholy, 7, Chats.UnholyMastery),
-    PHYSICAL("physical", TextFormatting.GRAY, Words.Physical, 7, Chats.PhysicalMastery),
+    PHYSICAL("physical", TextFormatting.GRAY, Words.Physical, 8, Chats.PhysicalMastery),
     TOTAL_MASTERY("total_mastery", TextFormatting.LIGHT_PURPLE, Words.TotalMastery, 10, Chats.TotalMastery);
 
     public static int MAXIMUM_POINTS = 50;
@@ -98,7 +98,7 @@ public enum Masteries {
     }
 
     public static int LVL_TO_UNLOCK_2ND_SCHOOL = 10;
-    public static int LVL_TO_UNLOCK_3RD_SCHOOL = 120;
+    public static int LVL_TO_UNLOCK_3RD_SCHOOL = 100;
 
     public int getEffectiveLevel(int totalSchoolLevel, EntityCap.UnitData data) { //need to fix so it scales properly
 

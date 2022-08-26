@@ -9,8 +9,6 @@ import com.robertx22.mine_and_slash.database.currency.loc_reqs.SimpleGearLocReq;
 import com.robertx22.mine_and_slash.database.currency.loc_reqs.item_types.GearReq;
 import com.robertx22.mine_and_slash.items.SimpleMatItem;
 import com.robertx22.mine_and_slash.items.ores.ItemOre;
-import com.robertx22.mine_and_slash.loot.blueprints.GearBlueprint;
-import com.robertx22.mine_and_slash.loot.gens.util.GearCreationUtils;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModItems;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.IRerollable;
@@ -25,110 +23,80 @@ import net.minecraft.item.Items;
 import java.util.Arrays;
 import java.util.List;
 
-public class StoneOfHopeItem extends CurrencyItem implements ICurrencyItemEffect, IRenamed, IShapedRecipe {
+public class KeyOfEntropy extends CurrencyItem implements ICurrencyItemEffect, IRenamed, IShapedRecipe {
     @Override
     public String GUID() {
-        return "currency/stone_of_hope";
+        return "currency/reroll_chaos";
     }
 
-    public static final String ID = Ref.MODID + ":currency/stone_of_hope";
+    private static final String name = Ref.MODID + ":currency/reroll_chaos";
 
     @Override
     public List<String> oldNames() {
-        return Arrays.asList(Ref.MODID + ":stone_of_hope");
+        return Arrays.asList(Ref.MODID + ":reroll_chaos");
     }
 
-    public StoneOfHopeItem() {
+    public KeyOfEntropy() {
 
-        super(ID);
+        super(name);
 
     }
 
     @Override
     public ItemStack ModifyItem(ItemStack stack, ItemStack Currency) {
-
         GearItemData gear = Gear.Load(stack);
+        gear.chaosStats.RerollFully(gear);
+        Gear.Save(stack, gear);
 
-        GearBlueprint blueprint = new GearBlueprint(gear.level);
-        blueprint.gearItemSlot.set(gear.gearTypeName);
-        blueprint.rarity.minRarity = gear.Rarity + 1;
-        blueprint.rarity.maxRarity = gear.Rarity + 1;
-        blueprint.level.LevelRange = false;
-
-        GearItemData newgear = blueprint.createData();
-        gear.WriteOverDataThatShouldStayAll(newgear);
-
-        if (newgear.isRuned()) {
-            newgear.runes.capacity++;
-        }
-
-        for (IRerollable rel : newgear.GetAllRerollable()) {
-            rel.RerollNumbers(newgear);
-        }
-
-        ItemStack result = ItemStack.EMPTY;
-
-        if (gear.changesItemStack()) {
-            result = GearCreationUtils.CreateStack(newgear);
-        } else {
-            result = stack;
-            Gear.Save(result, newgear);
-        }
-
-        return result;
-
+        return stack;
     }
 
     @Override
     public List<BaseLocRequirement> requirements() {
-        return Arrays.asList(GearReq.INSTANCE, SimpleGearLocReq.IS_LOWER_THAN_LEGENDARY, SimpleGearLocReq.IS_NOT_UNIQUE);
-    }
-
-    @Override
-    public int getRarityRank() {
-        return IRarity.Legendary;
+        return Arrays.asList(GearReq.INSTANCE, SimpleGearLocReq.HAS_CHAOS_STATS);
     }
 
     @Override
     public int getTier() {
-        return 2;
+        return 5;
+    }
+
+    @Override
+    public int getRarityRank() {
+        return Legendary;
     }
 
     @Override
     public List<String> loreLines() {
-        return Arrays.asList("When there is hope, there is a way.");
+        return Arrays.asList("Even chaos can be quelled.");
     }
 
     @Override
     public String locNameForLangFile() {
-        return nameColor + "Stone Of Hope";
+        return nameColor + "Key Of Entropy";
     }
 
     @Override
     public String locDescForLangFile() {
-        return "Transform any rarity gear into higher rarity";
-    }
-
-    @Override
-    public float additionalBreakChance() {
-        return 25;
+        return "Re-rolls chaos stat.";
     }
 
     @Override
     public int instabilityAddAmount() {
-        return 0;
+        return 100;
     }
 
     @Override
     public ShapedRecipeBuilder getRecipe() {
-        return shaped(ModItems.STONE_OF_HOPE.get())
-            .key('#', SimpleMatItem.MYTHIC_ESSENCE)
-            .key('t', ModItems.ORB_OF_TRANSMUTATION.get())
-            .key('v', Items.DIAMOND)
+        return shaped(ModItems.KEY_OF_ENTROPY.get())
+            .key('#', SimpleMatItem.GOLDEN_ORB)
+            .key('t', ModItems.ORB_OF_UNIQUE_BLESSING.get())
+            .key('v', Items.GOLD_INGOT)
             .key('o', ItemOre.ItemOres.get(IRarity.Legendary))
-            .patternLine("#o#")
-            .patternLine("#t#")
-            .patternLine("vvv")
+            .patternLine("o#o")
+            .patternLine("oto")
+            .patternLine("v#v")
             .addCriterion("player_level", new PlayerLevelTrigger.Instance(10));
     }
+
 }

@@ -4,6 +4,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.BaseSpel
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.stats.types.defense.ArmorPenetration;
+import com.robertx22.mine_and_slash.database.stats.types.offense.IncreaseDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
@@ -60,7 +61,7 @@ public class EmpowerEffect extends BasePotionEffect implements IApplyStatPotion 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(3, PhysicalDamage.getInstance()));
+        list.add(new PotionStat(3, IncreaseDamage.getInstance()));
         return list;
     }
 

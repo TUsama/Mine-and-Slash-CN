@@ -65,7 +65,7 @@ public class ComboStarterEffect extends BasePotionEffect implements IApplyStatPo
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(10, ArmorPenetration.getInstance()));
+        list.add(new PotionStat(15, ArmorPenetration.getInstance()));
         return list;
     }
 
