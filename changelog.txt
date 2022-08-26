@@ -28,6 +28,7 @@
 - You can now learn a third Mastery tree at level 100 instead of 120.
 - Orb of Transmutation and Stone of Hope now retain the item stats when upgrading rarity!
 - Orb of Transmutation always upgrades from common to uncommon, whereas Stone of Hope retains its functionality and will roll one rarity or more higher.
+- Added a new currency Orb, Key of Entropy, which is a rare currency that can reroll chaos stats!
 - Added a new currency orb, Orb of Chances, that can reroll secondary stats.
 - Added a new currency orb, Orb of Alchemy, that turns common rarity items into rare.
 - Using an Orb of Transmutation, Orb of Alchemy, and Stone of Hope will now retain the item identification status. They will also take into account if an item is runed, and will add a rune slot if appropriate.
