@@ -38,7 +38,7 @@ public class UnearthPrefixItem extends CurrencyItem implements ICurrencyItemEffe
 
     @Override
     public List<BaseLocRequirement> requirements() {
-        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.AFFIXES, SimpleGearLocReq.NO_PREFIX);
+        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.AFFIXES, SimpleGearLocReq.NO_PREFIX, SimpleGearLocReq.IS_NOT_COMMON);
     }
 
     public static final String ID = Ref.MODID + ":currency/add_prefix";

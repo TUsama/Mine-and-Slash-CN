@@ -55,7 +55,7 @@ public class ThornArmorEffect extends BasePotionEffect implements IApplyStatPoti
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(20, new ElementalResist(Elements.Nature)));
         list.add(new PotionStat(20, HealingReceived.getInstance()));
-        list.add(new PotionStat(40, new BlockReflect(Elements.Nature)));
+        list.add(new PotionStat(25, new BlockReflect(Elements.Nature)));
         return list;
     }
 

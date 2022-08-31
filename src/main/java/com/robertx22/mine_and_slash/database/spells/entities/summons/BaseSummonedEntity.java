@@ -16,6 +16,8 @@ import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.passive.WaterMobEntity;
+import net.minecraft.entity.passive.fish.AbstractFishEntity;
 import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -145,7 +147,7 @@ public class BaseSummonedEntity extends TameableEntity implements ISpellEntity {
 
     @Override
     public boolean canAttack(LivingEntity target) {
-        return !this.isOwner(target) && !this.isOnSameTeam(target) && !(target instanceof AgeableEntity) && !(target instanceof IronGolemEntity || target instanceof SnowGolemEntity) && super.canAttack(target);
+        return !this.isOwner(target) && !this.isOnSameTeam(target) && !(target instanceof AgeableEntity) && !(target instanceof WaterMobEntity) && !(target instanceof IronGolemEntity || target instanceof SnowGolemEntity) && super.canAttack(target);
     }
 
     @Override

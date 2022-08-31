@@ -67,7 +67,10 @@ public class DodgeEffect extends BaseStatEffect<DamageEffect> {
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
         return !effect.getEffectType()
-            .equals(EffectTypes.SPELL);
+            .equals(EffectTypes.SPELL) && !effect.getEffectType()
+                .equals(EffectTypes.DOT_DMG) && !effect.getEffectType()
+                .equals(EffectTypes.BOLT) && !effect.getEffectType()
+                .equals(EffectTypes.REFLECT);
     }
 
     public static AttributeModifier MOD = new AttributeModifier(UUID.fromString("38400000-8cf0-11bd-b23e-10b96e4ef00d"),

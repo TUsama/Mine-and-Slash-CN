@@ -129,7 +129,7 @@ public class ChillingTouchSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 3, 7);
         c.set(SC.ATTACK_SCALE_VALUE, 1F, 1.3F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 3, 2);
+        c.set(SC.COOLDOWN_SECONDS, 3, 3);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
         c.setMaxLevel(16);

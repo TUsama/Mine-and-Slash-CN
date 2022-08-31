@@ -6,6 +6,9 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.VenomLoadSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.BlightSpell;
 import com.robertx22.mine_and_slash.database.stats.types.elementals.all_damage.AllDotDmg;
+import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
+import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.database.stats.types.offense.SpellDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -14,6 +17,7 @@ import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
 import com.robertx22.mine_and_slash.potion_effects.bases.BasePotionEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.IApplyStatPotion;
 import com.robertx22.mine_and_slash.potion_effects.bases.OnTickAction;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.PotionStat;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
@@ -51,6 +55,8 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
         this.tickActions.add(new OnTickAction(ctx -> {
             int num = getCalc(ctx.caster).getCalculatedValue(ctx.casterData, ctx.spellsCap, this);
 
+            int stacks = PotionEffectUtils.getStacks(ctx.caster, this);
+
             float radius = getConfig(ctx.caster)
                     .get(SC.RADIUS)
                     .get(Load.spells(ctx.caster), getSpell());
@@ -59,11 +65,7 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
                     ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.AOE).type(
                             ParticleTypes.SNEEZE).radius(radius)
                             .motion(new Vec3d(0, 0, 0))
-                            .amount((int) (30*radius)));
-            DamageEffect dmgSelf = new DamageEffect(null, ctx.caster, ctx.caster, num, ctx.casterData, ctx.casterData, EffectData.EffectTypes.DOT_DMG, WeaponTypes.None);
-            dmgSelf.element = Elements.Nature;
-            dmgSelf.removeKnockback();
-            dmgSelf.Activate();
+                            .amount((int) (25*radius)));
 
             List<LivingEntity> entities = EntityFinder.start(ctx.caster, LivingEntity.class, ctx.caster.getPositionVector())
                     .radius(radius).searchFor(EntityFinder.SearchFor.ENEMIES)
@@ -71,7 +73,7 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
 
             for (LivingEntity en : entities) {
 
-                DamageEffect dmg = new DamageEffect(null, ctx.caster, en, (int) (num * 0.25), ctx.casterData, Load.Unit(en), EffectData.EffectTypes.DOT_DMG, WeaponTypes.None);
+                DamageEffect dmg = new DamageEffect(null, ctx.caster, en, num * stacks, ctx.casterData, Load.Unit(en), EffectData.EffectTypes.DOT_DMG, WeaponTypes.None);
                 dmg.element = Elements.Nature;
                 dmg.removeKnockback();
                 dmg.Activate();
@@ -104,14 +106,14 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
 
     @Override
     public int getMaxStacks() {
-        return 1;
+        return 10;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(20, new AllDotDmg()));
-        list.add(new PotionStat(20, SpellDamage.getInstance()));
+        list.add(new PotionStat(1, SpellDamage.getInstance()));
+        list.add(new PotionStat(1, new AllDotDmg()));
 
         return list;
     }
@@ -139,9 +141,8 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
     public List<ITextComponent> getEffectTooltip(TooltipInfo info) {
         List<ITextComponent> list = new ArrayList<>();
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Nature DoT Damage"));
-        list.add(new StringTextComponent(TextFormatting.RED + "Warning! This effect can kill you."));
-        list.add(new StringTextComponent("Deal nature damage to self and deal quarter that amount"));
-        list.add(new StringTextComponent("to nearby enemies."));
+        list.add(new StringTextComponent("Deal nature damage to nearby enemies. Damage"));
+        list.add(new StringTextComponent("is multiplied for each stack you have active: "));
         return list;
     }
 

@@ -63,7 +63,7 @@ public class ThunderstormSpell extends BaseSpell {
         c.set(SC.RADIUS, 5F, 9);
         c.set(SC.CAST_TIME_TICKS, 80, 40);
         c.set(SC.COOLDOWN_SECONDS, 28, 24);
-        c.set(SC.TICK_RATE, 35, 25);
+        c.set(SC.TICK_RATE, 30, 25);
         c.set(SC.DURATION_TICKS, 200, 200);
         c.set(SC.BONUS_HEALTH, 0, 0);
 

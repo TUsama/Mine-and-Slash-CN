@@ -59,7 +59,7 @@ public class UnearthSuffixItem extends CurrencyItem implements ICurrencyItemEffe
 
     @Override
     public List<BaseLocRequirement> requirements() {
-        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.AFFIXES, SimpleGearLocReq.NO_SUFFIX);
+        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.AFFIXES, SimpleGearLocReq.NO_SUFFIX, SimpleGearLocReq.IS_NOT_COMMON);
     }
 
     @Override

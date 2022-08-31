@@ -55,7 +55,7 @@ public class OrbOfTransmutationItem extends CurrencyItem implements ICurrencyIte
         gearPrint.level.LevelRange = false;
 
         GearItemData newgear = gearPrint.createData();
-        gear.WriteOverDataThatShouldStayAll(newgear);
+        gear.WriteOverDataThatShouldStayCommon(newgear);
 
         if (newgear.isRuned()) {
             newgear.runes.capacity++;

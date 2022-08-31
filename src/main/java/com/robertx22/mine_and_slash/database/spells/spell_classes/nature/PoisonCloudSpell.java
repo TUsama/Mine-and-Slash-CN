@@ -72,7 +72,7 @@ public class PoisonCloudSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 20, 60);
-        c.set(SC.COOLDOWN_SECONDS, 6, 3);
+        c.set(SC.COOLDOWN_SECONDS, 4, 4);
         c.set(SC.RADIUS, 6, 8);
         c.set(SC.TIMES_TO_CAST, 1, 6);
 

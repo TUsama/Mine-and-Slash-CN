@@ -67,7 +67,7 @@ public class PoisonBallSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 0.25F, 0.25F);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_TICKS, 60, 40);
+        c.set(SC.COOLDOWN_TICKS, 60, 60);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.RADIUS, 2F, 2F);
         c.set(SC.DURATION_TICKS, 60, 120);

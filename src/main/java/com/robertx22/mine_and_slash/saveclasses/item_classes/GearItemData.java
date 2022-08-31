@@ -196,6 +196,24 @@ public class GearItemData implements ICommonDataItem<GearRarity>, IInstability, 
 
     }
 
+    public void WriteOverDataThatShouldStayCommon(GearItemData newdata) {
+
+        //newdata.prefix = this.prefix;
+        //newdata.suffix = this.suffix;
+        newdata.primaryStats = this.primaryStats;
+        //newdata.secondaryStats = this.secondaryStats;
+        //newdata.chaosStats = this.chaosStats;
+        newdata.uniqueStats = this.uniqueStats;
+        newdata.set = this.set;
+        newdata.runes = this.runes;
+        newdata.ided = this.ided;
+        newdata.rightClickSpell = this.rightClickSpell;
+        newdata.instability = this.instability;
+        newdata.timesLeveledUp = this.timesLeveledUp;
+        newdata.isSalvagable = this.isSalvagable;
+
+    }
+
     public void WriteOverDataThatShouldStayAll(GearItemData newdata) {
 
         newdata.prefix = this.prefix;

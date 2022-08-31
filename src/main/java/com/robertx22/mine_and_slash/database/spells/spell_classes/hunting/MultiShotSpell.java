@@ -66,7 +66,7 @@ public class MultiShotSpell extends BaseSpell {
         c.set(SC.SHOOT_SPEED, 3.0F, 3.0F);
         c.set(SC.PROJECTILE_COUNT, 3, 7);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 9, 6);
+        c.set(SC.COOLDOWN_SECONDS, 8, 6);
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.DURATION_TICKS, 80, 80);
 

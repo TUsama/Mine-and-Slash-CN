@@ -412,7 +412,7 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
 
     private void onEventPotions() {
 
-        if (this.getEffectType() == EffectTypes.BASIC_ATTACK || this.getEffectType() == EffectTypes.NORMAL || this.getEffectType() == EffectTypes.SUMMON_DMG) {
+        if (this.getEffectType() == EffectTypes.BASIC_ATTACK || this.getEffectType() == EffectTypes.SUMMON_DMG) {
             List<EffectInstance> onAttacks = source.getActivePotionEffects()
                 .stream()
                 .filter(x -> x.getPotion() instanceof IOnBasicAttackPotion)

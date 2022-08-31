@@ -69,7 +69,7 @@ public class HolyFlowerSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 36, 64);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_SECONDS, 20, 16);
-        c.set(SC.TICK_RATE, 30, 15);
+        c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.RADIUS, 4, 8);
         c.set(SC.DURATION_TICKS, 300, 300);
         c.set(SC.BONUS_HEALTH, 0, 0);

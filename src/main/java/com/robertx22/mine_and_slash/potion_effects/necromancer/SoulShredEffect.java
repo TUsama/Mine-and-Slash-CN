@@ -120,10 +120,10 @@ public class SoulShredEffect extends BasePotionEffect implements IOnBasicAttacke
         List<ITextComponent> list = new ArrayList<>();
 
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical DoT Damage"));
-        list.add(new StringTextComponent("Enemies with Soul Shred will take"));
-        list.add(new StringTextComponent("extra physical damage on attack and"));
-        list.add(new StringTextComponent("damage over time. Both of these"));
-        list.add(new StringTextComponent("effects scale with Magic Shield: "));
+        list.add(new StringTextComponent("Enemies with Soul Shred will take physical"));
+        list.add(new StringTextComponent("spell damage when attacked. They will also"));
+        list.add(new StringTextComponent("take physical damage over time. Both of these"));
+        list.add(new StringTextComponent("effects scale with magic shield: "));
 
         list.addAll(getCalc(info.player).GetTooltipString(info, Load.spells(info.player), this));
         return list;

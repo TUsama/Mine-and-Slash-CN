@@ -35,8 +35,8 @@ public class SpeedyEffect extends BaseDamageEffect {
         ParticleEnum.sendToClients(effect.target,
                 new ParticlePacketData(effect.target.getPosition(), ParticleEnum.NOVA).radius(
                         1)
-                        .type(ParticleTypes.POOF)
-                        .amount(25)
+                        .type(ParticleTypes.INSTANT_EFFECT)
+                        .amount(5)
         );
 
         effect.target.addPotionEffect(new EffectInstance(Effects.SPEED, 100, 0));

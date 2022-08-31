@@ -101,7 +101,7 @@ public class WoundsEffect extends BasePotionEffect implements IApplyStatPotion {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.BASE_VALUE, 1, 1);
-        p.set(SC.ATTACK_SCALE_VALUE, 0.12F, 0.19F);
+        p.set(SC.ATTACK_SCALE_VALUE, 0.12F, 0.2F);
         p.set(SC.TICK_RATE, 20, 20);
         p.set(SC.DURATION_TICKS, 8 * 20, 12 * 20);
         return p;

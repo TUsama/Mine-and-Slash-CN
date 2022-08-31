@@ -105,7 +105,6 @@ public abstract class EffectData {
     public WeaponTypes weaponType = WeaponTypes.None;
 
     public enum EffectTypes {
-        NORMAL,
         SPELL,
         ATTACK_SPELL,
         BASIC_ATTACK,

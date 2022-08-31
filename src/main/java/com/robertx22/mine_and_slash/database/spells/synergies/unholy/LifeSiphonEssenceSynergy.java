@@ -1,6 +1,7 @@
 package com.robertx22.mine_and_slash.database.spells.synergies.unholy;
 
 import com.robertx22.mine_and_slash.database.spells.SpellUtils;
+import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCastContext;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.unholy.ChillingTouchSpell;
@@ -73,8 +74,7 @@ public class LifeSiphonEssenceSynergy extends OnDamageDoneSynergy {
     @Override
     public void tryActivate(SpellDamageEffect ctx) {
 
-        float amount = getCalc(Load.spells(ctx.source)).getCalculatedValue(ctx.sourceData, Load.spells(ctx.source
-        ), this);
+        SpellCastContext castContext = getContext(ctx.source);
 
         ParticleEnum.sendToClients(
                 ctx.source.getPosition(), ctx.source.world,
@@ -83,7 +83,7 @@ public class LifeSiphonEssenceSynergy extends OnDamageDoneSynergy {
                         .type(ParticleTypes.COMPOSTER)
                         .amount(15));
 
-        SpellUtils.healMagicShield(getSpell(), ctx.source, amount);
+        SpellUtils.healCasterMagicShield(castContext);
     }
 
     @Override

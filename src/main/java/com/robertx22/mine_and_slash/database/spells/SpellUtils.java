@@ -123,13 +123,15 @@ public class SpellUtils {
         heal.Activate();
     }
 
-    public static void healMagicShield(BaseSpell spell, LivingEntity en, float amount) {
-        SpellHealEffect heal = new SpellHealEffect(
-                new ResourcesData.Context(Load.Unit(en), en, ResourcesData.Type.MAGIC_SHIELD,
-                        amount, ResourcesData.Use.RESTORE,
-                        spell
-                ));
-        heal.Activate();
+    public static void healCasterMagicShield(SpellCastContext ctx) {
+        ResourcesData.Context heal = new ResourcesData.Context(ctx.data, ctx.caster,
+                ResourcesData.Type.MAGIC_SHIELD,
+                ctx.getConfigFor(ctx.ability)
+                        .getCalc(ctx.spellsCap, ctx.ability)
+                        .getCalculatedValue(ctx.data, Load.spells(ctx.caster), ctx.ability),
+                ResourcesData.Use.RESTORE, ctx.spell
+        );
+        ctx.data.modifyResource(heal);
     }
 
     public static void healCaster(SpellCastContext ctx) {
@@ -144,25 +146,25 @@ public class SpellUtils {
     }
 
     public static void healCasterMana(SpellCastContext ctx) {
-        SpellHealEffect heal = new SpellHealEffect(
-                new ResourcesData.Context(ctx.data, ctx.caster, ResourcesData.Type.MANA,
-                        ctx.getConfigFor(ctx.ability)
-                                .getCalc(ctx.spellsCap, ctx.ability)
-                                .getCalculatedValue(ctx.data, ctx.spellsCap, ctx.ability), ResourcesData.Use.RESTORE,
-                        ctx.spell
-                ));
-        heal.Activate();
+        ResourcesData.Context heal = new ResourcesData.Context(ctx.data, ctx.caster,
+                ResourcesData.Type.MANA,
+                ctx.getConfigFor(ctx.ability)
+                        .getCalc(ctx.spellsCap, ctx.ability)
+                        .getCalculatedValue(ctx.data, Load.spells(ctx.caster), ctx.ability),
+                ResourcesData.Use.RESTORE, ctx.spell
+        );
+        ctx.data.modifyResource(heal);
     }
 
     public static void healCasterEnergy(SpellCastContext ctx) {
-        SpellHealEffect heal = new SpellHealEffect(
-                new ResourcesData.Context(ctx.data, ctx.caster, ResourcesData.Type.ENERGY,
-                        ctx.getConfigFor(ctx.ability)
-                                .getCalc(ctx.spellsCap, ctx.ability)
-                                .getCalculatedValue(ctx.data, ctx.spellsCap, ctx.ability), ResourcesData.Use.RESTORE,
-                        ctx.spell
-                ));
-        heal.Activate();
+        ResourcesData.Context heal = new ResourcesData.Context(ctx.data, ctx.caster,
+                ResourcesData.Type.ENERGY,
+                ctx.getConfigFor(ctx.ability)
+                        .getCalc(ctx.spellsCap, ctx.ability)
+                        .getCalculatedValue(ctx.data, Load.spells(ctx.caster), ctx.ability),
+                ResourcesData.Use.RESTORE, ctx.spell
+        );
+        ctx.data.modifyResource(heal);
     }
 
 }

@@ -71,9 +71,9 @@ public class WhirlwindSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 12, 16);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.5F, 1.0F);
-        c.set(SC.CAST_TIME_TICKS, 140, 140);
-        c.set(SC.COOLDOWN_SECONDS, 10, 6);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.5F, 0.8F);
+        c.set(SC.CAST_TIME_TICKS, 120, 120);
+        c.set(SC.COOLDOWN_SECONDS, 8, 6);
         c.set(SC.RADIUS, 2F, 4F);
         c.set(SC.TIMES_TO_CAST, 20, 20);
 

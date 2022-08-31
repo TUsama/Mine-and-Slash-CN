@@ -131,6 +131,7 @@ public enum Words implements IAutoLocName {
     isNotUnique("Is Not Unique"),
     isLowerThanLegendary("Is Not Legendary"),
     IsCommon("Is Common Rarity"),
+    IsNotCommon("Is Not Common Rarity"),
     LvlLessThanMax("Lvl Less than max lvl"),
     NoChaosStats("Doesn't have Chaos Stats"),
     HasChaosStats("Has Chaos Stats"),

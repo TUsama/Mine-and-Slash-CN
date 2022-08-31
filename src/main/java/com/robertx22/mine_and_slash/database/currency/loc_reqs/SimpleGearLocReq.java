@@ -29,6 +29,8 @@ public class SimpleGearLocReq extends BaseLocRequirement {
         x -> x.level < ModConfig.INSTANCE.Server.MAXIMUM_PLAYER_LEVEL.get(), Words.LvlLessThanMax.locName());
     public static final SimpleGearLocReq IS_COMMON = new SimpleGearLocReq(
         x -> x.Rarity == IRarity.Common, Words.IsCommon.locName());
+    public static final SimpleGearLocReq IS_NOT_COMMON = new SimpleGearLocReq(
+            x -> x.Rarity != IRarity.Common, Words.IsNotCommon.locName());
     public static final SimpleGearLocReq IS_LOWER_THAN_LEGENDARY = new SimpleGearLocReq(
         x -> x.Rarity < IRarity.Legendary, Words.isLowerThanLegendary.locName());
     public static final SimpleGearLocReq IS_NOT_UNIQUE = new SimpleGearLocReq(

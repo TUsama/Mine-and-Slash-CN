@@ -56,7 +56,7 @@ public class CrystalOfLegendItem extends CurrencyItem implements ICurrencyItemEf
 
     @Override
     public List<BaseLocRequirement> requirements() {
-        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.SECONDARY_STATS, SimpleGearLocReq.SEC_STAT_NOT_ALREADY_ADDED);
+        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.SECONDARY_STATS, SimpleGearLocReq.SEC_STAT_NOT_ALREADY_ADDED, SimpleGearLocReq.IS_NOT_COMMON);
     }
 
     @Override

@@ -55,9 +55,10 @@ public class OrbOfAlchemyItem extends CurrencyItem implements ICurrencyItemEffec
         gearPrint.level.LevelRange = false;
 
         GearItemData newgear = gearPrint.createData();
-        gear.WriteOverDataThatShouldStayAll(newgear);
+        gear.WriteOverDataThatShouldStayCommon(newgear);
 
         if (newgear.isRuned()) {
+            newgear.runes.capacity++;
             newgear.runes.capacity++;
         }
 

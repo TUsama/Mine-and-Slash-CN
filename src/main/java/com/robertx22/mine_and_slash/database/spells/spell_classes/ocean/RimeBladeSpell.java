@@ -92,7 +92,7 @@ public class RimeBladeSpell extends BaseSpell {
         c.set(SC.ATTACK_SCALE_VALUE, 0.7F, 1.0F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
-        c.set(SC.COOLDOWN_SECONDS, 7, 4);
+        c.set(SC.COOLDOWN_SECONDS, 4, 4);
         c.set(SC.DURATION_TICKS, 50, 50);
         c.set(SC.RADIUS, 4, 6);
 

@@ -52,7 +52,7 @@ public class BlazingShellEffect extends BasePotionEffect implements IApplyStatPo
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(25, new ArmorToMagicShieldConversion()));
         list.add(new PotionStat(20, Armor.getInstance()));
-        list.add(new PotionStat(30, new BlockReflect(Elements.Fire)));
+        list.add(new PotionStat(15, new BlockReflect(Elements.Fire)));
         return list;
     }
 

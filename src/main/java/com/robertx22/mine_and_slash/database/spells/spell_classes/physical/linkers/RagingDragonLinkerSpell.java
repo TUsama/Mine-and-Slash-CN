@@ -13,6 +13,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.mmorpg.registers.common.ModSounds;
 import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.packets.particles.ParticlePacketData;
+import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.physical.ComboLinkerEffect;
 import com.robertx22.mine_and_slash.potion_effects.physical.ComboStarterEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
@@ -182,6 +183,11 @@ public class RagingDragonLinkerSpell extends BaseSpell {
         }
 
         SoundUtils.playSound(caster, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.75F, 1.3F);
+
+        if (PotionEffectUtils.has(ctx.caster, ComboStarterEffect.INSTANCE)) {
+            PotionEffectUtils.reduceStacks(ctx.caster, ComboStarterEffect.INSTANCE);
+        }
+        PotionEffectUtils.reApplyToSelf(ComboLinkerEffect.INSTANCE, ctx.caster);
     }
 
     private static class SingletonHolder {

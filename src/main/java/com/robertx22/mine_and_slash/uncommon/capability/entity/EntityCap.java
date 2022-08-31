@@ -1022,7 +1022,7 @@ public class EntityCap {
                 int num = (int) unit.getCreateStat(PhysicalDamage.GUID)
                     .getRandomRangeValue();
                 DamageEffect dmg = new DamageEffect(
-                    data, num, EffectData.EffectTypes.NORMAL, WeaponTypes.None);
+                    data, num, EffectData.EffectTypes.BASIC_ATTACK, WeaponTypes.None);
 
                 dmg.Activate();
             }

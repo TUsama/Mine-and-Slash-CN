@@ -53,7 +53,7 @@ public class ChaoticWispItem extends CurrencyItem implements ICurrencyItemEffect
 
     @Override
     public List<BaseLocRequirement> requirements() {
-        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.CAN_CHAOS_STATS, SimpleGearLocReq.NO_CHAOS_STATS);
+        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.CAN_CHAOS_STATS, SimpleGearLocReq.NO_CHAOS_STATS, SimpleGearLocReq.IS_NOT_COMMON);
     }
 
     @Override
