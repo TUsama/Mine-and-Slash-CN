@@ -30,6 +30,7 @@
 - Orb of Transmutation and Orb of Alchemy will now try to roll for prefix/suffix/secondary/chaos stats when used.
 - You can no longer use a Chaos Orb, Chaotic Wisp, Crystal of Legend, Unearth Prefix/Suffix on common rarity equipment.
 - True unarmed attacks (not gauntlets) are now classified as Basic Attacks rather than their own type.
+- Team EXP and loot reward multiplier has been reduced.
 - Fixed a bug where the infusion stat was doubling damage unintentionally.
 - Fixed an issue where spells recovering Magic Shield, Mana, and Energy were not functioning at all.
 - Fixed an issue where Arcane Devotion was giving 10 times the amount of flat magic shield as intended. This fix should prevent players from getting a boatload of MS with no investment.
