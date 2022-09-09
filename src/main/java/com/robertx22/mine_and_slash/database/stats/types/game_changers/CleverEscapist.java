@@ -1,9 +1,8 @@
 package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
+import com.robertx22.mine_and_slash.database.stats.effects.game_changers.CleverEscapistEffect;
 import com.robertx22.mine_and_slash.database.stats.effects.game_changers.RefreshingBreezeEffect;
-import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
-import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
-import com.robertx22.mine_and_slash.database.stats.types.resources.EnergyRegen;
+import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
@@ -15,38 +14,36 @@ import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
 import java.util.Arrays;
 import java.util.List;
 
-public class RefreshingBreeze extends BaseGameChangerTrait implements IStatEffects, IAffectsStats {
+public class CleverEscapist extends BaseGameChangerTrait implements IStatEffects, IAffectsStats {
 
-    private RefreshingBreeze() {
+    private CleverEscapist() {
     }
 
-    public static final RefreshingBreeze INSTANCE = new RefreshingBreeze();
-
-    public static int PERCENT = 4;
+    public static final CleverEscapist INSTANCE = new CleverEscapist();
 
     @Override
     public String locDescForLangFile() {
-        return "Dodging restores " + PERCENT + " percent of your max health. But if you don't dodge, lose " + PERCENT + " percent of your max energy.";
+        return "Successfully dodging grants you 10 percent increased damage and 20 percent damage reduction for 5 seconds.";
     }
 
     @Override
     public String getIconPath() {
-        return "game_changers/breeze";
+        return "game_changers/clever_escapist";
     }
 
     @Override
     public String locNameForLangFile() {
-        return "Refreshing Breeze";
+        return "Clever Escapist";
     }
 
     @Override
     public String GUID() {
-        return "refreshing_breeze_trait";
+        return "clever_escapist_trait";
     }
 
     @Override
     public IStatEffect getEffect() {
-        return RefreshingBreezeEffect.INSTANCE;
+        return CleverEscapistEffect.INSTANCE;
     }
 
     @Override
@@ -57,7 +54,7 @@ public class RefreshingBreeze extends BaseGameChangerTrait implements IStatEffec
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-                new ExactStatData(-25, StatModTypes.Multi, EnergyRegen.getInstance())
+                new ExactStatData(-10, StatModTypes.Multi, DodgeRating.getInstance())
         );
     }
 }

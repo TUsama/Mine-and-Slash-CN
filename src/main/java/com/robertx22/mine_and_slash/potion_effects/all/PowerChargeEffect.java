@@ -49,7 +49,7 @@ public class PowerChargeEffect extends BasePotionEffect implements IApplyStatPot
                     ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.AOE).type(
                             ParticleTypes.WITCH)
                             .motion(new Vec3d(0, 0, 0))
-                            .amount(10 * ctx.data.getStacks()));
+                            .amount(1 * ctx.data.getStacks()));
 
             return ctx;
         }, null));

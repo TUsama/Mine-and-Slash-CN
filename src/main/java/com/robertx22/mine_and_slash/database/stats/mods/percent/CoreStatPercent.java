@@ -22,7 +22,7 @@ public class CoreStatPercent extends BaseCoreStatFlat {
 
     @Override
     public float Max() {
-        return 15;
+        return 10;
     }
 
     @Override

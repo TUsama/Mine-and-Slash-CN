@@ -5,7 +5,9 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.CorrosiveShadowSpell;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
+import com.robertx22.mine_and_slash.database.stats.types.defense.DamageTaken;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
+import com.robertx22.mine_and_slash.database.stats.types.defense.PhysicalDamageTaken;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealPower;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -89,8 +91,7 @@ public class CorrosionEffect extends BasePotionEffect implements IApplyStatPotio
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-60, Armor.getInstance()));
-        list.add(new PotionStat(-60, DodgeRating.getInstance()));
+        list.add(new PotionStat(35, PhysicalDamageTaken.getInstance()));
 
         return list;
     }

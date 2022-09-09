@@ -45,8 +45,8 @@ public class SideStep extends BaseGameChangerTrait {
     public List<ExactStatData> getExactStats() {
 
         return Arrays.asList(
-                new ExactStatData(25, StatModTypes.Multi, DodgeRating.getInstance()),
-            new ExactStatData(25, StatModTypes.Flat, new SpellDodge()),
+                new ExactStatData(30, StatModTypes.Multi, DodgeRating.getInstance()),
+            new ExactStatData(30, StatModTypes.Flat, new SpellDodge()),
             new ExactStatData(-50, StatModTypes.Multi, Armor.getInstance()),
                 new ExactStatData(-30, StatModTypes.Multi, MagicShield.getInstance()),
                 new ExactStatData(-30, StatModTypes.Multi, new BlockStrength())

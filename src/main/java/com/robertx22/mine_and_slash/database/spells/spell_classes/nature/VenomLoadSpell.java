@@ -58,18 +58,18 @@ public class VenomLoadSpell extends BaseSpell {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 5, 9);
+        c.set(SC.MANA_COST, 5.5F, 10);
         c.set(SC.ENERGY_COST, 0, 0);
-        c.set(SC.RADIUS, 3, 5);
+        c.set(SC.RADIUS, 3, 4);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0F, 0F);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.02F, 0.04F);
-        c.set(SC.CAST_TIME_TICKS, 10, 10);
+        c.set(SC.CAST_TIME_TICKS, 15, 15);
         c.set(SC.COOLDOWN_TICKS, 0, 0);
-        c.set(SC.DURATION_TICKS, 5 * 20, 7 * 20);
+        c.set(SC.DURATION_TICKS, 3 * 20, 5 * 20);
         c.set(SC.TICK_RATE, 10, 10);
 
-        c.setMaxLevel(4);
+        c.setMaxLevel(12);
         return c;
     }
 

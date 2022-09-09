@@ -138,10 +138,10 @@ public class AntiGravityFinisherSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 9.5F, 14);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 4.05F, 4.95F);
+        c.set(SC.ATTACK_SCALE_VALUE, 4.15F, 5.05F);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_TICKS, 100, 100);
+        c.set(SC.COOLDOWN_TICKS, 120, 120);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.DURATION_TICKS, 60, 100);

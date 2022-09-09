@@ -28,6 +28,7 @@ public class PotionRegister {
         reg.register(RechargeEffect.INSTANCE);
         reg.register(TeleportProtection.INSTANCE);
         reg.register(BleedPotion.INSTANCE);
+        reg.register(EscapistEffect.INSTANCE);
         reg.register(SummonTauntEffect.INSTANCE);
         reg.register(WeakenCurseEffect.INSTANCE);
         reg.register(MobChillEffect.INSTANCE);

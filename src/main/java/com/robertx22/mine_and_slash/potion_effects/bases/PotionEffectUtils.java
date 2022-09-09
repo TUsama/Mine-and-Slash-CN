@@ -62,7 +62,7 @@ public class PotionEffectUtils {
 
         boolean nonMasteryEffects = effect != BleedPotion.INSTANCE && effect != WeakenCurseEffect.INSTANCE
                 && effect != MobChillEffect.INSTANCE && effect != PowerChargeEffect.INSTANCE
-                && effect != FortitudeChargeEffect.INSTANCE && effect != SummonTauntEffect.INSTANCE;
+                && effect != FortitudeChargeEffect.INSTANCE && effect != SummonTauntEffect.INSTANCE && effect != EscapistEffect.INSTANCE;
 
         if (instance == null) {
 

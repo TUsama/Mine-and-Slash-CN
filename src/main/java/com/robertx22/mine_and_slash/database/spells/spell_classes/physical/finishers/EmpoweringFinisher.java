@@ -155,7 +155,7 @@ public class EmpoweringFinisher extends BaseSpell {
         c.set(SC.ATTACK_SCALE_VALUE, 3.75F, 5.25F);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_TICKS, 100, 100);
+        c.set(SC.COOLDOWN_TICKS, 120, 120);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.AMOUNT, 1, 3);

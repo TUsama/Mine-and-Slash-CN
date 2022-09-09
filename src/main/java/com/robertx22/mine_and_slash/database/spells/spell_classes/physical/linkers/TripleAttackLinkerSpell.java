@@ -130,7 +130,7 @@ public class TripleAttackLinkerSpell extends BaseSpell {
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 1.25F, 1.5F);
         c.set(SC.CAST_TIME_TICKS, 10, 10);
-        c.set(SC.COOLDOWN_TICKS, 80, 80);
+        c.set(SC.COOLDOWN_TICKS, 90, 90);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 3, 3);
 

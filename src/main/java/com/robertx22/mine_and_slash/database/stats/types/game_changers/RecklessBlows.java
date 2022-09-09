@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RecklessBlows extends BaseGameChangerTrait {
+public class    RecklessBlows extends BaseGameChangerTrait {
 
     private RecklessBlows() {
     }
@@ -47,7 +47,10 @@ public class RecklessBlows extends BaseGameChangerTrait {
     public List<ExactStatData> getExactStats() {
 
         return Arrays.asList(
-                new ExactStatData(25, StatModTypes.Flat, new ElementalPene(Elements.Elemental)),
+                new ExactStatData(25, StatModTypes.Flat, new ElementalPene(Elements.Water)),
+                new ExactStatData(25, StatModTypes.Flat, new ElementalPene(Elements.Fire)),
+                new ExactStatData(25, StatModTypes.Flat, new ElementalPene(Elements.Thunder)),
+                new ExactStatData(25, StatModTypes.Flat, new ElementalPene(Elements.Nature)),
                 new ExactStatData(25, StatModTypes.Flat, ArmorPenetration.getInstance()),
                 new ExactStatData(-20, StatModTypes.Multi, MagicShield.getInstance()),
                 new ExactStatData(-20, StatModTypes.Multi, Armor.getInstance()),

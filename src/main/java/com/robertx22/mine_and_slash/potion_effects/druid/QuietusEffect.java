@@ -6,9 +6,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.MortalitySapSpell;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.ThoughtSeizeSpell;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
-import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
-import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
-import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
+import com.robertx22.mine_and_slash.database.stats.types.offense.*;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Health;
 import com.robertx22.mine_and_slash.database.stats.types.resources.HealthRegen;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShieldRegen;
@@ -79,8 +77,8 @@ public class QuietusEffect extends BasePotionEffect implements IApplyStatPotion,
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-15, PhysicalDamage.getInstance()));
-        list.add(new PotionStat(-30, HealthRegen.getInstance()));
+        list.add(new PotionStat(25, ReduceDamage.getInstance()));
+        list.add(new PotionStat(-20, HealthRegen.getInstance()));
 
         return list;
     }

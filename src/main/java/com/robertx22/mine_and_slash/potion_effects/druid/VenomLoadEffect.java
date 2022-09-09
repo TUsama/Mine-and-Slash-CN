@@ -31,6 +31,8 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.Masteries;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.EntityFinder;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectType;
 import net.minecraft.util.ResourceLocation;
@@ -49,7 +51,7 @@ public class VenomLoadEffect extends BasePotionEffect implements IApplyStatPotio
     public static final VenomLoadEffect INSTANCE = new VenomLoadEffect();
 
     private VenomLoadEffect() {
-        super(EffectType.HARMFUL, 4393423);
+        super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
         this.tickActions.add(new OnTickAction(ctx -> {

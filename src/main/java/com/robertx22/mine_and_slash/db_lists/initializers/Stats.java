@@ -79,6 +79,7 @@ public class Stats implements ISlashRegistryInit {
                     add(Harmony.INSTANCE);
                     add(MagicalLife.INSTANCE);
                     add(SteadyHand.INSTANCE);
+                    add(CleverEscapist.INSTANCE);
                     add(RecklessBlows.INSTANCE);
                     add(SideStep.INSTANCE);
                     add(PowerOverwhelming.INSTANCE);
@@ -226,7 +227,10 @@ public class Stats implements ISlashRegistryInit {
                     add(new SpellDodge());
                     add(DamageShield.getInstance());
                     add(DamageTaken.getInstance());
+                    add(PhysicalDamageTaken.getInstance());
+                    add(EleDamageTaken.getInstance());
                     add(IncreaseDamage.getInstance());
+                    add(ReduceDamage.getInstance());
 
                     // traits
                     add(new Golem());

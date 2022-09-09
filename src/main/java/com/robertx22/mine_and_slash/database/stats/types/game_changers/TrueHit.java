@@ -40,7 +40,7 @@ public class TrueHit extends BaseGameChangerTrait implements IStatEffects {
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-            new ExactStatData(35, StatModTypes.Multi, CriticalHit.getInstance())
+            new ExactStatData(30, StatModTypes.Multi, CriticalHit.getInstance())
         );
     }
 

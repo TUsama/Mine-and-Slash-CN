@@ -16,12 +16,12 @@ public class CoreStatFlat extends BaseCoreStatFlat {
 
     @Override
     public float Min() {
-        return 2;
+        return 1;
     }
 
     @Override
     public float Max() {
-        return 5;
+        return 3;
     }
 
     @Override

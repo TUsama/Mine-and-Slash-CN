@@ -65,7 +65,7 @@ public class CriticalSurgeSplashSynergy extends OnHitSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 5, 8);
+        c.set(SC.BASE_VALUE, 3, 6);
         c.set(SC.CHANCE, 5, 20);
         c.set(SC.RADIUS, 1.5F, 2.5F);
         c.setMaxLevel(8);

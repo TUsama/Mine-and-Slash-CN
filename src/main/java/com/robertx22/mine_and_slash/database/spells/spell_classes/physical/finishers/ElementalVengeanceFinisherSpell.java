@@ -153,7 +153,7 @@ public class ElementalVengeanceFinisherSpell extends BaseSpell {
         c.set(SC.ATTACK_SCALE_VALUE, 1.05F, 1.35F);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_TICKS, 100, 100);
+        c.set(SC.COOLDOWN_TICKS, 120, 120);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 

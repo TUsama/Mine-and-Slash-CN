@@ -25,7 +25,7 @@ public class UniqueRuneLootGen extends BaseLootGen<UniqueRuneBlueprint> {
         return WorldUtils.dropsUniques(info.world) && SlashRegistry.Runes()
             .getFiltered(x -> x.isUnique())
             .stream()
-            .anyMatch(x -> info.tier >= x.getTier());
+            .anyMatch(x -> info.tier >= x.getTier()) && info.level >= ModConfig.INSTANCE.Server.RUNES_AND_RUNED_GEAR_DROP_AFTER_LEVEL.get();
 
     }
 

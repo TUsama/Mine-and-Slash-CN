@@ -51,10 +51,9 @@ public class PowerSurgeBoltSynergy extends OnHitSynergy {
         list.add(new StringTextComponent(TextFormatting.GRAY + "unaffected by spell damage modifiers."));
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("While Power Surge is active, hits"));
-        list.add(new StringTextComponent("have a chance of summoning a bolt"));
-        list.add(new StringTextComponent("of lightning on the enemy, dealing"));
-        list.add(new StringTextComponent("bolt damage: "));
+        list.add(new StringTextComponent("While Power Surge is active, hits have"));
+        list.add(new StringTextComponent("a chance of summoning a bolt of lightning"));
+        list.add(new StringTextComponent("on the enemy, dealing bolt damage: "));
 
         list.addAll(getCalc(Load.spells(info.player)).GetTooltipString(info, Load.spells(info.player), this));
 
@@ -69,7 +68,7 @@ public class PowerSurgeBoltSynergy extends OnHitSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 3, 6);
+        c.set(SC.BASE_VALUE, 2, 4);
         c.set(SC.CHANCE, 5F, 20F);
         c.setMaxLevel(8);
         return c;

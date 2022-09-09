@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.Corrosi
 import com.robertx22.mine_and_slash.database.spells.spell_classes.nature.ThoughtSeizeSpell;
 import com.robertx22.mine_and_slash.database.stats.types.defense.Armor;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeRating;
+import com.robertx22.mine_and_slash.database.stats.types.defense.EleDamageTaken;
 import com.robertx22.mine_and_slash.database.stats.types.game_changers.BloodMage;
 import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
 import com.robertx22.mine_and_slash.database.stats.types.resources.MagicShieldRegen;
@@ -80,9 +81,8 @@ public class MindRotEffect extends BasePotionEffect implements IApplyStatPotion,
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-50, MagicShieldRegen.getInstance()));
+        list.add(new PotionStat(25, EleDamageTaken.getInstance()));
         list.add(new PotionStat(-20, ManaRegen.getInstance()));
-        list.add(new PotionStat(-33, new ElementalResist(Elements.Elemental)));
 
         return list;
     }

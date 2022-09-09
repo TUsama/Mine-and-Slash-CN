@@ -284,11 +284,15 @@ public abstract class EffectData {
                 .forEach(data -> { // for each stat
                     if (data.isNotZero()) {
                         Stat stat = data.GetStat();
-                        if (stat instanceof IStatEffects) {
-                            ((IStatEffects) stat).getEffects()
-                                .forEach(effect -> {
-                                    effects.add(new EffectUnitStat(effect, unit, data)); // add to the list of effects data = the number, unit = who it is applied to
-                                });
+                        try {
+                            if (stat instanceof IStatEffects) {
+                                ((IStatEffects) stat).getEffects()
+                                        .forEach(effect -> {
+                                            effects.add(new EffectUnitStat(effect, unit, data)); // add to the list of effects data = the number, unit = who it is applied to
+                                        });
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 });
