@@ -1,3 +1,6 @@
+3.15.8:
+- Increased Team Map difficulty.
+
 3.15.7:
 - Added a new Game Changer talent: Clever Escapist - can be found in the bottom right of the tree. On a successful dodge, receive a 5s buff that gives 10% increased damage and 20% damage reduction.
 - Steady Hand has been moved to the very bottom of the tree.
