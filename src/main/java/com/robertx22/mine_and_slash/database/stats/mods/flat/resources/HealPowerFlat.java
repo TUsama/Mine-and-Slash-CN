@@ -9,12 +9,12 @@ public class HealPowerFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 5;
+        return 10;
     }
 
     @Override
     public float Max() {
-        return 20;
+        return 15;
     }
 
     @Override

@@ -1,3 +1,6 @@
+3.15.9:
+- Increased Healing variance has been reduced, floor has been increased and ceiling decreased. Before it was 5-20 now the base value is 10-15.
+
 3.15.8:
 - Increased Team Map difficulty.
 
