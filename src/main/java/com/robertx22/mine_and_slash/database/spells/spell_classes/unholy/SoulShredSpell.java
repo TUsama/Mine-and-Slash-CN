@@ -82,7 +82,7 @@ public class SoulShredSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 200, 200);
         c.set(SC.RADIUS, 4, 4);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
 
         return c;
     }

@@ -31,7 +31,7 @@ public class ReducePhysicalDamageEffect extends BaseDamageEffect {
 
         float damageDecrease = MathHelper.clamp(data.getAverageValue(), stat.minimumValue, stat.maximumValue);
 
-        effect.number *=  (1 - damageDecrease / 100);
+        effect.number =  effect.number - (effect.preIncNumber * (1 - damageDecrease / 100));
 
         return effect;
     }

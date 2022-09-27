@@ -59,7 +59,7 @@ public class ThunderSpearLightningStrikeSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 4, 8);
-        c.setMaxLevel(4);
+        c.setMaxLevel(8);
         return c;
     }
 
@@ -82,7 +82,7 @@ public class ThunderSpearLightningStrikeSynergy extends OnDamageDoneSynergy {
 
             SpellUtils.summonLightningStrike(ctx.target);
 
-            SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.75F, 1);
+            SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.5F, 1);
 
             /*int num = getCalcVal(ctx.source);
 

@@ -28,8 +28,8 @@ public class EleWepDmgEffect extends BaseDamageEffect {
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
         //effect.wepMultiBonusEleDmg(data.getMultiplier());
-
-        effect.number *= data.getMultiplier();
+        float multi = data.getMultiplier();
+        effect.number = effect.number + (effect.preIncNumber * (multi - 1));
 
         return effect;
     }

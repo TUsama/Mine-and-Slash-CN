@@ -67,9 +67,9 @@ public class VenomLoadSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 15, 15);
         c.set(SC.COOLDOWN_TICKS, 0, 0);
         c.set(SC.DURATION_TICKS, 3 * 20, 5 * 20);
-        c.set(SC.TICK_RATE, 10, 10);
+        c.set(SC.TICK_RATE, 15, 15);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
         return c;
     }
 

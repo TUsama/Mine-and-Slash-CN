@@ -82,7 +82,7 @@ public class ThunderDashSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 12, 12);
         c.set(SC.DURATION_TICKS, 20 * 3, 20 * 6);
 
-        c.setMaxLevel(4);
+        c.setMaxLevel(8);
 
         return c;
     }

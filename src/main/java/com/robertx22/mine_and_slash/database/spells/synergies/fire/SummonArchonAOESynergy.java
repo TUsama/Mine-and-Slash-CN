@@ -64,7 +64,7 @@ public class SummonArchonAOESynergy extends OnBasicAttackSynergy {
         c.set(SC.BASE_VALUE, 4, 9);
         c.set(SC.RADIUS, 1.5F, 2.5F);
         c.set(SC.CHANCE, 5, 25);
-        c.setMaxLevel(4);
+        c.setMaxLevel(8);
         return c;
     }
 

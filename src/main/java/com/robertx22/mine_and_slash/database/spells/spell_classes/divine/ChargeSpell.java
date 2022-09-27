@@ -79,7 +79,7 @@ public class ChargeSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 9, 7);
         c.set(SC.RADIUS, 12, 12);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

@@ -55,7 +55,7 @@ public class HeartOfIceFrostSynergy extends OnSpellCastSynergy {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 2, 7);
         c.set(SC.RADIUS, 0, 0);
-        c.setMaxLevel(4);
+        c.setMaxLevel(8);
         return c;
     }
 

@@ -32,7 +32,7 @@ public abstract class BaseOceanBuffSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 40 * 20, 60 * 20);
         c.set(SC.RADIUS, 4, 8);
 
-        c.setMaxLevel(4);
+        c.setMaxLevel(8);
         return c;
     }
 

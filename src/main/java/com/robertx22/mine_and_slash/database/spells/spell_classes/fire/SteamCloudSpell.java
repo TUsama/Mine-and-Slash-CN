@@ -64,15 +64,15 @@ public class SteamCloudSpell extends BaseSpell {
         c.set(SC.MANA_COST, 12, 18);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 5, 17);
+        c.set(SC.BASE_VALUE, 9, 17);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
-        c.set(SC.COOLDOWN_SECONDS, 24, 20);
+        c.set(SC.COOLDOWN_SECONDS, 24, 16);
         c.set(SC.TICK_RATE, 30, 20);
         c.set(SC.RADIUS, 4, 4);
         c.set(SC.DURATION_TICKS, 320, 320);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
 
         return c;
     }

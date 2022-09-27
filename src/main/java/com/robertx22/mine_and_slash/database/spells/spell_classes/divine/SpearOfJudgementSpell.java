@@ -76,7 +76,7 @@ public class SpearOfJudgementSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 10, 10);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(16);
 
         return c;
     }

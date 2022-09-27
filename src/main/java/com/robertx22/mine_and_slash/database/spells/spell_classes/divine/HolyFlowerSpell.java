@@ -74,7 +74,7 @@ public class HolyFlowerSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 300, 300);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
         return c;
     }
 

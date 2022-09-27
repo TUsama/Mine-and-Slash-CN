@@ -77,16 +77,16 @@ public class MagicBurstSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 7, 7);
-        c.set(SC.MAGIC_SHIELD_COST, 0.05F, 0.125F);
+        c.set(SC.MAGIC_SHIELD_COST, 0.05F, 0.15F);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE, 0.15F, 0.5F);
+        c.set(SC.MAGIC_SHIELD_ATTACK_SCALE_VALUE, 0.15F, 0.75F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 6, 4);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }

@@ -67,17 +67,17 @@ public class BlazingInfernoSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 16, 23);
+        c.set(SC.MANA_COST, 16, 22);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 4, 9);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.4F, 0.7F);
+        c.set(SC.BASE_VALUE, 5, 7);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.7F, 0.9F);
         c.set(SC.CAST_TIME_TICKS, 60, 40);
-        c.set(SC.COOLDOWN_SECONDS, 9, 7);
+        c.set(SC.COOLDOWN_SECONDS, 9, 6);
         c.set(SC.RADIUS, 3, 5);
         c.set(SC.TIMES_TO_CAST, 4, 4);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(16);
 
         return c;
     }

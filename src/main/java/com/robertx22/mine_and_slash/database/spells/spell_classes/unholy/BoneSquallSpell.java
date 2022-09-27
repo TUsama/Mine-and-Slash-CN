@@ -75,9 +75,9 @@ public class BoneSquallSpell extends BaseSpell {
         c.set(SC.CAST_TIME_TICKS, 30, 30);
         c.set(SC.COOLDOWN_SECONDS, 3, 3);
         c.set(SC.RADIUS, 2, 4);
-        c.set(SC.TIMES_TO_CAST, 4, 6);
+        c.set(SC.TIMES_TO_CAST, 4, 7);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(16);
 
         return c;
     }

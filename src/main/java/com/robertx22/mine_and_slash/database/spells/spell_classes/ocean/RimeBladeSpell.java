@@ -96,7 +96,7 @@ public class RimeBladeSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 50, 50);
         c.set(SC.RADIUS, 4, 6);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }

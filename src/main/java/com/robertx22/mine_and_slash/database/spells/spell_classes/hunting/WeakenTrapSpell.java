@@ -78,7 +78,7 @@ public class WeakenTrapSpell extends BaseSpell {
         c.set(SC.RADIUS, 2.5F, 4.0F);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(4);
+        c.setMaxLevel(8);
 
         return c;
     }

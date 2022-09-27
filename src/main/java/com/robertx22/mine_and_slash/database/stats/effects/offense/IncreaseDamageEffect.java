@@ -27,10 +27,8 @@ public class IncreaseDamageEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-
-        float damageIncrease = MathHelper.clamp(data.getAverageValue(), stat.minimumValue, stat.maximumValue);
-
-        effect.number *=  (1 + damageIncrease / 100);
+        float multi = data.getMultiplier();
+        effect.number = effect.number + (effect.preIncNumber * (multi - 1));
 
         return effect;
     }

@@ -63,7 +63,7 @@ public class SummonArchonSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 15, 24);
+        c.set(SC.MANA_COST, 15, 20);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 7, 16);
@@ -75,7 +75,7 @@ public class SummonArchonSpell extends BaseSpell {
         c.set(SC.RADIUS, 3,6);
         c.set(SC.TICK_RATE, 60, 60);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }

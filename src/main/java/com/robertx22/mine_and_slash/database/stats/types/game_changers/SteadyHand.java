@@ -42,7 +42,7 @@ public class SteadyHand extends BaseGameChangerTrait {
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-                new ExactStatData(15, StatModTypes.Flat, IncreaseDamage.getInstance()),
+                new ExactStatData(25, StatModTypes.Flat, IncreaseDamage.getInstance()),
             new ExactStatData(-1000, StatModTypes.Multi, CriticalHit.getInstance()),
             new ExactStatData(-1000, StatModTypes.Multi, CriticalDamage.getInstance())
         );

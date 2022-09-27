@@ -67,7 +67,7 @@ public class NatureBalmSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 25, 20);
         c.set(SC.BASE_VALUE, 7, 16);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
         return c;
     }
 

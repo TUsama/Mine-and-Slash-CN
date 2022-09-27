@@ -76,7 +76,7 @@ public class PoisonCloudSpell extends BaseSpell {
         c.set(SC.RADIUS, 6, 8);
         c.set(SC.TIMES_TO_CAST, 1, 6);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
 
         return c;
     }

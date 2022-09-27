@@ -64,7 +64,7 @@ public class WhirlpoolSpell extends BaseSpell {
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 30, 20);
         c.set(SC.COOLDOWN_SECONDS, 16, 13);
-        c.set(SC.TICK_RATE, 30, 20);
+        c.set(SC.TICK_RATE, 20, 20);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.DURATION_TICKS, 140, 140);
         c.set(SC.BONUS_HEALTH, 0, 0);

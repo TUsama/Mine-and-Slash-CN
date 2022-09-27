@@ -132,9 +132,9 @@ public class MobStatUtils {
             .addFlat(Armor.getInstance()
                 .AverageStat() * 4 * rar.StatMultiplier(), level);
         unit.getCreateStat(PhysicalDamage.GUID)
-                .addFlat(18 * rar.DamageMultiplier(), level);
+                .addFlat(14 * rar.DamageMultiplier(), level);
         unit.getCreateStat(SpellDamage.GUID)
-                .addFlat(8 * rar.StatMultiplier(), level);
+                .addFlat(6 * rar.StatMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);
         unit.getCreateStat(CriticalHit.GUID)
             .addFlat(1 * rar.StatMultiplier(), level);

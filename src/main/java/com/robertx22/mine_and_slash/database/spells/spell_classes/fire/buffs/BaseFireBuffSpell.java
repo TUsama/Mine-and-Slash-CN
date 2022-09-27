@@ -32,7 +32,7 @@ public abstract class BaseFireBuffSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 180 * 20, 240 * 20);
         c.set(SC.RADIUS, 2, 4);
 
-        c.setMaxLevel(6);
+        c.setMaxLevel(8);
         return c;
     }
 

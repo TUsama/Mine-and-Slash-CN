@@ -65,7 +65,7 @@ public class FleshandMindSacrificeSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 10, 10);
         c.set(SC.DURATION_TICKS, 180 * 20, 240 * 20);
 
-        c.setMaxLevel(4);
+        c.setMaxLevel(8);
         return c;
     }
 

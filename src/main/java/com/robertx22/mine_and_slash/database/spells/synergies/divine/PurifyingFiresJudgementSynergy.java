@@ -56,7 +56,7 @@ public class PurifyingFiresJudgementSynergy extends OnAttackSpellDmgDoneSynergy 
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CHANCE, 15, 35);
-        c.setMaxLevel(4);
+        c.setMaxLevel(8);
         return c;
     }
 

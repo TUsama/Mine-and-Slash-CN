@@ -78,7 +78,7 @@ public class CorrosiveShadowSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 400, 600);
         c.set(SC.TICK_RATE, 40, 40);
 
-        c.setMaxLevel(6);
+        c.setMaxLevel(8);
 
         return c;
     }

@@ -75,7 +75,7 @@ public class SummonSkeletalArmySpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 20 * 12, 20 * 16);
         c.set(SC.TICK_RATE, 20, 20);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(16);
 
         return c;
     }

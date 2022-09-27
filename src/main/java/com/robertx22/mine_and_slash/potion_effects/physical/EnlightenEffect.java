@@ -69,6 +69,7 @@ public class EnlightenEffect extends BasePotionEffect implements IApplyStatPotio
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
         p.set(SC.DURATION_TICKS, 220, 260);
+        p.set(SC.TICK_RATE, 20, 20);
         return p;
     }
 

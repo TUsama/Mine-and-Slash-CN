@@ -77,7 +77,7 @@ public class ThrowFlamesSpell extends BaseSpell {
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.DURATION_TICKS, 60, 60);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }

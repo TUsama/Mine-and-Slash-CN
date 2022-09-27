@@ -22,7 +22,7 @@ public class AllDoTDmgEffect extends BaseDamageEffect {
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
         float multi = data.getMultiplier();
-        effect.number *= multi;
+        effect.number = effect.number + (effect.preIncNumber * (multi - 1));
 
         return effect;
     }

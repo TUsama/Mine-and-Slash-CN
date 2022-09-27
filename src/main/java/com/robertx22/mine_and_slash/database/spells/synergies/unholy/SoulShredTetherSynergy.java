@@ -58,7 +58,7 @@ public class SoulShredTetherSynergy extends OnBasicAttackSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 3, 13);
-        c.setMaxLevel(8);
+        c.setMaxLevel(6);
         return c;
     }
 

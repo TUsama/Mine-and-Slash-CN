@@ -157,6 +157,7 @@ public class RallyingSweepLinkerSpell extends BaseSpell {
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.DURATION_TICKS, 260, 360);
         c.set(SC.RADIUS, 4, 6);
+        c.set(SC.TICK_RATE, 20, 20);
 
         c.setMaxLevel(12);
 

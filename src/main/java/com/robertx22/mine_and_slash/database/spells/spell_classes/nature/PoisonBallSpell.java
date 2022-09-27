@@ -75,7 +75,7 @@ public class PoisonBallSpell extends BaseSpell {
         c.set(SC.TICK_RATE, 10, 10);
 
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(16);
 
         return c;
     }

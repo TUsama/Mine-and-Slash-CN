@@ -94,7 +94,7 @@ public class PowerSurgeBoltSynergy extends OnHitSynergy {
 
                 SpellUtils.summonLightningStrike(ctx.target);
 
-                SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.75F, 1);
+                SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.5F, 1);
 
                 DamageEffect dmg = new DamageEffect(
                         null, ctx.source, ctx.target, num, EffectData.EffectTypes.BOLT, WeaponTypes.None);

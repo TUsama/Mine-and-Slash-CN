@@ -30,6 +30,7 @@ public abstract class EffectData {
     public LivingEntity target;
 
     public float number = 0;
+    public float preIncNumber = 0;
 
     protected boolean activateSynergies = true;
 
@@ -131,6 +132,8 @@ public abstract class EffectData {
                 this.number *= 0.25f;
             }
         }
+
+        this.preIncNumber = this.number;
 
         calculateEffects();
 

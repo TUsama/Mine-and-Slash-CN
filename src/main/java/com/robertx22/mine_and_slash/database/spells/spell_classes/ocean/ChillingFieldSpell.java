@@ -80,7 +80,7 @@ public class ChillingFieldSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 260, 260);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
 
         return c;
     }

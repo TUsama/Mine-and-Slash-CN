@@ -64,7 +64,7 @@ public class ImbueSpell extends BaseSpell {
         c.set(SC.COOLDOWN_SECONDS, 36, 30);
         c.set(SC.DURATION_TICKS, 20 * 30, 20 * 45);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
         return c;
     }
 

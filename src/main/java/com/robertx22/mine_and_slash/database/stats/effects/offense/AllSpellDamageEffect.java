@@ -26,7 +26,8 @@ public class AllSpellDamageEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-        effect.number *= data.getMultiplier();
+        float multi = data.getMultiplier();
+        effect.number = effect.number + (effect.preIncNumber * (multi - 1));
 
         return effect;
     }

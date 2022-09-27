@@ -6,6 +6,8 @@ import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.interfaces.ICrittable;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
+import com.robertx22.mine_and_slash.uncommon.utilityclasses.SoundUtils;
+import net.minecraft.util.SoundEvents;
 
 public class CriticalHitEffect extends BaseAnyEffect {
 
@@ -22,6 +24,9 @@ public class CriticalHitEffect extends BaseAnyEffect {
     @Override
     public EffectData activate(EffectData effect, StatData data, Stat stat) {
         ((ICrittable) effect).setCrit(true);
+
+        SoundUtils.playSound(effect.source, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, 1.0F, 1.2F);
+        SoundUtils.playSound(effect.target, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, 1.0F, 1.2F);
 
         return effect;
     }

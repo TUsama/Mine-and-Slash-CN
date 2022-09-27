@@ -60,18 +60,18 @@ public class BlizzardSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 24, 34);
+        c.set(SC.MANA_COST, 27, 32);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 11, 21);
         c.set(SC.CAST_TIME_TICKS, 60, 30);
         c.set(SC.COOLDOWN_SECONDS, 28, 24);
-        c.set(SC.TICK_RATE, 30, 20);
-        c.set(SC.RADIUS, 4, 8);
+        c.set(SC.TICK_RATE, 30, 25);
+        c.set(SC.RADIUS, 4, 6);
         c.set(SC.DURATION_TICKS, 260, 260);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
 
         return c;
     }

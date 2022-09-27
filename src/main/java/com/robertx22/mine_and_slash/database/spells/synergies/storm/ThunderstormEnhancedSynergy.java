@@ -35,8 +35,8 @@ public class ThunderstormEnhancedSynergy extends Synergy {
 
     @Override
     public void alterSpell(PreCalcSpellConfigs c) {
-        c.set(SC.MANA_COST, 5, 5);
-        c.set(SC.TICK_RATE, -10, -10);
+        c.set(SC.MANA_COST, 3, 3);
+        c.set(SC.TICK_RATE, -5, -5);
         c.set(SC.RADIUS, -2F, -2F);
     }
 

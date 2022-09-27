@@ -68,16 +68,16 @@ public class ElectricalDischargeSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 28, 22);
+        c.set(SC.MANA_COST, 28, 25);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 10, 8);
-        c.set(SC.RADIUS, 3, 5);
+        c.set(SC.RADIUS, 3, 4);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
 
         return c;
     }
@@ -101,13 +101,17 @@ public class ElectricalDischargeSpell extends BaseSpell {
 
         List<ITextComponent> list = new ArrayList<>();
 
-        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Spell"));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area"));
+        list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Bolt"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Bolt"));
 
         TooltipUtils.addEmpty(list);
+        list.add(new StringTextComponent(TextFormatting.GRAY + "Bolt damage is a special damage type and is"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "unaffected by spell damage modifiers."));
+        TooltipUtils.addEmpty(list);
 
-        list.add(new SText("Discharge your mana, dealing 18% of nearby enemies'"));
-        list.add(new SText("remaining health and magic shield as lightning damage: "));
+        list.add(new SText("Discharge your mana, dealing 20% of nearby enemies'"));
+        list.add(new SText("remaining health and magic shield as lightning bolt"));
+        list.add(new SText("(not spell) damage: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 
@@ -137,7 +141,10 @@ public class ElectricalDischargeSpell extends BaseSpell {
                 EntityCap.UnitData data = Load.Unit(en);
                 int num = (int) (data.getUnit().getCurrentEffectiveHealth(en, data) * 0.18F);
 
-                SpellDamageEffect dmg = new SpellDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en), this);
+                DamageEffect dmg = new DamageEffect(
+                        null, ctx.caster, en, num, EffectData.EffectTypes.BOLT, WeaponTypes.None);
+                dmg.element = getSpell()
+                        .getElement();
                 dmg.Activate();
 
             }

@@ -20,7 +20,7 @@ public class ElementalFocusEffect extends BaseDamageEffect {
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
-        float amount = effect.number * data.getAverageValue() / 100;
+        float amount = effect.preIncNumber * data.getAverageValue() / 100;
 
         if (effect.element.equals(stat.getElement())) {
             effect.number += amount;

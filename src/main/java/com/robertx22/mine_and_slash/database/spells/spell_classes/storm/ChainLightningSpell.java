@@ -71,7 +71,7 @@ public class ChainLightningSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 20, 20);
         c.set(SC.CHANCE, 50, 90);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(16);
 
         return c;
     }

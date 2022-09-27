@@ -74,7 +74,7 @@ public class FireBombsSpell extends BaseSpell {
         c.set(SC.RADIUS, 2.5F, 3.5F);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(16);
 
         return c;
     }

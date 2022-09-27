@@ -114,7 +114,7 @@ public class BatteryFusiladeChainSynergy extends OnDamageDoneSynergy {
 
             SpellUtils.summonLightningStrike(ctx.target);
 
-            SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.75F, 1);
+            SoundUtils.playSound(ctx.target, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, 0.5F, 1);
 
             for (LivingEntity en : entities) {
                 DamageEffect dmg = new DamageEffect(

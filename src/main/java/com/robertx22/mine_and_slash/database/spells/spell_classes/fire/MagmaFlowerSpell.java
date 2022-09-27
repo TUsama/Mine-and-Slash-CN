@@ -59,7 +59,7 @@ public class MagmaFlowerSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0, 0);
-        c.set(SC.MANA_COST, 16, 25);
+        c.set(SC.MANA_COST, 16, 22);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 6, 11);
@@ -72,7 +72,7 @@ public class MagmaFlowerSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 300, 300);
         c.set(SC.BONUS_HEALTH, 0, 0);
 
-        c.setMaxLevel(8);
+        c.setMaxLevel(12);
 
         return c;
     }

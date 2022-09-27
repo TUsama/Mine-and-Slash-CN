@@ -61,7 +61,7 @@ public class MagmaFlowerHealSynergy extends OnDamageDoneSynergy {
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
         c.set(SC.BASE_VALUE, 3, 10);
-        c.setMaxLevel(4);
+        c.setMaxLevel(6);
         return c;
     }
 
