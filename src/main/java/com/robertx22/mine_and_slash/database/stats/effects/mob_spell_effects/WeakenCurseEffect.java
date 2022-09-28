@@ -32,13 +32,13 @@ public class WeakenCurseEffect extends BaseDamageEffect {
 
     @Override
     public EffectSides Side() {
-        return EffectSides.Target;
+        return EffectSides.Source;
     }
 
     @Override
     public DamageEffect activate(DamageEffect effect, StatData data, Stat stat) {
 
-        SoundUtils.playSound(effect.target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.5F, 1.25F);
+        SoundUtils.playSound(effect.source, SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.5F, 1.25F);
 
         ParticleEnum.sendToClients(effect.source,
                 new ParticlePacketData(effect.target.getPosition(), ParticleEnum.NOVA).radius(
@@ -47,7 +47,7 @@ public class WeakenCurseEffect extends BaseDamageEffect {
                         .amount(25)
         );
 
-        PotionEffectUtils.apply(com.robertx22.mine_and_slash.potion_effects.all.WeakenCurseEffect.INSTANCE, effect.target, effect.source);
+        PotionEffectUtils.apply(com.robertx22.mine_and_slash.potion_effects.all.WeakenCurseEffect.INSTANCE, effect.source, effect.target);
 
         return effect;
     }

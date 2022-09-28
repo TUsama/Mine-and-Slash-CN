@@ -46,7 +46,7 @@ public class LightningDischargeEffect extends BaseDamageEffect {
         SoundUtils.playSound(effect.source, ModSounds.THUNDER.get(), 1.25F, 1);
 
         float num = effect.number * 0.5F;
-        float radius = 6F;
+        float radius = 4F;
 
         ParticlePacketData pdata = new ParticlePacketData(effect.source.getPosition()
                 .up(1), ParticleEnum.CHARGED_NOVA);

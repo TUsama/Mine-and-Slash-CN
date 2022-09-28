@@ -85,9 +85,9 @@ public class WeakenCurseEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(-33, SpellDamage.getInstance()));
-        list.add(new PotionStat(-25, ReducedCooldownStat.getInstance()));
-        list.add(new PotionStat(-25, new ElementalResist(Elements.Elemental)));
+        list.add(new PotionStat(-25, SpellDamage.getInstance()));
+        list.add(new PotionStat(-20, ReducedCooldownStat.getInstance()));
+        list.add(new PotionStat(-20, new ElementalResist(Elements.Elemental)));
 
         return list;
     }

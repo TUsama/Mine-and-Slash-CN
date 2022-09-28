@@ -61,7 +61,6 @@ public class BloodyStrikeEffect extends BaseDamageEffect {
                                 .type(ParticleTypes.LAVA)
                                 .amount((int) (15)));
 
-                // apply two bleed stacks since mobs attack slowly.
                 PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, effect.target);
                 PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, effect.target);
             }
