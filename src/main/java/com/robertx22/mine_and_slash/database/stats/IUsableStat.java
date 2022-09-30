@@ -23,13 +23,13 @@ public interface IUsableStat {
 
             float number = (float) value / stat.calculateScalingStatGrowth(AvgStat, Level);
 
-            if (number < 0) {
-                number = 0;
-            }
+            //if (number < 0) {
+            //    number = 0;
+            //}
 
             float finalval = MaximumPercent() * (number / (number + (float) 10));
 
-            return MathHelper.clamp(finalval, 0, MaximumPercent());
+            return Math.max(finalval, MaximumPercent());
         }
         return 0;
     }

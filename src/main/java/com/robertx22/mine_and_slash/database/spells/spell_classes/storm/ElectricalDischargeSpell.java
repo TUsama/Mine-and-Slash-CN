@@ -13,6 +13,7 @@ import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.AbilityPlace;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.BoltDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
@@ -141,10 +142,7 @@ public class ElectricalDischargeSpell extends BaseSpell {
                 EntityCap.UnitData data = Load.Unit(en);
                 int num = (int) (data.getUnit().getCurrentEffectiveHealth(en, data) * 0.18F);
 
-                DamageEffect dmg = new DamageEffect(
-                        null, ctx.caster, en, num, EffectData.EffectTypes.BOLT, WeaponTypes.None);
-                dmg.element = getSpell()
-                        .getElement();
+                BoltDamageEffect dmg = new BoltDamageEffect(ctx.caster, en, num, ctx.data, Load.Unit(en), this);
                 dmg.Activate();
 
             }

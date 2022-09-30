@@ -51,6 +51,8 @@ public class DodgeEffect extends BaseStatEffect<DamageEffect> {
         float chance = dodge.GetUsableValue(effect.targetData.getLevel(), (int) data.getAverageValue()) * 100;
         //float chance = dodge.GetUsableValue(effect.targetData.getLevel(), (int) data.getAverageValue() * pene) * 100;
 
+        chance = Math.max(chance, 0);
+
         if (RandomUtils.roll(chance)) {
             DamageEffect dmgeffect = effect;
 

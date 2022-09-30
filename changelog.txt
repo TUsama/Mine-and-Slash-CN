@@ -1,3 +1,7 @@
+3.15.14:
+- Fixed an issue where armor going below 0 wasn't actually increasing damage.
+- Fixed an issue where Electrical Discharge synergy wasn't applying Lightning Essence stacks (for real this time).
+
 3.15.13:
 - Changed armor penetration so that it subtracts the % of armor pen off the final armor % reduction value. So an armor reduction of 40% met with 8% armor pen would result in 32% armor reduction. Before, the flat armor value was multiplied by 1 - the armor pen amount, so 500 armor met with armor pen would be multiplied by 0.92. This means that armor pen will work more similarly to how elemental pen works.
 - Armor Penetration can cause enemies to take extra damage if their armor % reduction is lower than the penetration value.
