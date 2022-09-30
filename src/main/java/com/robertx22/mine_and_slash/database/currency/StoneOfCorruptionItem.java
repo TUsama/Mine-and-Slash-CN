@@ -71,7 +71,7 @@ public class StoneOfCorruptionItem extends CurrencyItem implements ICurrencyItem
 
     @Override
     public String locDescForLangFile() {
-        return "Increase Gear lvl by 5";
+        return "Increases equipment lvl by 5.";
     }
 
     @Override

@@ -27,7 +27,7 @@ public interface IUsableStat {
                 number = 0;
             }
 
-            float finalval = (float) (MaximumPercent() * (float) number / ((float) number + (float) 10));
+            float finalval = MaximumPercent() * (number / (number + (float) 10));
 
             return MathHelper.clamp(finalval, 0, MaximumPercent());
         }

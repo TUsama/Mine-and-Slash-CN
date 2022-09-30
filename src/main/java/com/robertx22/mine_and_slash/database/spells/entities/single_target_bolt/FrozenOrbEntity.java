@@ -87,8 +87,6 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
 
             x.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 20, 5));
 
-            this.playSound(SoundEvents.BLOCK_GLASS_BREAK, 1.0f, 1.8f);
-
         });
     }
 
@@ -140,8 +138,10 @@ public class FrozenOrbEntity extends BaseElementalBoltEntity {
             }
         }
 
-        if (this.ticksExisted % tickRate == 5) {
+        if (this.ticksExisted % 10 == 0) {
             if (!world.isRemote) {
+
+                this.playSound(SoundEvents.BLOCK_GLASS_BREAK, 1.0f, 1.8f);
                 SoundUtils.playSound(this, SoundEvents.ENTITY_HORSE_BREATHE, 3.0F, 4.0F);
             }
         }

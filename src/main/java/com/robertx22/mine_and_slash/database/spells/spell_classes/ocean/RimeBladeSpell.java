@@ -88,8 +88,8 @@ public class RimeBladeSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
-        c.set(SC.BASE_VALUE, 3, 6);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.7F, 1.0F);
+        c.set(SC.BASE_VALUE, 2, 4);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 0.9F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 4, 4);

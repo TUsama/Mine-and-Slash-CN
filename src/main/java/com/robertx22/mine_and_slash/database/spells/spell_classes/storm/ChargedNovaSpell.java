@@ -73,10 +73,10 @@ public class ChargedNovaSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 3, 5);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 2, 5);
-        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.07F, 0.14F);
+        c.set(SC.MANA_ATTACK_SCALE_VALUE, 0.14F, 0.21F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 3, 3);
-        c.set(SC.RADIUS, 2, 4);
+        c.set(SC.RADIUS, 3, 4);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
         c.setMaxLevel(16);

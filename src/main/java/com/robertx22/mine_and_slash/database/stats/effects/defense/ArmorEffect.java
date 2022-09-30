@@ -35,14 +35,15 @@ public class ArmorEffect extends BaseStatEffect<DamageEffect> {
         if (effect instanceof IPenetrable) {
             IPenetrable ipen = (IPenetrable) effect;
             pene = ipen.GetArmorPenetration();
-            pene = 1 - pene / 100;
+            pene = pene / 100;
         }
 
         IUsableStat armor = (IUsableStat) stat;
 
-        float EffectiveArmor = armor.GetUsableValue(effect.targetData.getLevel(), (int) (data.getAverageValue() * pene));
+        float EffectiveArmor = armor.GetUsableValue(effect.targetData.getLevel(), (int) (data.getAverageValue()));
 
-        EffectiveArmor = MathHelper.clamp(EffectiveArmor, 0, 1);
+        //EffectiveArmor = MathHelper.clamp(EffectiveArmor, 0, 1);
+        EffectiveArmor -= pene;
 
         effect.number -= EffectiveArmor * effect.number;
 

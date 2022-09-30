@@ -69,8 +69,8 @@ public class MalevolentOfferingSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.HEALTH_ATTACK_SCALE_VALUE, 0.1F, 0.3F);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.RADIUS, 5, 8);
-        c.set(SC.CAST_TIME_TICKS, 120, 120);
+        c.set(SC.RADIUS, 5, 6);
+        c.set(SC.CAST_TIME_TICKS, 120, 90);
         c.set(SC.TIMES_TO_CAST, 6, 6);
         c.set(SC.COOLDOWN_SECONDS, 11, 6);
 

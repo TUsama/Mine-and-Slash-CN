@@ -63,7 +63,7 @@ public class ThunderspearSpell extends BaseSpell {
         c.set(SC.MANA_COST, 6, 11);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE,5, 10.5F);
+        c.set(SC.BASE_VALUE,6, 11.5F);
         c.set(SC.SHOOT_SPEED, 1.3F, 1.5F);
         c.set(SC.PROJECTILE_COUNT, 1, 1);
         c.set(SC.CAST_TIME_TICKS, 0, 0);

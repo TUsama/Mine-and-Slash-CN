@@ -9,12 +9,12 @@ public class ArmorPenetrationFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 3;
     }
 
     @Override
     public float Max() {
-        return 8;
+        return 6;
     }
 
     @Override

@@ -138,7 +138,7 @@ public class SpiritDrainLinkerSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 7.5F, 12);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 2.75F, 3.25F);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.45F, 2.8F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 90, 90);
         c.set(SC.CDR_EFFICIENCY, 0, 0);

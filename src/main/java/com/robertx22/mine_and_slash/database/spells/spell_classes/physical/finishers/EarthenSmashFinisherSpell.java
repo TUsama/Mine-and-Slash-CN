@@ -140,7 +140,7 @@ public class EarthenSmashFinisherSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 10, 15);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 4.0F, 5.0F);
+        c.set(SC.ATTACK_SCALE_VALUE, 3.5F, 4.0F);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.CAST_TIME_TICKS, 20, 20);
         c.set(SC.COOLDOWN_TICKS, 120, 120);

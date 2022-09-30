@@ -155,7 +155,7 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 6.5F, 11);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.5F, 2.0F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.325F, 1.5F);
         c.set(SC.CAST_TIME_TICKS, 10, 10);
         c.set(SC.COOLDOWN_TICKS, 90, 90);
         c.set(SC.CDR_EFFICIENCY, 0, 0);

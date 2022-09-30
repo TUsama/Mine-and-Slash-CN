@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 
 public class OverflowingVitality extends BaseGameChangerTrait implements IAffectsStats {
 
-    static int INCREASE = 1;
-    static int ELE_DECREASE = 50;
+    static int INCREASE = 2;
+    static int ELE_DECREASE = 15;
 
     static int HP_DECREASE = 10;
 

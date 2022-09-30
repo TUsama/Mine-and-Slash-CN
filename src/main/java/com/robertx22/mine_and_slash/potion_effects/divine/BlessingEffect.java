@@ -55,7 +55,7 @@ public class BlessingEffect extends BasePotionEffect implements IApplyStatPotion
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(8, SpellDamage.getInstance()));
-        list.add(new PotionStat(3, ManaOnHit.getInstance()));
+        list.add(new PotionStat(2, ManaOnHit.getInstance()));
         return list;
     }
 

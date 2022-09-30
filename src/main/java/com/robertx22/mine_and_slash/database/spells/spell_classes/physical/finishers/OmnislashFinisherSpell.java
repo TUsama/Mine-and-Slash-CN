@@ -126,7 +126,7 @@ public class OmnislashFinisherSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 12, 17);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.55F, 0.75F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.45F, 0.55F);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_TICKS, 100, 100);
         c.set(SC.CDR_EFFICIENCY, 0, 0);

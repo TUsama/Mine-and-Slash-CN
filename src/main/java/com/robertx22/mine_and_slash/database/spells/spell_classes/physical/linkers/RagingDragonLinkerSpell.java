@@ -86,7 +86,7 @@ public class RagingDragonLinkerSpell extends BaseSpell {
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.PROJECTILE_COUNT, 3, 3);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 2.25F, 3.0F);
+        c.set(SC.ATTACK_SCALE_VALUE, 2.5F, 2.85F);
         c.set(SC.SHOOT_SPEED, 0.8F, 1.4F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 90, 90);

@@ -32,7 +32,7 @@ public abstract class BaseDivineBuffSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 300 * 20, 600 * 20);
         c.set(SC.RADIUS, 6, 10);
 
-        c.setMaxLevel(10);
+        c.setMaxLevel(8);
         return c;
     }
 

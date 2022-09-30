@@ -3,14 +3,13 @@ package com.robertx22.mine_and_slash.database.spells.synergies.storm;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.PreCalcSpellConfigs;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ElectricalDischargeSpell;
-import com.robertx22.mine_and_slash.database.spells.spell_classes.storm.ThunderspearSpell;
-import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
+import com.robertx22.mine_and_slash.database.spells.synergies.base.OnBoltDmgDoneSynergy;
 import com.robertx22.mine_and_slash.potion_effects.bases.PotionEffectUtils;
 import com.robertx22.mine_and_slash.potion_effects.shaman.ThunderEssenceEffect;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.gear_bases.TooltipInfo;
 import com.robertx22.mine_and_slash.saveclasses.spells.IAbility;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
-import com.robertx22.mine_and_slash.uncommon.effectdatas.SpellDamageEffect;
+import com.robertx22.mine_and_slash.uncommon.effectdatas.BoltDamageEffect;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.RandomUtils;
 import com.robertx22.mine_and_slash.uncommon.utilityclasses.TooltipUtils;
 import net.minecraft.util.text.ITextComponent;
@@ -21,7 +20,7 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElectricalDischargeLightningEssenceSynergy extends OnDamageDoneSynergy {
+public class ElectricalDischargeLightningEssenceSynergy extends OnBoltDmgDoneSynergy {
 
     @Override
     public List<ITextComponent> getSynergyTooltipInternal(TooltipInfo info) {
@@ -67,7 +66,7 @@ public class ElectricalDischargeLightningEssenceSynergy extends OnDamageDoneSyne
     }
 
     @Override
-    public void tryActivate(SpellDamageEffect ctx) {
+    public void tryActivate(BoltDamageEffect ctx) {
         if (RandomUtils.roll(getContext(ctx.source).getConfigFor(this)
                 .get(SC.CHANCE)
                 .get(Load.spells(ctx.source), this))) {

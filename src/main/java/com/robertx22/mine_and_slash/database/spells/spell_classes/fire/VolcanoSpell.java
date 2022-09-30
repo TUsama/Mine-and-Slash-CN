@@ -59,7 +59,7 @@ public class VolcanoSpell extends BaseSpell {
         c.set(SC.MANA_COST, 25, 30);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 6, 9);
+        c.set(SC.BASE_VALUE, 6, 10);
         c.set(SC.ATTACK_SCALE_VALUE, 0.3F, 0.5F);
         c.set(SC.CAST_TIME_TICKS, 50, 20);
         c.set(SC.COOLDOWN_SECONDS, 28, 25);

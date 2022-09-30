@@ -4,10 +4,7 @@ import com.mojang.datafixers.types.templates.Sum;
 import com.robertx22.mine_and_slash.api.MineAndSlashEvents;
 import com.robertx22.mine_and_slash.config.forge.ModConfig;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.MyDamageSource;
-import com.robertx22.mine_and_slash.database.spells.synergies.base.OnAttackSpellDmgDoneSynergy;
-import com.robertx22.mine_and_slash.database.spells.synergies.base.OnBasicAttackSynergy;
-import com.robertx22.mine_and_slash.database.spells.synergies.base.OnDamageDoneSynergy;
-import com.robertx22.mine_and_slash.database.spells.synergies.base.OnHitSynergy;
+import com.robertx22.mine_and_slash.database.spells.synergies.base.*;
 import com.robertx22.mine_and_slash.database.stats.effects.defense.BlockEffect;
 import com.robertx22.mine_and_slash.mmorpg.MMORPG;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -219,6 +216,16 @@ public class DamageEffect extends EffectData implements IArmorReducable, IPenetr
                             as.tryActivate(ae);
                         }
                     });
+            } else if (this instanceof  BoltDamageEffect) {
+                BoltDamageEffect be = (BoltDamageEffect) this;
+
+                be.spell.getAllocatedSynergies(Load.spells(be.source))
+                        .forEach(x -> {
+                            if (x instanceof OnBoltDmgDoneSynergy) {
+                                OnBoltDmgDoneSynergy bd = (OnBoltDmgDoneSynergy) x;
+                                bd.tryActivate(be);
+                            }
+                        });
             }
 
             PlayerSpellCap.ISpellsCap cap = Load.spells(source);

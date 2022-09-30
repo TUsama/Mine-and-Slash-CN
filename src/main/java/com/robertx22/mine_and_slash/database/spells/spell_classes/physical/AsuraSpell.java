@@ -142,7 +142,7 @@ public class AsuraSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 15, 21);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.8F, 1.2F);
+        c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 0.8F);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_TICKS, 60, 60);

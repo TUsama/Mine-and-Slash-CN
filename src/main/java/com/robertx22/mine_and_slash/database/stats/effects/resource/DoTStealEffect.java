@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.database.stats.effects.resource;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.effects.base.BaseDamageEffect;
+import com.robertx22.mine_and_slash.database.stats.types.game_changers.Harmony;
 import com.robertx22.mine_and_slash.saveclasses.StatData;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.DamageEffect;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.EffectData.EffectTypes;
@@ -25,6 +26,13 @@ public class DoTStealEffect extends BaseDamageEffect {
         float leechCap = effect.sourceData.getUnit()
                 .healthData()
                 .getAverageValue() * 0.1F; // cap lifesteal at 10%
+
+        if (effect.sourceUnit.getCreateStat(Harmony.INSTANCE) // if using harmony, caps based on magic shield instead
+                .getAverageValue() > 0) {
+            leechCap = effect.sourceData.getUnit()
+                    .magicShieldData()
+                    .getAverageValue() * 0.1F;
+        }
 
         float healed = MathHelper.clamp ((float) data.getAverageValue() * effect.number / 100, 1F, leechCap);
 

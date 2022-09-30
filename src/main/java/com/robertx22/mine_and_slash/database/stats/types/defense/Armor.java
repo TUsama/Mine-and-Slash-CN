@@ -36,7 +36,7 @@ public class Armor extends Stat implements IStatEffects, IUsableStat {
     public static String GUID = "armor";
 
     private Armor() {
-        this.minimumValue = 0;
+        this.minimumValue = Integer.MIN_VALUE;
     }
 
     @Override

@@ -127,7 +127,7 @@ public class DebilitatingStrikeSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 5, 8F);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 1.45F, 2.05F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.8F, 2.05F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 60, 60);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
