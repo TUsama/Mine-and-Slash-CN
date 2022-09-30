@@ -1,4 +1,9 @@
 3.15.14:
+- Fixed a bug where all entities had 95% chance to dodge and 95% damage reduction.
+- Reduced Hunting Wolf attack scaling by 25% per level.
+- Bleed and mob curses deal a minimum of 1 damage.
+
+3.15.13b:
 - Fixed an issue where armor going below 0 wasn't actually increasing damage.
 - Fixed an issue where Electrical Discharge synergy wasn't applying Lightning Essence stacks (for real this time).
 

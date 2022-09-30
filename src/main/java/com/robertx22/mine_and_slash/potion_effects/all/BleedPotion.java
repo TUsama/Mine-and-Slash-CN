@@ -39,6 +39,7 @@ public class BleedPotion extends BasePotionEffect {
             int num = CALC.getCalculatedValue(ctx.casterData);
 
             num *= ctx.data.getStacks();
+            num++; // work at low levels
 
             if (ctx.entity.world.isRemote) {
                 ParticleUtils.spawnParticles(ParticleTypes.LAVA, ctx.entity, 15);

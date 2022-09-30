@@ -29,7 +29,7 @@ public interface IUsableStat {
 
             float finalval = MaximumPercent() * (number / (number + (float) 10));
 
-            return Math.max(finalval, MaximumPercent());
+            return Math.min(finalval, MaximumPercent());
         }
         return 0;
     }

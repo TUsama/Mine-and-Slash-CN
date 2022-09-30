@@ -49,6 +49,7 @@ public class WeakenCurseEffect extends BasePotionEffect implements IApplyStatPot
             int num = CALC.getCalculatedValue(ctx.casterData);
 
             num *= ctx.data.getStacks();
+            num++; // work at low levels
 
             if (ctx.entity.world.isRemote) {
                 ParticleUtils.spawnParticles(ParticleTypes.WITCH, ctx.entity, 25);
