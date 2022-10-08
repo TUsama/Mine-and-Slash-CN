@@ -1,5 +1,7 @@
 package com.robertx22.mine_and_slash.onevent.entity;
 
+
+import com.robertx22.mine_and_slash.config.lvl_penalty.LvlPenaltyContainer;
 import com.robertx22.mine_and_slash.config.whole_mod_entity_configs.ModEntityConfig;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.loot.LootUtils;
@@ -147,7 +149,7 @@ public class OnMobDeathDrops {
             List<PlayerEntity> closeList = new ArrayList<>(); // list with only nearby members
 
             for (PlayerEntity p : list) {
-                if (p.world == killer.world && p.getDistance(killer) <= 100) {
+                if (p.world == killer.world && p.getDistance(killer) <= LvlPenaltyContainer.INSTANCE.getMaxDistance()) {
                     closeList.add(p);
                 }
             }
