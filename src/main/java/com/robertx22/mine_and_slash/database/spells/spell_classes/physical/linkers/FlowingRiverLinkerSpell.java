@@ -122,15 +122,15 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
 
         }
 
-        for (LivingEntity en : list) {
+        for (LivingEntity ally : list) {
 
-            SoundUtils.playSound(en, SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
+            SoundUtils.playSound(ally, SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
 
-            SpellUtils.heal(this, en, num);
+            SpellUtils.heal(this, ally, num);
 
             ParticleEnum.sendToClients(
-                    en.getPosition(), en.world,
-                    new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
+                    ally.getPosition(), ally.world,
+                    new ParticlePacketData(ally.getPositionVector(), ParticleEnum.AOE).radius(1)
                             .motion(new Vec3d(0, 0, 0))
                             .type(ParticleTypes.HAPPY_VILLAGER)
                             .amount((int) (5)));

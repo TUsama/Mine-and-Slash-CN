@@ -1,3 +1,8 @@
+3.15.15:
+- Increased mana regen flat and percent stat amounts.
+- Reduced energy regen percent amount slightly.
+- Fixed a bug where Natural Empowering was causing lots of lag.
+
 3.15.14:
 - Fixed a bug where all entities had 95% chance to dodge and 95% damage reduction.
 - Reduced Hunting Wolf attack scaling by 25% per level.

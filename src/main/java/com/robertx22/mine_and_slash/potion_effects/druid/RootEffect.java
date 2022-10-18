@@ -50,7 +50,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
             ParticleEnum.sendToClients(
                     ctx.entity, new ParticlePacketData(ctx.entity.getPosition(), ParticleEnum.THORNS).radius(1)
                             .type(ParticleTypes.CLOUD)
-                            .amount(25));
+                            .amount(15));
 
             SoundUtils.playSound(ctx.entity, SoundEvents.BLOCK_GRASS_BREAK, 0.5F, 1.0F);
             return ctx;
@@ -82,7 +82,6 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs p = new PreCalcSpellConfigs();
-        p.set(SC.TICK_RATE, 20, 20);
         return p;
     }
 

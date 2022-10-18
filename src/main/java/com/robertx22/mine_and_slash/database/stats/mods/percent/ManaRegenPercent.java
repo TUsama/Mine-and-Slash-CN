@@ -12,7 +12,7 @@ public class ManaRegenPercent extends StatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 6;
     }
 
     @Override
