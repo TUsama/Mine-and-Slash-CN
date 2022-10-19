@@ -1,3 +1,6 @@
+3.15.X:
+- You can now configure the max distance for EXP share.
+
 3.15.15:
 - Increased mana regen flat and percent stat amounts.
 - Reduced energy regen percent amount slightly.
