@@ -54,14 +54,14 @@ public class EnlightenEffect extends BasePotionEffect implements IApplyStatPotio
 
     @Override
     public int getMaxStacks() {
-        return 5;
+        return 3;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(3, EnergyRegen.getInstance()));
-        list.add(new PotionStat(3, FasterCastRate.getInstance()));
+        list.add(new PotionStat(5, EnergyRegen.getInstance()));
+        list.add(new PotionStat(7, FasterCastRate.getInstance()));
         return list;
     }
 

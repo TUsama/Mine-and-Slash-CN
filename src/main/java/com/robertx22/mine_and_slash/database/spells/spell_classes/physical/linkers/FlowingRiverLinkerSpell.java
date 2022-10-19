@@ -95,6 +95,8 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
                 .searchFor(EntityFinder.SearchFor.ALLIES)
                 .build();
 
+        list.add(ctx.caster); //in front does not grab self
+
         SoundUtils.playSound(ctx.caster, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 0.9F, 1.3F);
         SoundUtils.playSound(ctx.caster, SoundEvents.BLOCK_BUBBLE_COLUMN_UPWARDS_INSIDE, 1, 1);
 
@@ -162,7 +164,7 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
         c.set(SC.TIMES_TO_CAST, 2, 2);
         c.set(SC.RADIUS, 4, 4);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

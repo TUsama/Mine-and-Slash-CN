@@ -52,7 +52,7 @@ public class IceBladeEffect extends BasePotionEffect implements IApplyStatPotion
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
         list.add(new PotionStat(25, new PhysicalToWaterConversion()));
-        list.add(new PotionStat(80, new ElementalInfusion(Elements.Water)));
+        list.add(new PotionStat(100, new ElementalInfusion(Elements.Water)));
         return list;
     }
 

@@ -67,19 +67,19 @@ public class TeamUtils {
 
     public static boolean areOnSameTeam(PlayerEntity p1, PlayerEntity p2) {
 
-        /*boolean vanilla = p1.getTeam() != null && p2.getTeam() != null && p1.getTeam()
+        boolean vanilla = p1.getTeam() != null && p2.getTeam() != null && p1.getTeam()
             .isSameTeam(p2.getTeam());
         //System.out.println("Same team Vanilla: " + vanilla);
 
-        if (vanilla) {
-            return vanilla;
-        }*/
+        //if (vanilla) {
+        //    return vanilla;
+        //}
 
         boolean mine = TeamCap.getCapability()
             .isOnSameTeam((ServerPlayerEntity) p1, (ServerPlayerEntity) p2);
         //System.out.println("Same team Slash: " + mine);
 
-        return mine;
+        return mine || vanilla;
 
     }
 

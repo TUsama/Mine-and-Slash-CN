@@ -24,7 +24,7 @@ public class ElementalInfusionEffect extends BaseDamageEffect {
         ElementalInfusion basebonus = (ElementalInfusion) stat;
 
         float spellDmgMulti = (float) getSource(effect).getCreateStat(basebonus.StatThatGiveDamage())
-            .getMultiplier();
+            .getMultiplier() - 1;
 
         effect.number = effect.number + (effect.preIncNumber * ((data.getMultiplier() - 1) * spellDmgMulti));
 

@@ -61,8 +61,8 @@ public class BloodyStrikeEffect extends BaseDamageEffect {
                                 .type(ParticleTypes.LAVA)
                                 .amount((int) (15)));
 
-                PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, effect.target);
-                PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, effect.target);
+                PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, en);
+                PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, en);
             }
         }
 

@@ -61,7 +61,7 @@ public class AsuraSpell extends BaseSpell {
                     return Elements.Physical;
                 }
             }.cooldownIfCanceled(true)
-                .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE).addCastRequirement(SpellPredicates.REQUIRE_STARTER).addCastRequirement(SpellPredicates.REQUIRE_LINKER));
+                .setSwingArmOnCast().addCastRequirement(SpellPredicates.REQUIRE_MELEE));
     }
 
     @Override
@@ -97,8 +97,8 @@ public class AsuraSpell extends BaseSpell {
                 .getCalculatedValue(ctx.data, ctx.spellsCap, this);
 
         int stacks = PotionEffectUtils.getStacks(ctx.caster, EmpowerEffect.INSTANCE) + PotionEffectUtils.getStacks(ctx.caster, EnlightenEffect.INSTANCE);
-        PotionEffectUtils.reduceStacks(ctx.caster, EmpowerEffect.INSTANCE, 5);
-        PotionEffectUtils.reduceStacks(ctx.caster, EnlightenEffect.INSTANCE, 5);
+        PotionEffectUtils.reduceStacks(ctx.caster, EmpowerEffect.INSTANCE, 3);
+        PotionEffectUtils.reduceStacks(ctx.caster, EnlightenEffect.INSTANCE, 3);
 
         num *= stacks;
 
@@ -119,14 +119,6 @@ public class AsuraSpell extends BaseSpell {
                     .amount((int) (1)));
 
         }
-
-        if (PotionEffectUtils.has(ctx.caster, ComboStarterEffect.INSTANCE)) {
-            PotionEffectUtils.reduceStacks(ctx.caster, ComboStarterEffect.INSTANCE);
-        }
-
-        if (PotionEffectUtils.has(ctx.caster, ComboLinkerEffect.INSTANCE)) {
-            PotionEffectUtils.reduceStacks(ctx.caster, ComboLinkerEffect.INSTANCE);
-        }
     }
 
     public static AsuraSpell getInstance() {
@@ -142,7 +134,7 @@ public class AsuraSpell extends BaseSpell {
         c.set(SC.ENERGY_COST, 15, 21);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 0.6F, 0.8F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.2F, 1.6F);
         c.set(SC.RADIUS, 4, 6);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_TICKS, 60, 60);
@@ -151,7 +143,7 @@ public class AsuraSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 100, 60);
         c.set(SC.TICK_RATE, 20, 20);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }
@@ -180,9 +172,6 @@ public class AsuraSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "cooldown reduction."));
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "Converts Weapon DMG to Phys DMG."));
-        TooltipUtils.addEmpty(list);
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell expends: " + ComboStarterEffect.INSTANCE.locNameForLangFile()));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell expends: " + ComboLinkerEffect.INSTANCE.locNameForLangFile()));
         TooltipUtils.addEmpty(list);
 
         list.add(new StringTextComponent("Channel your strength by expending all of your"));

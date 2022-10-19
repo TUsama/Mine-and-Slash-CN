@@ -8,7 +8,7 @@ import com.robertx22.mine_and_slash.uncommon.enumclasses.StatModTypes;
 public class BonusExpFlat extends StatMod {
     @Override
     public Stat GetBaseStat() {
-        return new BonusExp();
+        return BonusExp.getInstance();
     }
 
     @Override

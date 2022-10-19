@@ -2,8 +2,6 @@ package com.robertx22.mine_and_slash.database.stats.mods.flat.offense;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
-import com.robertx22.mine_and_slash.database.stats.effects.offense.DodgeIgnoreEffect;
-import com.robertx22.mine_and_slash.database.stats.types.defense.ArmorPenetration;
 import com.robertx22.mine_and_slash.database.stats.types.defense.DodgeIgnore;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.StatModTypes;
 

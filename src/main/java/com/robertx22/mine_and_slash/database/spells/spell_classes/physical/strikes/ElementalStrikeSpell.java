@@ -165,7 +165,7 @@ public class ElementalStrikeSpell extends BaseSpell {
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 1, 1);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }

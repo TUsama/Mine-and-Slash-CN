@@ -139,7 +139,7 @@ public class SweepingStrikeSpell extends BaseSpell {
         c.set(SC.TIMES_TO_CAST, 1, 1);
         c.set(SC.RADIUS, 4, 6);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }

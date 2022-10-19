@@ -134,7 +134,7 @@ public class TripleAttackLinkerSpell extends BaseSpell {
         c.set(SC.CDR_EFFICIENCY, 0, 0);
         c.set(SC.TIMES_TO_CAST, 3, 3);
 
-        c.setMaxLevel(12);
+        c.setMaxLevel(8);
 
         return c;
     }

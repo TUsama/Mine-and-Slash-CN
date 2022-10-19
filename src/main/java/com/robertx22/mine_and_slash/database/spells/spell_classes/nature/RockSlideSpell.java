@@ -69,8 +69,8 @@ public class RockSlideSpell extends BaseSpell {
         c.set(SC.ATTACK_SCALE_VALUE, 0.5F, 0.7F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_SECONDS, 8, 7);
-        c.set(SC.TICK_RATE, 8, 8);
-        c.set(SC.RADIUS, 2, 4);
+        c.set(SC.TICK_RATE, 10, 10);
+        c.set(SC.RADIUS, 3, 5);
         c.set(SC.DURATION_TICKS, 40, 40);
         c.set(SC.BONUS_HEALTH, 0, 0);
 

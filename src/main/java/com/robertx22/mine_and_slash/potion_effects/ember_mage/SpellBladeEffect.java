@@ -54,8 +54,8 @@ public class SpellBladeEffect extends BasePotionEffect implements IApplyStatPoti
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(60, new PhysicalToFireTransfer()));
-        list.add(new PotionStat(100, new ElementalInfusion(Elements.Fire)));
+        list.add(new PotionStat(6, new ElementalAttackDamage(Elements.Fire)));
+        list.add(new PotionStat(75, new ElementalInfusion(Elements.Fire)));
         return list;
     }
 

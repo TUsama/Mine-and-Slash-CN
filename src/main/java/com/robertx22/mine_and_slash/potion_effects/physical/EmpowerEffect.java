@@ -55,13 +55,13 @@ public class EmpowerEffect extends BasePotionEffect implements IApplyStatPotion 
 
     @Override
     public int getMaxStacks() {
-        return 5;
+        return 3;
     }
 
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(3, IncreaseDamage.getInstance()));
+        list.add(new PotionStat(7, IncreaseDamage.getInstance()));
         return list;
     }
 

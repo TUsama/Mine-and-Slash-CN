@@ -135,7 +135,7 @@ public class PiercingStrikeSpell extends BaseSpell {
         c.set(SC.DURATION_TICKS, 120, 120);
         c.set(SC.TICK_RATE, 20, 20);
 
-        c.setMaxLevel(16);
+        c.setMaxLevel(8);
 
         return c;
     }
