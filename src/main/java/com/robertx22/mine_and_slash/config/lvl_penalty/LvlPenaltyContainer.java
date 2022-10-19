@@ -32,12 +32,14 @@ public class LvlPenaltyContainer implements ISlashRegistryInit {
         c.map.put(51, 0.025D);
         c.map.put(100, 0.01D);
 
+        c.maxEXPDistance = 100;
+
         return c;
 
     }
 
     private HashMap<Integer, Double> map = new HashMap<>();
-
+    private int maxEXPDistance = 100;
     public transient HashMap<Integer, Double> alreadyCalcMap = new HashMap<>();
 
     public Double getMultiForLevelDifference(int playerLvl, int mobLvl) {
@@ -58,6 +60,10 @@ public class LvlPenaltyContainer implements ISlashRegistryInit {
 
         return alreadyCalcMap.get(diff);
 
+    }
+
+    public int getMaxDistance(){
+        return this.maxEXPDistance;
     }
 
     @Override
