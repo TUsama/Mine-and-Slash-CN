@@ -176,7 +176,7 @@ public class Stats implements ISlashRegistryInit {
                     add(Intelligence.INSTANCE);
                     add(Stamina.INSTANCE);
                     add(Vitality.INSTANCE);
-                    add(new BonusExp());
+                    add(BonusExp.getInstance());
 
                     // conversions
                     add(new EnergyToManaConversion());

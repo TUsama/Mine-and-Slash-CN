@@ -1,4 +1,5 @@
-3.15.X:
+3.15.16:
+- Fixed an issue where some buffs that increased movement speed would sometimes be overridden by movement speed debuffs.
 - You can now configure the max distance for EXP share.
 
 3.15.15:

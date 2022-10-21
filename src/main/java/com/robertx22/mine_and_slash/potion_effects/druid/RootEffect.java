@@ -42,7 +42,7 @@ public class RootEffect extends BasePotionEffect implements IApplyStatPotion {
         super(EffectType.BENEFICIAL, 4393423);
         this.setRegistryName(new ResourceLocation(Ref.MODID, GUID()));
 
-        this.addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, "7107DE5E-7CE8-4030-940E-514C1F160892",
+        this.addAttributesModifier(SharedMonsterAttributes.ATTACK_SPEED, "AF8B6E3F-3328-4C0A-AA36-5BA2BB9DBEF3",
                 (double) 0.15, AttributeModifier.Operation.MULTIPLY_TOTAL
         );
 
