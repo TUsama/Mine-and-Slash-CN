@@ -103,11 +103,6 @@ public class SweepingStrikeSpell extends BaseSpell {
             );
             dmg.Activate();
 
-            if (en instanceof MobEntity) {
-                en.setRevengeTarget(ctx.caster);
-                ((MobEntity) en).setAttackTarget(ctx.caster);
-            }
-
             ParticleEnum.sendToClients(
                 en.getPosition(), en.world,
                 new ParticlePacketData(en.getPositionVector(), ParticleEnum.AOE).radius(1)
@@ -161,7 +156,7 @@ public class SweepingStrikeSpell extends BaseSpell {
 
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "Attack Spell"));
         list.add(new StringTextComponent(TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Spell that also triggers on-attack effects."));
-        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Melee, Taunt"));
+        list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Area, Melee"));
 
         TooltipUtils.addEmpty(list);
         list.add(new StringTextComponent(TextFormatting.GRAY + "This spell's cooldown is unaffected by"));
@@ -172,8 +167,7 @@ public class SweepingStrikeSpell extends BaseSpell {
         list.add(new StringTextComponent(TextFormatting.GRAY + "Finishing this spell generates: " + ComboStarterEffect.INSTANCE.locNameForLangFile()));
         TooltipUtils.addEmpty(list);
 
-        list.add(new StringTextComponent("Punch the ground to strike enemies around you"));
-        list.add(new StringTextComponent("and taunt them: "));
+        list.add(new StringTextComponent("Sweep your leg around you to hit enemies around you: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

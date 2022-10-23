@@ -29,7 +29,7 @@ public class AllAttributesFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 4;
+        return 2;
     }
 
     @Override

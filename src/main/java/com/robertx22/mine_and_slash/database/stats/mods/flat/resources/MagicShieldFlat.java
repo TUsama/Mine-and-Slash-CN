@@ -13,12 +13,12 @@ public class MagicShieldFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 6;
+        return 5;
     }
 
     @Override
     public float Max() {
-        return 10;
+        return 9;
     }
 
     @Override

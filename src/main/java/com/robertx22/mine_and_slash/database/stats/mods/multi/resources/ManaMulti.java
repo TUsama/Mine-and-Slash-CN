@@ -9,12 +9,12 @@ public class ManaMulti extends StatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 5;
     }
 
     @Override
     public float Max() {
-        return 9;
+        return 7;
     }
 
     @Override

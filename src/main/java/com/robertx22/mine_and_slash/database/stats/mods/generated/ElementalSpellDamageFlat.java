@@ -31,7 +31,7 @@ public class ElementalSpellDamageFlat extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 6;
     }
 
     @Override

@@ -18,7 +18,7 @@ public class DoTStealPercent extends StatMod {
 
     @Override
     public float Max() {
-        return 30;
+        return 25;
     }
 
     @Override

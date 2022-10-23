@@ -31,12 +31,12 @@ public class ElementalSpellDamagePercent extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 10;
+        return 8;
     }
 
     @Override
     public float Max() {
-        return 15;
+        return 12;
     }
 
     @Override

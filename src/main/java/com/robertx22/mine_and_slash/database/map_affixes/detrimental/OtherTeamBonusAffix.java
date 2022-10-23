@@ -1,13 +1,8 @@
 package com.robertx22.mine_and_slash.database.map_affixes.detrimental;
 
-import com.robertx22.mine_and_slash.database.map_affixes.BeneficialMapAffix;
 import com.robertx22.mine_and_slash.database.map_affixes.DetrimentalMapAffix;
 import com.robertx22.mine_and_slash.database.stats.StatMod;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.defense.DamageShieldFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.flat.offense.IncreaseDamageFlat;
 import com.robertx22.mine_and_slash.database.stats.mods.generated.LootTypeBonusFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.mob_spells.SpeedyFlat;
-import com.robertx22.mine_and_slash.database.stats.mods.multi.defense.HealthMulti;
 import com.robertx22.mine_and_slash.saveclasses.gearitem.StatModData;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.LootType;
 

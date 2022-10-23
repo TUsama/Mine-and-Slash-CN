@@ -17,7 +17,7 @@ public class LifeOnHitFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 2F;
+        return 1.5F;
     }
 
     @Override

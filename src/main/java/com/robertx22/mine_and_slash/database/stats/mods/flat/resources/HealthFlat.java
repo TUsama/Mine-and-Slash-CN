@@ -14,7 +14,7 @@ public class HealthFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 7;
+        return 6;
     }
 
     @Override

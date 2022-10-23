@@ -26,12 +26,12 @@ public class ElementalInfusionFlat extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 6;
     }
 
     @Override
     public float Max() {
-        return 15;
+        return 10;
     }
 
     @Override

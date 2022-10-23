@@ -14,7 +14,7 @@ public class MagicStealFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 5;
+        return 4;
     }
 
     @Override

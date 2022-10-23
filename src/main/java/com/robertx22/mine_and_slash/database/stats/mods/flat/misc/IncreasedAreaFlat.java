@@ -16,7 +16,7 @@ public class IncreasedAreaFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 1;
+        return 2;
     }
 
     @Override

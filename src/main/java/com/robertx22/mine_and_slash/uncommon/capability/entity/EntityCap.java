@@ -1034,7 +1034,7 @@ public class EntityCap {
 
             float vanilla = PhysicalDamage.getInstance()
                 .getScaling()
-                .scale(data.getEventDamage(), data.sourceData.getLevel());
+                .scale(data.getEventDamage() * 0.33F + 8, data.sourceData.getLevel());
 
             float num = vanilla * rar.DamageMultiplier() * getMapTier().mob_damage_multi;
 

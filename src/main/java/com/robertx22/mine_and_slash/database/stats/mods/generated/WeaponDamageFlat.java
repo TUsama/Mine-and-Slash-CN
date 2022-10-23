@@ -20,7 +20,7 @@ public class WeaponDamageFlat extends BaseWeaponMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 6;
     }
 
     @Override

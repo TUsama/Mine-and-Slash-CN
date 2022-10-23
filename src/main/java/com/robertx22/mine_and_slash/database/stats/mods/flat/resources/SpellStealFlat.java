@@ -13,12 +13,12 @@ public class SpellStealFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 1;
+        return 0.5F;
     }
 
     @Override
     public float Max() {
-        return 2;
+        return 1.5F;
     }
 
     @Override

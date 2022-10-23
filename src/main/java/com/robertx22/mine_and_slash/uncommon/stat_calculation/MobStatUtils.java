@@ -97,7 +97,7 @@ public class MobStatUtils {
         for (StatData data : unit.getStats()
             .values()) {
             Stat stat = data.GetStat();
-            if (stat instanceof PhysicalDamage || stat instanceof ElementalSpellDamage || stat instanceof CriticalDamage || stat instanceof CriticalHit) {
+            if (stat instanceof PhysicalDamage || stat instanceof SpellDamage || stat instanceof CriticalDamage || stat instanceof CriticalHit) {
                 data.multiplyFlat(config.DMG_MULTI);
             } else if (data.getId()
                 .equals(Health.GUID)) {
@@ -131,8 +131,7 @@ public class MobStatUtils {
         unit.getCreateStat(Armor.GUID)
             .addFlat(Armor.getInstance()
                 .AverageStat() * rar.StatMultiplier(), level);
-        unit.getCreateStat(PhysicalDamage.GUID)
-                .addFlat(15 * rar.DamageMultiplier(), level);
+        unit.getCreateStat(PhysicalDamage.GUID).addFlat(10 * rar.StatMultiplier(), level); // base amount used in weakencurse and bloody strike
         unit.getCreateStat(SpellDamage.GUID)
                 .addFlat(6 * rar.StatMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);

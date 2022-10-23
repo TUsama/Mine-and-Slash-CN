@@ -14,7 +14,7 @@ public class FasterCastRateFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 6;
     }
 
     @Override

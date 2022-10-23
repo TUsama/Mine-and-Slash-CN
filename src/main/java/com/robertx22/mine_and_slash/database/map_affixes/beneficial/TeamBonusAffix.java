@@ -30,9 +30,8 @@ public class TeamBonusAffix extends BeneficialMapAffix {
 
     @Override
     public List<StatModData> Stats(int percent) {
-        return Arrays.asList(StatModData.Load(new HealthMulti().size(StatMod.Size.FIFTY), 100),
-                StatModData.Load(new DamageShieldFlat().size(StatMod.Size.TEN), 100),
-                StatModData.Load(new IncreaseDamageFlat().size(StatMod.Size.TENTEN), percent),
+        return Arrays.asList(StatModData.Load(new HealthMulti().size(StatMod.Size.TENTENS), percent),
+                StatModData.Load(new IncreaseDamageFlat().size(StatMod.Size.TEN), percent),
                 StatModData.Load(new SpeedyFlat(), 100));
     }
 

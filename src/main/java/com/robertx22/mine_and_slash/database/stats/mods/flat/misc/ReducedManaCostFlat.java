@@ -14,7 +14,7 @@ public class ReducedManaCostFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 4;
     }
 
     @Override

@@ -14,7 +14,7 @@ public class ArmorMulti extends StatMod {
 
     @Override
     public float Max() {
-        return 8;
+        return 6;
     }
 
     @Override

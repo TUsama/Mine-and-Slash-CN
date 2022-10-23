@@ -15,7 +15,7 @@ public class IncreasedProjSpeedFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 8;
     }
 
     @Override

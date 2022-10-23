@@ -17,7 +17,7 @@ public class CoreStatPercent extends BaseCoreStatFlat {
 
     @Override
     public float Min() {
-        return 5;
+        return 6;
     }
 
     @Override

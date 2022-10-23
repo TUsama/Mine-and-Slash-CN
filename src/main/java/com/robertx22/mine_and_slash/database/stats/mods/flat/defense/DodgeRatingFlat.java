@@ -12,12 +12,12 @@ public class DodgeRatingFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 4;
     }
 
     @Override
     public float Max() {
-        return 8;
+        return 6;
     }
 
     @Override

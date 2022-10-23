@@ -9,7 +9,7 @@ public class HealthMulti extends StatMod {
 
     @Override
     public float Min() {
-        return 4;
+        return 6;
     }
 
     @Override

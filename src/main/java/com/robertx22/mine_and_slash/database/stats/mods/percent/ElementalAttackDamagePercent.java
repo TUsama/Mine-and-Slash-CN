@@ -26,7 +26,7 @@ public class ElementalAttackDamagePercent extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 3;
+        return 6;
     }
 
     @Override

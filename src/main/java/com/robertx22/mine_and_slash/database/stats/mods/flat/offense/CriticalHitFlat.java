@@ -17,7 +17,7 @@ public class CriticalHitFlat extends StatMod {
 
     @Override
     public float Max() {
-        return 4F;
+        return 3F;
     }
 
     @Override

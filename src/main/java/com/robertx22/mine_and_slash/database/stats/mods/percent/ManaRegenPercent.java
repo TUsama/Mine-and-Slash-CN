@@ -17,7 +17,7 @@ public class ManaRegenPercent extends StatMod {
 
     @Override
     public float Max() {
-        return 9;
+        return 10;
 
     }
 

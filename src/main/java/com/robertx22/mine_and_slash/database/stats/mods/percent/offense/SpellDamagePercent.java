@@ -9,7 +9,7 @@ public class SpellDamagePercent extends StatMod {
 
     @Override
     public float Min() {
-        return 6;
+        return 8;
     }
 
     @Override

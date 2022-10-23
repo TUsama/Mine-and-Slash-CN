@@ -36,7 +36,7 @@ public class AllElementalDamageMulti extends ElementalStatMod {
 
     @Override
     public float Max() {
-        return 8;
+        return 6;
     }
 
     @Override

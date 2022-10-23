@@ -12,12 +12,12 @@ public class LifestealFlat extends StatMod {
 
     @Override
     public float Min() {
-        return 1.5F;
+        return 1F;
     }
 
     @Override
     public float Max() {
-        return 3;
+        return 2F;
     }
 
     @Override

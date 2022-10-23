@@ -12,7 +12,7 @@ public class HealthRegenPercent extends StatMod {
 
     @Override
     public float Min() {
-        return 2;
+        return 4;
     }
 
     @Override
