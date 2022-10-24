@@ -2,6 +2,7 @@ package com.robertx22.mine_and_slash.mmorpg.registers.common;
 
 import com.robertx22.mine_and_slash.mmorpg.Ref;
 import com.robertx22.mine_and_slash.potion_effects.all.*;
+import com.robertx22.mine_and_slash.potion_effects.all.events.GildedPumpkinJuiceEffect;
 import com.robertx22.mine_and_slash.potion_effects.divine.*;
 import com.robertx22.mine_and_slash.potion_effects.druid.*;
 import com.robertx22.mine_and_slash.potion_effects.ember_mage.*;
@@ -33,6 +34,7 @@ public class PotionRegister {
         reg.register(WeakenCurseEffect.INSTANCE);
         reg.register(MobChillEffect.INSTANCE);
         reg.register(ChainLightningEffect.INSTANCE);
+        reg.register(GildedPumpkinJuiceEffect.INSTANCE);
 
         reg.register(PowerChargeEffect.INSTANCE);
         reg.register(FortitudeChargeEffect.INSTANCE);

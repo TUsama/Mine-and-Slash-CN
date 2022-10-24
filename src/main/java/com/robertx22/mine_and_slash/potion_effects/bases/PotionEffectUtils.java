@@ -1,7 +1,9 @@
 package com.robertx22.mine_and_slash.potion_effects.bases;
 
 import com.robertx22.mine_and_slash.database.stats.effects.mob_spell_effects.FrostNovaEffect;
+import com.robertx22.mine_and_slash.items.events.PumpkinJuiceItem;
 import com.robertx22.mine_and_slash.potion_effects.all.*;
+import com.robertx22.mine_and_slash.potion_effects.all.events.GildedPumpkinJuiceEffect;
 import com.robertx22.mine_and_slash.potion_effects.bases.data.ExtraPotionData;
 import com.robertx22.mine_and_slash.uncommon.capability.entity.EntityCap;
 import com.robertx22.mine_and_slash.uncommon.capability.player.PlayerSpellCap;
@@ -62,7 +64,8 @@ public class PotionEffectUtils {
 
         boolean nonMasteryEffects = effect != BleedPotion.INSTANCE && effect != WeakenCurseEffect.INSTANCE
                 && effect != MobChillEffect.INSTANCE && effect != PowerChargeEffect.INSTANCE
-                && effect != FortitudeChargeEffect.INSTANCE && effect != SummonTauntEffect.INSTANCE && effect != EscapistEffect.INSTANCE;
+                && effect != FortitudeChargeEffect.INSTANCE && effect != SummonTauntEffect.INSTANCE && effect != EscapistEffect.INSTANCE
+                && effect != GildedPumpkinJuiceEffect.INSTANCE;
 
         if (instance == null) {
 

@@ -8,6 +8,8 @@ import com.robertx22.mine_and_slash.config.whole_mod_entity_configs.ModEntityCon
 import com.robertx22.mine_and_slash.database.gearitemslots.bases.GearItemSlot;
 import com.robertx22.mine_and_slash.database.mob_affixes.base.MobAffix;
 import com.robertx22.mine_and_slash.database.rarities.MobRarity;
+import com.robertx22.mine_and_slash.database.stats.types.game_changers.BloodMage;
+import com.robertx22.mine_and_slash.database.stats.types.game_changers.Permanence;
 import com.robertx22.mine_and_slash.database.stats.types.misc.BonusExp;
 import com.robertx22.mine_and_slash.database.stats.types.offense.PhysicalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.resources.Energy;
@@ -487,6 +489,11 @@ public class EntityCap {
             i *= (double) this.getUnit()
                 .peekAtStat(BonusExp.GUID)
                 .getAverageValue() / 100 + 1;
+
+            if (this.getUnit().hasStat(Permanence.INSTANCE) && this.getUnit().getCreateStat(Permanence.INSTANCE)
+                    .isMoreThanZero()) {
+                i = 0;
+            }
 
             MinecraftForge.EVENT_BUS.post(new MineAndSlashEvents.GiveExpEvent(killed, player, this, i));
 

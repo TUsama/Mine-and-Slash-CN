@@ -103,6 +103,8 @@ public class Stats implements ISlashRegistryInit {
                     add(Conjurer.INSTANCE);
                     add(Trickster.INSTANCE);
                     add(Overseer.INSTANCE);
+                    add(Permanence.INSTANCE);
+                    add(GuardianAngel.INSTANCE);
 
                     add(new LuckStat());
 

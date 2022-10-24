@@ -134,6 +134,9 @@
 
 "_comment": " [CATEGORY]: ALCHEMY - NAMES",
 
+"_comment": " [CATEGORY]: EVENTS - NAMES",
+
+	"item.mmorpg.events.pumpkin_juice": "Gilded Pumpkin Juice (Event)",
 
 "_comment": " [CATEGORY]: SPELLS - NAMES",
 
@@ -1327,6 +1330,8 @@
 	"mmorpg.stat.trident_damage": "Trident Damage",
 	"mmorpg.stat.true_hit_trait": "True Hit",
 	"mmorpg.stat.vampire_trait": "Vampire",
+	"mmorpg.stat.permanence_trait": "Permanence",
+	"mmorpg.stat.guardian_angel_trait": "Guardian Angel",
 	"mmorpg.stat.vitality": "Vitality",
 	"mmorpg.stat.water_focus": "Frost Focus",
 	"mmorpg.stat.water_penetration": "Frost Penetration",
@@ -1747,6 +1752,7 @@
 	"effect.mmorpg.venom_load": "Venom Load",
 	"effect.mmorpg.blessing": "Blessing",
 	"effect.mmorpg.angelic_raiment": "Angelic Raiment",
+	"effect.mmorpg.pumpkin_juice": "Juiced (EXP)",
 
 "_comment": " [CATEGORY]: POTIONS - NAMES",
 
@@ -2040,6 +2046,8 @@
 	"mmorpg.stat_desc.summon_damage": "Increases all summon damage.",
 	"mmorpg.stat_desc.true_hit_trait": "Non-critical hits do 50 percent LESS damage.",
 	"mmorpg.stat_desc.vampire_trait": "Satiate your desires.",
+	"mmorpg.stat_desc.permanence_trait": "Prevents EXP Gain.",
+	"mmorpg.stat_desc.guardian_angel_trait": "Your kills don't share EXP when in a party. You don't contribute towards the player count when EXP is shared in a party. You don't receive EXP from party members' kills.",
 	"mmorpg.stat_desc.vitality": "Increases Health, Health Regen, and Energy Regen.",
 	"mmorpg.stat_desc.weapon_damage": "Increases attack damage done if it was caused while holding that weapon.",
 	"mmorpg.stat_desc.wisdom": "Increases Heal Power, Magic Shield Regen, and Mana Regen.",

@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.onevent.entity;
 
 import com.robertx22.mine_and_slash.config.lvl_penalty.LvlPenaltyContainer;
 import com.robertx22.mine_and_slash.config.whole_mod_entity_configs.ModEntityConfig;
+import com.robertx22.mine_and_slash.database.stats.types.game_changers.Permanence;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.loot.LootUtils;
 import com.robertx22.mine_and_slash.loot.MasterLootGen;
@@ -25,6 +26,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.world.NoteBlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.lwjgl.system.CallbackI;
 
@@ -144,33 +146,54 @@ public class OnMobDeathDrops {
 
         if (exp > 0) {
 
-            //List<PlayerEntity> listVanilla = getOnlineVanillaTeamMembers(killer); // list with ALL the members
-            List<PlayerEntity> list = TeamUtils.getOnlineTeamMembers(killer); // list with ALL the members
-            List<PlayerEntity> closeList = new ArrayList<>(); // list with only nearby members
-
-            for (PlayerEntity p : list) {
-                if (p.world == killer.world && p.getDistance(killer) <= LvlPenaltyContainer.INSTANCE.getMaxDistance()) {
-                    closeList.add(p);
-                }
-            }
-
-            exp *= MathHelper.clamp(0.8F + 0.2F * closeList.size(), 1F, 2F); // cap bonus at 6 nearby party members
-
-            exp /= closeList.size();
-
-            for (PlayerEntity player : closeList) {
-                int splitExp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, Load.Unit(player), exp); // exp penalty individual to player
+            if (killerData.getUnit().hasStat(Permanence.INSTANCE) && killerData.getUnit().getCreateStat(Permanence.INSTANCE)
+                    .isMoreThanZero()) {
+                int splitExp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, killerData, exp); // exp penalty individual to player
 
                 if (splitExp > 0) {
                     DmgNumPacket packet = new DmgNumPacket(
                             victim, Elements.Nature, "+" + NumberUtils.formatNumber(splitExp) + " Exp!");
                     packet.isExp = true;
-                    MMORPG.sendToClient(packet, (ServerPlayerEntity) player);
+                    MMORPG.sendToClient(packet, (ServerPlayerEntity) killer);
 
-                    Load.Unit(player).PostGiveExpEvent(victim, player, splitExp);
+                    killerData.PostGiveExpEvent(victim, killer, splitExp);
+                }
+            } else {
+
+                //List<PlayerEntity> listVanilla = getOnlineVanillaTeamMembers(killer); // list with ALL the members
+                List<PlayerEntity> list = TeamUtils.getOnlineTeamMembers(killer); // list with ALL the members
+                List<PlayerEntity> closeList = new ArrayList<>(); // list with only nearby members
+                List<PlayerEntity> nonGuardianList = new ArrayList<>(); // list with only nearby members that dont have the guardian trait
+
+                for (PlayerEntity p : list) {
+                    if (p.world == killer.world && p.getDistance(killer) <= LvlPenaltyContainer.INSTANCE.getMaxDistance()) {
+                        closeList.add(p);
+                    }
+                }
+                for (PlayerEntity player : closeList) {
+                    if (!Load.Unit(player).getUnit().hasStat(Permanence.INSTANCE) && !Load.Unit(player).getUnit().getCreateStat(Permanence.INSTANCE)
+                            .isMoreThanZero()) {
+                        nonGuardianList.add(player);
+                    }
+                }
+
+                exp *= MathHelper.clamp(0.8F + 0.2F * nonGuardianList.size(), 1F, 2F); // cap bonus at 6 nearby party members
+
+                exp /= nonGuardianList.size();
+
+                for (PlayerEntity player : nonGuardianList) {
+                    int splitExp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, Load.Unit(player), exp); // exp penalty individual to player
+
+                    if (splitExp > 0) {
+                        DmgNumPacket packet = new DmgNumPacket(
+                                victim, Elements.Nature, "+" + NumberUtils.formatNumber(splitExp) + " Exp!");
+                        packet.isExp = true;
+                        MMORPG.sendToClient(packet, (ServerPlayerEntity) player);
+
+                        Load.Unit(player).PostGiveExpEvent(victim, player, splitExp);
                     }
                 }
             }
-
         }
     }
+}

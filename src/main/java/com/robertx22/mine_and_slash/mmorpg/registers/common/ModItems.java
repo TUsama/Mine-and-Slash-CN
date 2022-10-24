@@ -7,6 +7,7 @@ import com.robertx22.mine_and_slash.database.currency.map.EndlessRoadItem;
 import com.robertx22.mine_and_slash.database.currency.map.EndlessSkiesItem;
 import com.robertx22.mine_and_slash.database.currency.map.OrbOfCompanionshipItem;
 import com.robertx22.mine_and_slash.database.currency.map.PainfulLessonItem;
+import com.robertx22.mine_and_slash.items.events.PumpkinJuiceItem;
 import com.robertx22.mine_and_slash.items.misc.*;
 import com.robertx22.mine_and_slash.items.reset_potions.*;
 import com.robertx22.mine_and_slash.mmorpg.Ref;
@@ -62,6 +63,8 @@ public class ModItems {
     public static RegistryObject<ResetSpellsPotionItem> RESET_SPELLS = item(() -> new ResetSpellsPotionItem());
     public static RegistryObject<ResetTalentsPotionItem> RESET_TALENTS = item(() -> new ResetTalentsPotionItem());
     public static RegistryObject<ResetAllPotionItem> RESET_ALL = item(() -> new ResetAllPotionItem());
+
+    public static RegistryObject<PumpkinJuiceItem> PUMPKIN_JUICE = item(() -> new PumpkinJuiceItem());
 
     public static RegistryObject<AddRemoveSpellPotionItem> ADD_RESET_SPELLS = item(() -> new AddRemoveSpellPotionItem());
     public static RegistryObject<AddRemoveTalentPotionItem> ADD_RESET_TALENTS = item(() -> new AddRemoveTalentPotionItem());
