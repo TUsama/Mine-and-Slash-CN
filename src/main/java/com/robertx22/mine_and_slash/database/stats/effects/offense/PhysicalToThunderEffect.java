@@ -28,7 +28,7 @@ public class PhysicalToThunderEffect extends BaseDamageEffect {
         float multi = MathHelper.clamp(data.getMultiplier(), 0, stat.maximumValue);
         float given = (val * multi) - val;
         effect.addBonusEleDmg(Elements.Thunder, given);
-        effect.number -= given;
+        effect.number += given;
 
         return effect;
     }

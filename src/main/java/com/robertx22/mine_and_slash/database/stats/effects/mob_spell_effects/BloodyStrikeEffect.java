@@ -62,7 +62,6 @@ public class BloodyStrikeEffect extends BaseDamageEffect {
                                 .amount((int) (15)));
 
                 PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, en);
-                PotionEffectUtils.apply(BleedPotion.INSTANCE, effect.source, en);
             }
         }
 

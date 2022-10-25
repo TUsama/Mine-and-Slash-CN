@@ -54,7 +54,8 @@ public class WeakenCurseEffect extends BaseDamageEffect {
 
     @Override
     public boolean canActivate(DamageEffect effect, StatData data, Stat stat) {
-        return true;
-    }
+        return !effect.getEffectType()
+                .equals(EffectTypes.SPELL) && !effect.getEffectType().equals(EffectTypes.DOT_DMG);
+}
 
 }

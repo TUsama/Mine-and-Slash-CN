@@ -49,10 +49,10 @@ public class BerserkersImpartiality extends BaseGameChangerTrait {
     public List<ExactStatData> getExactStats() {
 
         return Arrays.asList(
-                new ExactStatData(-20, StatModTypes.Multi, new ElementalAttackDamage(Elements.Water)),
-                new ExactStatData(-20, StatModTypes.Multi, new ElementalAttackDamage(Elements.Fire)),
-                new ExactStatData(-20, StatModTypes.Multi, new ElementalAttackDamage(Elements.Thunder)),
-                new ExactStatData(-20, StatModTypes.Multi, new ElementalAttackDamage(Elements.Nature)),
+                new ExactStatData(-10, StatModTypes.Multi, new ElementalAttackDamage(Elements.Water)),
+                new ExactStatData(-10, StatModTypes.Multi, new ElementalAttackDamage(Elements.Fire)),
+                new ExactStatData(-10, StatModTypes.Multi, new ElementalAttackDamage(Elements.Thunder)),
+                new ExactStatData(-10, StatModTypes.Multi, new ElementalAttackDamage(Elements.Nature)),
                 new ExactStatData(100, StatModTypes.Flat, new EleToPhysicalTransfer()),
                 new ExactStatData(-25, StatModTypes.Multi, DodgeRating.getInstance())
         );

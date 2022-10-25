@@ -3,6 +3,7 @@ package com.robertx22.mine_and_slash.onevent.entity;
 
 import com.robertx22.mine_and_slash.config.lvl_penalty.LvlPenaltyContainer;
 import com.robertx22.mine_and_slash.config.whole_mod_entity_configs.ModEntityConfig;
+import com.robertx22.mine_and_slash.database.stats.types.game_changers.GuardianAngel;
 import com.robertx22.mine_and_slash.database.stats.types.game_changers.Permanence;
 import com.robertx22.mine_and_slash.db_lists.Rarities;
 import com.robertx22.mine_and_slash.loot.LootUtils;
@@ -146,7 +147,7 @@ public class OnMobDeathDrops {
 
         if (exp > 0) {
 
-            if (killerData.getUnit().hasStat(Permanence.INSTANCE) && killerData.getUnit().getCreateStat(Permanence.INSTANCE)
+            if (killerData.getUnit().hasStat(GuardianAngel.INSTANCE) && killerData.getUnit().getCreateStat(GuardianAngel.INSTANCE)
                     .isMoreThanZero()) {
                 int splitExp = (int) LootUtils.ApplyLevelDistancePunishment(mobData, killerData, exp); // exp penalty individual to player
 
@@ -163,17 +164,18 @@ public class OnMobDeathDrops {
                 //List<PlayerEntity> listVanilla = getOnlineVanillaTeamMembers(killer); // list with ALL the members
                 List<PlayerEntity> list = TeamUtils.getOnlineTeamMembers(killer); // list with ALL the members
                 List<PlayerEntity> closeList = new ArrayList<>(); // list with only nearby members
-                List<PlayerEntity> nonGuardianList = new ArrayList<>(); // list with only nearby members that dont have the guardian trait
+                List<PlayerEntity> nonGuardianList = new ArrayList<>(); // list with only nearby members that don't have the guardian trait
 
                 for (PlayerEntity p : list) {
                     if (p.world == killer.world && p.getDistance(killer) <= LvlPenaltyContainer.INSTANCE.getMaxDistance()) {
                         closeList.add(p);
                     }
                 }
-                for (PlayerEntity player : closeList) {
-                    if (!Load.Unit(player).getUnit().hasStat(Permanence.INSTANCE) && !Load.Unit(player).getUnit().getCreateStat(Permanence.INSTANCE)
+                for (PlayerEntity playerNonGuard : closeList) {
+                    if (Load.Unit(playerNonGuard).getUnit().hasStat(GuardianAngel.INSTANCE) && Load.Unit(playerNonGuard).getUnit().getCreateStat(GuardianAngel.INSTANCE)
                             .isMoreThanZero()) {
-                        nonGuardianList.add(player);
+                    } else {
+                        nonGuardianList.add(playerNonGuard);
                     }
                 }
 

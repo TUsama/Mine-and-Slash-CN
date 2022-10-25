@@ -131,7 +131,7 @@ public class MobStatUtils {
         unit.getCreateStat(Armor.GUID)
             .addFlat(Armor.getInstance()
                 .AverageStat() * rar.StatMultiplier(), level);
-        unit.getCreateStat(PhysicalDamage.GUID).addFlat(10 * rar.StatMultiplier(), level); // base amount used in weakencurse and bloody strike
+        unit.getCreateStat(PhysicalDamage.GUID).addFlat(8 * rar.StatMultiplier(), level); // base amount used in weakencurse and bloody strike
         unit.getCreateStat(SpellDamage.GUID)
                 .addFlat(6 * rar.StatMultiplier(), level);
         //unit.getCreateStat(DodgeRating.GUID).addFlat(DodgeRating.getInstance().AverageStat() * rar.StatMultiplier() * 0.33F, level);
