@@ -58,7 +58,7 @@ public class OrbOfBlessingItem extends CurrencyItem implements ICurrencyItemEffe
 
     @Override
     public List<BaseLocRequirement> requirements() {
-        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.REROLL_NUMBERS, SimpleGearLocReq.IS_NOT_UNIQUE);
+        return Arrays.asList(GearReq.INSTANCE, GearEnumLocReq.REROLL_NUMBERS);
     }
 
     @Override

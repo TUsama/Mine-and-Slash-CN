@@ -109,9 +109,9 @@ public class SpiritDrainLinkerSpell extends BaseSpell {
 
         }
 
-        SpellUtils.healCaster(ctx);
-        SpellUtils.healCasterMana(ctx);
-        SpellUtils.healCasterEnergy(ctx);
+        SpellUtils.heal(this, ctx.caster, num * 0.25F);
+        SpellUtils.healMana(this, ctx.caster, num * 0.1F);
+        SpellUtils.healEnergy(this, ctx.caster, num * 0.1F);
 
         ParticleEnum.sendToClients(
                 ctx.caster, new ParticlePacketData(ctx.caster.getPosition(), ParticleEnum.AOE).type(
@@ -135,10 +135,10 @@ public class SpiritDrainLinkerSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 7.5F, 12);
+        c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
-        c.set(SC.ATTACK_SCALE_VALUE, 2.45F, 2.8F);
+        c.set(SC.ATTACK_SCALE_VALUE, 1.65F, 2.05F);
         c.set(SC.CAST_TIME_TICKS, 0, 0);
         c.set(SC.COOLDOWN_TICKS, 90, 90);
         c.set(SC.CDR_EFFICIENCY, 0, 0);
@@ -180,7 +180,8 @@ public class SpiritDrainLinkerSpell extends BaseSpell {
 
         list.add(new StringTextComponent("Extend your combo by striking at your target's"));
         list.add(new StringTextComponent("spirit, dealing nature damage and recovering your"));
-        list.add(new StringTextComponent("health, mana, and energy for the same amount: "));
+        list.add(new StringTextComponent("health for a quarter of the damage dealt and your"));
+        list.add(new StringTextComponent("mana and energy for a tenth of the damage dealt: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

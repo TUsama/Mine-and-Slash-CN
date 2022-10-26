@@ -123,6 +123,20 @@ public class SpellUtils {
         heal.Activate();
     }
 
+    public static void healMana(BaseSpell spell, LivingEntity en, float amount) {
+        ResourcesData.Context heal = new ResourcesData.Context(Load.Unit(en), en,
+                ResourcesData.Type.MANA,
+                amount, ResourcesData.Use.RESTORE, spell);
+        Load.Unit(en).modifyResource(heal);
+    }
+
+    public static void healEnergy(BaseSpell spell, LivingEntity en, float amount) {
+        ResourcesData.Context heal = new ResourcesData.Context(Load.Unit(en), en,
+                ResourcesData.Type.ENERGY,
+                amount, ResourcesData.Use.RESTORE, spell);
+        Load.Unit(en).modifyResource(heal);
+    }
+
     public static void healCasterMagicShield(SpellCastContext ctx) {
         ResourcesData.Context heal = new ResourcesData.Context(ctx.data, ctx.caster,
                 ResourcesData.Type.MAGIC_SHIELD,

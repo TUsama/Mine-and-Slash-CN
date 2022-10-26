@@ -81,7 +81,7 @@ public class RagingDragonLinkerSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 7.5F, 11.5F);
+        c.set(SC.ENERGY_COST, 10F, 13F);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BONUS_HEALTH, 0, 0);
         c.set(SC.PROJECTILE_COUNT, 3, 3);

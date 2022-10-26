@@ -1,3 +1,17 @@
+3.15.20:
+- Increased Force Tree energy costs.
+- Lowered Spirit Drain Extension damage has been lowered slightly.
+- Spirit Drain Extension now recovers your health for a quarter of the damage dealt and your mana and energy for a tenth instead.
+- Spirit Drain Extension no longer costs energy to use.
+- Flowing River Extension now heals the user and allies by only half the amount.
+- Reduced Empowering Finisher scaling slightly.
+- Flame Blade's scaling has been lowered dramatically. The change to Spell Blade resulted in this being very powerful.
+- Increased Resourceful trait energy and energy regen penalty.
+- Increased weightings of mobs in dungeons that aren't zombies, skeletons, and spiders.
+- Boss mobs in maps should be more interesting (no longer zombies/skeles etc.).
+- Fixed an issue where Orb of Blessing wouldn't be usable on uniques.
+- Reverted zh_cn.json changes.
+
 3.15.19:
 - Berserker's Impartiality penalty has been lowered.
 - Seething chaos stat gives less Phys Gained as Fire stat.

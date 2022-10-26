@@ -147,7 +147,7 @@ public class ElementalVengeanceFinisherSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 11, 16);
+        c.set(SC.ENERGY_COST, 13, 16);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 0.90F, 1.05F);

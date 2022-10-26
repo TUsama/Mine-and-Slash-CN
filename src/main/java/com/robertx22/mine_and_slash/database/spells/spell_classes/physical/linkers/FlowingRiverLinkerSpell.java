@@ -128,7 +128,7 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
 
             SoundUtils.playSound(ally, SoundEvents.ENTITY_HORSE_BREATHE, 1.0F, 2.0F);
 
-            SpellUtils.heal(this, ally, num);
+            SpellUtils.heal(this, ally, num * 0.25F);
 
             ParticleEnum.sendToClients(
                     ally.getPosition(), ally.world,
@@ -154,7 +154,7 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
 
         c.set(SC.HEALTH_COST, 0, 0);
         c.set(SC.MANA_COST, 0, 0);
-        c.set(SC.ENERGY_COST, 6.5F, 11);
+        c.set(SC.ENERGY_COST, 10F, 13);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 1.325F, 1.5F);
@@ -200,7 +200,7 @@ public class FlowingRiverLinkerSpell extends BaseSpell {
 
         list.add(new StringTextComponent("Extend your combo by hitting enemeis in front of you"));
         list.add(new StringTextComponent("twice with frost damage, while healing yourself and"));
-        list.add(new StringTextComponent("your allies for the same amount: "));
+        list.add(new StringTextComponent("your allies for a quarter of the damage dealt: "));
 
         list.addAll(getCalculation(ctx).GetTooltipString(info, ctx));
 

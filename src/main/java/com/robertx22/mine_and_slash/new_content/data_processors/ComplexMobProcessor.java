@@ -108,6 +108,10 @@ public class ComplexMobProcessor extends DataProcessor {
                         filter = SpawnedMob.getAll()
                                 .stream()
                                 .filter(m -> m.isNether);
+                    } else if (x.equals("undead")) {
+                        filter = SpawnedMob.getAll()
+                                .stream()
+                                .filter(m -> m.isUndead);
                     }
 
                 }
