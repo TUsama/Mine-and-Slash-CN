@@ -12,12 +12,12 @@ public class EnergyRegenPercent extends StatMod {
 
     @Override
     public float Min() {
-        return 8;
+        return 6;
     }
 
     @Override
     public float Max() {
-        return 12;
+        return 10;
     }
 
     @Override

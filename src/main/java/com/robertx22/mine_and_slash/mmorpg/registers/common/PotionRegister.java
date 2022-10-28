@@ -10,6 +10,10 @@ import com.robertx22.mine_and_slash.potion_effects.necromancer.*;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
 import com.robertx22.mine_and_slash.potion_effects.physical.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.*;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.FireQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.FrostQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.LightningQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.NatureQuiverEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.*;
 import net.minecraft.potion.Effect;
 import net.minecraftforge.event.RegistryEvent;
@@ -99,6 +103,11 @@ public class PotionRegister {
         reg.register(SummonedArchonEffect.INSTANCE);
         reg.register(SummonedSkeletonEffect.INSTANCE);
         reg.register(SummonedWolfEffect.INSTANCE);
+
+        reg.register(FrostQuiverEffect.INSTANCE);
+        reg.register(FireQuiverEffect.INSTANCE);
+        reg.register(LightningQuiverEffect.INSTANCE);
+        reg.register(NatureQuiverEffect.INSTANCE);
 
         reg.register(ComboStarterEffect.INSTANCE);
         reg.register(ComboLinkerEffect.INSTANCE);

@@ -28,6 +28,12 @@ public class OnDungeonBlockEvents {
                 return true;
             }
 
+            //hardcoded allowables
+
+            //if (namespace.contains("turtle_egg")) {
+            //    return true;
+            //}
+
         } catch (Exception e) {
         }
 

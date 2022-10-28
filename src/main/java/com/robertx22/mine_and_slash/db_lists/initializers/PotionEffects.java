@@ -10,6 +10,10 @@ import com.robertx22.mine_and_slash.potion_effects.necromancer.*;
 import com.robertx22.mine_and_slash.potion_effects.ocean_mystic.*;
 import com.robertx22.mine_and_slash.potion_effects.physical.*;
 import com.robertx22.mine_and_slash.potion_effects.ranger.*;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.FireQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.FrostQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.LightningQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.NatureQuiverEffect;
 import com.robertx22.mine_and_slash.potion_effects.shaman.*;
 import com.robertx22.mine_and_slash.registry.ISlashRegistryInit;
 
@@ -50,6 +54,11 @@ public class PotionEffects implements ISlashRegistryInit {
         PurityEffect.INSTANCE.registerToSlashRegistry();
         FrostShieldEffect.INSTANCE.registerToSlashRegistry();
         ArcticArmorEffect.INSTANCE.registerToSlashRegistry();
+
+        FrostQuiverEffect.INSTANCE.registerToSlashRegistry();
+        FireQuiverEffect.INSTANCE.registerToSlashRegistry();
+        LightningQuiverEffect.INSTANCE.registerToSlashRegistry();
+        NatureQuiverEffect.INSTANCE.registerToSlashRegistry();
 
         HunterInstinctEffect.getInstance()
             .registerToSlashRegistry();

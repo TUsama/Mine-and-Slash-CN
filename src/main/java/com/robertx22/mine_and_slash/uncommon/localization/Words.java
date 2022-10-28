@@ -68,7 +68,7 @@ public enum Words implements IAutoLocName {
     Regenerate("Regenerate"), SummonSkeletalArmy("Summon Skeletal Army"),
     InstantHeal("Instant Heal"), HellfireCloak("Hellfire Cloak"), Provoke("Provoke"),
     RighteousFury("Righteous Fury"),
-    DivineShield("Divine Shield"), Imbue("Imbue"), Exert("exert"),
+    DivineShield("Divine Shield"), Imbue("Imbue"), Exert("exert"), ElementalQuiver("Elemental Quiver"),
     Spellbar("Spellbar"), SpellBlade("Spell Blade"), PowerSurge("Power Surge"), CriticalSurge("Critical Surge"),
     StormCloudSpellDesc("Summons a storm cloud that deals damage over time."),
     Crate("Crate"), SweepingStrike("Sweeping Strike"), ElementalStrike("Elemental Strike"), FlowingRiverLinker("Flowing River Linker"), RagingDragonLinker("Raging Dragon Linker"),

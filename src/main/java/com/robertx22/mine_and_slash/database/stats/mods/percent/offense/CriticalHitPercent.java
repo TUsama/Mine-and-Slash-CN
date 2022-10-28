@@ -12,13 +12,13 @@ public class CriticalHitPercent extends StatMod {
 
     @Override
     public float Min() {
-        return 8;
+        return 12;
 
     }
 
     @Override
     public float Max() {
-        return 12;
+        return 16;
     }
 
     @Override

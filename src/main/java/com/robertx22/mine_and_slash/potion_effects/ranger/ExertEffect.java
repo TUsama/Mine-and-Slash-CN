@@ -73,6 +73,8 @@ public class ExertEffect extends BasePotionEffect {
         list.add(new StringTextComponent(TextFormatting.GRAY + "" + TextFormatting.ITALIC + "Physical Spell Damage"));
         list.add(new SText(TextFormatting.GREEN + "Hunting spell arrows explode on contact"));
         list.add(new SText(TextFormatting.GREEN + "and deal half damage in a small area."));
+        list.add(new SText(TextFormatting.GREEN + "This damage is affected by Elemental"));
+        list.add(new SText(TextFormatting.GREEN + "Quiver."));
 
         list.addAll(getCalc(info.player)
             .GetTooltipString(info, Load.spells(info.player), this));

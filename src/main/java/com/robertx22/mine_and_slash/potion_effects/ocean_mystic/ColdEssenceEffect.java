@@ -58,7 +58,7 @@ public class ColdEssenceEffect extends BasePotionEffect implements IApplyStatPot
     @Override
     public List<PotionStat> getPotionStats() {
         List<PotionStat> list = new ArrayList<>();
-        list.add(new PotionStat(1.5F, ManaRegen.getInstance()));
+        list.add(new PotionStat(2, ManaRegen.getInstance()));
         list.add(new PotionStat(2, EnergyRegen.getInstance()));
         return list;
     }

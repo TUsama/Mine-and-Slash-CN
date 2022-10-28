@@ -6,8 +6,14 @@ import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.SpellCas
 import com.robertx22.mine_and_slash.database.spells.spell_classes.bases.configs.SC;
 import com.robertx22.mine_and_slash.database.spells.spell_classes.hunting.ImbueSpell;
 import com.robertx22.mine_and_slash.mmorpg.registers.common.EntityRegister;
+import com.robertx22.mine_and_slash.mmorpg.registers.common.ParticleRegister;
+import com.robertx22.mine_and_slash.packets.particles.ParticleEnum;
 import com.robertx22.mine_and_slash.potion_effects.ranger.ExertEffect;
 import com.robertx22.mine_and_slash.potion_effects.ranger.ImbueEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.FireQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.FrostQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.LightningQuiverEffect;
+import com.robertx22.mine_and_slash.potion_effects.ranger.elemental.NatureQuiverEffect;
 import com.robertx22.mine_and_slash.saveclasses.EntitySpellData;
 import com.robertx22.mine_and_slash.uncommon.datasaving.Load;
 import com.robertx22.mine_and_slash.uncommon.effectdatas.AttackSpellDamageEffect;
@@ -60,6 +66,18 @@ public class RangerArrowEntity extends EntityBaseProjectile {
             this.exert = this.getSpellData()
                     .getCaster(world)
                     .isPotionActive(ExertEffect.getInstance());
+            this.fire = this.getSpellData()
+                    .getCaster(world)
+                    .isPotionActive(FireQuiverEffect.INSTANCE);
+            this.frost = this.getSpellData()
+                    .getCaster(world)
+                    .isPotionActive(FrostQuiverEffect.INSTANCE);
+            this.lightning = this.getSpellData()
+                    .getCaster(world)
+                    .isPotionActive(LightningQuiverEffect.INSTANCE);
+            this.nature = this.getSpellData()
+                    .getCaster(world)
+                    .isPotionActive(NatureQuiverEffect.INSTANCE);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,6 +86,10 @@ public class RangerArrowEntity extends EntityBaseProjectile {
 
     public boolean imbued = false;
     public boolean exert = false;
+    public boolean fire = false;
+    public boolean frost = false;
+    public boolean lightning = false;
+    public boolean nature = false;
 
     @Override
     public double radius() {
@@ -86,6 +108,30 @@ public class RangerArrowEntity extends EntityBaseProjectile {
                     }
                 }
                 if (exert) {
+                    for (int i = 0; i < 2; i++) {
+                        Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
+                        ParticleUtils.spawn(ParticleTypes.ANGRY_VILLAGER, world, p);
+                    }
+                }
+                if (frost) {
+                    for (int i = 0; i < 2; i++) {
+                        Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
+                        ParticleUtils.spawn(ParticleTypes.POOF, world, p);
+                    }
+                }
+                if (fire) {
+                    for (int i = 0; i < 2; i++) {
+                        Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
+                        ParticleUtils.spawn(ParticleTypes.FLAME, world, p);
+                    }
+                }
+                if (lightning) {
+                    for (int i = 0; i < 2; i++) {
+                        Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
+                        ParticleUtils.spawn(ParticleRegister.THUNDER, world, p);
+                    }
+                }
+                if (nature) {
                     for (int i = 0; i < 2; i++) {
                         Vec3d p = GeometryUtils.getRandomPosInRadiusCircle(getPositionVector(), 0.15F);
                         ParticleUtils.spawn(ParticleTypes.SNEEZE, world, p);
@@ -125,11 +171,30 @@ public class RangerArrowEntity extends EntityBaseProjectile {
                     if (en != entity) {
                         SpellDamageEffect dmgAoe = this.getSetupSpellDamage(en);
                         dmgAoe.number = (dmgAoe.number + add) * 0.5F; //halves damage after adding imbue, if available
+                        if (frost) {
+                            dmgAoe.element = Elements.Water;
+                        } else if (fire) {
+                            dmgAoe.element = Elements.Fire;
+                        } else if (lightning) {
+                            dmgAoe.element = Elements.Thunder;
+                        } else if (nature) {
+                            dmgAoe.element = Elements.Nature;
+                        }
                         dmgAoe.Activate();
                     }
                 }
 
                 this.playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 0.5F, 1.1F);
+            }
+
+            if (frost) {
+                dmg.element = Elements.Water;
+            } else if (fire) {
+                dmg.element = Elements.Fire;
+            } else if (lightning) {
+                dmg.element = Elements.Thunder;
+            } else if (nature) {
+                dmg.element = Elements.Nature;
             }
 
             dmg.Activate();
@@ -173,6 +238,10 @@ public class RangerArrowEntity extends EntityBaseProjectile {
         super.writeAdditional(nbt);
         nbt.putBoolean("imbued", imbued);
         nbt.putBoolean("exert", exert);
+        nbt.putBoolean("fire", fire);
+        nbt.putBoolean("frost", frost);
+        nbt.putBoolean("lightning", lightning);
+        nbt.putBoolean("nature", nature);
 
     }
 
@@ -181,6 +250,10 @@ public class RangerArrowEntity extends EntityBaseProjectile {
         super.readAdditional(nbt);
         this.imbued = nbt.getBoolean("imbued");
         this.exert = nbt.getBoolean("exert");
+        this.fire = nbt.getBoolean("fire");
+        this.frost = nbt.getBoolean("frost");
+        this.lightning = nbt.getBoolean("lightning");
+        this.nature = nbt.getBoolean("nature");
     }
 
     @Override

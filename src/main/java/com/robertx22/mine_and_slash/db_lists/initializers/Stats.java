@@ -18,9 +18,7 @@ import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.Phy
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToNatureConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToThunderConversion;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToWaterConversion;
-import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.EleToPhysicalTransfer;
-import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.PhysicalToFireTransfer;
-import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.PhysicalToNatureTransfer;
+import com.robertx22.mine_and_slash.database.stats.types.offense.transfers.*;
 import com.robertx22.mine_and_slash.database.stats.types.resources.*;
 import com.robertx22.mine_and_slash.database.stats.types.resources.conversions.EnergyToManaConversion;
 import com.robertx22.mine_and_slash.database.stats.types.resources.conversions.ManaToEnergyConversion;
@@ -193,6 +191,8 @@ public class Stats implements ISlashRegistryInit {
                     add(new EleToPhysicalTransfer());
                     add(new PhysicalToNatureTransfer());
                     add(new PhysicalToFireTransfer());
+                    add(new PhysicalToFrostTransfer());
+                    add(new PhysicalToLightningTransfer());
 
                     // lord traits
                     add(new LordOfVolcanoesTrait());

@@ -122,6 +122,7 @@ public class Spells implements ISlashRegistryInit {
                     add(MultiShotSpell.getInstance());
                     add(ImbueSpell.getInstance());
                     add(ExertSpell.getInstance());
+                    add(ElementalQuiverSpell.getInstance());
                     add(HuntingPotionSpell.getInstance());
                     add(ArrowStormSpell.getInstance());
                     add(HuntingWolfSpell.getInstance());

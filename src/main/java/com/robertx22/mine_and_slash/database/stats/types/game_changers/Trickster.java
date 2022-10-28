@@ -1,14 +1,10 @@
 package com.robertx22.mine_and_slash.database.stats.types.game_changers;
 
 import com.robertx22.mine_and_slash.database.stats.Stat;
-import com.robertx22.mine_and_slash.database.stats.effects.game_changers.NaturesAvatarEffect;
 import com.robertx22.mine_and_slash.database.stats.effects.game_changers.TricksterEffect;
-import com.robertx22.mine_and_slash.database.stats.types.generated.AllElementalDamage;
-import com.robertx22.mine_and_slash.database.stats.types.generated.ElementalResist;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalDamage;
 import com.robertx22.mine_and_slash.database.stats.types.offense.CriticalHit;
 import com.robertx22.mine_and_slash.saveclasses.ExactStatData;
-import com.robertx22.mine_and_slash.uncommon.enumclasses.Elements;
 import com.robertx22.mine_and_slash.uncommon.enumclasses.StatModTypes;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffect;
 import com.robertx22.mine_and_slash.uncommon.interfaces.IStatEffects;
@@ -46,7 +42,7 @@ public class Trickster extends BaseGameChangerTrait implements IStatEffects {
     @Override
     public List<ExactStatData> getExactStats() {
         return Arrays.asList(
-            new ExactStatData(-8, StatModTypes.Flat, CriticalHit.getInstance()),
+            new ExactStatData(-5, StatModTypes.Flat, CriticalHit.getInstance()),
             new ExactStatData(-20, StatModTypes.Flat, CriticalDamage.getInstance())
         );
     }
