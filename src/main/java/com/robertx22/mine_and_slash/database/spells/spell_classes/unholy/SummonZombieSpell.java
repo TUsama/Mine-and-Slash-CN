@@ -64,11 +64,11 @@ public class SummonZombieSpell extends BaseSpell {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
 
         c.set(SC.HEALTH_COST, 0.1F, 0.2F);
-        c.set(SC.MANA_COST, 12, 18);
+        c.set(SC.MANA_COST, 11, 15);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0.1F, 0.2F);
-        c.set(SC.BASE_VALUE, 13, 25);
-        c.set(SC.BONUS_HEALTH, 0F, 1.25F);
+        c.set(SC.BASE_VALUE, 8, 25);
+        c.set(SC.BONUS_HEALTH, 0F, 0.25F);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_SECONDS, 30, 30);
         c.set(SC.DURATION_TICKS, 20 * 60, 20 * 90);

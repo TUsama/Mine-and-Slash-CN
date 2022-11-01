@@ -208,7 +208,7 @@ public class PerkEffects {
 
             ELE_RES_PERCENT_MAP.put(
                 ele, PerkEffectBuilder.build(ele.guidName + "_res", new ElementalResist(ele),
-                    new ExactStatData(4, StatModTypes.Flat, new ElementalResist(ele))
+                    new ExactStatData(3, StatModTypes.Flat, new ElementalResist(ele))
                 ));
 
             SPELL_DMG_PERCENT_MAP.put(

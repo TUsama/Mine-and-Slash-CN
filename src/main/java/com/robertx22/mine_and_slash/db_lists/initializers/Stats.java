@@ -12,6 +12,7 @@ import com.robertx22.mine_and_slash.database.stats.types.game_changers.*;
 import com.robertx22.mine_and_slash.database.stats.types.generated.*;
 import com.robertx22.mine_and_slash.database.stats.types.misc.BonusExp;
 import com.robertx22.mine_and_slash.database.stats.types.misc.LuckStat;
+import com.robertx22.mine_and_slash.database.stats.types.misc.SlowOnDamageTaken;
 import com.robertx22.mine_and_slash.database.stats.types.mob_spells.*;
 import com.robertx22.mine_and_slash.database.stats.types.offense.*;
 import com.robertx22.mine_and_slash.database.stats.types.offense.conversions.PhysicalToFireConversion;
@@ -119,6 +120,7 @@ public class Stats implements ISlashRegistryInit {
                     add(new ElementalPene(Elements.Physical));
                     add(new ElementalFocus(Elements.Physical));
                     add(new BlockReflect(Elements.Physical));
+                    add(new SlowOnDamageTaken());
 
                     // mob spells
                     add(new FireStrike());

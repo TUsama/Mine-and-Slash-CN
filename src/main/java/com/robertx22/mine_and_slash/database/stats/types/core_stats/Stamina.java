@@ -52,8 +52,8 @@ public class Stamina extends BaseCoreStat {
     public List<StatMod> statsThatBenefit() {
         return Arrays.asList(
                 new DodgeRatingFlat().size(StatMod.Size.HALF),
-                new CriticalHitFlat().size(StatMod.Size.QUARTER),
-                new CriticalDamageFlat().size(StatMod.Size.LOW));
+                new CriticalHitFlat().size(StatMod.Size.HALF),
+                new CriticalDamageFlat().size(StatMod.Size.NORMAL));
     }
 
     @Override

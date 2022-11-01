@@ -72,7 +72,7 @@ public class HuntingWolfSpell extends BaseSpell {
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
         c.set(SC.BASE_VALUE, 0, 0);
         c.set(SC.ATTACK_SCALE_VALUE, 2.0F, 3.5F);
-        c.set(SC.BONUS_HEALTH, 0F, 2.5F);
+        c.set(SC.BONUS_HEALTH, 0.5F, 1.0F);
         c.set(SC.CAST_TIME_TICKS, 60, 60);
         c.set(SC.COOLDOWN_SECONDS, 45, 45);
         c.set(SC.DURATION_TICKS, 20 * 60, 20 * 90);

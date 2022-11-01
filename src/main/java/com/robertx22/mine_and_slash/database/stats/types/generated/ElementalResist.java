@@ -37,7 +37,7 @@ public class ElementalResist extends ElementalStat implements IStatEffects {
         super(element);
         this.minimumValue = -300;
 
-        this.maximumValue = 75;
+        this.maximumValue = 300;
     }
 
     @Override
@@ -72,6 +72,11 @@ public class ElementalResist extends ElementalStat implements IStatEffects {
 
     @Override
     public boolean IsPercent() {
+        return true;
+    }
+
+    @Override
+    public boolean IsEleRes() {
         return true;
     }
 

@@ -79,6 +79,7 @@ public class StatMods implements ISlashRegistryInit {
                     add(new CooldownReductionFlat());
                     add(new ReducedManaCostFlat());
                     add(new FasterCastRateFlat());
+                    add(new SLowOnDamageTakenFlat());
 
                     // mob spells
                     add(new FireStrikeFlat());
@@ -168,6 +169,7 @@ public class StatMods implements ISlashRegistryInit {
                     add(new SpellDodgeFlat());
                     add(new DamageShieldFlat());
                     add(new IncreaseDamageFlat());
+                    add(new DamageTakenFlat());
 
                     // bonus dmg
 

@@ -31,12 +31,12 @@ public class ElementalResistFlat extends ElementalStatMod {
 
     @Override
     public float Min() {
-        return 5;
+        return 3;
     }
 
     @Override
     public float Max() {
-        return 7;
+        return 6;
     }
 
     @Override

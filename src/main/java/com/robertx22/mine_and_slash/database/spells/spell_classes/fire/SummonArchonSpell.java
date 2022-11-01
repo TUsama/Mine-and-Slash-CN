@@ -66,8 +66,8 @@ public class SummonArchonSpell extends BaseSpell {
         c.set(SC.MANA_COST, 15, 20);
         c.set(SC.ENERGY_COST, 0, 0);
         c.set(SC.MAGIC_SHIELD_COST, 0, 0);
-        c.set(SC.BASE_VALUE, 7, 16);
-        c.set(SC.BONUS_HEALTH, 1.0F, 3.0F);
+        c.set(SC.BASE_VALUE, 7, 21);
+        c.set(SC.BONUS_HEALTH, 1.0F, 1.5F);
         c.set(SC.CAST_TIME_TICKS, 40, 40);
         c.set(SC.COOLDOWN_SECONDS, 180, 180);
         c.set(SC.CDR_EFFICIENCY, 0, 0);

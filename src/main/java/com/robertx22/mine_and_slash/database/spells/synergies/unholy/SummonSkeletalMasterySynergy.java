@@ -61,8 +61,8 @@ public class SummonSkeletalMasterySynergy extends OnBasicAttackSynergy {
     @Override
     public PreCalcSpellConfigs getPreCalcConfig() {
         PreCalcSpellConfigs c = new PreCalcSpellConfigs();
-        c.set(SC.BASE_VALUE, 2, 11);
-        c.set(SC.CHANCE, 15, 75);
+        c.set(SC.BASE_VALUE, 3, 7);
+        c.set(SC.CHANCE, 25, 50);
         c.setMaxLevel(8);
         return c;
     }
@@ -90,7 +90,7 @@ public class SummonSkeletalMasterySynergy extends OnBasicAttackSynergy {
                     new ParticlePacketData(ctx.source.getPositionVector(), ParticleEnum.AOE).radius(1)
                             .motion(new Vec3d(0, 0, 0))
                             .type(ParticleTypes.HEART)
-                            .amount(25));
+                            .amount(10));
         }
     }
 

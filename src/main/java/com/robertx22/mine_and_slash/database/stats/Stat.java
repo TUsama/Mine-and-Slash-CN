@@ -157,6 +157,10 @@ public abstract class Stat implements IGUID, IAutoLocName, IWeighted, IRarity, I
 
     public abstract boolean IsPercent();
 
+    public boolean IsEleRes() {
+        return false;
+    }
+
     public abstract Elements getElement();
 
     public int BaseFlat = 0;

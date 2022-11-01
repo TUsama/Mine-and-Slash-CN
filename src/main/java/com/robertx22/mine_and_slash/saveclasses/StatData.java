@@ -299,6 +299,24 @@ public class StatData {
 
     }
 
+    public String formattedEleResValue() {
+
+        float val = Math.min(this.getAverageValue(), 75);
+
+        DecimalFormat format = new DecimalFormat();
+
+        if (Math.abs(val) < 10) {
+            format.setMaximumFractionDigits(1);
+
+            return format.format(val);
+
+        } else {
+            int intval = (int) val;
+            return intval + "";
+        }
+
+    }
+
     public float getMultiplier() {
         return 1 + getAverageValue() / 100;
     }
